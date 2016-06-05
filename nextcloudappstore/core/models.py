@@ -16,6 +16,8 @@ class App(models.Model):
     developer_docs = models.URLField(max_length=256, blank=True)
     issue_tracker = models.URLField(max_length=256, blank=True)
     website = models.URLField(max_length=256, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
 
 
 class AppRelease(models.Model):
@@ -29,10 +31,12 @@ class AppRelease(models.Model):
     platform_min = models.CharField(max_length=32)
     platform_max = models.CharField(max_length=32, blank=True)
     download = models.URLField(max_length=256, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
 
 
 class Screenshot(models.Model):
-    image = models.ImageField()
+    image = models.URLField(max_length=256)
     app = models.ForeignKey(App, on_delete=models.CASCADE)
 
 
