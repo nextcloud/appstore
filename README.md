@@ -70,6 +70,10 @@ If you used a virtual environment the libraries will be installed locally, other
 
     pip3 install -r requirements.txt
 
+If you are running a development setup, you should also install the development libs
+
+    pip3 install -r dev-requirements.txt
+
 ### Adjusting Default Settings
 To get your instance running in development or in production you need to create your local settings file in **nextcloudappstore/local_settings.py** which overwrites and enhances the settings defined in **nextcloudappstore/local_settings.py**. The local settings file is excluded from version control.
 
