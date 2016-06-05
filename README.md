@@ -67,7 +67,7 @@ For more settings, check the [documentation](https://docs.djangoproject.com/en/1
     env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
 
 ### Creating The Database Schema
-After all settings are adjusted, create the database schema by running the following command:
+After all settings are adjusted, create the database schema by running the following command (sqlite database will be automatically created):
 
     python3 manage.py migrate
 
