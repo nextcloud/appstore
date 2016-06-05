@@ -25,7 +25,8 @@ class AppRelease(models.Model):
     app = models.ForeignKey('App', on_delete=models.CASCADE)
     # dependencies
     libs = models.ManyToManyField('PhpLibrary', through='LibraryDependency')
-    databases = models.ManyToManyField('Database', through='DatabaseDependency')
+    databases = models.ManyToManyField('Database',
+                                       through='DatabaseDependency')
     php_min = models.CharField(max_length=32)
     php_max = models.CharField(max_length=32, blank=True)
     platform_min = models.CharField(max_length=32)
