@@ -3,10 +3,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class App(models.Model):
-    id = models.CharField(max_length=128, unique=True,
+    id = models.CharField(max_length=128, unique=True, primary_key=True,
                           help_text=_('app id, same as the folder name'))
-    categories = models.ManyToManyField(Category)
-    authors = models.ManyToManyField(Author)
+    categories = models.ManyToManyField('Category')
+    authors = models.ManyToManyField('Author')
     # possible l10n candidates
     name = models.CharField(max_length=128)
     description = models.TextField()
@@ -22,10 +22,10 @@ class App(models.Model):
 
 class AppRelease(models.Model):
     version = models.CharField(max_length=128, unique=True)
-    app = models.ForeignKey(App, on_delete=models.CASCADE)
+    app = models.ForeignKey('App', on_delete=models.CASCADE)
     # dependencies
-    libs = models.ManyToManyField(Library, through='LibraryDependency')
-    databases = models.ManyToManyField(Database, through='DatabaseDependency')
+    libs = models.ManyToManyField('PhpLibrary', through='LibraryDependency')
+    databases = models.ManyToManyField('Database', through='DatabaseDependency')
     php_min = models.CharField(max_length=32)
     php_max = models.CharField(max_length=32, blank=True)
     platform_min = models.CharField(max_length=32)
@@ -37,7 +37,7 @@ class AppRelease(models.Model):
 
 class Screenshot(models.Model):
     image = models.URLField(max_length=256)
-    app = models.ForeignKey(App, on_delete=models.CASCADE)
+    app = models.ForeignKey('App', on_delete=models.CASCADE)
 
 
 class Author(models.Model):
@@ -51,28 +51,28 @@ class Command(models.Model):
 
 
 class Category(models.Model):
-    id = models.CharField(max_length=128, unique=True)
+    id = models.CharField(max_length=128, unique=True, primary_key=True)
     # possible l10n
     name = models.CharField(max_length=128, unique=True)
 
 
 class Database(models.Model):
-    id = models.CharField(max_length=128, unique=True)
+    id = models.CharField(max_length=128, unique=True, primary_key=True)
 
 
 class DatabaseDependency(models.Model):
-    app = models.ForeignKey(AppRelease, on_delete=models.CASCADE)
-    database = models.ForeignKey(Database, on_delete=models.CASCADE)
+    app = models.ForeignKey('AppRelease', on_delete=models.CASCADE)
+    database = models.ForeignKey('Database', on_delete=models.CASCADE)
     version_min = models.CharField(max_length=32)
     version_max = models.CharField(max_length=32, blank=True)
 
 
-class Library(models.Model):
-    id = models.CharField(max_length=128, unique=True)
+class PhpLibrary(models.Model):
+    id = models.CharField(max_length=128, unique=True, primary_key=True)
 
 
 class LibraryDependency(models.Model):
-    app_release = models.ForeignKey(AppRelease, on_delete=models.CASCADE)
-    library = models.ForeignKey(Library, on_delete=models.CASCADE)
+    app_release = models.ForeignKey('AppRelease', on_delete=models.CASCADE)
+    library = models.ForeignKey('PhpLibrary', on_delete=models.CASCADE)
     version_min = models.CharField(max_length=32)
     version_max = models.CharField(max_length=32, blank=True)
