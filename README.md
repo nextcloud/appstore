@@ -6,6 +6,28 @@
 
 * Python >= 3.4
 
+## Development Installation
+If you want to get a quick running development setup, you can use a predefined make command to automatically set up a virtual environment and install the web app with sqlite as database. **Do not set up production using this command!**
+
+First make sure that you've got pyvenv installed. You can check for this by running:
+
+    python3 -m venv -h
+
+If you got a **No module named venv** error, you need to install it first. Some distributions like Ubuntu require you to install it separately, e.g.:
+
+    sudo apt-get install python3-venv
+
+Then run:
+
+    make dev-setup
+
+This will automatically set up an admin user with name **admin** and password **admin**.
+
+The server can be started by activating the virtual environment first:
+
+    source venv/bin/activate
+    python manage.py runserver
+
 ## Installation
 
 To get started, change into your destination folder and clone the repository:
