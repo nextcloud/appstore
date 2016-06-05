@@ -157,7 +157,7 @@ class Database(models.Model):
 
 class DatabaseDependency(models.Model):
     app_release = models.ForeignKey('AppRelease', on_delete=models.CASCADE,
-                            verbose_name=_('App release'))
+                                    verbose_name=_('App release'))
     database = models.ForeignKey('Database', on_delete=models.CASCADE,
                                  verbose_name=_('Database'))
     version_min = models.CharField(max_length=32,
