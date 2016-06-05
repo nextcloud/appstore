@@ -4,12 +4,13 @@ from django.utils.translation import ugettext_lazy as _
 
 class App(models.Model):
     id = models.CharField(max_length=128, unique=True, primary_key=True,
+                          verbose_name=_('Id'),
                           help_text=_('app id, same as the folder name'))
-    categories = models.ManyToManyField('Category', verbose_name=_('Id'))
+    categories = models.ManyToManyField('Category', verbose_name=_('Category'))
     authors = models.ManyToManyField('Author', verbose_name=_('Authors'))
     # possible l10n candidates
     name = models.CharField(max_length=128, verbose_name=_('Name'),
-                            help_text=_('Rendered name for users'))
+                            help_text=_('Rendered app name for users'))
     description = models.TextField(verbose_name=_('Description'),
                                    help_text=_('Will be rendered as Markdown'))
     # resources
@@ -21,7 +22,7 @@ class App(models.Model):
                                      verbose_name=_(
                                          'Developer documentation url'))
     issue_tracker = models.URLField(max_length=256, blank=True,
-                                    verbose_name=_('Issue Tracker Url'))
+                                    verbose_name=_('Issue tracker url'))
     website = models.URLField(max_length=256, blank=True,
                               verbose_name=_('Homepage'))
     created = models.DateTimeField(auto_now_add=True, editable=False,
@@ -53,13 +54,13 @@ class AppRelease(models.Model):
     shell_commands = models.ManyToManyField('ShellCommand', verbose_name=_(
         'Shell command dependency'))
     php_min = models.CharField(max_length=32,
-                               verbose_name=_('Minimum PHP version'))
+                               verbose_name=_('PHP minimum version'))
     php_max = models.CharField(max_length=32, blank=True,
-                               verbose_name=_('Maximum PHP version'))
+                               verbose_name=_('PHP maximum version'))
     platform_min = models.CharField(max_length=32,
-                                    verbose_name=_('Minimum platform version'))
+                                    verbose_name=_('Platform minimum version'))
     platform_max = models.CharField(max_length=32, blank=True,
-                                    verbose_name=_('Maximum platform version'))
+                                    verbose_name=_('Platform maximum version'))
     download = models.URLField(max_length=256, blank=True,
                                verbose_name=_('Archive download Url'))
     created = models.DateTimeField(auto_now_add=True, editable=False,
@@ -184,7 +185,10 @@ class PhpExtensionDependency(models.Model):
     php_extension = models.ForeignKey('PhpExtension', on_delete=models.CASCADE,
                                       verbose_name=_('PHP Extension'))
     version_min = models.CharField(max_length=32,
-                                   verbose_name=_('Minimum extension version'))
+                                   verbose_name=_('Extension minimum version'))
+    version_max = models.CharField(max_length=32,
+                                   verbose_name=_('Extension maximum version'),
+                                   blank=True)
 
     class Meta:
         verbose_name = _('PHP Extension Dependency')
