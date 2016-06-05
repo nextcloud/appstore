@@ -14,9 +14,9 @@ test: lint
 # Only for local setup, do not use in production
 dev-setup:
 	pyvenv venv
+	echo -e "DEBUG = True\nSECRET_KEY = '$(random)'" > $(CURDIR)/nextcloudappstore/local_settings.py
 	$(pip) install -r $(CURDIR)/requirements.txt
 	$(pip) install -r $(CURDIR)/dev-requirements.txt
-	@echo -e "DEBUG = True\nSECRET_KEY = '$(random)'" > $(CURDIR)/nextcloudappstore/local_settings.py
 	$(manage) migrate
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell

@@ -9,11 +9,11 @@
 ## Development Installation
 If you want to get a quick running development setup, you can use a predefined make command to automatically set up a virtual environment and install the web app with sqlite as database. **Do not set up production using this command!**
 
-First make sure that you've got pyvenv installed. You can check for this by running:
+First make sure that you've got **venv** installed. You can check for it by running:
 
     python3 -m venv -h
 
-If you got a **No module named venv** error, you need to install it first. Some distributions like Ubuntu require you to install it separately, e.g.:
+If you get a **No module named venv** error, you need to install it first. Some distributions like Ubuntu require you to install it separately, e.g.:
 
     sudo apt-get install python3-venv
 
