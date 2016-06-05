@@ -24,9 +24,11 @@ The package is included in Python 3.3 or later but some distributions split out 
 
     sudo apt-get install python3-venv
 
-Afterwards set up a new virtual environment inside the **venv** folder by running:
+Afterwards set up a new virtual environment by running the following command:
 
     pyvenv venv
+
+This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
 
 Then activate it:
 
