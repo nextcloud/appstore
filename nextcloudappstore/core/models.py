@@ -21,7 +21,7 @@ class App(models.Model):
 
 
 class AppRelease(models.Model):
-    version = models.CharField(max_length=128, unique=True)
+    version = models.CharField(max_length=128)
     app = models.ForeignKey('App', on_delete=models.CASCADE)
     # dependencies
     libs = models.ManyToManyField('PhpLibrary', through='LibraryDependency')
@@ -48,20 +48,42 @@ class Author(models.Model):
 
 
 class Command(models.Model):
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=128, unique=True, help_text=_(
+        'Name of a required shell command, e.g. grep'))
 
 
 class Category(models.Model):
-    id = models.CharField(max_length=128, unique=True, primary_key=True)
+    id = models.CharField(max_length=128, unique=True, primary_key=True,
+                          help_text=_(
+                              'Category id which is used to identify a '
+                              'category. Used to identify categories when '
+                              'uploading an app'))
     # possible l10n
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=128, help_text=_(
+        'Category name which will be presented to the user'))
+
+    class Meta:
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
 
     def __str__(self):
         return self.name
 
 
 class Database(models.Model):
-    id = models.CharField(max_length=128, unique=True, primary_key=True)
+    id = models.CharField(max_length=128, unique=True, primary_key=True,
+                          help_text=_(
+                              'Key which is used to identify a database'))
+    # possible l10n
+    name = models.CharField(max_length=128, help_text=_(
+        'Database name which will be presented to the user'))
+
+    class Meta:
+        verbose_name = _('Database')
+        verbose_name_plural = _('Databases')
+
+    def __str__(self):
+        return self.name
 
 
 class DatabaseDependency(models.Model):
