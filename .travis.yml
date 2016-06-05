@@ -1,0 +1,11 @@
+sudo: false
+language: python
+python:
+  - "3.4"
+  - "3.5"
+
+before_install:
+  - pip install pep8 mypy-lang
+
+script:
+  - make test
