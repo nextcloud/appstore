@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'nextcloudappstore.core',
     'nextcloudappstore.api',
     'nextcloudappstore.website',
