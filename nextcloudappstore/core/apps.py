@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CommonConfig(AppConfig):
+class CoreConfig(AppConfig):
     name = 'nextcloudappstore.core'
     verbose_name = 'Core'

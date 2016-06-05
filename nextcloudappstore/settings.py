@@ -28,8 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'nextcloudappstore.core.apps.CommonConfig',
-    'nextcloudappstore.website.apps.WebsiteConfig',
+    'nextcloudappstore.core.apps.CoreConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

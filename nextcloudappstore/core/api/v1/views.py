@@ -1,4 +1,4 @@
-from nextcloudappstore.api.serializers import AppSerializer
+from nextcloudappstore.core.api.v1.serializers import AppSerializer
 from nextcloudappstore.core.models import App
 from rest_framework.response import Response
 from rest_framework.views import APIView
