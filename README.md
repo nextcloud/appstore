@@ -28,6 +28,10 @@ The server can be started after activating the virtual environment first:
     source venv/bin/activate
     python manage.py runserver
 
+The website is available at [http://127.0.0.1:8000](http://127.0.0.1:8000). Code changes will auto reload the server so happy developing!
+
+You can skip the **Installation** chapter.
+
 ## Installation
 
 To get started, change into your destination folder and clone the repository:
@@ -121,7 +125,7 @@ Finally start the development server using the following command:
 
     python3 manage.py runserver
 
-The website is available at [http://127.0.0.1:8000](http://127.0.0.1:8000). Code changes will autoreload the server so happy developing!
+The website is available at [http://127.0.0.1:8000](http://127.0.0.1:8000). Code changes will auto reload the server so happy developing!
 
 **Note**: Do not use the development server in production! It is very slow and insecure.
 
