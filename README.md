@@ -23,7 +23,7 @@ Then run:
 
 This will automatically set up an admin user with name **admin** and password **admin**.
 
-The server can be started by activating the virtual environment first:
+The server can be started after activating the virtual environment first:
 
     source venv/bin/activate
     python manage.py runserver
