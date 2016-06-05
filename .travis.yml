@@ -6,6 +6,8 @@ python:
 
 before_install:
   - pip install pycodestyle
+  - echo "DEBUG = True" > nextcloudappstore/local_settings.py
+  - echo "SECRET_KEY = 'key'" > nextcloudappstore/local_settings.py
 
 install:
   - pip install -r requirements.txt
