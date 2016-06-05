@@ -190,6 +190,7 @@ Aftewards adjust the database schema (if changed) by running the migrations:
 and install any dependencies (if changed):
 
     pip3 install -r requirements.txt
+    pip3 install -r dev-requirements.txt
 
 On production you will need to run the collectstatic command to copy updated assets into the target folders:
 
