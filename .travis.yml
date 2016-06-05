@@ -5,13 +5,10 @@ python:
   - "3.5"
 
 before_install:
-  - pip install pycodestyle
-  - echo "DEBUG = True" > nextcloudappstore/local_settings.py
-  - echo "SECRET_KEY = 'key'" > nextcloudappstore/local_settings.py
+  - pip install pyvenv
 
 install:
-  - pip install -r requirements.txt
-  - make test-setup
+  - make dev-setup
 
 script:
   - make test
