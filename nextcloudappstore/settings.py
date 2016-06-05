@@ -22,15 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 INSTALLED_APPS = [
     'rest_framework',
-    'nextcloudappstore.core',
-    'nextcloudappstore.api',
-    'nextcloudappstore.website',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nextcloudappstore.core.apps.CommonConfig',
+    'nextcloudappstore.website.apps.WebsiteConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
