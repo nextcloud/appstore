@@ -15,6 +15,7 @@ test: lint
 dev-setup:
 	pyvenv venv
 	echo -e "DEBUG = True\nSECRET_KEY = '$(random)'" > $(CURDIR)/nextcloudappstore/local_settings.py
+	cat $(CURDIR)/nextcloudappstore/local_settings.py
 	$(pip) install -r $(CURDIR)/requirements.txt
 	$(pip) install -r $(CURDIR)/dev-requirements.txt
 	$(manage) migrate
