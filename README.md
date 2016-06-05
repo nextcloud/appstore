@@ -148,9 +148,13 @@ To fetch the latest changes from the repository run:
 
     git pull --rebase origin master
 
-Aftewards adjust the database schema by running the migrations:
+Aftewards adjust the database schema (if changed) by running the migrations:
 
     python3 manage.py migrate
+
+and install any dependencies (if changed):
+
+    pip3 install -r requirements.txt
 
 On production you will need to run the collectstatic command to copy updated assets into the target folders:
 
