@@ -38,7 +38,7 @@ Then activate it:
 
 **Note**: Keep in mind that you need to have the virtual environment activated for all the following commands
 
-### Install Libraries
+### Installing Required Libraries
 
 Next install the required libraries. By default pip (the package manager) is shipped by default, however certain distributions split it out into a separate repository. On Ubuntu for instance you would need to install the following package first:
 
@@ -48,7 +48,7 @@ If you used a virtual environment the libraries will be installed locally, other
 
     pip3 install -r requirements.txt
 
-### Adjust Settings
+### Adjusting Default Settings
 To get your instance running in development or in production you need to create your local settings file in **nextcloudappstore/local_settings.py** which overwrites and enhances the settings defined in **nextcloudappstore/local_settings.py**. The local settings file is excluded from version control.
 
 For development paste in the following file contents:
@@ -66,7 +66,7 @@ For more settings, check the [documentation](https://docs.djangoproject.com/en/1
 
     env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
 
-### Create Database
+### Creating The Database Schema
 After all settings are adjusted, create the database schema by running the following command:
 
     python3 manage.py migrate
@@ -78,14 +78,14 @@ This will take all the existing database migrations, run them and adjust the dat
 
 The first command will create the necessary migrations, the second one will apply the existing ones.
 
-### Create an Admin User
+### Creating an Admin User
 To create the initial admin user, run the following command:
 
     python manage.py createsuperuser
 
 The commmand will ask for the necessary information.
 
-### Start the Server
+### Starting the Server
 Finally start the development server using the following command:
 
     python3 manage.py runserver
