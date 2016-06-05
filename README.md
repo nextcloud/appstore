@@ -81,9 +81,14 @@ The first command will create the necessary migrations, the second one will appl
 ### Creating an Admin User
 To create the initial admin user, run the following command:
 
-    python manage.py createsuperuser
+    python3 manage.py createsuperuser
 
 The commmand will ask for the necessary information.
+
+### Loading Initial Data
+To prepopulate the database with categories and other data run the following command:
+
+    python3 manage.py loaddata nextcloudappstore/**/fixtures/*.yaml
 
 ### Starting the Server
 Finally start the development server using the following command:

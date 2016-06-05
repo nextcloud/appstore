@@ -56,6 +56,9 @@ class Category(models.Model):
     # possible l10n
     name = models.CharField(max_length=128, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Database(models.Model):
     id = models.CharField(max_length=128, unique=True, primary_key=True)
