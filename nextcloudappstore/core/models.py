@@ -156,7 +156,7 @@ class Database(models.Model):
 
 
 class DatabaseDependency(models.Model):
-    app = models.ForeignKey('AppRelease', on_delete=models.CASCADE,
+    app_release = models.ForeignKey('AppRelease', on_delete=models.CASCADE,
                             verbose_name=_('App release'))
     database = models.ForeignKey('Database', on_delete=models.CASCADE,
                                  verbose_name=_('Database'))
@@ -164,6 +164,14 @@ class DatabaseDependency(models.Model):
                                    verbose_name=_('Database minimum version'))
     version_max = models.CharField(max_length=32, blank=True,
                                    verbose_name=_('Database maximum version'))
+
+    class Meta:
+        verbose_name = _('Database Dependency')
+        verbose_name_plural = _('Database Dependencies')
+
+    def __str__(self):
+        return '%s: %s >=%s, <=%s' % (self.app_release, self.database,
+                                      self.version_min, self.version_max)
 
 
 class PhpExtension(models.Model):
