@@ -3,6 +3,7 @@ random=$(shell env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 
 python=venv/bin/python
 pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
+pyresttest=venv/bin/pyresttest
 manage=$(python) $(CURDIR)/manage.py
 
 lint:
@@ -10,6 +11,8 @@ lint:
 
 test: lint
 	$(manage) test
+	# assume that the testserver is running on port 8001
+
 
 # Only for local setup, do not use in production
 dev-setup:
