@@ -61,6 +61,10 @@ class AppRelease(models.Model):
                                     verbose_name=_('Platform minimum version'))
     platform_max = models.CharField(max_length=32, blank=True,
                                     verbose_name=_('Platform maximum version'))
+    int_size_min = models.IntegerField(blank=True, default=0,
+                                       verbose_name=_('Minimum Integer Bits'),
+                                       help_text=_(
+                                           'e.g. 32 for 32bit Integers'))
     download = models.URLField(max_length=256, blank=True,
                                verbose_name=_('Archive download Url'))
     created = models.DateTimeField(auto_now_add=True, editable=False,
