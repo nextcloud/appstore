@@ -72,11 +72,11 @@ Next install the required libraries. By default pip (the package manager) is shi
 
 If you used a virtual environment the libraries will be installed locally, otherwise pip tries to install them globally so you might need to add sudo before the next command:
 
-    pip3 install -r requirements.txt
+    pip3 install -r requirements/production.txt
 
 If you are running a development setup, you should also install the development libs
 
-    pip3 install -r dev-requirements.txt
+    pip3 install -r requirements/development.txt
 
 ### Adjusting Default Settings
 To get your instance running in development or in production you need to create your local settings file in **nextcloudappstore/local_settings.py** which overwrites and enhances the settings defined in **nextcloudappstore/local_settings.py**. The local settings file is excluded from version control.
@@ -189,8 +189,8 @@ Aftewards adjust the database schema (if changed) by running the migrations:
 
 and install any dependencies (if changed):
 
-    pip3 install -r requirements.txt
-    pip3 install -r dev-requirements.txt
+    pip3 install -r requirements/production.txt
+    pip3 install -r requirements/development.txt
 
 On production you will need to run the collectstatic command to copy updated assets into the target folders:
 

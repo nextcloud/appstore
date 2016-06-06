@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^api/v1/', include('nextcloudappstore.core.api.v1.urls')),
+    url(r'^api/v1/',
+        include('nextcloudappstore.core.api.v1.urls', namespace='api-v1')),
     url(r'^admin/', admin.site.urls),
 ]
