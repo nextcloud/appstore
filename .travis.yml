@@ -6,7 +6,7 @@ python:
 
 install:
   - make dev-setup
-  - venv/bin/python manage.py testserver --addrport 8001 &
+  - venv/bin/python manage.py testserver --addrport 8001 tests/&api/fixtures/*.yaml &
 
 script:
   - make test
