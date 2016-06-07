@@ -52,7 +52,7 @@ class AppRelease(models.Model):
                                help_text=_(
                                    'Version follows Semantic Versioning'))
     app = models.ForeignKey('App', on_delete=models.CASCADE,
-                            verbose_name=_('App'))
+                            verbose_name=_('App'), related_name='releases')
     # dependencies
     libs = models.ManyToManyField('PhpExtension',
                                   through='PhpExtensionDependency',
@@ -84,6 +84,7 @@ class AppRelease(models.Model):
     class Meta:
         verbose_name = _('App Release')
         verbose_name_plural = _('App Releases')
+        unique_together = (('app', 'version'),)
 
     def __str__(self):
         return '%s %s' % (self.app, self.version)
@@ -118,9 +119,10 @@ class Author(models.Model):
 
 
 class ShellCommand(models.Model):
-    name = models.CharField(max_length=128, unique=True, help_text=_(
-        'Name of a required shell command, e.g. grep'),
-                            verbose_name=_('Shell Command'))
+    name = models.CharField(max_length=128, unique=True, primary_key=True,
+                            verbose_name=_('Shell Command'),
+                            help_text=_(
+                                'Name of a required shell command, e.g. grep'))
 
     class Meta:
         verbose_name = _('Shell Command')
