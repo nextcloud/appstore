@@ -29,6 +29,12 @@ class App(models.Model):
                                    verbose_name=_('Created at'))
     last_modified = models.DateTimeField(auto_now=True, editable=False,
                                          verbose_name=_('Updated at'))
+    owner = models.ForeignKey('auth.User', verbose_name=_('App owner'),
+                              on_delete=models.CASCADE,
+                              related_name='owned_apps')
+    collaborators = models.ManyToManyField('auth.User',
+                                           verbose_name=_('Collaborators'),
+                                           related_name='collaborated_apps')
 
     class Meta:
         verbose_name = _('App')
