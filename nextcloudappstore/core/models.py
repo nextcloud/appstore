@@ -43,6 +43,9 @@ class App(models.Model):
     def __str__(self):
         return self.name
 
+    def allows_editing(self, user):
+        return self.owner == user or user in self.collaborators.all()
+
 
 class AppRelease(models.Model):
     version = models.CharField(max_length=128, verbose_name=_('Version'),

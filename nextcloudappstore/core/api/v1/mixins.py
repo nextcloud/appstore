@@ -12,3 +12,5 @@ class ListDestroyAPIView(ListModelMixin, DestroyModelMixin, GenericAPIView):
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+

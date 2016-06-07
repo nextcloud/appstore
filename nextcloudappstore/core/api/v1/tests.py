@@ -30,17 +30,26 @@ class AppTest(TestCase):
 
     def test_delete(self):
         self.api_client.login(username='test', password='test')
-        App.objects.create(id='news')
+        App.objects.create(id='news', owner=self.user)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
         self._login()
         response = self.api_client.delete(url)
         self.assertEqual(204, response.status_code)
 
-    def test_delete_unauthorized(self):
-        App.objects.create(id='news')
+    def test_delete_unauthenticated(self):
+        App.objects.create(id='news', owner=self.user)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
         response = self.api_client.delete(url)
         self.assertEqual(401, response.status_code)
+
+    def test_delete_unauthorized(self):
+        owner = User.objects.create_user(username='owner', password='owner',
+                                         email='owner@owner.com')
+        App.objects.create(id='news', owner=owner)
+        url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
+        self._login()
+        response = self.api_client.delete(url)
+        self.assertEqual(403, response.status_code)
 
     def test_delete_not_found(self):
         self.api_client.login(username='test', password='test')
