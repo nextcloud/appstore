@@ -19,6 +19,12 @@ class DatabaseDependencySerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'version_min', 'version_max')
 
 
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ('name', 'mail', 'homepage')
+
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
@@ -41,9 +47,10 @@ class AppReleaseSerializer(serializers.ModelSerializer):
 class AppSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
     releases = AppReleaseSerializer(many=True, read_only=True)
+    authors = AuthorSerializer(many=True, read_only=True)
 
     class Meta:
         model = App
         fields = ('id', 'categories', 'name', 'description', 'user_docs',
                   'admin_docs', 'developer_docs', 'issue_tracker', 'website',
-                  'created', 'last_modified', 'releases')
+                  'created', 'last_modified', 'releases', 'authors')
