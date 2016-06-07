@@ -23,3 +23,4 @@ dev-setup:
 	$(manage) migrate
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
+
