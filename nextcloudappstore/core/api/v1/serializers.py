@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 class PhpExtensionDependencySerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField(source='php_extension.id')
+
     class Meta:
         model = PhpExtensionDependency
         fields = ('id', 'version_min', 'version_max')
@@ -25,8 +26,10 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class AppReleaseSerializer(serializers.ModelSerializer):
-    databases = DatabaseDependencySerializer(many=True, read_only=True, source='databasedependency_set')
-    libs = PhpExtensionDependencySerializer(many=True, read_only=True, source='phpextensiondependency_set')
+    databases = DatabaseDependencySerializer(many=True, read_only=True,
+                                             source='databasedependency_set')
+    libs = PhpExtensionDependencySerializer(many=True, read_only=True,
+                                            source='phpextensiondependency_set')
 
     class Meta:
         model = AppRelease
