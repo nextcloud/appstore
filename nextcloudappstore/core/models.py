@@ -34,7 +34,7 @@ class App(models.Model):
                               related_name='owned_apps')
     collaborators = models.ManyToManyField('auth.User',
                                            verbose_name=_('Collaborators'),
-                                           related_name='collaborated_apps')
+                                           related_name='collaborated_apps', blank=True)
 
     class Meta:
         verbose_name = _('App')
