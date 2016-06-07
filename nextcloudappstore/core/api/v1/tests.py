@@ -1,12 +1,11 @@
+import base64
+
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from django.contrib import auth
 from nextcloudappstore.core.models import App
-import base64
-
 from rest_framework import HTTP_HEADER_ENCODING
-from rest_framework.test import APIRequestFactory, APIClient
+from rest_framework.test import APIClient
 
 
 class AppTest(TestCase):
