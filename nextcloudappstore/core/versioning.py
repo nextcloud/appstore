@@ -22,11 +22,11 @@ def includes_release(release, version_string):
     version = Version(pad_version(version_string))
     includes_min = True
     includes_max = True
-    if release.platform_min:
-        min_version = pad_version(release.platform_min)
+    if release.platform_min_version:
+        min_version = pad_version(release.platform_min_version)
         includes_min = Version(min_version) <= version
-    if release.platform_max:
-        max_version = pad_max_version((release.platform_max))
+    if release.platform_max_version:
+        max_version = pad_max_version((release.platform_max_version))
         includes_max = Version(max_version) >= version
     return includes_max and includes_min
 

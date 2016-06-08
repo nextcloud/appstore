@@ -7,7 +7,7 @@ class PhpExtensionDependencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PhpExtensionDependency
-        fields = ('id', 'version_min', 'version_max')
+        fields = ('id', 'min_version', 'max_version')
 
 
 class DatabaseDependencySerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class DatabaseDependencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DatabaseDependency
-        fields = ('id', 'name', 'version_min', 'version_max')
+        fields = ('id', 'name', 'min_version', 'max_version')
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -39,18 +39,29 @@ class AppReleaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AppRelease
-        fields = ('version', 'libs', 'databases', 'shell_commands', 'php_min',
-                  'php_max', 'platform_min', 'platform_max', 'int_size_min',
-                  'download', 'created', 'last_modified')
+        fields = (
+            'version', 'libs', 'databases', 'shell_commands',
+            'php_min_version', 'php_max_version', 'platform_min_version',
+            'platform_max_version', 'min_int_size', 'download', 'created',
+            'last_modified'
+        )
+
+
+class ScreenshotSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Screenshot
+        fields = ('url',)
 
 
 class AppSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
     releases = AppReleaseSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
+    screenshots = ScreenshotSerializer(many=True, read_only=True)
 
     class Meta:
         model = App
         fields = ('id', 'categories', 'name', 'description', 'user_docs',
                   'admin_docs', 'developer_docs', 'issue_tracker', 'website',
-                  'created', 'last_modified', 'releases', 'authors')
+                  'created', 'last_modified', 'releases', 'authors',
+                  'screenshots')

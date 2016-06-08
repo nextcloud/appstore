@@ -34,7 +34,8 @@ class App(models.Model):
                               related_name='owned_apps')
     collaborators = models.ManyToManyField('auth.User',
                                            verbose_name=_('Collaborators'),
-                                           related_name='collaborated_apps', blank=True)
+                                           related_name='collaborated_apps',
+                                           blank=True)
 
     class Meta:
         verbose_name = _('App')
@@ -56,24 +57,30 @@ class AppRelease(models.Model):
     # dependencies
     libs = models.ManyToManyField('PhpExtension',
                                   through='PhpExtensionDependency',
-                                  verbose_name=_('PHP extension dependency'))
+                                  verbose_name=_('PHP extension dependency'),
+                                  blank=True)
     databases = models.ManyToManyField('Database',
                                        through='DatabaseDependency',
-                                       verbose_name=_('Database dependency'))
+                                       verbose_name=_('Database dependency'),
+                                       blank=True)
     shell_commands = models.ManyToManyField('ShellCommand', verbose_name=_(
-        'Shell command dependency'))
-    php_min = models.CharField(max_length=32,
-                               verbose_name=_('PHP minimum version'))
-    php_max = models.CharField(max_length=32, blank=True,
-                               verbose_name=_('PHP maximum version'))
-    platform_min = models.CharField(max_length=32,
-                                    verbose_name=_('Platform minimum version'))
-    platform_max = models.CharField(max_length=32, blank=True,
-                                    verbose_name=_('Platform maximum version'))
-    int_size_min = models.IntegerField(blank=True, default=0,
-                                       verbose_name=_('Minimum Integer Bits'),
-                                       help_text=_(
-                                           'e.g. 32 for 32bit Integers'))
+        'Shell command dependency'), blank=True)
+    php_min_version = models.CharField(max_length=32,
+                                       verbose_name=_('PHP minimum version'))
+    php_max_version = models.CharField(max_length=32, blank=True,
+                                       verbose_name=_('PHP maximum version'))
+    platform_min_version = models.CharField(max_length=32,
+                                            verbose_name=_(
+                                                'Platform minimum version'))
+    platform_max_version = models.CharField(max_length=32, blank=True,
+                                            verbose_name=_(
+                                                'Platform maximum version'))
+    min_int_size = models.IntegerField(blank=True, default=0,
+                                               verbose_name=_(
+                                                   'Minimum Integer Bits'),
+                                               help_text=_(
+                                                   'e.g. 32 for 32bit '
+                                                   'Integers'))
     download = models.URLField(max_length=256, blank=True,
                                verbose_name=_('Archive download Url'))
     created = models.DateTimeField(auto_now_add=True, editable=False,
@@ -93,7 +100,7 @@ class AppRelease(models.Model):
 class Screenshot(models.Model):
     url = models.URLField(max_length=256, verbose_name=_('Image url'))
     app = models.ForeignKey('App', on_delete=models.CASCADE,
-                            verbose_name=_('App'))
+                            verbose_name=_('App'), related_name='screenshots')
 
     class Meta:
         verbose_name = _('Screenshot')
@@ -175,10 +182,12 @@ class DatabaseDependency(models.Model):
                                     verbose_name=_('App release'))
     database = models.ForeignKey('Database', on_delete=models.CASCADE,
                                  verbose_name=_('Database'))
-    version_min = models.CharField(max_length=32,
-                                   verbose_name=_('Database minimum version'))
-    version_max = models.CharField(max_length=32, blank=True,
-                                   verbose_name=_('Database maximum version'))
+    min_version = models.CharField(max_length=32,
+                                   verbose_name=_(
+                                       'Database minimum version'))
+    max_version = models.CharField(max_length=32, blank=True,
+                                   verbose_name=_(
+                                       'Database maximum version'))
 
     class Meta:
         verbose_name = _('Database Dependency')
@@ -186,7 +195,8 @@ class DatabaseDependency(models.Model):
 
     def __str__(self):
         return '%s: %s >=%s, <=%s' % (self.app_release, self.database,
-                                      self.version_min, self.version_max)
+                                      self.min_version,
+                                      self.max_version)
 
 
 class PhpExtension(models.Model):
@@ -207,10 +217,12 @@ class PhpExtensionDependency(models.Model):
                                     verbose_name=_('App Release'))
     php_extension = models.ForeignKey('PhpExtension', on_delete=models.CASCADE,
                                       verbose_name=_('PHP Extension'))
-    version_min = models.CharField(max_length=32,
-                                   verbose_name=_('Extension minimum version'))
-    version_max = models.CharField(max_length=32,
-                                   verbose_name=_('Extension maximum version'),
+    min_version = models.CharField(max_length=32,
+                                   verbose_name=_(
+                                       'Extension minimum version'))
+    max_version = models.CharField(max_length=32,
+                                   verbose_name=_(
+                                       'Extension maximum version'),
                                    blank=True)
 
     class Meta:
@@ -219,4 +231,5 @@ class PhpExtensionDependency(models.Model):
 
     def __str__(self):
         return '%s: %s >=%s, <=%s' % (self.app_release.app, self.php_extension,
-                                      self.version_min, self.version_max)
+                                      self.min_version,
+                                      self.max_version)

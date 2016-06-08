@@ -8,7 +8,6 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 
-
 class Apps(DestroyAPIView):
     authentication_classes = (authentication.BasicAuthentication,)
     permission_classes = (IsAuthenticatedOrReadOnly, AllowedToEditApp)
@@ -17,7 +16,7 @@ class Apps(DestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         apps = App.objects.prefetch_related('categories', 'authors',
-                                            'releases',
+                                            'releases', 'screenshots',
                                             'releases__databases',
                                             'releases__libs').all()
 

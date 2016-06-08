@@ -60,7 +60,7 @@ class AppTest(TestCase):
     def test_releases_platform_min(self):
         app = App.objects.create(pk='news', owner=self.user)
         AppRelease.objects.create(app=app, version='10.1',
-                                  platform_min='9.1.1')
+                                  platform_min_version='9.1.1')
         url = reverse('api-v1:apps', kwargs={'version': '9.1.0'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
@@ -69,7 +69,8 @@ class AppTest(TestCase):
     def test_releases_platform_min_max(self):
         app = App.objects.create(pk='news', owner=self.user)
         AppRelease.objects.create(app=app, version='10.1',
-                                  platform_min='9.1.1', platform_max='9.1.1')
+                                  platform_min_version='9.1.1',
+                                  platform_max_version='9.1.1')
         url = reverse('api-v1:apps', kwargs={'version': '9.1.2'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
@@ -78,7 +79,7 @@ class AppTest(TestCase):
     def test_releases_platform_max(self):
         app = App.objects.create(pk='news', owner=self.user)
         AppRelease.objects.create(app=app, version='10.1',
-                                  platform_max='9.1.1')
+                                  platform_max_version='9.1.1')
         url = reverse('api-v1:apps', kwargs={'version': '9.1.2'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
@@ -87,7 +88,7 @@ class AppTest(TestCase):
     def test_releases_platform_max_wildcard(self):
         app = App.objects.create(pk='news', owner=self.user)
         AppRelease.objects.create(app=app, version='10.1',
-                                  platform_max='9.1')
+                                  platform_max_version='9.1')
         url = reverse('api-v1:apps', kwargs={'version': '9.1.2'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
@@ -96,7 +97,8 @@ class AppTest(TestCase):
     def test_releases_platform_ok(self):
         app = App.objects.create(pk='news', owner=self.user)
         AppRelease.objects.create(app=app, version='10.1',
-                                  platform_max='9.1.1', platform_min='9.1.1')
+                                  platform_max_version='9.1.1',
+                                  platform_min_version='9.1.1')
         url = reverse('api-v1:apps', kwargs={'version': '9.1.1'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
