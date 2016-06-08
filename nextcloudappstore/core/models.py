@@ -76,11 +76,11 @@ class AppRelease(models.Model):
                                             verbose_name=_(
                                                 'Platform maximum version'))
     min_int_size = models.IntegerField(blank=True, default=0,
-                                               verbose_name=_(
-                                                   'Minimum Integer Bits'),
-                                               help_text=_(
-                                                   'e.g. 32 for 32bit '
-                                                   'Integers'))
+                                       verbose_name=_(
+                                           'Minimum Integer Bits'),
+                                       help_text=_(
+                                           'e.g. 32 for 32bit '
+                                           'Integers'))
     download = models.URLField(max_length=256, blank=True,
                                verbose_name=_('Archive download Url'))
     created = models.DateTimeField(auto_now_add=True, editable=False,
@@ -179,7 +179,8 @@ class Database(models.Model):
 
 class DatabaseDependency(models.Model):
     app_release = models.ForeignKey('AppRelease', on_delete=models.CASCADE,
-                                    verbose_name=_('App release'))
+                                    verbose_name=_('App release'),
+                                    related_name='databasedependencies')
     database = models.ForeignKey('Database', on_delete=models.CASCADE,
                                  verbose_name=_('Database'))
     min_version = models.CharField(max_length=32,
@@ -214,7 +215,8 @@ class PhpExtension(models.Model):
 
 class PhpExtensionDependency(models.Model):
     app_release = models.ForeignKey('AppRelease', on_delete=models.CASCADE,
-                                    verbose_name=_('App Release'))
+                                    verbose_name=_('App Release'),
+                                    related_name='phpextensiondependencies')
     php_extension = models.ForeignKey('PhpExtension', on_delete=models.CASCADE,
                                       verbose_name=_('PHP Extension'))
     min_version = models.CharField(max_length=32,

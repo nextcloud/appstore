@@ -33,9 +33,9 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class AppReleaseSerializer(serializers.ModelSerializer):
     databases = DatabaseDependencySerializer(many=True, read_only=True,
-                                             source='databasedependency_set')
+                                             source='databasedependencies')
     libs = PhpExtensionDependencySerializer(many=True, read_only=True,
-                                            source='phpextensiondependency_set')
+                                            source='phpextensiondependencies')
 
     class Meta:
         model = AppRelease
