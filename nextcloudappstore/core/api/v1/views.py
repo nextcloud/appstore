@@ -15,7 +15,9 @@ class Apps(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        apps = App.objects.prefetch_related('categories', 'authors',
+        apps = App.objects.prefetch_related('translations',
+                                            'categories__translations',
+                                            'categories', 'authors',
                                             'releases', 'screenshots',
                                             'releases__databases',
                                             'releases__libs').all()

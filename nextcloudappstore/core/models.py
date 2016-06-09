@@ -1,18 +1,21 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from parler.models import TranslatedFields, TranslatableModel
 
 
-class App(models.Model):
+class App(TranslatableModel):
     id = models.CharField(max_length=128, unique=True, primary_key=True,
                           verbose_name=_('Id'),
                           help_text=_('app id, same as the folder name'))
     categories = models.ManyToManyField('Category', verbose_name=_('Category'))
     authors = models.ManyToManyField('Author', verbose_name=_('Authors'))
-    # possible l10n candidates
-    name = models.CharField(max_length=128, verbose_name=_('Name'),
-                            help_text=_('Rendered app name for users'))
-    description = models.TextField(verbose_name=_('Description'),
-                                   help_text=_('Will be rendered as Markdown'))
+    translations = TranslatedFields(
+        name=models.CharField(max_length=128, verbose_name=_('Name'),
+                              help_text=_('Rendered app name for users')),
+        description=models.TextField(verbose_name=_('Description'),
+                                     help_text=_(
+                                         'Will be rendered as Markdown'))
+    )
     # resources
     user_docs = models.URLField(max_length=256, blank=True,
                                 verbose_name=_('User documentation url'))
@@ -139,16 +142,17 @@ class ShellCommand(models.Model):
         return self.name
 
 
-class Category(models.Model):
+class Category(TranslatableModel):
     id = models.CharField(max_length=128, unique=True, primary_key=True,
                           help_text=_(
                               'Category id which is used to identify a '
                               'category. Used to identify categories when '
                               'uploading an app'), verbose_name=_('Id'))
-    # possible l10n
-    name = models.CharField(max_length=128, help_text=_(
-        'Category name which will be presented to the user'),
-                            verbose_name=_('Name'))
+    translations = TranslatedFields(
+        name=models.CharField(max_length=128, help_text=_(
+            'Category name which will be presented to the user'),
+                              verbose_name=_('Name'))
+    )
 
     class Meta:
         verbose_name = _('Category')
