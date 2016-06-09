@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha',
     'nextcloudappstore.core.apps.CoreConfig',
 ]
 
@@ -135,6 +136,9 @@ STATIC_URL = '/static/'
 # Default security settings
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# use modern no Captcha reCaptcha
+NOCAPTCHA = True
 
 try:
     from nextcloudappstore.local_settings import *

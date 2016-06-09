@@ -16,7 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from nextcloudappstore.core.user.forms import RegistrationFormRecaptcha
+from nextcloudappstore.core.user.views import RegistrationView
+
 urlpatterns = [
+    url(r'^register/$', RegistrationView.as_view(), name='registration_register'),
     url(r'^api/v1/',
         include('nextcloudappstore.core.api.v1.urls', namespace='api-v1')),
     url(r'^admin/', admin.site.urls),
