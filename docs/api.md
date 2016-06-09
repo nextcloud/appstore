@@ -66,7 +66,7 @@ This is the route that will return all releases to display inside Nextcloud's ap
                     "phpMaxVersion": "",
                     "platformMinVersion": "9.0",
                     "platformMaxVersion": "",
-                    "minIntSize": 0,
+                    "minIntSize": 64,
                     "download": "http://127.0.0.1:8000/download",
                     "created": "2016-06-09T17:57:00.587076Z",
                     "lastModified": "2016-06-09T17:57:00.587238Z"
@@ -87,11 +87,11 @@ This is the route that will return all releases to display inside Nextcloud's ap
             "translations": {
                 "en": {
                     "name": "News",
-                    "description": "Reader"
+                    "description": "Read News"
                 },
                 "de": {
                     "name": "Neuigkeiten",
-                    "description": "Leser"
+                    "description": "Nachrichten lesen"
                 }
             }
         }
