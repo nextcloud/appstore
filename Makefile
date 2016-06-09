@@ -17,7 +17,7 @@ resetup:
 	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
 	$(manage) makemigrations
 	$(manage) migrate
-	#$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
+	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
 
 # Only for local setup, do not use in production
