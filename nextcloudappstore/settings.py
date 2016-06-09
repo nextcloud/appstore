@@ -117,9 +117,9 @@ USE_TZ = True
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en',},
-        {'code': 'de',},
-        {'code': 'fr',},
+        {'code': 'en'},
+        {'code': 'de'},
+        {'code': 'fr'},
     ),
     'default': {
         'fallbacks': ['en'],
