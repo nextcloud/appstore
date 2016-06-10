@@ -35,10 +35,10 @@ class App(TranslatableModel):
     owner = models.ForeignKey('auth.User', verbose_name=_('App owner'),
                               on_delete=models.CASCADE,
                               related_name='owned_apps')
-    collaborators = models.ManyToManyField('auth.User',
-                                           verbose_name=_('Collaborators'),
-                                           related_name='collaborated_apps',
-                                           blank=True)
+    co_maintainers = models.ManyToManyField('auth.User',
+                                            verbose_name=_('Co-Maintainers'),
+                                            related_name='co_maintained_apps',
+                                            blank=True)
 
     class Meta:
         verbose_name = _('App')
@@ -47,8 +47,11 @@ class App(TranslatableModel):
     def __str__(self):
         return self.name
 
-    def allows_editing(self, user):
-        return self.owner == user or user in self.collaborators.all()
+    def can_update(self, user):
+        return self.owner == user or user in self.co_maintainers.all()
+
+    def can_delete(self, user):
+        return self.owner == user
 
 
 class AppRelease(models.Model):
@@ -95,6 +98,12 @@ class AppRelease(models.Model):
         verbose_name = _('App Release')
         verbose_name_plural = _('App Releases')
         unique_together = (('app', 'version'),)
+
+    def can_update(self, user):
+        return self.app.owner == user or user in self.app.co_maintainers.all()
+
+    def can_delete(self, user):
+        return self.can_update(user)
 
     def __str__(self):
         return '%s %s' % (self.app, self.version)

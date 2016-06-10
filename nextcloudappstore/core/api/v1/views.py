@@ -1,16 +1,15 @@
 from nextcloudappstore.core.api.v1.serializers import AppSerializer
-from nextcloudappstore.core.models import App
-from nextcloudappstore.core.permissions import AllowedToEditApp
+from nextcloudappstore.core.models import App, AppRelease
+from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.versioning import app_has_included_release
 from rest_framework import authentication
-from rest_framework.generics import GenericAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.generics import DestroyAPIView, get_object_or_404
 from rest_framework.response import Response
 
 
 class Apps(DestroyAPIView):
     authentication_classes = (authentication.BasicAuthentication,)
-    permission_classes = (IsAuthenticatedOrReadOnly, AllowedToEditApp)
+    permission_classes = (UpdateDeletePermission,)
     serializer_class = AppSerializer
     queryset = App.objects.all()
 
@@ -30,5 +29,13 @@ class Apps(DestroyAPIView):
         return Response(serializer.data)
 
 
-class AppReleases(GenericAPIView):
-    pass
+class AppReleases(DestroyAPIView):
+    authentication_classes = (authentication.BasicAuthentication,)
+    permission_classes = (UpdateDeletePermission,)
+
+    def get_object(self):
+        release = AppRelease.objects.filter(version=self.kwargs['version'],
+                                            app__id=self.kwargs['app'])
+        release = get_object_or_404(release)
+        self.check_object_permissions(self.request, release)
+        return release
