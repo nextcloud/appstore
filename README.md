@@ -170,6 +170,10 @@ STATIC_ROOT = '/var/www/production-domain.com/static/'
 # Url for serving stuff uploaded by users
 MEDIA_URL = 'https://separate-domain.com/upload/'
 MEDIA_ROOT = '/var/www/example.com/upload/'
+
+# Public and private keys for Googles recaptcha
+RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
+RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
 ```
 
 For more information about web server setup, take a look at [the deployment documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/)

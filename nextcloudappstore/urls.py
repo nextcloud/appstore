@@ -15,9 +15,31 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+
+from nextcloudappstore.core.user.forms import RegistrationFormRecaptcha
+from nextcloudappstore.core.user.views import RegistrationView
+from nextcloudappstore.core.views import HomeView
 
 urlpatterns = [
+    url(r'^$',
+        HomeView.as_view(),
+        name='home'),
+    url(r'^register/$',
+        RegistrationView.as_view(),
+        name='registration_register'),
+    url(r'^login/$',
+        auth_views.login,
+        {'template_name': 'user/login.html'},
+        name='auth_login'),
+    url(r'^logout/$',
+        auth_views.logout,
+        {'template_name': 'user/logout.html'},
+        name='auth_logout'),
     url(r'^api/v1/',
-        include('nextcloudappstore.core.api.v1.urls', namespace='api-v1')),
-    url(r'^admin/', admin.site.urls),
+        include('nextcloudappstore.core.api.v1.urls',
+                namespace='api-v1')
+        ),
+    url(r'^admin/',
+        admin.site.urls),
 ]

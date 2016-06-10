@@ -25,6 +25,8 @@ dev-setup:
 	pyvenv venv
 	@echo "DEBUG = True" > $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/local_settings.py
+	@echo "RECAPTCHA_PUBLIC_KEY = 'PUBLIC_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py 
+	@echo "RECAPTCHA_PRIVATE_KEY = 'PRIVATE_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/production.txt
 	$(manage) migrate
