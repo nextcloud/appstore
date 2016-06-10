@@ -22,11 +22,11 @@ from nextcloudappstore.core.user.views import RegistrationView
 from nextcloudappstore.core.views import HomeView
 
 urlpatterns = [
-    url(r'^$', 
-        HomeView.as_view(), 
+    url(r'^$',
+        HomeView.as_view(),
         name='home'),
-    url(r'^register/$', 
-        RegistrationView.as_view(), 
+    url(r'^register/$',
+        RegistrationView.as_view(),
         name='registration_register'),
     url(r'^login/$',
         auth_views.login,
@@ -37,8 +37,9 @@ urlpatterns = [
         {'template_name': 'user/logout.html'},
         name='auth_logout'),
     url(r'^api/v1/',
-        include('nextcloudappstore.core.api.v1.urls', 
-        namespace='api-v1')),
-    url(r'^admin/', 
+        include('nextcloudappstore.core.api.v1.urls',
+                namespace='api-v1')
+        ),
+    url(r'^admin/',
         admin.site.urls),
 ]
