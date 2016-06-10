@@ -1,39 +1,23 @@
-import base64
-
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from django.test import TestCase
+from nextcloudappstore.core.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.models import App, AppRelease
-from rest_framework import HTTP_HEADER_ENCODING
-from rest_framework.test import APIClient
 
 
-class AppTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username='test', password='test',
-                                             email='test@test.com')
-        self.api_client = APIClient()
-
-    def _login(self, user='test', password='test'):
-        credentials = '%s:%s' % (user, password)
-        base64_credentials = base64.b64encode(
-            credentials.encode(HTTP_HEADER_ENCODING)
-        ).decode(HTTP_HEADER_ENCODING)
-        auth = 'Basic %s' % base64_credentials
-        self.api_client.credentials(HTTP_AUTHORIZATION=auth)
-
+class AppTest(ApiTest):
     def test_apps(self):
         url = reverse('api-v1:apps', kwargs={'version': '9.1.0'})
         response = self.api_client.get(url)
         self.assertEqual(200, response.status_code)
 
     def test_delete(self):
-        self.api_client.login(username='test', password='test')
         App.objects.create(id='news', owner=self.user)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
         self._login()
         response = self.api_client.delete(url)
         self.assertEqual(204, response.status_code)
+        with self.assertRaises(App.DoesNotExist):
+            App.objects.get(id='news')
 
     def test_delete_unauthenticated(self):
         App.objects.create(id='news', owner=self.user)
@@ -45,6 +29,17 @@ class AppTest(TestCase):
         owner = User.objects.create_user(username='owner', password='owner',
                                          email='owner@owner.com')
         App.objects.create(id='news', owner=owner)
+        url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
+        self._login()
+        response = self.api_client.delete(url)
+        self.assertEqual(403, response.status_code)
+
+    def test_delete_co_maintainer(self):
+        owner = User.objects.create_user(username='owner', password='owner',
+                                         email='owner@owner.com')
+        app = App.objects.create(id='news', owner=owner)
+        app.co_maintainers.add(self.user)
+        app.save()
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
         self._login()
         response = self.api_client.delete(url)
