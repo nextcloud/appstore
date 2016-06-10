@@ -14,7 +14,7 @@ test: lint
 
 resetup:
 	rm -f db.sqlite3
-	rm $(CURDIR)/nextcloudappstore/**/migrations/0*.py
+	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
 	$(manage) makemigrations
 	$(manage) migrate
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml

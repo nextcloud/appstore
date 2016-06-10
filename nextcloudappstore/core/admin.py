@@ -1,5 +1,6 @@
 from django.contrib import admin
 from nextcloudappstore.core.models import *
+from parler.admin import TranslatableAdmin
 
 
 class DatabaseDependencyInline(admin.TabularInline):
@@ -16,12 +17,20 @@ class AppReleaseAdmin(admin.ModelAdmin):
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
 
 
-admin.site.register(App)
+class CategoryAdmin(TranslatableAdmin):
+    pass
+
+
+class AppAdmin(TranslatableAdmin):
+    pass
+
+
+admin.site.register(App, AppAdmin)
 admin.site.register(AppRelease, AppReleaseAdmin)
 admin.site.register(Screenshot)
 admin.site.register(Author)
 admin.site.register(ShellCommand)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Database)
 admin.site.register(DatabaseDependency)
 admin.site.register(PhpExtension)

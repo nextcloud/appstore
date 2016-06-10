@@ -1,4 +1,6 @@
 from nextcloudappstore.core.models import *
+from parler_rest.fields import TranslatedFieldsField
+from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
 
 
@@ -25,10 +27,12 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ('name', 'mail', 'homepage')
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class CategorySerializer(TranslatableModelSerializer):
+    translations = TranslatedFieldsField(shared_model=Category)
+
     class Meta:
         model = Category
-        fields = ('id', 'name')
+        fields = ('id', 'translations')
 
 
 class AppReleaseSerializer(serializers.ModelSerializer):
@@ -58,10 +62,12 @@ class AppSerializer(serializers.ModelSerializer):
     releases = AppReleaseSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     screenshots = ScreenshotSerializer(many=True, read_only=True)
+    translations = TranslatedFieldsField(shared_model=App)
 
     class Meta:
         model = App
-        fields = ('id', 'categories', 'name', 'description', 'user_docs',
-                  'admin_docs', 'developer_docs', 'issue_tracker', 'website',
-                  'created', 'last_modified', 'releases', 'authors',
-                  'screenshots')
+        fields = (
+            'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
+            'issue_tracker', 'website', 'created', 'last_modified', 'releases',
+            'authors', 'screenshots', 'translations'
+        )
