@@ -1,18 +1,19 @@
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
 
-import registration.backends.simple.views 
+from registration.backends.simple.views import RegistrationView as BaseRegistrationView
 
 from nextcloudappstore.core.user.forms import RegistrationFormRecaptcha
 
 
-class RegistrationView(registration.backends.simple.views.RegistrationView):
+class RegistrationView(BaseRegistrationView):
     
     form_class = RegistrationFormRecaptcha
 
     def get_success_url(self, user):
-        return u'/'
+        return reverse('home')
     
     def register(self, form):
         super().register(form)
