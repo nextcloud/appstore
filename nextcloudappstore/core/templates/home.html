@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+
+{% block sidebar %}
+<h2>Categories</h2>
+<ul id="sidebar" class="nav nav-stacked affix">
+{% for cat in categories %}
+  <li><a href="">{{ cat.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock sidebar %}
+
 {% block content %}
 {% if messages %}
 <div class="messages">
@@ -18,4 +28,19 @@
   </p>
 </div>
 
+<h2>Applications</h2>
+    <div class="row">
+{% for app in recommended_apps %}
+  <div class="col-sm-4">
+    <div class="well">
+      <h3><a href="http://getbootstrap.com">{{ app.name }}</a></h3>
+      {{ app.description }}
+    </div>
+  </div>
+  {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="row">
+  {% endif %}
+{% endfor %}
+</div>
 {% endblock content %}
