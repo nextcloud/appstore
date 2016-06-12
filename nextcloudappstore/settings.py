@@ -121,6 +121,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',
     ),
+    'DEFAULT_THROTTLE_RATES': {
+        'app_upload': '100/day'
+    }
 }
 
 SITE_ID = 1
@@ -144,7 +147,7 @@ USE_L10N = True
 USE_TZ = True
 
 PARLER_LANGUAGES = {
-    None: (
+    1: (
         {'code': 'en'},
         {'code': 'de'},
         {'code': 'fr'},
@@ -171,6 +174,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # use modern no Captcha reCaptcha
 NOCAPTCHA = True
+
 
 LOGIN_REDIRECT_URL = 'home'
 

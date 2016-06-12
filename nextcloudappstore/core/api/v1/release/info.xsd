@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:element name="info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="id" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="name" type="l10n-string" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="description" type="l10n-string" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="version" type="semantic-version"
+                            minOccurs="1" maxOccurs="1"/>
+                <xs:element name="licence" type="licence" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="author" type="author" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="namespace" type="non-empty-string"
+                            minOccurs="0" maxOccurs="1"/>
+                <xs:element name="types" type="types" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="documentation" type="documentation"
+                            minOccurs="0" maxOccurs="1"/>
+                <xs:element name="category" type="category" minOccurs="1"
+                            maxOccurs="unbounded"/>
+                <xs:element name="website" type="url" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="bugs" type="url" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="repository" type="repository" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="screenshot" type="secure-url" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                <xs:element name="dependencies" type="dependencies"
+                            minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueLicense">
+            <xs:selector xpath="license"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="uniqueCategory">
+            <xs:selector xpath="category"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:simpleType name="non-empty-string">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="empty-string">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- first level elements -->
+    <xs:simpleType name="id">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]+[a-z_]*[a-z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="l10n-string">
+        <xs:simpleContent>
+            <xs:extension base="non-empty-string">
+                <xs:attribute name="lang" type="l10n-code" default="en"
+                              use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="author">
+        <xs:simpleContent>
+            <xs:extension base="non-empty-string">
+                <xs:attribute name="mail" type="email" use="optional"/>
+                <xs:attribute name="homepage" type="url" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="repository">
+        <xs:simpleContent>
+            <xs:extension base="url">
+                <xs:attribute name="type" type="vcs" use="optional"
+                              default="git"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="vcs">
+        <xs:restriction base="non-empty-string">
+            <xs:enumeration value="git"/>
+            <xs:enumeration value="mercurial"/>
+            <xs:enumeration value="subversion"/>
+            <xs:enumeration value="bzr"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="types">
+        <xs:sequence>
+            <xs:element name="prelogin" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="filesystem" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="authentication" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="logging" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="prevent_group_restriction" minOccurs="0"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="l10n-code">
+        <xs:restriction base="non-empty-string">
+            <xs:enumeration value="en"/>
+            <xs:enumeration value="de"/>
+            <xs:enumeration value="fr"/>
+            <xs:enumeration value="it"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="category">
+        <xs:restriction base="non-empty-string">
+            <xs:enumeration value="multimedia"/>
+            <xs:enumeration value="pim"/>
+            <xs:enumeration value="tools"/>
+            <xs:enumeration value="games"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="licence">
+        <xs:restriction base="non-empty-string">
+            <xs:enumeration value="mit"/>
+            <xs:enumeration value="mpl"/>
+            <xs:enumeration value="agpl"/>
+            <xs:enumeration value="apache"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="semantic-version">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+\.[0-9]+\.[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="version">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+(\.[0-9]+){0,2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https?://.+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="secure-url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https://.+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="documentation">
+        <xs:sequence>
+            <xs:element name="user" type="url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="admin" type="url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="developer" type="url" minOccurs="0"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dependencies">
+        <xs:sequence>
+            <xs:element name="php" type="php" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="database" type="min-max-version" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="command" type="non-empty-string" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="lib" type="min-max-version" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="owncloud" type="owncloud" minOccurs="1"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- dependencies -->
+    <xs:complexType name="owncloud">
+        <xs:attribute name="min-version" type="version" use="required"/>
+        <xs:attribute name="max-version" type="version" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="min-max-version">
+        <xs:simpleContent>
+            <xs:extension base="non-empty-string">
+                <xs:attribute name="min-version" type="version" use="optional"/>
+                <xs:attribute name="max-version" type="version" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="php">
+        <xs:simpleContent>
+            <xs:extension base="empty-string">
+                <xs:attribute name="min-int-size" type="xs:int" use="optional"
+                              default="0"/>
+                <xs:attribute name="min-version" type="version" use="optional"/>
+                <xs:attribute name="max-version" type="version" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

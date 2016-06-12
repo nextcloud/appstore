@@ -1,10 +1,19 @@
-from nextcloudappstore.core.api.v1.serializers import AppSerializer
+from django.db import transaction
+from django.http import Http404
+from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
+from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
+from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
+    AppReleaseDownloadSerializer
 from nextcloudappstore.core.models import App, AppRelease
 from nextcloudappstore.core.permissions import UpdateDeletePermission
+from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import app_has_included_release
-from rest_framework import authentication
-from rest_framework.generics import DestroyAPIView, get_object_or_404
-from rest_framework.response import Response
+from pymple import Container
+from rest_framework import authentication  # type: ignore
+from rest_framework.generics import DestroyAPIView, \
+    get_object_or_404  # type: ignore
+from rest_framework.permissions import IsAuthenticated  # type: ignore
+from rest_framework.response import Response  # type: ignore
 
 
 class Apps(DestroyAPIView):
@@ -19,7 +28,7 @@ class Apps(DestroyAPIView):
                                             'categories', 'releases',
                                             'screenshots',
                                             'releases__databases',
-                                            'releases__libs').all()
+                                            'releases__php_extensions').all()
 
         def app_filter(app):
             return app_has_included_release(app, self.kwargs['version'])
@@ -31,7 +40,56 @@ class Apps(DestroyAPIView):
 
 class AppReleases(DestroyAPIView):
     authentication_classes = (authentication.BasicAuthentication,)
-    permission_classes = (UpdateDeletePermission,)
+    permission_classes = (UpdateDeletePermission, IsAuthenticated)
+    throttle_classes = (PostThrottle,)
+    throttle_scope = 'app_upload'
+
+    def post(self, request):
+        serializer = AppReleaseDownloadSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        with(transaction.atomic()):
+            url = serializer.validated_data['download']
+
+            # download the latest release and create or update the models
+            container = Container()
+            provider = container.resolve(AppReleaseProvider)
+            info = provider.get_release_info(url)
+            app_id = info['app']['id']
+            version = info['app']['release']['version']
+
+            if 'checksum' in serializer.validated_data:
+                info['app']['release']['checksum'] = \
+                    serializer.validated_data['checksum']
+            status = self._check_permission(request, app_id, version)
+
+            importer = container.resolve(ReleaseImporter)
+            importer.import_release(info)
+        return Response(status=status)
+
+    def _check_permission(self, request, app_id, version):
+        # if an app does not exist, the request should create it with its
+        # owner set to the currently logged in user
+        try:
+            app = App.objects.get(pk=app_id)
+        except App.DoesNotExist:
+            app = App.objects.create(pk=app_id, owner=request.user)
+
+        # if an app release does not exist, it must be checked if the
+        # user is allowed to create it first
+        try:
+            release = AppRelease.objects.filter(version=version, app=app)
+            release = get_object_or_404(release)
+            self.check_object_permissions(self.request, release)
+            status = 200
+        except Http404:
+            release = AppRelease()
+            release.version = version
+            release.app = app
+            self.check_object_permissions(request, release)
+            release.save()
+            status = 201
+
+        return status
 
     def get_object(self):
         release = AppRelease.objects.filter(version=self.kwargs['version'],

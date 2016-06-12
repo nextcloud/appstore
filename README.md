@@ -79,8 +79,8 @@ If you are running a development setup, you should also install the development 
     pip3 install -r requirements/development.txt
 
 ### Adjusting Default Settings
-To get your instance running in development or in production you need to create your local settings file in 
-**nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in 
+To get your instance running in development or in production you need to create your local settings file in
+**nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in
 **nextcloudappstore/local\_settings.py**. The local settings file is excluded from version control.
 
 For development paste in the following file contents:
@@ -191,8 +191,11 @@ RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
 
 # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
 EMAIL_HOST = 'localhost'
-# https://docs.djangoproject.com/en/1.9/ref/settings/#default-from-email
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+# how many times a user is allowed to call the app upload route per day
+REST_FRAMEWORK['DEFAULT_THROTTLE_RATES'] = {
+   'app_upload_or_delete': '20/day'
+}
 ```
 
 For more information about web server setup, take a look at [the deployment documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/)

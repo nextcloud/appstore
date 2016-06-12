@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../appmetadata/info.xsd">
+    <id>news</id>
+
+    <!-- translation can be done via the lang attribute, defaults to English -->
+    <name lang="de">Nachrichten</name>
+    <name>News</name>
+
+    <!-- description tag allows Markdown -->
+    <description>An RSS/Atom feed reader</description>
+    <description lang="de"><![CDATA[Eine Nachrichten App, welche mit [RSS/Atom](https://en.wikipedia.org/wiki/RSS) umgehen kann]]></description>
+
+    <!-- semantic version, three digits separated by a dot -->
+    <version>8.8.2</version>
+
+    <!-- multiple licenses are possible too but must at least include the agpl -->
+    <!-- possible values: agpl, mit -->
+    <licence>mit</licence>
+    <licence>agpl</licence>
+
+    <!-- multiple authors are possible, mail and homepage field are optional -->
+    <author mail="mail@provider.com" homepage="http://example.com">Bernhard Posselt</author>
+    <author>Alessandro Cosentino</author>
+    <author>Jan-Christoph Borchardt</author>
+
+    <!-- documentation -->
+    <documentation>
+        <user>https://github.com/owncloud/news/wiki#user-documentation</user>
+        <admin>https://github.com/owncloud/news#readme</admin>
+        <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+    </documentation>
+
+    <!-- multiple categories are also possible -->
+    <!-- possible values: multimedia, tools, games, pim -->
+    <category>multimedia</category>
+    <category>tools</category>
+
+
+    <website>https://github.com/owncloud/news</website>
+
+    <!-- issue tracker -->
+    <bugs>https://github.com/owncloud/news/issues</bugs>
+
+    <!-- screenshots, can be multiple and will be displayed in order -->
+    <!-- need to be served with https -->
+    <screenshot>https://example.com/1.png</screenshot>
+    <screenshot>https://example.com/2.jpg</screenshot>
+
+    <!-- dependencies, all version attributes except for the ownCloud min-version are optional -->
+    <dependencies>
+        <php min-version="5.6" min-int-size="64"/>
+        <!-- php extensions, uses the same names as composer -->
+        <!-- supported databases and versions -->
+        <database min-version="9.4">pgsql</database>
+        <database>sqlite</database>
+        <database min-version="5.5">mysql</database>
+
+        <!-- command line tools -->
+        <command>grep</command>
+        <command>ls</command>
+
+        <lib min-version="2.7.8">libxml</lib>
+        <lib>curl</lib>
+        <lib>SimpleXML</lib>
+        <lib>iconv</lib>
+
+        <!-- version numbers will be padded to three digits with 0 (min-version) and 2^64 (max-version) -->
+        <owncloud min-version="9.0" max-version="9.1"/>
+    </dependencies>
+
+    <!-- further elements to test if parser ignores non defined fields -->
+</info>

@@ -3,10 +3,12 @@ python=venv/bin/python
 pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
+mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
+	$(mypy) --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 
 test: lint
 	$(manage) test

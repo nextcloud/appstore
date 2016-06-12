@@ -28,6 +28,12 @@ class LicenseSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
+class LicenseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = License
+        fields = ('id', 'name')
+
+
 class CategorySerializer(TranslatableModelSerializer):
     translations = TranslatedFieldsField(shared_model=Category)
 
@@ -39,14 +45,15 @@ class CategorySerializer(TranslatableModelSerializer):
 class AppReleaseSerializer(serializers.ModelSerializer):
     databases = DatabaseDependencySerializer(many=True, read_only=True,
                                              source='databasedependencies')
-    libs = PhpExtensionDependencySerializer(many=True, read_only=True,
-                                            source='phpextensiondependencies')
+    php_extensions = \
+        PhpExtensionDependencySerializer(many=True, read_only=True,
+                                         source='phpextensiondependencies')
     licenses = LicenseSerializer(many=True, read_only=True)
 
     class Meta:
         model = AppRelease
         fields = (
-            'version', 'libs', 'databases', 'shell_commands',
+            'version', 'php_extensions', 'databases', 'shell_commands',
             'php_min_version', 'php_max_version', 'platform_min_version',
             'platform_max_version', 'min_int_size', 'download', 'created',
             'licenses', 'last_modified', 'checksum'
@@ -80,3 +87,5 @@ class AppSerializer(serializers.ModelSerializer):
 
 class AppReleaseDownloadSerializer(serializers.Serializer):
     download = serializers.URLField(validators=[HttpsUrlValidator()])
+    checksum = serializers.CharField(max_length=64, min_length=64,
+                                     required=False)

@@ -1,0 +1,138 @@
+from django.contrib.auth.models import User
+from django.test import TestCase
+from nextcloudappstore.core.api.v1.release import ReleaseConfig
+from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
+from nextcloudappstore.core.api.v1.release.parser import parse_app_metadata
+from nextcloudappstore.core.facades import read_relative_file
+from nextcloudappstore.core.models import App, Screenshot, Database
+from pymple import Container
+
+
+class ImporterTest(TestCase):
+    def setUp(self):
+        container = Container()
+        self.importer = container.resolve(ReleaseImporter)
+        self.config = ReleaseConfig()
+        self.min = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
+        self.full = read_relative_file(__file__, 'data/infoxmls/full.xml')
+        self.user = User.objects.create_user(username='test', password='test',
+                                             email='test@test.com')
+        self.app = App.objects.create(pk='news', owner=self.user)
+        Screenshot.objects.create(url='https://google.com', ordering=1,
+                                  app=self.app)
+
+    def test_import_minimal(self):
+        # check if translations are removed
+        self.app.set_current_language('de')
+        self.app.name = 'Should not exist'
+        self.app.save()
+
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.info_xslt)
+        self.importer.import_release(result)
+        app = App.objects.get(pk='news')
+        self._assert_all_empty(app, ['user_docs', 'admin_docs', 'website',
+                                     'developer_docs', 'issue_tracker'])
+        # l10n
+        app.set_current_language('en')
+        self.assertEqual('News', app.name)
+        self.assertEqual('An RSS/Atom feed reader', app.description)
+        app.set_current_language('de')  # fallback
+        self.assertEqual('News', app.name)
+
+        # categories
+        self.assertEqual(1, app.categories.count())
+        self.assertEqual('multimedia', app.categories.all()[0].id)
+
+        self.assertEqual(0, app.screenshots.count())
+        self.assertEqual(0, Screenshot.objects.count())
+
+        release = app.releases.all()[0]
+        self.assertEqual('8.8.2', release.version)
+        self.assertEqual('9.0', release.platform_min_version)
+        self.assertEqual(32, release.min_int_size)
+        self._assert_all_empty(release, ['php_min_version', 'php_max_version',
+                                         'platform_max_version',
+                                         'checksum', 'download'])
+        self.assertEqual(0, release.php_extensions.count())
+        self.assertEqual(0, release.databases.count())
+        self.assertEqual(0, release.shell_commands.count())
+        self.assertEqual(0, release.shell_commands.count())
+        self.assertEqual(1, release.licenses.count())
+        self.assertEqual('agpl', release.licenses.all()[0].id)
+
+    def test_full(self):
+        Database.objects.create(id='sqlite')
+        Database.objects.create(id='pgsql')
+        Database.objects.create(id='mysql')
+        result = parse_app_metadata(self.full, self.config.info_schema,
+                                    self.config.info_xslt)
+        self.importer.import_release(result)
+        app = App.objects.get(pk='news')
+        # l10n
+        app.set_current_language('en')
+        self.assertEqual('News', app.name)
+        self.assertEqual('An RSS/Atom feed reader', app.description)
+        app.set_current_language('de')  # fallback
+        self.assertEqual('Nachrichten', app.name)
+        self.assertEqual(
+            'Eine Nachrichten App, welche mit [RSS/Atom]('
+            'https://en.wikipedia.org/wiki/RSS) umgehen kann',
+            app.description)
+        release = app.releases.all()[0]
+        extensions = release.php_extensions.all()
+        databases = release.databases.all()
+
+        self.assertEqual(3, databases.count())
+        self.assertEqual(4, extensions.count())
+
+        for db in databases:
+            if db.id == 'sqlite':
+                self.assertEqual('', db.releasedependencies.get().min_version)
+                self.assertEqual('', db.releasedependencies.get().max_version)
+            elif db.id == 'pgsql':
+                self.assertEqual('9.4',
+                                 db.releasedependencies.get().min_version)
+                self.assertEqual('', db.releasedependencies.get().max_version)
+            elif db.id == 'mysql':
+                self.assertEqual('5.5',
+                                 db.releasedependencies.get().min_version)
+                self.assertEqual('', db.releasedependencies.get().max_version)
+
+        for ex in extensions:
+            if ex.id == 'libxml':
+                self.assertEqual('2.7.8',
+                                 ex.releasedependencies.get().min_version)
+                self.assertEqual('', ex.releasedependencies.get().max_version)
+            elif ex.id == 'curl':
+                self.assertEqual('', ex.releasedependencies.get().min_version)
+                self.assertEqual('', ex.releasedependencies.get().max_version)
+            elif ex.id == 'SimpleXML':
+                self.assertEqual('', ex.releasedependencies.get().min_version)
+                self.assertEqual('', ex.releasedependencies.get().max_version)
+            elif ex.id == 'iconv':
+                self.assertEqual('', ex.releasedependencies.get().min_version)
+                self.assertEqual('', ex.releasedependencies.get().max_version)
+
+    def test_release_update(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.info_xslt)
+        self.importer.import_release(result)
+        result['app']['website'] = 'https://website.com'
+        self.importer.import_release(result)
+        app = App.objects.get(pk='news')
+        self.assertEqual('https://website.com', app.website)
+
+    def test_release_no_update(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.info_xslt)
+        self.importer.import_release(result)
+        result['app']['website'] = 'https://website.com'
+        result['app']['release']['version'] = '8.8.1'
+        self.importer.import_release(result)
+        app = App.objects.get(pk='news')
+        self.assertEqual('', app.website)
+
+    def _assert_all_empty(self, obj, attribs):
+        for attrib in attribs:
+            self.assertEqual('', getattr(obj, attrib), attrib)
