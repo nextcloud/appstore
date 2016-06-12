@@ -60,6 +60,14 @@
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
+        {% if categories %}
+          <h2>Categories</h2>
+          <ul id="sidebar" class="nav nav-pills nav-stacked affix">
+          {% for cat in categories %}
+            <li class="{% if cat.id == current_category.id %}active{% endif %}"><a href="{% url 'category_list_category' cat.id %}">{{ cat.name }}</a></li>
+          {% endfor %}
+        {% endif %}
+        </ul>
       {% endblock sidebar %}
       </div>
       <div class="col-sm-10">

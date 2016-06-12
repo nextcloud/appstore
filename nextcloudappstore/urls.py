@@ -19,7 +19,7 @@ from django.contrib.auth import views as auth_views
 
 from nextcloudappstore.core.user.forms import RegistrationFormRecaptcha
 from nextcloudappstore.core.user.views import RegistrationView
-from nextcloudappstore.core.views import HomeView
+from nextcloudappstore.core.views import HomeView, AppDetailView, AppsByCategoryView
 
 urlpatterns = [
     url(r'^$',
@@ -36,6 +36,12 @@ urlpatterns = [
         auth_views.logout,
         {'template_name': 'user/logout.html'},
         name='auth_logout'),
+    url(r'^category/(?P<id>[-\w]+)$',
+        AppsByCategoryView.as_view(),
+        name = 'category_list_category'),
+    url(r'^app/(?P<id>[-\w]+)$',
+        AppDetailView.as_view(),
+        name = 'app_detail'),
     url(r'^api/v1/',
         include('nextcloudappstore.core.api.v1.urls',
                 namespace='api-v1')

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+  </div>
+
+
+<table class='table' >
+  {% if object.user_docs %}
+    <tr>
+      <th> {% trans "User documentation" %} </th>
+      <td>{{ object.user_docs }}</td>
+    </tr>
+  {% endif %}
+  {% if object.admin_docs %}
+  <tr>
+    <th> {% trans "Administration documentation" %} </th>
+    <td>{{ object.admin_docs }}</td>
+  </tr>
+  {% endif %}
+  {% if object.developer_docs %}
+  <tr>
+    <th> {% trans "Developer documentation" %} </th>
+    <td>{{ object.developer_docs }}</td>
+  </tr>
+  {% endif %}
+  {% if object.issue_tracker %}
+  <tr>
+    <th> {% trans "Issue tracker" %} </th>
+    <td>{{ object.issue_tracker }}</td>
+  </tr>
+  {% endif %}
+  {% if object.website %}
+  <tr>
+    <th> {% trans "Homepage" %} </th>
+    <td>{{ object.website }}</td>
+  </tr>
+  {% endif %}
+  {% if object.created %}
+  <tr>
+    <th>{% trans "Created on" %}</th>
+    <td>{{ object.created }}</td>
+  </tr>
+  {% endif %}
+  {% if object.last_modified %}
+  <tr>
+    <th> {% trans "Last modified on" %} </th>
+    <td>{{ object.last_modified }}</td>
+  </tr>
+  {% endif %}
+  {% if object.owner %}
+  <tr>
+    <th> {% trans "Owner" %} </th>
+    <td>
+      {% if object.owner.get_fullname %}
+        {{ object.owner.get_fullname }}
+      {% else %}
+        {{ object.owner.username }}
+      {% endif %}
+    </td>
+  </tr>
+  {% endif %}
+
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <th>Authors</th>
+        </tr>
+        {% for a in object.authors.all %}
+        <tr>
+          <td>
+            {% if object.owner.get_fullname %}
+              {{ object.owner.get_fullname }}
+            {% else %}
+              {{ object.owner.username }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th>Co-Maintainers</th>
+        </tr>
+        {% for a in object.co_maintainers.all %}
+        <tr>
+          <td>
+            {% if object.owner.get_fullname %}
+              {{ object.owner.get_fullname }}
+            {% else %}
+              {{ object.owner.username }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+
+</table>
+
+{% endblock content %}
