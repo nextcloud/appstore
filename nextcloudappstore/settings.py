@@ -133,7 +133,10 @@ PARLER_LANGUAGES = {
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+RELEASE_DOWNLOAD_ROOT = os.path.join(MEDIA_ROOT, 'releasetmp')
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Default security settings
 SECURE_BROWSER_XSS_FILTER = True

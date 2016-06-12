@@ -17,19 +17,19 @@ resetup:
 	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
 	$(manage) makemigrations
 	$(manage) migrate
-	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
+	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json
 
 # Only for local setup, do not use in production
 dev-setup:
 	pyvenv venv
 	@echo "DEBUG = True" > $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/local_settings.py
-	@echo "RECAPTCHA_PUBLIC_KEY = 'PUBLIC_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py 
+	@echo "RECAPTCHA_PUBLIC_KEY = 'PUBLIC_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "RECAPTCHA_PRIVATE_KEY = 'PRIVATE_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	$(pip) install -r $(CURDIR)/requirements/development.txt
-	$(pip) install -r $(CURDIR)/requirements/production.txt
+	$(pip) install -r $(CURDIR)/requirements/base.txt
 	$(manage) migrate
-	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.yaml
+	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
 

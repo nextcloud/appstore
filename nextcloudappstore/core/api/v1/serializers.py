@@ -1,4 +1,5 @@
 from nextcloudappstore.core.models import *
+from nextcloudappstore.core.validators import HttpsUrlValidator
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
@@ -21,10 +22,10 @@ class DatabaseDependencySerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'min_version', 'max_version')
 
 
-class AuthorSerializer(serializers.ModelSerializer):
+class LicenseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Author
-        fields = ('name', 'mail', 'homepage')
+        model = License
+        fields = ('id', 'name')
 
 
 class CategorySerializer(TranslatableModelSerializer):
@@ -40,6 +41,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
                                              source='databasedependencies')
     libs = PhpExtensionDependencySerializer(many=True, read_only=True,
                                             source='phpextensiondependencies')
+    licenses = LicenseSerializer(many=True, read_only=True)
 
     class Meta:
         model = AppRelease
@@ -47,7 +49,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
             'version', 'libs', 'databases', 'shell_commands',
             'php_min_version', 'php_max_version', 'platform_min_version',
             'platform_max_version', 'min_int_size', 'download', 'created',
-            'last_modified'
+            'licenses', 'last_modified', 'checksum'
         )
 
 
@@ -60,14 +62,21 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 class AppSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True, read_only=True)
     releases = AppReleaseSerializer(many=True, read_only=True)
-    authors = AuthorSerializer(many=True, read_only=True)
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
+    recommendations = serializers.SerializerMethodField()
 
     class Meta:
         model = App
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'authors', 'screenshots', 'translations'
+            'screenshots', 'translations', 'recommendations'
         )
+
+    def get_recommendations(self, obj):
+        return obj.recommendations.count()
+
+
+class AppReleaseDownloadSerializer(serializers.Serializer):
+    download = serializers.URLField(validators=[HttpsUrlValidator()])
