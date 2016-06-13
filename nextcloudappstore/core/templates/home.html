@@ -1,14 +1,5 @@
 {% extends "base.html" %}
 
-{% block sidebar %}
-<h2>Categories</h2>
-<ul id="sidebar" class="nav nav-stacked affix">
-{% for cat in categories %}
-  <li><a href="">{{ cat.name }}</a></li>
-{% endfor %}
-</ul>
-{% endblock sidebar %}
-
 {% block content %}
 {% if messages %}
 <div class="messages">
@@ -33,7 +24,7 @@
 {% for app in recommended_apps %}
   <div class="col-sm-4">
     <div class="well">
-      <h3><a href="http://getbootstrap.com">{{ app.name }}</a></h3>
+      <h3><a href="{%url 'app_detail' id=app.id %}">{{ app.name }}</a></h3>
       {{ app.description }}
     </div>
   </div>

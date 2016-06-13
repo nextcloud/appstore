@@ -13,7 +13,10 @@
 
     <link rel="stylesheet" href="{% static "css/main.min.css" %}">
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
-
+    <style>
+      {% block extra_css %}
+      {% endblock extra_css %}
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -60,6 +63,14 @@
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
+        {% if categories %}
+          <h2>Categories</h2>
+          <ul id="sidebar" class="nav nav-pills nav-stacked affix">
+          {% for cat in categories %}
+            <li class="{% if cat.id == current_category.id %}active{% endif %}"><a href="{% url 'category_list_category' cat.id %}">{{ cat.name }}</a></li>
+          {% endfor %}
+        {% endif %}
+        </ul>
       {% endblock sidebar %}
       </div>
       <div class="col-sm-10">
