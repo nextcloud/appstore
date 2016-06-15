@@ -160,7 +160,10 @@ class Category(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(max_length=128, help_text=_(
             'Category name which will be presented to the user'),
-                              verbose_name=_('Name'))
+                              verbose_name=_('Name')),
+        description=models.TextField(verbose_name=_('Description'),
+                                     help_text=_(
+                                         'Will be rendered as Markdown'))
     )
 
     class Meta:
