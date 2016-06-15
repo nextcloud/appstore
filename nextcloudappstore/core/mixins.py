@@ -1,6 +1,7 @@
 from nextcloudappstore.core.models import App, Category
 
 
+########################################################################
 class CategoryContextMixin(object):
     """Adds the catgeory list to the template context."""
 

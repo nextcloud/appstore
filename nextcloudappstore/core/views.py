@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-
 from nextcloudappstore.core.mixins \
-     import CategoryContextMixin, RecommendedAppsContextMixin
+    import CategoryContextMixin, RecommendedAppsContextMixin
 from nextcloudappstore.core.models import App, Category
 
 

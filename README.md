@@ -72,7 +72,7 @@ Next install the required libraries. By default pip (the package manager) is shi
 
 If you used a virtual environment the libraries will be installed locally, otherwise pip tries to install them globally so you might need to add sudo before the next command:
 
-    pip3 install -r requirements/production.txt
+    pip3 install -r requirements/base.txt
 
 If you are running a development setup, you should also install the development libs
 
@@ -118,7 +118,7 @@ The commmand will ask for the necessary information.
 ### Loading Initial Data
 To prepopulate the database with categories and other data run the following command:
 
-    python3 manage.py loaddata nextcloudappstore/**/fixtures/*.yaml
+    python3 manage.py loaddata nextcloudappstore/**/fixtures/*.json
 
 ### Starting the Server
 Finally start the development server using the following command:
@@ -193,7 +193,7 @@ Aftewards adjust the database schema (if changed) by running the migrations:
 
 and install any dependencies (if changed):
 
-    pip3 install -r requirements/production.txt
+    pip3 install -r requirements/base.txt
     pip3 install -r requirements/development.txt
 
 On production you will need to run the collectstatic command to copy updated assets into the target folders:
