@@ -218,6 +218,12 @@ class Migration(migrations.Migration):
             name='owner',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='owned_apps', to=settings.AUTH_USER_MODEL, verbose_name='App owner'),
         ),
+        migrations.AddField(
+            model_name='categorytranslation',
+            name='description',
+            field=models.TextField(default='This is a default description', help_text='Will be rendered as Markdown', verbose_name='Description'),
+            preserve_default=False,
+        ),
         migrations.AlterUniqueTogether(
             name='categorytranslation',
             unique_together=set([('language_code', 'master')]),
