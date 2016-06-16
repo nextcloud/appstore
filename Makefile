@@ -27,9 +27,12 @@ dev-setup:
 	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "RECAPTCHA_PUBLIC_KEY = 'PUBLIC_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "RECAPTCHA_PRIVATE_KEY = 'PRIVATE_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
+	@echo "EMAIL_HOST = 'localhost'" >> $(CURDIR)/nextcloudappstore/local_settings.py
+	@echo "DEFAULT_FROM_EMAIL = 'dev@localhost'" >> $(CURDIR)/nextcloudappstore/local_settings.py
+
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
 	$(manage) migrate
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
-
+	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell

@@ -79,15 +79,29 @@ If you are running a development setup, you should also install the development 
     pip3 install -r requirements/development.txt
 
 ### Adjusting Default Settings
-To get your instance running in development or in production you need to create your local settings file in **nextcloudappstore/local_settings.py** which overwrites and enhances the settings defined in **nextcloudappstore/local_settings.py**. The local settings file is excluded from version control.
+To get your instance running in development or in production you need to create your local settings file in 
+**nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in 
+**nextcloudappstore/local\_settings.py**. The local settings file is excluded from version control.
 
 For development paste in the following file contents:
+
 ```python
 DEBUG = True
 
 # generate the SECRET_KEY by yourself for instance by using the following command:
 # env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
 SECRET_KEY = 'change this!'
+
+# Public and private keys for Googles recaptcha
+# so you can log in.
+RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
+RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
+
+# so the confirmation email can be sent.
+# https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
+EMAIL_HOST = 'localhost'
+# https://docs.djangoproject.com/en/1.9/ref/settings/#default-from-email
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 ```
 
 For more settings, check the [documentation](https://docs.djangoproject.com/en/1.9/ref/settings/)
@@ -174,9 +188,26 @@ MEDIA_ROOT = '/var/www/example.com/upload/'
 # Public and private keys for Googles recaptcha
 RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
 RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
+
+# https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
+EMAIL_HOST = 'localhost'
+# https://docs.djangoproject.com/en/1.9/ref/settings/#default-from-email
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 ```
 
 For more information about web server setup, take a look at [the deployment documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/)
+
+## Configuring the AppStore
+Once the AppStore is up and running and you can login to the django admin interface, the social login needs to be configured. The AppStore
+uses [django-allauth](https://django-allauth.readthedocs.io) for local and social login and to get the social login to work
+you need to add the client ID and secret key for the two supported social login provider (github and bitbucket).
+In the section Sites of the Django admin interface click on the change link and on the following page on the domain name (example.com) to edit the inital site that was created.
+Change the domain name to the domain the AppStore is using and give it a descriptive name. Then go to https://github.com/settings/developers
+to create a new Application. Once you have your client ID and secret key go back to the Django admin interface and in the section Social Accounts add a new Social application.
+Supplying the client ID and secret key you generated on github and assign the social application to the AppStore site by double clicking
+on the site name.
+Then repeat the process for the bitbucket login. To create a client ID and secret key on BitBucket follow the steps described [here](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html#OAuthonBitbucketCloud-Createaconsumer)
+
 
 TODO:
 * check which server should be set up

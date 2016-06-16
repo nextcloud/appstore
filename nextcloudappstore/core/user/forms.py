@@ -1,11 +1,11 @@
-from registration.forms import RegistrationFormUniqueEmail
+from django import forms
+
 from captcha.fields import ReCaptchaField
 
 
-class RegistrationFormRecaptcha(RegistrationFormUniqueEmail):
+class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
     recaptcha = ReCaptchaField()
 
-    def clean(self):
-        self._validate_unique = True
-        super().clean()
+    def signup(self, request, user):
+        pass
