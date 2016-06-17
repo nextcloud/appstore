@@ -44,14 +44,14 @@
                       {% endif %}
                       {% if request.user.is_authenticated %}
                       <li>
-                        <a href="{% url 'auth_logout' %}">Logout</a>
+                        <a href="{% url 'account_logout' %}">Log out</a>
                       </li>
                       {% else %}
                       <li>
-                        <a href="{% url 'auth_login' %}">Login</a>
+                        <a href="{% url 'account_login' %}">Log in</a>
                       </li>
                       <li>
-                        <a href="{% url 'registration_register' %}">Register</a>
+                        <a href="{% url 'account_signup' %}">Register</a>
                       </li>
                       {% endif %}
                   </ul>
