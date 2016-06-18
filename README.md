@@ -1,7 +1,7 @@
 # Nextcloud App Store
 
 [![Build Status](https://travis-ci.org/nextcloud/appstore.svg?branch=master)](https://travis-ci.org/nextcloud/appstore)
-[![License](https://img.shields.io/badge/license-%23AGPLv3+-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
+[![License](https://img.shields.io/badge/license-AGPLv3+-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![IRC](https://img.shields.io/badge/irc%20channel-%23nextcloud--dev%20on%20freenode-blue.svg)](https://webchat.freenode.net/?channels=nextcloud-dev)
 
 ## Dependencies
