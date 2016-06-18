@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/badge/license-AGPLv3+-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![IRC](https://img.shields.io/badge/irc%20channel-%23nextcloud--dev%20on%20freenode-blue.svg)](https://webchat.freenode.net/?channels=nextcloud-dev)
 
+A new app store for Nextcloud apps which is currently work in progress.
+
 ## Dependencies
 
 * Python >= 3.4
@@ -185,7 +187,7 @@ STATIC_ROOT = '/var/www/production-domain.com/static/'
 
 # Url for serving stuff uploaded by users
 MEDIA_URL = 'https://separate-domain.com/upload/'
-MEDIA_ROOT = '/var/www/example.com/upload/'
+MEDIA_ROOT = '/var/www/production-domain.com/upload/'
 
 # Public and private keys for Googles recaptcha
 RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
