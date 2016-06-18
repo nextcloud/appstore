@@ -25,25 +25,33 @@ def parse_git_author(line):
         raise ValueError('Could not extract authors from line %s' % line)
 
 
-def to_rst(author):
-    return '* `%s <mailto:%s>`_' % (author['name'], author['email'])
+def to_markdown(authors):
+    result = ['# Authors', '']
+    for author in authors:
+        result += ['* [%s](mailto:%s)' % (author['name'], author['email'])]
+    return '\n'.join(result)
 
 
-def get_authors_file():
+def to_rst(authors):
+    result = ['Authors', '=======', '']
+    for author in authors:
+        result += ['* `%s <mailto:%s>`_' % (author['name'], author['email'])]
+    return '\n'.join(result)
+
+
+def get_authors_file(suffix):
     directory = dirname(realpath(__file__))
     directory = join(directory, pardir)
-    return join(directory, 'AUTHORS.rst')
+    return join(directory, 'AUTHORS.%s' % suffix)
 
 
 def main():
     authors = get_git_authors()
     authors = filter(lambda name: name.strip() != '', authors)
     authors = [parse_git_author(author) for author in authors]
-    authors = [to_rst(author) for author in authors]
-    authors = ['Authors', '=======', ''] + authors
-    rst = '\n'.join(authors)
-    with open(get_authors_file(), 'w') as f:
-        f.write(rst)
+    text = to_rst(authors)
+    with open(get_authors_file('rst'), 'w') as f:
+        f.write(text)
 
 
 if __name__ == '__main__':
