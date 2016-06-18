@@ -1,9 +1,10 @@
 from django.conf.urls import url
-from nextcloudappstore.core.api.v1.views import Apps, AppReleases
+from django.views.decorators.http import etag
+from nextcloudappstore.core.api.v1.views import Apps, AppReleases, app_api_etag
 
 urlpatterns = [
-    url(r'^platform/(?P<version>\d+\.\d+\.\d+)/apps\.json$', Apps.as_view(),
-        name='apps'),
+    url(r'^platform/(?P<version>\d+\.\d+\.\d+)/apps\.json$',
+        etag(app_api_etag)(Apps.as_view()), name='apps'),
     url(r'^apps/releases/?$', AppReleases.as_view(),
         name='app-release-create'),
     url(r'^apps/(?P<pk>[a-z_]+)/?$', Apps.as_view(), name='app-delete'),

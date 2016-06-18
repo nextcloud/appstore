@@ -13,7 +13,7 @@ This is the route that will return all releases to display inside Nextcloud's ap
         curl http://localhost:8000/api/v1/platform/9.0.0/apps.json
 
 * **Authentication**: None
-
+* **Caching**: Etag
 * **Returns**: application/json
     ```json
     [

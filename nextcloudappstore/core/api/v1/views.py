@@ -4,6 +4,7 @@ from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer
+from django.db.models import Max, Count
 from nextcloudappstore.core.models import App, AppRelease
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
@@ -14,6 +15,28 @@ from rest_framework.generics import DestroyAPIView, \
     get_object_or_404  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
+
+
+def app_api_etag(request, version):
+    app_aggr = App.objects.aggregate(count=Count('*'),
+                                     modified=Max('last_modified'))
+    release_aggr = AppRelease.objects.aggregate(count=Count('*'),
+                                                modified=Max('last_modified'))
+    release_modified = release_aggr['modified']
+    app_modified = app_aggr['modified']
+    count = '%i-%i' % (app_aggr['count'], release_aggr['count'])
+
+    if app_modified is None and release_modified is None:
+        return None
+    elif app_modified is None:
+        return '%s-%s' % (count, release_modified)
+    elif release_modified is None:
+        return '%s-%s' % (count, app_modified)
+    else:
+        if app_modified > release_modified:
+            return '%s-%s' % (count, app_modified)
+        else:
+            return '%s-%s' % (count, release_modified)
 
 
 class Apps(DestroyAPIView):
