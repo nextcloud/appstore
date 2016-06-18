@@ -1,6 +1,7 @@
-from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from parler.models import TranslatedFields, TranslatableModel
+from django.contrib.auth.models import User  # type: ignore
+from django.db import models  # type: ignore
+from django.utils.translation import ugettext_lazy as _  # type: ignore
+from parler.models import TranslatedFields, TranslatableModel  # type: ignore
 
 
 class App(TranslatableModel):
@@ -47,13 +48,13 @@ class App(TranslatableModel):
         verbose_name = _('App')
         verbose_name_plural = _('Apps')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
-    def can_update(self, user):
+    def can_update(self, user: User) -> bool:
         return self.owner == user or user in self.co_maintainers.all()
 
-    def can_delete(self, user):
+    def can_delete(self, user: User) -> bool:
         return self.owner == user
 
 
@@ -64,10 +65,11 @@ class AppRelease(models.Model):
     app = models.ForeignKey('App', on_delete=models.CASCADE,
                             verbose_name=_('App'), related_name='releases')
     # dependencies
-    libs = models.ManyToManyField('PhpExtension',
-                                  through='PhpExtensionDependency',
-                                  verbose_name=_('PHP extension dependency'),
-                                  blank=True)
+    php_extensions = models.ManyToManyField('PhpExtension',
+                                            through='PhpExtensionDependency',
+                                            verbose_name=_(
+                                                'PHP extension dependency'),
+                                            blank=True)
     databases = models.ManyToManyField('Database',
                                        through='DatabaseDependency',
                                        verbose_name=_('Database dependency'),
@@ -88,11 +90,9 @@ class AppRelease(models.Model):
                                             verbose_name=_(
                                                 'Platform maximum version'))
     min_int_size = models.IntegerField(blank=True, default=0,
-                                       verbose_name=_(
-                                           'Minimum Integer Bits'),
+                                       verbose_name=_('Minimum Integer Bits'),
                                        help_text=_(
-                                           'e.g. 32 for 32bit '
-                                           'Integers'))
+                                           'e.g. 32 for 32bit Integers'))
     checksum = models.CharField(max_length=64,
                                 verbose_name=_('SHA256 checksum'))
     download = models.URLField(max_length=256, blank=True,
@@ -107,13 +107,13 @@ class AppRelease(models.Model):
         verbose_name_plural = _('App Releases')
         unique_together = (('app', 'version'),)
 
-    def can_update(self, user):
+    def can_update(self, user: User) -> bool:
         return self.app.owner == user or user in self.app.co_maintainers.all()
 
-    def can_delete(self, user):
+    def can_delete(self, user: User) -> bool:
         return self.can_update(user)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '%s %s' % (self.app, self.version)
 
 
@@ -128,7 +128,7 @@ class Screenshot(models.Model):
         verbose_name_plural = _('Screenshots')
         ordering = ['ordering']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.url
 
 
@@ -142,7 +142,7 @@ class ShellCommand(models.Model):
         verbose_name = _('Shell Command')
         verbose_name_plural = _('Shell Commands')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -169,7 +169,7 @@ class Category(TranslatableModel):
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -187,7 +187,7 @@ class License(models.Model):
         verbose_name = _('License')
         verbose_name_plural = _('Licenses')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -205,7 +205,7 @@ class Database(models.Model):
         verbose_name = _('Database')
         verbose_name_plural = _('Databases')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -214,7 +214,8 @@ class DatabaseDependency(models.Model):
                                     verbose_name=_('App release'),
                                     related_name='databasedependencies')
     database = models.ForeignKey('Database', on_delete=models.CASCADE,
-                                 verbose_name=_('Database'))
+                                 verbose_name=_('Database'),
+                                 related_name='releasedependencies')
     min_version = models.CharField(max_length=128,
                                    verbose_name=_(
                                        'Database minimum version'))
@@ -228,7 +229,7 @@ class DatabaseDependency(models.Model):
         unique_together = (('app_release', 'database', 'min_version',
                             'max_version'),)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '%s: %s >=%s, <=%s' % (self.app_release, self.database,
                                       self.min_version,
                                       self.max_version)
@@ -243,7 +244,7 @@ class PhpExtension(models.Model):
         verbose_name = _('PHP Extension')
         verbose_name_plural = _('PHP Extensions')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.id
 
 
@@ -252,7 +253,8 @@ class PhpExtensionDependency(models.Model):
                                     verbose_name=_('App Release'),
                                     related_name='phpextensiondependencies')
     php_extension = models.ForeignKey('PhpExtension', on_delete=models.CASCADE,
-                                      verbose_name=_('PHP Extension'))
+                                      verbose_name=_('PHP Extension'),
+                                      related_name='releasedependencies')
     min_version = models.CharField(max_length=128,
                                    verbose_name=_(
                                        'Extension minimum version'))
@@ -267,7 +269,7 @@ class PhpExtensionDependency(models.Model):
         unique_together = (('app_release', 'php_extension', 'min_version',
                             'max_version'),)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '%s: %s >=%s, <=%s' % (self.app_release.app, self.php_extension,
                                       self.min_version,
                                       self.max_version)

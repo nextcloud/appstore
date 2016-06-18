@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/info">
+        <app>
+            <!-- must have attributes -->
+            <id>
+                <xsl:value-of select="id"/>
+            </id>
+            <categories type="list">
+                <xsl:for-each select="category">
+                    <category>
+                        <id>
+                            <xsl:value-of select="."/>
+                        </id>
+                    </category>
+                </xsl:for-each>
+            </categories>
+
+            <description>
+                <xsl:for-each select="description">
+                    <xsl:choose>
+                        <xsl:when test="@lang">
+                            <xsl:element name="{@lang}">
+                                <xsl:value-of select="."/>
+                            </xsl:element>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <en>
+                                <xsl:value-of select="."/>
+                            </en>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each>
+            </description>
+
+            <name>
+                <xsl:for-each select="name">
+                    <xsl:choose>
+                        <xsl:when test="@lang">
+                            <xsl:element name="{@lang}">
+                                <xsl:value-of select="."/>
+                            </xsl:element>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <en>
+                                <xsl:value-of select="."/>
+                            </en>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each>
+            </name>
+
+            <screenshots type="list">
+                <xsl:for-each select="screenshot">
+                    <screenshot>
+                        <url>
+                            <xsl:value-of select="."/>
+                        </url>
+                        <ordering type="int">
+                            <xsl:value-of select="position()"/>
+                        </ordering>
+                    </screenshot>
+                </xsl:for-each>
+            </screenshots>
+
+            <!-- optional elements need defaults -->
+            <user-docs>
+                <xsl:value-of select="documentation/user"/>
+            </user-docs>
+            <admin-docs>
+                <xsl:value-of select="documentation/admin"/>
+            </admin-docs>
+            <developer-docs>
+                <xsl:value-of select="documentation/developer"/>
+            </developer-docs>
+
+            <website>
+                <xsl:value-of select="website"/>
+            </website>
+            <issue-tracker>
+                <xsl:value-of select="bugs"/>
+            </issue-tracker>
+
+            <!-- release -->
+            <release>
+                <version>
+                    <xsl:value-of select="version"/>
+                </version>
+                <licenses type="list">
+                    <xsl:for-each select="licence">
+                        <license>
+                            <id>
+                                <xsl:value-of select="."/>
+                            </id>
+                        </license>
+                    </xsl:for-each>
+                </licenses>
+
+                <xsl:apply-templates select="dependencies"/>
+            </release>
+        </app>
+    </xsl:template>
+
+    <xsl:template match="dependencies">
+        <php-min-version>
+            <xsl:value-of select="php/@min-version"/>
+        </php-min-version>
+        <php-max-version>
+            <xsl:value-of select="php/@max-version"/>
+        </php-max-version>
+        <xsl:choose>
+            <xsl:when test="php/@min-int-size">
+                <min-int-size type="int">
+                    <xsl:value-of select="php/@min-int-size"/>
+                </min-int-size>
+            </xsl:when>
+            <xsl:otherwise>
+                <min-int-size type="int">32</min-int-size>
+            </xsl:otherwise>
+        </xsl:choose>
+        <platform-min-version>
+            <xsl:value-of select="owncloud/@min-version"/>
+        </platform-min-version>
+        <platform-max-version>
+            <xsl:value-of select="owncloud/@max-version"/>
+        </platform-max-version>
+
+        <php-extensions type="list">
+            <xsl:for-each select="lib">
+                <php-extension>
+                    <min-version>
+                        <xsl:value-of select="@min-version"/>
+                    </min-version>
+                    <max-version>
+                        <xsl:value-of select="@max-version"/>
+                    </max-version>
+                    <id>
+                        <xsl:value-of select="."/>
+                    </id>
+                </php-extension>
+            </xsl:for-each>
+        </php-extensions>
+        <databases type="list">
+            <xsl:for-each select="database">
+                <database>
+                    <min-version>
+                        <xsl:value-of select="@min-version"/>
+                    </min-version>
+                    <max-version>
+                        <xsl:value-of select="@max-version"/>
+                    </max-version>
+                    <id>
+                        <xsl:value-of select="."/>
+                    </id>
+                </database>
+            </xsl:for-each>
+        </databases>
+        <shell-commands type="list">
+            <xsl:for-each select="command">
+                <shell-command>
+                    <name>
+                        <xsl:value-of select="."/>
+                    </name>
+                </shell-command>
+            </xsl:for-each>
+        </shell-commands>
+    </xsl:template>
+</xsl:stylesheet>

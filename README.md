@@ -193,8 +193,11 @@ RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
 
 # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
 EMAIL_HOST = 'localhost'
-# https://docs.djangoproject.com/en/1.9/ref/settings/#default-from-email
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+# how many times a user is allowed to call the app upload route per day
+REST_FRAMEWORK['DEFAULT_THROTTLE_RATES'] = {
+   'app_upload_or_delete': '20/day'
+}
 ```
 
 For more information about web server setup, take a look at [the deployment documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/)
