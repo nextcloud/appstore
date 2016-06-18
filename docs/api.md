@@ -3,7 +3,7 @@ This is a draft and will continuously be updated :)
 
 
 ## Get All Apps And Their Releases For a Platform Release
-This is the route that will return all releases to display inside Nextcloud's apps admin area. Future releases will add Http caching.
+This is the route that will return all releases to display inside Nextcloud's apps admin area. 
 
 * **Url**: GET /api/v1/platform/{platform-version}/apps.json
   * **Parameters**:
