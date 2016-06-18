@@ -29,14 +29,14 @@ def to_markdown(authors):
     result = ['# Authors', '']
     for author in authors:
         result += ['* [%s](mailto:%s)' % (author['name'], author['email'])]
-    return '\n'.join(result)
+    return '\n'.join(result), 'md'
 
 
 def to_rst(authors):
     result = ['Authors', '=======', '']
     for author in authors:
         result += ['* `%s <mailto:%s>`_' % (author['name'], author['email'])]
-    return '\n'.join(result)
+    return '\n'.join(result), 'rst'
 
 
 def get_authors_file(suffix):
@@ -49,8 +49,8 @@ def main():
     authors = get_git_authors()
     authors = filter(lambda name: name.strip() != '', authors)
     authors = [parse_git_author(author) for author in authors]
-    text = to_rst(authors)
-    with open(get_authors_file('rst'), 'w') as f:
+    text, extension = to_rst(authors)
+    with open(get_authors_file(extension), 'w') as f:
         f.write(text)
 
 
