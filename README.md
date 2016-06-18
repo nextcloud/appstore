@@ -1,6 +1,8 @@
 # Nextcloud App Store
 
 [![Build Status](https://travis-ci.org/nextcloud/appstore.svg?branch=master)](https://travis-ci.org/nextcloud/appstore)
+[![License](https://img.shields.io/badge/license-%23AGPLv3+-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
+[![IRC](https://img.shields.io/badge/irc%20channel-%23nextcloud--dev%20on%20freenode-blue.svg)](https://webchat.freenode.net/?channels=nextcloud-dev)
 
 ## Dependencies
 
@@ -79,8 +81,8 @@ If you are running a development setup, you should also install the development 
     pip3 install -r requirements/development.txt
 
 ### Adjusting Default Settings
-To get your instance running in development or in production you need to create your local settings file in 
-**nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in 
+To get your instance running in development or in production you need to create your local settings file in
+**nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in
 **nextcloudappstore/local\_settings.py**. The local settings file is excluded from version control.
 
 For development paste in the following file contents:
