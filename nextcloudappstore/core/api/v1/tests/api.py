@@ -1,6 +1,6 @@
 import base64
 
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework import HTTP_HEADER_ENCODING
 from rest_framework.test import APIClient
@@ -8,8 +8,9 @@ from rest_framework.test import APIClient
 
 class ApiTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='test', password='test',
-                                             email='test@test.com')
+        self.user = get_user_model().objects.create_user(username='test',
+                                                         password='test',
+                                                         email='test@test.com')
         self.api_client = APIClient()
 
     def _login(self, user='test', password='test'):

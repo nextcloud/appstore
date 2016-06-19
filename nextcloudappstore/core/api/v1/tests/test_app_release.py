@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from nextcloudappstore.core.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.models import App, AppRelease
@@ -33,16 +33,18 @@ class AppReleaseTest(ApiTest):
         self.assertEqual(401, response.status_code)
 
     def test_delete_unauthorized(self):
-        owner = User.objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         self.create_release(owner)
         self._login()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(403, response.status_code)
 
     def test_delete_co_maintainer(self):
-        owner = User.objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         self.create_release(owner=owner, co_maintainers=[self.user])
         self._login()
         response = self.api_client.delete(self.delete_url)
@@ -64,8 +66,9 @@ class AppReleaseTest(ApiTest):
 
     @patch.object(AppReleaseProvider, 'get_release_info')
     def test_create_unauthorized(self, get_release_info):
-        owner = User.objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         self.create_release(owner)
         self._login()
 
@@ -77,8 +80,9 @@ class AppReleaseTest(ApiTest):
 
     @patch.object(AppReleaseProvider, 'get_release_info')
     def test_create_co_maintainer(self, get_release_info):
-        owner = User.objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         self.create_release(owner=owner, co_maintainers=[self.user])
         self._login()
 
