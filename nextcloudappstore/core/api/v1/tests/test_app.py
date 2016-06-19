@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from nextcloudappstore.core.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.models import App, AppRelease
@@ -26,7 +26,7 @@ class AppTest(ApiTest):
         self.assertEqual(401, response.status_code)
 
     def test_delete_unauthorized(self):
-        owner = User.objects.create_user(username='owner', password='owner',
+        owner = get_user_model().objects.create_user(username='owner', password='owner',
                                          email='owner@owner.com')
         App.objects.create(id='news', owner=owner)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
@@ -35,7 +35,7 @@ class AppTest(ApiTest):
         self.assertEqual(403, response.status_code)
 
     def test_delete_co_maintainer(self):
-        owner = User.objects.create_user(username='owner', password='owner',
+        owner = get_user_model().objects.create_user(username='owner', password='owner',
                                          email='owner@owner.com')
         app = App.objects.create(id='news', owner=owner)
         app.co_maintainers.add(self.user)

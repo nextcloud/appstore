@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
@@ -15,7 +15,7 @@ class ImporterTest(TestCase):
         self.config = ReleaseConfig()
         self.min = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
         self.full = read_relative_file(__file__, 'data/infoxmls/full.xml')
-        self.user = User.objects.create_user(username='test', password='test',
+        self.user = get_user_model().objects.create_user(username='test', password='test',
                                              email='test@test.com')
         self.app = App.objects.create(pk='news', owner=self.user)
         Screenshot.objects.create(url='https://google.com', ordering=1,
