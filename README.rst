@@ -17,4 +17,4 @@ Nextcloud App Store
 
 A new app store for Nextcloud apps which is currently work in progress.
 
-Documentation including Setup and API Specification are `available on Read the Docs <http://nextcloudappstore.readthedocs.io/en/latest>`_
+Documentation including Setup and API Specification are `available on Read the Docs <https://nextcloudappstore.readthedocs.io/en/latest/>`_
