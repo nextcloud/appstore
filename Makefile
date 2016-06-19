@@ -20,6 +20,7 @@ resetup:
 	$(manage) makemigrations
 	$(manage) migrate
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell
+	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json
 
 # Only for local setup, do not use in production
