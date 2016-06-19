@@ -11,7 +11,13 @@ class AppReleaseTest(ApiTest):
     delete_url = reverse('api-v1:app-release-delete',
                          kwargs={'app': 'news', 'version': '9.0.0'})
     create_url = reverse('api-v1:app-release-create')
-    app_args = {'app': {'id': 'news', 'release': {'version': '9.0.0'}}}
+    app_args = {'app': {'id': 'news', 'release': {
+        'version': '9.0.0',
+        'platform_min_version': '9.0.0',
+        'platform_max_version': '*',
+        'php_min_version': '5.6.0',
+        'php_max_version': '*',
+    }}}
 
     def create_release(self, owner, version='9.0.0', co_maintainers=[]):
         app = App.objects.create(id='news', owner=owner)

@@ -33,10 +33,10 @@ class ParserTest(TestCase):
                 'licenses': [{'license': {'id': 'agpl'}}],
                 'min_int_size': 32,
                 'php_extensions': [],
-                'php_max_version': None,
-                'php_min_version': None,
-                'platform_max_version': None,
-                'platform_min_version': '9.0',
+                'php_max_version': '*',
+                'php_min_version': '*',
+                'platform_max_version': '*',
+                'platform_min_version': '9.0.0',
                 'shell_commands': [],
                 'version': '8.8.2'
             }
@@ -114,17 +114,17 @@ class ParserTest(TestCase):
                 'databases': [
                     {'database': {
                         'id': 'pgsql',
-                        'max_version': None,
-                        'min_version': '9.4'
+                        'max_version': '*',
+                        'min_version': '9.4.0'
                     }},
                     {'database': {
                         'id': 'sqlite',
-                        'max_version': None,
-                        'min_version': None}},
+                        'max_version': '*',
+                        'min_version': '*'}},
                     {'database': {
                         'id': 'mysql',
-                        'max_version': None,
-                        'min_version': '5.5'
+                        'max_version': '*',
+                        'min_version': '5.5.0'
                     }}
                 ],
                 'licenses': [
@@ -134,30 +134,30 @@ class ParserTest(TestCase):
                 'min_int_size': 64,
                 'php_extensions': [
                     {'php_extension': {
-                        'max_version': None,
+                        'max_version': '*',
                         'min_version': '2.7.8',
                         'id': 'libxml'
                     }},
                     {'php_extension': {
-                        'max_version': None,
-                        'min_version': None,
+                        'max_version': '*',
+                        'min_version': '*',
                         'id': 'curl'
                     }},
                     {'php_extension': {
-                        'max_version': None,
-                        'min_version': None,
+                        'max_version': '*',
+                        'min_version': '*',
                         'id': 'SimpleXML'
                     }},
                     {'php_extension': {
-                        'max_version': None,
-                        'min_version': None,
+                        'max_version': '*',
+                        'min_version': '*',
                         'id': 'iconv'
                     }}
                 ],
-                'php_max_version': None,
-                'php_min_version': '5.6',
-                'platform_max_version': '9.1',
-                'platform_min_version': '9.0',
+                'php_max_version': '*',
+                'php_min_version': '5.6.0',
+                'platform_max_version': '9.2.0',
+                'platform_min_version': '9.0.0',
                 'shell_commands': [
                     {'shell_command': {'name': 'grep'}},
                     {'shell_command': {'name': 'ls'}}

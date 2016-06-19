@@ -83,7 +83,7 @@
 
             <!-- release -->
             <release>
-                <version>
+                <version type="min-version">
                     <xsl:value-of select="version"/>
                 </version>
                 <licenses type="list">
@@ -102,10 +102,10 @@
     </xsl:template>
 
     <xsl:template match="dependencies">
-        <php-min-version>
+        <php-min-version type="min-version">
             <xsl:value-of select="php/@min-version"/>
         </php-min-version>
-        <php-max-version>
+        <php-max-version type="max-version">
             <xsl:value-of select="php/@max-version"/>
         </php-max-version>
         <xsl:choose>
@@ -118,20 +118,20 @@
                 <min-int-size type="int">32</min-int-size>
             </xsl:otherwise>
         </xsl:choose>
-        <platform-min-version>
+        <platform-min-version type="min-version">
             <xsl:value-of select="owncloud/@min-version"/>
         </platform-min-version>
-        <platform-max-version>
+        <platform-max-version type="max-version">
             <xsl:value-of select="owncloud/@max-version"/>
         </platform-max-version>
 
         <php-extensions type="list">
             <xsl:for-each select="lib">
                 <php-extension>
-                    <min-version>
+                    <min-version type="min-version">
                         <xsl:value-of select="@min-version"/>
                     </min-version>
-                    <max-version>
+                    <max-version type="max-version">
                         <xsl:value-of select="@max-version"/>
                     </max-version>
                     <id>
@@ -143,10 +143,10 @@
         <databases type="list">
             <xsl:for-each select="database">
                 <database>
-                    <min-version>
+                    <min-version type="min-version">
                         <xsl:value-of select="@min-version"/>
                     </min-version>
-                    <max-version>
+                    <max-version type="max-version">
                         <xsl:value-of select="@max-version"/>
                     </max-version>
                     <id>

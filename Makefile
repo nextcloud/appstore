@@ -8,7 +8,7 @@ manage=$(python) $(CURDIR)/manage.py
 
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
-	$(mypy) --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
+	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 
 test: lint
 	$(manage) test

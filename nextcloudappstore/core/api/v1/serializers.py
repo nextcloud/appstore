@@ -3,29 +3,32 @@ from nextcloudappstore.core.validators import HttpsUrlValidator
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
+from rest_framework.fields import SerializerMethodField
 
 
 class PhpExtensionDependencySerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField(source='php_extension.id')
+    version_spec = SerializerMethodField()
 
     class Meta:
         model = PhpExtensionDependency
-        fields = ('id', 'min_version', 'max_version')
+        fields = ('id', 'version_spec')
+
+    def get_version_spec(self, obj):
+        return obj.version_spec.replace(',', ' ')
 
 
 class DatabaseDependencySerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField(source='database.id')
     name = serializers.ReadOnlyField(source='database.name')
+    version_spec = SerializerMethodField()
 
     class Meta:
         model = DatabaseDependency
-        fields = ('id', 'name', 'min_version', 'max_version')
+        fields = ('id', 'name', 'version_spec')
 
-
-class LicenseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = License
-        fields = ('id', 'name')
+    def get_version_spec(self, obj):
+        return obj.version_spec.replace(',', ' ')
 
 
 class LicenseSerializer(serializers.ModelSerializer):
@@ -49,15 +52,22 @@ class AppReleaseSerializer(serializers.ModelSerializer):
         PhpExtensionDependencySerializer(many=True, read_only=True,
                                          source='phpextensiondependencies')
     licenses = LicenseSerializer(many=True, read_only=True)
+    php_version_spec = SerializerMethodField()
+    platform_version_spec = SerializerMethodField()
 
     class Meta:
         model = AppRelease
         fields = (
             'version', 'php_extensions', 'databases', 'shell_commands',
-            'php_min_version', 'php_max_version', 'platform_min_version',
-            'platform_max_version', 'min_int_size', 'download', 'created',
-            'licenses', 'last_modified', 'checksum'
+            'php_version_spec', 'platform_version_spec', 'min_int_size',
+            'download', 'created', 'licenses', 'last_modified', 'checksum'
         )
+
+    def get_platform_version_spec(self, obj):
+        return obj.platform_version_spec.replace(',', ' ')
+
+    def get_php_version_spec(self, obj):
+        return obj.php_version_spec.replace(',', ' ')
 
 
 class ScreenshotSerializer(serializers.ModelSerializer):

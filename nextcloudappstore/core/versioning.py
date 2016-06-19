@@ -1,37 +1,48 @@
-from semantic_version import Version
-import sys
-
-
-def pad_max_version(version):
+def pad_max_version(version: str) -> str:
     """
-    :argument version maximum version which is padded with the biggest number
-    this is because you want the maximum version 9.1 to be valid for 9.1.1
+    Turns inclusive maximum versions into exclusiv semantic versions
+    e.g.: 9 into 10.0.0, 9.0 into 9.1.0, 9.0.0 into 9.0.1
+    :argument inclusive version maximum to pad
+    :return an exclusive maximum version
     """
-    while version.count('.') < 2:
-        version += '.%i' % sys.maxsize
-    return version
+    if not version:
+        return '*'
+
+    parts = [int(part) for part in version.split('.')]
+    if len(parts) == 1:
+        parts[0] += 1
+        parts += [0, 0]
+    elif len(parts) == 2:
+        parts[1] += 1
+        parts += [0]
+    elif len(parts) == 3:
+        parts[2] += 1
+    else:
+        raise ValueError('Could not parse version %s' % version)
+    return '.'.join([str(part) for part in parts])
 
 
-def pad_version(version):
+def pad_min_version(version: str) -> str:
+    if not version:
+        return '*'
     while version.count('.') < 2:
         version += '.0'
     return version
 
 
-def includes_release(release, version_string):
-    version = Version(pad_version(version_string))
-    includes_min = True
-    includes_max = True
-    if release.platform_min_version:
-        min_version = pad_version(release.platform_min_version)
-        includes_min = Version(min_version) <= version
-    if release.platform_max_version:
-        max_version = pad_max_version((release.platform_max_version))
-        includes_max = Version(max_version) >= version
-    return includes_max and includes_min
-
-
-def app_has_included_release(app, version_string):
-    releases = app.releases.all()
-    releases = filter(lambda r: includes_release(r, version_string), releases)
-    return len(list(releases)) > 0
+def to_spec(min_version: str, max_version: str) -> str:
+    """
+    Combines minimum and maximum version into a spec. Requires semantic
+    versions as strings
+    :argument min_version: min version
+    :argument max_version: max version
+    :return: the spec
+    """
+    if max_version == '*' and min_version == '*':
+        return '*'
+    elif max_version == '*':
+        return '>=%s' % min_version
+    elif min_version == '*':
+        return '<%s' % max_version
+    else:
+        return '>=%s,<%s' % (min_version, max_version)

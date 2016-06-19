@@ -1,6 +1,6 @@
 from typing import Dict, Any, Set  # type: ignore
+from nextcloudappstore.core.versioning import to_spec
 from semantic_version import Version  # type: ignore
-
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension
@@ -42,13 +42,12 @@ class ScalarImporter(Importer):
 class PhpExtensionImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         for ext in value:
+            version_spec = to_spec(ext['php_extension']['min_version'],
+                                   ext['php_extension']['max_version'])
             extension, created = PhpExtension.objects.get_or_create(
                 id=ext['php_extension']['id'])
             PhpExtensionDependency.objects.create(
-                max_version=none_to_empty_string(
-                    ext['php_extension']['max_version']),
-                min_version=none_to_empty_string(
-                    ext['php_extension']['min_version']),
+                version_spec=version_spec,
                 app_release=obj, php_extension=extension,
             )
 
@@ -56,13 +55,12 @@ class PhpExtensionImporter(ScalarImporter):
 class DatabaseImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         for db in value:
+            version_spec = to_spec(db['database']['min_version'],
+                                   db['database']['max_version'])
             # all dbs should be known already
             database = Database.objects.get(id=db['database']['id'])
             DatabaseDependency.objects.create(
-                max_version=none_to_empty_string(
-                    db['database']['max_version']),
-                min_version=none_to_empty_string(
-                    db['database']['min_version']),
+                version_spec=version_spec,
                 app_release=obj, database=database,
             )
 
@@ -95,6 +93,16 @@ class IntegerAttributeImporter(ScalarImporter):
 class StringAttributeImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         setattr(obj, key, none_to_empty_string(value))
+
+
+class MinVersionImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        setattr(obj, key, value)
+
+
+class MaxVersionImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        setattr(obj, key, value)
 
 
 class ScreenshotsImporter(ScalarImporter):
@@ -136,15 +144,14 @@ class AppReleaseImporter(Importer):
             'php_extensions': php_extension_importer,
             'databases': database_importer,
             'licenses': license_importer,
-            'php_min_version': string_attribute_importer,
-            'php_max_version': string_attribute_importer,
-            'platform_min_version': string_attribute_importer,
-            'platform_max_version': string_attribute_importer,
+            'php_version_spec': string_attribute_importer,
+            'platform_version_spec': string_attribute_importer,
             'min_int_size': integer_attribute_importer,
             'shell_commands': shell_command_importer,
             'checksum': string_attribute_importer,
             'download': string_attribute_importer,
-        }, {'version'})
+        }, {'version', 'php_min_version', 'php_max_version',
+            'platform_min_version', 'platform_max_version'})
 
     def _before_import(self, obj: Any) -> None:
         obj.licenses.clear()
@@ -152,6 +159,14 @@ class AppReleaseImporter(Importer):
         obj.licenses.clear()
         obj.php_extensions.clear()
         obj.databases.clear()
+
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        # combine versions into specs
+        value['platform_version_spec'] = to_spec(
+            value['platform_min_version'], value['platform_max_version'])
+        value['php_version_spec'] = to_spec(value['php_min_version'],
+                                            value['php_max_version'])
+        super().import_data(key, value, obj)
 
     def _get_object(self, value: Any, obj: Any) -> Any:
         release, created = AppRelease.objects.get_or_create(
