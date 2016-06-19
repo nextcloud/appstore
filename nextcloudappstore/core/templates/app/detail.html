@@ -15,25 +15,22 @@
         <a href="#app_documentation" data-toggle="tab">Documentation</a>
       </li>
       <li>
-        <a href="#app_users" data-toggle="tab">Authors/Maintainers</a>
-      </li>
-      <li>
         <a href="#app_releases" data-toggle="tab">Releases</a>
       </li>
   </ul>
-  <div class="tab-content ">
+  <div id="app_details_tab_content" class="tab-content">
     <div class="tab-pane active" id="app_overview">
     <div class="well"><p>{{ object.description }}</p></div>
       <table class='table' >
         {% if object.issue_tracker %}
         <tr>
-          <th> {% trans "Issue tracker" %} </th>
+          <th>{% trans "Issue tracker" %}</th>
           <td><a href="{{ object.issue_tracker }}">{{ object.issue_tracker }}</a></td>
         </tr>
         {% endif %}
         {% if object.website %}
         <tr>
-          <th> {% trans "Homepage" %} </th>
+          <th>{% trans "Homepage" %}</th>
           <td><a href="{{ object.website }}">{{ object.website }}</a></td>
         </tr>
         {% endif %}
@@ -45,19 +42,35 @@
         {% endif %}
         {% if object.last_modified %}
         <tr>
-          <th> {% trans "Last modified on" %} </th>
+          <th>{% trans "Last modified on" %}</th>
           <td>{{ object.last_modified }}</td>
         </tr>
         {% endif %}
         {% if object.owner %}
         <tr>
-          <th> {% trans "Owner" %} </th>
+          <th>{% trans "Owner" %}</th>
           <td>
             {% if object.owner.get_fullname %}
               {{ object.owner.get_fullname }}
             {% else %}
               {{ object.owner.username }}
             {% endif %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if object.co_maintainers.all %}
+        <tr>
+          <th>{% trans "Maintainers" %}</th>
+          <td>
+            <ul class="list-inline">
+              {% for a in object.co_maintainers.all %}
+                <li>{% if object.owner.get_fullname %}
+                    {{ object.owner.get_fullname }}
+                  {% else %}
+                    {{ object.owner.username }}
+                  {% endif %}
+              {% endfor %}
+            </ul>
           </td>
         </tr>
         {% endif %}
@@ -103,69 +116,25 @@
     <table class='table' >
       {% if object.user_docs %}
         <tr>
-          <th> {% trans "User documentation" %} </th>
+          <th>{% trans "User documentation" %}</th>
           <td><a href="{{ object.user_docs }}">{{ object.user_docs }}</a></td>
         </tr>
       {% endif %}
       {% if object.admin_docs %}
       <tr>
-        <th> {% trans "Administration documentation" %} </th>
+        <th>{% trans "Administration documentation" %}</th>
         <td><a href="{{ object.admin_docs }}">{{ object.admin_docs }}</a></td>
       </tr>
       {% endif %}
       {% if object.developer_docs %}
       <tr>
-        <th> {% trans "Developer documentation" %} </th>
+        <th>{% trans "Developer documentation" %}</th>
         <td><a href="{{ object.developer_docs }}">{{ object.developer_docs }}</a></td>
       </tr>
       {% endif %}
     </table>
   </div>
-  <div class="tab-pane" id="app_users">
-    <h2>Authors and Maintainers</h2>
-    <table class='table' >
-      <tr>
-        <td>
-          <table>
-            <tr>
-              <th>Authors</th>
-            </tr>
-            {% for a in object.authors.all %}
-            <tr>
-              <td>
-                {% if object.owner.get_fullname %}
-                  {{ object.owner.get_fullname }}
-                {% else %}
-                  {{ object.owner.username }}
-                {% endif %}
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
-        </td>
-        <td>
-          <table>
-            <tr>
-              <th>Co-Maintainers</th>
-            </tr>
-            {% for a in object.co_maintainers.all %}
-            <tr>
-              <td>
-                {% if object.owner.get_fullname %}
-                  {{ object.owner.get_fullname }}
-                {% else %}
-                  {{ object.owner.username }}
-                {% endif %}
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
-        </td>
-      </tr>
-    </table>
-  </div>
   <div class="tab-pane" id="app_releases">
-    <h2>Releases</h2>
       <ul class="nav nav-pills nav-stacked col-md-2">
         {% for release in object.releases.all %}
           <li class="{% if forloop.first %}active{% endif %}"><a href="#release_tab_{{ forloop.counter0 }}" data-toggle="pill">{{ release.version }}</a></li>
@@ -186,27 +155,27 @@
                 <div class="tab-pane active" id="release_overview">
                   <table class="table">
                     <tr>
-                      <th>Supported Nextcloud Versions</th>
+                      <th>{% trans "Supported Nextcloud Versions" %}</th>
                       <td>{{ release.platform_min_version }} - {{ release.platform_max_version }}</td>
                     </tr>
                     <tr>
-                      <th>Supported PHP Versions</th>
+                      <th>{% trans "Supported PHP Versions" %}</th>
                       <td>{{ release.php_min_version }} - {{ release.php_max_version }}</td>
                     </tr>
                     <tr>
-                      <th>Minimum Integer Bits</th>
+                      <th>{% trans "Minimum Integer Bits" %}</th>
                       <td>{{ release.min_int_size }}bit</td>
                     </tr>
                     <tr>
-                      <th>Download URL</th>
+                      <th>{% trans "Download URL" %}</th>
                       <td><a href="{{ release.download }}">{{ release.download }}</a></td>
                     </tr>
                     <tr>
-                      <th>Created on</th>
+                      <th>{% trans "Created on" %}</th>
                       <td>{{ release.created }}</td>
                     </tr>
                     <tr>
-                      <th>Last modified</th>
+                      <th>{% trans "Last modified" %}</th>
                       <td>{{ release.last_modified }}</td>
                     </tr>
                    </table>
@@ -214,7 +183,7 @@
                 <div class="tab-pane" id="release_requirements">
                   <table class="table">
                     <tr>
-                      <th>Libraries</th>
+                      <th>{% trans "PHP Extensions" %}</th>
                       <td>
                         <ul>
                           {% for dep in release.phpextensiondependencies.all %}
@@ -224,7 +193,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>Databases</th>
+                      <th>{% trans "Databases" %}</th>
                       <td>
                         <ul>
                           {% for dep in release.databasedependencies.all %}
@@ -234,7 +203,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>Shell commands</th>
+                      <th>{% trans "Shell commands" %}</th>
                       <td>
                         <ul>
                           {% for command in release.shell_commands.all %}

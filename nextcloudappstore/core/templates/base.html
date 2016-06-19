@@ -1,4 +1,6 @@
-{% load staticfiles %}<!DOCTYPE html>
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,6 +15,7 @@
 
     <link rel="stylesheet" href="{% static "css/main.min.css" %}">
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/overrides.css" %}">
     <style>
       {% block extra_css %}
       {% endblock extra_css %}
