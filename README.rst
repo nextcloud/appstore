@@ -5,8 +5,8 @@ Nextcloud App Store
 .. image:: https://travis-ci.org/nextcloud/appstore.svg?branch=master
      :target: https://travis-ci.org/nextcloud/appstore
      :alt: Build Status
-.. image:: https://requires.io/github/nextcloud/appstore/requirements.svg?branch=docs
-     :target: https://requires.io/github/nextcloud/appstore/requirements/?branch=docs
+.. image:: https://requires.io/github/nextcloud/appstore/requirements.svg?branch=master
+     :target: https://requires.io/github/nextcloud/appstore/requirements/?branch=master
      :alt: Requirements Status
 .. image:: https://img.shields.io/badge/license-AGPLv3+-blue.svg
      :target: https://www.gnu.org/licenses/agpl-3.0.en.html
