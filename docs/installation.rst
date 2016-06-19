@@ -151,7 +151,7 @@ After all settings are adjusted, create the database schema by running the follo
 
 Creating an Admin User
 ~~~~~~~~~~~~~~~~~~~~~~
-To create the initial admin user, run the following command:
+To create the initial admin user, run the following command::
 
     python manage.py createsuperuser --username admin --email admin@admin.com
 
