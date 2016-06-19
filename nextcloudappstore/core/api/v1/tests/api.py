@@ -8,8 +8,9 @@ from rest_framework.test import APIClient
 
 class ApiTest(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(username='test', password='test',
-                                             email='test@test.com')
+        self.user = get_user_model().objects.create_user(username='test',
+                                                         password='test',
+                                                         email='test@test.com')
         self.api_client = APIClient()
 
     def _login(self, user='test', password='test'):

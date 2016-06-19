@@ -1,5 +1,5 @@
-from django.conf import settings # type: ignore
-from django.contrib.auth.models import User # type: ignore
+from django.conf import settings  # type: ignore
+from django.contrib.auth.models import User  # type: ignore
 from django.db import models  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel  # type: ignore
@@ -33,7 +33,8 @@ class App(TranslatableModel):
                                    verbose_name=_('Created at'))
     last_modified = models.DateTimeField(auto_now=True, editable=False,
                                          verbose_name=_('Updated at'))
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('App owner'),
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              verbose_name=_('App owner'),
                               on_delete=models.CASCADE,
                               related_name='owned_apps')
     co_maintainers = models.ManyToManyField(settings.AUTH_USER_MODEL,

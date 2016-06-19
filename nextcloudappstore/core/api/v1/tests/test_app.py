@@ -26,8 +26,9 @@ class AppTest(ApiTest):
         self.assertEqual(401, response.status_code)
 
     def test_delete_unauthorized(self):
-        owner = get_user_model().objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         App.objects.create(id='news', owner=owner)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
         self._login()
@@ -35,8 +36,9 @@ class AppTest(ApiTest):
         self.assertEqual(403, response.status_code)
 
     def test_delete_co_maintainer(self):
-        owner = get_user_model().objects.create_user(username='owner', password='owner',
-                                         email='owner@owner.com')
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
         app = App.objects.create(id='news', owner=owner)
         app.co_maintainers.add(self.user)
         app.save()
