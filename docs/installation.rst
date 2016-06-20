@@ -246,6 +246,6 @@ and install any dependencies (if changed)::
 
     pip install --upgrade -r requirements/base.txt
 
-Finally run the **collectstatic** command to copy updated assets into the web server's folder:
+Finally run the **collectstatic** command to copy updated assets into the web server's folder::
 
     python manage.py collectstatic
