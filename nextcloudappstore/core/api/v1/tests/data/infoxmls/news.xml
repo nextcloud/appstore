@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<info  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../release/info.xsd">
+    <!-- metadata -->
+    <id>news</id>
+    <name>News</name>
+    <description>An RSS/Atom feed reader</description>
+    <author>Bernhard Posselt, Alessandro Cosentino, Jan-Christoph Borchardt</author>
+    <category>multimedia</category>
+    <licence>agpl</licence>
+    <version>8.8.2</version>
+    <namespace>News</namespace>
+
+    <!-- resources -->
+    <documentation>
+        <user>https://github.com/owncloud/news/wiki#user-documentation</user>
+        <admin>https://github.com/owncloud/news#readme</admin>
+        <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+    </documentation>
+    <website>https://github.com/owncloud/news</website>
+    <bugs>https://github.com/owncloud/news/issues</bugs>
+    <repository type="git">https://github.com/owncloud/news.git</repository>
+
+    <!-- dependencies -->
+    <dependencies>
+        <owncloud min-version="9.0" max-version="9.1"/>
+        <php min-version="5.6" min-int-size="64"/>
+        <database min-version="9.4">pgsql</database>
+        <database>sqlite</database>
+        <database min-version="5.5">mysql</database>
+        <lib min-version="2.7.8">libxml</lib>
+        <lib>curl</lib>
+        <lib>SimpleXML</lib>
+        <lib>iconv</lib>
+    </dependencies>
+
+    <!-- navigation -->
+    <navigation>
+        <route>news.page.index</route>
+        <order>10</order>
+        <icon>app.svg</icon>
+        <name>News</name>
+    </navigation>
+
+    <!-- admin -->
+    <admin>admin/admin</admin>
+
+    <!-- cron jobs -->
+    <cron>
+        <job>OCA\News\Cron\Updater</job>
+    </cron>
+
+    <!-- hooks -->
+    <hooks>
+        <hook>
+            <channel>OC_User::pre_deleteUser</channel>
+            <subscriber>OCA\News\Hooks\User::deleteUser</subscriber>
+        </hook>
+    </hooks>
+    <ocsid>168040</ocsid>
+</info>

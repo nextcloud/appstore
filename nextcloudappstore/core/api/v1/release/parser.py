@@ -23,6 +23,10 @@ class InvalidAppPackageStructureException(APIException):
     pass
 
 
+class XMLSyntaxError(APIException):
+    pass
+
+
 class GunZipAppMetadataExtractor:
     def __init__(self, config: ReleaseConfig) -> None:
         """
@@ -96,29 +100,39 @@ def element_to_dict(element: Any) -> Dict:
         return {key: element.text}
 
 
-def parse_app_metadata(xml: str, schema: str, xslt: str) -> Dict:
+def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
+                       xslt: str) -> Dict:
     """
     Parses, validates and maps the xml onto a dict
     :argument xml the info.xml string to parse
     :argument schema the schema xml as string
+    :argument pre_xslt xslt which is run before validation to ensure that
+    everything is in the correct order and that unknown elements are excluded
     :argument xslt the xslt to transform it to a matching structure
     :raises InvalidAppMetadataXmlException if the schema does not validate
     :return the parsed xml as dict
     """
     parser = lxml.etree.XMLParser(resolve_entities=False, no_network=True,
                                   remove_comments=True, load_dtd=False,
-                                  remove_blank_text=True, dtd_validation=False)
-    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
-    doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+                                  remove_blank_text=True, dtd_validation=False
+                                  )
+    try:
+        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+    except lxml.etree.XMLSyntaxError as e:
+        msg = 'info.xml contains malformed xml: %s' % e
+        raise XMLSyntaxError(msg)
     for _ in doc.iter(lxml.etree.Entity):
         raise InvalidAppMetadataXmlException('Must not contain entities')
+    pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))
+    pre_transformed_doc = pre_transform(doc)
+    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
     schema = lxml.etree.XMLSchema(schema_doc)
     try:
-        schema.assertValid(doc)  # type: ignore
+        schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
         msg = 'info.xml did not validate: %s' % e
         raise InvalidAppMetadataXmlException(msg)
     transform = lxml.etree.XSLT(lxml.etree.XML(xslt))
-    transformed_doc = transform(doc)
+    transformed_doc = transform(pre_transformed_doc)
     mapped = element_to_dict(transformed_doc.getroot())
     return mapped

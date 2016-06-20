@@ -22,6 +22,7 @@ class AppReleaseProvider:
         ) as download:
             xml = self.extractor.extract_app_metadata(download.filename)
             info = parse_app_metadata(xml, self.config.info_schema,
+                                      self.config.pre_info_xslt,
                                       self.config.info_xslt)
             # generate sha256sum for archive
             with open(download.filename, 'rb') as f:

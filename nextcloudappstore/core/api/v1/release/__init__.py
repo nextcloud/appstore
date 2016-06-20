@@ -11,3 +11,4 @@ class ReleaseConfig:
         self.download_max_size = 20 * (1024 ** 2)
         self.info_schema = read_relative_file(__file__, 'info.xsd')
         self.info_xslt = read_relative_file(__file__, 'info.xslt')
+        self.pre_info_xslt = read_relative_file(__file__, 'pre-info.xslt')
