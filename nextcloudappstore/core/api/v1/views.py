@@ -83,6 +83,7 @@ class AppReleases(DestroyAPIView):
             if 'checksum' in serializer.validated_data:
                 info['app']['release']['checksum'] = \
                     serializer.validated_data['checksum']
+            info['app']['release']['download'] = url
             status = self._check_permission(request, app_id, version)
 
             importer = container.resolve(ReleaseImporter)
