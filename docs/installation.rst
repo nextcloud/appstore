@@ -190,8 +190,6 @@ Then place the following content in the appropriate apache configuration:
     WSGIProcessGroup production-domain.com
 
     Alias /static/ /var/www/production-domain.com/static/
-    Alias /robots.txt /var/www/production-domain.com/static/robots.txt
-    Alias /favicon.ico /var/www/production-domain.com/static/favicon.ico
 
     <Directory /path/to/code/nextcloudappstore>
     <Files wsgi.py>
