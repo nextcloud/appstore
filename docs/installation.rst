@@ -201,10 +201,12 @@ Then place the following content in the appropriate apache configuration:
 
     <Directory /var/www/production-domain.com/static>
     Require all granted
+    AllowOverride None
     </Directory>
 
     <Directory /var/www/production-domain.com/media>
     Require all granted
+    AllowOverride None
     </Directory>
 
 .. note:: **/path/to/code/venv/lib/python3.4/site-packages/** must be adjusted if you are using a newer version than Python 3.4
