@@ -249,3 +249,7 @@ and install any dependencies (if changed)::
 Finally run the **collectstatic** command to copy updated assets into the web server's folder::
 
     python manage.py collectstatic
+
+and reload apache::
+
+    systemctl reload apache2
