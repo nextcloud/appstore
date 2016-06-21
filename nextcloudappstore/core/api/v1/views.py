@@ -8,13 +8,13 @@ from django.db.models import Max, Count
 from nextcloudappstore.core.models import App, AppRelease
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
-from nextcloudappstore.core.versioning import app_has_included_release
 from pymple import Container
 from rest_framework import authentication  # type: ignore
 from rest_framework.generics import DestroyAPIView, \
     get_object_or_404  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
+from semantic_version import Version, Spec
 
 
 def app_api_etag(request, version):
@@ -53,8 +53,13 @@ class Apps(DestroyAPIView):
                                             'releases__databases',
                                             'releases__php_extensions').all()
 
+        platform_version = Version(self.kwargs['version'])
+
         def app_filter(app):
-            return app_has_included_release(app, self.kwargs['version'])
+            for release in app.releases.all():
+                if platform_version in Spec(release.platform_version_spec):
+                    return True
+            return False
 
         working_apps = list(filter(app_filter, apps))
         serializer = self.get_serializer(working_apps, many=True)

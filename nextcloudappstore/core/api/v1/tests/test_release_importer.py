@@ -51,11 +51,10 @@ class ImporterTest(TestCase):
 
         release = app.releases.all()[0]
         self.assertEqual('8.8.2', release.version)
-        self.assertEqual('9.0', release.platform_min_version)
+        self.assertEqual('>=9.0.0', release.platform_version_spec)
+        self.assertEqual('*', release.php_version_spec)
         self.assertEqual(32, release.min_int_size)
-        self._assert_all_empty(release, ['php_min_version', 'php_max_version',
-                                         'platform_max_version',
-                                         'checksum', 'download'])
+        self._assert_all_empty(release, ['checksum', 'download'])
         self.assertEqual(0, release.php_extensions.count())
         self.assertEqual(0, release.databases.count())
         self.assertEqual(0, release.shell_commands.count())
@@ -91,31 +90,27 @@ class ImporterTest(TestCase):
 
         for db in databases:
             if db.id == 'sqlite':
-                self.assertEqual('', db.releasedependencies.get().min_version)
-                self.assertEqual('', db.releasedependencies.get().max_version)
+                self.assertEqual('*',
+                                 db.releasedependencies.get().version_spec)
             elif db.id == 'pgsql':
-                self.assertEqual('9.4',
-                                 db.releasedependencies.get().min_version)
-                self.assertEqual('', db.releasedependencies.get().max_version)
+                self.assertEqual('>=9.4.0',
+                                 db.releasedependencies.get().version_spec)
             elif db.id == 'mysql':
-                self.assertEqual('5.5',
-                                 db.releasedependencies.get().min_version)
-                self.assertEqual('', db.releasedependencies.get().max_version)
-
+                self.assertEqual('>=5.5.0',
+                                 db.releasedependencies.get().version_spec)
         for ex in extensions:
             if ex.id == 'libxml':
-                self.assertEqual('2.7.8',
-                                 ex.releasedependencies.get().min_version)
-                self.assertEqual('', ex.releasedependencies.get().max_version)
+                self.assertEqual('>=2.7.8',
+                                 ex.releasedependencies.get().version_spec)
             elif ex.id == 'curl':
-                self.assertEqual('', ex.releasedependencies.get().min_version)
-                self.assertEqual('', ex.releasedependencies.get().max_version)
+                self.assertEqual('*',
+                                 ex.releasedependencies.get().version_spec)
             elif ex.id == 'SimpleXML':
-                self.assertEqual('', ex.releasedependencies.get().min_version)
-                self.assertEqual('', ex.releasedependencies.get().max_version)
+                self.assertEqual('*',
+                                 ex.releasedependencies.get().version_spec)
             elif ex.id == 'iconv':
-                self.assertEqual('', ex.releasedependencies.get().min_version)
-                self.assertEqual('', ex.releasedependencies.get().max_version)
+                self.assertEqual('*',
+                                 ex.releasedependencies.get().version_spec)
 
     def test_release_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema,
