@@ -125,7 +125,7 @@ translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
 
 versionSpec
-    Required versions (minimum and maximum versions) are transformed to semantic version specs. If a field is empty, this means that there is no version requirement. The following permutions can occur:
+    Required versions (minimum and maximum versions) are transformed to semantic version specs. If a field is a *, this means that there is no version requirement. The following permutations can occur:
 
      * **All versions**: *
      * **Maximum version only**: <8.1.2
