@@ -106,10 +106,12 @@ def parse_app_metadata(xml: str, schema: str, xslt: str) -> Dict:
     :return the parsed xml as dict
     """
     parser = lxml.etree.XMLParser(resolve_entities=False, no_network=True,
-                                  remove_comments=True,
-                                  remove_blank_text=True)
+                                  remove_comments=True, load_dtd=False,
+                                  remove_blank_text=True, dtd_validation=False)
     schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
     doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+    for _ in doc.iter(lxml.etree.Entity):
+        raise InvalidAppMetadataXmlException('Must not contain entities')
     schema = lxml.etree.XMLSchema(schema_doc)
     try:
         schema.assertValid(doc)  # type: ignore
