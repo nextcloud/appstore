@@ -6,7 +6,6 @@ from nextcloudappstore.core.api.v1.release.parser import parse_app_metadata
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.models import App, Screenshot, Database
 from pymple import Container
-from semantic_version import Version, Spec
 
 
 class ImporterTest(TestCase):
