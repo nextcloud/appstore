@@ -29,6 +29,7 @@ class ImporterTest(TestCase):
         self.app.save()
 
         result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         self.importer.import_release(result)
         app = App.objects.get(pk='news')
@@ -67,6 +68,7 @@ class ImporterTest(TestCase):
         Database.objects.create(id='pgsql')
         Database.objects.create(id='mysql')
         result = parse_app_metadata(self.full, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         self.importer.import_release(result)
         app = App.objects.get(pk='news')
@@ -117,6 +119,7 @@ class ImporterTest(TestCase):
 
     def test_release_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         self.importer.import_release(result)
         result['app']['website'] = 'https://website.com'
@@ -126,6 +129,7 @@ class ImporterTest(TestCase):
 
     def test_release_no_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         self.importer.import_release(result)
         result['app']['website'] = 'https://website.com'

@@ -6,6 +6,7 @@ from nextcloudappstore.core.api.v1.release.parser import \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
+from rest_framework.exceptions import APIException
 
 
 class ParserTest(TestCase):
@@ -16,6 +17,7 @@ class ParserTest(TestCase):
     def test_parse_minimal(self):
         xml = self._get_test_xml('data/infoxmls/minimal.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         expected = {'app': {
             'id': 'news',
@@ -47,6 +49,20 @@ class ParserTest(TestCase):
         xml = self._get_test_xml('data/infoxmls/invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
+    def test_fixes_xml(self):
+        xml = self._get_test_xml('data/infoxmls/news.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+
+    def test_broken_xml(self):
+        xml = self._get_test_xml('data/infoxmls/broken-xml.xml')
+        with (self.assertRaises(APIException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_extract_gunzip_info(self):
@@ -89,6 +105,7 @@ class ParserTest(TestCase):
     def test_map_data(self):
         full = self._get_test_xml('data/infoxmls/full.xml')
         result = parse_app_metadata(full, self.config.info_schema,
+                                    self.config.pre_info_xslt,
                                     self.config.info_xslt)
         expected = {'app': {
             'id': 'news',
