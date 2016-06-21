@@ -39,7 +39,7 @@ To publish an app release on the app store you simply send us a download link fo
 
 Since this implies that the download location must be trusted, the following mechanisms are in place to guarantee that the downloaded version has not been tampered with:
 
-* You can submit a sha256sum hash in addition to the download link. The hash is validated before a user wants to install it. If you omit the hash, we generate it from the downloaded archive
+* You can submit a sha256sum hash in addition to the download link. The hash is validated on the user's server when he installs it. If you omit the hash, we generate it from the downloaded archive
 
 * You can sign your code `using a certificate <https://docs.nextcloud.org/server/9/developer_manual/app/code_signing.html>`_
 
