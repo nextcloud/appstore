@@ -68,7 +68,7 @@ class ParserTest(TestCase):
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted = extractor.extract_app_metadata(path)
+        full_extracted, app_id = extractor.extract_app_metadata(path)
         full = self._get_test_xml('data/infoxmls/full.xml')
         self.assertEqual(full, full_extracted)
 
@@ -92,6 +92,18 @@ class ParserTest(TestCase):
 
     def test_extract_gunzip_symlink(self):
         path = self.get_path('data/archives/symlink.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        with (self.assertRaises(InvalidAppPackageStructureException)):
+            extractor.extract_app_metadata(path)
+
+    def test_extract_gunzip_appinfo_symlink(self):
+        path = self.get_path('data/archives/appinfosymlink.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        with (self.assertRaises(InvalidAppPackageStructureException)):
+            extractor.extract_app_metadata(path)
+
+    def test_extract_gunzip_app_symlink(self):
+        path = self.get_path('data/archives/appsymlink.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
         with (self.assertRaises(InvalidAppPackageStructureException)):
             extractor.extract_app_metadata(path)

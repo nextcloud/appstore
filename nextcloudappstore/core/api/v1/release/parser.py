@@ -1,7 +1,7 @@
 import re
 import tarfile  # type: ignore
 import lxml.etree  # type: ignore
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, pad_min_version
@@ -36,7 +36,7 @@ class GunZipAppMetadataExtractor:
         self.config = config
         self.app_folder_regex = re.compile(r'^[a-z]+[a-z_]*$')
 
-    def extract_app_metadata(self, archive_path: str) -> str:
+    def extract_app_metadata(self, archive_path: str) -> Tuple[str, str]:
         """
         Extracts the info.xml from an tar.gz archive
         :argument archive_path the path to the tar.gz archive
@@ -53,7 +53,7 @@ class GunZipAppMetadataExtractor:
             result = self._parse_archive(tar)
         return result
 
-    def _parse_archive(self, tar: Any) -> str:
+    def _parse_archive(self, tar: Any) -> Tuple[str, str]:
         folder = list(
             filter(lambda name: re.match(self.app_folder_regex, name),
                    tar.getnames()
@@ -67,19 +67,26 @@ class GunZipAppMetadataExtractor:
                   'only lowercase ASCII characters or underscores'
             raise InvalidAppPackageStructureException(msg)
 
-        info_path = '%s/appinfo/info.xml' % folder[0]
+        app_id = folder[0]
+        info_path = '%s/appinfo/info.xml' % app_id
         try:
-            info_member = tar.getmember(info_path)  # type: ignore
-            if info_member.issym() or info_member.islnk():
-                msg = 'Symlinks and hard links can not be used for info.xml ' \
-                      'files'
-                raise InvalidAppPackageStructureException(msg)
+            app_member = tar.getmember(app_id)
+            appinfo_member = tar.getmember('%s/appinfo' % app_id)
+            info_member = tar.getmember(info_path)
+            possible_links = [app_member, appinfo_member, info_member]
+
+            for possible_link in possible_links:
+                if possible_link.issym() or possible_link.islnk():
+                    msg = 'Symlinks and hard links can not be used for %s' %\
+                          possible_link
+                    raise InvalidAppPackageStructureException(msg)
+
             if info_member.size > self.config.max_info_size:
                 msg = '%s was bigger than allowed %i bytes' % (
                     info_path, self.config.max_info_size)
                 raise MaxSizeAppMetadataXmlException(msg)
             info_file = tar.extractfile(info_member)
-            return info_file.read().decode('utf-8')
+            return info_file.read().decode('utf-8'), app_id
         except KeyError:
             msg = 'Could not find %s file inside the archive' % info_path
             raise InvalidAppPackageStructureException(msg)
