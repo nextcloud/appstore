@@ -26,15 +26,27 @@ The basic ideas that form the foundation of the store include:
 
 * Be well documented: APIs and developer use-cases should be documented in such a way that developers and users alike can easily discover the things they need
 
-Contents:
+
+App Developer Documentation
+---------------------------
+
+Look here if you want to upload your own apps or use the REST API
+
+.. toctree::
+   :maxdepth: 2
+
+   developer
+   ncdev
+   restapi
+
+App Store Developer Documentation
+---------------------------------
+Look here if you want to work on the app store's source code or install it on your own server
 
 .. toctree::
    :maxdepth: 2
 
    installation
-   developer
-   ncdev
-   restapi
    documentation
 
 
