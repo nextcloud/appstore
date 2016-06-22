@@ -8,7 +8,7 @@
                 <xs:element name="id" type="id" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="name" type="l10n-string" minOccurs="1"
                             maxOccurs="unbounded"/>
-                <xs:element name="description" type="l10n-string" minOccurs="1"
+                <xs:element name="description" type="l10n-text" minOccurs="1"
                             maxOccurs="unbounded"/>
                 <xs:element name="version" type="version"
                             minOccurs="1" maxOccurs="1"/>
@@ -16,7 +16,7 @@
                             maxOccurs="unbounded"/>
                 <xs:element name="author" type="author" minOccurs="1"
                             maxOccurs="unbounded"/>
-                <xs:element name="namespace" type="non-empty-string"
+                <xs:element name="namespace" type="limited-string"
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="types" type="types" minOccurs="0"
                             maxOccurs="1"/>
@@ -46,26 +46,24 @@
         </xs:unique>
     </xs:element>
 
-    <xs:simpleType name="non-empty-string">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-        </xs:restriction>
-    </xs:simpleType>
-
+    <!-- basic types -->
     <xs:simpleType name="empty-string">
         <xs:restriction base="xs:string">
             <xs:maxLength value="0"/>
         </xs:restriction>
     </xs:simpleType>
-
-    <!-- first level elements -->
-    <xs:simpleType name="id">
+    <xs:simpleType name="non-empty-string">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[a-z]+[a-z_]*[a-z]+"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="limited-string">
+        <xs:restriction base="non-empty-string">
+            <xs:maxLength value="128"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="l10n-string">
+    <xs:complexType name="l10n-text">
         <xs:simpleContent>
             <xs:extension base="non-empty-string">
                 <xs:attribute name="lang" type="l10n-code" default="en"
@@ -73,10 +71,60 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
+    <xs:complexType name="l10n-string">
+        <xs:simpleContent>
+            <xs:restriction base="l10n-text">
+                <xs:maxLength value="128"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="l10n-code">
+        <xs:restriction base="non-empty-string">
+            <xs:enumeration value="en"/>
+            <xs:enumeration value="de"/>
+            <xs:enumeration value="fr"/>
+            <xs:enumeration value="it"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="version">
+        <xs:restriction base="limited-string">
+            <xs:pattern value="[0-9]+(\.[0-9]+){0,2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https?://.+"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="secure-url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https://.+"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="email">
+        <xs:restriction base="limited-string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- first level elements -->
+    <xs:simpleType name="id">
+        <xs:restriction base="limited-string">
+            <xs:pattern value="[a-z]+[a-z_]*[a-z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:complexType name="author">
         <xs:simpleContent>
-            <xs:extension base="non-empty-string">
+            <xs:extension base="limited-string">
                 <xs:attribute name="mail" type="email" use="optional"/>
                 <xs:attribute name="homepage" type="url" use="optional"/>
             </xs:extension>
@@ -93,7 +141,7 @@
     </xs:complexType>
 
     <xs:simpleType name="vcs">
-        <xs:restriction base="non-empty-string">
+        <xs:restriction base="limited-string">
             <xs:enumeration value="git"/>
             <xs:enumeration value="mercurial"/>
             <xs:enumeration value="subversion"/>
@@ -112,17 +160,8 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:simpleType name="l10n-code">
-        <xs:restriction base="non-empty-string">
-            <xs:enumeration value="en"/>
-            <xs:enumeration value="de"/>
-            <xs:enumeration value="fr"/>
-            <xs:enumeration value="it"/>
-        </xs:restriction>
-    </xs:simpleType>
-
     <xs:simpleType name="category">
-        <xs:restriction base="non-empty-string">
+        <xs:restriction base="limited-string">
             <xs:enumeration value="multimedia"/>
             <xs:enumeration value="pim"/>
             <xs:enumeration value="tools"/>
@@ -131,35 +170,11 @@
     </xs:simpleType>
 
     <xs:simpleType name="licence">
-        <xs:restriction base="non-empty-string">
+        <xs:restriction base="limited-string">
             <xs:enumeration value="mit"/>
             <xs:enumeration value="mpl"/>
             <xs:enumeration value="agpl"/>
             <xs:enumeration value="apache"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="version">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]+(\.[0-9]+){0,2}"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="url">
-        <xs:restriction base="xs:anyURI">
-            <xs:pattern value="https?://.+"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="secure-url">
-        <xs:restriction base="xs:anyURI">
-            <xs:pattern value="https://.+"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="email">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[^@]+@[^\.]+\..+"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -172,12 +187,13 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- dependencies -->
     <xs:complexType name="dependencies">
         <xs:sequence>
             <xs:element name="php" type="php" minOccurs="0" maxOccurs="1"/>
             <xs:element name="database" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
-            <xs:element name="command" type="non-empty-string" minOccurs="0"
+            <xs:element name="command" type="limited-string" minOccurs="0"
                         maxOccurs="unbounded"/>
             <xs:element name="lib" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
@@ -186,7 +202,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- dependencies -->
     <xs:complexType name="owncloud">
         <xs:attribute name="min-version" type="version" use="required"/>
         <xs:attribute name="max-version" type="version" use="optional"/>
@@ -194,7 +209,7 @@
 
     <xs:complexType name="min-max-version">
         <xs:simpleContent>
-            <xs:extension base="non-empty-string">
+            <xs:extension base="limited-string">
                 <xs:attribute name="min-version" type="version"
                               use="optional"/>
                 <xs:attribute name="max-version" type="version"
