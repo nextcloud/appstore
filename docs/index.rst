@@ -32,6 +32,8 @@ Contents:
    :maxdepth: 2
 
    installation
+   developer
+   ncdev
    restapi
    documentation
 

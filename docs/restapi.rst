@@ -3,47 +3,7 @@ REST API
 
 A REST API for publishing and deleting app releases has been built into the store from day one to help release automation.
 
-Intended Developer Workflow
----------------------------
-
-Most of today's developers publish their source code on GitHub, BitBucket or on their own GitLab instance. These tools typically also provide a way to release new versions based on Git tags or by uploading custom archives.
-
-Advanced users and developers typically prefer to download the app directly from these services whereas administrators or novice users look for app releases on the app store. This means that you have to take care of publishing two releases on two different platforms.
-
-We want to avoid duplication and make it harder to ship broken releases by mistake, therefore we went for the following solution:
-
-* Your app's source code is hosted on GitHub or a similar service
-
-* You should use Git tags to create new releases on these services
-
-* Archives are typically created automatically for you. If you require compilation or other transformations like minification, you should upload a pre-built archive to the appropriate releases page
-
-This keeps your repository up to date and satisfies the needs of developers and advanced users.
-
-To publish an app release on the app store you simply send us a download link for the release archive. We then do the following:
-
-* Your archive is downloaded from the given location. This ensures that your users don't hit dead links. If your archive is too big, we will abort the download.
-
-* The archive is then extracted and the package structure is validated:
-
- * The archive most only contain one top level folder consisting of lower case ASCII characters and underscores
- * The archive must contain an **info.xml** file inside the **appinfo** directory which in turn is located in the top folder
-
-* The app's metadata is then extracted from the **info.xml** file and validated using an XML Schema (available under `https://apps.nextcloud.com/info.xsd <https://apps.nextcloud.com/info.xsd>`_):
-
- * The app folder must match the id
- * The specified versions must have 1 to 3 digits separated by dots
- * The XML elements must contain valid content (e.g. known categories and enumerations)
-
-* The release is then either created or updated. The downloaded archive will be deleted
-
-Since this implies that the download location must be trusted, the following mechanisms are in place to guarantee that the downloaded version has not been tampered with:
-
-* You can submit a sha256sum hash in addition to the download link. The hash is validated on the user's server when he installs it. If you omit the hash, we generate it from the downloaded archive
-
-* You can sign your code `using a certificate <https://docs.nextcloud.org/server/9/developer_manual/app/code_signing.html>`_
-
-* You must supply an HTTPS download url for the archive
+All APIs can easily be used with :doc:`ncdev <ncdev>`
 
 Specification
 -------------
@@ -278,12 +238,19 @@ The following request will create a new app release:
 
 If there is no app with the given app id yet, a new app is created and the owner is set in to the logged in user. Then the **info.xml** file which lies in the compressed archive's folder **app-id/appinfo/info.xml** is being parsed and validated. The validated result is then saved in the database. Both owners and co-maintainers are allowed to upload new releases.
 
+The following character maximum lengths are enforced:
+
+* All description Strings are (almost) of unlimited size
+* All Url Strings have a maximum of 256 characters
+* All other Strings have a maximum of 128 characters
+
 A minimum valid **info.xml** would look like this:
 
 .. code-block:: xml
 
     <?xml version="1.0"?>
-    <info>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
         <id>news</id>
         <name>News</name>
         <description>An RSS/Atom feed reader</description>
@@ -301,7 +268,8 @@ A full blown example would look like this (needs to be utf-8 encoded):
 .. code-block:: xml
 
     <?xml version="1.0"?>
-    <info>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
         <id>news</id>
 
         <!-- translation can be done via the lang attribute, defaults to English -->
@@ -373,8 +341,4 @@ A full blown example would look like this (needs to be utf-8 encoded):
     </info>
 
 
-The following character maximum lengths are enforced:
 
-* All description Strings are (almost) of unlimited size
-* All Url Strings have a maximum of 256 characters
-* All other Strings have a maximum of 128 characters
