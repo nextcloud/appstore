@@ -1,11 +1,8 @@
-import tempfile
-
-import requests
-import uuid
 import os
-
+import tempfile
 from typing import Any
 
+import requests
 from rest_framework.exceptions import APIException  # type: ignore
 
 
