@@ -209,7 +209,7 @@ class DatabaseDependency(Model):
 
     def __str__(self) -> str:
         return '%s: %s %s' % (self.app_release, self.database,
-                                      self.version_spec)
+                              self.version_spec)
 
 
 class PhpExtension(Model):
@@ -241,4 +241,4 @@ class PhpExtensionDependency(Model):
 
     def __str__(self) -> str:
         return '%s: %s %s' % (self.app_release.app, self.php_extension,
-                                      self.version_spec)
+                              self.version_spec)
