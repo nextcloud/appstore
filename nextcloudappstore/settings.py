@@ -165,7 +165,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-RELEASE_DOWNLOAD_ROOT = os.path.join(MEDIA_ROOT, 'releasetmp')
+RELEASE_DOWNLOAD_ROOT = None
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 

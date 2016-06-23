@@ -134,6 +134,10 @@ To get your instance running in production you need to create your local setting
        'app_upload_or_delete': '20/day'
     }
 
+    # Only set this parameter if you want to use a different tmp directory
+    # for temporary app downloads. Otherwise will default to /tmp
+    RELEASE_DOWNLOAD_ROOT = '/var/www/production-domain.com/tmp/'
+
 
 .. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
 
