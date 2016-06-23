@@ -196,9 +196,16 @@ Then place the following content in the appropriate apache configuration:
     WSGIProcessGroup production-domain.com
 
     Alias /static/ /var/www/production-domain.com/static/
+    Alias /schema/apps/info.xsd /path/to/code/nextcloudappstore/core/api/v1/release/info.xsd
 
     <Directory /path/to/code/nextcloudappstore>
         <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    <Directory /path/to/code/nextcloudappstore/core/api/v1/release>
+        <Files info.xsd>
             Require all granted
         </Files>
     </Directory>
