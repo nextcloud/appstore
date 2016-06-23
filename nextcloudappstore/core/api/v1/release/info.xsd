@@ -36,12 +36,36 @@
                             minOccurs="1" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
+        <xs:unique name="uniqueNameL10n">
+            <xs:selector xpath="name"/>
+            <xs:field xpath="@lang"/>
+        </xs:unique>
+        <xs:unique name="uniqueDescriptionL10n">
+            <xs:selector xpath="description"/>
+            <xs:field xpath="@lang"/>
+        </xs:unique>
         <xs:unique name="uniqueLicense">
             <xs:selector xpath="license"/>
             <xs:field xpath="."/>
         </xs:unique>
+        <xs:unique name="uniqueTypes">
+            <xs:selector xpath="types/type"/>
+            <xs:field xpath="."/>
+        </xs:unique>
         <xs:unique name="uniqueCategory">
             <xs:selector xpath="category"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="uniqueDatabase">
+            <xs:selector xpath="dependencies/database"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="uniqueLib">
+            <xs:selector xpath="dependencies/lib"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="uniqueCommand">
+            <xs:selector xpath="dependencies/command"/>
             <xs:field xpath="."/>
         </xs:unique>
     </xs:element>
@@ -81,7 +105,7 @@
 
 
     <xs:simpleType name="l10n-code">
-        <xs:restriction base="non-empty-string">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="af"/>
             <xs:enumeration value="ar"/>
             <xs:enumeration value="ast"/>
@@ -223,7 +247,7 @@
     </xs:complexType>
 
     <xs:simpleType name="vcs">
-        <xs:restriction base="limited-string">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="git"/>
             <xs:enumeration value="mercurial"/>
             <xs:enumeration value="subversion"/>
@@ -243,7 +267,7 @@
     </xs:complexType>
 
     <xs:simpleType name="category">
-        <xs:restriction base="limited-string">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="multimedia"/>
             <xs:enumeration value="pim"/>
             <xs:enumeration value="tools"/>
@@ -252,11 +276,19 @@
     </xs:simpleType>
 
     <xs:simpleType name="licence">
-        <xs:restriction base="limited-string">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="mit"/>
             <xs:enumeration value="mpl"/>
             <xs:enumeration value="agpl"/>
             <xs:enumeration value="apache"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="databases">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sqlite"/>
+            <xs:enumeration value="mysql"/>
+            <xs:enumeration value="pgsql"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -273,7 +305,7 @@
     <xs:complexType name="dependencies">
         <xs:sequence>
             <xs:element name="php" type="php" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="database" type="min-max-version" minOccurs="0"
+            <xs:element name="database" type="database" minOccurs="0"
                         maxOccurs="unbounded"/>
             <xs:element name="command" type="limited-string" minOccurs="0"
                         maxOccurs="unbounded"/>
@@ -292,6 +324,17 @@
     <xs:complexType name="min-max-version">
         <xs:simpleContent>
             <xs:extension base="limited-string">
+                <xs:attribute name="min-version" type="version"
+                              use="optional"/>
+                <xs:attribute name="max-version" type="version"
+                              use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="database">
+        <xs:simpleContent>
+            <xs:extension base="databases">
                 <xs:attribute name="min-version" type="version"
                               use="optional"/>
                 <xs:attribute name="max-version" type="version"
