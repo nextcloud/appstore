@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf.global_settings import LANGUAGES
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -148,11 +150,7 @@ USE_L10N = True
 USE_TZ = True
 
 PARLER_LANGUAGES = {
-    1: (
-        {'code': 'en'},
-        {'code': 'de'},
-        {'code': 'fr'},
-    ),
+    1: [{'code': code} for code, trans in LANGUAGES],
     'default': {
         'fallbacks': ['en'],
         'hide_untranslated': False,

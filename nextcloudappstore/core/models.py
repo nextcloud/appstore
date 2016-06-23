@@ -208,9 +208,8 @@ class DatabaseDependency(Model):
         unique_together = (('app_release', 'database', 'version_spec'),)
 
     def __str__(self) -> str:
-        return '%s: %s >=%s, <=%s' % (self.app_release, self.database,
-                                      self.min_version,
-                                      self.max_version)
+        return '%s: %s %s' % (self.app_release, self.database,
+                                      self.version_spec)
 
 
 class PhpExtension(Model):
@@ -241,6 +240,5 @@ class PhpExtensionDependency(Model):
         unique_together = (('app_release', 'php_extension', 'version_spec'),)
 
     def __str__(self) -> str:
-        return '%s: %s >=%s, <=%s' % (self.app_release.app, self.php_extension,
-                                      self.min_version,
-                                      self.max_version)
+        return '%s: %s %s' % (self.app_release.app, self.php_extension,
+                                      self.version_spec)
