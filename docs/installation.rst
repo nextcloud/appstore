@@ -134,9 +134,8 @@ To get your instance running in production you need to create your local setting
        'app_upload_or_delete': '20/day'
     }
 
-    # Only set this parameter if you want to use a different tmp directory
-    # for temporary app downloads. Otherwise will default to /tmp
-    RELEASE_DOWNLOAD_ROOT = '/var/www/production-domain.com/tmp/'
+    # Only set this parameter if you want to use a different tmp directory for app downloads
+    RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
 
 .. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
@@ -178,6 +177,9 @@ This will place the contents inside the folder configured under the key **STATIC
 Configuring the Server
 ~~~~~~~~~~~~~~~~~~~~~~
 This section will explain how to set up the application using apache and mod_wsgi. If you want to use a different web server or need further information check out `the deployment documentation <https://docs.djangoproject.com/en/1.9/howto/deployment/>`_
+
+Apache
+^^^^^^
 
 First install apache and mod_wsgi:
 
