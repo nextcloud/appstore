@@ -46,7 +46,7 @@ class AppReleaseDownloader:
         if target_directory is None:
             file = tempfile.NamedTemporaryFile(delete=False)
         else:
-            os.makedirs(target_directory, mode=0o755, exist_ok=True)
+            os.makedirs(target_directory, mode=0o700, exist_ok=True)
             file = tempfile.NamedTemporaryFile(dir=target_directory,
                                                delete=False)
 
