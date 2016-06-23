@@ -234,7 +234,7 @@ The following request will create a new app release:
   * **HTTP 201**: If the app release was created successfully
   * **HTTP 400**: If the app contains invalid data, is too large or could not be downloaded
   * **HTTP 401**: If the user is not authenticated
-  * **HTTP 403**: If the user is not authorized to delete the app release
+  * **HTTP 403**: If the user is not authorized to create or update the app release
 
 If there is no app with the given app id yet, a new app is created and the owner is set in to the logged in user. Then the **info.xml** file which lies in the compressed archive's folder **app-id/appinfo/info.xml** is being parsed and validated. The validated result is then saved in the database. Both owners and co-maintainers are allowed to upload new releases.
 
