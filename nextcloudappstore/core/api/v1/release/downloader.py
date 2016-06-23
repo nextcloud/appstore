@@ -82,5 +82,6 @@ class AppReleaseDownloader:
             finished = True
         finally:
             # in case any errors occurred, get rid of the file
+            file.close()
             if not finished:
                 os.remove(file.name)
