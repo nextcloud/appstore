@@ -15,8 +15,13 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav">
+        <div id="navbar" class="navbar-collapse collapse ">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-link">
+                    <a href="{% url 'home' %}">Apps</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_superuser %}
                 <li class="nav-link">
                     <a href="{% url 'admin:index' %}">Admin</a>
