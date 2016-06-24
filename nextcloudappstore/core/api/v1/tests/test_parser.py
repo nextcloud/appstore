@@ -164,7 +164,6 @@ class ParserTest(TestCase):
                     }}
                 ],
                 'licenses': [
-                    {'license': {'id': 'mit'}},
                     {'license': {'id': 'agpl'}}
                 ],
                 'min_int_size': 64,
