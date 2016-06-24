@@ -1,42 +1,58 @@
 {% extends "account/base.html" %}
-{% load socialaccount %}
 
+{% load socialaccount %}
+{% load css_class %}
 {% load i18n %}
 
 {% block head-title %} - {% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
-
 {% get_providers as socialaccount_providers %}
 
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts.{% endblocktrans %}</p>
+<div class="login">
+    <h1 class="text-center">{% trans "Register" %}</h1>
 
-<div class="socialaccount_ballot">
+    <hr>
+    {% if socialaccount_providers %}
+    <ul class="socialaccount-providers">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+    {% include "socialaccount/snippets/login_extra.html" %}
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-  <div class="login-or">
-    Or, sign up for a {{ site_name }} account.
-  </div>
+    {% endif %}
 
+    <hr>
+
+    <form method="POST" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
+            {% if not field.is_hidden %}
+            <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% endif %}
+
+            {{ field|css_class:'form-control' }}
+
+            {% if field.errors %}
+            {% for error in field.errors %}
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="sr-only">(error)</span>
+            <p class="text-danger">{{ error|escape }}</p>
+            {% endfor %}
+            {% endif %}
+
+            {% if field.help_text %}
+            <p class="help-block">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Register' %}</button></p>
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+    </form>
 </div>
-{% endif %}
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  <table>
-  {{ form }}
-  </table>
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
 
 {% endblock %}
