@@ -2,12 +2,19 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/info">
         <info>
+            <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+            <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+            
             <!-- reformat info.xml to have everything in order and excluded unknown elements -->
             <xsl:copy-of select="id"/>
             <xsl:copy-of select="name"/>
             <xsl:copy-of select="description"/>
             <xsl:copy-of select="version"/>
-            <xsl:copy-of select="licence"/>
+            <xsl:for-each select="licence">
+                <licence>
+                    <xsl:value-of select="translate(., $uppercase, $lowercase)"/>
+                </licence>
+            </xsl:for-each>
             <xsl:copy-of select="author"/>
             <xsl:copy-of select="namespace"/>
             <xsl:apply-templates select="types"/>
