@@ -283,9 +283,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <!-- semantic version, three digits separated by a dot -->
         <version>8.8.2</version>
 
-        <!-- multiple licenses are possible too but must at least include the agpl -->
-        <!-- possible values: agpl, mit -->
-        <licence>mit</licence>
+        <!-- only agpl is an acceptable license -->
         <licence>agpl</licence>
 
         <author mail="mail@provider.com" homepage="http://example.com">Bernhard Posselt</author>
