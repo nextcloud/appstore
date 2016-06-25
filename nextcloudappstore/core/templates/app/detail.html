@@ -1,7 +1,7 @@
-{% extends "base.html" %}
+{% extends 'app/base.html' %}
 {% load i18n %}
 
-{% block content %}
+{% block apps %}
   <h1>{{ object.name }}</h1>
 
   <ul class="nav nav-tabs">
@@ -220,4 +220,4 @@
       </div><!-- tab content -->
     </div>
   </div>
-{% endblock content %}
+{% endblock apps %}

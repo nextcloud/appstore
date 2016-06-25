@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-3">
+        {% if categories %}
+        <h2>Categories</h2>
+        <ul id="sidebar" class="nav nav-pills nav-stacked">
+            <li class="{% if cat.id == current_category.id %}active{% endif %}">
+                <a href="{% url 'home' %}">{% trans 'All Apps' %}</a>
+            </li>
+            {% for cat in categories %}
+            <li class="{% if cat.id == current_category.id %}active{% endif %}">
+                <a href="{% url 'category_list_category' cat.id %}">{{cat.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-sm-9">
+        {% block apps %}{% endblock apps %}
+    </div>
+</div>
+{% endblock content %}

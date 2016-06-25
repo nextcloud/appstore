@@ -2,55 +2,46 @@
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}"/>
     <title>Nextcloud App Store{% block head-title %}{% endblock head-title %}</title>
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script
+        src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     {% block head %}{% endblock head %}
-  </head>
+</head>
 
-  <body>
-  <div id="container">
-  {% block body %}
+<body>
+<div id="container">
     {% block navbar %}{% include 'nav.html' %}{% endblock navbar %}
     <div class="container" id="body">
-    <div class="row">
-      <div class="col-sm-3">
-      {% block sidebar %}
-          {% if categories %}
-          <h2>Categories</h2>
-          <ul id="sidebar" class="nav nav-pills nav-stacked">
-              <li class="{% if cat.id == current_category.id %}active{% endif %}"><a href="{% url 'home' %}">{% trans 'All Apps' %}</a></li>
-          {% for cat in categories %}
-            <li class="{% if cat.id == current_category.id %}active{% endif %}"><a href="{% url 'category_list_category' cat.id %}">{{ cat.name }}</a></li>
-          {% endfor %}
-          </ul>
-          {% endif %}
-      {% endblock sidebar %}
-      </div>
-      <div class="col-sm-9">
-      {% block content %}
-      {% endblock content %}
-      </div>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %}{% endblock content %}
     </div>
-    </div>
-  {% endblock body %}
-  <footer class="navbar-default" id="footer">
-      <div class="container">
-          <ul class="nav navbar-nav navbar-left">
-              <li class="nav-link">
-                  <a href="https://github.com/nextcloud/appstore">Fork me on GitHub</a>
-              </li>
-          </ul>
-      </div>
-  </footer>
-  </div>
+    <footer class="navbar-default" id="footer">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-link">
+                    <a href="https://github.com/nextcloud/appstore">Fork me on GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

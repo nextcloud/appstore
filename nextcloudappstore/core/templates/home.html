@@ -1,17 +1,7 @@
-{% extends "base.html" %}
+{% extends 'app/base.html' %}
 {% load i18n %}
 
-{% block content %}
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-      <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
-        {{ message }}
-      </div>
-    {% endfor %}
-</div>
-{% endif %}
-
+{% block apps %}
 <div class="jumbotron">
     <h1>{% trans 'All Apps' %}</h1>
     <p>{% trans 'All available apps' %}</p>
@@ -31,4 +21,4 @@
   {% endif %}
 {% endfor %}
 </div>
-{% endblock content %}
+{% endblock apps %}

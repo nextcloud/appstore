@@ -1,21 +1,21 @@
-{% extends "base.html" %}
+{% extends 'app/base.html' %}
 
-{% block content %}
+{% block apps %}
 <div class="jumbotron">
-  <h1>{{ current_category.name }}</h1>
-  <p>{{ current_category.description }}</p>
+    <h1>{{ current_category.name }}</h1>
+    <p>{{ current_category.description }}</p>
 </div>
-  {% for app in object_list %}
-    <div class="col-sm-4">
-      <div class="well">
-        <h3><a href="{%url 'app_detail' id=app.id %}">{{ app.name }}</a></h3>
-        {{ app.description }}
-      </div>
-    </div>
+{% for app in object_list %}
+        <div class="col-sm-4">
+            <div class="well">
+                <h3><a href="{% url 'app_detail' id=app.id %}">{{ app.name }}</a></h3>
+                {{ app.description }}
+            </div>
+        </div>
     {% if forloop.counter|divisibleby:4 %}
-      </div>
-      <div class="row">
+        <div class="row"></div>
     {% endif %}
-  {% endfor %}
-{% endblock content %}
+{% endfor %}
+
+{% endblock apps %}
 
