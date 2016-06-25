@@ -5,10 +5,6 @@
 
 
 {% block apps %}
-<div class="jumbotron">
-    <h1>{{ current_category.name }}</h1>
-    <p>{{ current_category.description }}</p>
-</div>
 {% for app in object_list %}
         <div class="col-sm-4">
             <div class="well">

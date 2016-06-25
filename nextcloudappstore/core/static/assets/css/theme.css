@@ -1,0 +1,58 @@
+/* Custom theme changes */
+
+:root {
+    --bg-color: #0082c9;
+    --bg-color-hover: #0069B0;
+    --link-color: #0082c9;
+    --link-active-color: #fff;
+    --border-radius: 0;
+}
+
+
+#body a {
+    color: var(--link-color);
+}
+
+#body a:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+#sidebar .active a {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    color: var(--link-active-color);
+}
+
+#sidebar a:hover {
+    text-decoration: none;
+    border-radius: var(--border-radius);
+}
+
+.well,
+.well-small,
+.container .jumbotron {
+    border-radius: var(--border-radius);
+    background-color: #fff;
+}
+
+.btn-primary {
+    background-color: var(--bg-color);
+}
+
+.btn-primary {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+}
+
+.btn-primary:hover {
+    background-color: var(--bg-color-hover);
+}
+
+.form-control {
+    border-radius: var(--border-radius);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 2px var(--bg-color);
+}

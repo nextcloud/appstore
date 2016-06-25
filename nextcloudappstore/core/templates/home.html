@@ -2,11 +2,6 @@
 {% load i18n %}
 
 {% block apps %}
-<div class="jumbotron">
-    <h1>{% trans 'All Apps' %}</h1>
-    <p>{% trans 'All available apps' %}</p>
-</div>
-
 <div class="row">
 {% for app in recommended_apps %}
   <div class="col-sm-4">
