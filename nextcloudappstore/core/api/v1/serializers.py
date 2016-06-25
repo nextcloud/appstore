@@ -88,7 +88,7 @@ class AppSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'screenshots', 'translations', 'recommendations'
+            'screenshots', 'translations', 'recommendations', 'featured'
         )
 
     def get_recommendations(self, obj):

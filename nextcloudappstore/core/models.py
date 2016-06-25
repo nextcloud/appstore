@@ -2,7 +2,7 @@ from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model  # type: ignore
+    DateTimeField, Model, BooleanField  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel  # type: ignore
 
@@ -40,6 +40,7 @@ class App(TranslatableModel):
     recommendations = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
                                       verbose_name=_('Recommendations'),
                                       related_name='recommended_apps')
+    featured = BooleanField(verbose_name=_('Featured'), default=False)
 
     class Meta:
         verbose_name = _('App')
