@@ -12,6 +12,8 @@ The following API routes are present:
 
 * :ref:`api-all-releases`
 
+* :ref:`api-all-categories`
+
 * :ref:`api-delete-app`
 
 * :ref:`api-delete-release`
@@ -45,84 +47,90 @@ This route will return all releases to display inside Nextcloud's apps admin are
         {
             "id": "news",
             "categories": [
-                {
-                    "id": "tools",
-                    "translations": {
-                        "en": {
-                            "name": "Tools"
-                        },
-                        "de": {
-                            "name": "Werkzeuge"
-                        },
-                        "fr": {
-                            "name": "Outil"
-                        }
-                    }
-                }
+                "multimedia"
             ],
-            "recommendations": 100,
-            "featured": false,
-            "userDocs": "http://127.0.0.1:8000/user",
-            "adminDocs": "http://127.0.0.1:8000/admin",
-            "developerDocs": "http://127.0.0.1:8000/dev",
-            "issueTracker": "http://127.0.0.1:8000/issue",
-            "website": "http://127.0.0.1:8000/",
-            "created": "2016-06-09T17:56:05.076980Z",
-            "lastModified": "2016-06-09T17:56:19.099038Z",
+            "userDocs": "https://github.com/owncloud/news/wiki#user-documentation",
+            "adminDocs": "https://github.com/owncloud/news#readme",
+            "developerDocs": "https://github.com/owncloud/news/wiki#developer-documentation",
+            "issueTracker": "https://github.com/owncloud/news/issues",
+            "website": "https://github.com/owncloud/news",
+            "created": "2016-06-25T16:08:56.794719Z",
+            "lastModified": "2016-06-25T16:49:25.326855Z",
             "releases": [
                 {
-                    "version": "1.9.0",
-                    "checksum": "65e613318107bceb131af5cf8b71e773b79e1a9476506f502c8e2017b52aba15",
+                    "version": "8.8.0",
                     "phpExtensions": [
                         {
+                            "id": "SimpleXML",
+                            "versionSpec": "*"
+                        },
+                        {
+                            "id": "curl",
+                            "versionSpec": "*"
+                        },
+                        {
+                            "id": "iconv",
+                            "versionSpec": "*"
+                        },
+                        {
                             "id": "libxml",
-                            "versionSpec": ">=3.0.0 <5.0.0"
+                            "versionSpec": ">=2.7.8"
                         }
                     ],
                     "databases": [
                         {
+                            "id": "mysql",
+                            "versionSpec": ">=5.5.0"
+                        },
+                        {
+                            "id": "pgsql",
+                            "versionSpec": ">=9.4.0"
+                        },
+                        {
                             "id": "sqlite",
-                            "name": "Sqlite",
                             "versionSpec": "*"
                         }
                     ],
                     "shellCommands": [
                         "grep"
                     ],
-                    "phpVersionSpec": "<7.0.0",
-                    "platformVersionSpec": ">=9.0.0",
+                    "phpVersionSpec": ">=5.6.0",
+                    "platformVersionSpec": ">=9.0.0 <9.2.0",
                     "minIntSize": 64,
-                    "download": "https://127.0.0.1:8000/download",
-                    "created": "2016-06-09T17:57:00.587076Z",
-                    "lastModified": "2016-06-09T17:57:00.587238Z"
+                    "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
+                    "created": "2016-06-25T16:08:56.796646Z",
+                    "licenses": [
+                        "agpl"
+                    ],
+                    "lastModified": "2016-06-25T16:49:25.319425Z",
+                    "checksum": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5"
                 }
-            ],
-            "licenses": [
-                  {
-                      "id": "agpl",
-                      "name": "AGPLv3+"
-                  }
             ],
             "screenshots": [
                 {
-                    "url": "http://feeds2.feedburner.com/blogerator"
+                    "url": "https://example.com/news.jpg"
                 }
             ],
             "translations": {
                 "en": {
                     "name": "News",
-                    "description": "Read News"
-                },
-                "de": {
-                    "name": "Neuigkeiten",
-                    "description": "Nachrichten lesen"
+                    "description": "An RSS/Atom feed reader"
                 }
-            }
+            },
+            "recommendations": 0,
+            "featured": false
         }
     ]
 
+
 translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
+
+screenshots
+    Guaranteed to be HTTPS
+
+download
+    Download archive location, guaranteed to be HTTPS
 
 versionSpec
     Required versions (minimum and maximum versions) are transformed to semantic version specs. If a field is a \*, this means that there is no version requirement. The following permutations can occur:
@@ -140,6 +148,106 @@ recommendations
 
 featured
     Simple boolean flag which will be presented to the user as "hey take a look at this app". Does not imply that it has been reviewed or we recommend it officially
+
+categories
+    The string value is the category's id attribute, see :ref:`api-all-categories`
+
+.. _api-all-categories:
+
+Get All Categories
+~~~~~~~~~~~~~~~~~~
+This route will return all categories and their translations.
+
+* **Url**: GET /api/v1/categories.json
+
+* **Authentication**: None
+
+* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
+
+* **Example CURL request**::
+
+    curl http://localhost:8000/api/v1/categories.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    [
+        {
+            "id": "games",
+            "translations": {
+                "en": {
+                    "name": "Games",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Spiele",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Jeux",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "multimedia",
+            "translations": {
+                "en": {
+                    "name": "Multimedia",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Multimedia",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Multimedia",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "pim",
+            "translations": {
+                "en": {
+                    "name": "PIM",
+                    "description": ""
+                },
+                "de": {
+                    "name": "PIM",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "PIM",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "tools",
+            "translations": {
+                "en": {
+                    "name": "Tools",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Werkzeuge",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Outil",
+                    "description": ""
+                }
+            }
+        }
+    ]
+
+
+translations
+    Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
+
+
 
 .. _api-delete-app:
 
