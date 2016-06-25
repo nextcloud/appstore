@@ -77,19 +77,43 @@ class GunZipAppMetadataExtractor:
 
             for possible_link in possible_links:
                 if possible_link.issym() or possible_link.islnk():
-                    msg = 'Symlinks and hard links can not be used for %s' %\
+                    msg = 'Symlinks and hard links can not be used for %s' % \
                           possible_link
                     raise InvalidAppPackageStructureException(msg)
-
-            if info_member.size > self.config.max_info_size:
-                msg = '%s was bigger than allowed %i bytes' % (
-                    info_path, self.config.max_info_size)
-                raise MaxSizeAppMetadataXmlException(msg)
             info_file = tar.extractfile(info_member)
-            return info_file.read().decode('utf-8'), app_id
+            contents = self._stream_read_file(info_file,
+                                              self.config.max_info_size)
+            return contents, app_id
         except KeyError:
             msg = 'Could not find %s file inside the archive' % info_path
             raise InvalidAppPackageStructureException(msg)
+
+    def _stream_read_file(self, info_file: Any, max_info_size: int) -> str:
+        """
+        Instead of reading everything in one go which is vulnerable to
+        zip bombs, stream and accumulate the bytes
+        :argument info_file: buffered io reader
+        :argument max_info_size: maximum file size in bytes
+        :raises MaxSizeAppMetadataXmlException if the maximum size was reached
+        :return: the parsed info.xml
+        """
+        # FIXME: If someone finds a less ugly version, please feel free to
+        #        improve it
+        size = 0
+        result = b''
+        while True:
+            size += 1024
+            if size > max_info_size:
+                msg = 'info.xml was bigger than allowed %i bytes' % \
+                      max_info_size
+                raise MaxSizeAppMetadataXmlException(msg)
+
+            chunk = info_file.read(1024)
+            if not chunk:
+                break
+            result += chunk
+
+        return result.decode('utf-8')
 
 
 def element_to_dict(element: Any) -> Dict:
