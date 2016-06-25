@@ -1,6 +1,8 @@
 {% extends 'app/base.html' %}
 {% load i18n %}
 
+{% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
+
 {% block apps %}
   <h1>{{ object.name }}</h1>
 
@@ -220,4 +222,4 @@
       </div><!-- tab content -->
     </div>
   </div>
-{% endblock apps %}
+{% endblock %}

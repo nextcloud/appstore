@@ -8,19 +8,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}"/>
-    <title>Nextcloud App Store{% block head-title %}{% endblock head-title %}</title>
+    <title>Nextcloud App Store{% block head-title %}{% endblock %}</title>
     <link rel="stylesheet"
           href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
     <script
         src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    {% block head %}{% endblock head %}
+    {% block head %}{% endblock %}
 </head>
 
 <body>
 <div id="container">
-    {% block navbar %}{% include 'nav.html' %}{% endblock navbar %}
+    {% block navbar %}{% include 'nav.html' %}{% endblock %}
     <div class="container" id="body">
         {% if messages %}
             <div class="messages">
@@ -31,7 +31,7 @@
             {% endfor %}
         </div>
         {% endif %}
-        {% block content %}{% endblock content %}
+        {% block content %}{% endblock %}
     </div>
     <footer class="navbar-default" id="footer">
         <div class="container">
