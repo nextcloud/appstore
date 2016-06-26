@@ -36,12 +36,12 @@ The server can be started after activating the virtual environment first::
 
 The website is available at `http://127.0.0.1:8000 <http://127.0.0.1:8000>`_. Code changes will auto reload the server so happy developing!
 
-.. note:: Every time you start a new terminal session you will need to reactive the virtual environment and set the development settings::
+Every time you start a new terminal session you will need to reactive the virtual environment and set the development settings::
 
     source venv/bin/activate
     export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
 
-We therfore recommend creating a small bash alias in your .bashrc::
+We therefore recommend creating a small bash alias in your **~/.bashrc**::
 
     alias cda='cd path/to/appstore && source venv/bin/activate && export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development'
 
