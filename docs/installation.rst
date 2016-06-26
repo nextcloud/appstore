@@ -1,5 +1,7 @@
 Installation
 ============
+.. note:: This guide will use Ubuntu 16.04, Nginx, Gunicorn and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
+
 There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
 * :ref:`development-install`: Choose this section if you want to set it up locally for development
@@ -9,9 +11,7 @@ There are two ways to install the store, both are mutually exclusive (means: don
 
 Development Installation
 ------------------------
-Certain libraries and Python packages are required before setting up your development instance:
-
-**Ubuntu**::
+Certain libraries and Python packages are required before setting up your development instance::
 
     sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
 
@@ -49,9 +49,7 @@ We therefore recommend creating a small bash alias in your **~/.bashrc**::
 
 Production Installation
 -----------------------
-.. note:: This guide will use Ubuntu, Nginx, Gunicorn and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
-
-Certain libraries and Python packages are required before setting up your development instance:
+Certain libraries and Python packages are required before setting up your development instance::
 
     sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
 
