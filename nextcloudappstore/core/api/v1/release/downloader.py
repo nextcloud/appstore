@@ -54,11 +54,6 @@ class AppReleaseDownloader:
             session.max_redirects = max_redirects
             req = session.get(url, stream=True, timeout=timeout)
             req.raise_for_status()
-            if int(req.headers.get('Content-Length')) > max_size:
-                msg = 'Downloaded archive is bigger than the allowed %i ' \
-                      'bytes' % max_size
-                raise MaximumDownloadSizeExceededException(msg)
-
             self._stream_to_file(file, max_size, req)
 
         return ReleaseDownload(file.name)
