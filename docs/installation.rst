@@ -4,7 +4,11 @@ Certain libraries and Python packages are required before setting up your produc
 
 **Ubuntu**::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential
+
+If you are using apache::
+
+    sudo apt-get install libapache2-mod-wsgi-py3
 
 If you completed the section for your distro, you can continue with installing the store. There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
@@ -187,9 +191,9 @@ Then place the following content in the appropriate apache configuration:
 
 .. code-block:: apacheconf
 
-    WSGIScriptAlias / /path/to/code/nextcloudappstore/wsgi.py
     WSGIDaemonProcess production-domain.com python-path=/path/to/code/:/path/to/code/venv/lib/python3.4/site-packages/
     WSGIProcessGroup production-domain.com
+    WSGIScriptAlias / /path/to/code/nextcloudappstore/wsgi.py
 
     Alias /static/ /var/www/production-domain.com/static/
     Alias /schema/apps/info.xsd /path/to/code/nextcloudappstore/core/api/v1/release/info.xsd
