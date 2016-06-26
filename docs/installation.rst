@@ -188,7 +188,7 @@ Then place the following content in the appropriate apache configuration:
 .. code-block:: apacheconf
 
     WSGIScriptAlias / /path/to/code/nextcloudappstore/wsgi.py
-    WSGIDaemonProcess production-domain.com python-path=/path/to/production-domain.com:/path/to/code/venv/lib/python3.4/site-packages/
+    WSGIDaemonProcess production-domain.com python-path=/path/to/code/:/path/to/code/venv/lib/python3.4/site-packages/
     WSGIProcessGroup production-domain.com
 
     Alias /static/ /var/www/production-domain.com/static/
