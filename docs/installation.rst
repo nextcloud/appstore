@@ -4,7 +4,7 @@ Certain libraries and Python packages are required before setting up your produc
 
 **Ubuntu**::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev
 
 If you completed the section for your distro, you can continue with installing the store. There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
