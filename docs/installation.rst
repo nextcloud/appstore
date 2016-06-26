@@ -221,7 +221,9 @@ First install Nginx::
 
     sudo apt-get install nginx
 
-.. code-block::
+Then adjust the config in **/etc/nginx/sites-enabled/default**
+
+::
 
     worker_processes 1;
 
