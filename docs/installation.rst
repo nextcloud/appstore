@@ -192,11 +192,12 @@ After all settings are adjusted, create the database schema by running the follo
 
 Creating an Admin User
 ~~~~~~~~~~~~~~~~~~~~~~
-To create the initial admin user, run the following command::
+To create the initial admin user and verify his email, run the following command::
 
     python manage.py createsuperuser --username admin --email admin@admin.com
+    echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | python manage.py shell --settings nextcloudappstore.settings.production
 
-The command will ask for the password.
+The first command will ask for the password.
 
 Loading Initial Data
 ~~~~~~~~~~~~~~~~~~~~
