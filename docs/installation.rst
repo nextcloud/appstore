@@ -1,12 +1,6 @@
 Installation
 ============
-Certain libraries and Python packages are required before setting up your production or development instance
-
-**Ubuntu**::
-
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential
-
-If you completed the section for your distro, you can continue with installing the store. There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
+There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
 * :ref:`development-install`: Choose this section if you want to set it up locally for development
 * :ref:`production-install`: Check this section for setting up the app store on your server
@@ -15,7 +9,13 @@ If you completed the section for your distro, you can continue with installing t
 
 Development Installation
 ------------------------
-First clone the repository using git and change into it::
+Certain libraries and Python packages are required before setting up your development instance:
+
+**Ubuntu**::
+
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev build-essential
+
+Afterwards clone the repository using git and change into it::
 
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
@@ -49,8 +49,42 @@ We therefore recommend creating a small bash alias in your **~/.bashrc**::
 
 Production Installation
 -----------------------
-First clone the repository using git and change into it::
+.. note:: This guide will use Ubuntu, Nginx, Gunicorn and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
 
+Certain libraries and Python packages are required before setting up your development instance:
+
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+
+
+Database Setup
+~~~~~~~~~~~~~~
+Then install the database::
+
+    sudo apt-get install postgresql
+
+configure it::
+
+    echo "listen_address = '*'" >> /etc/postgresql/9.5/main/pg_ident.conf
+    systemctl restart postgresql.service
+
+and create a user and database::
+
+    sudo -s
+    su - postgres
+    psql
+    CREATE USER nextcloudappstore WITH PASSWORD 'password';
+    CREATE DATABASE nextcloudappstore OWNER nextcloudappstore;
+    \q
+    exit
+
+.. note:: Use your own password instead of the password example!
+
+App Store Setup
+~~~~~~~~~~~~~~~
+
+Afterwards change into your preferred target folder, clone the repository using git and change into it::
+
+    cd /path/to/co
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
 
@@ -63,7 +97,6 @@ This will create a local virtual environment in the **venv** folder. You only ne
 Then activate it and set the correct settings file::
 
     source venv/bin/activate
-
 
 .. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
 
@@ -101,9 +134,9 @@ To get your instance running in production you need to create your production se
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'mydatabase',
-            'USER': 'mydatabaseuser',
-            'PASSWORD': 'mypassword',
+            'NAME': 'nextcloudappstore',
+            'USER': 'nextcloudappstore',
+            'PASSWORD': 'password',
             'HOST': '127.0.0.1',
             'PORT': '5432',
         }
@@ -135,12 +168,12 @@ To get your instance running in production you need to create your production se
     }
 
     # Only set this parameter if you want to use a different tmp directory for app downloads
-    RELEASE_DOWNLOAD_ROOT = '/other/tmp'
+    # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
 
 Then set the file as the active settings file::
 
-    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
+    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 
 .. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
 
@@ -149,6 +182,7 @@ Then set the file as the active settings file::
     env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
 
 For more settings, check the `settings documentation <https://docs.djangoproject.com/en/1.9/ref/settings/>`_.
+
 
 Creating the Database Schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -172,63 +206,30 @@ To prepopulate the database with categories and other data run the following com
 
 Placing Static Content
 ~~~~~~~~~~~~~~~~~~~~~~
-Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. This can be done by executing the following command::
+Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. To do that first create the appropriate folders::
+
+    mkdir /var/www/production-domain.com/static/
+    mkdir /var/www/production-domain.com/media/
+
+Then copy the files into the folders by executing the following command::
 
     python manage.py collectstatic
 
-This will place the contents inside the folder configured under the key **STATIC_ROOT** inside your **nextcloudappstore/settings/production.py**
+This will place the contents inside the folder configured under the key **STATIC_ROOT** and **MEDIA_ROOT** inside your **nextcloudappstore/settings/production.py**
 
 Configuring the Server
 ~~~~~~~~~~~~~~~~~~~~~~
-This section will explain how to set up the application using apache and mod_wsgi. If you want to use a different web server or need further information check out `the deployment documentation <https://docs.djangoproject.com/en/1.9/howto/deployment/>`_
+First install Nginx::
 
-Apache
-^^^^^^
+    sudo apt-get install nginx
 
-First install apache and mod_wsgi:
-
-* **Ubuntu and Debian**::
-
-     sudo apt-get install apache2 libapache2-mod-wsgi
-
-Then place the following content in the appropriate apache configuration:
-
-.. code-block:: apacheconf
-
-    WSGIDaemonProcess production-domain.com python-path=/path/to/code/:/path/to/code/venv/lib/python3.4/site-packages/
-    WSGIProcessGroup production-domain.com
-    WSGIScriptAlias / /path/to/code/nextcloudappstore/wsgi.py
-
-    Alias /static/ /var/www/production-domain.com/static/
-    Alias /schema/apps/info.xsd /path/to/code/nextcloudappstore/core/api/v1/release/info.xsd
-
-    <Directory /path/to/code/nextcloudappstore>
-        <Files wsgi.py>
-            Require all granted
-        </Files>
-    </Directory>
-
-    <Directory /path/to/code/nextcloudappstore/core/api/v1/release>
-        <Files info.xsd>
-            Require all granted
-        </Files>
-    </Directory>
-
-    <Directory /var/www/production-domain.com/static>
-        Require all granted
-        AllowOverride None
-    </Directory>
-
-    <Directory /var/www/production-domain.com/media>
-        Require all granted
-        AllowOverride None
-    </Directory>
+tbd
 
 .. note:: **/path/to/code/venv/lib/python3.4/site-packages/** must be adjusted if you are using a newer version than Python 3.4
 
 Finally restart apache to reload the settings::
 
-    systemctl restart apache2.service
+    systemctl restart nginx.service
 
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
