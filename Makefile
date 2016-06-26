@@ -25,8 +25,7 @@ resetup:
 
 # Only for local setup, do not use in production
 dev-setup:
-	python3 -m venv venv
-	ls -la
+	pyvenv venv
 	@echo "DEBUG = True" > $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/local_settings.py
 	@echo "RECAPTCHA_PUBLIC_KEY = 'PUBLIC_KEY'" >> $(CURDIR)/nextcloudappstore/local_settings.py
