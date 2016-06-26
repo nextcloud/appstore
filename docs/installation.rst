@@ -62,7 +62,7 @@ Then install the database::
 
 configure it::
 
-    echo "listen_address = '*'" >> /etc/postgresql/9.5/main/pg_ident.conf
+    echo "listen_address = '127.0.0.1'" >> /etc/postgresql/9.5/main/pg_ident.conf
     systemctl restart postgresql.service
 
 and create a user and database::
@@ -221,13 +221,111 @@ First install Nginx::
 
     sudo apt-get install nginx
 
-tbd
+.. code-block::
 
-.. note:: **/path/to/code/venv/lib/python3.4/site-packages/** must be adjusted if you are using a newer version than Python 3.4
+    worker_processes 1;
 
-Finally restart apache to reload the settings::
+    events {
+        worker_connections 1024;
+        accept_mutex off; # set to 'on' if nginx worker_processes > 1
+        use epoll;
+    }
 
+    http {
+        include mime.types;
+        default_type application/octet-stream;
+
+        upstream app_server {
+            server unix:/tmp/gunicorn.sock fail_timeout=0;
+        }
+
+        server {
+            # if no Host match, close the connection to prevent host spoofing
+            listen 80 default_server;
+            return 444;
+        }
+
+        server {
+            listen 80 deferred;
+            gzip off;
+            client_max_body_size 1G;
+            server_name apps.nextcloud.com www.apps.example.com;
+
+            root /var/www;
+
+            location / {
+                try_files $uri @proxy_to_app;
+            }
+
+            location @proxy_to_app {
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto https;
+                proxy_set_header Host $http_host;
+                proxy_redirect off;
+                proxy_pass http://app_server;
+            }
+
+            error_page 500 502 503 504 /500.html;
+            location = /500.html {
+                root /var/www/html;
+            }
+        }
+    }
+
+.. note:: Not final
+
+Afterwards configure SystemD to automatically start gunicorn:
+
+**/etc/systemd/system/gunicorn.service**:
+
+.. code-block:: ini
+
+    [Unit]
+    Description=gunicorn daemon
+    Requires=gunicorn.socket
+    After=network.target
+
+    [Service]
+    PIDFile=/run/gunicorn/pid
+    User=appstore
+    Group=appstore
+    Environment="PYTHONPATH=/path/to/code:/path/to/code/venv/lib/python3.5/site-packages"
+    WorkingDirectory=/path/to/code/
+    ExecStart=/path/to/code/venv/bin/gunicorn --pid /run/gunicorn/pid test:app
+    ExecReload=/bin/kill -s HUP $MAINPID
+    ExecStop=/bin/kill -s TERM $MAINPID
+    PrivateTmp=true
+
+    [Install]
+    WantedBy=multi-user.target
+
+**/etc/systemd/system/gunicorn.socket**:
+
+.. code-block:: ini
+
+    [Unit]
+    Description=gunicorn socket
+
+    [Socket]
+    ListenStream=/run/gunicorn/socket
+    ListenStream=0.0.0.0:9000
+    ListenStream=[::]:8000
+
+    [Install]
+    WantedBy=sockets.target
+
+**/usr/lib/tmpfiles.d/gunicorn.conf**::
+
+    d /run/gunicorn 0755 appstore appstore -
+
+Finally restart Nginx and enable Gunicorn::
+
+    systemctl enable nginx.service
+    systemctl enable gunicorn.socket
     systemctl restart nginx.service
+    systemctl start gunicorn.socket
+
+.. note:: Not final
 
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
