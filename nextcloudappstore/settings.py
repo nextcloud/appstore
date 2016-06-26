@@ -187,10 +187,6 @@ CORS_EXPOSE_HEADERS = (
 # use modern no Captcha reCaptcha
 NOCAPTCHA = True
 
-
 LOGIN_REDIRECT_URL = 'home'
 
-try:
-    from nextcloudappstore.local_settings import *
-except:
-    pass
+from nextcloudappstore.local_settings import *
