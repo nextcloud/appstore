@@ -1,28 +1,15 @@
 Installation
 ============
+Certain libraries and Python packages are required before setting up your production or development instance
 
-The store runs on **Python 3.4 or later** and requires only **venv** to be set up.
+**Ubuntu**::
 
-You can check your Python version by running::
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev
 
-    python3 --version
-
-**venv** is sometimes bundled with your Python 3 package (e.g. Arch Linux), however certain distributions move it into a separate package. You can find out if it is installed by running::
-
-    python3 -m venv -h
-
-If you get a **No module named venv** error, you need to install it first:
-
-* **Ubuntu and Debian**::
-
-    sudo apt-get install python3-venv
-
-
-There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
+If you completed the section for your distro, you can continue with installing the store. There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
 * :ref:`development-install`: Choose this section if you want to set it up locally for development
 * :ref:`production-install`: Check this section for setting up the app store on your server
-
 
 .. _development-install:
 
@@ -60,7 +47,7 @@ First clone the repository using git and change into it::
 
 Afterwards set up a new virtual environment by running the following command::
 
-    pyvenv venv
+    python3 -m venv venv
 
 This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
 
