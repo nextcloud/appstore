@@ -28,7 +28,7 @@ The project root contains a **Makefile** which allows you to quickly set everyth
 
 This will automatically set up the web app using **venv** and **SQLite** as database. An admin user with name **admin** and password **admin** will also be created.
 
-The server can be started after activating the virtual environment first:
+The server can be started after activating the virtual environment first::
 
     source venv/bin/activate
     python manage.py runserver
