@@ -117,6 +117,7 @@ To get your instance running in production you need to create your production se
     from nextcloudappstore.settings.base import *
 
     DEBUG = False
+    USE_SSL = True
 
     # generate the SECRET_KEY by yourself for instance by using the following command:
     # env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
@@ -140,10 +141,11 @@ To get your instance running in production you need to create your production se
         }
     }
 
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    if USE_SSL:
+        CSRF_COOKIE_SECURE = True
+        SESSION_COOKIE_SECURE = True
+        SECURE_HSTS_SECONDS = 31536000
+        SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
     # Url for serving assets like CSS, JavaScript and images
     STATIC_URL = '/static/'
