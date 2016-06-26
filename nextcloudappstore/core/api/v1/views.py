@@ -3,15 +3,15 @@ from django.http import Http404
 from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
-    AppReleaseDownloadSerializer
+    AppReleaseDownloadSerializer, CategorySerializer
 from django.db.models import Max, Count
-from nextcloudappstore.core.models import App, AppRelease
+from nextcloudappstore.core.models import App, AppRelease, Category
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from pymple import Container
 from rest_framework import authentication  # type: ignore
 from rest_framework.generics import DestroyAPIView, \
-    get_object_or_404  # type: ignore
+    get_object_or_404, ListAPIView  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from semantic_version import Version, Spec
@@ -39,6 +39,21 @@ def app_api_etag(request, version):
             return '%s-%s' % (count, release_modified)
 
 
+def category_api_etag(request):
+    category_aggr = Category.objects.aggregate(count=Count('*'),
+                                               modified=Max('last_modified'))
+    category_modified = category_aggr['modified']
+    if category_modified is None:
+        return None
+    else:
+        return '%s-%s' % (category_aggr['count'], category_modified)
+
+
+class Categories(ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
 class Apps(DestroyAPIView):
     authentication_classes = (authentication.BasicAuthentication,)
     permission_classes = (UpdateDeletePermission,)
@@ -46,13 +61,9 @@ class Apps(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        apps = App.objects.prefetch_related('translations',
-                                            'categories__translations',
-                                            'categories', 'releases',
-                                            'screenshots',
-                                            'releases__databases',
+        apps = App.objects.prefetch_related('translations', 'screenshots',
+                                            'releases', 'releases__databases',
                                             'releases__php_extensions').all()
-
         platform_version = Version(self.kwargs['version'])
 
         def app_filter(app):

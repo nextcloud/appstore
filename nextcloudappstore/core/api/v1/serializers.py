@@ -20,21 +20,14 @@ class PhpExtensionDependencySerializer(serializers.ModelSerializer):
 
 class DatabaseDependencySerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField(source='database.id')
-    name = serializers.ReadOnlyField(source='database.name')
     version_spec = SerializerMethodField()
 
     class Meta:
         model = DatabaseDependency
-        fields = ('id', 'name', 'version_spec')
+        fields = ('id', 'version_spec')
 
     def get_version_spec(self, obj):
         return obj.version_spec.replace(',', ' ')
-
-
-class LicenseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = License
-        fields = ('id', 'name')
 
 
 class CategorySerializer(TranslatableModelSerializer):
@@ -51,7 +44,6 @@ class AppReleaseSerializer(serializers.ModelSerializer):
     php_extensions = \
         PhpExtensionDependencySerializer(many=True, read_only=True,
                                          source='phpextensiondependencies')
-    licenses = LicenseSerializer(many=True, read_only=True)
     php_version_spec = SerializerMethodField()
     platform_version_spec = SerializerMethodField()
 
@@ -77,7 +69,6 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 
 
 class AppSerializer(serializers.ModelSerializer):
-    categories = CategorySerializer(many=True, read_only=True)
     releases = AppReleaseSerializer(many=True, read_only=True)
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
