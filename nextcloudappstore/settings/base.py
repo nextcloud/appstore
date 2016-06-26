@@ -10,12 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os
+from os.path import dirname, abspath, join, pardir, realpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.conf.global_settings import LANGUAGES
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'nextcloudappstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': join(BASE_DIR, 'db.sqlite3'),
         'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'test.sqlite3'),
+            'NAME': join(BASE_DIR, 'test.sqlite3'),
         }
     }
 }
@@ -159,7 +159,7 @@ PARLER_LANGUAGES = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = join(BASE_DIR, 'media')
 RELEASE_DOWNLOAD_ROOT = None
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
@@ -188,5 +188,3 @@ CORS_EXPOSE_HEADERS = (
 NOCAPTCHA = True
 
 LOGIN_REDIRECT_URL = 'home'
-
-from nextcloudappstore.local_settings import *

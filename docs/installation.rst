@@ -6,10 +6,6 @@ Certain libraries and Python packages are required before setting up your produc
 
     sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential
 
-If you are using apache::
-
-    sudo apt-get install libapache2-mod-wsgi-py3
-
 If you completed the section for your distro, you can continue with installing the store. There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
 * :ref:`development-install`: Choose this section if you want to set it up locally for development
@@ -35,10 +31,19 @@ This will automatically set up the web app using **venv** and **SQLite** as data
 The server can be started after activating the virtual environment first::
 
     source venv/bin/activate
+    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
     python manage.py runserver
 
 The website is available at `http://127.0.0.1:8000 <http://127.0.0.1:8000>`_. Code changes will auto reload the server so happy developing!
 
+.. note:: Every time you start a new terminal session you will need to reactive the virtual environment and set the development settings::
+
+    source venv/bin/activate
+    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
+
+We therfore recommend creating a small bash alias in your .bashrc::
+
+    alias cda='cd path/to/appstore && source venv/bin/activate && export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development'
 
 .. _production-install:
 
@@ -55,9 +60,10 @@ Afterwards set up a new virtual environment by running the following command::
 
 This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
 
-Then activate it::
+Then activate it and set the correct settings file::
 
     source venv/bin/activate
+
 
 .. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
 
@@ -73,9 +79,11 @@ Next install the required libraries::
 
 Adjusting Default Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-To get your instance running in production you need to create your local settings file in **nextcloudappstore/local\_settings.py** which overwrites and enhances the settings defined in **nextcloudappstore/settings.py**. The local settings file is excluded from version control and should contain at least something like the following:
+To get your instance running in production you need to create your production settings file in **nextcloudappstore/settings/production.py** which overwrites and enhances the settings defined in **nextcloudappstore/settings/base.py**. The production settings file is excluded from version control and should contain at least something like the following:
 
 .. code-block:: python
+
+    from nextcloudappstore.settings.base import *
 
     DEBUG = False
 
@@ -121,22 +129,18 @@ To get your instance running in production you need to create your local setting
     # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
     EMAIL_HOST = 'localhost'
 
-    REST_FRAMEWORK = {
-        'DEFAULT_RENDERER_CLASSES': (
-            'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-        ),
-        'DEFAULT_PARSER_CLASSES': (
-            'djangorestframework_camel_case.parser.CamelCaseJSONParser',
-        ),
-        'DEFAULT_THROTTLE_RATES': {
-            # how many times a user is allowed to call the app upload route per day
-            'app_upload': '50/day'
-        }
+    REST_FRAMEWORK['DEFAULT_THROTTLE_RATES'] = {
+        # how many times a user is allowed to call the app upload route per day
+        'app_upload': '50/day'
     }
 
     # Only set this parameter if you want to use a different tmp directory for app downloads
     RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
+
+Then set the file as the active settings file::
+
+    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
 
 .. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
 
@@ -172,7 +176,7 @@ Django web apps usually ship static content such as JavaScript, CSS and images i
 
     python manage.py collectstatic
 
-This will place the contents inside the folder configured under the key **STATIC_ROOT** inside your **nextcloudappstore/local_settings.py**
+This will place the contents inside the folder configured under the key **STATIC_ROOT** inside your **nextcloudappstore/settings/production.py**
 
 Configuring the Server
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -250,10 +254,11 @@ To fetch the latest changes from the repository change into the directory that y
 If not active, activate the virtual environment::
 
     source venv/bin/activate
+    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 
 Then adjust the database schema (if changed) by running the migrations::
 
-    python3 manage.py migrate
+    python manage.py migrate
 
 and install any dependencies (if changed)::
 
