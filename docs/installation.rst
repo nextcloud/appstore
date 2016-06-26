@@ -65,6 +65,7 @@ Installing Required Libraries
 Next install the required libraries::
 
     pip install -r requirements/base.txt
+    pip install -r requirements/production.txt
 
 Adjusting Default Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -106,7 +107,7 @@ To get your instance running in production you need to create your local setting
     STATIC_ROOT = '/var/www/production-domain.com/static/'
 
     # Url for serving assets uploaded by users, ideally different domain
-    MEDIA_URL = 'https://separate-domain.com'
+    MEDIA_URL = 'https://separate-domain.com/'
     MEDIA_ROOT = '/var/www/production-domain.com/media/'
 
     # Public and private keys for Googles recaptcha
