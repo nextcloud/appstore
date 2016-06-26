@@ -92,7 +92,7 @@ Afterwards set up a new virtual environment by running the following command::
 
 This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
 
-Then activate it and set the correct settings file::
+Then activate it::
 
     source venv/bin/activate
 
