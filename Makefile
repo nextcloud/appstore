@@ -20,6 +20,10 @@ resetup:
 	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 
+initmigrations:
+	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
+	$(manage) makemigrations --settings nextcloudappstore.settings.development
+
 # Only for local setup, do not use in production
 dev-setup:
 	pyvenv venv
