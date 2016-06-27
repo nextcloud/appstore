@@ -15,8 +15,6 @@ test: lint
 
 resetup:
 	rm -f db.sqlite3
-	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
-	$(manage) makemigrations --settings nextcloudappstore.settings.development
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
