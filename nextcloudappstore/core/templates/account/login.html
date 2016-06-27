@@ -26,7 +26,13 @@
 
     <form method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
-
+        {% if form.non_field_errors  %}
+            {% for error in form.non_field_errors %}
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                <span class="sr-only">(error)</span>
+                <p class="text-danger">{{ error|escape }}</p>
+            {% endfor %}
+        {% endif %}
         {% for field in form %}
         <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
             <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
