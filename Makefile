@@ -29,7 +29,7 @@ dev-setup:
 	pyvenv venv
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
-	@echo -e "from nextcloudappstore.settings.base import *\n\nDEBUG = True\nSECRET_KEY = 'secret'\nRECAPTCHA_PUBLIC_KEY = '<RECAPTCHA_PUBLIC_KEY>'\nRECAPTCHA_PRIVATE_KEY = '<RECAPTCHA_PRIVATE_KEY>'\nEMAIL_HOST = 'localhost'\nDEFAULT_FROM_EMAIL = 'Appstore <appstore@nextcloud.com>'" > $(CURDIR)/nextcloudappstore/settings/development.py
+	@echo "from nextcloudappstore.settings.base import *\n\nDEBUG = True\nSECRET_KEY = 'secret'\nRECAPTCHA_PUBLIC_KEY = '<RECAPTCHA_PUBLIC_KEY>'\nRECAPTCHA_PRIVATE_KEY = '<RECAPTCHA_PRIVATE_KEY>'\nEMAIL_HOST = 'localhost'\nDEFAULT_FROM_EMAIL = 'Appstore <appstore@nextcloud.com>'" > $(CURDIR)/nextcloudappstore/settings/development.py
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
