@@ -30,7 +30,7 @@ class App(TranslatableModel):
     website = URLField(max_length=256, blank=True, verbose_name=_('Homepage'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False,
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     owner = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('App owner'),
                        on_delete=CASCADE, related_name='owned_apps')
@@ -85,7 +85,7 @@ class AppRelease(Model):
                         verbose_name=_('Archive download Url'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False,
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
 
     class Meta:
@@ -142,7 +142,7 @@ class Category(TranslatableModel):
                        'uploading an app'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False,
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     translations = TranslatedFields(
         name=CharField(max_length=128, help_text=_(
