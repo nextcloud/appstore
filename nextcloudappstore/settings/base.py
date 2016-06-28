@@ -188,3 +188,4 @@ CORS_EXPOSE_HEADERS = (
 NOCAPTCHA = True
 
 LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'account_login'
