@@ -26,7 +26,7 @@ The project root contains a **Makefile** which allows you to quickly set everyth
 
 .. note:: Only use this command for a local setup since it is not secure and slow!
 
-This will automatically set up the web app using **venv**, **SQLite** as database and create a default **development** settings file in nextcloudappstore/settings/development.py. You need to review the development settings and change them according to your setup. An admin user with name **admin** and password **admin** will also be created.
+This will automatically set up the web app using **venv**, **SQLite** as database and create a default **development** settings file in **nextcloudappstore/settings/development.py**. You need to review the development settings and change them according to your setup. An admin user with name **admin** and password **admin** will also be created.
 
 The server can be started after activating the virtual environment first::
 
