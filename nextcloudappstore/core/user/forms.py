@@ -8,5 +8,4 @@ class SignupFormRecaptcha(forms.Form):
     recaptcha = ReCaptchaField()
 
     def signup(self, request, user):
-        t = Token.objects.create(user=user)
-        t.save()
+        pass
