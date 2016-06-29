@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'parler',
     'captcha',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'allauth',
     'allauth.account',
