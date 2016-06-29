@@ -65,10 +65,10 @@ class AppReleaseSerializer(serializers.ModelSerializer):
         return obj.php_version_spec.replace(',', ' ')
 
     def get_version(self, obj):
-        obj.version.replace('-nightly', '')
+        return obj.version.replace('-nightly', '')
 
     def get_nightly(self, obj):
-        obj.version.endswith('-nightly')
+        return obj.version.endswith('-nightly')
 
 
 class ScreenshotSerializer(serializers.ModelSerializer):
@@ -99,4 +99,4 @@ class AppReleaseDownloadSerializer(serializers.Serializer):
     download = serializers.URLField(validators=[HttpsUrlValidator()])
     checksum = serializers.CharField(max_length=64, min_length=64,
                                      required=False)
-    nightly = serializers.BooleanField(required=False)
+    nightly = serializers.BooleanField(required=False, default=False)
