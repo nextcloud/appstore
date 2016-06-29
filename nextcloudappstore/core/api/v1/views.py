@@ -96,6 +96,9 @@ class AppReleases(DestroyAPIView):
             provider = container.resolve(AppReleaseProvider)
             info = provider.get_release_info(url)
             app_id = info['app']['id']
+
+            if serializer.validated_data['nightly']:
+                info['app']['release']['version'] += '-nightly'
             version = info['app']['release']['version']
 
             if 'checksum' in serializer.validated_data:
