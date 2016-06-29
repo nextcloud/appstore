@@ -195,9 +195,14 @@ class AppImporter(Importer):
         }, {'id'})
 
     def import_data(self, key: str, value: Any, obj: Any) -> None:
+        # if this is a nightly, delete all earlier nightlies
+        if self._is_latest_nightly(value):
+            AppRelease.objects.filter(app__id=value['id'], version__endswith='-nightly').delete()
+
         # only new releases update an app's data
         if not self._is_latest_version(value):
             value = {'id': value['id'], 'release': value['release']}
+
         super().import_data(key, value, obj)
 
     def _get_object(self, value: Any, obj: Any) -> Any:
@@ -214,8 +219,16 @@ class AppImporter(Importer):
 
     def _is_latest_version(self, value: Any) -> bool:
         releases = AppRelease.objects.filter(app__id=value['id'])
+        return self._is_latest(value, releases)
+
+    def _is_latest_nightly(self, value: Any) -> bool:
+        releases = AppRelease.objects.filter(app__id=value['id'], version__endswith='-nightly')
+        is_nightly = value['release']['version'].endswith('-nightly')
+        return self._is_latest(value, releases) and is_nightly
+
+    def _is_latest(self, value: Any, comp_releases) -> bool:
         uploaded_version = Version(value['release']['version'])
-        for release in releases:
+        for release in comp_releases:
             if uploaded_version < Version(release.version):
                 return False
         return True
