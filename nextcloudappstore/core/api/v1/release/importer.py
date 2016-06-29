@@ -164,7 +164,7 @@ class AppReleaseImporter(Importer):
         # if this is a nightly, delete all other nightlies
         if value['version'].endswith('-nightly'):
             AppRelease.objects.filter(
-                app__id=obj.id,version__endswith='-nightly').delete()
+                app__id=obj.id, version__endswith='-nightly').delete()
 
         # combine versions into specs
         value['platform_version_spec'] = to_spec(
