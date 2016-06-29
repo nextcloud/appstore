@@ -55,7 +55,8 @@ class Categories(ListAPIView):
 
 
 class Apps(DestroyAPIView):
-    authentication_classes = (authentication.TokenAuthentication, authentication.BasicAuthentication,)
+    authentication_classes = (authentication.TokenAuthentication,
+                              authentication.BasicAuthentication,)
     permission_classes = (UpdateDeletePermission,)
     serializer_class = AppSerializer
     queryset = App.objects.all()
@@ -78,7 +79,8 @@ class Apps(DestroyAPIView):
 
 
 class AppReleases(DestroyAPIView):
-    authentication_classes = (authentication.TokenAuthentication, authentication.BasicAuthentication,)
+    authentication_classes = (authentication.TokenAuthentication,
+                              authentication.BasicAuthentication,)
     permission_classes = (UpdateDeletePermission, IsAuthenticated)
     throttle_classes = (PostThrottle,)
     throttle_scope = 'app_upload'

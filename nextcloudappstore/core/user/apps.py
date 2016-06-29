@@ -10,7 +10,7 @@ class UserConfig(AppConfig):
         self._ready = False
 
     def ready(self):
-        #during tests ready can be called more than once.
+        # during tests ready can be called more than once.
         if not self._ready:
             from . import signals
             self._ready = True
