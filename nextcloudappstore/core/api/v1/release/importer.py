@@ -161,6 +161,11 @@ class AppReleaseImporter(Importer):
         obj.databases.clear()
 
     def import_data(self, key: str, value: Any, obj: Any) -> None:
+        # if this is a nightly, delete all other nightlies
+        if value['version'].endswith('-nightly'):
+            AppRelease.objects.filter(
+                app__id=obj.id, version__endswith='-nightly').delete()
+
         # combine versions into specs
         value['platform_version_spec'] = to_spec(
             value['platform_min_version'], value['platform_max_version'])
@@ -198,6 +203,7 @@ class AppImporter(Importer):
         # only new releases update an app's data
         if not self._is_latest_version(value):
             value = {'id': value['id'], 'release': value['release']}
+
         super().import_data(key, value, obj)
 
     def _get_object(self, value: Any, obj: Any) -> Any:

@@ -46,13 +46,16 @@ class AppReleaseSerializer(serializers.ModelSerializer):
                                          source='phpextensiondependencies')
     php_version_spec = SerializerMethodField()
     platform_version_spec = SerializerMethodField()
+    version = SerializerMethodField()
+    nightly = SerializerMethodField()
 
     class Meta:
         model = AppRelease
         fields = (
             'version', 'php_extensions', 'databases', 'shell_commands',
             'php_version_spec', 'platform_version_spec', 'min_int_size',
-            'download', 'created', 'licenses', 'last_modified', 'checksum'
+            'download', 'created', 'licenses', 'last_modified', 'checksum',
+            'nightly',
         )
 
     def get_platform_version_spec(self, obj):
@@ -60,6 +63,12 @@ class AppReleaseSerializer(serializers.ModelSerializer):
 
     def get_php_version_spec(self, obj):
         return obj.php_version_spec.replace(',', ' ')
+
+    def get_version(self, obj):
+        return obj.version.replace('-nightly', '')
+
+    def get_nightly(self, obj):
+        return obj.version.endswith('-nightly')
 
 
 class ScreenshotSerializer(serializers.ModelSerializer):
@@ -90,3 +99,4 @@ class AppReleaseDownloadSerializer(serializers.Serializer):
     download = serializers.URLField(validators=[HttpsUrlValidator()])
     checksum = serializers.CharField(max_length=64, min_length=64,
                                      required=False)
+    nightly = serializers.BooleanField(required=False, default=False)
