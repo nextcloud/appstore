@@ -1,6 +1,7 @@
 from django import forms
 
 from captcha.fields import ReCaptchaField
+from rest_framework.authtoken.models import Token
 
 
 class SignupFormRecaptcha(forms.Form):

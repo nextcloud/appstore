@@ -13,7 +13,7 @@ class AppTest(ApiTest):
     def test_delete(self):
         App.objects.create(id='news', owner=self.user)
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
-        self._login()
+        self._login_token()
         response = self.api_client.delete(url)
         self.assertEqual(204, response.status_code)
         with self.assertRaises(App.DoesNotExist):
@@ -43,7 +43,7 @@ class AppTest(ApiTest):
         app.co_maintainers.add(self.user)
         app.save()
         url = reverse('api-v1:app-delete', kwargs={'pk': 'news'})
-        self._login()
+        self._login_token()
         response = self.api_client.delete(url)
         self.assertEqual(403, response.status_code)
 
