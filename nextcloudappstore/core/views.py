@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
 
 
-class CategoryAppDetailView(DetailView):
+class AppDetailView(DetailView):
     model = App
     template_name = 'app/detail.html'
     slug_field = 'id'
