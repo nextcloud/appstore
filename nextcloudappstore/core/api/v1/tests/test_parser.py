@@ -72,6 +72,12 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
+    def test_extract_contracts(self):
+        path = self.get_path('data/archives/contacts.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        full_extracted, app_id = extractor.extract_app_metadata(path)
+        self.assertEqual('contacts', app_id)
+
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
