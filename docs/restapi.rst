@@ -5,6 +5,19 @@ A REST API for publishing and deleting app releases has been built into the stor
 
 All APIs can easily be used with :doc:`ncdev <ncdev>`
 
+Authentication
+--------------
+
+Several routes require authentication. The following authentication methods are supported:
+
+* **Basic**: Http header where **CREDENTIALS** is ``base64encode('user:password')``::
+
+    Authorization: Basic CREDENTIALS
+
+* **Token**: Http header where **TOKEN** is a token which can be looked up in your profile::
+
+    Authorization: Token TOKEN
+
 Specification
 -------------
 
@@ -267,7 +280,7 @@ Deleting an app will also delete all releases which are associated with it.
 
  * **app-id**: app id, lower case ASCII characters and underscores are allowed
 
-* **Authentication**: Basic
+* **Authentication**: Basic, Token
 
 * **Authorization**: App owners
 
@@ -296,7 +309,7 @@ Only app owners or co-maintainers are allowed to delete an app release. The owne
  * **app-id**: app id, lower case ASCII characters and underscores are allowed
  * **app-version**: app version, semantic version, digits only or digits-nightly for deleting a nightly (e.g. 7.9.1-nightly)
 
-* **Authentication**: Basic
+* **Authentication**: Basic, Token
 
 * **Authorization**: App owners and co-maintainers
 
@@ -321,7 +334,7 @@ The following request will create a new app release:
 
 * **Url**: POST /api/v1/apps/releases
 
-* **Authentication** Basic
+* **Authentication** Basic, Token
 
 * **Content-Type**: application/json
 
