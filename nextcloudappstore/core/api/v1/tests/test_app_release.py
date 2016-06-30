@@ -27,7 +27,7 @@ class AppReleaseTest(ApiTest):
 
     def test_delete(self):
         self.create_release(self.user)
-        self._login()
+        self._login_token()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(204, response.status_code)
         with self.assertRaises(AppRelease.DoesNotExist):
@@ -43,7 +43,7 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner)
-        self._login()
+        self._login_token()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(403, response.status_code)
 
@@ -52,14 +52,14 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner=owner, co_maintainers=[self.user])
-        self._login()
+        self._login_token()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(204, response.status_code)
         with self.assertRaises(AppRelease.DoesNotExist):
             AppRelease.objects.get(version='9.0.0', app__id='news')
 
     def test_delete_not_found(self):
-        self._login()
+        self._login_token()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(404, response.status_code)
 
@@ -76,7 +76,7 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner)
-        self._login()
+        self._login_token()
 
         get_release_info.return_value = self.app_args
         response = self.api_client.post(self.create_url, data={
@@ -90,7 +90,7 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner=owner, co_maintainers=[self.user])
-        self._login()
+        self._login_token()
 
         get_release_info.return_value = self.app_args
         response = self.api_client.post(self.create_url, data={
@@ -100,7 +100,7 @@ class AppReleaseTest(ApiTest):
         AppRelease.objects.get(version='9.0.0', app__id='news')
 
     def test_create_validate_https(self):
-        self._login()
+        self._login_token()
         response = self.api_client.post(self.create_url, data={
             'download': 'http://download.com'
         }, format='json')
