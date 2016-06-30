@@ -9,7 +9,8 @@ urlpatterns = [
     url(r'^apps/releases/?$', AppReleases.as_view(),
         name='app-release-create'),
     url(r'^apps/(?P<pk>[a-z_]+)/?$', Apps.as_view(), name='app-delete'),
-    url(r'^apps/(?P<app>[a-z_]+)/releases/(?P<version>\d+\.\d+\.\d+)/?$',
+    url(r'^apps/(?P<app>[a-z_]+)/releases/(?P<version>\d+\.\d+\.\d+'
+        r'(?:-nightly)?)/?$',
         AppReleases.as_view(), name='app-release-delete'),
     url(r'^categories.json$',
         etag(category_api_etag)(Categories.as_view()), name='categories'),
