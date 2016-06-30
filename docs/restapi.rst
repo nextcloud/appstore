@@ -14,7 +14,7 @@ Several routes require authentication. The following authentication methods are 
 
     Authorization: Basic CREDENTIALS
 
-* **Basic**: Http header where **TOKEN** is a token which can be looked up in your profile::
+* **Token**: Http header where **TOKEN** is a token which can be looked up in your profile::
 
     Authorization: Token TOKEN
 
