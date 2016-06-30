@@ -1,6 +1,6 @@
 from django.db import transaction
 from django.http import Http404
-from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
+from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer
@@ -49,12 +49,12 @@ def category_api_etag(request):
         return '%s-%s' % (category_aggr['count'], category_modified)
 
 
-class Categories(ListAPIView):
+class CategoryView(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
-class Apps(DestroyAPIView):
+class AppView(DestroyAPIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)
     permission_classes = (UpdateDeletePermission,)
@@ -78,7 +78,7 @@ class Apps(DestroyAPIView):
         return Response(serializer.data)
 
 
-class AppReleases(DestroyAPIView):
+class AppReleaseView(DestroyAPIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)
     permission_classes = (UpdateDeletePermission, IsAuthenticated)
@@ -107,8 +107,8 @@ class AppReleases(DestroyAPIView):
             info['app']['release']['download'] = url
             status = self._check_permission(request, app_id, version)
 
-            importer = container.resolve(ReleaseImporter)
-            importer.import_release(info)
+            importer = container.resolve(AppImporter)
+            importer.import_data('app', info['app'], None)
         return Response(status=status)
 
     def _check_permission(self, request, app_id, version):

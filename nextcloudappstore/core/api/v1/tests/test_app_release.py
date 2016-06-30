@@ -8,9 +8,9 @@ from nextcloudappstore.core.models import App, AppRelease
 
 
 class AppReleaseTest(ApiTest):
-    delete_url = reverse('api-v1:app-release-delete',
+    delete_url = reverse('api:v1:app-release-delete',
                          kwargs={'app': 'news', 'version': '9.0.0'})
-    create_url = reverse('api-v1:app-release-create')
+    create_url = reverse('api:v1:app-release-create')
     app_args = {'app': {'id': 'news', 'release': {
         'version': '9.0.0',
         'platform_min_version': '9.0.0',

@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.api.v1.release.importer import ReleaseImporter
+from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.parser import parse_app_metadata
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.models import App, Screenshot, Database
@@ -11,7 +11,7 @@ from pymple import Container
 class ImporterTest(TestCase):
     def setUp(self):
         container = Container()
-        self.importer = container.resolve(ReleaseImporter)
+        self.importer = container.resolve(AppImporter)
         self.config = ReleaseConfig()
         self.min = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
         self.full = read_relative_file(__file__, 'data/infoxmls/full.xml')
@@ -31,7 +31,7 @@ class ImporterTest(TestCase):
         result = parse_app_metadata(self.min, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self._assert_all_empty(app, ['user_docs', 'admin_docs', 'website',
                                      'developer_docs', 'issue_tracker'])
@@ -69,7 +69,7 @@ class ImporterTest(TestCase):
         result = parse_app_metadata(self.full, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         # l10n
         app.set_current_language('en')
@@ -116,9 +116,9 @@ class ImporterTest(TestCase):
         result = parse_app_metadata(self.min, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         result['app']['website'] = 'https://website.com'
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self.assertEqual('https://website.com', app.website)
 
@@ -126,10 +126,10 @@ class ImporterTest(TestCase):
         result = parse_app_metadata(self.min, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         result['app']['website'] = 'https://website.com'
         result['app']['release']['version'] = '8.8.1'
-        self.importer.import_release(result)
+        self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self.assertEqual('', app.website)
 
