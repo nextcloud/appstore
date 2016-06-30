@@ -59,7 +59,7 @@ class AppReleaseTest(ApiTest):
             AppRelease.objects.get(version='9.0.0', app__id='news')
 
     def test_delete_not_found(self):
-        self._login_token()
+        self._login()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(404, response.status_code)
 
@@ -76,7 +76,7 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner)
-        self._login_token()
+        self._login()
 
         get_release_info.return_value = self.app_args
         response = self.api_client.post(self.create_url, data={
@@ -90,7 +90,7 @@ class AppReleaseTest(ApiTest):
                                                      password='owner',
                                                      email='owner@owner.com')
         self.create_release(owner=owner, co_maintainers=[self.user])
-        self._login_token()
+        self._login()
 
         get_release_info.return_value = self.app_args
         response = self.api_client.post(self.create_url, data={
