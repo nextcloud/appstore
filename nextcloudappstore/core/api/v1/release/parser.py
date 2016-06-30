@@ -1,7 +1,7 @@
 import re
 import tarfile  # type: ignore
 import lxml.etree  # type: ignore
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, List, Set
 
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, pad_min_version
@@ -34,7 +34,7 @@ class GunZipAppMetadataExtractor:
         :argument config the config
         """
         self.config = config
-        self.app_folder_regex = re.compile(r'^[a-z]+[a-z_]*$')
+        self.app_folder_regex = re.compile(r'^[a-z]+[a-z_]*(?:/.*)*$')
 
     def extract_app_metadata(self, archive_path: str) -> Tuple[str, str]:
         """
@@ -54,26 +54,30 @@ class GunZipAppMetadataExtractor:
         return result
 
     def _parse_archive(self, tar: Any) -> Tuple[str, str]:
-        folder = list(
-            filter(lambda name: re.match(self.app_folder_regex, name),
-                   tar.getnames()
-                   )
-        )
-        if len(folder) > 1:
+        folders = self._find_app_folders(tar.getnames())
+        if len(folders) > 1:
             msg = 'More than one possible app folder found'
             raise InvalidAppPackageStructureException(msg)
-        elif len(folder) == 0:
+        elif len(folders) == 0:
             msg = 'No possible app folder found. App folder must contain ' \
                   'only lowercase ASCII characters or underscores'
             raise InvalidAppPackageStructureException(msg)
 
-        app_id = folder[0]
+        app_id = folders.pop()
         info_path = '%s/appinfo/info.xml' % app_id
         try:
-            app_member = tar.getmember(app_id)
-            appinfo_member = tar.getmember('%s/appinfo' % app_id)
             info_member = tar.getmember(info_path)
-            possible_links = [app_member, appinfo_member, info_member]
+            possible_links = [info_member]
+            # its complicated, sometimes there are single members, sometimes
+            # there aren't
+            try:
+                possible_links.append(tar.getmember(app_id))
+            except KeyError:
+                pass
+            try:
+                possible_links.append(tar.getmember('%s/appinfo' % app_id))
+            except KeyError:
+                pass
 
             for possible_link in possible_links:
                 if possible_link.issym() or possible_link.islnk():
@@ -114,6 +118,12 @@ class GunZipAppMetadataExtractor:
             result += chunk
 
         return result.decode('utf-8')
+
+    def _find_app_folders(self, members: List[str]) -> Set[str]:
+        regex = self.app_folder_regex
+        matching_members = filter(lambda f: re.match(regex, f), members)
+        folders = map(lambda m: m.split('/')[0], matching_members)
+        return set(folders)
 
 
 def element_to_dict(element: Any) -> Dict:
