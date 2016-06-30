@@ -1,4 +1,4 @@
-from typing import Dict, Any, Set  # type: ignore
+from typing import Dict, Any, Set, Tuple  # type: ignore
 from nextcloudappstore.core.versioning import to_spec
 from semantic_version import Version  # type: ignore
 from nextcloudappstore.core.models import App, Screenshot, Category, \
@@ -20,17 +20,18 @@ class Importer:
         self.ignored_fields = ignored_fields
 
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        obj = self._get_object(value, obj)
-        self._before_import(obj)
+        obj = self._get_object(key, value, obj)
+        value, obj = self._before_import(key, value, obj)
         for key, val in value.items():
             if key not in self.ignored_fields:
                 self.importers[key].import_data(key, val, obj)
         obj.save()
 
-    def _get_object(self, value: Any, obj: Any) -> Any:
+    def _get_object(self, key: str, value: Any, obj: Any) -> Any:
         raise NotImplementedError
 
-    def _before_import(self, obj: Any) -> None:
+    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
+                                                                      Any]:
         raise NotImplementedError
 
 
@@ -153,27 +154,26 @@ class AppReleaseImporter(Importer):
         }, {'version', 'php_min_version', 'php_max_version',
             'platform_min_version', 'platform_max_version'})
 
-    def _before_import(self, obj: Any) -> None:
+    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
+                                                                      Any]:
+        # combine versions into specs
+        value['platform_version_spec'] = to_spec(
+            value['platform_min_version'], value['platform_max_version'])
+        value['php_version_spec'] = to_spec(value['php_min_version'],
+                                            value['php_max_version'])
         obj.licenses.clear()
         obj.shell_commands.clear()
         obj.licenses.clear()
         obj.php_extensions.clear()
         obj.databases.clear()
 
-    def import_data(self, key: str, value: Any, obj: Any) -> None:
-        # if this is a nightly, delete all other nightlies
         if value['version'].endswith('-nightly'):
             AppRelease.objects.filter(
                 app__id=obj.id, version__endswith='-nightly').delete()
 
-        # combine versions into specs
-        value['platform_version_spec'] = to_spec(
-            value['platform_min_version'], value['platform_max_version'])
-        value['php_version_spec'] = to_spec(value['php_min_version'],
-                                            value['php_max_version'])
-        super().import_data(key, value, obj)
+        return value, obj
 
-    def _get_object(self, value: Any, obj: Any) -> Any:
+    def _get_object(self, key: str, value: Any, obj: Any) -> Any:
         release, created = AppRelease.objects.get_or_create(
             version=value['version'], app=obj
         )
@@ -199,24 +199,23 @@ class AppImporter(Importer):
             'categories': category_importer
         }, {'id'})
 
-    def import_data(self, key: str, value: Any, obj: Any) -> None:
-        # only new releases update an app's data
-        if not self._is_latest_version(value):
-            value = {'id': value['id'], 'release': value['release']}
-
-        super().import_data(key, value, obj)
-
-    def _get_object(self, value: Any, obj: Any) -> Any:
+    def _get_object(self, key: str, value: Any, obj: Any) -> Any:
         # only update app if newest or equal to newest release
         app, created = App.objects.get_or_create(pk=value['id'])
         return app
 
-    def _before_import(self, obj: Any) -> None:
-        # clear all relations
-        obj.screenshots.all().delete()
-        obj.categories.clear()
-        for translation in obj.translations.all():
-            translation.delete()
+    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
+                                                                      Any]:
+        # only new releases update an app's data
+        if not self._is_latest_version(value):
+            value = {'id': value['id'], 'release': value['release']}
+        else:
+            # clear all relations
+            obj.screenshots.all().delete()
+            obj.categories.clear()
+            for translation in obj.translations.all():
+                translation.delete()
+        return value, obj
 
     def _is_latest_version(self, value: Any) -> bool:
         releases = AppRelease.objects.filter(app__id=value['id'])
@@ -225,12 +224,3 @@ class AppImporter(Importer):
             if uploaded_version < Version(release.version):
                 return False
         return True
-
-
-class ReleaseImporter:
-    def __init__(self, app_importer: AppImporter) -> None:
-        self.app_importer = app_importer
-
-    def import_release(self, info: Dict) -> None:
-        for key, value in info.items():
-            self.app_importer.import_data(key, value, None)

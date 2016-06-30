@@ -1,34 +1,36 @@
-from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from nextcloudappstore.core.mixins \
-    import CategoryContextMixin, RecommendedAppsContextMixin
 from nextcloudappstore.core.models import App, Category
 
 
-class HomeView(CategoryContextMixin,
-               RecommendedAppsContextMixin, TemplateView):
-    template_name = "home.html"
-
-
-class AppDetailView(CategoryContextMixin, DetailView):
+class AppDetailView(DetailView):
     model = App
     template_name = 'app/detail.html'
     slug_field = 'id'
     slug_url_kwarg = 'id'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
-class AppListView(CategoryContextMixin, ListView):
+
+class CategoryAppListView(ListView):
     model = App
     template_name = 'app/list.html'
 
-
-class AppsByCategoryView(AppListView):
     def get_queryset(self):
-        return super().get_queryset().filter(categories=self.kwargs['id'])
+        category_id = self.kwargs['id']
+        queryset = super().get_queryset()
+        if category_id:
+            return queryset.filter(categories__id=category_id)
+        else:
+            return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current_category'] = Category.objects.get(
-            id=self.kwargs['id'])
+        context['categories'] = Category.objects.all()
+        category_id = self.kwargs['id']
+        if category_id:
+            context['current_category'] = Category.objects.get(id=category_id)
         return context

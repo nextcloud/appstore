@@ -8,7 +8,7 @@
 {% for app in object_list %}
         <div class="col-sm-4">
             <div class="well">
-                <h3><a href="{% url 'app_detail' id=app.id %}">{{ app.name }}</a></h3>
+                <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
                 {{ app.description }}
             </div>
         </div>
