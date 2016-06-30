@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
 
 
-class AppDetailView(DetailView):
+class CategoryAppDetailView(DetailView):
     model = App
     template_name = 'app/detail.html'
     slug_field = 'id'
@@ -15,7 +15,7 @@ class AppDetailView(DetailView):
         return context
 
 
-class AppListView(ListView):
+class CategoryAppListView(ListView):
     model = App
     template_name = 'app/list.html'
 
@@ -32,5 +32,5 @@ class AppListView(ListView):
         context['categories'] = Category.objects.all()
         category_id = self.kwargs['id']
         if category_id:
-            context['current_category'] = Category.objects.get(category_id=id)
+            context['current_category'] = Category.objects.get(id=category_id)
         return context
