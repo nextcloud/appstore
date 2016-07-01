@@ -147,6 +147,7 @@ To get your instance running in production you need to create your production se
         SECURE_HSTS_SECONDS = 31536000
         SECURE_HSTS_INCLUDE_SUBDOMAINS = True
         ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+        CSP_IMG_SRC = ('https:',)
 
     # Url for serving assets like CSS, JavaScript and images
     STATIC_URL = '/static/'

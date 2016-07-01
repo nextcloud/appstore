@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'csp.middleware.CSPMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -185,6 +186,13 @@ CORS_EXPOSE_HEADERS = (
     'x-content-type-options',
     'content-type',
 )
+CSP_DEFAULT_SRC = ('\'none\'',)
+CSP_IMG_SRC = ('*',)
+CSP_FONT_SRC = ('\'self\'',)
+CSP_SCRIPT_SRC = ('\'self\'',)
+CSP_CONNECT_SRC = ('\'self\'',)
+CSP_STYLE_SRC = ('\'self\'',)
+CSP_FORM_ACTION = ('\'self\'',)
 
 # use modern no Captcha reCaptcha
 NOCAPTCHA = True
