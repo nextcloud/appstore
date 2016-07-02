@@ -37,9 +37,6 @@ class App(TranslatableModel):
     co_maintainers = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
                                      verbose_name=_('Co-Maintainers'),
                                      related_name='co_maintained_apps')
-    recommendations = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
-                                      verbose_name=_('Recommendations'),
-                                      related_name='recommended_apps')
     featured = BooleanField(verbose_name=_('Featured'), default=False)
 
     class Meta:
