@@ -5,6 +5,7 @@
         "fields": {
             "language_code": "en",
             "name": "Tools",
+            "description": "Everything else",
             "master": "tools"
         }
     },
@@ -14,6 +15,7 @@
         "fields": {
             "language_code": "de",
             "name": "Werkzeuge",
+            "description": "",
             "master": "tools"
         }
     },
@@ -23,61 +25,8 @@
         "fields": {
             "language_code": "fr",
             "name": "Outil",
+            "description": "",
             "master": "tools"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 4,
-        "fields": {
-            "language_code": "en",
-            "name": "Games",
-            "master": "games"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 5,
-        "fields": {
-            "language_code": "de",
-            "name": "Spiele",
-            "master": "games"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 6,
-        "fields": {
-            "language_code": "fr",
-            "name": "Jeux",
-            "master": "games"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 7,
-        "fields": {
-            "language_code": "en",
-            "name": "PIM",
-            "master": "pim"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 8,
-        "fields": {
-            "language_code": "de",
-            "name": "PIM",
-            "master": "pim"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 9,
-        "fields": {
-            "language_code": "fr",
-            "name": "PIM",
-            "master": "pim"
         }
     },
     {
@@ -86,6 +35,7 @@
         "fields": {
             "language_code": "en",
             "name": "Multimedia",
+            "description": "Audio, video and picture apps",
             "master": "multimedia"
         }
     },
@@ -95,6 +45,7 @@
         "fields": {
             "language_code": "de",
             "name": "Multimedia",
+            "description": "",
             "master": "multimedia"
         }
     },
@@ -104,15 +55,110 @@
         "fields": {
             "language_code": "fr",
             "name": "Multimedia",
+            "description": "",
             "master": "multimedia"
         }
     },
     {
-        "model": "core.category",
-        "pk": "games",
+        "model": "core.categorytranslation",
+        "pk": 13,
         "fields": {
-            "created": "2016-06-11T10:37:24Z",
-            "last_modified": "2016-06-11T10:37:24Z"
+            "language_code": "en",
+            "name": "Files",
+            "description": "File mangement and Files app extension apps",
+            "master": "files"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 14,
+        "fields": {
+            "language_code": "en",
+            "name": "Office & text",
+            "description": "Office and text processing apps",
+            "master": "office"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 15,
+        "fields": {
+            "language_code": "en",
+            "name": "Customization",
+            "description": "Themes, layout and UX change apps",
+            "master": "customization"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 16,
+        "fields": {
+            "language_code": "en",
+            "name": "Social & communication",
+            "description": "Messaging, contact management and social media apps",
+            "master": "social"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 17,
+        "fields": {
+            "language_code": "en",
+            "name": "Organization",
+            "description": "Time management, Todo list and calendar apps",
+            "master": "organization"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 18,
+        "fields": {
+            "language_code": "en",
+            "name": "Integration",
+            "description": "Apps that connect Nextcloud with other services and platforms",
+            "master": "integration"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 19,
+        "fields": {
+            "language_code": "en",
+            "name": "Monitoring",
+            "description": "Data statistics, system diagnostics and activity apps",
+            "master": "monitoring"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "customization",
+        "fields": {
+            "created": "2016-07-02T09:54:54.939Z",
+            "last_modified": "2016-07-02T09:54:54.939Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "files",
+        "fields": {
+            "created": "2016-07-02T09:25:25.325Z",
+            "last_modified": "2016-07-02T09:27:25.338Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "integration",
+        "fields": {
+            "created": "2016-07-02T09:59:44.560Z",
+            "last_modified": "2016-07-02T09:59:44.560Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "monitoring",
+        "fields": {
+            "created": "2016-07-02T10:00:58.515Z",
+            "last_modified": "2016-07-02T10:00:58.515Z"
         }
     },
     {
@@ -120,15 +166,31 @@
         "pk": "multimedia",
         "fields": {
             "created": "2016-06-11T10:37:24Z",
-            "last_modified": "2016-06-11T10:37:24Z"
+            "last_modified": "2016-07-02T10:02:52.864Z"
         }
     },
     {
         "model": "core.category",
-        "pk": "pim",
+        "pk": "office",
         "fields": {
-            "created": "2016-06-11T10:37:24Z",
-            "last_modified": "2016-06-11T10:37:24Z"
+            "created": "2016-07-02T09:26:27.216Z",
+            "last_modified": "2016-07-02T09:28:24.928Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "organization",
+        "fields": {
+            "created": "2016-07-02T09:57:57.226Z",
+            "last_modified": "2016-07-02T09:57:57.226Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "social",
+        "fields": {
+            "created": "2016-07-02T09:57:18.394Z",
+            "last_modified": "2016-07-02T09:57:18.394Z"
         }
     },
     {
@@ -136,7 +198,7 @@
         "pk": "tools",
         "fields": {
             "created": "2016-06-11T10:37:24Z",
-            "last_modified": "2016-06-11T10:37:24Z"
+            "last_modified": "2016-07-02T10:01:45.369Z"
         }
     }
 ]

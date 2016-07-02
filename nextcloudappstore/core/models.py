@@ -155,6 +155,7 @@ class Category(TranslatableModel):
     class Meta:
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
+        ordering = ['id']
 
     def __str__(self) -> str:
         return self.name
