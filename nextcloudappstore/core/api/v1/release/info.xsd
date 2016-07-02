@@ -268,10 +268,15 @@
 
     <xs:simpleType name="category">
         <xs:restriction base="xs:string">
+            <xs:enumeration value="customization"/>
+            <xs:enumeration value="files"/>
+            <xs:enumeration value="integration"/>
+            <xs:enumeration value="monitoring"/>
             <xs:enumeration value="multimedia"/>
-            <xs:enumeration value="pim"/>
+            <xs:enumeration value="office"/>
+            <xs:enumeration value="organization"/>
+            <xs:enumeration value="social"/>
             <xs:enumeration value="tools"/>
-            <xs:enumeration value="games"/>
         </xs:restriction>
     </xs:simpleType>
 
