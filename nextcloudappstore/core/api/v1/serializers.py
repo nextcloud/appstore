@@ -81,18 +81,14 @@ class AppSerializer(serializers.ModelSerializer):
     releases = AppReleaseSerializer(many=True, read_only=True)
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
-    recommendations = serializers.SerializerMethodField()
 
     class Meta:
         model = App
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'screenshots', 'translations', 'recommendations', 'featured'
+            'screenshots', 'translations', 'featured'
         )
-
-    def get_recommendations(self, obj):
-        return obj.recommendations.count()
 
 
 class AppReleaseDownloadSerializer(serializers.Serializer):
