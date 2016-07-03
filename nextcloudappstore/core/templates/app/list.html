@@ -1,18 +1,24 @@
 {% extends 'app/base.html' %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block head-title %} - {{ current_category.name }}{% endblock %}
 
 
 {% block apps %}
 {% for app in object_list %}
-        <div class="col-sm-4">
+        <div class="col-lg-6 app-list-container">
             <div class="well">
+                {% if app.screenshots.all %}
+                <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0 }}" alt="{% trans 'Screenshot' %}"></a>
+                {% else %}
+                <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
+                {% endif %}
                 <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
                 {{ app.description }}
             </div>
         </div>
-    {% if forloop.counter|divisibleby:4 %}
+    {% if forloop.counter|divisibleby:2 %}
         <div class="row"></div>
     {% endif %}
 {% endfor %}
