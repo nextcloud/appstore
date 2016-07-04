@@ -3,6 +3,7 @@ from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
 from django.db.models import Q
 from django.utils.functional import cached_property
+from functools import reduce
 
 
 class AppDetailView(DetailView):
@@ -25,26 +26,10 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         category_id = self.kwargs['id']
         queryset = super().get_queryset()
-
         if category_id:
             queryset = queryset.filter(categories__id=category_id)
-
-        if self.search_terms:
-            query = None
-
-            for term in self.search_terms:
-                q = Q(translations__name__contains=term) | \
-                    Q(translations__description__contains=term)
-                if query is None:
-                    query = q
-                else:
-                    query = query | q
-
-            queryset = queryset.filter(query)
-
-            # Remove duplicates that for some reason sometimes occur
-            queryset = list(set(queryset))
-
+        queryset = queryset.filter(self.create_search_query(self.search_terms))
+        queryset = list(set(queryset))  # Remove possible duplicates
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -64,3 +49,9 @@ class CategoryAppListView(ListView):
             return self.request.GET['search'].strip().split()
         else:
             return []
+
+    def create_search_query(self, terms):
+        predicates = map(lambda t: (Q(translations__name__icontains=t) |
+                                    Q(translations__description__icontains=t)),
+                         terms)
+        return reduce(lambda x, y: x & y, predicates, Q())
