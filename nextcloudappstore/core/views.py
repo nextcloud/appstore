@@ -20,6 +20,7 @@ class AppDetailView(DetailView):
 class CategoryAppListView(ListView):
     model = App
     template_name = 'app/list.html'
+    allow_empty = True
 
     def get_queryset(self):
         category_id = self.kwargs['id']
