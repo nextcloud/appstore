@@ -55,7 +55,6 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
-            context['search_terms'] = self.search_terms
         return context
 
     @cached_property
