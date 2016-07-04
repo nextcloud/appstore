@@ -53,7 +53,8 @@ class CategoryAppListView(ListView):
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
         if self.has_search_terms():
-            context['search'] = self.get_search_terms()
+            context['search_query'] = self.request.GET['search']
+            context['search_terms'] = self.get_search_terms()
         return context
 
     def has_search_terms(self):
