@@ -1,8 +1,8 @@
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
-from django.http import Http404
 from django.db.models import Q
+from django.utils.functional import cached_property
 
 
 class AppDetailView(DetailView):
@@ -29,10 +29,10 @@ class CategoryAppListView(ListView):
         if category_id:
             queryset = queryset.filter(categories__id=category_id)
 
-        if self.has_search_terms():
+        if self.search_terms:
             query = None
 
-            for term in self.get_search_terms():
+            for term in self.search_terms:
                 q = Q(translations__name__contains=term) | \
                     Q(translations__description__contains=term)
                 if query is None:
@@ -53,14 +53,15 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs['id']
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
-        if self.has_search_terms():
+        if self.search_terms:
             context['search_query'] = self.request.GET['search']
-            context['search_terms'] = self.get_search_terms()
+            context['search_terms'] = self.search_terms
         return context
 
-    def has_search_terms(self):
-        return ('search' in self.request.GET) \
-                and self.request.GET['search'].strip()
-
-    def get_search_terms(self):
-        return self.request.GET['search'].strip().split()
+    @cached_property
+    def search_terms(self):
+        if ('search' in self.request.GET) \
+                and self.request.GET['search'].strip():
+            return self.request.GET['search'].strip().split()
+        else:
+            return []
