@@ -3,8 +3,13 @@
 <div class="banner">
     <div class="container">
         <a class="brand" href="/"><img class="logo" src="{% static 'assets/img/logo_nextcloud_white.svg' %}" title="nextcloud.com" itemprop="logo"></a>
-        <form method="get" action="" class="search-form">
-            <input type="text" placeholder="Search" class="form-control search-box">
+        <form method="get" action="{{ request.path }}" class="search-form">
+            {% if current_category %}
+            <input type="text" name="search" placeholder="Search in {{ current_category }}" class="form-control search-box">
+            {% else %}
+            <input type="text" name="search" placeholder="Search all apps" class="form-control search-box">
+            {% endif %}
+            <input type="submit" value="Search" class="search-button">
         </form>
     </div>
 </div>
