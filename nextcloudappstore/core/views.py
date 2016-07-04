@@ -28,14 +28,12 @@ class CategoryAppListView(ListView):
         if category_id:
             queryset = queryset.filter(categories__id=category_id)
 
-        if ('search' in self.request.GET) \
-                and self.request.GET['search'].strip():
-            search_words = self.request.GET['search'].strip().split()
+        if self.has_search_terms():
             query = None
 
-            for word in search_words:
-                q = Q(translations__name__contains=word) | \
-                    Q(translations__description__contains=word)
+            for term in self.get_search_terms():
+                q = Q(translations__name__contains=term) | \
+                    Q(translations__description__contains=term)
                 if query is None:
                     query = q
                 else:
@@ -54,4 +52,13 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs['id']
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
+        if self.has_search_terms():
+            context['search'] = self.get_search_terms()
         return context
+
+    def has_search_terms(self):
+        return ('search' in self.request.GET) \
+                and self.request.GET['search'].strip()
+
+    def get_search_terms(self):
+        return self.request.GET['search'].strip().split()
