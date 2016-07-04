@@ -11,7 +11,7 @@
             <input type="text"
                    name="search"
                    value="{{ search_query }}"
-                   placeholder="{% if current_category %}Search in {{ current_category }}
+                   placeholder="{% if current_category %}Search in {{ current_category.name }}
                                 {% else %}Search all apps
                                 {% endif %}"
                    class="form-control search-box">
