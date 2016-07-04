@@ -2,9 +2,11 @@ from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField  # type: ignore
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+    DateTimeField, Model, BooleanField, Q  # type: ignore
+from django.utils.translation import ugettext_lazy as _, \
+    activate  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel  # type: ignore
+from functools import reduce
 
 
 class App(TranslatableModel):
@@ -51,6 +53,21 @@ class App(TranslatableModel):
 
     def can_delete(self, user: User) -> bool:
         return self.owner == user
+
+    @staticmethod
+    def search(lang, terms):
+        activate(lang)
+        queryset = App.objects.all()
+        if terms:
+            queryset = queryset.filter(App.__create_search_query(terms))
+        return queryset
+
+    @staticmethod
+    def __create_search_query(terms):
+        predicates = map(lambda t: (Q(translations__name__icontains=t) |
+                                    Q(translations__description__icontains=t)),
+                         terms)
+        return reduce(lambda x, y: x & y, predicates, Q())
 
 
 class AppRelease(Model):

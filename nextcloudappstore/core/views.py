@@ -1,9 +1,8 @@
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
-from django.db.models import Q
 from django.utils.functional import cached_property
-from functools import reduce
+from django.utils.translation import get_language
 
 
 class AppDetailView(DetailView):
@@ -25,12 +24,13 @@ class CategoryAppListView(ListView):
 
     def get_queryset(self):
         category_id = self.kwargs['id']
-        queryset = super().get_queryset()
+        print(self.search_terms)
         if category_id:
-            queryset = queryset.filter(categories__id=category_id)
-        queryset = queryset.filter(self.create_search_query(self.search_terms))
-        queryset = list(set(queryset))  # Remove possible duplicates
-        return queryset
+            queryset = App.search(get_language(), self.search_terms)\
+                    .filter(categories__id=category_id)
+        else:
+            queryset = App.search(get_language(), self.search_terms)
+        return set(queryset)  # Remove duplicates hack
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,14 +44,4 @@ class CategoryAppListView(ListView):
 
     @cached_property
     def search_terms(self):
-        if ('search' in self.request.GET) \
-                and self.request.GET['search'].strip():
-            return self.request.GET['search'].strip().split()
-        else:
-            return []
-
-    def create_search_query(self, terms):
-        predicates = map(lambda t: (Q(translations__name__icontains=t) |
-                                    Q(translations__description__icontains=t)),
-                         terms)
-        return reduce(lambda x, y: x & y, predicates, Q())
+        return self.request.GET.get('search', '').strip().split()
