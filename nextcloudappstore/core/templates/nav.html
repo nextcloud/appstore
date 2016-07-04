@@ -11,11 +11,11 @@
             <input type="text"
                    name="search"
                    value="{{ search_query }}"
-                   placeholder="{% if current_category %}Search in {{ current_category.name }}
-                                {% else %}Search all apps
+                   placeholder="{% if current_category %}{% blocktrans with cat=current_category.name %}Search {{ cat }}{% endblocktrans %}
+                                {% else %}{% trans 'Search all apps' %}
                                 {% endif %}"
                    class="form-control search-box">
-            <input type="submit" value="Search" class="search-button">
+            <input type="submit" value="{% trans 'Search' %}" class="search-button">
         </form>
     </div>
 </div>

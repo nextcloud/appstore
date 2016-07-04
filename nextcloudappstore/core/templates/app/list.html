@@ -24,9 +24,9 @@
     {% endif %}
 {% empty %}
     {% if search_query and current_category %}
-        <p class="message no-apps-found">No apps found for search "<em>{{ search_query }}</em>" in {{ current_category.name }}.</p>
+        <p class="message no-apps-found">{% blocktrans with cat=current_category.name %}No apps found for search "<em>{{ search_query }}</em>" in {{ cat }}.{% endblocktrans %}</p>
     {% elif search_query %}
-        <p class="message no-apps-found">No apps found for search "<em>{{ search_query }}</em>".</p>
+        <p class="message no-apps-found">{% blocktrans %}No apps found for search "<em>{{ search_query }}</em>".{% endblocktrans %}</p>
     {% endif %}
 {% endfor %}
 
