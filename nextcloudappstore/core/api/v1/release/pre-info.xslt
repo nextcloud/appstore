@@ -4,7 +4,7 @@
         <info>
             <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
             <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
-            
+
             <!-- reformat info.xml to have everything in order and excluded unknown elements -->
             <xsl:copy-of select="id"/>
             <xsl:copy-of select="name"/>
@@ -19,6 +19,9 @@
             <xsl:copy-of select="namespace"/>
             <xsl:apply-templates select="types"/>
             <xsl:apply-templates select="documentation"/>
+            <xsl:if test="not(category)">
+                <category>tools</category>
+            </xsl:if>
             <xsl:copy-of select="category"/>
             <xsl:copy-of select="website"/>
             <xsl:copy-of select="bugs"/>

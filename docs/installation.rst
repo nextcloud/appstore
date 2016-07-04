@@ -296,8 +296,8 @@ Afterwards configure SystemD to automatically start gunicorn:
     PIDFile=/run/gunicorn/pid
     User=appstore
     Group=appstore
-    Environment="PYTHONPATH=/path/to/code:/path/to/code/venv/lib/python3.5/site-packages"
-    WorkingDirectory=/path/to/code/
+    Environment=PYTHONPATH=/path/to/code
+    Environment=PYTHONHOME=/path/to/code/venv
     ExecStart=/path/to/code/venv/bin/gunicorn --pid /run/gunicorn/pid test:app
     ExecReload=/bin/kill -s HUP $MAINPID
     ExecStop=/bin/kill -s TERM $MAINPID
