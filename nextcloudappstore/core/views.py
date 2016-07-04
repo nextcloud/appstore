@@ -54,7 +54,7 @@ class CategoryAppListView(ListView):
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
-            context['search_query'] = self.request.GET['search']
+            context['search_query'] = ' '.join(self.search_terms)
             context['search_terms'] = self.search_terms
         return context
 
