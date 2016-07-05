@@ -57,7 +57,7 @@ class App(TranslatableModel):
     @staticmethod
     def search(lang, terms):
         activate(lang)
-        queryset = App.objects.all()
+        queryset = App.objects.language(language_code=lang).distinct()
         if terms:
             queryset = queryset.filter(App.__create_search_query(terms))
         return queryset

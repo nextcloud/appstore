@@ -24,13 +24,11 @@ class CategoryAppListView(ListView):
 
     def get_queryset(self):
         category_id = self.kwargs['id']
-        print(self.search_terms)
         if category_id:
-            queryset = App.search(get_language(), self.search_terms)\
+            return App.search(get_language(), self.search_terms)\
                     .filter(categories__id=category_id)
         else:
-            queryset = App.search(get_language(), self.search_terms)
-        return set(queryset)  # Remove duplicates hack
+            return App.search(get_language(), self.search_terms)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
