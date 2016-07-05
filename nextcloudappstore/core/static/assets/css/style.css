@@ -1,21 +1,26 @@
 html,
 body {
-    margin:0;
-    padding:0;
-    height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-width: 230px;
 }
+
 #container {
-    min-height:100%;
-    position:relative;
+    min-height: 100%;
+    position: relative;
 }
+
 #body {
-    padding:10px;
-    padding-bottom:50px;
+    padding: 10px;
+    padding-bottom: 50px;
+    overflow: hidden;
 }
+
 #footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     border-top: 1px solid #e7e7e7;
 }
 
@@ -38,7 +43,7 @@ body {
 
 .search-form {
     position: relative;
-    top: 55px;
+    top: 58px;
     padding-bottom: 38px;
     margin-left: 196px;
     text-align: right;
@@ -53,7 +58,7 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 469px) {
     .brand {
         display: block;
         float: none;
