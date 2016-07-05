@@ -2,6 +2,7 @@ from django.test import TestCase
 from nextcloudappstore.core.models import App, AppRelease
 from django.contrib.auth import get_user_model
 
+
 class AppSearchTest(TestCase):
 
     def setUp(self):
