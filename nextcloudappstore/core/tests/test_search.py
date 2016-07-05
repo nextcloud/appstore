@@ -58,19 +58,19 @@ class AppSearchTest(TestCase):
         self.user.delete()
 
     def test_basic_search(self):
-        res = App.search('en', ['app']).all()
-        res_fi = App.search('fi', ['sovellus']).all()
+        res = App.search(['app'], 'en').all()
+        res_fi = App.search(['sovellus'], 'fi').all()
         self.assertEqual(len(res), 2)
         self.assertEqual(len(res_fi), 2)
 
     def test_fallback(self):
         # no translation
-        res_chat = App.search('fi', ['chat']).all()
-        res_note = App.search('de', ['note']).all()
+        res_chat = App.search(['chat'], 'fi').all()
+        res_note = App.search(['note'], 'de').all()
 
         # search term in fallback lang, though search in translations
-        res_app = App.search('fi', ['app']).all()
-        res_cal = App.search('fi', ['cal']).all()
+        res_app = App.search(['app'], 'fi').all()
+        res_cal = App.search(['cal'], 'fi').all()
 
         self.assertEqual(len(res_chat), 1)
         self.assertEqual(len(res_note), 1)
@@ -83,10 +83,10 @@ class AppSearchTest(TestCase):
 
     def test_reverse_fallback(self):
         # search term does not exist anywhere
-        res_chat = App.search('en', ['chatti']).all()
+        res_chat = App.search(['chatti'], 'en').all()
 
-        res_app = App.search('en', ['sovellus']).all()
-        res_cal = App.search('en', ['cal']).all()
+        res_app = App.search(['sovellus'], 'en').all()
+        res_cal = App.search(['cal'], 'en').all()
 
         self.assertEqual(len(res_chat), 0)
         self.assertEqual(len(res_app), 2)
@@ -95,36 +95,36 @@ class AppSearchTest(TestCase):
         self.assertEqual(res_cal.get(id='calendar').name, 'Calendar')
 
     def test_same_word(self):
-        res = App.search('en', ['rss']).all()
-        res_fi = App.search('fi', ['rss']).all()
+        res = App.search(['rss'], 'en').all()
+        res_fi = App.search(['rss'], 'fi').all()
         self.assertEqual(len(res), 1)
         self.assertEqual(len(res_fi), 1)
         self.assertEqual(res.get(id='news').name, 'News')
         self.assertEqual(res_fi.get(id='news').name, 'Uutiset')
 
     def test_find_all(self):
-        res = App.search('en', ['a']).all()
-        res_fi = App.search('fi', ['a']).all()
+        res = App.search(['a'], 'en').all()
+        res_fi = App.search(['a'], 'fi').all()
         self.assertEqual(len(res), 4)
         self.assertEqual(len(res_fi), 4)
         self.assertEqual(res.get(id='notes').name, 'Notes')
         self.assertEqual(res_fi.get(id='notes').name, 'Muistiinpanot')
 
     def test_multilang_terms(self):
-        res = App.search('en', ['calendar', 'sovellus']).all()
-        res_fi = App.search('fi', ['app', 'muistiinpano']).all()
+        res = App.search(['calendar', 'sovellus'], 'en').all()
+        res_fi = App.search(['app', 'muistiinpano'], 'fi').all()
         self.assertEqual(len(res), 0)
         self.assertEqual(len(res_fi), 0)
 
     def test_narrow_search(self):
-        res = App.search('en', ['app']).all()
-        res_narrow = App.search('en', ['note', 'app']).all()
+        res = App.search(['app'], 'en').all()
+        res_narrow = App.search(['note', 'app'], 'en').all()
         self.assertEqual(len(res), 2)
         self.assertEqual(len(res_narrow), 1)
 
     def test_no_search_terms(self):
-        res = App.search('en', []).all()
-        res_fi = App.search('fi', []).all()
+        res = App.search([], 'en').all()
+        res_fi = App.search([], 'fi').all()
         self.assertEqual(len(res), 4)
         self.assertEqual(len(res_fi), 4)
         self.assertEqual(res.get(id='news').name, 'News')

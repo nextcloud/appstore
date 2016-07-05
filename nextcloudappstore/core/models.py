@@ -55,7 +55,7 @@ class App(TranslatableModel):
         return self.owner == user
 
     @staticmethod
-    def search(lang, terms):
+    def search(terms, lang):
         queryset = App.objects.language(language_code=lang).distinct()
         predicates = map(lambda t: (Q(translations__name__icontains=t) |
                                     Q(translations__description__icontains=t)),
