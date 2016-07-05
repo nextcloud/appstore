@@ -23,11 +23,48 @@ body {
     background-image: url('../img/home/background3.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 150px;
 }
 
 .brand {
-    line-height: 150px;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+}
+
+.logo {
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+
+.search-form {
+    position: relative;
+    top: 55px;
+    padding-bottom: 38px;
+    margin-left: 196px;
+    text-align: right;
+}
+
+.search-box {
+    display: inline-block;
+    max-width: 200px;
+}
+
+.search-button {
+    display: none;
+}
+
+@media screen and (max-width: 465px) {
+    .brand {
+        display: block;
+        float: none;
+        text-align: center;
+    }
+
+    .search-form {
+        top: 0px;
+        text-align: center;
+        margin-left: 0px;
+    }
 }
 
 .nav-link > a {

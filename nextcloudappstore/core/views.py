@@ -1,3 +1,5 @@
+from django.utils.functional import cached_property
+from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
@@ -18,10 +20,12 @@ class AppDetailView(DetailView):
 class CategoryAppListView(ListView):
     model = App
     template_name = 'app/list.html'
+    allow_empty = True
 
     def get_queryset(self):
+        lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
-        queryset = super().get_queryset()
+        queryset = App.objects.search(self.search_terms, lang)
         if category_id:
             return queryset.filter(categories__id=category_id)
         else:
@@ -33,4 +37,10 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs['id']
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
+        if self.search_terms:
+            context['search_query'] = ' '.join(self.search_terms)
         return context
+
+    @cached_property
+    def search_terms(self):
+        return self.request.GET.get('search', '').strip().split()
