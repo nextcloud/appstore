@@ -195,6 +195,7 @@ class AppImporter(Importer):
             'developer_docs': attribute_importer,
             'issue_tracker': attribute_importer,
             'name': l10n_importer,
+            'summary': l10n_importer,
             'description': l10n_importer,
             'categories': category_importer
         }, {'id'})

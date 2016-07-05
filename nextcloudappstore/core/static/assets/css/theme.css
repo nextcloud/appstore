@@ -29,6 +29,19 @@
     border-radius: var(--border-radius);
 }
 
+#body .nav-tabs a {
+    border-radius: 0;
+    border: 0;
+}
+
+#body .nav-tabs a:hover,
+#body .nav-tabs .active a {
+    background-color: var(--bg-color);
+    color: var(--link-active-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .well,
 .well-small,
 .container .jumbotron {

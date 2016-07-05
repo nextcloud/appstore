@@ -8,6 +8,10 @@
             <!-- reformat info.xml to have everything in order and excluded unknown elements -->
             <xsl:copy-of select="id"/>
             <xsl:copy-of select="name"/>
+            <xsl:copy-of select="summary"/>
+            <xsl:if test="not(summary)">
+                <summary><xsl:value-of select="description"/></summary>
+            </xsl:if>
             <xsl:copy-of select="description"/>
             <xsl:copy-of select="version"/>
             <xsl:for-each select="licence">

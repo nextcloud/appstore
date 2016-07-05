@@ -6,7 +6,19 @@
 
 
 {% block apps %}
-
+<div class="row">
+    <ul class="nav-tabs nav sorting">
+        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'last_modified' %}active{% endif %}"><a href="{{ request.url  }}?order_by=last_modified&ordering=desc">{% trans 'Latest' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'featured' %}active{% endif %}"><a href="{{ request.url  }}?order_by=featured&ordering=desc">{% trans 'Featured' %}</a></li>
+        {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url  }}?order_by=name&ordering=desc">{% trans 'Alphabetical' %}</a></li>
+        {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url  }}?order_by=name&ordering=asc">{% trans 'Reversed alphabetical' %}</a></li>
+        {% else %}
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url  }}?order_by=name&ordering=asc">{% trans 'Alphabetical' %}</a></li>
+        {% endif %}
+    </ul>
+</div>
 {% for app in object_list %}
         <div class="col-lg-6 app-list-container">
             <div class="well">
@@ -16,7 +28,7 @@
                 <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
                 {% endif %}
                 <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
-                {{ app.description }}
+                <p>{{ app.summary }}</p>
             </div>
         </div>
     {% if forloop.counter|divisibleby:2 %}

@@ -23,9 +23,23 @@ class CategoryAppListView(ListView):
     allow_empty = True
 
     def get_queryset(self):
+        order_by = self.request.GET.get('order_by', 'last_modified')
+        ordering = self.request.GET.get('ordering', 'desc')
+        sort_columns = []
+
+        allowed_order_by = {'name', 'last_modified', 'featured'}
+        if order_by in allowed_order_by:
+            if order_by == 'name':
+                order_by = 'translations__name'
+            if ordering == 'desc':
+                sort_columns.append('-' + order_by)
+            else:
+                sort_columns.append(order_by)
+
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
-        queryset = App.objects.search(self.search_terms, lang)
+        queryset = App.objects.search(self.search_terms, lang).order_by(
+            *sort_columns)
         if category_id:
             return queryset.filter(categories__id=category_id)
         else:
