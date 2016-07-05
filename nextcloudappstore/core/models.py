@@ -56,18 +56,12 @@ class App(TranslatableModel):
 
     @staticmethod
     def search(lang, terms):
-        activate(lang)
         queryset = App.objects.language(language_code=lang).distinct()
-        if terms:
-            queryset = queryset.filter(App.__create_search_query(terms))
-        return queryset
-
-    @staticmethod
-    def __create_search_query(terms):
         predicates = map(lambda t: (Q(translations__name__icontains=t) |
                                     Q(translations__description__icontains=t)),
                          terms)
-        return reduce(lambda x, y: x & y, predicates, Q())
+        query = reduce(lambda x, y: x & y, predicates, Q())
+        return queryset.filter(query)
 
 
 class AppRelease(Model):

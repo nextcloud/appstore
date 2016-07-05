@@ -25,11 +25,11 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
+        queryset = App.search(lang, self.search_terms)
         if category_id:
-            return App.search(lang, self.search_terms)\
-                    .filter(categories__id=category_id)
+            return queryset.filter(categories__id=category_id)
         else:
-            return App.search(lang, self.search_terms)
+            return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
