@@ -18,7 +18,7 @@ The basic ideas that form the foundation of the store include:
 
 * Be DRY (Do not Repeat Yourself): App information should be parsed from the release archive rather than requiring developers to re-enter all the information over and over again
 
-* Validate early: An app release should not be published without validating it beforehand. Package structure, checksums and app metadata can contain mistakes which are often discovered by users rather then developers
+* Validate early: An app release should not be published without validating it beforehand. Package structure, checksums and app metadata can contain mistakes which are often discovered by users rather than developers
 
 * Guide users: Comments sections are often used to post bug reports. This creates additional work for the developer. Therefore appropriate measures should be taken to redirect users to the correct places so issues are resolved faster and in a more convenient way
 
