@@ -121,3 +121,11 @@ class AppSearchTest(TestCase):
         res_narrow = App.search('en', ['note', 'app']).all()
         self.assertEqual(len(res), 2)
         self.assertEqual(len(res_narrow), 1)
+
+    def test_no_search_terms(self):
+        res = App.search('en', []).all()
+        res_fi = App.search('fi', []).all()
+        self.assertEqual(len(res), 4)
+        self.assertEqual(len(res_fi), 4)
+        self.assertEqual(res[0].name, 'News')
+        self.assertEqual(res_fi[0].name, 'Uutiset')
