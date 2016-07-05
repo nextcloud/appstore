@@ -5,10 +5,23 @@ from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
-from parler.models import TranslatedFields, TranslatableModel  # type: ignore
+from parler.models import TranslatedFields, TranslatableModel, \
+    TranslatableManager  # type: ignore
+
+
+class AppManager(TranslatableManager):
+
+    def search(self, terms, lang):
+        queryset = self.language(language_code=lang).distinct()
+        predicates = map(lambda t: (Q(translations__name__icontains=t) |
+                                    Q(translations__description__icontains=t)),
+                         terms)
+        query = reduce(lambda x, y: x & y, predicates, Q())
+        return queryset.filter(query)
 
 
 class App(TranslatableModel):
+    objects = AppManager()
     id = CharField(max_length=128, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_('app id, identical to folder name'))
@@ -52,15 +65,6 @@ class App(TranslatableModel):
 
     def can_delete(self, user: User) -> bool:
         return self.owner == user
-
-    @staticmethod
-    def search(terms, lang):
-        queryset = App.objects.language(language_code=lang).distinct()
-        predicates = map(lambda t: (Q(translations__name__icontains=t) |
-                                    Q(translations__description__icontains=t)),
-                         terms)
-        query = reduce(lambda x, y: x & y, predicates, Q())
-        return queryset.filter(query)
 
 
 class AppRelease(Model):

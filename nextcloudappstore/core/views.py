@@ -25,7 +25,7 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
-        queryset = App.search(self.search_terms, lang)
+        queryset = App.objects.search(self.search_terms, lang)
         if category_id:
             return queryset.filter(categories__id=category_id)
         else:
