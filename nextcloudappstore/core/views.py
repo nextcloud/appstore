@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
@@ -14,6 +15,8 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['latest_releases_by_platform_v'] = \
+            self.object.latest_releases_by_platform_v()
         return context
 
 

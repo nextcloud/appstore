@@ -7,6 +7,7 @@ from django.db.models import ManyToManyField, ForeignKey, \
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
+from semantic_version import Version, Spec
 
 
 class AppManager(TranslatableManager):
@@ -17,6 +18,19 @@ class AppManager(TranslatableManager):
                          terms)
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
+
+    def get_compatible(self, platform_version):
+        apps = App.objects.prefetch_related('translations', 'screenshots',
+                                            'releases', 'releases__databases',
+                                            'releases__php_extensions').all()
+
+        def app_filter(app):
+            for release in app.releases.all():
+                if release.is_compatible(platform_version):
+                    return True
+            return False
+
+        return list(filter(app_filter, apps))
 
 
 class App(TranslatableModel):
@@ -65,6 +79,28 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
+    def compatible_releases(self, platform_version):
+        all_releases = self.releases.all()
+        return list(filter(lambda rel: rel.is_compatible(platform_version),
+                           all_releases))
+
+    def latest_releases_by_platform_v(self):
+        all_latest = {}
+
+        def latest_non_nightly(releases):
+            latest = None
+            for release in releases:
+                if (latest is None or release.version > latest.version) \
+                    and release.version.find('-nightly') == -1:
+                    latest = release
+            return latest
+
+        for p_version in settings.PLATFORM_VERSIONS:
+            compatible = self.compatible_releases(p_version)
+            all_latest[p_version] = latest_non_nightly(compatible)
+
+        return all_latest
+
 
 class AppRelease(Model):
     version = CharField(max_length=128, verbose_name=_('Version'),
@@ -112,6 +148,12 @@ class AppRelease(Model):
 
     def __str__(self) -> str:
         return '%s %s' % (self.app, self.version)
+
+    def is_compatible(self, platform_version):
+        platform_version = Version(platform_version)
+        if platform_version in Spec(self.platform_version_spec):
+            return True
+        return False
 
 
 class Screenshot(Model):

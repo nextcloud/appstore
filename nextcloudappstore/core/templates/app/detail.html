@@ -11,9 +11,6 @@
             <a href="#app_overview" data-toggle="tab">Overview</a>
         </li>
         <li>
-            <a href="#app_screenshots" data-toggle="tab">Screenhots</a>
-        </li>
-        <li>
             <a href="#app_documentation" data-toggle="tab">Documentation</a>
         </li>
         <li>
@@ -22,61 +19,83 @@
     </ul>
     <div id="app_details_tab_content" class="tab-content">
         <div class="tab-pane active" id="app_overview">
-            <div class="well"><p>{{ object.description }}</p></div>
-            <table class="table">
-                {% if object.issue_tracker %}
-                <tr>
-                    <th>{% trans "Issue tracker" %}</th>
-                    <td><a href="{{ object.issue_tracker }}">{{ object.issue_tracker }}</a></td>
-                </tr>
-                {% endif %}
-                {% if object.website %}
-                <tr>
-                    <th>{% trans "Homepage" %}</th>
-                    <td><a href="{{ object.website }}">{{ object.website }}</a></td>
-                </tr>
-                {% endif %}
-                {% if object.created %}
-                <tr>
-                    <th>{% trans "Created on" %}</th>
-                    <td>{{ object.created }}</td>
-                </tr>
-                {% endif %}
-                {% if object.last_modified %}
-                <tr>
-                    <th>{% trans "Last modified on" %}</th>
-                    <td>{{ object.last_modified }}</td>
-                </tr>
-                {% endif %}
-                {% if object.owner %}
-                <tr>
-                    <th>{% trans "Owner" %}</th>
-                    <td>
-                        {% if object.owner.get_fullname %}
-                            {{ object.owner.get_fullname }}
-                        {% else %}
-                            {{ object.owner.username }}
+            <section class="app-gallery"><p><br><br><br>Gallery placeholder<br><br><br><br><br></p></section>
+            <section class="app-description"><p>{{ object.description }}</p></section>
+            <section class="app-releases">
+                <h3>Download latest version</h3>
+                <table class="table">
+                    <tr>
+                        <th>Nextcloud</th>
+                        <th>{{ object.name }}</th>
+                    </tr>
+                    {% for platform_v, release in latest_releases_by_platform_v.items %}
+                        {% if release %}
+                            <tr>
+                                <td>{{ platform_v }}</td>
+                                <td><a href="{{ release.download }}">{{ release.version }}</a></td>
+                            </tr>
                         {% endif %}
-                    </td>
-                </tr>
-                {% endif %}
-                {% if object.co_maintainers.all %}
-                <tr>
-                    <th>{% trans "Maintainers" %}</th>
-                    <td>
-                        <ul class="list-inline">
-                            {% for a in object.co_maintainers.all %}
-                                <li>{% if object.owner.get_fullname %}
-                                        {{ object.owner.get_fullname }}
-                                    {% else %}
-                                        {{ object.owner.username }}
-                                    {% endif %}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
-                {% endif %}
-            </table>
+                    {% endfor %}
+                </table>
+            </section>
+
+            <section class="app-details">
+                <h3>Details</h3>
+                <table class="table">
+                    {% if object.issue_tracker %}
+                    <tr>
+                        <th>{% trans "Issue tracker" %}</th>
+                        <td><a href="{{ object.issue_tracker }}">{{ object.issue_tracker }}</a></td>
+                    </tr>
+                    {% endif %}
+                    {% if object.website %}
+                    <tr>
+                        <th>{% trans "Homepage" %}</th>
+                        <td><a href="{{ object.website }}">{{ object.website }}</a></td>
+                    </tr>
+                    {% endif %}
+                    {% if object.created %}
+                    <tr>
+                        <th>{% trans "Created on" %}</th>
+                        <td>{{ object.created }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if object.last_modified %}
+                    <tr>
+                        <th>{% trans "Last modified on" %}</th>
+                        <td>{{ object.last_modified }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if object.owner %}
+                    <tr>
+                        <th>{% trans "Owner" %}</th>
+                        <td>
+                            {% if object.owner.get_fullname %}
+                                {{ object.owner.get_fullname }}
+                            {% else %}
+                                {{ object.owner.username }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if object.co_maintainers.all %}
+                    <tr>
+                        <th>{% trans "Maintainers" %}</th>
+                        <td>
+                            <ul class="list-inline">
+                                {% for a in object.co_maintainers.all %}
+                                    <li>{% if object.owner.get_fullname %}
+                                            {{ object.owner.get_fullname }}
+                                        {% else %}
+                                            {{ object.owner.username }}
+                                        {% endif %}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </section>
         </div>
         <div class="tab-pane" id="app_screenshots">
             <div id="screenshot_carousel" class="carousel slide" data-ride="carousel">
