@@ -25,9 +25,10 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         order_by = self.request.GET.get('order_by', 'last_modified')
         ordering = self.request.GET.get('ordering', 'desc')
+        featured = self.request.GET.get('featured', False)
         sort_columns = []
 
-        allowed_order_by = {'name', 'last_modified', 'featured'}
+        allowed_order_by = {'name', 'last_modified'}
         if order_by in allowed_order_by:
             if order_by == 'name':
                 order_by = 'translations__name'
@@ -41,9 +42,10 @@ class CategoryAppListView(ListView):
         queryset = App.objects.search(self.search_terms, lang).order_by(
             *sort_columns)
         if category_id:
-            return queryset.filter(categories__id=category_id)
-        else:
-            return queryset
+            queryset = queryset.filter(categories__id=category_id)
+        if featured == "true":
+            queryset = queryset.filter(featured=True)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
