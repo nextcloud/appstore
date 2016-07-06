@@ -96,7 +96,7 @@ class App(TranslatableModel):
             latest = None
             for release in releases:
                 if (latest is None or release.version > latest.version) \
-                    and release.version.find('-nightly') == -1:
+                        and release.version.find('-nightly') == -1:
                     latest = release
             return latest
 

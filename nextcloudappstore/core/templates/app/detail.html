@@ -1,5 +1,6 @@
 {% extends 'app/base.html' %}
 {% load i18n %}
+{% load dict_sort %}
 
 {% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
 
@@ -28,7 +29,7 @@
                         <th>Nextcloud</th>
                         <th>{{ object.name }}</th>
                     </tr>
-                    {% for platform_v, release in latest_releases_by_platform_v.items %}
+                    {% for platform_v, release in latest_releases_by_platform_v|dict_sort:'desc' %}
                         {% if release %}
                             <tr>
                                 <td>{{ platform_v }}</td>
