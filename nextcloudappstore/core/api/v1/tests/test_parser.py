@@ -21,6 +21,7 @@ class ParserTest(TestCase):
                                     self.config.info_xslt)
         expected = {'app': {
             'id': 'news',
+            'summary': {'en': 'An RSS/Atom feed reader'},
             'description': {'en': 'An RSS/Atom feed reader'},
             'name': {'en': 'News'},
             'admin_docs': None,
@@ -139,8 +140,11 @@ class ParserTest(TestCase):
                 {'category': {'id': 'multimedia'}},
                 {'category': {'id': 'tools'}}
             ],
-            'description': {
+            'summary': {
                 'en': 'An RSS/Atom feed reader',
+            },
+            'description': {
+                'en': '#This is markdown',
                 'de': 'Eine Nachrichten App, welche mit [RSS/Atom]('
                       'https://en.wikipedia.org/wiki/RSS) umgehen kann'
             },

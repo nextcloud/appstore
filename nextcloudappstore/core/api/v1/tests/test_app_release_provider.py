@@ -38,8 +38,8 @@ class ImporterTest(TestCase):
 
         info = provider.get_release_info('http://google.com')
         self.assertEqual(
-            'cc29634a832affe4000c561e64e746850ca984aa1a3b89'
-            '6aca510375c53eb25d', info['app']['release']['checksum'])
+            'f44ff51ce0cd12e37367af5cb02ccab0e5fc29625b1b013665b833435'
+            '0bc8836', info['app']['release']['checksum'])
 
     def test_invalid_app_id(self):
         xml = read_relative_file(__file__, 'data/infoxmls/minimal.xml')

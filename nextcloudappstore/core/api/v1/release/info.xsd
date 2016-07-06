@@ -8,6 +8,8 @@
                 <xs:element name="id" type="id" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="name" type="l10n-string" minOccurs="1"
                             maxOccurs="unbounded"/>
+                <xs:element name="summary" type="l10n-string" minOccurs="1"
+                            maxOccurs="unbounded"/>
                 <xs:element name="description" type="l10n-text" minOccurs="1"
                             maxOccurs="unbounded"/>
                 <xs:element name="version" type="version"
@@ -38,6 +40,10 @@
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
             <xs:selector xpath="name"/>
+            <xs:field xpath="@lang"/>
+        </xs:unique>
+        <xs:unique name="uniqueSummaryL10n">
+            <xs:selector xpath="summary"/>
             <xs:field xpath="@lang"/>
         </xs:unique>
         <xs:unique name="uniqueDescriptionL10n">

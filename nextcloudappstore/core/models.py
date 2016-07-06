@@ -12,8 +12,10 @@ from semantic_version import Version, Spec
 
 class AppManager(TranslatableManager):
     def search(self, terms, lang):
-        queryset = self.get_queryset().language(lang).distinct()
+        queryset = self.get_queryset().active_translations(lang).language(
+            lang).distinct()
         predicates = map(lambda t: (Q(translations__name__icontains=t) |
+                                    Q(translations__summary__icontains=t) |
                                     Q(translations__description__icontains=t)),
                          terms)
         query = reduce(lambda x, y: x & y, predicates, Q())
@@ -42,6 +44,9 @@ class App(TranslatableModel):
     translations = TranslatedFields(
         name=CharField(max_length=128, verbose_name=_('Name'),
                        help_text=_('Rendered app name for users')),
+        summary=CharField(max_length=128, verbose_name=_('Summary'),
+                          help_text=_(
+                              'Short text describing the app\'s purpose')),
         description=TextField(verbose_name=_('Description'), help_text=_(
             'Will be rendered as Markdown'))
     )
