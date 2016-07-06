@@ -42,11 +42,13 @@
         <div class="row"></div>
     {% endif %}
 {% empty %}
-    {% if search_query and current_category %}
-        <p class="message no-apps-found">{% blocktrans with cat=current_category.name %}No apps found for search "<em>{{ search_query }}</em>" in {{ cat }}.{% endblocktrans %}</p>
-    {% elif search_query %}
-        <p class="message no-apps-found">{% blocktrans %}No apps found for search "<em>{{ search_query }}</em>".{% endblocktrans %}</p>
-    {% endif %}
+    <div class="col-lg-6 app-list-container">
+        {% if search_query and current_category %}
+            <p class="message no-apps-found">{% blocktrans with cat=current_category.name %}No apps found for search "<em>{{ search_query }}</em>" in {{ cat }}.{% endblocktrans %}</p>
+        {% elif search_query %}
+            <p class="message no-apps-found">{% blocktrans %}No apps found for search "<em>{{ search_query }}</em>".{% endblocktrans %}</p>
+        {% endif %}
+    </div>
 {% endfor %}
 
 {% endblock %}
