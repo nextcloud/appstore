@@ -11,7 +11,7 @@ from parler.models import TranslatedFields, TranslatableModel, \
 
 class AppManager(TranslatableManager):
     def search(self, terms, lang):
-        queryset = self.get_queryset().language(lang).distinct()
+        queryset = self.get_queryset().active_translations(lang)
         predicates = map(lambda t: (Q(translations__name__icontains=t) |
                                     Q(translations__summary__icontains=t) |
                                     Q(translations__description__icontains=t)),
