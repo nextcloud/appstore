@@ -33,6 +33,23 @@
                 </xsl:for-each>
             </description>
 
+            <summary>
+                <xsl:for-each select="summary">
+                    <xsl:choose>
+                        <xsl:when test="@lang">
+                            <xsl:element name="{@lang}">
+                                <xsl:value-of select="."/>
+                            </xsl:element>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <en>
+                                <xsl:value-of select="."/>
+                            </en>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each>
+            </summary>
+
             <name>
                 <xsl:for-each select="name">
                     <xsl:choose>

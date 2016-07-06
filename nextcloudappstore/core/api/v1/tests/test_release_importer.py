@@ -74,7 +74,8 @@ class ImporterTest(TestCase):
         # l10n
         app.set_current_language('en')
         self.assertEqual('News', app.name)
-        self.assertEqual('An RSS/Atom feed reader', app.description)
+        self.assertEqual('An RSS/Atom feed reader', app.summary)
+        self.assertEqual('#This is markdown', app.description)
         app.set_current_language('de')  # fallback
         self.assertEqual('Nachrichten', app.name)
         self.assertEqual(
