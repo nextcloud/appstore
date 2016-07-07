@@ -21,7 +21,7 @@
     <div id="app_details_tab_content" class="tab-content">
         <div class="tab-pane active" id="app_overview">
             <section class="app-gallery"><p><br><br><br>Gallery placeholder<br><br><br><br><br></p></section>
-            <section class="app-description"><p>{{ object.description }}</p></section>
+            <section class="app-description">{% autoescape off %}{{ desc_markdown }}{% endautoescape %}</section>
             <section class="app-releases">
                 <h3>Download latest version</h3>
                 <table class="table">
