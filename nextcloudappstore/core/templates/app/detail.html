@@ -5,7 +5,7 @@
 
 {% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
 {% block head %}
-    <script defer="defer" src="{% static 'assets/js/img-slider.js'%}"></script>
+    <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
 {% endblock %}
 
 {% block apps %}
@@ -41,7 +41,7 @@
             </section>
             <section class="app-description">{% autoescape off %}{{ desc_markdown }}{% endautoescape %}</section>
             <section class="app-releases">
-                <h3>{% trans "Download latest version" %}</h3>
+                <h4>{% trans "Download latest version" %}</h4>
                 <table class="table">
                     <tr>
                         <th>Nextcloud</th>
@@ -59,7 +59,7 @@
             </section>
 
             <section class="app-details">
-                <h3>{% trans "Details" %}</h3>
+                <h4>{% trans "Details" %}</h4>
                 <table class="table">
                     {% if object.issue_tracker %}
                     <tr>
@@ -85,6 +85,11 @@
                         <td>{{ object.last_modified }}</td>
                     </tr>
                     {% endif %}
+                </table>
+            </section>
+            <section class="app-author">
+                <h4>{% trans "Author" %}</h4>
+                <table class="table">
                     {% if object.owner %}
                     <tr>
                         <th>{% trans "Owner" %}</th>

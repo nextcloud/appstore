@@ -1,24 +1,44 @@
 
+var IMG_SLIDER_CONST = {
+    AUTOSCROLL_INTERVAL: 8000 // ms
+};
+
+
 function ImageSlider(element, nextBtnElement, prevBtnElement) {
     this.element = element;
     this.strip =
         new ImageStrip(this, this.element.querySelector('.img-strip'));
     this.curSlide = 0;
 
-    nextBtnElement.addEventListener('click', () => this.increment(1));
-    prevBtnElement.addEventListener('click', () => this.increment(-1));
     this.setSlide(this.curSlide);
+
+    var slider = this;
+
+    this.autoScroll = setInterval(function(){slider.increment(1)},
+        IMG_SLIDER_CONST.AUTOSCROLL_INTERVAL);
+
+    nextBtnElement.addEventListener('click', function() {
+        slider.increment(1);
+        clearInterval(slider.autoScroll);
+    });
+    prevBtnElement.addEventListener('click', function() {
+        slider.increment(-1);
+        clearInterval(slider.autoScroll);
+    });
 }
 
 ImageSlider.prototype.setSlide = function(slide) {
     var imgSpacing = 4;
     var imgWidth = this.element.offsetWidth + imgSpacing;
-    this.strip.setPosX(imgWidth*slide);
+    this.strip.setPosX(imgWidth * slide);
+    this.curSlide = slide;
 };
 
 ImageSlider.prototype.increment = function(steps) {
-    this.curSlide = Math.abs((this.curSlide+steps) % this.strip.images.length);
-    this.setSlide(this.curSlide);
+    var imgCount = this.strip.images.length;
+    var next = this.curSlide + steps;
+    next = ((next%imgCount)+imgCount)%imgCount; // because a simple % does it wrong
+    this.setSlide(next);
 };
 
 
