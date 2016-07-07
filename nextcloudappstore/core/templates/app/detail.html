@@ -9,8 +9,9 @@
 {% endblock %}
 
 {% block apps %}
-    <h1>{{ object.name }}</h1>
-
+    <div class="header-wrap">
+        <h1>{{ object.name }}</h1>{% if object.featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+    </div>
     <ul class="nav nav-tabs">
         <li class="active">
             <a href="#app_overview" data-toggle="tab">Overview</a>

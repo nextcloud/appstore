@@ -18,8 +18,26 @@ body {
 }
 
 #body h1:first-of-type {
+    display: inline;
+}
+
+#body .header-wrap {
     margin-top: 0px;
     margin-bottom: 30px;
+}
+
+.header-wrap .tag:first-of-type {
+    margin-left: 30px;
+}
+
+.tag {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    color: #777;
+    padding: 2px 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
 }
 
 #footer {
