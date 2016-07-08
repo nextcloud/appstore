@@ -17,6 +17,15 @@ body {
     overflow: hidden;
 }
 
+#body section h1:first-child,
+#body section h2:first-child,
+#body section h3:first-child,
+#body section h4:first-child,
+#body section h5:first-child,
+#body section h6:first-child {
+    margin-top: 0px;
+}
+
 #body h1:first-of-type {
     display: inline;
 }
@@ -198,4 +207,13 @@ form .text-danger {
 
 #filter-form label:last-of-type {
     margin-right: 0px;
+}
+
+.app-meta h6 {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.app-meta p {
+    margin-bottom: 15px;
 }
