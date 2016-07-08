@@ -90,6 +90,11 @@ class App(TranslatableModel):
                            all_releases))
 
     def latest_releases_by_platform_v(self):
+        """Returns a dict with the latest release for each platform version.
+
+        Ignores nightly releases.
+        """
+
         all_latest = {}
 
         def latest_non_nightly(releases):

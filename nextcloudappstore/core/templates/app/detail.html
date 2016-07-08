@@ -63,24 +63,20 @@
         </section>
     </div>
     <div class="row">
-        <section class="app-releases col-md-8">
-            <h4>{% trans "Latest Releases" %}</h4>
+        <section class="app-download col-md-8">
+            <h4>{% trans "Download" %}</h4>
             <table class="table">
-                <tr>
-                    <th>Nextcloud</th>
-                    <th>{{ object.name }}</th>
-                </tr>
                 {% for platform_v, release in latest_releases_by_platform_v|dict_sort:'desc' %}
                     {% if release %}
                         <tr>
-                            <td>{{ platform_v }}</td>
-                            <td><a href="{{ release.download }}">{{ release.version }}</a></td>
+                            <td>Nextcloud {{ platform_v }}</td>
+                            <td><a href="{{ release.download }}">Download latest ({{ release.version }})</a></td>
+                            <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}">{% trans "Other releases" %}</a></td>
                         </tr>
                     {% endif %}
                 {% endfor %}
             </table>
         </section>
-
         <section class="app-resources col-md-4">
             <h4>{% trans "Resources" %}</h4>
             <p>
