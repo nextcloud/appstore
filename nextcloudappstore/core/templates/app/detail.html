@@ -12,191 +12,95 @@
     <div class="header-wrap">
         <h1>{{ object.name }}</h1>{% if object.featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
     </div>
-    <ul class="nav nav-tabs">
-        <li class="active">
-            <a href="#app_overview" data-toggle="tab">Overview</a>
-        </li>
-        <li>
-            <a href="#app_releases" data-toggle="tab">Releases</a>
-        </li>
-    </ul>
-    <div id="app_details_tab_content" class="tab-content">
-        <div class="tab-pane active" id="app_overview">
-            <section class="app-gallery">
-                {% if object.screenshots.all %}
-                    <div id="img-slider">
-                        <div class="img-strip">
-                            {% for screenshot in object.screenshots.all %}
-                                <div class="img" data-url="{{ screenshot.url }}"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="img-slider-controls">
-                        <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
-                        <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
-                    </div>
+    <section class="app-gallery">
+        {% if object.screenshots.all %}
+            <div id="img-slider">
+                <div class="img-strip">
+                    {% for screenshot in object.screenshots.all %}
+                        <div class="img" data-url="{{ screenshot.url }}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="img-slider-controls">
+                <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
+                <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+            </div>
+        {% endif %}
+    </section>
+    <div class="row">
+        <section class="app-description col-md-8">{% autoescape off %}{{ desc_markdown }}{% endautoescape %}</section>
+        <section class="app-meta col-md-3">
+            {% if object.created %}
+            <h6>{% trans "Created" %}</h6>
+            <p>{{ object.created }}</p>
+            {% endif %}
+            {% if object.last_modified %}
+            <h6>{% trans "Last modified" %}</h6>
+            <p>{{ object.last_modified }}</p>
+            {% endif %}
+            {% if object.owner %}
+            <h6>{% trans "Owner" %}</h6>
+            <p>
+                {% if object.owner.get_fullname %}
+                    {{ object.owner.get_fullname }}
+                {% else %}
+                    {{ object.owner.username }}
                 {% endif %}
-            </section>
-            <div class="row">
-                <section class="app-description col-md-8">{% autoescape off %}{{ desc_markdown }}{% endautoescape %}</section>
-                <section class="app-meta col-md-3">
-                    {% if object.created %}
-                    <h6>{% trans "Created" %}</h6>
-                    <p>{{ object.created }}</p>
-                    {% endif %}
-                    {% if object.last_modified %}
-                    <h6>{% trans "Last modified" %}</h6>
-                    <p>{{ object.last_modified }}</p>
-                    {% endif %}
-                    {% if object.owner %}
-                    <h6>{% trans "Owner" %}</h6>
-                    <p>
-                        {% if object.owner.get_fullname %}
-                            {{ object.owner.get_fullname }}
+            </p>
+            {% endif %}
+            {% if object.co_maintainers.all %}
+            <h6>{% trans "Maintainers" %}</h6>
+            <ul class="list-inline">
+                {% for a in object.co_maintainers.all %}
+                    <li>{% if a.get_fullname %}
+                            {{ a.get_fullname }}
                         {% else %}
-                            {{ object.owner.username }}
-                        {% endif %}
-                    </p>
-                    {% endif %}
-                    {% if object.co_maintainers.all %}
-                    <h6>{% trans "Maintainers" %}</h6>
-                    <ul class="list-inline">
-                        {% for a in object.co_maintainers.all %}
-                            <li>{% if a.get_fullname %}
-                                    {{ a.get_fullname }}
-                                {% else %}
-                                    {{ a.username }}
-                                {% endif %}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </section>
-            </div>
-            <div class="row">
-                <section class="app-releases col-md-8">
-                    <h4>{% trans "Latest Releases" %}</h4>
-                    <table class="table">
-                        <tr>
-                            <th>Nextcloud</th>
-                            <th>{{ object.name }}</th>
-                        </tr>
-                        {% for platform_v, release in latest_releases_by_platform_v|dict_sort:'desc' %}
-                            {% if release %}
-                                <tr>
-                                    <td>{{ platform_v }}</td>
-                                    <td><a href="{{ release.download }}">{{ release.version }}</a></td>
-                                </tr>
-                            {% endif %}
-                        {% endfor %}
-                    </table>
-                </section>
-
-                <section class="app-resources col-md-4">
-                    <h4>{% trans "Resources" %}</h4>
-                    <p>
-                        {% if object.website %}
-                            <a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a><br>
-                        {% endif %}
-                        {% if object.issue_tracker %}
-                            <a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a><br>
-                        {% endif %}
-                        {% if object.user_docs %}
-                            <a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a><br>
-                        {% endif %}
-                        {% if object.admin_docs %}
-                            <a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a><br>
-                        {% endif %}
-                        {% if object.developer_docs %}
-                            <a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a><br>
-                        {% endif %}
-                    </p>
-                </section>
-            </div>
-        </div>
-        <div class="tab-pane" id="app_releases">
-            <ul class="nav nav-pills nav-stacked col-md-2">
-                {% for release in object.releases.all %}
-                    <li class="{% if forloop.first %}active{% endif %}"><a href="#release_tab_{{ forloop.counter0 }}" data-toggle="pill">{{ release.version }}</a></li>
+                            {{ a.username }}
+                        {% endif %}</li>
                 {% endfor %}
             </ul>
-            <div class="tab-content col-md-10">
-                {% for release in object.releases.all %}
-                    <div class="tab-pane {% if forloop.first %}active {% endif %}" id="release_tab_{{ forloop.counter0 }}">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#release_overview" data-toggle="tab">Overview</a>
-                            </li>
-                            <li>
-                                <a href="#release_requirements" data-toggle="tab">Requirements</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content ">
-                            <div class="tab-pane active" id="release_overview">
-                                <table class="table">
-                                    <tr>
-                                        <th>{% trans "Supported Nextcloud Versions" %}</th>
-                                        <td>{{ release.platform_min_version }} - {{ release.platform_max_version }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Supported PHP Versions" %}</th>
-                                        <td>{{ release.php_min_version }} - {{ release.php_max_version }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Minimum Integer Bits" %}</th>
-                                        <td>{{ release.min_int_size }}bit</td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Download URL" %}</th>
-                                        <td><a href="{{ release.download }}">{{ release.download }}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Created on" %}</th>
-                                        <td>{{ release.created }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Last modified" %}</th>
-                                        <td>{{ release.last_modified }}</td>
-                                    </tr>
-                                 </table>
-                            </div>
-                            <div class="tab-pane" id="release_requirements">
-                                <table class="table">
-                                    <tr>
-                                        <th>{% trans "PHP Extensions" %}</th>
-                                        <td>
-                                            <ul>
-                                                {% for dep in release.phpextensiondependencies.all %}
-                                                    <li>{{ dep.php_extension.id }} - {{ dep.min_version }} to {{ dep.max_version }}
-                                                {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Databases" %}</th>
-                                        <td>
-                                            <ul>
-                                                {% for dep in release.databasedependencies.all %}
-                                                    <li>{{ dep.database.name }} - {{ dep.min_version }} to {{ dep.max_version }}
-                                                {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>{% trans "Shell commands" %}</th>
-                                        <td>
-                                            <ul>
-                                                {% for command in release.shell_commands.all %}
-                                                    <li>{{ command.name }}
-                                                {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div><!-- tab content -->
-        </div>
+            {% endif %}
+        </section>
     </div>
+    <div class="row">
+        <section class="app-releases col-md-8">
+            <h4>{% trans "Latest Releases" %}</h4>
+            <table class="table">
+                <tr>
+                    <th>Nextcloud</th>
+                    <th>{{ object.name }}</th>
+                </tr>
+                {% for platform_v, release in latest_releases_by_platform_v|dict_sort:'desc' %}
+                    {% if release %}
+                        <tr>
+                            <td>{{ platform_v }}</td>
+                            <td><a href="{{ release.download }}">{{ release.version }}</a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </section>
+
+        <section class="app-resources col-md-4">
+            <h4>{% trans "Resources" %}</h4>
+            <p>
+                {% if object.website %}
+                    <a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a><br>
+                {% endif %}
+                {% if object.issue_tracker %}
+                    <a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a><br>
+                {% endif %}
+                {% if object.user_docs %}
+                    <a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a><br>
+                {% endif %}
+                {% if object.admin_docs %}
+                    <a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a><br>
+                {% endif %}
+                {% if object.developer_docs %}
+                    <a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a><br>
+                {% endif %}
+            </p>
+        </section>
+    </div>
+
 {% endblock %}
