@@ -5,6 +5,7 @@ from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
+from nextcloudappstore.core.versioning import pad_min_version
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
 from semantic_version import Version, Spec
@@ -98,12 +99,14 @@ class App(TranslatableModel):
         all_latest = {}
 
         def latest_non_nightly(releases):
-            latest = None
-            for release in releases:
-                if (latest is None or release.version > latest.version) \
-                        and release.version.find('-nightly') == -1:
-                    latest = release
-            return latest
+            releases = list(
+                filter(lambda r: not r.version.endswith('-nightly'), releases))
+            if len(releases) == 0:
+                return None
+            sorted_releases = sorted(releases,
+                                     key=lambda r: Version(r.version),
+                                     reverse=True)
+            return sorted_releases[0]
 
         for p_version in settings.PLATFORM_VERSIONS:
             compatible = self.compatible_releases(p_version)
@@ -160,10 +163,8 @@ class AppRelease(Model):
         return '%s %s' % (self.app, self.version)
 
     def is_compatible(self, platform_version):
-        platform_version = Version(platform_version)
-        if platform_version in Spec(self.platform_version_spec):
-            return True
-        return False
+        platform_version = Version(pad_min_version(platform_version))
+        return platform_version in Spec(self.platform_version_spec)
 
 
 class Screenshot(Model):
