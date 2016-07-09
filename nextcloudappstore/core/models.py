@@ -86,22 +86,21 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
-    def compatible_releases(self, platform_version):
-        all_releases = self.releases.all()
-        return list(
-            filter(lambda rel: rel.is_compatible(platform_version, True),
-                   all_releases))
-
     def latest_releases_by_platform_v(self):
-        """Returns a dict with the latest release for each platform version.
-
-        Ignores nightly releases.
+        """Looks up all latest release per platform, ignores nightly releases.
+        :return dict with the latest release for each platform version.
         """
         all_latest = {}
         for p_version in settings.PLATFORM_VERSIONS:
             compatible = self.compatible_releases(p_version)
             all_latest[p_version] = self._latest_non_nightly(compatible)
         return all_latest
+
+    def compatible_releases(self, platform_version):
+        all_releases = self.releases.all()
+        return list(
+            filter(lambda rel: rel.is_compatible(platform_version, True),
+                   all_releases))
 
     def _latest_non_nightly(self, releases):
         releases = filter(lambda r: not r.version.endswith('-nightly'),
