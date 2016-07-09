@@ -5,7 +5,8 @@
 
 {% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
 {% block head %}
-    <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
+    <script defer="defer" src="{% static 'vendor/markdown-it/dist/markdown-it.min.js' %}"></script>
+    <script defer="defer" src="{% static 'assets/js/app-detail.js' %}"></script>
 {% endblock %}
 
 {% block apps %}
@@ -28,7 +29,7 @@
         {% endif %}
     </section>
     <div class="row">
-        <section class="app-description col-md-8">{% autoescape off %}{{ desc_markdown }}{% endautoescape %}</section>
+        <section class="app-description col-md-8 markdown">{{ object.description }}</section>
         <section class="app-meta col-md-3">
             {% if object.last_modified %}
                 <h6>{% trans "Updated" %}</h6>

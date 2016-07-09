@@ -72,16 +72,19 @@ class Image {
 }
 
 
-(function (window) {
+(function (global) {
     'use strict';
-
     const AUTOSCROLL_INTERVAL = 8000;  // ms
-    let nextButton =
-        window.document.querySelector('.img-slider-controls .next');
-    let prevButton =
-        window.document.querySelector('.img-slider-controls .prev');
-    let imgSliderElement = window.document.getElementById('img-slider');
+    let document = global.document;
+    let md = global.markdownit();
+    let nextButton = document.querySelector('.img-slider-controls .next');
+    let prevButton = document.querySelector('.img-slider-controls .prev');
+    let imgSliderElement = document.getElementById('img-slider');
 
     let imgSlider = new ImageSlider(imgSliderElement, AUTOSCROLL_INTERVAL,
             nextButton, prevButton);
+
+    let markdown = Array.from(document.querySelectorAll('.markdown'));
+    markdown.forEach(m => console.log(m.innerHTML));
+    markdown.forEach(elem => elem.innerHTML = md.render(elem.innerHTML));
 }(this));

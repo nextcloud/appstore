@@ -2,7 +2,6 @@ from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from markdown import markdown
 from nextcloudappstore.core.models import App, Category
 
 
@@ -17,7 +16,6 @@ class AppDetailView(DetailView):
         context['categories'] = Category.objects.all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()
-        context['desc_markdown'] = markdown(self.object.description)
         return context
 
 
