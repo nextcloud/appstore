@@ -63,30 +63,31 @@
         </section>
         <section>
             <h4>{% trans "Resources" %}</h4>
-            <p>
+            <ul>
                 {% if object.website %}
-                <a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a><br>
+                <li><a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a></li>
                 {% endif %}
                 {% if object.issue_tracker %}
-                <a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a><br>
+                <li><a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a></li>
                 {% endif %}
                 {% if object.user_docs %}
-                <a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a><br>
+                <li><a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a></li>
                 {% endif %}
                 {% if object.admin_docs %}
-                <a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a><br>
+                <li><a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a></li>
                 {% endif %}
                 {% if object.developer_docs %}
-                <a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a><br>
+                <li><a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a></li>
                 {% endif %}
-            </p>
+                <li><a href="#downloads"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Downloads" %}</a></li>
+            </ul>
         </section>
     </div>
     <section class="app-description markdown loading"></section>
     <div class="row">
         <div class="col-md-12">
             <section class="app-download">
-                <h4>{% trans "Downloads" %}</h4>
+                <h4 id="downloads">{% trans "Downloads" %}</h4>
                 <table class="table">
                     {% for platform_v, release in latest_releases_by_platform_v|sort_by_version:'desc' %}
                         {% if release %}
