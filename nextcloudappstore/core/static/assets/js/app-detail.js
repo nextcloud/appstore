@@ -85,6 +85,5 @@ class Image {
             nextButton, prevButton);
 
     let markdown = Array.from(document.querySelectorAll('.markdown'));
-    markdown.forEach(m => console.log(m.innerHTML));
     markdown.forEach(elem => elem.innerHTML = md.render(elem.innerHTML));
 }(this));
