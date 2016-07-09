@@ -95,24 +95,19 @@ class App(TranslatableModel):
 
         Ignores nightly releases.
         """
-
         all_latest = {}
-
-        def latest_non_nightly(releases):
-            releases = list(
-                filter(lambda r: not r.version.endswith('-nightly'), releases))
-            if len(releases) == 0:
-                return None
-            sorted_releases = sorted(releases,
-                                     key=lambda r: Version(r.version),
-                                     reverse=True)
-            return sorted_releases[0]
-
         for p_version in settings.PLATFORM_VERSIONS:
             compatible = self.compatible_releases(p_version)
-            all_latest[p_version] = latest_non_nightly(compatible)
-
+            all_latest[p_version] = self._latest_non_nightly(compatible)
         return all_latest
+
+    def _latest_non_nightly(self, releases):
+        releases = filter(lambda r: not r.version.endswith('-nightly'),
+                          releases)
+        try:
+            return max(releases, key=lambda r: Version(r.version))
+        except ValueError:
+            return None
 
 
 class AppRelease(Model):
