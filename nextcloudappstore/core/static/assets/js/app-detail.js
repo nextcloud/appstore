@@ -103,6 +103,7 @@
     fetch(appDescriptionUrl.content).then((response) => {
         return response.text()
     }).then((description) => {
+        descriptionTarget.classList.remove('loading');
         descriptionTarget.innerHTML = md.render(description);
     });
 }(this));
