@@ -28,37 +28,45 @@
             </div>
         {% endif %}
     </section>
-    <div class="row">
-        <section class="app-description col-md-8 markdown">{{ object.description }}</section>
-        <section class="app-meta col-md-3">
-            {% if object.last_modified %}
-                <h6>{% trans "Updated" %}</h6>
-                <p>{{ object.last_modified }}</p>
-            {% endif %}
-            {% if object.owner %}
-                <h6>{% trans "Owner" %}</h6>
-                <p>
-                    {% if object.owner.get_fullname %}
+    <section class="app-description markdown">{{ object.description }}</section>
+    <section class="app-meta">
+        <table>
+            <thead>
+                <tr>
+                    {% if object.last_modified %}
+                        <td>{% trans "Updated" %}</td>
+                    {% endif %}
+                    {% if object.owner %}
+                        <td>{% trans "Publisher" %}</td>
+                    {% endif %}
+                    {% if object.co_maintainers.all %}
+                        <td>{% trans "Maintainers" %}</td>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tr>
+                {% if object.last_modified %}
+                    <td>{{ object.last_modified }}</td>
+                {% endif %}
+                {% if object.owner %}
+                    <td>{% if object.owner.get_fullname %}
                         {{ object.owner.get_fullname }}
                     {% else %}
                         {{ object.owner.username }}
-                    {% endif %}
-                </p>
-            {% endif %}
-            {% if object.co_maintainers.all %}
-                <h6>{% trans "Maintainers" %}</h6>
-                <ul class="list-inline">
+                    {% endif %}</td>
+                {% endif %}
+                {% if object.co_maintainers.all %}
+                    <td>
                     {% for a in object.co_maintainers.all %}
-                        <li>{% if a.get_fullname %}
-                                {{ a.get_fullname }}
-                            {% else %}
-                                {{ a.username }}
-                            {% endif %}</li>
+                        {% if a.get_fullname %}
+                            {{ a.get_fullname }}{% else %}
+                            {{ a.username }}{% endif %}{% if not forloop.last %}, {% endif %}
                     {% endfor %}
-                </ul>
-            {% endif %}
-        </section>
-    </div>
+                    </td>
+                {% endif %}
+            </tr>
+        </table>
+    </section>
     <div class="row">
         <section class="app-download col-md-8">
             <h4>{% trans "Download" %}</h4>
