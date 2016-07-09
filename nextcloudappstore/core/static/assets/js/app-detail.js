@@ -78,7 +78,18 @@
 
     const AUTOSCROLL_INTERVAL = 8000;  // ms
     let document = global.document;
-    let md = global.markdownit();
+    let hljs = global.hljs;
+    let md = global.markdownit({
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        }
+    });
     let nextButton = document.querySelector('.img-slider-controls .next');
     let prevButton = document.querySelector('.img-slider-controls .prev');
     let imgSliderElement = document.getElementById('img-slider');
@@ -86,6 +97,12 @@
     let imgSlider = new ImageSlider(imgSliderElement, AUTOSCROLL_INTERVAL,
         nextButton, prevButton);
 
-    let markdown = Array.from(document.querySelectorAll('.markdown'));
-    markdown.forEach(elem => elem.innerHTML = md.render(elem.innerHTML));
+    // create markdown for app description
+    let appDescriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-detail-url"]');
+    let descriptionTarget = document.querySelector('.app-description');
+    fetch(appDescriptionUrl.content).then((response) => {
+        return response.text()
+    }).then((description) => {
+        descriptionTarget.innerHTML = md.render(description);
+    });
 }(this));

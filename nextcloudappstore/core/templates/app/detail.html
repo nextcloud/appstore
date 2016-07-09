@@ -5,8 +5,11 @@
 
 {% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
 {% block head %}
+    <link rel="stylesheet" href="{% static 'vendor/highlightjs/styles/github.css' %}">
+    <script defer="defer" src="{% static 'vendor/highlightjs/highlight.pack.js' %}"></script>
     <script defer="defer" src="{% static 'vendor/markdown-it/dist/markdown-it.min.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/app-detail.js' %}"></script>
+    <meta name="nextcloudappstore-app-detail-url" content="{% url 'app-description' object.id %}">
 {% endblock %}
 
 {% block apps %}
@@ -28,7 +31,7 @@
             </div>
         {% endif %}
     </section>
-    <section class="app-description markdown">{{ object.description }}</section>
+    <section class="app-description markdown"></section>
     <section class="app-meta">
         <table>
             <thead>
