@@ -1,6 +1,7 @@
+from sys import maxsize
 from django.test import TestCase
 from nextcloudappstore.core.versioning import pad_min_version, to_spec, \
-    pad_max_version
+    pad_max_version, pad_max_inc_version
 
 
 class VersioningTest(TestCase):
@@ -17,6 +18,13 @@ class VersioningTest(TestCase):
         self.assertEqual('9.0.0', pad_min_version('9'))
         self.assertEqual('9.0.0', pad_min_version('9.0'))
         self.assertEqual('9.0.0', pad_min_version('9.0.0'))
+
+    def test_pad_inc_maximum(self):
+        self.assertEqual('*', pad_max_inc_version(''))
+        self.assertEqual('9.%i.%i' % (maxsize, maxsize),
+                         pad_max_inc_version('9'))
+        self.assertEqual('9.0.%i' % maxsize, pad_max_inc_version('9.0'))
+        self.assertEqual('9.0.0', pad_max_inc_version('9.0.0'))
 
     def test_to_spec(self):
         self.assertEqual('*', to_spec('*', '*'))
