@@ -32,78 +32,71 @@
         {% endif %}
     </section>
     <section class="app-description markdown"></section>
-    <section class="app-meta">
-        <table>
-            <thead>
-                <tr>
-                    {% if object.last_modified %}
-                        <td>{% trans "Updated" %}</td>
+    <div class="row">
+        <div class="col-md-8">
+            <section class="app-download">
+                <h4>{% trans "Download" %}</h4>
+                <table class="table">
+                    {% for platform_v, release in latest_releases_by_platform_v|sort_by_version:'desc' %}
+                        {% if release %}
+                            <tr>
+                                <td>Nextcloud {{ platform_v }}</td>
+                                <td><a href="{{ release.download }}">Download latest ({{ release.version }})</a></td>
+                                <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}">{% trans "Other releases" %}</a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </section>
+            <section class="app-resources">
+                <h4>{% trans "Resources" %}</h4>
+                <p>
+                    {% if object.website %}
+                        <a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a><br>
                     {% endif %}
-                    {% if object.owner %}
-                        <td>{% trans "Publisher" %}</td>
+                    {% if object.issue_tracker %}
+                        <a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a><br>
                     {% endif %}
-                    {% if object.co_maintainers.all %}
-                        <td>{% trans "Maintainers" %}</td>
+                    {% if object.user_docs %}
+                        <a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a><br>
                     {% endif %}
-                </tr>
-            </thead>
-            <tr>
-                {% if object.last_modified %}
-                    <td>{{ object.last_modified }}</td>
-                {% endif %}
-                {% if object.owner %}
-                    <td>{% if object.owner.get_fullname %}
+                    {% if object.admin_docs %}
+                        <a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a><br>
+                    {% endif %}
+                    {% if object.developer_docs %}
+                        <a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a><br>
+                    {% endif %}
+                </p>
+            </section>
+        </div>
+        <section class="app-meta col-md-4">
+            <h4>Meta</h4>
+            {% if object.last_modified %}
+                <h6>{% trans "Updated" %}</h6>
+                <p>{{ object.last_modified }}</p>
+            {% endif %}
+            {% if object.owner %}
+                <h6>{% trans "Publisher" %}</h6>
+                <p>
+                    {% if object.owner.get_fullname %}
                         {{ object.owner.get_fullname }}
                     {% else %}
                         {{ object.owner.username }}
-                    {% endif %}</td>
-                {% endif %}
-                {% if object.co_maintainers.all %}
-                    <td>
-                    {% for a in object.co_maintainers.all %}
-                        {% if a.get_fullname %}
-                            {{ a.get_fullname }}{% else %}
-                            {{ a.username }}{% endif %}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                    </td>
-                {% endif %}
-            </tr>
-        </table>
-    </section>
-    <div class="row">
-        <section class="app-download col-md-8">
-            <h4>{% trans "Download" %}</h4>
-            <table class="table">
-                {% for platform_v, release in latest_releases_by_platform_v|sort_by_version:'desc' %}
-                    {% if release %}
-                        <tr>
-                            <td>Nextcloud {{ platform_v }}</td>
-                            <td><a href="{{ release.download }}">Download latest ({{ release.version }})</a></td>
-                            <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}">{% trans "Other releases" %}</a></td>
-                        </tr>
                     {% endif %}
-                {% endfor %}
-            </table>
-        </section>
-        <section class="app-resources col-md-4">
-            <h4>{% trans "Resources" %}</h4>
-            <p>
-                {% if object.website %}
-                    <a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a><br>
-                {% endif %}
-                {% if object.issue_tracker %}
-                    <a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a><br>
-                {% endif %}
-                {% if object.user_docs %}
-                    <a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a><br>
-                {% endif %}
-                {% if object.admin_docs %}
-                    <a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a><br>
-                {% endif %}
-                {% if object.developer_docs %}
-                    <a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a><br>
-                {% endif %}
-            </p>
+                </p>
+            {% endif %}
+            {% if object.co_maintainers.all %}
+                <h6>{% trans "Maintainers" %}</h6>
+                <ul class="list-inline">
+                    {% for a in object.co_maintainers.all %}
+                        <li>{% if a.get_fullname %}
+                                {{ a.get_fullname }}
+                            {% else %}
+                                {{ a.username }}
+                            {% endif %}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </section>
     </div>
 
