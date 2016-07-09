@@ -83,5 +83,6 @@ class CompatibilityTest(TestCase):
             self.assertEqual(app2['10.0'], None)
 
     def test_correct_comparison_and_ignore_nightly(self):
-        app1 = self.app1.latest_releases_by_platform_v()
-        self.assertEqual(app1['10.0'].version, '5.0.0')
+        with self.settings(PLATFORM_VERSIONS=self.platform_versions):
+            app1 = self.app1.latest_releases_by_platform_v()
+            self.assertEqual(app1['10.0'].version, '5.0.0')
