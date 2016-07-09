@@ -23,14 +23,14 @@ class AppManager(TranslatableManager):
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
 
-    def get_compatible(self, platform_version):
+    def get_compatible(self, platform_version, inclusive=False):
         apps = App.objects.prefetch_related('translations', 'screenshots',
                                             'releases', 'releases__databases',
                                             'releases__php_extensions').all()
 
         def app_filter(app):
             for release in app.releases.all():
-                if release.is_compatible(platform_version):
+                if release.is_compatible(platform_version, inclusive):
                     return True
             return False
 
@@ -96,10 +96,10 @@ class App(TranslatableModel):
             all_latest[p_version] = self._latest_non_nightly(compatible)
         return all_latest
 
-    def compatible_releases(self, platform_version):
+    def compatible_releases(self, platform_version, inclusive=True):
         all_releases = self.releases.all()
         return list(
-            filter(lambda rel: rel.is_compatible(platform_version, True),
+            filter(lambda rel: rel.is_compatible(platform_version, inclusive),
                    all_releases))
 
     def _latest_non_nightly(self, releases):
