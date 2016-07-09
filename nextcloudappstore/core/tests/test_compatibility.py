@@ -9,7 +9,7 @@ class CompatibilityTest(TestCase):
                                                          password='test',
                                                          email='test@test.com')
 
-        self.platform_versions = ['9.0', '9.1', '9.2', '10.0']
+        self.platform_versions = ['9.0', '9.1', '9.2', '10.0', '10.1']
 
         self.app1 = App.objects.create(pk='news', owner=self.user)
         self.app1.set_current_language('en')
@@ -73,7 +73,7 @@ class CompatibilityTest(TestCase):
         with self.settings(PLATFORM_VERSIONS=self.platform_versions):
             app1 = self.app1.latest_releases_by_platform_v()
             app2 = self.app2.latest_releases_by_platform_v()
-            self.assertEqual(app1['9.0'].version, '1.0.0')
+            self.assertEqual(app1['9.0'].version, '2.0.0')
             self.assertEqual(app1['9.1'].version, '3.0.0')
             self.assertEqual(app1['9.2'].version, '4.0.0')
             self.assertEqual(app1['10.0'].version, '5.0.0')

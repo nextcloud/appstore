@@ -5,7 +5,8 @@ from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
-from nextcloudappstore.core.versioning import pad_min_version
+from nextcloudappstore.core.versioning import pad_min_version, \
+    pad_max_inc_version
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
 from semantic_version import Version, Spec
@@ -87,8 +88,9 @@ class App(TranslatableModel):
 
     def compatible_releases(self, platform_version):
         all_releases = self.releases.all()
-        return list(filter(lambda rel: rel.is_compatible(platform_version),
-                           all_releases))
+        return list(
+            filter(lambda rel: rel.is_compatible(platform_version, True),
+                   all_releases))
 
     def latest_releases_by_platform_v(self):
         """Returns a dict with the latest release for each platform version.
@@ -157,9 +159,22 @@ class AppRelease(Model):
     def __str__(self) -> str:
         return '%s %s' % (self.app, self.version)
 
-    def is_compatible(self, platform_version):
-        platform_version = Version(pad_min_version(platform_version))
-        return platform_version in Spec(self.platform_version_spec)
+    def is_compatible(self, platform_version, inclusive=False):
+        """
+        Checks if a release is compatible with a platform version
+        :param platform_version: the platform version, not required to be
+        semver compatible
+        :param inclusive: if True the check will also return True if an app
+         requires 9.0.1 and the given platform version is 9.0
+        :return: True if compatible, otherwise false
+        """
+        min_version = Version(pad_min_version(platform_version))
+        spec = Spec(self.platform_version_spec)
+        if inclusive:
+            max_version = Version(pad_max_inc_version(platform_version))
+            return (min_version in spec or max_version in spec)
+        else:
+            return min_version in spec
 
 
 class Screenshot(Model):
