@@ -17,6 +17,42 @@ body {
     overflow: hidden;
 }
 
+#body section {
+    margin-bottom: 40px;
+}
+
+#body section h1:first-child,
+#body section h2:first-child,
+#body section h3:first-child,
+#body section h4:first-child,
+#body section h5:first-child,
+#body section h6:first-child {
+    margin-top: 0px;
+}
+
+#body h1:first-of-type {
+    display: inline;
+}
+
+#body .header-wrap {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.header-wrap .tag:first-of-type {
+    margin-left: 30px;
+}
+
+.tag {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    color: #777;
+    padding: 2px 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -171,4 +207,24 @@ form .text-danger {
 
 #filter-form label:last-of-type {
     margin-right: 0px;
+}
+
+.app-meta h6 {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.app-meta p {
+    margin-bottom: 15px;
+}
+
+.markdown img {
+    max-width: 100%;
+}
+
+.loading {
+    background-image: url('../img/loading.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
 }

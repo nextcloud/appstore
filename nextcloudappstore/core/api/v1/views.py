@@ -1,10 +1,10 @@
 from django.db import transaction
+from django.db.models import Max, Count
 from django.http import Http404
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer
-from django.db.models import Max, Count
 from nextcloudappstore.core.models import App, AppRelease, Category
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
@@ -14,7 +14,6 @@ from rest_framework.generics import DestroyAPIView, \
     get_object_or_404, ListAPIView  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
-from semantic_version import Version, Spec
 
 
 def app_api_etag(request, version):
@@ -62,18 +61,7 @@ class AppView(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        apps = App.objects.prefetch_related('translations', 'screenshots',
-                                            'releases', 'releases__databases',
-                                            'releases__php_extensions').all()
-        platform_version = Version(self.kwargs['version'])
-
-        def app_filter(app):
-            for release in app.releases.all():
-                if platform_version in Spec(release.platform_version_spec):
-                    return True
-            return False
-
-        working_apps = list(filter(app_filter, apps))
+        working_apps = App.objects.get_compatible(self.kwargs['version'])
         serializer = self.get_serializer(working_apps, many=True)
         return Response(serializer.data)
 

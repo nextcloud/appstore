@@ -5,8 +5,11 @@ from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
+from nextcloudappstore.core.versioning import pad_min_version, \
+    pad_max_inc_version
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
+from semantic_version import Version, Spec
 
 
 class AppManager(TranslatableManager):
@@ -19,6 +22,19 @@ class AppManager(TranslatableManager):
                          terms)
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
+
+    def get_compatible(self, platform_version, inclusive=False):
+        apps = App.objects.prefetch_related('translations', 'screenshots',
+                                            'releases', 'releases__databases',
+                                            'releases__php_extensions').all()
+
+        def app_filter(app):
+            for release in app.releases.all():
+                if release.is_compatible(platform_version, inclusive):
+                    return True
+            return False
+
+        return list(filter(app_filter, apps))
 
 
 class App(TranslatableModel):
@@ -70,6 +86,30 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
+    def latest_releases_by_platform_v(self):
+        """Looks up all latest release per platform, ignores nightly releases.
+        :return dict with the latest release for each platform version.
+        """
+        all_latest = {}
+        for p_version in settings.PLATFORM_VERSIONS:
+            compatible = self.compatible_releases(p_version)
+            all_latest[p_version] = self._latest_non_nightly(compatible)
+        return all_latest
+
+    def compatible_releases(self, platform_version, inclusive=True):
+        all_releases = self.releases.all()
+        return list(
+            filter(lambda rel: rel.is_compatible(platform_version, inclusive),
+                   all_releases))
+
+    def _latest_non_nightly(self, releases):
+        releases = filter(lambda r: not r.version.endswith('-nightly'),
+                          releases)
+        try:
+            return max(releases, key=lambda r: Version(r.version))
+        except ValueError:
+            return None
+
 
 class AppRelease(Model):
     version = CharField(max_length=128, verbose_name=_('Version'),
@@ -117,6 +157,23 @@ class AppRelease(Model):
 
     def __str__(self) -> str:
         return '%s %s' % (self.app, self.version)
+
+    def is_compatible(self, platform_version, inclusive=False):
+        """
+        Checks if a release is compatible with a platform version
+        :param platform_version: the platform version, not required to be
+        semver compatible
+        :param inclusive: if True the check will also return True if an app
+         requires 9.0.1 and the given platform version is 9.0
+        :return: True if compatible, otherwise false
+        """
+        min_version = Version(pad_min_version(platform_version))
+        spec = Spec(self.platform_version_spec)
+        if inclusive:
+            max_version = Version(pad_max_inc_version(platform_version))
+            return (min_version in spec or max_version in spec)
+        else:
+            return min_version in spec
 
 
 class Screenshot(Model):

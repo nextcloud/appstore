@@ -1,8 +1,15 @@
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
+
+
+def app_description(request, id):
+    app = get_object_or_404(App, id=id)
+    return HttpResponse(app.description, content_type='text/plain')
 
 
 class AppDetailView(DetailView):
@@ -14,6 +21,8 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['latest_releases_by_platform_v'] = \
+            self.object.latest_releases_by_platform_v()
         return context
 
 

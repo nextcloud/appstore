@@ -1,3 +1,6 @@
+from sys import maxsize
+
+
 def pad_max_version(version: str) -> str:
     """
     Turns inclusive maximum versions into exclusiv semantic versions
@@ -20,6 +23,22 @@ def pad_max_version(version: str) -> str:
     else:
         raise ValueError('Could not parse version %s' % version)
     return '.'.join([str(part) for part in parts])
+
+
+def pad_max_inc_version(version: str) -> str:
+    """
+    Turns non semver maximum versions into an inclusive maximum semantic
+    version e.g.: 9 into 9.MAX_INT.MAX_INT, 9.0 into 9.1.MAX_INT,
+    9.0.0 into 9.0.0
+    :argument inclusive version maximum to pad
+    :return an exclusive maximum version
+    """
+    if not version:
+        return '*'
+
+    while version.count('.') < 2:
+        version += '.%i' % maxsize
+    return version
 
 
 def pad_min_version(version: str) -> str:

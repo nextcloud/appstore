@@ -4,7 +4,6 @@ from nextcloudappstore.core.models import App, AppRelease
 
 
 class AppSearchTest(TestCase):
-
     def setUp(self):
         self.user = get_user_model().objects.create_user(username='test',
                                                          password='test',
