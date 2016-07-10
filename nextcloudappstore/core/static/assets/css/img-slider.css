@@ -1,25 +1,22 @@
 #img-slider {
     position: relative;
     white-space: nowrap;
-    height: 300px;
     width: 100%;
-    word-spacing: 0px;
     overflow: hidden;
+    border: 1px solid var(--bg-color);
+    transition: height 0.5s ease;
 }
 
 #img-slider .img-strip {
     position: relative;
-    animation: 1 ease 0;
     transition: right 0.5s ease;
 }
 
 #img-slider .img {
-    height: 300px;
     width: 100%;
     display: inline-block;
-    background-size: cover;
-    background-position: 50% 50%;
     box-sizing: border-box;
+    vertical-align: top;
 }
 
 .img-slider-controls {

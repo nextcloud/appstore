@@ -31,7 +31,10 @@
 
         setSlide(slide) {
             let imgSpacing = 4;
-            let imgWidth = this.element.offsetWidth + imgSpacing;
+            let borders = 2;
+            let imgWidth = this.element.offsetWidth + imgSpacing - borders;
+            let curHeight = this.strip.images[slide].element.offsetHeight;
+            this.element.style.height = curHeight + 'px';
             this.strip.setPosX(imgWidth * slide);
             this.curSlide = slide;
         }
