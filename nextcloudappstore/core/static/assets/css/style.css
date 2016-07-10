@@ -18,7 +18,8 @@ body {
 }
 
 #body section {
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #body section h1:first-child,
@@ -209,17 +210,39 @@ form .text-danger {
     margin-right: 0px;
 }
 
+.app-meta {
+    border: 1px solid #ccc;
+    margin-bottom: 40px;
+    float: right;
+    padding: 0 30px;
+    margin-left: 15px;
+}
+
+@media (max-width: 500px){
+    .app-meta {
+        margin-left: 0;
+        float: none;
+    }
+}
+
 .app-meta h6 {
     font-weight: bold;
     margin-bottom: 3px;
 }
 
-.app-meta p {
-    margin-bottom: 15px;
-}
 
 .markdown img {
     max-width: 100%;
+}
+
+.app-meta p {
+    padding-bottom: 15px;
+}
+
+.app-meta ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 .loading {
@@ -227,4 +250,10 @@ form .text-danger {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 300px;
+}
+
+.app-download {
+    padding-bottom: 100px;
+    padding-top: 50px;
+    clear: right;
 }
