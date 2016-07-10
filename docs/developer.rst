@@ -35,6 +35,120 @@ To publish an app release on the app store you simply send us a download link fo
 
 * The release is then either created or updated. The downloaded archive will be deleted
 
+.. _app-metadata:
+
+App Metadata
+------------
+
+App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
+
+info.xml
+~~~~~~~~
+A minimum valid **info.xml** would look like this:
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+        <id>news</id>
+        <name>News</name>
+        <description>An RSS/Atom feed reader</description>
+        <author>Bernhard Posselt</author>
+        <category>multimedia</category>
+        <version>8.8.2</version>
+        <licence>agpl</licence>
+        <dependencies>
+            <owncloud min-version="9.0"/>
+        </dependencies>
+    </info>
+
+A full blown example would look like this (needs to be utf-8 encoded):
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+        <id>news</id>
+
+        <!-- translation can be done via the lang attribute, defaults to English -->
+        <name lang="de">Nachrichten</name>
+        <name>News</name>
+
+        <!-- if missing, the description is used -->
+        <summary lang="en">An RSS/Atom feed reader</summary>
+
+        <!-- description tag allows Markdown -->
+        <description lang="en"># Description\nAn RSS/Atom feed reader</description>
+        <description lang="de"><![CDATA[# Beschreibung\nEine Nachrichten App, welche mit [RSS/Atom](https://en.wikipedia.org/wiki/RSS) umgehen kann]]></description>
+
+        <!-- semantic version, three digits separated by a dot -->
+        <version>8.8.2</version>
+
+        <!-- only agpl is an acceptable license -->
+        <licence>agpl</licence>
+
+        <author mail="mail@provider.com" homepage="http://example.com">Bernhard Posselt</author>
+        <author>Alessandro Cosentino</author>
+        <author>Jan-Christoph Borchardt</author>
+
+        <!-- documentation -->
+        <documentation>
+            <user>https://github.com/owncloud/news/wiki#user-documentation</user>
+            <admin>https://github.com/owncloud/news#readme</admin>
+            <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+        </documentation>
+
+        <!-- multiple categories are also possible -->
+        <!-- possible values: multimedia, tools, games, pim -->
+        <category>multimedia</category>
+        <category>tools</category>
+
+
+        <website>https://github.com/owncloud/news</website>
+
+        <!-- issue tracker -->
+        <bugs>https://github.com/owncloud/news/issues</bugs>
+
+        <!-- screenshots, can be multiple and will be displayed in order -->
+        <!-- need to be served with https -->
+        <screenshot>https://example.com/1.png</screenshot>
+        <screenshot>https://example.com/2.jpg</screenshot>
+
+        <!-- dependencies, all version attributes except for the ownCloud min-version are optional -->
+        <dependencies>
+            <php min-version="5.6" min-int-size="64"/>
+            <!-- php extensions, uses the same names as composer -->
+            <!-- supported databases and versions -->
+            <database min-version="9.4">pgsql</database>
+            <database>sqlite</database>
+            <database min-version="5.5">mysql</database>
+
+            <!-- command line tools -->
+            <command>grep</command>
+            <command>ls</command>
+
+            <lib min-version="2.7.8">libxml</lib>
+            <lib>curl</lib>
+            <lib>SimpleXML</lib>
+            <lib>iconv</lib>
+
+            <!-- version numbers will be padded to three digits with 0 (min-version) and 2^64 (max-version) -->
+            <owncloud min-version="9.0" max-version="9.1"/>
+        </dependencies>
+
+        <!-- further elements to test if parser ignores non defined fields -->
+    </info>
+
+The following character maximum lengths are enforced:
+
+* All description Strings are (almost) of unlimited size
+* All Url Strings have a maximum of 256 characters
+* All other Strings have a maximum of 128 characters
+
+
+
 .. _info-schema:
 
 Schema Integration
