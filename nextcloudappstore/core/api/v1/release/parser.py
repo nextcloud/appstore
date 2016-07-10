@@ -181,4 +181,20 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     transform = lxml.etree.XSLT(lxml.etree.XML(xslt))
     transformed_doc = transform(pre_transformed_doc)
     mapped = element_to_dict(transformed_doc.getroot())
+    validate_english_present(mapped)
     return mapped
+
+
+def validate_english_present(info: Dict) -> None:
+    """
+    Validates that name, summary and description are present in english
+    :param info: the parsed xml
+    :raises: InvalidAppMetadataXmlException if at least one of the required
+     fields is not present in english
+    """
+    app = info['app']
+    translated_fields = ['name', 'summary', 'description']
+    for field in translated_fields:
+        if 'en' not in app[field]:
+            msg = 'At least one element "%s" with lang "en" required ' % field
+            raise InvalidAppMetadataXmlException(msg)
