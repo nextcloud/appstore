@@ -24,6 +24,9 @@
             el.querySelector('.fullscreen-btn').addEventListener('click', () => {
                 this._openFullscreen();
             });
+            window.addEventListener('resize', () => {
+                this._setSlide(this.logic.curSlide);
+            });
         }
 
         notify() {
@@ -78,12 +81,13 @@
             this.controls.querySelector('.slider-nav').innerHTML = '';
             this.el.appendChild(this.controls);
 
-            this.closeBtn = slider.el.querySelector('.close-fullscreen-btn').cloneNode(true);
-            this.el.appendChild(this.closeBtn);
+            this.contentArea = document.createElement('div');
+            this.contentArea.className = 'content-area';
+            this.el.appendChild(this.contentArea);
 
             this.imgWrap = document.createElement('div');
             this.imgWrap.className = 'img-wrap';
-            this.el.appendChild(this.imgWrap);
+            this.contentArea.appendChild(this.imgWrap);
 
             document.querySelector('body').appendChild(this.el);
 
@@ -105,9 +109,6 @@
             this.el.addEventListener('click', () => {
                 this._close();
             });
-            this.closeBtn.addEventListener('click', () => {
-                this._close();
-            });
             document.addEventListener('keydown', (ev) => {
                 if ("key" in ev) {
                     if (ev.key == "Escape") this._close();
@@ -115,6 +116,9 @@
                     if (ev.keyCode == 27) this._close();
                 }
             });
+            window.addEventListener('resize', () => {
+                this._resizeImg();
+            })
         }
 
         _generateButtons() {
@@ -133,29 +137,47 @@
 
         _setSlide(slide) {
             let url = this.logic.imgURLs[this.logic.curSlide];
-            this.imgWrap.innerHTML = '<img class="img" src="' + url + '">';
+            this.imgWrap.innerHTML = '<img class="img" src="' + url + '"></img><a class="close-fullscreen-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
 
             let img = this.imgWrap.querySelector('.img');
-            let imgRatio = img.offsetWidth / img.offsetHeight;
-            let padding = 60;
-            let wrapHeight = this.imgWrap.offsetHeight - padding;
-            let wrapWidth = this.imgWrap.offsetWidth - padding;
-            let wrapRatio = wrapWidth / wrapHeight;
-
-            if (imgRatio < wrapRatio && img.offsetHeight > wrapHeight) {
-                img.style.height = wrapHeight + 'px';
-                img.style.width = (imgRatio * img.offsetHeight) + 'px';
-            } else if (imgRatio > wrapRatio && img.offsetWidth > wrapWidth) {
-                img.style.width = wrapWidth + 'px';
-                img.style.height = (img.offsetWidth / imgRatio) + 'px';
-            }
-
             img.addEventListener('click', (ev) => {
                 this.logic.increment(1);
                 ev.stopPropagation();
             });
+            this.imgWrap.querySelector('.close-fullscreen-btn').addEventListener('click', () => {
+                this._close();
+            });
 
+            this._resizeImg();
             this._setActiveNav(slide);
+        }
+
+        _resizeImg() {
+            let cArea = this.contentArea;
+            let wrap = this.imgWrap;
+            let img = wrap.querySelector('.img');
+
+            // reset previously set size
+            img.style.height = '';
+            img.style.width = '';
+
+            let padding = 60;
+            let cAreaHeight = cArea.offsetHeight - padding;
+            let cAreaWidth = cArea.offsetWidth - padding;
+            let cAreaRatio = cAreaWidth / cAreaHeight;
+
+            let imgRatio = img.offsetWidth / img.offsetHeight;
+
+            // resize img
+            if (imgRatio < cAreaRatio && img.offsetHeight > cAreaHeight) {
+                // img is taller than cArea
+                img.style.height = cAreaHeight + 'px';
+                img.style.width = (imgRatio * img.offsetHeight) + 'px';
+            } else if (imgRatio > cAreaRatio && img.offsetWidth > cAreaWidth) {
+                // img is wider than cArea
+                img.style.width = cAreaWidth + 'px';
+                img.style.height = (img.offsetWidth / imgRatio) + 'px';
+            }
         }
 
         _setActiveNav(index) {
@@ -233,13 +255,21 @@
     });
 
 
+    // init image slider
     let imgEls = Array.from(document.querySelectorAll('.img-slider .img'));
     let imgURLs = imgEls.map((img) => {
         return img.src;
     });
 
-    let sliderLogic = new SliderLogic(imgURLs, 0);
-    let imgSlider = new ImageSlider(sliderLogic, document.querySelector('.img-slider'));
+    if (imgURLs.length > 0) {
+        let firstImg = new Image();
+        firstImg.addEventListener('load', () => {
+            let sliderLogic = new SliderLogic(imgURLs, 0);
+            let imgSlider = new ImageSlider(sliderLogic, document.querySelector('.img-slider'));
+        });
+        firstImg.src = imgURLs[0];
+    }
+
 
     // create markdown for app description
     let appDescriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-detail-url"]');

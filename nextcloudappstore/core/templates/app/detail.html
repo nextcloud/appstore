@@ -26,13 +26,10 @@
                 </div>
                 <div class="img-slider-view">
                     <div class="img-strip">
-                        {% for screenshot in object.screenshots.all %}
-                            <img class="img" src="{{ screenshot.url }}">
-                        {% endfor %}
+                        {% for screenshot in object.screenshots.all %}<img class="img" src="{{ screenshot.url }}">{% endfor %}
                     </div>
                 </div>
                 <a class="fullscreen-btn"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span> {% trans "Fullscreen" %}</a>
-                <a class="close-fullscreen-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {% trans "Close" %}</a>
             </div>
         {% endif %}
     </section>
