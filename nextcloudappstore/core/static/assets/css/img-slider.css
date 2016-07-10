@@ -23,14 +23,16 @@
     vertical-align: top;
 }
 
-.img-slider .img-slider-controls {
+.img-slider .img-slider-controls,
+.fullscreen .img-slider-controls {
     background-color: var(--bg-color);
     overflow: hidden;
     text-align: center;
     color: var(--link-active-color);
 }
 
-.img-slider .img-slider-controls a.control {
+.img-slider .img-slider-controls a.control,
+.fullscreen .img-slider-controls a.control {
     color: var(--link-active-color) !important;
     text-decoration: none !important;
     display: inline-block;
@@ -41,27 +43,33 @@
 }
 
 .img-slider .img-slider-controls a.control:hover,
-.img-slider .img-slider-controls a.control:active {
+.fullscreen .img-slider-controls a.control:hover,
+.img-slider .img-slider-controls a.control:active,
+.fullscreen .img-slider-controls a.control:active {
     background-color: white;
     color: var(--bg-color) !important;
 }
 
-.img-slider .img-slider-controls a.prev {
+.img-slider .img-slider-controls a.prev,
+.fullscreen .img-slider-controls a.prev {
     float: left;
 }
 
-.img-slider .img-slider-controls a.next {
+.img-slider .img-slider-controls a.next,
+.fullscreen .img-slider-controls a.next {
     float: right;
 }
 
-.img-slider .img-slider-controls .slider-nav {
+.img-slider .img-slider-controls .slider-nav,
+.fullscreen .img-slider-controls .slider-nav {
     display: inline-block;
     height: 17px;
     margin-top: 12px;
     margin-bottom: 11px;
 }
 
-.img-slider .img-slider-controls .slider-nav a {
+.img-slider .img-slider-controls .slider-nav a,
+.fullscreen .img-slider-controls .slider-nav a {
     display: inline-block;
     width: 17px;
     height: 17px;
@@ -72,18 +80,22 @@
     box-sizing: border-box;
 }
 
-.img-slider .img-slider-controls .slider-nav a:last-child {
+.img-slider .img-slider-controls .slider-nav a:last-child,
+.fullscreen .img-slider-controls .slider-nav a:last-child {
     margin-right: 0px;
 }
 
 .img-slider .img-slider-controls a.control:hover,
-.img-slider .img-slider-controls a.control:active {
+.fullscreen .img-slider-controls a.control:hover,
+.img-slider .img-slider-controls a.control:active,
+.fullscreen .img-slider-controls a.control:active {
     background-color: white;
     border: 1px solid var(--bg-color);
     color: var(--bg-color);
 }
 
-.img-slider .img-slider-controls .glyphicon {
+.img-slider .img-slider-controls .glyphicon.
+.fullscreen .img-slider-controls .glyphicon {
     position: relative;
     top: 2px;
 }
@@ -96,26 +108,32 @@
     right: 0px;
     display: block;
     color: white !important;
-    text-shadow: 0px 0px 5px black;
     padding: 7px 10px;
-    background-color: rgba(0,0,0,0.35);
+    background-color: var(--bg-color);
 }
 
-.img-slider .fullscreen-btn:hover {
-    background-color: rgba(0,0,0,0.7);
+.img-slider .fullscreen-btn:hover,
+.img-slider .fullscreen-btn:active {
+    background-color: white;
+    color: var(--bg-color) !important;
 }
 
 .img-slider .close-fullscreen-btn {
-    text-decoration: none !important;
-    cursor: pointer;
-    color: white !important;
-    padding: 7px 10px;
-    /*background-color: rgba(0,0,0,0.35);*/
-    text-align: right;
     display: none;
 }
 
-.img-slider .close-fullscreen-btn:hover {
+.fullscreen .close-fullscreen-btn {
+    text-decoration: none !important;
+    cursor: pointer;
+    color: white !important;
+    padding: 10px 15px;
+    /*background-color: rgba(0,0,0,0.35);*/
+    text-align: right;
+    display: inline-block;
+    float: right;
+}
+
+.fullscreen .close-fullscreen-btn:hover {
     background-color: rgba(255,255,255,0.1);
 }
 
@@ -126,19 +144,25 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.80);
     z-index: 1001;
     max-height: 100%;
 }
 
-.fullscreen .img {
-    max-height: 100vh;
+.fullscreen .img-wrap {
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    top: 82px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 30px;
 }
 
-.fullscreen .fullscreen-btn {
-    display: none;
-}
-
-.fullscreen .close-fullscreen-btn {
-    display: block;
+.fullscreen .img-wrap .img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
