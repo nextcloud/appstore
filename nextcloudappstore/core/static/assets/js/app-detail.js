@@ -3,30 +3,14 @@
 
     class ImageSlider {
 
-        constructor(element, autoscroll_interval, nextBtnElement,
-                    prevBtnElement) {
+        constructor(element, controlsElement) {
             this.element = element;
             this.strip =
-                new ImageStrip(this, this.element.querySelector('.img-strip'));
+                new ImageStrip(this.element.querySelector('.img-strip'));
+            let imgCount = this.strip.images.length;
+            this.controls = new SliderControls(controlsElement, this, imgCount);
             this.curSlide = 0;
-
             this.setSlide(this.curSlide);
-
-            let slider = this;
-
-            this.autoScroll = setInterval(function () {
-                    slider.increment(1)
-                },
-                autoscroll_interval);
-
-            nextBtnElement.addEventListener('click', function () {
-                slider.increment(1);
-                clearInterval(slider.autoScroll);
-            });
-            prevBtnElement.addEventListener('click', function () {
-                slider.increment(-1);
-                clearInterval(slider.autoScroll);
-            });
         }
 
         setSlide(slide) {
@@ -36,6 +20,7 @@
             let curHeight = this.strip.images[slide].element.offsetHeight;
             this.element.style.height = curHeight + 'px';
             this.strip.setPosX(imgWidth * slide);
+            this.controls.setActive(slide);
             this.curSlide = slide;
         }
 
@@ -48,19 +33,72 @@
     }
 
 
+    class SliderControls {
+
+        constructor(element, slider, imgCount) {
+            this.element = element;
+            this.nextBtn = this.element.querySelector('.next');
+            this.prevBtn = this.element.querySelector('.prev');
+            this.nav = new SliderNav(this.element.querySelector('.slider-nav'),
+                    slider, imgCount);
+
+            this.nextBtn.addEventListener('click', function () {
+                slider.increment(1);
+            });
+            this.prevBtn.addEventListener('click', function () {
+                slider.increment(-1);
+            });
+        }
+
+        setActive(index) {
+            this.nav.setActive(index);
+        }
+    }
+
+    class SliderNav {
+
+        constructor(element, slider, imgCount) {
+            this.element = element;
+            this.slider = slider;
+            this.imgCount = imgCount;
+            this.btns = this.generateButtons();
+        }
+
+        generateButtons() {
+            let btns = []
+            for (let i = 0; i < this.imgCount; i++) {
+                let btn = document.createElement('a');
+                let slider = this.slider;
+                btn.addEventListener('click', function() {
+                    slider.setSlide(i);
+                });
+                this.element.appendChild(btn);
+                btns.push(btn);
+            }
+            return btns;
+        }
+
+        setActive(index) {
+            this.btns.forEach(function(btn) {
+                btn.style.opacity = '';
+            });
+            this.btns[index].style.opacity = 1;
+        }
+    }
+
+
     class ImageStrip {
 
-        constructor(slider, element) {
-            this.slider = slider;
+        constructor(element) {
             this.element = element;
-            this.images = findImages(this.element);
+            this.images = this.findImages();
+        }
 
-            function findImages(element) {
-                let imgElements = Array.from(element.querySelectorAll('.img'));
-                return imgElements.map(function (img) {
-                    return new Image(img);
-                });
-            }
+        findImages(element) {
+            let imgElements = Array.from(this.element.querySelectorAll('.img'));
+            return imgElements.map(function (img) {
+                return new Image(img);
+            });
         }
 
         setPosX(posX) {
@@ -73,13 +111,10 @@
 
         constructor(element) {
             this.element = element;
-            this.element.style.backgroundImage =
-                'url(' + this.element.getAttribute('data-url') + ')';
         }
     }
 
 
-    const AUTOSCROLL_INTERVAL = 8000;  // ms
     let document = global.document;
     let hljs = global.hljs;
     let md = global.markdownit({
@@ -93,12 +128,10 @@
             return ''; // use external default escaping
         }
     });
-    let nextButton = document.querySelector('.img-slider-controls .next');
-    let prevButton = document.querySelector('.img-slider-controls .prev');
-    let imgSliderElement = document.getElementById('img-slider');
 
-    let imgSlider = new ImageSlider(imgSliderElement, AUTOSCROLL_INTERVAL,
-        nextButton, prevButton);
+    let imgSliderElement = document.getElementById('img-slider');
+    let sliderControlsElement = document.querySelector('.img-slider-controls');
+    let imgSlider = new ImageSlider(imgSliderElement, sliderControlsElement);
 
     // create markdown for app description
     let appDescriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-detail-url"]');

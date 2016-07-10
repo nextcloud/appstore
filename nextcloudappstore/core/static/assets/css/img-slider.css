@@ -21,6 +21,9 @@
 
 .img-slider-controls {
     background-color: var(--bg-color);
+    overflow: hidden;
+    text-align: center;
+    color: var(--link-active-color);
 }
 
 #body .img-slider-controls a.control {
@@ -28,11 +31,38 @@
     text-decoration: none;
     display: inline-block;
     padding: 10px 13px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.img-slider-controls a.prev {
+    float: left;
+}
+
+.img-slider-controls a.next {
+    float: right;
+}
+
+.img-slider-controls .slider-nav {
+    display: inline-block;
+    height: 17px;
+    margin-top: 12px;
+    margin-bottom: 11px;
+}
+
+.img-slider-controls .slider-nav a {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: white;
+    opacity: 0.5;
+    margin-right: 9px;
     cursor: pointer;
 }
 
-#body .img-slider-controls a.next {
-    float:right;
+.img-slider-controls .slider-nav a:last-child {
+    margin-right: 0px;
 }
 
 #body .img-slider-controls a.control:hover,
