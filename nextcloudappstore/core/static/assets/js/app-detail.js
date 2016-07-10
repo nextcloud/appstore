@@ -65,7 +65,7 @@
         }
 
         generateButtons() {
-            let btns = []
+            let btns = [];
             for (let i = 0; i < this.imgCount; i++) {
                 let btn = document.createElement('a');
                 let slider = this.slider;
