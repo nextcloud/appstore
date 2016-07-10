@@ -44,7 +44,9 @@
             let fullscreen = document.createElement('div');
             fullscreen.className = 'fullscreen';
             fullscreen.appendChild(this.element);
-            document.querySelector('body').appendChild(fullscreen);
+            let body = document.querySelector('body');
+            body.appendChild(fullscreen);
+            body.style.overflow = 'hidden';
             this.setSlide(this.curSlide);
         }
 
@@ -52,6 +54,7 @@
             this.parent.appendChild(this.element);
             let fullscreen = document.querySelector('.fullscreen');
             if (fullscreen) fullscreen.remove();
+            document.querySelector('body').style.overflow = '';
             this.setSlide(this.curSlide);
         }
     }
