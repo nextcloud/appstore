@@ -128,6 +128,27 @@ class ParserTest(TestCase):
         with (self.assertRaises(UnsupportedAppArchiveException)):
             extractor.extract_app_metadata(path)
 
+    def test_validate_english_name(self):
+        xml = self._get_test_xml('data/infoxmls/no_en_name.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
+    def test_validate_english_summary(self):
+        xml = self._get_test_xml('data/infoxmls/no_en_summary.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
+    def test_validate_english_description(self):
+        xml = self._get_test_xml('data/infoxmls/no_en_description.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
     def test_map_data(self):
         full = self._get_test_xml('data/infoxmls/full.xml')
         result = parse_app_metadata(full, self.config.info_schema,
