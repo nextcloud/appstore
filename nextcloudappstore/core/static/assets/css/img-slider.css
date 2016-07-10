@@ -1,9 +1,12 @@
+.app-gallery {
+    box-shadow: 0 0 5px 1px #ccc;
+}
+
 #img-slider {
     position: relative;
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
-    border: 1px solid var(--bg-color);
     transition: height 0.5s ease;
 }
 
@@ -31,9 +34,9 @@
     text-decoration: none;
     display: inline-block;
     padding: 10px 13px;
-    width: 100px;
     cursor: pointer;
     text-align: center;
+    border: 1px solid var(--bg-color);
 }
 
 .img-slider-controls a.prev {
@@ -59,6 +62,7 @@
     opacity: 0.5;
     margin-right: 9px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .img-slider-controls .slider-nav a:last-child {
@@ -68,6 +72,7 @@
 #body .img-slider-controls a.control:hover,
 #body .img-slider-controls a.control:active {
     background-color: white;
+    border: 1px solid var(--bg-color);
     color: var(--bg-color);
 }
 
