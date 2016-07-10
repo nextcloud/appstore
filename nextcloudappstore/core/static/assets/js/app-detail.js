@@ -3,22 +3,31 @@
 
     class ImageSlider {
 
-        constructor(element, controlsElement) {
+        constructor(element) {
             this.element = element;
-            this.strip =
-                new ImageStrip(this.element.querySelector('.img-strip'));
+            this.parent = element.parentNode;
+            this.view = element.querySelector('.img-slider-view');
+            this.strip = new ImageStrip(element.querySelector('.img-strip'));
             let imgCount = this.strip.images.length;
-            this.controls = new SliderControls(controlsElement, this, imgCount);
+            this.controls = new SliderControls(
+                    element.querySelector('.img-slider-controls'),
+                    this, imgCount);
             this.curSlide = 0;
             this.setSlide(this.curSlide);
+
+            element.querySelector('.fullscreen-btn').addEventListener('click', () => {
+                this.openFullscreen();
+            });
+            element.querySelector('.close-fullscreen-btn').addEventListener('click', () => {
+                this.closeFullscreen();
+            });
         }
 
         setSlide(slide) {
             let imgSpacing = 4;
-            let borders = 2;
-            let imgWidth = this.element.offsetWidth + imgSpacing - borders;
-            let curHeight = this.strip.images[slide].element.offsetHeight;
-            this.element.style.height = curHeight + 'px';
+            let imgWidth = this.view.offsetWidth + imgSpacing;
+            let curHeight = this.strip.images[slide].offsetHeight;
+            this.view.style.height = curHeight + 'px';
             this.strip.setPosX(imgWidth * slide);
             this.controls.setActive(slide);
             this.curSlide = slide;
@@ -29,6 +38,21 @@
             let next = this.curSlide + steps;
             next = ((next % imgCount) + imgCount) % imgCount; // because a simple % does it wrong
             this.setSlide(next);
+        }
+
+        openFullscreen() {
+            let fullscreen = document.createElement('div');
+            fullscreen.className = 'fullscreen';
+            fullscreen.appendChild(this.element);
+            document.querySelector('body').appendChild(fullscreen);
+            this.setSlide(this.curSlide);
+        }
+
+        closeFullscreen() {
+            this.parent.appendChild(this.element);
+            let fullscreen = document.querySelector('.fullscreen');
+            if (fullscreen) fullscreen.remove();
+            this.setSlide(this.curSlide);
         }
     }
 
@@ -55,6 +79,7 @@
         }
     }
 
+
     class SliderNav {
 
         constructor(element, slider, imgCount) {
@@ -68,9 +93,8 @@
             let btns = [];
             for (let i = 0; i < this.imgCount; i++) {
                 let btn = document.createElement('a');
-                let slider = this.slider;
-                btn.addEventListener('click', function() {
-                    slider.setSlide(i);
+                btn.addEventListener('click', () => {
+                    this.slider.setSlide(i);
                 });
                 this.element.appendChild(btn);
                 btns.push(btn);
@@ -91,26 +115,11 @@
 
         constructor(element) {
             this.element = element;
-            this.images = this.findImages();
-        }
-
-        findImages(element) {
-            let imgElements = Array.from(this.element.querySelectorAll('.img'));
-            return imgElements.map(function (img) {
-                return new Image(img);
-            });
+            this.images = Array.from(this.element.querySelectorAll('.img'));
         }
 
         setPosX(posX) {
             this.element.style.right = posX + 'px';
-        }
-    }
-
-
-    class Image {
-
-        constructor(element) {
-            this.element = element;
         }
     }
 
@@ -129,7 +138,7 @@
         }
     });
 
-    let imgSliderElement = document.getElementById('img-slider');
+    let imgSliderElement = document.querySelector('.img-slider');
     let sliderControlsElement = document.querySelector('.img-slider-controls');
     let imgSlider = new ImageSlider(imgSliderElement, sliderControlsElement);
 
