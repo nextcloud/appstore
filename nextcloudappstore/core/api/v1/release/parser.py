@@ -196,5 +196,5 @@ def validate_english_present(info: Dict) -> None:
     translated_fields = ['name', 'summary', 'description']
     for field in translated_fields:
         if 'en' not in app[field]:
-            msg = 'At least one element "%s" with lang "en" required ' % field
+            msg = 'At least one element "%s" with lang "en" required' % field
             raise InvalidAppMetadataXmlException(msg)
