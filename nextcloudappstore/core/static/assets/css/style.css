@@ -62,32 +62,54 @@ body {
 }
 
 .banner {
+    position: relative;
+    height: 135px;
     background-image: url('../img/home/background3.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
+    background-size: cover;
+}
+
+.banner .container {
+    position: relative;
+    height: 100%;
 }
 
 .brand {
     display: inline-block;
-    vertical-align: middle;
-    float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    text-decoration: none !important;
 }
 
-.logo {
-    margin-top: 38px;
-    margin-bottom: 38px;
+.brand .logo {
+    display: inline-block;
+}
+
+.brand .site-title {
+    display: inline-block;
+    position: relative;
+    top: 28px;
+    margin-left: 44px;
+    width: auto;
+    font-size: 32px;
+    line-height: 32px;
+    color: white;
 }
 
 .search-form {
-    position: relative;
-    top: 58px;
-    padding-bottom: 38px;
-    margin-left: 196px;
-    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px
 }
 
 .search-box {
-    display: inline-block;
+    display: block;
     max-width: 200px;
 }
 
@@ -95,18 +117,56 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 469px) {
+@media screen and (max-width: 768px) {
+
+    .banner {
+        height: auto;
+    }
+
+    .banner .container {
+        height: auto;
+    }
+
     .brand {
         display: block;
-        float: none;
+        position: relative;
+        top: 0px;
+        transform: none;
+        margin: 40px auto;
+        width: 200px;
+        height: 112px;
+    }
+
+    .brand .logo {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: -15px;
+    }
+
+    .brand .site-title {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        font-size: 26px;
+        line-height: 26px;
+        color: white;
         text-align: center;
     }
 
     .search-form {
+        display: block;
+        position: relative;
         top: 0px;
-        text-align: center;
-        margin-left: 0px;
+        right: 0px;
+        transform: none;
+        margin: 0 auto;
+        margin-bottom: 40px;
     }
+}
+
+#sidebar.nav {
+    margin-bottom: 30px;
 }
 
 .nav-link > a {
