@@ -18,22 +18,23 @@
     </div>
     <section class="app-gallery">
         {% if object.screenshots.all %}
-            <div id="img-slider">
-                <div class="img-strip">
-                    {% for screenshot in object.screenshots.all %}
-                        <div class="img" data-url="{{ screenshot.url }}"></div>
-                    {% endfor %}
+            <div class="img-slider">
+                <div class="img-slider-controls">
+                    <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
+                    <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                    <div class="slider-nav"></div>
                 </div>
-            </div>
-            <div class="img-slider-controls">
-                <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
-                <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                <div class="img-slider-view">
+                    <div class="img-strip">
+                        {% for screenshot in object.screenshots.all %}<img class="img" src="{{ screenshot.url }}">{% endfor %}
+                    </div>
+                </div>
+                <a class="fullscreen-btn"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span> {% trans "Fullscreen" %}</a>
             </div>
         {% endif %}
     </section>
     <div class="app-meta col-md-4">
         <section>
-            <h4>{% trans "General" %}</h4>
             {% if object.last_modified %}
             <h6>{% trans "Updated" %}</h6>
             <p>{{ object.last_modified }}</p>
@@ -61,25 +62,25 @@
             </ul>
             {% endif %}
         </section>
-        <section>
+        <section class="resources">
             <h4>{% trans "Resources" %}</h4>
             <ul>
                 {% if object.website %}
-                <li><a href="{{ object.website }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Homepage" %}</a></li>
+                <li><a href="{{ object.website }}">{% trans "Homepage" %}</a></li>
                 {% endif %}
                 {% if object.issue_tracker %}
-                <li><a href="{{ object.issue_tracker }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Issue tracker" %}</a></li>
+                <li><a href="{{ object.issue_tracker }}">{% trans "Issue tracker" %}</a></li>
                 {% endif %}
                 {% if object.user_docs %}
-                <li><a href="{{ object.user_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "User documentation" %}</a></li>
+                <li><a href="{{ object.user_docs }}">{% trans "User documentation" %}</a></li>
                 {% endif %}
                 {% if object.admin_docs %}
-                <li><a href="{{ object.admin_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Administration documentation" %}</a></li>
+                <li><a href="{{ object.admin_docs }}">{% trans "Administration documentation" %}</a></li>
                 {% endif %}
                 {% if object.developer_docs %}
-                <li><a href="{{ object.developer_docs }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Developer documentation" %}</a></li>
+                <li><a href="{{ object.developer_docs }}">{% trans "Developer documentation" %}</a></li>
                 {% endif %}
-                <li><a href="#downloads"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> {% trans "Downloads" %}</a></li>
+                <li><a href="#downloads">{% trans "Downloads" %}</a></li>
             </ul>
         </section>
     </div>

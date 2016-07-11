@@ -245,6 +245,33 @@ form .text-danger {
     list-style-type: none;
 }
 
+.app-meta ul.list-inline li {
+    display: inline;
+    padding-left: 0px;
+}
+
+.app-meta ul.list-inline li:after {
+    content: ", ";
+}
+
+.app-meta ul.list-inline li:last-of-type:after {
+    content: "";
+}
+
+.app-meta .resources ul  {
+    padding-left: 20px;
+}
+
+.app-meta .resources ul li:before {
+    content: "\e144";
+    font-family: 'Glyphicons Halflings';
+    float: left;
+    margin-left: -20px;
+    color: var(--bg-color);
+    position: relative;
+    top: 2px;
+}
+
 .loading {
     background-image: url('../img/loading.gif');
     background-position: center;

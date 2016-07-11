@@ -1,50 +1,175 @@
-#img-slider {
+.img-slider {
     position: relative;
-    white-space: nowrap;
-    height: 300px;
-    width: 100%;
-    word-spacing: 0px;
-    overflow: hidden;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
 }
 
-#img-slider .img-strip {
+.img-slider .img-slider-view {
     position: relative;
-    animation: 1 ease 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.img-slider .img-strip {
+    position: relative;
     transition: right 0.5s ease;
 }
 
-#img-slider .img {
-    height: 300px;
+.img-slider .img {
     width: 100%;
     display: inline-block;
-    background-size: cover;
-    background-position: 50% 50%;
     box-sizing: border-box;
+    vertical-align: top;
+    margin-right: 4px;
+    margin-left: 0px;
 }
 
-.img-slider-controls {
+.img-slider .img-slider-controls,
+.fullscreen .img-slider-controls {
     background-color: var(--bg-color);
+    overflow: hidden;
+    text-align: center;
+    color: var(--link-active-color);
 }
 
-#body .img-slider-controls a.control {
-    color: var(--link-active-color);
-    text-decoration: none;
+.img-slider .img-slider-controls a.control,
+.fullscreen .img-slider-controls a.control {
+    color: var(--link-active-color) !important;
+    text-decoration: none !important;
     display: inline-block;
     padding: 10px 13px;
     cursor: pointer;
+    text-align: center;
+    border: 1px solid var(--bg-color);
 }
 
-#body .img-slider-controls a.next {
-    float:right;
-}
-
-#body .img-slider-controls a.control:hover,
-#body .img-slider-controls a.control:active {
+.img-slider .img-slider-controls a.control:hover,
+.fullscreen .img-slider-controls a.control:hover,
+.img-slider .img-slider-controls a.control:active,
+.fullscreen .img-slider-controls a.control:active {
     background-color: white;
+    color: var(--bg-color) !important;
+}
+
+.img-slider .img-slider-controls a.prev,
+.fullscreen .img-slider-controls a.prev {
+    float: left;
+}
+
+.img-slider .img-slider-controls a.next,
+.fullscreen .img-slider-controls a.next {
+    float: right;
+}
+
+.img-slider .img-slider-controls .slider-nav,
+.fullscreen .img-slider-controls .slider-nav {
+    display: inline-block;
+    height: 17px;
+    margin-top: 12px;
+    margin-bottom: 11px;
+}
+
+.img-slider .img-slider-controls .slider-nav a,
+.fullscreen .img-slider-controls .slider-nav a {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: white;
+    opacity: 0.5;
+    margin-right: 9px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.img-slider .img-slider-controls .slider-nav a:last-child,
+.fullscreen .img-slider-controls .slider-nav a:last-child {
+    margin-right: 0px;
+}
+
+.img-slider .img-slider-controls a.control:hover,
+.fullscreen .img-slider-controls a.control:hover,
+.img-slider .img-slider-controls a.control:active,
+.fullscreen .img-slider-controls a.control:active {
+    background-color: white;
+    border: 1px solid var(--bg-color);
     color: var(--bg-color);
 }
 
-.img-slider-controls .glyphicon {
+.img-slider .img-slider-controls .glyphicon.
+.fullscreen .img-slider-controls .glyphicon {
     position: relative;
     top: 2px;
+}
+
+.img-slider .fullscreen-btn {
+    text-decoration: none !important;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: block;
+    color: white !important;
+    padding: 7px 10px;
+    background-color: var(--bg-color);
+}
+
+.img-slider .fullscreen-btn:hover,
+.img-slider .fullscreen-btn:active {
+    background-color: white;
+    color: var(--bg-color) !important;
+}
+
+.img-slider .close-fullscreen-btn {
+    display: none;
+}
+
+.fullscreen {
+    display: block;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0,0,0,0.80);
+    z-index: 1001;
+    max-height: 100%;
+}
+
+.fullscreen .content-area {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(100% - 38px);
+    padding: 30px;
+}
+
+.fullscreen .img-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: calc(100% - 60px);
+    max-width: calc(100% - 60px);
+}
+
+.fullscreen .img {
+
+}
+
+.fullscreen .close-fullscreen-btn {
+    text-decoration: none !important;
+    cursor: pointer;
+    color: white !important;
+    padding: 10px;
+    border-radius: 20px;
+    display: block;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    line-height: 0px;
+}
+
+.fullscreen .close-fullscreen-btn:hover {
+    background-color: rgba(255,255,255,0.1);
 }
