@@ -1,82 +1,245 @@
 (function (global) {
     'use strict';
 
+
     class ImageSlider {
+        constructor(logic, el) {
+            this.logic = logic;
+            this.logic.registerObserver(this);
+            this.el = el;
+            this.view = el.querySelector('.img-slider-view');
+            this.strip = el.querySelector('.img-slider-view .img-strip');
+            this.controls = el.querySelector('.img-slider-controls');
+            this.nav = el.querySelector('.slider-nav');
+            this.navBtns = this._generateButtons();
+            this.images = Array.from(el.querySelectorAll('.img'));
+            this._setSlide(this.logic.curSlide);
 
-        constructor(element, autoscroll_interval, nextBtnElement,
-                    prevBtnElement) {
-            this.element = element;
-            this.strip =
-                new ImageStrip(this, this.element.querySelector('.img-strip'));
-            this.curSlide = 0;
-
-            this.setSlide(this.curSlide);
-
-            let slider = this;
-
-            this.autoScroll = setInterval(function () {
-                    slider.increment(1)
-                },
-                autoscroll_interval);
-
-            nextBtnElement.addEventListener('click', function () {
-                slider.increment(1);
-                clearInterval(slider.autoScroll);
+            el.querySelector('.next').addEventListener('click', () => {
+                this.logic.increment(1);
             });
-            prevBtnElement.addEventListener('click', function () {
-                slider.increment(-1);
-                clearInterval(slider.autoScroll);
+            el.querySelector('.prev').addEventListener('click', () => {
+                this.logic.increment(-1);
+            });
+            el.querySelector('.fullscreen-btn').addEventListener('click', () => {
+                this._openFullscreen();
+            });
+            window.addEventListener('resize', () => {
+                this._setSlide(this.logic.curSlide);
             });
         }
 
-        setSlide(slide) {
+        notify() {
+            this._setSlide(this.logic.curSlide);
+        }
+
+        _setSlide(slide) {
             let imgSpacing = 4;
-            let imgWidth = this.element.offsetWidth + imgSpacing;
-            this.strip.setPosX(imgWidth * slide);
-            this.curSlide = slide;
+            let imgWidth = this.view.offsetWidth + imgSpacing;
+            let curHeight = this.images[slide].offsetHeight;
+            this.view.style.height = curHeight + 'px';
+            this.strip.style.right = (imgWidth * slide) + 'px';
+            this._setActiveNav(slide);
+        }
+
+        _setActiveNav(index) {
+            this.navBtns.forEach(function(btn) {
+                btn.style.opacity = '';
+            });
+            this.navBtns[index].style.opacity = 1;
+        }
+
+        _generateButtons() {
+            let btns = [];
+            for (let i = 0; i < this.logic.imgCount(); i++) {
+                let btn = document.createElement('a');
+                btn.addEventListener('click', () => {
+                    this.logic.setSlide(i);
+                });
+                this.nav.appendChild(btn);
+                btns.push(btn);
+            }
+            return btns;
+        }
+
+        _openFullscreen() {
+            let fullscreen = new Fullscreen(this.logic, this);
+        }
+    }
+
+    class Fullscreen {
+        constructor(logic, slider) {
+
+            // Create elements
+            this.logic = logic;
+            this.logic.registerObserver(this);
+
+            this.el = document.createElement('div');
+            this.el.className = 'fullscreen';
+
+            this.controls = slider.controls.cloneNode(true);
+            this.controls.querySelector('.slider-nav').innerHTML = '';
+            this.el.appendChild(this.controls);
+
+            this.contentArea = document.createElement('div');
+            this.contentArea.className = 'content-area';
+            this.el.appendChild(this.contentArea);
+
+            this.imgWrap = document.createElement('div');
+            this.imgWrap.className = 'img-wrap';
+            this.contentArea.appendChild(this.imgWrap);
+
+            document.querySelector('body').appendChild(this.el);
+
+            // Setup
+            this.navBtns = this._generateButtons();
+            this._setSlide(this.logic.curSlide);
+            this._showScrollbar(false);
+            this.controls.querySelector('.next').addEventListener('click', (ev) => {
+                this.logic.increment(1);
+                ev.stopPropagation();
+            });
+            this.controls.querySelector('.prev').addEventListener('click', (ev) => {
+                this.logic.increment(-1);
+                ev.stopPropagation();
+            });
+            this.controls.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+            });
+            this.el.addEventListener('click', () => {
+                this._close();
+            });
+            document.addEventListener('keydown', (ev) => {
+                if ("key" in ev) {
+                    if (ev.key == "Escape") this._close();
+                } else {
+                    if (ev.keyCode == 27) this._close();
+                }
+            });
+            window.addEventListener('resize', () => {
+                this._resizeImg();
+            })
+        }
+
+        _generateButtons() {
+            let btns = [];
+            for (let i = 0; i < this.logic.imgCount(); i++) {
+                let btn = document.createElement('a');
+                btn.addEventListener('click', (ev) => {
+                    this.logic.setSlide(i);
+                    ev.stopPropagation();
+                });
+                this.controls.querySelector('.slider-nav').appendChild(btn);
+                btns.push(btn);
+            }
+            return btns;
+        }
+
+        _setSlide(slide) {
+            let url = this.logic.imgURLs[this.logic.curSlide];
+            this.imgWrap.innerHTML = '<img class="img" src="' + url + '"></img><a class="close-fullscreen-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
+
+            let img = this.imgWrap.querySelector('.img');
+            img.addEventListener('click', (ev) => {
+                this.logic.increment(1);
+                ev.stopPropagation();
+            });
+            this.imgWrap.querySelector('.close-fullscreen-btn').addEventListener('click', () => {
+                this._close();
+            });
+
+            this._resizeImg();
+            this._setActiveNav(slide);
+        }
+
+        _resizeImg() {
+            let cArea = this.contentArea;
+            let wrap = this.imgWrap;
+            let img = wrap.querySelector('.img');
+
+            // reset previously set size
+            img.style.height = '';
+            img.style.width = '';
+
+            let padding = 60;
+            let cAreaHeight = cArea.offsetHeight - padding;
+            let cAreaWidth = cArea.offsetWidth - padding;
+            let cAreaRatio = cAreaWidth / cAreaHeight;
+
+            let imgRatio = img.offsetWidth / img.offsetHeight;
+
+            // resize img
+            if (imgRatio < cAreaRatio && img.offsetHeight > cAreaHeight) {
+                // img is taller than cArea
+                img.style.height = cAreaHeight + 'px';
+                img.style.width = (imgRatio * img.offsetHeight) + 'px';
+            } else if (imgRatio > cAreaRatio && img.offsetWidth > cAreaWidth) {
+                // img is wider than cArea
+                img.style.width = cAreaWidth + 'px';
+                img.style.height = (img.offsetWidth / imgRatio) + 'px';
+            }
+        }
+
+        _setActiveNav(index) {
+            this.navBtns.forEach(function(btn) {
+                btn.style.opacity = '';
+            });
+            this.navBtns[index].style.opacity = 1;
+        }
+
+        notify() {
+            this._setSlide(this.logic.curSlide);
+        }
+
+        _showScrollbar(boolean) {
+            let body = document.querySelector('body');
+            if (!boolean) body.style.overflow = 'hidden';
+            else body.style.overflow = '';
+        }
+
+        _close() {
+            this._showScrollbar(true);
+            this.el.remove()
+            delete this;
+        }
+    }
+
+
+    class SliderLogic {
+        constructor(imgURLs, initSlide) {
+            this.imgURLs = imgURLs;
+            this.curSlide = initSlide;
+            this.observers = [];
+        }
+
+        imgCount() {
+            return this.imgURLs.length;
+        }
+
+        setSlide(index) {
+            this.curSlide = index;
+            this._notifyObservers();
         }
 
         increment(steps) {
-            let imgCount = this.strip.images.length;
+            let imgCount = this.imgCount();
             let next = this.curSlide + steps;
             next = ((next % imgCount) + imgCount) % imgCount; // because a simple % does it wrong
             this.setSlide(next);
         }
-    }
 
-
-    class ImageStrip {
-
-        constructor(slider, element) {
-            this.slider = slider;
-            this.element = element;
-            this.images = findImages(this.element);
-
-            function findImages(element) {
-                let imgElements = Array.from(element.querySelectorAll('.img'));
-                return imgElements.map(function (img) {
-                    return new Image(img);
-                });
-            }
+        registerObserver(view) {
+            this.observers.push(view);
         }
 
-        setPosX(posX) {
-            this.element.style.right = posX + 'px';
+        _notifyObservers() {
+            this.observers.forEach((obs) => {
+                obs.notify();
+            });
         }
     }
 
 
-    class Image {
-
-        constructor(element) {
-            this.element = element;
-            this.element.style.backgroundImage =
-                'url(' + this.element.getAttribute('data-url') + ')';
-        }
-    }
-
-
-    const AUTOSCROLL_INTERVAL = 8000;  // ms
     let document = global.document;
     let hljs = global.hljs;
     let md = global.markdownit({
@@ -90,12 +253,23 @@
             return ''; // use external default escaping
         }
     });
-    let nextButton = document.querySelector('.img-slider-controls .next');
-    let prevButton = document.querySelector('.img-slider-controls .prev');
-    let imgSliderElement = document.getElementById('img-slider');
 
-    let imgSlider = new ImageSlider(imgSliderElement, AUTOSCROLL_INTERVAL,
-        nextButton, prevButton);
+
+    // init image slider
+    let imgEls = Array.from(document.querySelectorAll('.img-slider .img'));
+    let imgURLs = imgEls.map((img) => {
+        return img.src;
+    });
+
+    if (imgURLs.length > 0) {
+        let firstImg = new Image();
+        firstImg.addEventListener('load', () => {
+            let sliderLogic = new SliderLogic(imgURLs, 0);
+            let imgSlider = new ImageSlider(sliderLogic, document.querySelector('.img-slider'));
+        });
+        firstImg.src = imgURLs[0];
+    }
+
 
     // create markdown for app description
     let appDescriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-detail-url"]');
