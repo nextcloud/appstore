@@ -45,7 +45,7 @@
     cursor: pointer;
     text-align: center;
     border: 1px solid var(--bg-color);
-    font-family: 'open_sansregular';
+    font-weight: normal;
 }
 
 .img-slider .img-slider-controls a.control:hover,
@@ -74,6 +74,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    line-height: 0;
 }
 
 .img-slider .img-slider-controls .slider-nav a,
@@ -118,7 +119,8 @@
     color: white !important;
     padding: 7px 10px;
     background-color: var(--bg-color);
-    font-family: 'open_sansregular';
+    font-weight: normal;
+    font-size: 12px;
 }
 
 .img-slider .fullscreen-btn:hover,
