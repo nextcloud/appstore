@@ -1,3 +1,6 @@
+from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
@@ -35,7 +38,7 @@ class CategoryAppListView(ListView):
         order_by = self.request.GET.get('order_by', 'last_modified')
         ordering = self.request.GET.get('ordering', 'desc')
         featured = self.request.GET.get('featured', False)
-        owned = self.request.GET.get('owned', False)
+        maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
         allowed_order_by = {'name', 'last_modified'}
@@ -55,8 +58,13 @@ class CategoryAppListView(ListView):
             queryset = queryset.filter(categories__id=category_id)
         if featured == "true":
             queryset = queryset.filter(featured=True)
-        if owned == "true" and self.request.user.is_authenticated():
-            queryset = queryset.filter(owner=self.request.user.id)
+        if maintainer:
+            try:
+                user = User.objects.get_by_natural_key(maintainer)
+                queryset = queryset.filter(Q(owner=user) |
+                                           Q(co_maintainers=user))
+            except ObjectDoesNotExist:
+                queryset = None
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -67,6 +75,7 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
+        context['auth_user'] = self.request.user
         context['logged_in'] = self.request.user.is_authenticated()
         return context
 
