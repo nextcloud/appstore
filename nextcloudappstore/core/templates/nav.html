@@ -2,7 +2,7 @@
 {% load i18n %}
 <div class="banner">
     <div class="container">
-        <a class="brand" href="/"><img class="logo" src="{% static 'assets/img/logo_nextcloud_white.svg' %}" title="nextcloud.com" itemprop="logo"></a>
+        <a class="brand" href="/"><img class="logo" src="{% static 'assets/img/logo-icon.svg' %}" title="nextcloud.com" itemprop="logo"><div class="site-title">App Store</div></a>
         <form method="get"
               action="{% if current_category %}{{ request.path }}
                       {% else %}{% url 'home' %}

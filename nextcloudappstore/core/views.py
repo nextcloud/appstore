@@ -1,3 +1,6 @@
+from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
@@ -35,6 +38,7 @@ class CategoryAppListView(ListView):
         order_by = self.request.GET.get('order_by', 'last_modified')
         ordering = self.request.GET.get('ordering', 'desc')
         featured = self.request.GET.get('featured', False)
+        maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
         allowed_order_by = {'name', 'last_modified'}
@@ -50,6 +54,13 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
             *sort_columns)
+        if maintainer:
+            try:
+                user = User.objects.get_by_natural_key(maintainer)
+                queryset = queryset.filter(Q(owner=user) |
+                                           Q(co_maintainers=user))
+            except ObjectDoesNotExist:
+                return queryset.none()
         if category_id:
             queryset = queryset.filter(categories__id=category_id)
         if featured == "true":
