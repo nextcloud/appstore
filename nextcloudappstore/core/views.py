@@ -64,7 +64,7 @@ class CategoryAppListView(ListView):
                 queryset = queryset.filter(Q(owner=user) |
                                            Q(co_maintainers=user))
             except ObjectDoesNotExist:
-                queryset = None
+                queryset = []
         return queryset
 
     def get_context_data(self, **kwargs):
