@@ -10,6 +10,8 @@
 # The first argument to the script is the web server, currently only apache is
 # supported
 
+set -e
+
 if [[ "$1" == "apache" ]]; then
     reload_cmd="systemctl reload apache2"
 else
