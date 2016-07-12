@@ -3,7 +3,9 @@
 
     // reload page if featured checkbox is checked
     let form = window.document.getElementById('filter-form');
-    form.querySelector('.auto-submit')
-        .addEventListener('change', () => form.submit());
+    let inputs = Array.from(form.querySelectorAll('.auto-submit'));
+    inputs.forEach((input) => {
+        input.addEventListener('change', () => form.submit());
+    });
 
 }(this));

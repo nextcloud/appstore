@@ -21,7 +21,11 @@
         <li role="presentation">
             <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
                 <input type="checkbox" class="auto-submit" id="featured-checkbox" name="featured" value="true" {% if request.GET.featured == 'true' %}checked{% endif %}>
-                <label for="featured-checkbox">{% trans 'Featured only' %}</label>
+                <label for="featured-checkbox">{% trans 'Featured' %}</label>
+                {% if request.user.is_authenticated %}
+                    <input type="checkbox" class="auto-submit" id="myapps-checkbox" name="maintainer" value="{{ request.user.username }}" {% if request.GET.maintainer == request.user.username %}checked{% endif %}>
+                    <label for="myapps-checkbox">{% trans 'My apps' %}</label>
+                {% endif %}
                 {% if request.GET.order_by %}<input type="hidden" name="order_by" value="{{ request.GET.order_by }}">{% endif %}
                 {% if request.GET.ordering %}<input type="hidden" name="ordering" value="{{ request.GET.ordering }}">{% endif %}
             </form>
