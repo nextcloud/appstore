@@ -54,17 +54,17 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
             *sort_columns)
-        if category_id:
-            queryset = queryset.filter(categories__id=category_id)
-        if featured == "true":
-            queryset = queryset.filter(featured=True)
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)
                 queryset = queryset.filter(Q(owner=user) |
                                            Q(co_maintainers=user))
             except ObjectDoesNotExist:
-                return []
+                return queryset.none()
+        if category_id:
+            queryset = queryset.filter(categories__id=category_id)
+        if featured == "true":
+            queryset = queryset.filter(featured=True)
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -75,8 +75,6 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
-        context['auth_user'] = self.request.user
-        context['logged_in'] = self.request.user.is_authenticated()
         return context
 
     @cached_property
