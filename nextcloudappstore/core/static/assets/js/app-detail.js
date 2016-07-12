@@ -37,7 +37,7 @@
             let imgSpacing = 4;
             let imgWidth = this.view.offsetWidth + imgSpacing;
             let curHeight = this.images[slide].offsetHeight;
-            this.view.style.height = curHeight + 'px';
+            this.view.style.height = (curHeight - 1) + 'px';
             this.strip.style.right = (imgWidth * slide) + 'px';
             this._setActiveNav(slide);
         }

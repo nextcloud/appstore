@@ -18,7 +18,7 @@
         {% else %}
         <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url  }}?order_by=name&ordering=asc"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% endif %}
-        <li role="presentation">
+        <li role="presentation" class="filters">
             <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
                 <input type="checkbox" class="auto-submit" id="featured-checkbox" name="featured" value="true" {% if request.GET.featured == 'true' %}checked{% endif %}>
                 <label for="featured-checkbox">{% trans 'Featured' %}</label>
