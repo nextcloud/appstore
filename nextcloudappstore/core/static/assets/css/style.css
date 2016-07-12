@@ -4,6 +4,7 @@ body {
     padding: 0;
     height: 100%;
     min-width: 230px;
+    font-family: 'open_sanslight', 'Frutiger', 'Calibri', 'Myriad Pro', 'Myriad', sans-serif;
 }
 
 #container {
@@ -15,6 +16,8 @@ body {
     padding: 10px;
     padding-bottom: 50px;
     overflow: hidden;
+    line-height: 1.7em;
+    font-size: 16ox;
 }
 
 #body section {
@@ -63,7 +66,8 @@ body {
 
 .banner {
     position: relative;
-    height: 135px;
+    height: 80px;
+    background-color: var(--bg-color);
     background-image: url('../img/home/background3.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
@@ -86,16 +90,17 @@ body {
 
 .brand .logo {
     display: inline-block;
+    height: 50px;
 }
 
 .brand .site-title {
     display: inline-block;
     position: relative;
-    top: 28px;
-    margin-left: 44px;
+    top: 5px;
+    margin-left: 20px;
     width: auto;
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 26px;
+    line-height: 26px;
     color: white;
 }
 
@@ -133,23 +138,22 @@ body {
         top: 0px;
         transform: none;
         margin: 40px auto;
-        width: 200px;
-        height: 112px;
+        width: 100%;
     }
 
     .brand .logo {
         display: block;
         position: relative;
         margin: 0 auto;
-        margin-bottom: -15px;
+        margin-bottom: 0px;
     }
 
     .brand .site-title {
         display: block;
         position: relative;
         margin: 0 auto;
-        font-size: 26px;
-        line-height: 26px;
+        font-size: 20px;
+        line-height: 20px;
         color: white;
         text-align: center;
     }
@@ -276,6 +280,7 @@ form .text-danger {
     float: right;
     padding: 0 30px;
     margin-left: 15px;
+    line-height: 1.5em;
 }
 
 @media (max-width: 500px){
@@ -343,4 +348,9 @@ form .text-danger {
     padding-bottom: 100px;
     padding-top: 50px;
     clear: right;
+}
+
+h1, h2, h3, h4, h5, h6, strong, bold {
+    font-family: 'open_sansregular';
+    font-weight: normal;
 }
