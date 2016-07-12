@@ -364,6 +364,10 @@ Then adjust the database schema (if changed) by running the migrations::
 
     python manage.py migrate
 
+load new fixtures::
+
+    python manage.py loaddata nextcloudappstore/**/fixtures/*.json
+
 and install any dependencies (if changed)::
 
     pip install --upgrade -r requirements/base.txt
@@ -376,3 +380,9 @@ Finally run the **collectstatic** command to copy updated assets into the web se
 and reload apache::
 
     systemctl reload apache2
+
+.. note:: If you are running Ubuntu and Apache, there is a maintenance script available by running
+
+.. code-block:: bash
+
+    bash scripts/maintenance/update.sh apache
