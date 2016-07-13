@@ -29,6 +29,20 @@ class AppDetailView(DetailView):
         return context
 
 
+class AppReleasesView(DetailView):
+    model = App
+    template_name = 'app/releases.html'
+    slug_field = 'id'
+    slug_url_kwarg = 'id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['releases_by_platform_v'] = \
+            self.object.releases_by_platform_v()
+        return context
+
+
 class CategoryAppListView(ListView):
     model = App
     template_name = 'app/list.html'

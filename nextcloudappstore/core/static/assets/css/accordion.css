@@ -1,0 +1,99 @@
+
+.accordion-item .release-download {
+    display: inline-block;
+    padding: 7px 15px;
+    text-align: center;
+    background: var(--bg-color);
+    color: var(--link-active-color) !important;
+    font-weight: 600;
+}
+
+/*   Level 1   */
+.accordion-item {
+    margin-bottom: 20px;
+}
+
+.accordion-item .accordion-title {
+    padding: 15px 20px;
+    border: 1px solid var(--bg-color);
+    background: var(--bg-color);
+    color: var(--link-active-color);
+    cursor: pointer;
+}
+
+.accordion-item .accordion-title h4:after {
+    content: ' \e252';
+    font-family: 'Glyphicons Halflings';
+    float: right;
+    position: relative;
+    top: 2px;
+    transition: all 0.2s ease;
+}
+
+.accordion-item.open .accordion-title h4:after {
+    /*content: '\e253';*/
+    transform: rotate(180deg);
+    top: 0px;
+}
+
+.accordion-item .accordion-title h1,
+.accordion-item .accordion-title h2,
+.accordion-item .accordion-title h3,
+.accordion-item .accordion-title h4,
+.accordion-item .accordion-title h5,
+.accordion-item .accordion-title h6 {
+    margin: 0;
+}
+
+.accordion-item .accordion-content {
+    border: 1px solid var(--bg-color);
+    border-top: none;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/*   Level 2   */
+.accordion-item .accordion-item {
+    margin-bottom: 20px;
+}
+
+.accordion-item .accordion-item:last-of-type {
+    margin-bottom: 0;
+}
+
+.accordion-item .accordion-item .accordion-title {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    color: unset;
+}
+
+.accordion-item .accordion-item .accordion-title h5 {
+    font-weight: 600;
+}
+
+.accordion-item .accordion-item .accordion-title h5:after {
+    content: ' \e252';
+    font-family: 'Glyphicons Halflings';
+    float: right;
+    position: relative;
+    top: 2px;
+    transition: all 0.2s ease;
+}
+
+.accordion-item.open .accordion-item.open .accordion-title h5:after {
+    /*content: '\e253';*/
+    transform: rotate(180deg);
+    top: 0px;
+}
+
+.accordion-item .accordion-item .accordion-content {
+    border-color: #ddd;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.accordion-item .accordion-item .accordion-content table {
+    font-size: 14px;
+}
