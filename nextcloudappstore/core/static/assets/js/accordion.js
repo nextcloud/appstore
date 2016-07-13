@@ -3,44 +3,36 @@
 
 
     class AccordionItem {
-        constructor(el) {
-            this.el = el
-            this.title = el.querySelector('.accordion-title');
-            this.content = el.querySelector('.accordion-content');
-
-            if (this._hasClassOpen()) this._setOpen(true);
-            else this._setOpen(false);
-
+        constructor(elem) {
+            this.elem = elem;
+            this.title = elem.querySelector('.accordion-title');
+            this.content = elem.querySelector('.accordion-content');
+            this._setOpen(this._isOpen());
             this.title.addEventListener('click', () => {
                 this._toggle();
             });
         }
 
-        _hasClassOpen() {
-            return (' ' + this.el.className + ' ').indexOf(' open ') > -1;
+        _isOpen() {
+            return this.elem.classList.contains('open');
         }
 
         _toggle() {
-            if (this.open) this._setOpen(false);
-            else this._setOpen(true);
+            this._setOpen(!this._isOpen());
         }
 
-        _setOpen(boolean) {
-            if(!boolean) {
-                this.content.style.display = 'none';
-                this.el.className = String(this.el.className).replace(' open', '');
-            } else {
+        _setOpen(isOpen) {
+            if (isOpen) {
                 this.content.style.display = '';
-                if (!this._hasClassOpen()) this.el.className += ' open';
+                this.elem.classList.add('open');
+            } else {
+                this.content.style.display = 'none';
+                this.elem.classList.remove('open');
             }
-            this.open = boolean;
         }
     }
 
-
-    let items = Array.from(document.querySelectorAll('.accordion-item'));
-    items = items.map((item) => {
-        new AccordionItem(item);
-    });
+    Array.from(document.querySelectorAll('.accordion-item'))
+        .forEach((item) => new AccordionItem(item));
 
 }(this));

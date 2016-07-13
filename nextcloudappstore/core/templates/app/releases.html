@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load sort_by_version %}
+{% load version_spec %}
 
 {% block head-title %} - {% trans 'Apps' %} - {{ object.name }} - {% trans 'Releases'%}{% endblock %}
 
@@ -21,7 +22,7 @@
                     <div class="accordion-title"><h4>Nextcloud {{ platform_v }}</h4></div>
                     <div class="accordion-content">
                         {% for release in releases %}
-                            <div class="accordion-item">
+                            <div class="accordion-item {% if forloop.first %}open{% endif %}">
                                 <div class="accordion-title"><h5>{{ object.name }} {{ release.version }}</h5></div>
                                 <div class="accordion-content">
                                     <table class="table table-condensed">
@@ -39,14 +40,17 @@
                                     </table>
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>
+                                        {% if release.databasedependencies.all %}
                                         <tr>
                                             <td>{% trans 'Databases' %}</td>
                                             <td>
                                                 {% for dep in release.databasedependencies.all %}
-                                                    {{ dep.database.name }} {{dep.version_spec}}<br>
+                                                    {{ dep.database.name }} {{ dep.version_spec|version_spec }}<br>
                                                 {% endfor %}
                                             </td>
                                         </tr>
+                                        {% endif %}
+                                        {% if release.shell_commands.all %}
                                         <tr>
                                             <td>{% trans 'Shell commands' %}</td>
                                             <td>
@@ -55,16 +59,19 @@
                                                 {% endfor %}
                                             </td>
                                         </tr>
+                                        {% endif %}
                                         <tr><td>{% trans 'Minimum integer bits' %}</td><td>{{ release.min_int_size }}</td></tr>
-                                        <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec }}</td></tr>
+                                        <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec|version_spec }}</td></tr>
+                                        {% if release.phpextensiondependencies.all %}
                                         <tr>
                                             <td>{% trans 'PHP extensions' %}</td>
                                             <td>
                                                 {% for dep in release.phpextensiondependencies.all %}
-                                                    {{ dep.php_extension.id }} {{dep.version_spec}}<br>
+                                                    {{ dep.php_extension.id }} {{ dep.version_spec|version_spec }}<br>
                                                 {% endfor %}
                                             </td>
                                         </tr>
+                                        {% endif %}
                                     </table>
                                     <div class="center">
                                         <a href="{{ release.download }}" rel="nofollow" target="_blank" class="release-download">

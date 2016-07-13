@@ -6,7 +6,7 @@
         constructor(logic, el) {
             this.logic = logic;
             this.logic.registerObserver(this);
-            this.el = el;
+            this.elem = el;
             this.view = el.querySelector('.img-slider-view');
             this.strip = el.querySelector('.img-slider-view .img-strip');
             this.controls = el.querySelector('.img-slider-controls');
@@ -74,22 +74,22 @@
             this.logic = logic;
             this.logic.registerObserver(this);
 
-            this.el = document.createElement('div');
-            this.el.className = 'fullscreen';
+            this.elem = document.createElement('div');
+            this.elem.className = 'fullscreen';
 
             this.controls = slider.controls.cloneNode(true);
             this.controls.querySelector('.slider-nav').innerHTML = '';
-            this.el.appendChild(this.controls);
+            this.elem.appendChild(this.controls);
 
             this.contentArea = document.createElement('div');
             this.contentArea.className = 'content-area';
-            this.el.appendChild(this.contentArea);
+            this.elem.appendChild(this.contentArea);
 
             this.imgWrap = document.createElement('div');
             this.imgWrap.className = 'img-wrap';
             this.contentArea.appendChild(this.imgWrap);
 
-            document.querySelector('body').appendChild(this.el);
+            document.querySelector('body').appendChild(this.elem);
 
             // Setup
             this.navBtns = this._generateButtons();
@@ -106,7 +106,7 @@
             this.controls.addEventListener('click', (ev) => {
                 ev.stopPropagation();
             });
-            this.el.addEventListener('click', () => {
+            this.elem.addEventListener('click', () => {
                 this._close();
             });
             document.addEventListener('keydown', (ev) => {
@@ -199,7 +199,7 @@
 
         _close() {
             this._showScrollbar(true);
-            this.el.remove()
+            this.elem.remove()
             delete this;
         }
     }
