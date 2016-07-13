@@ -210,6 +210,7 @@ class ShellCommand(Model):
     class Meta:
         verbose_name = _('Shell Command')
         verbose_name_plural = _('Shell Commands')
+        ordering = ['name']
 
     def __str__(self) -> str:
         return self.name
@@ -272,6 +273,7 @@ class Database(Model):
     class Meta:
         verbose_name = _('Database')
         verbose_name_plural = _('Databases')
+        ordering = ['name']
 
     def __str__(self) -> str:
         return self.name
@@ -303,6 +305,7 @@ class PhpExtension(Model):
     class Meta:
         verbose_name = _('PHP Extension')
         verbose_name_plural = _('PHP Extensions')
+        ordering = ['id']
 
     def __str__(self) -> str:
         return self.id
