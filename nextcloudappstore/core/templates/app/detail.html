@@ -3,7 +3,7 @@
 {% load sort_by_version %}
 {% load staticfiles %}
 
-{% block head-title %} - {% trans 'Apps' %} - {{ object.name }}{% endblock %}
+{% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'vendor/highlightjs/styles/github.css' %}">
     <script defer="defer" src="{% static 'vendor/highlightjs/highlight.pack.js' %}"></script>
