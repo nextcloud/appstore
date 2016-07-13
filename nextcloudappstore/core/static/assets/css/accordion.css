@@ -22,18 +22,18 @@
 }
 
 .accordion-item .accordion-title h4:after {
-    content: ' \e252';
+    content: '\e252';
     font-family: 'Glyphicons Halflings';
     float: right;
     position: relative;
-    top: 2px;
+    top: -1px;
     transition: all 0.2s ease;
+    transform: rotate(90deg);
 }
 
 .accordion-item.open .accordion-title h4:after {
-    /*content: '\e253';*/
-    transform: rotate(180deg);
-    top: 0px;
+    transform: rotate(0deg);
+    top: 1px;
 }
 
 .accordion-item .accordion-title h1,
@@ -78,14 +78,14 @@
     font-family: 'Glyphicons Halflings';
     float: right;
     position: relative;
-    top: 2px;
+    top: 1px;
     transition: all 0.2s ease;
+    transform: rotate(90deg);
 }
 
 .accordion-item.open .accordion-item.open .accordion-title h5:after {
-    /*content: '\e253';*/
-    transform: rotate(180deg);
-    top: 0px;
+    transform: rotate(0deg);
+    top: 2px;
 }
 
 .accordion-item .accordion-item .accordion-content {
