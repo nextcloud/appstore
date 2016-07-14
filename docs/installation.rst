@@ -385,4 +385,5 @@ and reload apache::
 
 .. code-block:: bash
 
+    git pull --rebase origin master
     bash scripts/maintenance/update.sh apache

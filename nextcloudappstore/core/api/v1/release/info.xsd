@@ -354,7 +354,7 @@
     <xs:complexType name="php">
         <xs:simpleContent>
             <xs:extension base="empty-string">
-                <xs:attribute name="min-int-size" type="xs:int" use="optional"
+                <xs:attribute name="min-int-size" type="bits" use="optional"
                               default="32"/>
                 <xs:attribute name="min-version" type="version"
                               use="optional"/>
@@ -364,4 +364,10 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:simpleType name="bits">
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="32"/>
+            <xs:enumeration value="64"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
