@@ -140,6 +140,12 @@ version
 licence
     * required
     * must contain **agpl** as the only valid value
+author
+    * required
+    * can occur multiple times with different authors
+    * can contain a **mail** attribute which must be an email
+    * can contain a **homepage** which must be an URL
+    * will not be rendered on the app store
 documentation/user
     * optional
     * must contain an URL to the user documentation
