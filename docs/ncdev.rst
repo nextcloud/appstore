@@ -50,6 +50,11 @@ The first time you upload an app you will be registered as app owner for the app
 
 If the release exists already it will be overwritten.
 
+To upload a **nightly** release use::
+
+    ncdev appstore release https://github.com/nextcloud/news/archive/8.8.0.tar.gz --nightly --checksum 65e613318107bceb131af5cf8b71e773b79e1a9476506f502c8e2017b52aba15
+
+
 .. _ncdev-delete-app:
 
 Delete a Release

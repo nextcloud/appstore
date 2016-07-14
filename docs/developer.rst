@@ -35,6 +35,185 @@ To publish an app release on the app store you simply send us a download link fo
 
 * The release is then either created or updated. The downloaded archive will be deleted
 
+.. _app-metadata:
+
+App Metadata
+------------
+
+App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
+
+The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_
+
+info.xml
+~~~~~~~~
+A minimum valid **info.xml** would look like this:
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+        <id>news</id>
+        <name>News</name>
+        <description>An RSS/Atom feed reader</description>
+        <author>Bernhard Posselt</author>
+        <category>multimedia</category>
+        <version>8.8.2</version>
+        <licence>agpl</licence>
+        <dependencies>
+            <owncloud min-version="9.0"/>
+        </dependencies>
+    </info>
+
+A full blown example would look like this (needs to be utf-8 encoded):
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+        <id>news</id>
+        <name lang="de">Nachrichten</name>
+        <name>News</name>
+        <summary lang="en">An RSS/Atom feed reader</summary>
+        <description lang="en"># Description\nAn RSS/Atom feed reader</description>
+        <description lang="de"><![CDATA[# Beschreibung\nEine Nachrichten App, welche mit [RSS/Atom](https://en.wikipedia.org/wiki/RSS) umgehen kann]]></description>
+        <version>8.8.2</version>
+        <licence>agpl</licence>
+        <author mail="mail@provider.com" homepage="http://example.com">Bernhard Posselt</author>
+        <author>Alessandro Cosentino</author>
+        <author>Jan-Christoph Borchardt</author>
+        <documentation>
+            <user>https://github.com/owncloud/news/wiki#user-documentation</user>
+            <admin>https://github.com/owncloud/news#readme</admin>
+            <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+        </documentation>
+        <category>multimedia</category>
+        <category>tools</category>
+        <website>https://github.com/owncloud/news</website>
+        <bugs>https://github.com/owncloud/news/issues</bugs>
+        <screenshot>https://example.com/1.png</screenshot>
+        <screenshot>https://example.com/2.jpg</screenshot>
+        <dependencies>
+            <php min-version="5.6" min-int-size="64"/>
+            <database min-version="9.4">pgsql</database>
+            <database>sqlite</database>
+            <database min-version="5.5">mysql</database>
+            <command>grep</command>
+            <command>ls</command>
+            <lib min-version="2.7.8">libxml</lib>
+            <lib>curl</lib>
+            <lib>SimpleXML</lib>
+            <lib>iconv</lib>
+            <owncloud min-version="9.0" max-version="9.1"/>
+        </dependencies>
+    </info>
+
+The following tags are validated and used in the following way:
+
+id
+    * required
+    * must contain only lowercase ASCII characters and underscore
+    * must match the first folder in the archive
+    * will be used to identify the app
+name
+    * required
+    * must occur at least once with **lang="en"** or no lang attribute
+    * can be translated by using multiple elements with different **lang** attribute values, language code needs to be set **lang** attribute
+    * will be rendered on the app detail page
+summary
+    * optional
+    * if not provided the description element's text will be used
+    * must occur at least once with **lang="en"** or no lang attribute
+    * can be translated by using multiple elements with different **lang** attribute values, language code needs to be set **lang** attribute
+    * will be rendered on the app list page as short description
+description
+    * required
+    * must occur at least once with **lang="en"** or no lang attribute
+    * can contain Markdown
+    * can be translated by using multiple elements with different **lang** attribute values, language code needs to be set **lang** attribute
+    * will be rendered on the app detail page
+version
+    * required
+    * must be a `semantic version <http://semver.org/>`_, digits only
+    * will be padded to a version with three numbers (e.g. 9 will be padded to 9.0.0)
+licence
+    * required
+    * must contain **agpl** as the only valid value
+author
+    * required
+    * can occur multiple times with different authors
+    * can contain a **mail** attribute which must be an email
+    * can contain a **homepage** which must be an URL
+    * will not be rendered on the app store
+documentation/user
+    * optional
+    * must contain an URL to the user documentation
+    * will be rendered on the app detail page
+documentation/admin
+    * optional
+    * must contain an URL to the admin documentation
+    * will be rendered on the app detail page
+documentation/developer
+    * optional
+    * must contain an URL to the developer documentation
+    * will be rendered on the app detail page
+category
+    * optional
+    * if not provided the category **tools** will be used
+    * must contain one of the following values: **customization**, **files**, **integration**, **monitoring**, **multimedia**, **office**, **organization**, **social**, **tools**
+    * can occur more than once with different categories
+website
+    * optional
+    * must contain an URL to the project's homepage
+    * will be rendered on the app detail page
+bugs
+    * optional
+    * must contain an URL to the project's bug tracker
+    * will be rendered on the app detail page
+screenshot
+    * optional
+    * must contain an HTTPS URL to an image
+    * will be rendered on the app list and detail page in the given order
+dependencies/php
+    * optional
+    * can contain a **min-version** attribute (maximum 3 digits separated by dots)
+    * can contain a **max-version** attribute (maximum 3 digits separated by dots)
+    * can contain a **min-int-size** attribute, 32 or 64 are allowed as valid values
+    * will be rendered on the app releases page
+dependencies/database
+    * optional
+    * must contain the database name as text, **sqlite**, **pgsql** and **mysql** are allowed as valid values
+    * can occur multiple times with different databases
+    * can contain a **min-version** attribute (maximum 3 digits separated by dots)
+    * can contain a **max-version** attribute (maximum 3 digits separated by dots)
+    * will be rendered on the app releases page
+dependencies/command
+    * optional
+    * must contain a linux command as text value
+    * can occur multiple times with different commands
+    * will be rendered on the app releases page
+dependencies/lib
+    * optional
+    * will be rendered on the app releases page
+    * must contain a required php extension
+    * can occur multiple times with different php extensions
+    * can contain a **min-version** attribute (maximum 3 digits separated by dots)
+    * can contain a **max-version** attribute (maximum 3 digits separated by dots)
+dependencies/owncloud
+    * required
+    * must contain a **min-version** attribute (maximum 3 digits separated by dots)
+    * can contain a **max-version** attribute (maximum 3 digits separated by dots)
+
+
+The following character maximum lengths are enforced:
+
+* All description Strings are (almost) of unlimited size
+* All Url Strings have a maximum of 256 characters
+* All other Strings have a maximum of 128 characters
+
+
+
 .. _info-schema:
 
 Schema Integration
