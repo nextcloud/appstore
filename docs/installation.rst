@@ -13,7 +13,7 @@ Development Installation
 ------------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+    sudo apt-get install python3-venv python3-wheel python3-setuptools python3-lxml
 
 Afterwards clone the repository using git and change into it::
 
@@ -51,8 +51,7 @@ Production Installation
 -----------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
-
+    sudo apt-get install python3-venv python3-wheel python3-setuptools python3-lxml python3-psycopg2
 
 Database Setup
 ~~~~~~~~~~~~~~
@@ -88,7 +87,7 @@ Afterwards change into your preferred target folder, clone the repository using 
 
 Afterwards set up a new virtual environment by running the following command::
 
-    python3 -m venv venv
+    python3 -m venv venv --system-site-packages
 
 This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
 
