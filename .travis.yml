@@ -9,3 +9,9 @@ install:
 
 script:
   - make test
+
+addons:
+  apt:
+    packages:
+      - python3-lxml
+      - python3-psycopg2
