@@ -28,6 +28,7 @@ initmigrations:
 dev-setup:
 	pyvenv venv --system-site-packages
 	ls -la venv
+	ls -la venv/bin
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
 	@echo "from nextcloudappstore.settings.base import *" > $(CURDIR)/nextcloudappstore/settings/development.py
