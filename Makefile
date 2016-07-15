@@ -1,6 +1,6 @@
 # only random once obviously ;)
 python=venv/bin/python
-pip=pip
+pip=pip3
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
 mypy=venv/bin/mypy
