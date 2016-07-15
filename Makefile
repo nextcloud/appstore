@@ -1,6 +1,6 @@
 # only random once obviously ;)
 python=venv/bin/python
-pip=pip3
+pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
 mypy=venv/bin/mypy
@@ -29,8 +29,8 @@ dev-setup:
 	pyvenv venv --system-site-packages
 	ls -la venv
 	ls -la venv/bin
-	$(pip) install -r $(CURDIR)/requirements/development.txt
-	$(pip) install -r $(CURDIR)/requirements/base.txt
+	$(pip) install --ignore-installed -r $(CURDIR)/requirements/development.txt
+	$(pip) install --ignore-installed -r $(CURDIR)/requirements/base.txt
 	@echo "from nextcloudappstore.settings.base import *" > $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "DEBUG = True" >> $(CURDIR)/nextcloudappstore/settings/development.py
