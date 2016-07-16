@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -8,6 +10,7 @@ from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
+from urllib.parse import urlencode
 
 
 def app_description(request, id):
@@ -89,6 +92,21 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
+
+        filter_url_args = {
+            'featured': self.request.GET.get('featured', ''),
+            'maintainer': self.request.GET.get('maintainer', ''),
+        }
+        filter_url_args = dict(filter(lambda a: a[1], filter_url_args.items()))
+        context['filter_url_args'] = urlencode(filter_url_args)
+
+        ordering_url_args = {
+            'order_by': self.request.GET.get('order_by', ''),
+            'ordering': self.request.GET.get('ordering', ''),
+        }
+        ordering_url_args = dict(filter(lambda a: a[1], ordering_url_args.items()))
+        context['ordering_url_args'] = urlencode(ordering_url_args)
+
         return context
 
     @cached_property
