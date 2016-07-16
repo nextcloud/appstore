@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from allauth.account.views import signup
+from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
 
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
@@ -8,8 +9,9 @@ from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
-    url(r"^signup/$", csp_exempt(signup),
-        name="account_signup"),
+    url(r"^signup/$", csp_exempt(signup), name="account_signup"),
+    url(r"^social/signup/$", csp_exempt(social_signup),
+        name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
