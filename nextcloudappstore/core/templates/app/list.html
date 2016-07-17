@@ -12,22 +12,22 @@
 {% if search_query %}
     <div class="col-lg-6">
         {% if search_query and current_category %}
-            <h2 class="search-results-title">{% blocktrans with cat=current_category q=search_query%}Search results for "{{ q }}" in {{ cat }}{% endblocktrans %}</h2>
+            <h2 class="search-results-title">{% blocktrans with category=current_category query=search_query %}Search results for "{{ query }}" in {{ category }}{% endblocktrans %}</h2>
         {% elif search_query %}
-            <h2 class="search-results-title">{% blocktrans with q=search_query%}Search results for "{{ q }}"{% endblocktrans %}</h2>
+            <h2 class="search-results-title">{% blocktrans with query=search_query %}Search results for "{{ query }}"{% endblocktrans %}</h2>
         {% endif %}
     </div>
 {% endif %}
 
 <div class="row">
     <ul class="nav-tabs nav sorting">
-        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'last_modified' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_modified&ordering=desc{% if get_arg_url_strings.search_filters %}&{{ get_arg_url_strings.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
+        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'last_modified' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_modified&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
         {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&ordering=desc{% if get_arg_url_strings.search_filters %}&{{ get_arg_url_strings.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&ordering=asc{% if get_arg_url_strings.search_filters %}&{{ get_arg_url_strings.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% else %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&ordering=asc{% if get_arg_url_strings.search_filters %}&{{ get_arg_url_strings.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% endif %}
         <li role="presentation" class="filters">
             <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
@@ -64,9 +64,9 @@
 {% empty %}
     <div class="col-lg-6 app-list-container">
         {% if search_query and current_category %}
-            <p class="message no-apps-found">{% blocktrans with cat=current_category.name %}No apps found for search "<em>{{ search_query }}</em>" in {{ cat }}.{% endblocktrans %}</p>
+            <p class="message no-apps-found">{% blocktrans with category=current_category.name query=search_query %}No apps found for search "<em>{{ query }}</em>" in {{ category }}.{% endblocktrans %}</p>
         {% elif search_query %}
-            <p class="message no-apps-found">{% blocktrans %}No apps found for search "<em>{{ search_query }}</em>".{% endblocktrans %}</p>
+            <p class="message no-apps-found">{% blocktrans with query=search_query %}No apps found for search "<em>{{ query }}</em>".{% endblocktrans %}</p>
         {% endif %}
     </div>
 {% endfor %}

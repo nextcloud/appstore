@@ -8,11 +8,11 @@
         {% if categories %}
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="{% if cat.id == current_category.id and not object %}active{% endif %}">
-                <a href="{% url 'home' %}{% if get_arg_url_strings.filters_ordering %}?{{ get_arg_url_strings.filters_ordering }}{% endif %}">{% trans 'All Apps' %}</a>
+                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'All Apps' %}</a>
             </li>
             {% for cat in categories %}
             <li class="{% if cat.id == current_category.id %}active{% endif %}">
-                <a href="{% url 'category-app-list' cat.id %}{% if get_arg_url_strings.filters_ordering %}?{{ get_arg_url_strings.filters_ordering }}{% endif %}">{{ cat.name }}</a>
+                <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
             {% endfor %}
             </li>
         </ul>

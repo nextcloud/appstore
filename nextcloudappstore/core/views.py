@@ -91,17 +91,17 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
-        context['get_arg_url_strings'] = self.get_arg_url_strings
+        context['url_params'] = self.url_params
         return context
 
     @cached_property
-    def get_arg_url_strings(self):
-        """URL encoded strings with the GET args of the last request.
+    def url_params(self):
+        """URL encoded strings with the GET params of the last request.
 
-        Intended for preserving GET arguments upon clicking a link by including
+        Intended for preserving GET params upon clicking a link by including
         one (and only one) of these strings in the "href" attribute.
 
-        The GET params are divided into three groups: search, filters and
+        The parameters are divided into three groups: search, filters and
         ordering. In addition to these three, the returned dict also contains
         some combinations of them, as specified by the dict keys.
 
@@ -110,26 +110,26 @@ class CategoryAppListView(ListView):
         :return dict with URL encoded strings.
         """
 
-        search = self._get_args_as_url_string('search')
-        filters = self._get_args_as_url_string('featured', 'maintainer')
-        ordering = self._get_args_as_url_string('order_by', 'ordering')
+        search = self._url_params_str('search')
+        filters = self._url_params_str('featured', 'maintainer')
+        ordering = self._url_params_str('order_by', 'ordering')
 
         return {
             'search': search,
             'filters': filters,
             'ordering': ordering,
-            'filters_ordering': self._combine_arg_strings(filters, ordering),
-            'search_filters': self._combine_arg_strings(search, filters),
+            'search_filters': self._join_url_params_strs(search, filters),
+            'filters_ordering': self._join_url_params_strs(filters, ordering),
         }
 
-    def _get_args_as_url_string(self, *arg_names):
-        args = map(lambda arg: (arg, self.request.GET.get(arg, '')), arg_names)
-        filtered_dict = dict(filter(lambda a: a[1], args))
-        return urlencode(filtered_dict)
+    def _url_params_str(self, *params):
+        args = map(lambda param: (param, self.request.GET.get(param, '')),
+                   params)
+        present_args = filter(lambda a: a[1], args)
+        return urlencode(dict(present_args))
 
-    def _combine_arg_strings(self, *strings):
-        return reduce(lambda str, add: str+'&'+add, filter(None, strings), '')\
-            .lstrip('&')
+    def _join_url_params_strs(self, *strings):
+        return '&'.join(strings).lstrip('&')
 
     @cached_property
     def search_terms(self):
