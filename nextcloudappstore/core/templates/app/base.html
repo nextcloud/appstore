@@ -8,27 +8,11 @@
         {% if categories %}
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="{% if cat.id == current_category.id and not object %}active{% endif %}">
-                {% if ordering_url_args and filter_url_args %}
-                    <a href="{% url 'home' %}?{{ ordering_url_args }}&{{ filter_url_args }}">{% trans 'All Apps' %}</a>
-                {% elif ordering_url_args %}
-                    <a href="{% url 'home' %}?{{ ordering_url_args }}">{% trans 'All Apps' %}</a>
-                {% elif filter_url_args %}
-                    <a href="{% url 'home' %}?{{ filter_url_args }}">{% trans 'All Apps' %}</a>
-                {% else %}
-                    <a href="{% url 'home' %}">{% trans 'All Apps' %}</a>
-                {% endif %}
+                <a href="{% url 'home' %}{% if get_arg_url_strings.filters_ordering %}?{{ get_arg_url_strings.filters_ordering }}{% endif %}">{% trans 'All Apps' %}</a>
             </li>
             {% for cat in categories %}
             <li class="{% if cat.id == current_category.id %}active{% endif %}">
-                {% if ordering_url_args and filter_url_args %}
-                    <a href="{% url 'category-app-list' cat.id %}?{{ ordering_url_args }}&{{ filter_url_args }}">{{ cat.name }}</a>
-                {% elif ordering_url_args %}
-                    <a href="{% url 'category-app-list' cat.id %}?{{ ordering_url_args }}">{{ cat.name }}</a>
-                {% elif filter_url_args %}
-                    <a href="{% url 'category-app-list' cat.id %}?{{ filter_url_args }}">{{ cat.name }}</a>
-                {% else %}
-                    <a href="{% url 'category-app-list' cat.id %}">{{ cat.name }}</a>
-                {% endif %}
+                <a href="{% url 'category-app-list' cat.id %}{% if get_arg_url_strings.filters_ordering %}?{{ get_arg_url_strings.filters_ordering }}{% endif %}">{{ cat.name }}</a>
             {% endfor %}
             </li>
         </ul>
