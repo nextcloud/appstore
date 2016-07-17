@@ -1,5 +1,5 @@
 from functools import reduce
-
+from urllib.parse import urlencode
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -10,7 +10,6 @@ from django.utils.translation import get_language, get_language_info
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
-from urllib.parse import urlencode
 
 
 def app_description(request, id):
