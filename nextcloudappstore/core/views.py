@@ -129,7 +129,7 @@ class CategoryAppListView(ListView):
         return urlencode(dict(present_args))
 
     def _join_url_params_strs(self, *strings):
-        return '&'.join(strings).lstrip('&')
+        return '&'.join(filter(None, strings))
 
     @cached_property
     def search_terms(self):
