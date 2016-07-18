@@ -13,7 +13,7 @@ Development Installation
 ------------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
 
 Afterwards clone the repository using git and change into it::
 
@@ -51,7 +51,7 @@ Production Installation
 -----------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
 
 
 Database Setup
@@ -62,8 +62,8 @@ Then install the database::
 
 configure it::
 
-    echo "listen_address = '127.0.0.1'" >> /etc/postgresql/9.5/main/pg_ident.conf
-    systemctl restart postgresql.service
+    echo "listen_address = '127.0.0.1'" | sudo tee -a /etc/postgresql/9.5/main/pg_ident.conf
+    sudo systemctl restart postgresql.service
 
 and create a user and database::
 
@@ -73,6 +73,7 @@ and create a user and database::
     CREATE USER nextcloudappstore WITH PASSWORD 'password';
     CREATE DATABASE nextcloudappstore OWNER nextcloudappstore;
     \q
+    exit
     exit
 
 .. note:: Use your own password instead of the password example!
@@ -105,6 +106,8 @@ Installing Required Libraries
 
 Next install the required libraries::
 
+    pip install --upgrade wheel
+    pip install --upgrade pip
     pip install -r requirements/base.txt
     pip install -r requirements/production.txt
 
@@ -211,12 +214,14 @@ Placing Static Content
 ~~~~~~~~~~~~~~~~~~~~~~
 Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. To do that first create the appropriate folders::
 
-    mkdir /var/www/production-domain.com/static/
-    mkdir /var/www/production-domain.com/media/
+    sudo mkdir -p /var/www/production-domain.com/static/
+    sudo mkdir -p  /var/www/production-domain.com/media/
 
-Then copy the files into the folders by executing the following command::
+Then copy the files into the folders by executing the following commands::
 
+    sudo chown -R $(whoami):users /var/www
     python manage.py collectstatic
+    sudo chown -R www-data:www-data /var/www
 
 This will place the contents inside the folder configured under the key **STATIC_ROOT** and **MEDIA_ROOT** inside your **nextcloudappstore/settings/production.py**
 
@@ -370,12 +375,16 @@ load new fixtures::
 
 and install any dependencies (if changed)::
 
+    pip install --upgrade wheel
+    pip install --upgrade pip
     pip install --upgrade -r requirements/base.txt
     pip install --upgrade -r requirements/production.txt
 
 Finally run the **collectstatic** command to copy updated assets into the web server's folder::
 
+    sudo chown -R $(whoami):users /var/www
     python manage.py collectstatic
+    sudo chown -R www-data:www-data /var/www
 
 and reload apache::
 
@@ -386,4 +395,6 @@ and reload apache::
 .. code-block:: bash
 
     git pull --rebase origin master
+    sudo chown -R $(whoami):users /var/www
     bash scripts/maintenance/update.sh apache
+    sudo chown -R www-data:www-data /var/www
