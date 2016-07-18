@@ -19,6 +19,11 @@ else
     exit 1
 fi
 
+# prevent execution inside a venv because it can produce weird side effects
+if [[ "$VIRTUAL_ENV" != "" ]]; then
+    deactivate
+fi
+
 source venv/bin/activate
 export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 export LANG=en_EN.UTF-8
