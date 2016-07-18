@@ -13,7 +13,7 @@ Development Installation
 ------------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
 
 Afterwards clone the repository using git and change into it::
 
@@ -51,7 +51,7 @@ Production Installation
 -----------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
 
 
 Database Setup
@@ -62,8 +62,8 @@ Then install the database::
 
 configure it::
 
-    echo "listen_address = '127.0.0.1'" >> /etc/postgresql/9.5/main/pg_ident.conf
-    systemctl restart postgresql.service
+    echo "listen_address = '127.0.0.1'" | sudo tee -a /etc/postgresql/9.5/main/pg_ident.conf
+    sudo systemctl restart postgresql.service
 
 and create a user and database::
 
@@ -73,6 +73,7 @@ and create a user and database::
     CREATE USER nextcloudappstore WITH PASSWORD 'password';
     CREATE DATABASE nextcloudappstore OWNER nextcloudappstore;
     \q
+    exit
     exit
 
 .. note:: Use your own password instead of the password example!
@@ -105,6 +106,8 @@ Installing Required Libraries
 
 Next install the required libraries::
 
+    pip install --upgrade wheel==0.29.0
+    pip install --upgrade pip==8.1.2
     pip install -r requirements/base.txt
     pip install -r requirements/production.txt
 
@@ -370,6 +373,8 @@ load new fixtures::
 
 and install any dependencies (if changed)::
 
+    pip install --upgrade wheel==0.29.0
+    pip install --upgrade pip==8.1.2
     pip install --upgrade -r requirements/base.txt
     pip install --upgrade -r requirements/production.txt
 
