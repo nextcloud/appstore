@@ -216,10 +216,10 @@ Django web apps usually ship static content such as JavaScript, CSS and images i
 
     sudo mkdir -p /var/www/production-domain.com/static/
     sudo mkdir -p  /var/www/production-domain.com/media/
+
+Then copy the files into the folders by executing the following commands::
+
     sudo chown -R $(whoami):users /var/www
-
-Then copy the files into the folders by executing the following command::
-
     python manage.py collectstatic
     sudo chown -R www-data:www-data /var/www
 
@@ -382,7 +382,9 @@ and install any dependencies (if changed)::
 
 Finally run the **collectstatic** command to copy updated assets into the web server's folder::
 
+    sudo chown -R $(whoami):users /var/www
     python manage.py collectstatic
+    sudo chown -R www-data:www-data /var/www
 
 and reload apache::
 
@@ -393,4 +395,6 @@ and reload apache::
 .. code-block:: bash
 
     git pull --rebase origin master
+    sudo chown -R $(whoami):users /var/www
     bash scripts/maintenance/update.sh apache
+    sudo chown -R www-data:www-data /var/www
