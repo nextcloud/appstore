@@ -26,9 +26,11 @@ initmigrations:
 
 # Only for local setup, do not use in production
 dev-setup:
-	pyvenv venv
-	$(pip) install -r $(CURDIR)/requirements/development.txt
-	$(pip) install -r $(CURDIR)/requirements/base.txt
+	pyvenv venv --system-site-packages
+	ls -la venv
+	ls -la venv/bin
+	$(pip) install --ignore-installed -r $(CURDIR)/requirements/development.txt
+	$(pip) install --ignore-installed -r $(CURDIR)/requirements/base.txt
 	@echo "from nextcloudappstore.settings.base import *" > $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "DEBUG = True" >> $(CURDIR)/nextcloudappstore/settings/development.py
