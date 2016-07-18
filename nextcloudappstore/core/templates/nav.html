@@ -17,6 +17,11 @@
                                 {% endif %}"
                    class="form-control search-box">
             <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+
+            {# Include all GET arguments that should be preserved when searching. #}
+            {% if request.GET.order_by %}<input type="hidden" name="order_by" value="{{ request.GET.order_by }}">{% endif %}
+            {% if request.GET.ordering %}<input type="hidden" name="ordering" value="{{ request.GET.ordering }}">{% endif %}
+
             <input type="submit" value="{% trans 'Search' %}" class="search-button">
         </form>
     </div>

@@ -1,3 +1,5 @@
+from functools import reduce
+from urllib.parse import urlencode
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -89,7 +91,45 @@ class CategoryAppListView(ListView):
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
+        context['url_params'] = self.url_params
         return context
+
+    @cached_property
+    def url_params(self):
+        """URL encoded strings with the GET params of the last request.
+
+        Intended for preserving GET params upon clicking a link by including
+        one (and only one) of these strings in the "href" attribute.
+
+        The parameters are divided into three groups: search, filters and
+        ordering. In addition to these three, the returned dict also contains
+        some combinations of them, as specified by the dict keys.
+
+        No leading "?" or "&".
+
+        :return dict with URL encoded strings.
+        """
+
+        search = self._url_params_str('search')
+        filters = self._url_params_str('featured', 'maintainer')
+        ordering = self._url_params_str('order_by', 'ordering')
+
+        return {
+            'search': search,
+            'filters': filters,
+            'ordering': ordering,
+            'search_filters': self._join_url_params_strs(search, filters),
+            'filters_ordering': self._join_url_params_strs(filters, ordering),
+        }
+
+    def _url_params_str(self, *params):
+        args = map(lambda param: (param, self.request.GET.get(param, '')),
+                   params)
+        present_args = filter(lambda a: a[1], args)
+        return urlencode(dict(present_args))
+
+    def _join_url_params_strs(self, *strings):
+        return '&'.join(filter(None, strings))
 
     @cached_property
     def search_terms(self):
