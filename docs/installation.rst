@@ -106,8 +106,8 @@ Installing Required Libraries
 
 Next install the required libraries::
 
-    pip install --upgrade wheel==0.29.0
-    pip install --upgrade pip==8.1.2
+    pip install --upgrade wheel
+    pip install --upgrade pip
     pip install -r requirements/base.txt
     pip install -r requirements/production.txt
 
@@ -214,12 +214,14 @@ Placing Static Content
 ~~~~~~~~~~~~~~~~~~~~~~
 Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. To do that first create the appropriate folders::
 
-    mkdir /var/www/production-domain.com/static/
-    mkdir /var/www/production-domain.com/media/
+    sudo mkdir -p /var/www/production-domain.com/static/
+    sudo mkdir -p  /var/www/production-domain.com/media/
+    sudo chown -R $(whoami):users /var/www
 
 Then copy the files into the folders by executing the following command::
 
     python manage.py collectstatic
+    sudo chown -R www-data:www-data /var/www
 
 This will place the contents inside the folder configured under the key **STATIC_ROOT** and **MEDIA_ROOT** inside your **nextcloudappstore/settings/production.py**
 
@@ -373,8 +375,8 @@ load new fixtures::
 
 and install any dependencies (if changed)::
 
-    pip install --upgrade wheel==0.29.0
-    pip install --upgrade pip==8.1.2
+    pip install --upgrade wheel
+    pip install --upgrade pip
     pip install --upgrade -r requirements/base.txt
     pip install --upgrade -r requirements/production.txt
 

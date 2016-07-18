@@ -19,9 +19,9 @@ else
     exit 1
 fi
 
-current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source $(current_dir)/activate.sh
+source venv/bin/activate
+export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
+export LANG=en_EN.UTF-8
 pip install --upgrade wheel==0.29.0
 pip install --upgrade pip==8.1.2
 pip install --upgrade -r requirements/base.txt
