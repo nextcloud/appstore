@@ -22,10 +22,10 @@ fi
 source venv/bin/activate
 export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 export LANG=en_EN.UTF-8
-python manage.py migrate
-python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 pip install --upgrade -r requirements/base.txt
 pip install --upgrade -r requirements/production.txt
+python manage.py migrate
+python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 python manage.py collectstatic
 eval $reload_cmd
 deactivate
