@@ -21,6 +21,7 @@ fi
 
 # prevent execution inside a venv because it can produce weird side effects
 if [[ "$VIRTUAL_ENV" != "" ]]; then
+    echo "Deactivating previously active venv to prevent side effects"
     deactivate
 fi
 
