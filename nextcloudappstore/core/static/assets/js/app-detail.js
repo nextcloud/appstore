@@ -240,6 +240,14 @@
     }
 
 
+    function noreferrerLinks(html) {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(html, 'text/html');
+        Array.from(doc.getElementsByTagName('a')).forEach(link => link.rel = 'noopener noreferrer');
+        return doc.body.innerHTML;
+    }
+
+
     let document = global.document;
     let hljs = global.hljs;
     let md = global.markdownit({
@@ -277,14 +285,7 @@
     fetch(appDescriptionUrl.content).then((response) => {
         return response.text()
     }).then((description) => {
-        let mdDesc = md.render(description);
-
-        // Add noopener and noreferrer to all links in the description
-        let parser = new DOMParser();
-        let mdDoc = parser.parseFromString(mdDesc, 'text/html');
-        Array.from(mdDoc.getElementsByTagName('a')).forEach(link => link.rel = 'noopener noreferrer');
-
         descriptionTarget.classList.remove('loading');
-        descriptionTarget.innerHTML = mdDoc.body.innerHTML;
+        descriptionTarget.innerHTML = noreferrerLinks(md.render(description));
     });
 }(this));
