@@ -74,7 +74,7 @@
                                         {% endif %}
                                     </table>
                                     <div class="center">
-                                        <a href="{{ release.download }}" rel="nofollow" target="_blank" class="release-download">
+                                        <a href="{{ release.download }}" rel="noopener noreferrer" class="release-download">
                                             {% blocktrans with ver=release.version name=object.name %}Download {{ name }} {{ ver }}{% endblocktrans %}
                                         </a>
                                     </div>

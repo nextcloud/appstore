@@ -66,19 +66,19 @@
             <h4>{% trans "Resources" %}</h4>
             <ul>
                 {% if object.website %}
-                <li><a href="{{ object.website }}">{% trans "Homepage" %}</a></li>
+                <li><a href="{{ object.website }}" rel="noopener noreferrer">{% trans "Homepage" %}</a></li>
                 {% endif %}
                 {% if object.issue_tracker %}
-                <li><a href="{{ object.issue_tracker }}">{% trans "Issue tracker" %}</a></li>
+                <li><a href="{{ object.issue_tracker }}" rel="noopener noreferrer">{% trans "Issue tracker" %}</a></li>
                 {% endif %}
                 {% if object.user_docs %}
-                <li><a href="{{ object.user_docs }}">{% trans "User documentation" %}</a></li>
+                <li><a href="{{ object.user_docs }}" rel="noopener noreferrer">{% trans "User documentation" %}</a></li>
                 {% endif %}
                 {% if object.admin_docs %}
-                <li><a href="{{ object.admin_docs }}">{% trans "Administration documentation" %}</a></li>
+                <li><a href="{{ object.admin_docs }}" rel="noopener noreferrer">{% trans "Administration documentation" %}</a></li>
                 {% endif %}
                 {% if object.developer_docs %}
-                <li><a href="{{ object.developer_docs }}">{% trans "Developer documentation" %}</a></li>
+                <li><a href="{{ object.developer_docs }}" rel="noopener noreferrer">{% trans "Developer documentation" %}</a></li>
                 {% endif %}
                 <li><a href="#downloads">{% trans "Downloads" %}</a></li>
             </ul>
@@ -94,7 +94,7 @@
                         {% if release %}
                             <tr>
                                 <td>Nextcloud {{ platform_v }}</td>
-                                <td><a href="{{ release.download }}">Latest release ({{ release.version }})</a></td>
+                                <td><a href="{{ release.download }}" rel="noopener noreferrer">Latest release ({{ release.version }})</a></td>
                                 <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}#{{ platform_v }}">{% trans "All releases" %}</a></td>
                             </tr>
                         {% endif %}

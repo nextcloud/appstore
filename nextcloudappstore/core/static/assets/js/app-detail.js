@@ -240,6 +240,14 @@
     }
 
 
+    function noreferrerLinks(html) {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(html, 'text/html');
+        Array.from(doc.getElementsByTagName('a')).forEach(link => link.rel = 'noopener noreferrer');
+        return doc.body.innerHTML;
+    }
+
+
     let document = global.document;
     let hljs = global.hljs;
     let md = global.markdownit({
@@ -278,6 +286,6 @@
         return response.text()
     }).then((description) => {
         descriptionTarget.classList.remove('loading');
-        descriptionTarget.innerHTML = md.render(description);
+        descriptionTarget.innerHTML = noreferrerLinks(md.render(description));
     });
 }(this));
