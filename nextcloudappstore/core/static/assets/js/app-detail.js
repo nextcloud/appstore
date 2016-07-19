@@ -277,7 +277,14 @@
     fetch(appDescriptionUrl.content).then((response) => {
         return response.text()
     }).then((description) => {
+        let mdDesc = md.render(description);
+
+        // Add noopener and noreferrer to all links in the description
+        let parser = new DOMParser();
+        let mdDoc = parser.parseFromString(mdDesc, 'text/html');
+        Array.from(mdDoc.getElementsByTagName('a')).forEach(link => link.rel = 'noopener noreferrer');
+
         descriptionTarget.classList.remove('loading');
-        descriptionTarget.innerHTML = md.render(description);
+        descriptionTarget.innerHTML = mdDoc.body.innerHTML;
     });
 }(this));
