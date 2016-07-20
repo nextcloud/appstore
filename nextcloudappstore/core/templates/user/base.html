@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load css_class %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans "Profile" %} - {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-3">
+        <ul id="sidebar" class="nav nav-pills nav-stacked">
+            <li>
+                <a href="{% url 'user-profile' %}">{% trans 'My apps' %}</a>
+            </li>
+            <li>
+                <a href="{% url 'account_change_password' %}">{% trans 'Change password' %}</a>
+            </li>
+            <li>
+                <a href="{% url 'user-change-name' %}">{% trans 'Change name' %}</a>
+            </li>
+            <li>
+                <a href="{% url 'user-api-token' %}">{% trans 'API token' %}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        {% block profile-content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

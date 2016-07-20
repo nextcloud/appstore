@@ -80,6 +80,10 @@ class App(TranslatableModel):
     def __str__(self) -> str:
         return self.name
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('app-detail', args=[str(self.id)])
+
     def can_update(self, user: User) -> bool:
         return self.owner == user or user in self.co_maintainers.all()
 

@@ -1,0 +1,17 @@
+{% extends "user/base.html" %}
+{% load css_class %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans "Profile" %} - {% endblock %}
+
+{% block profile-content %}
+    <h1>{% trans "My apps" %}</h1>
+    <ul class="nav nav-pills nav-stacked">
+    {% for obj in object_list %}
+        <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
+    {% empty %}
+        <li>No Apps</li>
+    {% endfor %}
+    <ul>
+{% endblock %}

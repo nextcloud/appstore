@@ -4,6 +4,8 @@ from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
 
+from nextcloudappstore.core.user.views import ProfileView, ChangeNameView, \
+     APITokenView
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView
 
@@ -13,6 +15,9 @@ urlpatterns = [
     url(r"^social/signup/$", csp_exempt(social_signup),
         name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),
+    url(r'^profile/$', ProfileView.as_view(), name='user-profile'),
+    url(r'^profile/change-name$', ChangeNameView.as_view(), name='user-change-name'),
+    url(r'^profile/token$', APITokenView.as_view(), name='user-api-token'),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
     url(r'^app/(?P<id>[\w_]+)/?$', AppDetailView.as_view(), name='app-detail'),

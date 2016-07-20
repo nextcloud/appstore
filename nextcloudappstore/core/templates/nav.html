@@ -50,6 +50,9 @@
                 {% endif %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-link">
+                    <a href="{% url 'user-profile' %}">Profile</a>
+                </li>
+                <li class="nav-link">
                     <a href="{% url 'account_logout' %}">Log out</a>
                 </li>
                 {% else %}
