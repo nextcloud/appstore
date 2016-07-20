@@ -61,7 +61,7 @@
                                         </tr>
                                         {% endif %}
                                         <tr><td>{% trans 'Minimum integer bits' %}</td><td>{{ release.min_int_size }}</td></tr>
-                                        {% if release.php_version_spec %}
+                                        {% if release.php_version_spec|version_spec %}
                                         <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec|version_spec }}</td></tr>
                                         {% endif %}
                                         {% if release.phpextensiondependencies.all %}
