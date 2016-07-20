@@ -52,21 +52,24 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_superuser %}
-                <li class="nav-link">
-                    <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-                </li>
+                    <li class="nav-link">
+                        <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                    </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
-                <li class="nav-link">
-                    <a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>
-                </li>
+                    <li class="nav-link">
+                        <a href="{% url 'account' %}">{% trans 'Account' %}</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>
+                    </li>
                 {% else %}
-                <li class="nav-link">
-                    <a href="{% url 'account_login' %}">{% trans 'Log in' %}</a>
-                </li>
-                <li class="nav-link">
-                    <a href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
-                </li>
+                    <li class="nav-link">
+                        <a href="{% url 'account_login' %}">{% trans 'Log in' %}</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>
