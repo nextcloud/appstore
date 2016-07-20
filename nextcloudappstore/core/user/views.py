@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 
 class AccountView(LoginRequiredMixin, TemplateView):
     """Display and allow changing of the user's name."""
+
     template_name = 'user/account.html'
 
     def get_context_data(self, **kwargs):
@@ -14,6 +15,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
 
 class PasswordView(LoginRequiredMixin, TemplateView):
     """Allow the user to change their password."""
+
     template_name = 'user/password.html'
 
     def get_context_data(self, **kwargs):
@@ -23,7 +25,8 @@ class PasswordView(LoginRequiredMixin, TemplateView):
 
 
 class APITokenView(LoginRequiredMixin, TemplateView):
-    """Allow the user to change their password."""
+    """Display the user's API token, and allow it to be regenerated."""
+
     template_name = 'user/api-token.html'
 
     def get_context_data(self, **kwargs):
