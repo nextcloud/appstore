@@ -6,6 +6,7 @@ from allauth.account import views
 
 from nextcloudappstore.core.models import App
 
+
 class ProfileView(LoginRequiredMixin, ListView):
     """Display the users profile"""
     template_name = 'user/profile.html'
@@ -21,8 +22,6 @@ class ChangeNameView(LoginRequiredMixin, TemplateView):
     template_name = 'user/change_name.html'
 
 
-
 class APITokenView(LoginRequiredMixin, TemplateView):
     """Display the users profile"""
     template_name = 'user/api_token.html'
-
