@@ -1,7 +1,7 @@
 from functools import reduce
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
-from django.core.urlresolvers import reverse # type: ignore
+from django.core.urlresolvers import reverse  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
