@@ -11,7 +11,7 @@
     {% for obj in object_list %}
         <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
     {% empty %}
-        <li>No Apps</li>
+        <li>{% trans "No Apps" %}</li>
     {% endfor %}
     <ul>
 {% endblock %}
