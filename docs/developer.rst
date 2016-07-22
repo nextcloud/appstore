@@ -176,6 +176,7 @@ bugs
 repository
     * optional
     * must contain an URL to the project's repository
+    * can contain a **type** attribute, **git**, **mercurial**, **subversion** and **bzr** are allowed values, defaults to **git**
     * currently not used
 discussion
     * optional
