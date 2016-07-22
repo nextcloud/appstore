@@ -28,6 +28,7 @@ class ParserTest(TestCase):
             'developer_docs': None,
             'user_docs': None,
             'website': None,
+            'discussion': None,
             'issue_tracker': None,
             'screenshots': [],
             'categories': [{'category': {'id': 'multimedia'}}],
@@ -175,6 +176,7 @@ class ParserTest(TestCase):
             'user_docs': 'https://github.com/owncloud/news/wiki#user'
                          '-documentation',
             'website': 'https://github.com/owncloud/news',
+            'discussion': 'https://help.nextcloud.com/t/news',
             'issue_tracker': 'https://github.com/owncloud/news/issues',
             'name': {'de': 'Nachrichten', 'en': 'News'},
             'release': {
