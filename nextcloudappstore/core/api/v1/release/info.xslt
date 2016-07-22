@@ -97,6 +97,9 @@
             <issue-tracker>
                 <xsl:value-of select="bugs"/>
             </issue-tracker>
+            <discussion>
+                <xsl:value-of select="discussion"/>
+            </discussion>
 
             <!-- release -->
             <release>
