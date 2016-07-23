@@ -220,10 +220,8 @@ dependencies/owncloud
 
 The following character maximum lengths are enforced:
 
-* All description Strings are (almost) of unlimited size
-* All Url Strings have a maximum of 256 characters
-* All other Strings have a maximum of 128 characters
-
+* All description Strings are database text fields and therefore not limited in size
+* All other Strings have a maximum of 256 characters
 
 
 .. _info-schema:
