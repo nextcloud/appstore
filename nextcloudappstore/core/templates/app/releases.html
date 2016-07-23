@@ -15,7 +15,7 @@
     <h1>{{ object.name }} {% trans ' - Releases' %}</h1>
     <section><a href="/app/{{ object.id }}/">&larr; {% trans 'App details' %}</a></section>
     <section class="app-releases">
-        {% for platform_v, releases in releases_by_platform_v|sort_by_version:'desc' %}
+        {% for platform_v, releases in releases_by_platform_v %}
             {% if releases %}
                 <a name="{{ platform_v }}"></a>
                 <div class="accordion-item{% if request.GET.platform == platform_v %} open{% endif %}">

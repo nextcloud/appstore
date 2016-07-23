@@ -4,6 +4,7 @@ from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
@@ -88,13 +89,18 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
-    def releases_by_platform_v(self):
+    def releases_by_platform_v(self, nightlies=False):
         """Looks up all compatible releases for each platform version.
+
+        :param nightlies: Return only nightly releases if true, and only non-
+                          nightlies otherwise.
         :return dict with all compatible releases for each platform version.
         """
+
         releases = {}
         for p_version in settings.PLATFORM_VERSIONS:
-            releases[p_version] = self.compatible_releases(p_version)
+            releases[p_version] = \
+                    self.compatible_releases(p_version, nightlies=nightlies)
         return releases
 
     def latest_releases_by_platform_v(self):
@@ -102,20 +108,33 @@ class App(TranslatableModel):
         Ignores nightly releases.
         :return dict with the latest release for each platform version.
         """
+
         all_latest = {}
         for p_version in settings.PLATFORM_VERSIONS:
             compatible = self.compatible_releases(p_version)
             all_latest[p_version] = self._latest_non_nightly(compatible)
         return all_latest
 
-    def compatible_releases(self, platform_version, inclusive=True):
+    def compatible_releases(self, platform_version, inclusive=True,
+                            nightlies=False):
+        """Returns all releases of this app that are compatible with the given
+        platform version.
+
+        :param inclusive: Use inclusive version check (see
+                          AppRelease.is_compatible()).
+        :param nightlies: Return only nightly releases if True, only non-
+                          nightlies otherwise.
+        :return a sorted list of all compatible releases.
+        """
+
         all_releases = self.releases.all()
         return sorted(list(filter(
-            lambda rel: rel.is_compatible(platform_version, inclusive),
+            lambda rel: rel.is_compatible(platform_version, inclusive)
+            and rel.is_nightly == nightlies,
             all_releases)), key=lambda rel: Version(rel.version), reverse=True)
 
     def _latest_non_nightly(self, releases):
-        releases = filter(lambda r: not r.version.endswith('-nightly'),
+        releases = filter(lambda r: not r.is_nightly,
                           releases)
         try:
             return max(releases, key=lambda r: Version(r.version))
@@ -171,14 +190,15 @@ class AppRelease(Model):
         return '%s %s' % (self.app, self.version)
 
     def is_compatible(self, platform_version, inclusive=False):
-        """
-        Checks if a release is compatible with a platform version
+        """Checks if a release is compatible with a platform version
+
         :param platform_version: the platform version, not required to be
-        semver compatible
+                                 semver compatible
         :param inclusive: if True the check will also return True if an app
-         requires 9.0.1 and the given platform version is 9.0
+                          requires 9.0.1 and the given platform version is 9.0
         :return: True if compatible, otherwise false
         """
+
         min_version = Version(pad_min_version(platform_version))
         spec = Spec(self.platform_version_spec)
         if inclusive:
@@ -186,6 +206,10 @@ class AppRelease(Model):
             return (min_version in spec or max_version in spec)
         else:
             return min_version in spec
+
+    @cached_property
+    def is_nightly(self):
+        return self.version.endswith('-nightly')
 
 
 class Screenshot(Model):
