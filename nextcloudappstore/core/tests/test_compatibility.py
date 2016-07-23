@@ -89,6 +89,6 @@ class CompatibilityTest(TestCase):
 
     def test_nightlies(self):
         with self.settings(PLATFORM_VERSIONS=self.platform_versions):
-            app1 = self.app1.compatible_releases('10.0', nightlies=True)
+            app1 = self.app1.compatible_nightly_releases('10.0')
             self.assertEqual(app1[0].version, '6.0.0-nightly')
             self.assertEqual(len(app1), 1)
