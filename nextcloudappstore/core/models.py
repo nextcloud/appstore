@@ -3,7 +3,7 @@ from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField, Q  # type: ignore
+    DateTimeField, Model, BooleanField, EmailField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
@@ -73,6 +73,8 @@ class App(TranslatableModel):
     co_maintainers = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
                                      verbose_name=_('Co-Maintainers'),
                                      related_name='co_maintained_apps')
+    authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
+                              verbose_name=_('App authors'))
     featured = BooleanField(verbose_name=_('Featured'), default=False)
 
     class Meta:
@@ -121,6 +123,13 @@ class App(TranslatableModel):
             return max(releases, key=lambda r: Version(r.version))
         except ValueError:
             return None
+
+
+class AppAuthor(Model):
+    name = CharField(max_length=128, verbose_name=_('Full name'))
+    homepage = URLField(max_length=256, blank=True,
+                        verbose_name=_('Homepage'))
+    mail = EmailField(max_length=128, verbose_name=_('E-Mail'), blank=True)
 
 
 class AppRelease(Model):

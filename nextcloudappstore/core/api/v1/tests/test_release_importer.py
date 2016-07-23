@@ -42,6 +42,10 @@ class ImporterTest(TestCase):
         app.set_current_language('de')  # fallback
         self.assertEqual('News', app.name)
 
+        # authors
+        self.assertEqual(1, app.authors.count())
+        self.assertEqual('Bernhard Posselt', app.authors.all()[0].name)
+
         # categories
         self.assertEqual(1, app.categories.count())
         self.assertEqual('multimedia', app.categories.all()[0].id)
