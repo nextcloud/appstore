@@ -39,14 +39,14 @@ class AppManager(TranslatableManager):
 
 class App(TranslatableModel):
     objects = AppManager()
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_('app id, identical to folder name'))
     categories = ManyToManyField('Category', verbose_name=_('Category'))
     translations = TranslatedFields(
-        name=CharField(max_length=128, verbose_name=_('Name'),
+        name=CharField(max_length=256, verbose_name=_('Name'),
                        help_text=_('Rendered app name for users')),
-        summary=CharField(max_length=128, verbose_name=_('Summary'),
+        summary=CharField(max_length=256, verbose_name=_('Summary'),
                           help_text=_(
                               'Short text describing the app\'s purpose')),
         description=TextField(verbose_name=_('Description'), help_text=_(
@@ -169,14 +169,14 @@ class App(TranslatableModel):
 
 
 class AppAuthor(Model):
-    name = CharField(max_length=128, verbose_name=_('Full name'))
+    name = CharField(max_length=256, verbose_name=_('Full name'))
     homepage = URLField(max_length=256, blank=True,
                         verbose_name=_('Homepage'))
-    mail = EmailField(max_length=128, verbose_name=_('E-Mail'), blank=True)
+    mail = EmailField(max_length=256, verbose_name=_('E-Mail'), blank=True)
 
 
 class AppRelease(Model):
-    version = CharField(max_length=128, verbose_name=_('Version'),
+    version = CharField(max_length=256, verbose_name=_('Version'),
                         help_text=_('Version follows Semantic Versioning'))
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
                      related_name='releases')
@@ -192,9 +192,9 @@ class AppRelease(Model):
     shell_commands = ManyToManyField('ShellCommand', blank=True,
                                      verbose_name=_(
                                          'Shell command dependency'))
-    php_version_spec = CharField(max_length=128,
+    php_version_spec = CharField(max_length=256,
                                  verbose_name=_('PHP version requirement'))
-    platform_version_spec = CharField(max_length=128, verbose_name=_(
+    platform_version_spec = CharField(max_length=256, verbose_name=_(
         'Platform version requirement'))
     min_int_size = IntegerField(blank=True, default=32,
                                 verbose_name=_('Minimum Integer Bits'),
@@ -261,7 +261,7 @@ class Screenshot(Model):
 
 
 class ShellCommand(Model):
-    name = CharField(max_length=128, unique=True, primary_key=True,
+    name = CharField(max_length=256, unique=True, primary_key=True,
                      verbose_name=_('Shell Command'),
                      help_text=_(
                          'Name of a required shell command, e.g. grep'))
@@ -276,7 +276,7 @@ class ShellCommand(Model):
 
 
 class Category(TranslatableModel):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_(
                        'Category id which is used to identify a '
@@ -287,7 +287,7 @@ class Category(TranslatableModel):
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     translations = TranslatedFields(
-        name=CharField(max_length=128, help_text=_(
+        name=CharField(max_length=256, help_text=_(
             'Category name which will be presented to the user'),
                        verbose_name=_('Name')),
         description=TextField(verbose_name=_('Description'),
@@ -304,11 +304,11 @@ class Category(TranslatableModel):
 
 
 class License(Model):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_(
                        'Key which is used to identify a license'))
-    name = CharField(max_length=128, verbose_name=_('Name'),
+    name = CharField(max_length=256, verbose_name=_('Name'),
                      help_text=_(
                          'License name which will be presented to '
                          'the user'))
@@ -322,10 +322,10 @@ class License(Model):
 
 
 class Database(Model):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_('Key which is used to identify a database'))
-    name = CharField(max_length=128, verbose_name=_('Name'),
+    name = CharField(max_length=256, verbose_name=_('Name'),
                      help_text=_(
                          'Database name which will be presented to the user'))
 
@@ -344,7 +344,7 @@ class DatabaseDependency(Model):
                              related_name='databasedependencies')
     database = ForeignKey('Database', related_name='releasedependencies',
                           on_delete=CASCADE, verbose_name=_('Database'))
-    version_spec = CharField(max_length=128,
+    version_spec = CharField(max_length=256,
                              verbose_name=_('Database version requirement'))
 
     class Meta:
@@ -358,7 +358,7 @@ class DatabaseDependency(Model):
 
 
 class PhpExtension(Model):
-    id = CharField(max_length=128, unique=True, help_text=_('e.g. libxml'),
+    id = CharField(max_length=256, unique=True, help_text=_('e.g. libxml'),
                    primary_key=True, verbose_name=_('PHP extension'))
 
     class Meta:
@@ -377,7 +377,7 @@ class PhpExtensionDependency(Model):
     php_extension = ForeignKey('PhpExtension', on_delete=CASCADE,
                                verbose_name=_('PHP Extension'),
                                related_name='releasedependencies')
-    version_spec = CharField(max_length=128,
+    version_spec = CharField(max_length=256,
                              verbose_name=_('Extension version requirement'))
 
     class Meta:
