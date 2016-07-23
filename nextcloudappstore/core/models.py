@@ -88,23 +88,27 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
+    def releases_by_platform_v(self):
+        """Looks up all compatible non-nightly releases for each platform
+        version.
+
+        :return dict with all compatible non-nightly releases for each platform
+                version.
+        """
+
+        return dict(map(
+            lambda v: (v, self.compatible_releases(v)),
+            settings.PLATFORM_VERSIONS))
+
     def nightly_releases_by_platform_v(self):
         """Looks up all compatible nightly releases for each platform version.
+
         :return dict with all compatible nightly releases for each platform
                 version.
         """
 
         return dict(map(
             lambda v: (v, self.compatible_releases(v, nightlies=True)),
-            settings.PLATFORM_VERSIONS))
-
-    def releases_by_platform_v(self):
-        """Looks up all compatible releases for each platform version.
-        :return dict with all compatible releases for each platform version.
-        """
-
-        return dict(map(
-            lambda v: (v, self.compatible_releases(v)),
             settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
