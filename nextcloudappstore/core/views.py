@@ -43,7 +43,7 @@ class AppReleasesView(DetailView):
         context['categories'] = Category.objects.all()
 
         releases = self.object.releases_by_platform_v()
-        nightlies = self.object.releases_by_platform_v(nightlies=True)
+        nightlies = self.object.nightly_releases_by_platform_v()
         versions = set(list(releases.keys()) + list(nightlies.keys()))
         all_releases = list(map(
             lambda v: (v, releases.get(v, []) + nightlies.get(v, [])),

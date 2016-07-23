@@ -88,19 +88,24 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
-    def releases_by_platform_v(self, nightlies=False):
-        """Looks up all compatible releases for each platform version.
+    def nightly_releases_by_platform_v(self):
+        """Looks up all compatible nightly releases for each platform version.
+        :return dict with all compatible nightly releases for each platform
+                version.
+        """
 
-        :param nightlies: Return only nightly releases if True, only non-
-                          nightlies otherwise.
+        return dict(map(
+            lambda v: (v, self.compatible_releases(v, nightlies=True)),
+            settings.PLATFORM_VERSIONS))
+
+    def releases_by_platform_v(self):
+        """Looks up all compatible releases for each platform version.
         :return dict with all compatible releases for each platform version.
         """
 
-        releases = {}
-        for p_version in settings.PLATFORM_VERSIONS:
-            releases[p_version] = \
-                    self.compatible_releases(p_version, nightlies=nightlies)
-        return releases
+        return dict(map(
+            lambda v: (v, self.compatible_releases(v)),
+            settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest release for each platform version.
@@ -126,11 +131,14 @@ class App(TranslatableModel):
         :return a sorted list of all compatible releases.
         """
 
-        all_releases = self.releases.all()
-        return sorted(filter(
-            lambda rel: rel.is_compatible(platform_version, inclusive)
-            and rel.is_nightly == nightlies,
-            all_releases), key=lambda rel: Version(rel.version), reverse=True)
+        return sorted(
+            filter(
+                lambda rel:
+                    rel.is_compatible(platform_version, inclusive)
+                    and rel.is_nightly == nightlies,
+                self.releases.all()),
+            key=lambda rel: Version(rel.version),
+            reverse=True)
 
     def _latest_non_nightly(self, releases):
         releases = filter(lambda r: not r.is_nightly,
