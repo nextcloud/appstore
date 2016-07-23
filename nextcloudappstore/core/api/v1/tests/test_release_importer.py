@@ -78,6 +78,7 @@ class ImporterTest(TestCase):
         self.assertEqual('#This is markdown', app.description)
         app.set_current_language('de')  # fallback
         self.assertEqual('Nachrichten', app.name)
+        self.assertEqual('https://help.nextcloud.com/t/news', app.discussion)
         self.assertEqual(
             'Eine Nachrichten App, welche mit [RSS/Atom]('
             'https://en.wikipedia.org/wiki/RSS) umgehen kann',
