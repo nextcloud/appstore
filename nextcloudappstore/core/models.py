@@ -4,7 +4,6 @@ from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, Q  # type: ignore
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
