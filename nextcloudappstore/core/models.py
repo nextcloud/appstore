@@ -92,7 +92,7 @@ class App(TranslatableModel):
     def releases_by_platform_v(self, nightlies=False):
         """Looks up all compatible releases for each platform version.
 
-        :param nightlies: Return only nightly releases if true, and only non-
+        :param nightlies: Return only nightly releases if True, only non-
                           nightlies otherwise.
         :return dict with all compatible releases for each platform version.
         """
@@ -128,10 +128,10 @@ class App(TranslatableModel):
         """
 
         all_releases = self.releases.all()
-        return sorted(list(filter(
+        return sorted(filter(
             lambda rel: rel.is_compatible(platform_version, inclusive)
             and rel.is_nightly == nightlies,
-            all_releases)), key=lambda rel: Version(rel.version), reverse=True)
+            all_releases), key=lambda rel: Version(rel.version), reverse=True)
 
     def _latest_non_nightly(self, releases):
         releases = filter(lambda r: not r.is_nightly,
@@ -207,7 +207,7 @@ class AppRelease(Model):
         else:
             return min_version in spec
 
-    @cached_property
+    @property
     def is_nightly(self):
         return self.version.endswith('-nightly')
 
