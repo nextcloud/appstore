@@ -64,7 +64,7 @@ class CompatibilityTest(TestCase):
         app1rel2 = self.app1.compatible_releases('9.0.0')
         app2rel = self.app2.compatible_releases('9.1.0')
         app2rel2 = self.app2.compatible_releases('9.0.0')
-        self.assertEqual(len(app1rel), 3)
+        self.assertEqual(len(app1rel), 2)
         self.assertEqual(len(app1rel2), 1)
         self.assertEqual(len(app2rel), 1)
         self.assertEqual(len(app2rel2), 1)
@@ -86,3 +86,9 @@ class CompatibilityTest(TestCase):
         with self.settings(PLATFORM_VERSIONS=self.platform_versions):
             app1 = self.app1.latest_releases_by_platform_v()
             self.assertEqual(app1['10.0'].version, '5.0.0')
+
+    def test_nightlies(self):
+        with self.settings(PLATFORM_VERSIONS=self.platform_versions):
+            app1 = self.app1.compatible_nightly_releases('10.0')
+            self.assertEqual(app1[0].version, '6.0.0-nightly')
+            self.assertEqual(len(app1), 1)

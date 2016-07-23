@@ -91,34 +91,77 @@ class App(TranslatableModel):
         return self.owner == user
 
     def releases_by_platform_v(self):
-        """Looks up all compatible releases for each platform version.
-        :return dict with all compatible releases for each platform version.
+        """Looks up all compatible non-nightly releases for each platform
+        version.
+
+        :return dict with all compatible non-nightly releases for each platform
+                version.
         """
-        releases = {}
-        for p_version in settings.PLATFORM_VERSIONS:
-            releases[p_version] = self.compatible_releases(p_version)
-        return releases
+
+        return dict(map(
+            lambda v: (v, self.compatible_releases(v)),
+            settings.PLATFORM_VERSIONS))
+
+    def nightly_releases_by_platform_v(self):
+        """Looks up all compatible nightly releases for each platform version.
+
+        :return dict with all compatible nightly releases for each platform
+                version.
+        """
+
+        return dict(map(
+            lambda v: (v, self.compatible_nightly_releases(v)),
+            settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest release for each platform version.
         Ignores nightly releases.
         :return dict with the latest release for each platform version.
         """
+
         all_latest = {}
         for p_version in settings.PLATFORM_VERSIONS:
             compatible = self.compatible_releases(p_version)
-            all_latest[p_version] = self._latest_non_nightly(compatible)
+            all_latest[p_version] = self._latest(compatible)
         return all_latest
 
     def compatible_releases(self, platform_version, inclusive=True):
-        all_releases = self.releases.all()
-        return sorted(list(filter(
-            lambda rel: rel.is_compatible(platform_version, inclusive),
-            all_releases)), key=lambda rel: Version(rel.version), reverse=True)
+        """Returns all non-nightly releases of this app that are compatible
+        with the given platform version.
 
-    def _latest_non_nightly(self, releases):
-        releases = filter(lambda r: not r.version.endswith('-nightly'),
-                          releases)
+        :param inclusive: Use inclusive version check (see
+                          AppRelease.is_compatible()).
+        :return a sorted list of all compatible non-nightly releases.
+        """
+
+        return sorted(
+            filter(
+                lambda rel:
+                    rel.is_compatible(platform_version, inclusive)
+                    and not rel.is_nightly,
+                self.releases.all()),
+            key=lambda rel: Version(rel.version),
+            reverse=True)
+
+    def compatible_nightly_releases(self, platform_version, inclusive=True):
+        """Returns all nightly releases of this app that are compatible with
+        the given platform version.
+
+        :param inclusive: Use inclusive version check (see
+                          AppRelease.is_compatible()).
+        :return a sorted list of all compatible nightly releases.
+        """
+
+        return sorted(
+            filter(
+                lambda rel:
+                    rel.is_compatible(platform_version, inclusive)
+                    and rel.is_nightly,
+                self.releases.all()),
+            key=lambda rel: Version(rel.version),
+            reverse=True)
+
+    def _latest(self, releases):
         try:
             return max(releases, key=lambda r: Version(r.version))
         except ValueError:
@@ -180,14 +223,15 @@ class AppRelease(Model):
         return '%s %s' % (self.app, self.version)
 
     def is_compatible(self, platform_version, inclusive=False):
-        """
-        Checks if a release is compatible with a platform version
+        """Checks if a release is compatible with a platform version
+
         :param platform_version: the platform version, not required to be
-        semver compatible
+                                 semver compatible
         :param inclusive: if True the check will also return True if an app
-         requires 9.0.1 and the given platform version is 9.0
+                          requires 9.0.1 and the given platform version is 9.0
         :return: True if compatible, otherwise false
         """
+
         min_version = Version(pad_min_version(platform_version))
         spec = Spec(self.platform_version_spec)
         if inclusive:
@@ -195,6 +239,10 @@ class AppRelease(Model):
             return (min_version in spec or max_version in spec)
         else:
             return min_version in spec
+
+    @property
+    def is_nightly(self):
+        return self.version.endswith('-nightly')
 
 
 class Screenshot(Model):
