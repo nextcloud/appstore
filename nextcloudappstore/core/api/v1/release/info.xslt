@@ -67,6 +67,22 @@
                 </xsl:for-each>
             </name>
 
+            <authors type="list">
+                <xsl:for-each select="author">
+                    <author>
+                        <name>
+                            <xsl:value-of select="."/>
+                        </name>
+                        <homepage>
+                            <xsl:value-of select="@homepage"/>
+                        </homepage>
+                        <mail>
+                            <xsl:value-of select="@mail"/>
+                        </mail>
+                    </author>
+                </xsl:for-each>
+            </authors>
+
             <screenshots type="list">
                 <xsl:for-each select="screenshot">
                     <screenshot>

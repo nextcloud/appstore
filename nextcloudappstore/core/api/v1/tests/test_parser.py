@@ -23,6 +23,11 @@ class ParserTest(TestCase):
             'id': 'news',
             'summary': {'en': 'An RSS/Atom feed reader'},
             'description': {'en': 'An RSS/Atom feed reader'},
+            'authors': [{'author': {
+                'homepage': None,
+                'mail': None,
+                'name': 'Bernhard Posselt'
+            }}],
             'name': {'en': 'News'},
             'admin_docs': None,
             'developer_docs': None,
@@ -161,6 +166,23 @@ class ParserTest(TestCase):
             'categories': [
                 {'category': {'id': 'multimedia'}},
                 {'category': {'id': 'tools'}}
+            ],
+            'authors': [
+                {'author': {
+                    'homepage': 'http://example.com',
+                    'mail': 'mail@provider.com',
+                    'name': 'Bernhard Posselt'
+                }},
+                {'author': {
+                    'homepage': None,
+                    'mail': None,
+                    'name': 'Alessandro Cosentino'
+                }},
+                {'author': {
+                    'homepage': None,
+                    'mail': None,
+                    'name': 'Jan-Christoph Borchardt'
+                }}
             ],
             'summary': {
                 'en': 'An RSS/Atom feed reader',
