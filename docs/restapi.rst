@@ -62,6 +62,23 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "categories": [
                 "multimedia"
             ],
+            "authors": [
+                {
+                    "name": "Bernhard Posselt",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Alessandro Cosentino",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Jan-Christoph Borchardt",
+                    "mail": "",
+                    "homepage": ""
+                }
+            ],
             "userDocs": "https://github.com/owncloud/news/wiki#user-documentation",
             "adminDocs": "https://github.com/owncloud/news#readme",
             "developerDocs": "https://github.com/owncloud/news/wiki#developer-documentation",

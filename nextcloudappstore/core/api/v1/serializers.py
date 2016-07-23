@@ -38,6 +38,12 @@ class CategorySerializer(TranslatableModelSerializer):
         fields = ('id', 'translations')
 
 
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppAuthor
+        fields = ('name', 'mail', 'homepage')
+
+
 class AppReleaseSerializer(serializers.ModelSerializer):
     databases = DatabaseDependencySerializer(many=True, read_only=True,
                                              source='databasedependencies')
@@ -80,6 +86,7 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 class AppSerializer(serializers.ModelSerializer):
     releases = AppReleaseSerializer(many=True, read_only=True)
     screenshots = ScreenshotSerializer(many=True, read_only=True)
+    authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
 
     class Meta:
@@ -87,7 +94,7 @@ class AppSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'screenshots', 'translations', 'featured'
+            'screenshots', 'translations', 'featured', 'authors'
         )
 
 

@@ -3,7 +3,7 @@ from nextcloudappstore.core.versioning import to_spec
 from semantic_version import Version  # type: ignore
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
-    PhpExtensionDependency, PhpExtension
+    PhpExtensionDependency, PhpExtension, AppAuthor
 
 
 def none_to_empty_string(value: str) -> str:
@@ -84,6 +84,19 @@ class ShellCommandImporter(ScalarImporter):
             return command
 
         obj.shell_commands = list(map(map_commands, value))
+
+
+class AuthorImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        def map_authors(data: Dict) -> AppAuthor:
+            author = data['author']
+            return AppAuthor.objects.create(
+                name=author['name'],
+                mail=none_to_empty_string(author['mail']),
+                homepage=none_to_empty_string(author['homepage'])
+            )
+
+        obj.authors = list(map(map_authors, value))
 
 
 class IntegerAttributeImporter(ScalarImporter):
@@ -185,7 +198,8 @@ class AppImporter(Importer):
                  screenshots_importer: ScreenshotsImporter,
                  attribute_importer: StringAttributeImporter,
                  l10n_importer: L10NImporter,
-                 category_importer: CategoryImporter) -> None:
+                 category_importer: CategoryImporter,
+                 author_importer: AuthorImporter) -> None:
         super().__init__({
             'release': release_importer,
             'screenshots': screenshots_importer,
@@ -198,7 +212,8 @@ class AppImporter(Importer):
             'name': l10n_importer,
             'summary': l10n_importer,
             'description': l10n_importer,
-            'categories': category_importer
+            'categories': category_importer,
+            'authors': author_importer
         }, {'id'})
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:
@@ -214,6 +229,7 @@ class AppImporter(Importer):
         else:
             # clear all relations
             obj.screenshots.all().delete()
+            obj.authors.all().delete()
             obj.categories.clear()
             for translation in obj.translations.all():
                 translation.delete()
