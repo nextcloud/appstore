@@ -94,6 +94,11 @@ class App(TranslatableModel):
         """Looks up all compatible non-nightly releases for each platform
         version.
 
+        Example of returned dict:
+
+        {'9.1': [<AppRelease object>, <AppRelease object>],
+        '9.0': [<AppRelease object>]}
+
         :return dict with all compatible non-nightly releases for each platform
                 version.
         """
@@ -105,6 +110,11 @@ class App(TranslatableModel):
     def nightly_releases_by_platform_v(self):
         """Looks up all compatible nightly releases for each platform version.
 
+        Example of returned dict:
+
+        {'9.1': [<AppRelease object>, <AppRelease object>],
+        '9.0': [<AppRelease object>]}
+
         :return dict with all compatible nightly releases for each platform
                 version.
         """
@@ -114,16 +124,34 @@ class App(TranslatableModel):
             settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
-        """Looks up the latest release for each platform version.
-        Ignores nightly releases.
-        :return dict with the latest release for each platform version.
+        """Looks up the latest stable and nightly release for each platform
+        version.
+
+        Example of returned dict:
+
+        {'9.1': {
+            'stable': <AppRelease object>,
+            'nightly': <AppRelease object>
+        },
+        '9.0': {
+            'stable': <AppRelease object>
+        }}
+
+        :return dict with the latest stable and nightly release for each
+                platform version.
         """
 
-        all_latest = {}
-        for p_version in settings.PLATFORM_VERSIONS:
-            compatible = self.compatible_releases(p_version)
-            all_latest[p_version] = self._latest(compatible)
-        return all_latest
+        def dict_item(ver):
+            return (
+                ver,
+                {
+                    'stable': self._latest(self.compatible_releases(ver)),
+                    'nightly':
+                        self._latest(self.compatible_nightly_releases(ver))
+                }
+            )
+
+        return dict(map(dict_item, settings.PLATFORM_VERSIONS))
 
     def compatible_releases(self, platform_version, inclusive=True):
         """Returns all non-nightly releases of this app that are compatible
