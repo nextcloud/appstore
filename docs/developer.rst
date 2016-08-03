@@ -216,7 +216,15 @@ dependencies/nextcloud
     * required
     * must contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-
+dependencies/owncloud
+    * optional
+    * used for app migration period
+    * must contain a **min-version** attribute (**9.0**, **9.1** or **9.2**)
+    * can contain a **max-version** attribute (**9.0**, **9.1** or **9.2**)
+    * will be ignored if a **nextcloud** tag exists
+    * 9.0 will be translated to Nextcloud 9
+    * 9.1 will be translated to Nextcloud 10
+    * 9.2 will be translated to Nextcloud 11
 
 The following character maximum lengths are enforced:
 
