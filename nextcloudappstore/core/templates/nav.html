@@ -39,25 +39,28 @@
         <div id="navbar" class="navbar-collapse collapse ">
             <ul class="nav navbar-nav navbar-left">
                 <li class="nav-link">
-                    <a href="{% url 'home' %}">Apps</a>
+                    <a href="{% url 'home' %}">{% trans 'Apps' %}</a>
+                </li>
+                <li class="nav-link">
+                    <a href="https://nextcloudappstore.readthedocs.io/en/latest/" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_superuser %}
                 <li class="nav-link">
-                    <a href="{% url 'admin:index' %}">Admin</a>
+                    <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
                 </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
                 <li class="nav-link">
-                    <a href="{% url 'account_logout' %}">Log out</a>
+                    <a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>
                 </li>
                 {% else %}
                 <li class="nav-link">
-                    <a href="{% url 'account_login' %}">Log in</a>
+                    <a href="{% url 'account_login' %}">{% trans 'Log in' %}</a>
                 </li>
                 <li class="nav-link">
-                    <a href="{% url 'account_signup' %}">Register</a>
+                    <a href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
                 </li>
                 {% endif %}
             </ul>
