@@ -81,7 +81,7 @@
                 <li><a href="{{ object.developer_docs }}" rel="noopener noreferrer">{% trans "Developer documentation" %}</a></li>
                 {% endif %}
                 {% if object.discussion %}
-                <li><a href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and Discussion" %}</a></li>
+                <li><a href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and discussion" %}</a></li>
                 {% endif %}
                 <li><a href="#downloads">{% trans "Downloads" %}</a></li>
             </ul>
@@ -93,11 +93,12 @@
             <section class="app-download">
                 <h4 id="downloads">{% trans "Downloads" %}</h4>
                 <table class="table">
-                    {% for platform_v, release in latest_releases_by_platform_v|sort_by_version:'desc' %}
-                        {% if release %}
+                    {% for platform_v, releases in latest_releases_by_platform_v|sort_by_version:'desc' %}
+                        {% if releases.stable or releases.nightly %}
                             <tr>
                                 <td>Nextcloud {{ platform_v }}</td>
-                                <td><a href="{{ release.download }}" rel="noopener noreferrer">Latest release ({{ release.version }})</a></td>
+                                <td>{% if releases.stable %}<a href="{{ releases.stable.download }}" rel="noopener noreferrer">{{ releases.stable.version }}</a>{% endif %}</td>
+                                <td>{% if releases.nightly %}<a href="{{ releases.nightly.download }}" rel="noopener noreferrer" class="unstable">{{ releases.nightly.version }} (Unstable)</a>{% endif %}</td>
                                 <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}#{{ platform_v }}">{% trans "All releases" %}</a></td>
                             </tr>
                         {% endif %}
