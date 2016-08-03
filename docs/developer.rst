@@ -114,15 +114,24 @@ A full blown example would look like this (needs to be utf-8 encoded):
         </background-jobs>
         <repair-steps>
             <pre-migration>
-                <job>OCA\DAV\Migration\Classification</job>
+                <step>OCA\DAV\Migration\Classification</step>
             </pre-migration>
             <post-migration>
-                <job>OCA\DAV\Migration\Classification</job>
+                <step>OCA\DAV\Migration\Classification</step>
             </post-migration>
             <live-migration>
-                <job>OCA\DAV\Migration\GenerateBirthdays</job>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
             </live-migration>
+            <install>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </install>
+            <uninstall>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </uninstall>
         </repair-steps>
+        <two-factor-providers>
+            <two-factor-provider>OCA\AuthF\TwoFactor\Provider</two-factor-provider>
+        </two-factor-providers>
     </info>
 
 The following tags are validated and used in the following way:
@@ -239,21 +248,33 @@ dependencies/owncloud
     * 9.0 will be translated to Nextcloud 9
     * 9.1 will be translated to Nextcloud 10
     * 9.2 will be translated to Nextcloud 11
-background-jobs
+background-jobs/job
     * optional
     * must contain php classes that are run as background jobs
     * will not be used, only validated
-repair-steps/pre-migration
+repair-steps/pre-migration/step
     * optional
     * must contain php classes that are run before executing database migrations
     * will not be used, only validated
-repair-steps/post-migration
+repair-steps/post-migration/step
     * optional
     * must contain php classes that are run after executing database migrations
     * will not be used, only validated
-repair-steps/live-migration
+repair-steps/live-migration/step
     * optional
-    * must contain php classes that are after executing post-migration jobs
+    * must contain php classes that are run after executing post-migration jobs
+    * will not be used, only validated
+repair-steps/install/step
+    * optional
+    * must contain php classes that are run after installing the app
+    * will not be used, only validated
+repair-steps/uninstall/step
+    * optional
+    * must contain php classes that are run after uninstalling the app
+    * will not be used, only validated
+two-factor-providers/two-factor-provider
+    * optional
+    * must contain php classes that are registered as two factor auth providers
     * will not be used, only validated
 
 The following character maximum lengths are enforced:

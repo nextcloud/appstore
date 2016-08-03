@@ -16,10 +16,13 @@
     </background-jobs>
     <repair-steps>
         <live-migration>
-            <job>OCA\DAV\Migration\GenerateBirthdays</job>
+            <step>OCA\DAV\Migration\GenerateBirthdays</step>
         </live-migration>
         <post-migration>
-            <job>OCA\DAV\Migration\Classification</job>
+            <step>OCA\DAV\Migration\Classification</step>
         </post-migration>
     </repair-steps>
+    <two-factor-providers>
+        <two-factor-provider>OCA\Hi</two-factor-provider>
+    </two-factor-providers>
 </info>

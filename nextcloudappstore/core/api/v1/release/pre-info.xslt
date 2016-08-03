@@ -35,11 +35,16 @@
             <xsl:apply-templates select="dependencies"/>
             <xsl:copy-of select="background-jobs"/>
             <xsl:apply-templates select="repair-steps"/>
+            <xsl:copy-of select="two-factor-providers"/>
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>
             <xsl:copy-of select="default_enable"/>
             <xsl:copy-of select="shipped"/>
+            <xsl:copy-of select="public"/>
+            <xsl:copy-of select="remote"/>
+            <xsl:copy-of select="requiremin"/>
+            <xsl:copy-of select="requiremax"/>
         </info>
     </xsl:template>
 
@@ -119,6 +124,8 @@
             <xsl:copy-of select="pre-migration"/>
             <xsl:copy-of select="post-migration"/>
             <xsl:copy-of select="live-migration"/>
+            <xsl:copy-of select="install"/>
+            <xsl:copy-of select="uninstall"/>
         </repair-steps>
     </xsl:template>
 

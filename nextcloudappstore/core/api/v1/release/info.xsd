@@ -42,6 +42,8 @@
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="repair-steps" type="repair-steps"
                             minOccurs="0" maxOccurs="1"/>
+                <xs:element name="two-factor-providers" type="two-factor-providers"
+                            minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -387,11 +389,15 @@
 
     <xs:complexType name="repair-steps">
         <xs:sequence>
-            <xs:element name="pre-migration" type="jobs" minOccurs="0"
+            <xs:element name="pre-migration" type="steps" minOccurs="0"
                         maxOccurs="1"/>
-            <xs:element name="post-migration" type="jobs" minOccurs="0"
+            <xs:element name="post-migration" type="steps" minOccurs="0"
                         maxOccurs="1"/>
-            <xs:element name="live-migration" type="jobs" minOccurs="0"
+            <xs:element name="live-migration" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="install" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="uninstall" type="steps" minOccurs="0"
                         maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
@@ -399,6 +405,20 @@
     <xs:complexType name="jobs">
         <xs:sequence>
             <xs:element name="job" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="steps">
+        <xs:sequence>
+            <xs:element name="step" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="two-factor-providers">
+        <xs:sequence>
+            <xs:element name="two-factor-provider" type="php-class" minOccurs="1"
                         maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
