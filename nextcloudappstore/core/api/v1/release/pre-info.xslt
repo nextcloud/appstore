@@ -35,6 +35,11 @@
             <xsl:apply-templates select="dependencies"/>
             <xsl:copy-of select="background-jobs"/>
             <xsl:apply-templates select="repair-steps"/>
+
+            <!-- copy invalid elements to fail if they are present -->
+            <xsl:copy-of select="standalone"/>
+            <xsl:copy-of select="default_enable"/>
+            <xsl:copy-of select="shipped"/>
         </info>
     </xsl:template>
 
