@@ -250,31 +250,31 @@ dependencies/owncloud
     * 9.2 will be translated to Nextcloud 11
 background-jobs/job
     * optional
-    * must contain php classes that are run as background jobs
+    * must contain a php class which is run as background jobs
     * will not be used, only validated
 repair-steps/pre-migration/step
     * optional
-    * must contain php classes that are run before executing database migrations
+    * must contain a php class which is run before executing database migrations
     * will not be used, only validated
 repair-steps/post-migration/step
     * optional
-    * must contain php classes that are run after executing database migrations
+    * must contain a php class which is run after executing database migrations
     * will not be used, only validated
 repair-steps/live-migration/step
     * optional
-    * must contain php classes that are run after executing post-migration jobs
+    * must contain a php class which is run after executing post-migration jobs
     * will not be used, only validated
 repair-steps/install/step
     * optional
-    * must contain php classes that are run after installing the app
+    * must contain a php class which is run after installing the app
     * will not be used, only validated
 repair-steps/uninstall/step
     * optional
-    * must contain php classes that are run after uninstalling the app
+    * must contain a php class which is run after uninstalling the app
     * will not be used, only validated
 two-factor-providers/two-factor-provider
     * optional
-    * must contain php classes that are registered as two factor auth providers
+    * must contain a php class which is registered as two factor auth provider
     * will not be used, only validated
 
 The following character maximum lengths are enforced:
