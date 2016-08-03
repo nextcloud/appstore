@@ -282,6 +282,16 @@ The following character maximum lengths are enforced:
 * All description Strings are database text fields and therefore not limited in size
 * All other Strings have a maximum of 256 characters
 
+The following elements are either deprecated or for internal use only and will fail the validation if present:
+
+* **standalone**
+* **default_enable**
+* **shipped**
+* **public**
+* **remote**
+* **requiremin**
+* **requiremax**
+
 
 .. _info-schema:
 
