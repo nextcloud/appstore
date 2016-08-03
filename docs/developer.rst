@@ -212,7 +212,7 @@ dependencies/lib
     * can occur multiple times with different php extensions
     * can contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-dependencies/owncloud
+dependencies/nextcloud
     * required
     * must contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)

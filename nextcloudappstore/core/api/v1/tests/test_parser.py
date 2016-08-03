@@ -52,6 +52,26 @@ class ParserTest(TestCase):
         }}
         self.assertDictEqual(expected, result)
 
+    def test_parse_minimal_transform(self):
+        xml = self._get_test_xml('data/infoxmls/transform.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        min_version = result['app']['release']['platform_min_version']
+        max_version = result['app']['release']['platform_max_version']
+        self.assertEqual('10.0.0', min_version)
+        self.assertEqual('12.0.0', max_version)
+
+    def test_parse_minimal_nextcloud(self):
+        xml = self._get_test_xml('data/infoxmls/nextcloud.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        min_version = result['app']['release']['platform_min_version']
+        max_version = result['app']['release']['platform_max_version']
+        self.assertEqual('10.0.0', min_version)
+        self.assertEqual('12.0.0', max_version)
+
     def test_validate_schema(self):
         xml = self._get_test_xml('data/infoxmls/invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
@@ -246,7 +266,7 @@ class ParserTest(TestCase):
                 ],
                 'php_max_version': '*',
                 'php_min_version': '5.6.0',
-                'platform_max_version': '9.2.0',
+                'platform_max_version': '11.0.0',
                 'platform_min_version': '9.0.0',
                 'shell_commands': [
                     {'shell_command': {'name': 'grep'}},

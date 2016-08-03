@@ -60,7 +60,50 @@
             <xsl:copy-of select="database"/>
             <xsl:copy-of select="command"/>
             <xsl:copy-of select="lib"/>
-            <xsl:copy-of select="owncloud"/>
+            <xsl:copy-of select="nextcloud"/>
+            <xsl:if test="not(nextcloud)">
+                <xsl:variable name="min" select="owncloud/@min-version[.='9.0' or '9.1' or '9.2']"/>
+                <xsl:variable name="max" select="owncloud/@max-version[.='9.0' or '9.1' or '9.2']"/>
+                <!-- if someone knows a better way to do this in xslt 1.0 feel free to patch it :) -->
+                <xsl:if test="$min or $max">
+                    <nextcloud>
+                        <xsl:choose>
+                            <xsl:when test="$min = '9.0'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="$min"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$min = '9.1'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="10"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$min = '9.2'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="11"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                        </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="$max = '9.0'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="$max"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$max = '9.1'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="10"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$max = '9.2'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="11"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                        </xsl:choose>
+                    </nextcloud>
+                </xsl:if>
+            </xsl:if>
         </dependencies>
     </xsl:template>
 </xsl:stylesheet>
