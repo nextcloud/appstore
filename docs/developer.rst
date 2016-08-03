@@ -109,6 +109,20 @@ A full blown example would look like this (needs to be utf-8 encoded):
             <lib>iconv</lib>
             <owncloud min-version="9.0" max-version="9.1"/>
         </dependencies>
+        <background-jobs>
+            <job>OCA\DAV\CardDAV\Sync\SyncJob</job>
+        </background-jobs>
+        <repair-steps>
+            <pre-migration>
+                <job>OCA\DAV\Migration\Classification</job>
+            </pre-migration>
+            <post-migration>
+                <job>OCA\DAV\Migration\Classification</job>
+            </post-migration>
+            <live-migration>
+                <job>OCA\DAV\Migration\GenerateBirthdays</job>
+            </live-migration>
+        </repair-steps>
     </info>
 
 The following tags are validated and used in the following way:
@@ -225,6 +239,22 @@ dependencies/owncloud
     * 9.0 will be translated to Nextcloud 9
     * 9.1 will be translated to Nextcloud 10
     * 9.2 will be translated to Nextcloud 11
+background-jobs
+    * optional
+    * must contain php classes that are run as background jobs
+    * will not be used, only validated
+repair-steps/pre-migration
+    * optional
+    * must contain php classes that are run before executing database migrations
+    * will not be used, only validated
+repair-steps/post-migration
+    * optional
+    * must contain php classes that are run after executing database migrations
+    * will not be used, only validated
+repair-steps/live-migration
+    * optional
+    * must contain php classes that are after executing post-migration jobs
+    * will not be used, only validated
 
 The following character maximum lengths are enforced:
 
