@@ -75,12 +75,12 @@
                             </xsl:when>
                             <xsl:when test="$min = '9.1'">
                                 <xsl:attribute name="min-version">
-                                    <xsl:value-of select="10"/>
+                                    <xsl:value-of select="'10'"/>
                                 </xsl:attribute>
                             </xsl:when>
                             <xsl:when test="$min = '9.2'">
                                 <xsl:attribute name="min-version">
-                                    <xsl:value-of select="11"/>
+                                    <xsl:value-of select="'11'"/>
                                 </xsl:attribute>
                             </xsl:when>
                         </xsl:choose>
@@ -92,12 +92,12 @@
                             </xsl:when>
                             <xsl:when test="$max = '9.1'">
                                 <xsl:attribute name="max-version">
-                                    <xsl:value-of select="10"/>
+                                    <xsl:value-of select="'10'"/>
                                 </xsl:attribute>
                             </xsl:when>
                             <xsl:when test="$max = '9.2'">
                                 <xsl:attribute name="max-version">
-                                    <xsl:value-of select="11"/>
+                                    <xsl:value-of select="'11'"/>
                                 </xsl:attribute>
                             </xsl:when>
                         </xsl:choose>
