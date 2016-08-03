@@ -52,6 +52,12 @@ class ParserTest(TestCase):
         }}
         self.assertDictEqual(expected, result)
 
+    def test_parse_repair_jobs(self):
+        xml = self._get_test_xml('data/infoxmls/repair-and-jobs.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+
     def test_parse_minimal_transform(self):
         xml = self._get_test_xml('data/infoxmls/transform.xml')
         result = parse_app_metadata(xml, self.config.info_schema,

@@ -33,6 +33,8 @@
             <xsl:copy-of select="discussion"/>
             <xsl:copy-of select="screenshot"/>
             <xsl:apply-templates select="dependencies"/>
+            <xsl:copy-of select="background-jobs"/>
+            <xsl:apply-templates select="repair-steps"/>
         </info>
     </xsl:template>
 
@@ -106,4 +108,13 @@
             </xsl:if>
         </dependencies>
     </xsl:template>
+
+    <xsl:template match="repair-steps">
+        <repair-steps>
+            <xsl:copy-of select="pre-migration"/>
+            <xsl:copy-of select="post-migration"/>
+            <xsl:copy-of select="live-migration"/>
+        </repair-steps>
+    </xsl:template>
+
 </xsl:stylesheet>

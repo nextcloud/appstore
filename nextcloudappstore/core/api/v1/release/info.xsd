@@ -38,6 +38,10 @@
                             maxOccurs="10"/>
                 <xs:element name="dependencies" type="dependencies"
                             minOccurs="1" maxOccurs="1"/>
+                <xs:element name="background-jobs" type="jobs"
+                            minOccurs="0" maxOccurs="1"/>
+                <xs:element name="repair-steps" type="repair-steps"
+                            minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -380,4 +384,29 @@
             <xs:enumeration value="64"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="repair-steps">
+        <xs:sequence>
+            <xs:element name="pre-migration" type="jobs" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="post-migration" type="jobs" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="live-migration" type="jobs" minOccurs="0"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="jobs">
+        <xs:sequence>
+            <xs:element name="job" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="php-class">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z_]+(\\[a-zA-Z_]+)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
