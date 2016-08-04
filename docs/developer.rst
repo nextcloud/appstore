@@ -272,7 +272,7 @@ repair-steps/uninstall/step
     * optional
     * must contain a php class which is run after uninstalling the app
     * will not be used, only validated
-two-factor-providers/two-factor-provider
+two-factor-providers/provider
     * optional
     * must contain a php class which is registered as two factor auth provider
     * will not be used, only validated
