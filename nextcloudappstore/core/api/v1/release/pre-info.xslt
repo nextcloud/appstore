@@ -33,6 +33,18 @@
             <xsl:copy-of select="discussion"/>
             <xsl:copy-of select="screenshot"/>
             <xsl:apply-templates select="dependencies"/>
+            <xsl:copy-of select="background-jobs"/>
+            <xsl:apply-templates select="repair-steps"/>
+            <xsl:copy-of select="two-factor-providers"/>
+
+            <!-- copy invalid elements to fail if they are present -->
+            <xsl:copy-of select="standalone"/>
+            <xsl:copy-of select="default_enable"/>
+            <xsl:copy-of select="shipped"/>
+            <xsl:copy-of select="public"/>
+            <xsl:copy-of select="remote"/>
+            <xsl:copy-of select="requiremin"/>
+            <xsl:copy-of select="requiremax"/>
         </info>
     </xsl:template>
 
@@ -60,7 +72,61 @@
             <xsl:copy-of select="database"/>
             <xsl:copy-of select="command"/>
             <xsl:copy-of select="lib"/>
-            <xsl:copy-of select="owncloud"/>
+            <xsl:copy-of select="nextcloud"/>
+            <xsl:if test="not(nextcloud)">
+                <xsl:variable name="min" select="owncloud/@min-version[.='9.0' or '9.1' or '9.2']"/>
+                <xsl:variable name="max" select="owncloud/@max-version[.='9.0' or '9.1' or '9.2']"/>
+                <!-- if someone knows a better way to do this in xslt 1.0 feel free to patch it :) -->
+                <xsl:if test="$min or $max">
+                    <nextcloud>
+                        <xsl:choose>
+                            <xsl:when test="$min = '9.0'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="'9'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$min = '9.1'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="'10'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$min = '9.2'">
+                                <xsl:attribute name="min-version">
+                                    <xsl:value-of select="'11'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                        </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="$max = '9.0'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="'9'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$max = '9.1'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="'10'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:when test="$max = '9.2'">
+                                <xsl:attribute name="max-version">
+                                    <xsl:value-of select="'11'"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                        </xsl:choose>
+                    </nextcloud>
+                </xsl:if>
+            </xsl:if>
         </dependencies>
     </xsl:template>
+
+    <xsl:template match="repair-steps">
+        <repair-steps>
+            <xsl:copy-of select="pre-migration"/>
+            <xsl:copy-of select="post-migration"/>
+            <xsl:copy-of select="live-migration"/>
+            <xsl:copy-of select="install"/>
+            <xsl:copy-of select="uninstall"/>
+        </repair-steps>
+    </xsl:template>
+
 </xsl:stylesheet>

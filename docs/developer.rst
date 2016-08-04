@@ -61,7 +61,9 @@ A minimum valid **info.xml** would look like this:
         <version>8.8.2</version>
         <licence>agpl</licence>
         <dependencies>
-            <owncloud min-version="9.0"/>
+            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
+            <owncloud min-version="9.1"/>
+            <nextcloud min-version="10"/>
         </dependencies>
     </info>
 
@@ -107,8 +109,33 @@ A full blown example would look like this (needs to be utf-8 encoded):
             <lib>curl</lib>
             <lib>SimpleXML</lib>
             <lib>iconv</lib>
+            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
             <owncloud min-version="9.0" max-version="9.1"/>
+            <nextcloud min-version="9" max-version="10"/>
         </dependencies>
+        <background-jobs>
+            <job>OCA\DAV\CardDAV\Sync\SyncJob</job>
+        </background-jobs>
+        <repair-steps>
+            <pre-migration>
+                <step>OCA\DAV\Migration\Classification</step>
+            </pre-migration>
+            <post-migration>
+                <step>OCA\DAV\Migration\Classification</step>
+            </post-migration>
+            <live-migration>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </live-migration>
+            <install>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </install>
+            <uninstall>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </uninstall>
+        </repair-steps>
+        <two-factor-providers>
+            <provider>OCA\AuthF\TwoFactor\Provider</provider>
+        </two-factor-providers>
     </info>
 
 The following tags are validated and used in the following way:
@@ -212,16 +239,64 @@ dependencies/lib
     * can occur multiple times with different php extensions
     * can contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-dependencies/owncloud
-    * required
+dependencies/nextcloud
+    * required on Nextcloud 12 or higher
+    * if absent white-listed owncloud versions will be taken from the owncloud element (see below)
     * must contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-
+dependencies/owncloud
+    * optional
+    * used for app migration period (Nextcloud 9, 10 and 11)
+    * must contain a **min-version** attribute (**9.0**, **9.1** or **9.2**)
+    * can contain a **max-version** attribute (**9.0**, **9.1** or **9.2**)
+    * will be ignored if a **nextcloud** tag exists
+    * 9.0 will be migrated to Nextcloud 9
+    * 9.1 will be migrated to Nextcloud 10
+    * 9.2 will be migrated to Nextcloud 11
+    * All other versions will be ignored
+background-jobs/job
+    * optional
+    * must contain a php class which is run as background jobs
+    * will not be used, only validated
+repair-steps/pre-migration/step
+    * optional
+    * must contain a php class which is run before executing database migrations
+    * will not be used, only validated
+repair-steps/post-migration/step
+    * optional
+    * must contain a php class which is run after executing database migrations
+    * will not be used, only validated
+repair-steps/live-migration/step
+    * optional
+    * must contain a php class which is run after executing post-migration jobs
+    * will not be used, only validated
+repair-steps/install/step
+    * optional
+    * must contain a php class which is run after installing the app
+    * will not be used, only validated
+repair-steps/uninstall/step
+    * optional
+    * must contain a php class which is run after uninstalling the app
+    * will not be used, only validated
+two-factor-providers/provider
+    * optional
+    * must contain a php class which is registered as two factor auth provider
+    * will not be used, only validated
 
 The following character maximum lengths are enforced:
 
 * All description Strings are database text fields and therefore not limited in size
 * All other Strings have a maximum of 256 characters
+
+The following elements are either deprecated or for internal use only and will fail the validation if present:
+
+* **standalone**
+* **default_enable**
+* **shipped**
+* **public**
+* **remote**
+* **requiremin**
+* **requiremax**
 
 
 .. _info-schema:
