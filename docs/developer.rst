@@ -130,7 +130,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
             </uninstall>
         </repair-steps>
         <two-factor-providers>
-            <two-factor-provider>OCA\AuthF\TwoFactor\Provider</two-factor-provider>
+            <provider>OCA\AuthF\TwoFactor\Provider</provider>
         </two-factor-providers>
     </info>
 
