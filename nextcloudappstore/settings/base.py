@@ -199,4 +199,4 @@ NOCAPTCHA = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
-PLATFORM_VERSIONS = ['9.0']
+PLATFORM_VERSIONS = ['9', '10']
