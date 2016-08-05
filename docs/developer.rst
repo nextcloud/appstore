@@ -55,11 +55,12 @@ A minimum valid **info.xml** would look like this:
           xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
         <id>news</id>
         <name>News</name>
+        <summary>An RSS/Atom feed reader</summary>
         <description>An RSS/Atom feed reader</description>
-        <author>Bernhard Posselt</author>
-        <category>multimedia</category>
         <version>8.8.2</version>
         <licence>agpl</licence>
+        <author>Bernhard Posselt</author>
+        <category>multimedia</category>
         <dependencies>
             <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
             <owncloud min-version="9.1"/>

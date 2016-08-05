@@ -72,6 +72,7 @@
             <xsl:copy-of select="database"/>
             <xsl:copy-of select="command"/>
             <xsl:copy-of select="lib"/>
+            <xsl:copy-of select="owncloud"/>
             <xsl:copy-of select="nextcloud"/>
             <xsl:if test="not(nextcloud)">
                 <xsl:variable name="min" select="owncloud/@min-version[.='9.0' or '9.1' or '9.2']"/>
