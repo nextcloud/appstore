@@ -335,6 +335,8 @@
                         maxOccurs="unbounded"/>
             <xs:element name="lib" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
+            <xs:element name="owncloud" type="nextcloud" minOccurs="1"
+                        maxOccurs="1"/>
             <xs:element name="nextcloud" type="nextcloud" minOccurs="1"
                         maxOccurs="1"/>
         </xs:sequence>
