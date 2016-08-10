@@ -5,7 +5,7 @@ from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
 
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
-    app_description, AppReleasesView
+    app_description, AppReleasesView, AppUploadView
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^', include('allauth.urls')),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
+    url(r'^app/upload/?$', AppUploadView.as_view(), name='app-upload'),
     url(r'^app/(?P<id>[\w_]+)/?$', AppDetailView.as_view(), name='app-detail'),
     url(r'^app/(?P<id>[\w_]+)/releases/?$', AppReleasesView.as_view(),
         name='app-releases'),

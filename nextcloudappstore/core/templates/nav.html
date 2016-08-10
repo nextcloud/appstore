@@ -41,6 +41,11 @@
                 <li class="nav-link">
                     <a href="{% url 'home' %}">{% trans 'Apps' %}</a>
                 </li>
+                {% if request.user.is_authenticated %}
+                    <li class="nav-link">
+                        <a href="{% url 'app-upload' %}">{% trans 'Upload App' %}</a>
+                    </li>
+                {% endif %}
                 <li class="nav-link">
                     <a href="https://nextcloudappstore.readthedocs.io/en/latest/" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
                 </li>
