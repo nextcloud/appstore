@@ -12,15 +12,16 @@
     <h1>{% trans 'Upload App' %}</h1>
     <section class="app-upload">
         {% if request.user.is_authenticated %}
-        <form id="app-upload-form" method="post" action="{{ api_url }}">
+        <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
             {% csrf_token %}
             <table class="table table-condensed">
                 <tr><td><label for="download">{% trans 'Download URL' %}</label></td><td><input id="download" type="url" name="download" required></td><td id="download-msg"></td></tr>
                 <tr><td><label for="checksum">{% trans 'SHA256 checksum (optional)' %}</label></td><td><input id="checksum" type="text" name="checksum"></td><td id="checksum-msg"></td></tr>
                 <tr><td><label for="nightly">{% trans 'Nightly' %}</label></td><td><input id="nightly" type="checkbox" name="nightly"></td><td id="nightly-msg"></td></tr>
             </table>
-            <input id="submit" type="button" value="{% trans 'Upload' %}">
+            <input type="submit" value="{% trans 'Upload' %}">
         </form>
+        <div id="form-success" class="alert success alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
         <div id="detail-msg"></div>
         {% else %}
         <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>

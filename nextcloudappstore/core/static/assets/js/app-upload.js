@@ -1,88 +1,132 @@
 (function (window) {
     'use strict';
 
-    function sendAppReleaseAPIRequest(download, checksum, nightly, token,
-            successCallback, failureCallback) {
-        let data = new Object();
-        data['download'] = download;
-        if (nightly) data['nightly'] = nightly;
-        if (checksum) data['checksum'] = checksum;
 
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/api/v1/apps/releases', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Authorization', 'Token ' + token);
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-                clearMessages();
-                if (xhr.status == 200 || xhr.status == 201) {
-                    successCallback();
-                } else {
-                    failureCallback(JSON.parse(xhr.response), xhr.status);
-                }
+    function apiRequestToken(csrf) {
+        var request = new Request(
+            '/api/v1/token',
+            {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrf,
+                }),
+                credentials: 'include'
             }
-        }
-        xhr.send(JSON.stringify(data));
+        );
+
+        return fetch(request).then((response) => {
+            var json = response.json();
+            if (response.status == 200) {
+                return json;
+            } else {
+                return json.then(Promise.reject.bind(Promise));
+            }
+        });
     }
 
+
+    function apiRequestAppRelease(url, download, checksum, nightly, token) {
+        var data = {'download': download};
+        if (nightly) {
+            data['nightly'] = nightly;
+        }
+        if (checksum) {
+            data['checksum'] = checksum;
+        }
+
+        var request = new Request(
+            url,
+            {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token ' + token
+                }),
+                body: JSON.stringify(data)
+            }
+        );
+
+        return fetch(request).then((response) => {
+            if (response.status == 200 || response.status == 201) {
+                return response;
+            } else {
+                return response.json().then(Promise.reject.bind(Promise));
+            }
+        });
+    }
+
+
     function clearMessages() {
-        let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
+        var msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => el.innerHTML = '');
     }
 
-    function printMessages(response, statusCode) {
-        let result = 'failure alert-danger';
-        if (statusCode == 200 || statusCode == 201) {
-            result = 'success alert-success';
-        }
 
-        let prop;
-        for (prop in response) {
-            if (!response.hasOwnProperty(prop)) continue;
-            let msg;
-            if (typeof response[prop] == 'string') msg = response[prop];
-            else if (response[prop] instanceof Array) msg = response[prop].join(' ');
-            document.getElementById(prop + '-msg').innerHTML =
-                '<div class="alert ' + result + '">' + msg + '</div>';
-        }
+    function printErrorMessages(response) {
+        clearMessages();
+        Object.keys(response).forEach((key) => {
+            var msg;
+            if (typeof response[key] == 'string') {
+                msg = response[key];
+            } else if (response[key] instanceof Array) {
+                msg = response[key].join(' ');
+            }
+
+            var msgArea = document.getElementById(key + '-msg');
+            var msgDiv = document.createElement('div');
+            var msgP = document.createElement('p');
+            var msgTextNode = document.createTextNode(msg);
+
+            msgP.appendChild(msgTextNode);
+            msgDiv.appendChild(msgP);
+            msgDiv.classList.add('alert', 'alert-danger', 'failure');
+            msgArea.innerHTML = '';
+            msgArea.appendChild(msgDiv);
+        });
     }
 
+
     function printSuccessMessage() {
-        let form = document.getElementById('app-upload-form');
-        form.parentNode.innerHTML =
-            '<div class="alert success alert-success">App release successfully uploaded.</div>';
+        var form = document.getElementById('app-upload-form');
+        var successMsg = document.getElementById('form-success');
+        form.remove();
+        successMsg.removeAttribute('hidden');
     }
 
 
     // Get needed values and elements from form.
+    let form = document.getElementById('app-upload-form');
+    let url = form.action;
     let csrf = Array.from(
         document.getElementsByName('csrfmiddlewaretoken'))[0].value;
     let download = document.getElementById('download');
     let checksum = document.getElementById('checksum');
     let nightly = document.getElementById('nightly');
-    let submitButton = document.getElementById('submit');
 
     // Get the auth token of the currently authenticated user and
-    // bind the form submit button.
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/v1/token', true);
-    xhr.setRequestHeader('X-CSRFToken', csrf);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-            let response = JSON.parse(xhr.response);
-            let token = response.token;
-            submitButton.addEventListener('click', () => {
-                sendAppReleaseAPIRequest(
-                    download.value,
-                    checksum.value,
-                    nightly.checked,
-                    token,
-                    printSuccessMessage,
-                    printMessages);
-            });
-        }
-    }
-    xhr.send();
+    // bind the app release API request to the form submit event.
+    apiRequestToken(csrf).then((response) => {
+        // User token request successful
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            apiRequestAppRelease(
+                url,
+                download.value,
+                checksum.value,
+                nightly.checked,
+                response.token)
+                .then((response) => {
+                    // App release request successful
+                    printSuccessMessage();
+                }, (response) => {
+                    // App release request failed
+                    printErrorMessages(response);
+                });
+        });
+    }, (response) => {
+        // User token request failed
+        printErrorMessages(response);
+    });
 
 }(this));
