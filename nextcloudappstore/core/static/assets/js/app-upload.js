@@ -116,13 +116,10 @@
                 checksum.value,
                 nightly.checked,
                 response.token)
-                .then((response) => {
-                    // App release request successful
-                    printSuccessMessage();
-                }, (response) => {
-                    // App release request failed
-                    printErrorMessages(response);
-                });
+                .then(
+                    () => printSuccessMessage(), // App release request successful
+                    (response) => printErrorMessages(response) // App release request failed
+                );
         });
     }, (response) => {
         // User token request failed
