@@ -2,7 +2,7 @@
     'use strict';
 
 
-    function apiRequestToken(csrf) {
+    function fetchToken(csrf) {
         let request = new Request(
             '/api/v1/token',
             {
@@ -18,7 +18,7 @@
     }
 
 
-    function apiRequestAppRelease(url, download, checksum, nightly, token) {
+    function uploadAppRelease(url, download, checksum, nightly, token) {
         let data = {'download': download, 'nightly': nightly};
         if (checksum) {
             data['checksum'] = checksum;
@@ -95,11 +95,11 @@
 
     // Get the auth token of the currently authenticated user and
     // bind the app release API request to the form submit event.
-    apiRequestToken(csrf).then((response) => {
+    fetchToken(csrf).then((response) => {
         // User token request successful
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            apiRequestAppRelease(
+            uploadAppRelease(
                 url,
                 download.value,
                 checksum.value,
