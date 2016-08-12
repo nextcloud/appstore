@@ -3,7 +3,7 @@
 
 
     function apiRequestToken(csrf) {
-        var request = new Request(
+        let request = new Request(
             '/api/v1/token',
             {
                 method: 'POST',
@@ -14,28 +14,17 @@
                 credentials: 'include'
             }
         );
-
-        return fetch(request).then((response) => {
-            var json = response.json();
-            if (response.status == 200) {
-                return json;
-            } else {
-                return json.then(Promise.reject.bind(Promise));
-            }
-        });
+        return fetch(request).then((response) => response.json());
     }
 
 
     function apiRequestAppRelease(url, download, checksum, nightly, token) {
-        var data = {'download': download};
-        if (nightly) {
-            data['nightly'] = nightly;
-        }
+        let data = {'download': download, 'nightly': nightly};
         if (checksum) {
             data['checksum'] = checksum;
         }
 
-        var request = new Request(
+        let request = new Request(
             url,
             {
                 method: 'POST',
@@ -48,7 +37,7 @@
         );
 
         return fetch(request).then((response) => {
-            if (response.status == 200 || response.status == 201) {
+            if (response.status === 200 || response.status === 201) {
                 return response;
             } else {
                 return response.json().then(Promise.reject.bind(Promise));
@@ -58,7 +47,7 @@
 
 
     function clearMessages() {
-        var msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
+        let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => el.innerHTML = '');
     }
 
@@ -66,17 +55,17 @@
     function printErrorMessages(response) {
         clearMessages();
         Object.keys(response).forEach((key) => {
-            var msg;
-            if (typeof response[key] == 'string') {
+            let msg;
+            if (typeof response[key] === 'string') {
                 msg = response[key];
             } else if (response[key] instanceof Array) {
                 msg = response[key].join(' ');
             }
 
-            var msgArea = document.getElementById(key + '-msg');
-            var msgDiv = document.createElement('div');
-            var msgP = document.createElement('p');
-            var msgTextNode = document.createTextNode(msg);
+            let msgArea = document.getElementById(key + '-msg');
+            let msgDiv = document.createElement('div');
+            let msgP = document.createElement('p');
+            let msgTextNode = document.createTextNode(msg);
 
             msgP.appendChild(msgTextNode);
             msgDiv.appendChild(msgP);
@@ -88,8 +77,9 @@
 
 
     function printSuccessMessage() {
-        var form = document.getElementById('app-upload-form');
-        var successMsg = document.getElementById('form-success');
+        clearMessages();
+        let form = document.getElementById('app-upload-form');
+        let successMsg = document.getElementById('form-success');
         form.remove();
         successMsg.removeAttribute('hidden');
     }
@@ -98,8 +88,7 @@
     // Get needed values and elements from form.
     let form = document.getElementById('app-upload-form');
     let url = form.action;
-    let csrf = Array.from(
-        document.getElementsByName('csrfmiddlewaretoken'))[0].value;
+    let csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
     let download = document.getElementById('download');
     let checksum = document.getElementById('checksum');
     let nightly = document.getElementById('nightly');
@@ -116,10 +105,7 @@
                 checksum.value,
                 nightly.checked,
                 response.token)
-                .then(
-                    () => printSuccessMessage(), // App release request successful
-                    (response) => printErrorMessages(response) // App release request failed
-                );
+                .then(printSuccessMessage, printErrorMessages);
         });
     }, (response) => {
         // User token request failed
