@@ -95,21 +95,22 @@
 
     // Get the auth token of the currently authenticated user and
     // bind the app release API request to the form submit event.
-    fetchToken(csrf).then((response) => {
-        // User token request successful
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            uploadAppRelease(
-                url,
-                download.value,
-                checksum.value,
-                nightly.checked,
-                response.token)
-                .then(printSuccessMessage, printErrorMessages);
-        });
-    }, (response) => {
-        // User token request failed
-        printErrorMessages(response);
-    });
+    fetchToken(csrf).then(
+        (response) => {
+            // User token request successful
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                uploadAppRelease(
+                    url,
+                    download.value,
+                    checksum.value,
+                    nightly.checked,
+                    response.token)
+                    .then(printSuccessMessage, printErrorMessages);
+            });
+        },
+        printErrorMessages  // User token request failed
+    );
+
 
 }(this));
