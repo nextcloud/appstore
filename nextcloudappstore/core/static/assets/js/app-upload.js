@@ -53,12 +53,14 @@
 
     function clearMessages() {
         let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
-        msgAreas.forEach((el) => el.innerHTML = '');
+        msgAreas.forEach((el) => {
+            el.innerHTML = '';
+            el.parentNode.classList.remove('has-error');
+        });
     }
 
 
     function printErrorMessages(response) {
-        clearMessages();
         Object.keys(response).forEach((key) => {
             let msg;
             if (typeof response[key] === 'string') {
@@ -68,25 +70,62 @@
             }
 
             let msgArea = document.getElementById(key + '-msg');
-            let msgDiv = document.createElement('div');
+            let formGroup = msgArea.parentNode;
             let msgP = document.createElement('p');
             let msgTextNode = document.createTextNode(msg);
 
             msgP.appendChild(msgTextNode);
-            msgDiv.appendChild(msgP);
-            msgDiv.classList.add('alert', 'alert-danger', 'failure');
+            msgP.classList.add('text-danger');
             msgArea.innerHTML = '';
-            msgArea.appendChild(msgDiv);
+            msgArea.appendChild(msgP);
+            formGroup.classList.add('has-error');
         });
     }
 
 
     function printSuccessMessage() {
-        clearMessages();
         let form = document.getElementById('app-upload-form');
         let successMsg = document.getElementById('form-success');
         form.remove();
         successMsg.removeAttribute('hidden');
+    }
+
+
+    function buttonState(button, state) {
+        switch (state) {
+            case 'loading':
+                button.setAttribute('data-orig-text', button.innerHTML);
+                button.innerHTML = button.getAttribute('data-loading-text');
+                break;
+            case 'reset':
+                if (button.getAttribute('data-orig-text')) {
+                    button.innerHTML = button.getAttribute('data-orig-text');
+                }
+                break;
+        }
+    }
+
+
+    function disableInputs(form, disable) {
+        Array.from(form.querySelectorAll('input, button')).forEach((el) => {
+            el.disabled = disable;
+        });
+    }
+
+
+    function onSuccess() {
+        clearMessages();
+        printSuccessMessage();
+    }
+
+
+    function onFailure(response) {
+        let form = document.getElementById('app-upload-form');
+        let submitButton = document.getElementById('submit');
+        clearMessages();
+        printErrorMessages(response);
+        disableInputs(form, false);
+        buttonState(submitButton, 'reset')
     }
 
 
@@ -96,6 +135,7 @@
     let download = document.getElementById('download');
     let checksum = document.getElementById('checksum');
     let nightly = document.getElementById('nightly');
+    let submitButton = document.getElementById('submit');
 
     // Get the auth token of the currently authenticated user and
     // bind the app release API request to the form submit event.
@@ -104,13 +144,15 @@
             // User token request successful
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
+                disableInputs(form, true);
+                buttonState(submitButton, 'loading');
                 uploadAppRelease(
                     form.action,
                     download.value,
                     checksum.value,
                     nightly.checked,
                     response.token)
-                    .then(printSuccessMessage, printErrorMessages);
+                    .then(onSuccess, onFailure);
             });
         },
         printErrorMessages  // User token request failed

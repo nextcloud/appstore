@@ -1,4 +1,4 @@
-{% extends 'app/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% load staticfiles %}
 
@@ -8,23 +8,39 @@
     <script defer="defer" src="{% static 'assets/js/app-upload.js' %}"></script>
 {% endblock %}
 
-{% block apps %}
-    <h1>{% trans 'Upload App' %}</h1>
-    <section class="app-upload">
+{% block content %}
+    <div class="app-upload">
+        <h1>{% trans 'Upload App' %}</h1>
+        <hr>
         {% if request.user.is_authenticated %}
-        <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
-            {% csrf_token %}
-            <table class="table table-condensed">
-                <tr><td><label for="download">{% trans 'Download URL' %}</label></td><td><input id="download" type="url" name="download" required></td><td id="download-msg"></td></tr>
-                <tr><td><label for="checksum">{% trans 'SHA256 checksum (optional)' %}</label></td><td><input id="checksum" type="text" name="checksum"></td><td id="checksum-msg"></td></tr>
-                <tr><td><label for="nightly">{% trans 'Nightly' %}</label></td><td><input id="nightly" type="checkbox" name="nightly"></td><td id="nightly-msg"></td></tr>
-            </table>
-            <input type="submit" value="{% trans 'Upload' %}">
-        </form>
-        <div id="form-success" class="alert success alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
-        <div id="detail-msg"></div>
+            <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
+                {% csrf_token %}
+
+                <div><div id="detail-msg"></div></div>
+
+                <div class="form-group">
+                    <label class="control-label"for="download">{% trans 'Download URL' %}</label>
+                    <input class="form-control" id="download" type="url" name="download" autofocus="autofocus" required>
+                    <span id="download-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="checksum">{% trans 'SHA256 checksum (optional)' %}</label>
+                    <input class="form-control" id="checksum" type="text" name="checksum">
+                    <span id="checksum-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <input id="nightly" type="checkbox" name="nightly">
+                    <label class="control-label" for="nightly">{% trans 'Nightly' %}</label>
+                    <span id="nightly-msg"></span>
+                </div>
+
+                <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
+            </form>
+            <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
         {% else %}
-        <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>
+            <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>
         {% endif %}
-    </section>
+    </div>
 {% endblock %}
