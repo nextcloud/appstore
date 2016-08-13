@@ -14,7 +14,7 @@
                 credentials: 'include'
             }
         );
-        return fetch(request).then((response) => response.json());
+        return fetch(request).then(convertResponse);
     }
 
 
@@ -35,11 +35,11 @@
                 body: JSON.stringify(data)
             }
         );
-        return fetch(request).then(responseJSON);
+        return fetch(request).then(convertResponse);
     }
 
 
-    function responseJSON(response) {
+    function convertResponse(response) {
         if (response.status >= 200 && response.status < 300) {
             if (response.headers.get('Content-Type') === 'application/json') {
                 return response.json();
@@ -90,23 +90,22 @@
     }
 
 
-    // Get needed values and elements from form.
+    // Form elements
     let form = document.getElementById('app-upload-form');
-    let url = form.action;
-    let csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
     let download = document.getElementById('download');
     let checksum = document.getElementById('checksum');
     let nightly = document.getElementById('nightly');
 
     // Get the auth token of the currently authenticated user and
     // bind the app release API request to the form submit event.
-    fetchToken(csrf).then(
+    fetchToken(csrf.value).then(
         (response) => {
             // User token request successful
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 uploadAppRelease(
-                    url,
+                    form.action,
                     download.value,
                     checksum.value,
                     nightly.checked,
