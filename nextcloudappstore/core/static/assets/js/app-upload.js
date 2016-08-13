@@ -35,14 +35,19 @@
                 body: JSON.stringify(data)
             }
         );
+        return fetch(request).then(responseJSON);
+    }
 
-        return fetch(request).then((response) => {
-            if (response.status === 200 || response.status === 201) {
-                return response;
+
+    function responseJSON(response) {
+        if (response.status >= 200 && response.status < 300) {
+            if (response.headers.get('Content-Type') === 'application/json') {
+                return response.json();
             } else {
-                return response.json().then(Promise.reject.bind(Promise));
+                return response.text();
             }
-        });
+        }
+        return response.json().then(Promise.reject.bind(Promise));
     }
 
 
