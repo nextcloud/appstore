@@ -18,7 +18,7 @@ This keeps your repository up to date and satisfies the needs of developers and 
 App Release Workflow
 --------------------
 
-To publish an app release on the app store you simply send us a download link for the release archive using either :doc:`ncdev <ncdev>` or any tool that can access the :doc:`restapi` (even with curl). We then do the following:
+To publish an app release on the app store you simply send us a download link for the release archive using either :doc:`ncdev <ncdev>`, the `app upload web form <https://apps.nextcloud.com/app/upload>`_, or any tool that can access the :doc:`restapi` (even with curl). We then do the following:
 
 * Your archive is downloaded from the given location. This ensures that your users don't hit dead links. If your archive is too big, we will abort the download.
 
@@ -42,7 +42,7 @@ App Metadata
 
 App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
 
-The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_
+The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
 
 info.xml
 ~~~~~~~~

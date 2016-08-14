@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans 'Upload App'%} - {% endblock %}
+
+{% block head %}
+    <script defer="defer" src="{% static 'assets/js/app-upload.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="app-upload">
+        <h1>{% trans 'Upload App' %}</h1>
+        <hr>
+        {% if request.user.is_authenticated %}
+            <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
+            <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
+                {% csrf_token %}
+
+                <div><div id="detail-msg"></div></div>
+
+                <div class="form-group">
+                    <label class="control-label"for="download">{% trans 'Download URL' %}</label>
+                    <input class="form-control" id="download" type="url" name="download" autofocus="autofocus" required>
+                    <span id="download-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="checksum">{% trans 'SHA256 checksum (optional)' %}</label>
+                    <input class="form-control" id="checksum" type="text" name="checksum">
+                    <span id="checksum-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <input id="nightly" type="checkbox" name="nightly">
+                    <label class="control-label" for="nightly">{% trans 'Nightly' %}</label>
+                    <span id="nightly-msg"></span>
+                </div>
+
+                <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
+            </form>
+        {% else %}
+            <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>
+        {% endif %}
+    </div>
+{% endblock %}

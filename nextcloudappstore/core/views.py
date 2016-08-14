@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
@@ -155,3 +156,7 @@ class CategoryAppListView(ListView):
     @cached_property
     def search_terms(self):
         return self.request.GET.get('search', '').strip().split()
+
+
+class AppUploadView(TemplateView):
+    template_name = 'app/upload.html'
