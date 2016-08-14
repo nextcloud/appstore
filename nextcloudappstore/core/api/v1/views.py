@@ -1,6 +1,7 @@
 from django.db import transaction
 from django.db.models import Max, Count
 from django.http import Http404
+from requests import HTTPError
 from rest_framework.exceptions import APIException
 
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
@@ -89,7 +90,7 @@ class AppReleaseView(DestroyAPIView):
             provider = container.resolve(AppReleaseProvider)
             try:
                 info = provider.get_release_info(url)
-            except Exception as e:
+            except HTTPError as e:
                 raise APIException(e)
 
             app_id = info['app']['id']
