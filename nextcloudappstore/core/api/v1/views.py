@@ -1,6 +1,8 @@
 from django.db import transaction
 from django.db.models import Max, Count
 from django.http import Http404
+from rest_framework.exceptions import APIException
+
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
@@ -85,7 +87,11 @@ class AppReleaseView(DestroyAPIView):
             # download the latest release and create or update the models
             container = Container()
             provider = container.resolve(AppReleaseProvider)
-            info = provider.get_release_info(url)
+            try:
+                info = provider.get_release_info(url)
+            except Exception as e:
+                raise APIException(e)
+
             app_id = info['app']['id']
 
             if serializer.validated_data['nightly']:
