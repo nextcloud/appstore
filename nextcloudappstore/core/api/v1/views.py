@@ -1,6 +1,9 @@
 from django.db import transaction
 from django.db.models import Max, Count
 from django.http import Http404
+from requests import HTTPError
+from rest_framework.exceptions import APIException
+
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
@@ -9,11 +12,14 @@ from nextcloudappstore.core.models import App, AppRelease, Category
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from pymple import Container
-from rest_framework import authentication  # type: ignore
+from rest_framework import authentication, parsers, renderers  # type: ignore
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.generics import DestroyAPIView, \
     get_object_or_404, ListAPIView  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
+from rest_framework.views import APIView
 
 
 def app_api_etag(request, version):
@@ -82,7 +88,11 @@ class AppReleaseView(DestroyAPIView):
             # download the latest release and create or update the models
             container = Container()
             provider = container.resolve(AppReleaseProvider)
-            info = provider.get_release_info(url)
+            try:
+                info = provider.get_release_info(url)
+            except HTTPError as e:
+                raise APIException(e)
+
             app_id = info['app']['id']
 
             if serializer.validated_data['nightly']:
@@ -130,3 +140,30 @@ class AppReleaseView(DestroyAPIView):
         release = get_object_or_404(release)
         self.check_object_permissions(self.request, release)
         return release
+
+
+class SessionObtainAuthToken(APIView):
+    """Modified version of rest_framework.authtoken.views.ObtainAuthToken.
+
+    Modified to return token based on SessionAuthentication, and not just data
+    sent for BasicAuthentication.
+    """
+
+    throttle_classes = (PostThrottle,)
+    permission_classes = (IsAuthenticated,)
+    parser_classes = (parsers.FormParser,
+                      parsers.MultiPartParser,
+                      parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+    serializer_class = AuthTokenSerializer
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            user = request.user
+        else:
+            serializer = self.serializer_class(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            user = serializer.validated_data['user']
+
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key})
