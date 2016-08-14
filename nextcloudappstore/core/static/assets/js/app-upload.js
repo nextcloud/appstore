@@ -155,7 +155,7 @@
                     .then(onSuccess, onFailure);
             });
         },
-        printErrorMessages  // User token request failed
+        onFailure  // User token request failed
     );
 
 
