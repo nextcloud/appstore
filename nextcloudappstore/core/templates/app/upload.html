@@ -13,6 +13,7 @@
         <h1>{% trans 'Upload App' %}</h1>
         <hr>
         {% if request.user.is_authenticated %}
+            <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
             <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
                 {% csrf_token %}
 
@@ -38,7 +39,6 @@
 
                 <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
             </form>
-            <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
         {% else %}
             <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>
         {% endif %}

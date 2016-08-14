@@ -83,11 +83,13 @@
     }
 
 
-    function printSuccessMessage() {
-        let form = document.getElementById('app-upload-form');
+    function showSuccessMessage(boolean) {
         let successMsg = document.getElementById('form-success');
-        form.remove();
-        successMsg.removeAttribute('hidden');
+        if (boolean) {
+            successMsg.removeAttribute('hidden');
+        } else {
+            successMsg.setAttribute('hidden', 'true');
+        }
     }
 
 
@@ -106,16 +108,31 @@
     }
 
 
-    function disableInputs(form, disable) {
+    function disableInputs(form, boolean) {
         Array.from(form.querySelectorAll('input, button')).forEach((el) => {
-            el.disabled = disable;
+            el.disabled = boolean;
+        });
+    }
+
+
+    function clearInputs(form) {
+        Array.from(form.querySelectorAll('input[type=text], input[type=url]')).forEach((el) => {
+            el.value = '';
+        });
+        Array.from(form.querySelectorAll('input[type=checkbox]')).forEach((el) => {
+            el.checked = false;
         });
     }
 
 
     function onSuccess() {
+        let form = document.getElementById('app-upload-form');
+        let submitButton = document.getElementById('submit');
         clearMessages();
-        printSuccessMessage();
+        showSuccessMessage(true);
+        clearInputs(form);
+        disableInputs(form, false);
+        buttonState(submitButton, 'reset');
     }
 
 
@@ -125,7 +142,7 @@
         clearMessages();
         printErrorMessages(response);
         disableInputs(form, false);
-        buttonState(submitButton, 'reset')
+        buttonState(submitButton, 'reset');
     }
 
 
@@ -144,6 +161,7 @@
             // User token request successful
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
+                showSuccessMessage(false);
                 disableInputs(form, true);
                 buttonState(submitButton, 'loading');
                 uploadAppRelease(
