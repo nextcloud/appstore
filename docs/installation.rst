@@ -175,6 +175,11 @@ To get your instance running in production you need to create your production se
     # Only set this parameter if you want to use a different tmp directory for app downloads
     # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
+    # Only set if you want a different log location than the one in the main directory
+    # LOG_FILE = '/path/to/appstore.log'
+
+    LOG_LEVEL = 'ERROR'
+
 
 Then set the file as the active settings file::
 

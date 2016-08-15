@@ -200,3 +200,24 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
 PLATFORM_VERSIONS = ['9', '10']
+
+LOG_LEVEL = 'WARNING'
+LOG_FILE = join(BASE_DIR, 'appstore.log')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': LOG_LEVEL,
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': LOG_LEVEL,
+            'propagate': True,
+        },
+    },
+}
