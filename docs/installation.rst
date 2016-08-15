@@ -180,6 +180,10 @@ To get your instance running in production you need to create your production se
 
     LOG_LEVEL = 'ERROR'
 
+    LOGGING['handlers']['file']['filename'] = LOG_FILE
+    LOGGING['handlers']['file']['level'] = LOG_LEVEL
+    LOGGING['loggers']['django']['level'] = LOG_LEVEL
+
 
 Then set the file as the active settings file::
 
@@ -343,6 +347,29 @@ Finally restart Nginx and enable Gunicorn::
     systemctl start gunicorn.socket
 
 .. note:: Not final
+
+Logging
+~~~~~~~
+
+Depending on where you have configured the log file location, you need to give your web server access to it. By default the logfile is in the main directory which also contains the **manage.py** and **README.rst**.
+
+First create the log file::
+
+    touch appstore.log
+
+**Apache**:
+
+Then give your web server access to it::
+
+    sudo chown www-data:www-data appstore.log
+
+Afterwards restart your web server::
+
+    sudo systemctl restart apache2
+
+**Nginx**:
+
+**TBD**
 
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
