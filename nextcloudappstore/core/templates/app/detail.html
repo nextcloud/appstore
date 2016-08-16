@@ -12,6 +12,10 @@
     <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
+    {% if object.discussion %}
+    <script defer="defer" src="{% static 'assets/js/ui/discourse-comments.js' %}"></script>
+    <script defer="defer" src="https://help.nextcloud.com/javascripts/embed.js"></script>
+    {% endif %}
     <meta name="nextcloudappstore-app-detail-url" content="{% url 'app-description' object.id %}">
 {% endblock %}
 
@@ -84,7 +88,7 @@
                 <li><a href="{{ object.developer_docs }}" rel="noopener noreferrer">{% trans "Developer documentation" %}</a></li>
                 {% endif %}
                 {% if object.discussion %}
-                <li><a href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and discussion" %}</a></li>
+                <li><a id="discourse-link" href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and discussion" %}</a></li>
                 {% endif %}
                 <li><a href="#downloads">{% trans "Downloads" %}</a></li>
             </ul>
@@ -109,6 +113,12 @@
                 </table>
             </section>
         </div>
+    </div>
+    <div class="comments">
+        {% if object.discussion %}
+            <h2>{% trans 'Comments' %}</h2>
+            <div id="discourse-comments"></div>
+        {% endif %}
     </div>
 
 {% endblock %}
