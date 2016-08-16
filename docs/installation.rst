@@ -383,13 +383,13 @@ GitHub is currently the only supported social login. In order to register the Ap
 * **Homepage URL**: https://apps.nextcloud.com
 * **Authorization callback URL**: https://apps.nextcloud.com/github/login/callback/
 
-Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, log into the admin interface, change your site's domain and add the social application or run the following command::
+Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, either log into the admin interface, change your site's domain and add GitHub as a new social application or run the following command::
 
     python manage.py setupsocial --github-secret "SECRET" --github-client-id "CLIENT_ID" --domain apps.nextcloud.com
 
-.. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server
+.. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
 
-.. note:: For local testing use localhost:8000 as domain name, the confirmation mail will also be printed in your shell where you started the development server
+.. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
 
 Keeping Up To Date
 ~~~~~~~~~~~~~~~~~~
