@@ -232,7 +232,7 @@
     <!-- for now only allow urls to our forum -->
     <xs:simpleType name="discussion-url">
         <xs:restriction base="xs:anyURI">
-            <xs:pattern value="https://help\.nextcloud\.com.*"/>
+            <xs:pattern value="https://help\.nextcloud\.com.*/\d+"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>
