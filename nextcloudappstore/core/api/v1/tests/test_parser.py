@@ -231,7 +231,7 @@ class ParserTest(TestCase):
             'user_docs': 'https://github.com/owncloud/news/wiki#user'
                          '-documentation',
             'website': 'https://github.com/owncloud/news',
-            'discussion': 'https://help.nextcloud.com/t/news',
+            'discussion': 'https://help.nextcloud.com/t/news/1',
             'issue_tracker': 'https://github.com/owncloud/news/issues',
             'name': {'de': 'Nachrichten', 'en': 'News'},
             'release': {
