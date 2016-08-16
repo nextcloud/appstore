@@ -114,11 +114,11 @@
             </section>
         </div>
     </div>
-    <div class="comments">
-        {% if object.discussion %}
+    {% if object.discussion %}
+        <div class="comments">
             <h2>{% trans 'Comments' %}</h2>
             <div id="discourse-comments"></div>
-        {% endif %}
     </div>
+    {% endif %}
 
 {% endblock %}
