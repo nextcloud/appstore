@@ -143,7 +143,7 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
     'nextcloudappstore.core.user.forms.SignupFormRecaptcha'
 SOCIALACCOUNT_PROVIDERS = {
-    'github' : {
+    'github': {
         'SCOPE': ['user:email']
     }
 }
