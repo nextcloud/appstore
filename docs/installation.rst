@@ -377,7 +377,7 @@ Once the App Store is up and running social login needs to be configured. The Ap
 
 **GitHub**
 
-GitHub is currently the only supported social login. In order to register the App Store, go to `your application settings page<https://github.com/settings/applications/new>`_ and enter the following details:
+GitHub is currently the only supported social login. In order to register the App Store, go to `your application settings page <https://github.com/settings/applications/new>`_ and enter the following details:
 
 * **Application name**: Nextcloud App Store
 * **Homepage URL**: https://apps.nextcloud.com
