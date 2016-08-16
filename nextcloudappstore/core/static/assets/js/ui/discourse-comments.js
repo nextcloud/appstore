@@ -3,6 +3,7 @@ window.DiscourseEmbed = {
 };
 
 (function() {
+    'use strict';
     let discourseUrl = document.getElementById('discourse-link').href;
     DiscourseEmbed.topicId = discourseUrl.split('/').pop();
 })();
