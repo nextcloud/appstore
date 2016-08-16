@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block head-title %}{% if current_category %}{{ current_category.name }} - {% else %}{% trans 'All Apps' %} - {% endif %}{% endblock %}
+{% block head-title %}{% if current_category %}{{ current_category.name }} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}
     <script defer="defer" src="{% static 'assets/js/ui/app-list.js' %}"></script>
 {% endblock %}

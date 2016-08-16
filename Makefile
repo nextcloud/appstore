@@ -33,6 +33,7 @@ dev-setup:
 	@echo "" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "DEBUG = True" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/settings/development.py
+	@echo "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "RECAPTCHA_PUBLIC_KEY = '<RECAPTCHA_PUBLIC_KEY>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "RECAPTCHA_PRIVATE_KEY = '<RECAPTCHA_PRIVATE_KEY>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "EMAIL_HOST = 'localhost'" >> $(CURDIR)/nextcloudappstore/settings/development.py

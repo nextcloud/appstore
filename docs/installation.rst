@@ -373,17 +373,23 @@ Afterwards restart your web server::
 
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
-Once the AppStore is up and running and you can login to the django admin interface, the social login needs to be configured.
+Once the App Store is up and running social login needs to be configured. The App Store uses `django-allauth <https://django-allauth.readthedocs.io>`_ for local and social login. In order to configure these logins, most providers require you to register your app beforehand.
 
-The AppStore uses `django-allauth <https://django-allauth.readthedocs.io>`_ for local and social login and to get the social login to work you need to add the client ID and secret key for the two supported social login provider (GitHub and BitBucket).
+**GitHub**
 
-Inside the admin interface click on **Sites**, then on the change link and on the following page on the domain name (example.com) to edit the site.
+GitHub is currently the only supported social login. In order to register the App Store, go to `your application settings page <https://github.com/settings/applications/new>`_ and enter the following details:
 
-Change the domain name to the domain the store is using and give it a descriptive name.
+* **Application name**: Nextcloud App Store
+* **Homepage URL**: https://apps.nextcloud.com
+* **Authorization callback URL**: https://apps.nextcloud.com/github/login/callback/
 
-Then go to `https://github.com/settings/developers <https://github.com/settings/developers>`_ to create a new Application. Once you have your client ID and secret key go back to the Django admin interface and in the section **Social Accounts** add a new **Social application**. Supply the client ID and secret key generated on GitHub and assign the social application to the store site by double clicking on the site name.
+Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, either log into the admin interface, change your site's domain and add GitHub as a new social application or run the following command::
 
-Then repeat the process for the BitBucket login. To create a client ID and secret key on BitBucket follow the `documented steps described <https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html#OAuthonBitbucketCloud-Createaconsumer>`_
+    python manage.py setupsocial --github-secret "SECRET" --github-client-id "CLIENT_ID" --domain apps.nextcloud.com
+
+.. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
+
+.. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
 
 Keeping Up To Date
 ~~~~~~~~~~~~~~~~~~
