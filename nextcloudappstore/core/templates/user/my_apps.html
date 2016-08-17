@@ -3,10 +3,10 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block head-title %}{% trans "Profile" %} - {% endblock %}
+{% block head-title %}{% trans 'My Apps' %} - {% endblock %}
 
-{% block profile-content %}
-    <h1>{% trans "My apps" %}</h1>
+{% block account-content %}
+    <h1>{% trans "My Apps" %}</h1>
     <ul class="nav nav-pills nav-stacked">
     {% for obj in object_list %}
         <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
