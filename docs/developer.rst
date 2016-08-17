@@ -18,7 +18,7 @@ This keeps your repository up to date and satisfies the needs of developers and 
 App Release Workflow
 --------------------
 
-To publish an app release on the app store you simply send us a download link for the release archive using either :doc:`ncdev <ncdev>` or any tool that can access the :doc:`restapi` (even with curl). We then do the following:
+To publish an app release on the app store you simply send us a download link for the release archive using either :doc:`ncdev <ncdev>`, the `app upload web form <https://apps.nextcloud.com/app/upload>`_, or any tool that can access the :doc:`restapi` (even with curl). We then do the following:
 
 * Your archive is downloaded from the given location. This ensures that your users don't hit dead links. If your archive is too big, we will abort the download.
 
@@ -42,7 +42,7 @@ App Metadata
 
 App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
 
-The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_
+The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
 
 info.xml
 ~~~~~~~~
@@ -55,13 +55,16 @@ A minimum valid **info.xml** would look like this:
           xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
         <id>news</id>
         <name>News</name>
+        <summary>An RSS/Atom feed reader</summary>
         <description>An RSS/Atom feed reader</description>
-        <author>Bernhard Posselt</author>
-        <category>multimedia</category>
         <version>8.8.2</version>
         <licence>agpl</licence>
+        <author>Bernhard Posselt</author>
+        <category>multimedia</category>
         <dependencies>
-            <owncloud min-version="9.0"/>
+            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
+            <owncloud min-version="9.1"/>
+            <nextcloud min-version="10"/>
         </dependencies>
     </info>
 
@@ -92,6 +95,8 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <category>tools</category>
         <website>https://github.com/owncloud/news</website>
         <bugs>https://github.com/owncloud/news/issues</bugs>
+        <repository>https://github.com/owncloud/news</repository>
+        <discussion>https://help.nextcloud.com/t/nextcloud-conference-in-berlin-sept-16-22/1710</discussion>
         <screenshot>https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <dependencies>
@@ -105,8 +110,33 @@ A full blown example would look like this (needs to be utf-8 encoded):
             <lib>curl</lib>
             <lib>SimpleXML</lib>
             <lib>iconv</lib>
+            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
             <owncloud min-version="9.0" max-version="9.1"/>
+            <nextcloud min-version="9" max-version="10"/>
         </dependencies>
+        <background-jobs>
+            <job>OCA\DAV\CardDAV\Sync\SyncJob</job>
+        </background-jobs>
+        <repair-steps>
+            <pre-migration>
+                <step>OCA\DAV\Migration\Classification</step>
+            </pre-migration>
+            <post-migration>
+                <step>OCA\DAV\Migration\Classification</step>
+            </post-migration>
+            <live-migration>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </live-migration>
+            <install>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </install>
+            <uninstall>
+                <step>OCA\DAV\Migration\GenerateBirthdays</step>
+            </uninstall>
+        </repair-steps>
+        <two-factor-providers>
+            <provider>OCA\AuthF\TwoFactor\Provider</provider>
+        </two-factor-providers>
     </info>
 
 The following tags are validated and used in the following way:
@@ -145,7 +175,8 @@ author
     * can occur multiple times with different authors
     * can contain a **mail** attribute which must be an email
     * can contain a **homepage** which must be an URL
-    * will not be rendered on the app store
+    * will not (yet) be rendered on the app store
+    * will be provided through the REST API
 documentation/user
     * optional
     * must contain an URL to the user documentation
@@ -170,6 +201,15 @@ website
 bugs
     * optional
     * must contain an URL to the project's bug tracker
+    * will be rendered on the app detail page
+repository
+    * optional
+    * must contain an URL to the project's repository
+    * can contain a **type** attribute, **git**, **mercurial**, **subversion** and **bzr** are allowed values, defaults to **git**
+    * currently not used
+discussion
+    * optional
+    * must contain an URL to the forum, starting with https://help.nextcloud.com
     * will be rendered on the app detail page
 screenshot
     * optional
@@ -200,18 +240,64 @@ dependencies/lib
     * can occur multiple times with different php extensions
     * can contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-dependencies/owncloud
-    * required
+dependencies/nextcloud
+    * required on Nextcloud 12 or higher
+    * if absent white-listed owncloud versions will be taken from the owncloud element (see below)
     * must contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
-
+dependencies/owncloud
+    * optional
+    * used for app migration period (Nextcloud 9, 10 and 11)
+    * must contain a **min-version** attribute (**9.0**, **9.1** or **9.2**)
+    * can contain a **max-version** attribute (**9.0**, **9.1** or **9.2**)
+    * will be ignored if a **nextcloud** tag exists
+    * 9.0 will be migrated to Nextcloud 9
+    * 9.1 will be migrated to Nextcloud 10
+    * 9.2 will be migrated to Nextcloud 11
+    * All other versions will be ignored
+background-jobs/job
+    * optional
+    * must contain a php class which is run as background jobs
+    * will not be used, only validated
+repair-steps/pre-migration/step
+    * optional
+    * must contain a php class which is run before executing database migrations
+    * will not be used, only validated
+repair-steps/post-migration/step
+    * optional
+    * must contain a php class which is run after executing database migrations
+    * will not be used, only validated
+repair-steps/live-migration/step
+    * optional
+    * must contain a php class which is run after executing post-migration jobs
+    * will not be used, only validated
+repair-steps/install/step
+    * optional
+    * must contain a php class which is run after installing the app
+    * will not be used, only validated
+repair-steps/uninstall/step
+    * optional
+    * must contain a php class which is run after uninstalling the app
+    * will not be used, only validated
+two-factor-providers/provider
+    * optional
+    * must contain a php class which is registered as two factor auth provider
+    * will not be used, only validated
 
 The following character maximum lengths are enforced:
 
-* All description Strings are (almost) of unlimited size
-* All Url Strings have a maximum of 256 characters
-* All other Strings have a maximum of 128 characters
+* All description Strings are database text fields and therefore not limited in size
+* All other Strings have a maximum of 256 characters
 
+The following elements are either deprecated or for internal use only and will fail the validation if present:
+
+* **standalone**
+* **default_enable**
+* **shipped**
+* **public**
+* **remote**
+* **requiremin**
+* **requiremax**
 
 
 .. _info-schema:
@@ -242,4 +328,4 @@ Since we don't host the package ourselves this implies that the download locatio
 
 * You can sign your code `using a certificate <https://docs.nextcloud.org/server/9/developer_manual/app/code_signing.html>`_
 
-* You must supply an HTTPS download url for the archive
+* You must supply an HTTPS download url for the archive (tar.gz only)

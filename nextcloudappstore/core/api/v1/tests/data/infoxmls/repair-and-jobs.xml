@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../appmetadata/info.xsd">
+    <id>news</id>
+    <name>News</name>
+    <summary>An RSS/Atom feed reader</summary>
+    <description>An RSS/Atom feed reader</description>
+    <version>8.8.2</version>
+    <licence>agpl</licence>
+    <author>Bernhard Posselt</author>
+    <category>multimedia</category>
+    <dependencies>
+        <owncloud min-version="9.0"/>
+    </dependencies>
+    <background-jobs>
+        <job>OCA\DAV\CardDAV\Sync\SyncJob</job>
+    </background-jobs>
+    <repair-steps>
+        <live-migration>
+            <step>OCA\DAV\Migration\GenerateBirthdays</step>
+        </live-migration>
+        <post-migration>
+            <step>OCA\DAV\Migration\Classification</step>
+        </post-migration>
+    </repair-steps>
+    <two-factor-providers>
+        <provider>OCA\Hi</provider>
+    </two-factor-providers>
+</info>

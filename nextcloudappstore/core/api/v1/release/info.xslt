@@ -67,6 +67,22 @@
                 </xsl:for-each>
             </name>
 
+            <authors type="list">
+                <xsl:for-each select="author">
+                    <author>
+                        <name>
+                            <xsl:value-of select="."/>
+                        </name>
+                        <homepage>
+                            <xsl:value-of select="@homepage"/>
+                        </homepage>
+                        <mail>
+                            <xsl:value-of select="@mail"/>
+                        </mail>
+                    </author>
+                </xsl:for-each>
+            </authors>
+
             <screenshots type="list">
                 <xsl:for-each select="screenshot">
                     <screenshot>
@@ -97,6 +113,9 @@
             <issue-tracker>
                 <xsl:value-of select="bugs"/>
             </issue-tracker>
+            <discussion>
+                <xsl:value-of select="discussion"/>
+            </discussion>
 
             <!-- release -->
             <release>
@@ -136,10 +155,10 @@
             </xsl:otherwise>
         </xsl:choose>
         <platform-min-version type="min-version">
-            <xsl:value-of select="owncloud/@min-version"/>
+            <xsl:value-of select="nextcloud/@min-version"/>
         </platform-min-version>
         <platform-max-version type="max-version">
-            <xsl:value-of select="owncloud/@max-version"/>
+            <xsl:value-of select="nextcloud/@max-version"/>
         </platform-max-version>
 
         <php-extensions type="list">

@@ -32,10 +32,18 @@
                             maxOccurs="1"/>
                 <xs:element name="repository" type="repository" minOccurs="0"
                             maxOccurs="1"/>
+                <xs:element name="discussion" type="discussion-url" minOccurs="0"
+                            maxOccurs="1"/>
                 <xs:element name="screenshot" type="secure-url" minOccurs="0"
                             maxOccurs="10"/>
                 <xs:element name="dependencies" type="dependencies"
                             minOccurs="1" maxOccurs="1"/>
+                <xs:element name="background-jobs" type="jobs"
+                            minOccurs="0" maxOccurs="1"/>
+                <xs:element name="repair-steps" type="repair-steps"
+                            minOccurs="0" maxOccurs="1"/>
+                <xs:element name="two-factor-providers" type="two-factor-providers"
+                            minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -221,6 +229,14 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <!-- for now only allow urls to our forum -->
+    <xs:simpleType name="discussion-url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https://help\.nextcloud\.com.*/\d+"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="email">
         <xs:restriction base="limited-string">
             <xs:pattern value="[^@]+@[^\.]+\..+"/>
@@ -319,12 +335,14 @@
                         maxOccurs="unbounded"/>
             <xs:element name="lib" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
-            <xs:element name="owncloud" type="owncloud" minOccurs="1"
+            <xs:element name="owncloud" type="nextcloud" minOccurs="1"
+                        maxOccurs="1"/>
+            <xs:element name="nextcloud" type="nextcloud" minOccurs="1"
                         maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="owncloud">
+    <xs:complexType name="nextcloud">
         <xs:attribute name="min-version" type="version" use="required"/>
         <xs:attribute name="max-version" type="version" use="optional"/>
     </xs:complexType>
@@ -370,4 +388,47 @@
             <xs:enumeration value="64"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="repair-steps">
+        <xs:sequence>
+            <xs:element name="pre-migration" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="post-migration" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="live-migration" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="install" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="uninstall" type="steps" minOccurs="0"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="jobs">
+        <xs:sequence>
+            <xs:element name="job" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="steps">
+        <xs:sequence>
+            <xs:element name="step" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="two-factor-providers">
+        <xs:sequence>
+            <xs:element name="provider" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="php-class">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z_][0-9a-zA-Z_]*(\\[a-zA-Z_][0-9a-zA-Z_]*)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>

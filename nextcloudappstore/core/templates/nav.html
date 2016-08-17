@@ -2,7 +2,7 @@
 {% load i18n %}
 <div class="banner">
     <div class="container">
-        <a class="brand" href="/"><img class="logo" src="{% static 'assets/img/logo-icon.svg' %}" title="nextcloud.com" itemprop="logo"><div class="site-title">App Store</div></a>
+        <a class="brand" href="/"><img class="logo" src="{% static 'assets/img/logo-icon.svg' %}" title="nextcloud.com" itemprop="logo"><div class="site-title">App Store (beta)</div></a>
         <form method="get"
               action="{% if current_category %}{{ request.path }}
                       {% else %}{% url 'home' %}
@@ -39,13 +39,21 @@
         <div id="navbar" class="navbar-collapse collapse ">
             <ul class="nav navbar-nav navbar-left">
                 <li class="nav-link">
-                    <a href="{% url 'home' %}">Apps</a>
+                    <a href="{% url 'home' %}">{% trans 'Apps' %}</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li class="nav-link">
+                        <a href="{% url 'app-upload' %}">{% trans 'Upload app' %}</a>
+                    </li>
+                {% endif %}
+                <li class="nav-link">
+                    <a href="https://nextcloudappstore.readthedocs.io/en/latest/" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_superuser %}
                 <li class="nav-link">
-                    <a href="{% url 'admin:index' %}">Admin</a>
+                    <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
                 </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
@@ -53,14 +61,14 @@
                     <a href="{% url 'user-profile' %}">Profile</a>
                 </li>
                 <li class="nav-link">
-                    <a href="{% url 'account_logout' %}">Log out</a>
+                    <a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>
                 </li>
                 {% else %}
                 <li class="nav-link">
-                    <a href="{% url 'account_login' %}">Log in</a>
+                    <a href="{% url 'account_login' %}">{% trans 'Log in' %}</a>
                 </li>
                 <li class="nav-link">
-                    <a href="{% url 'account_signup' %}">Register</a>
+                    <a href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
                 </li>
                 {% endif %}
             </ul>

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User  # type: ignore
 from django.core.urlresolvers import reverse  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField, Q  # type: ignore
+    DateTimeField, Model, BooleanField, EmailField, Q  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
@@ -40,14 +40,14 @@ class AppManager(TranslatableManager):
 
 class App(TranslatableModel):
     objects = AppManager()
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_('app id, identical to folder name'))
     categories = ManyToManyField('Category', verbose_name=_('Category'))
     translations = TranslatedFields(
-        name=CharField(max_length=128, verbose_name=_('Name'),
+        name=CharField(max_length=256, verbose_name=_('Name'),
                        help_text=_('Rendered app name for users')),
-        summary=CharField(max_length=128, verbose_name=_('Summary'),
+        summary=CharField(max_length=256, verbose_name=_('Summary'),
                           help_text=_(
                               'Short text describing the app\'s purpose')),
         description=TextField(verbose_name=_('Description'), help_text=_(
@@ -63,6 +63,8 @@ class App(TranslatableModel):
     issue_tracker = URLField(max_length=256, blank=True,
                              verbose_name=_('Issue tracker url'))
     website = URLField(max_length=256, blank=True, verbose_name=_('Homepage'))
+    discussion = URLField(max_length=256, blank=True,
+                          verbose_name=_('Discussion'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
@@ -72,6 +74,8 @@ class App(TranslatableModel):
     co_maintainers = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
                                      verbose_name=_('Co-Maintainers'),
                                      related_name='co_maintained_apps')
+    authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
+                              verbose_name=_('App authors'))
     featured = BooleanField(verbose_name=_('Featured'), default=False)
 
     class Meta:
@@ -91,42 +95,120 @@ class App(TranslatableModel):
         return self.owner == user
 
     def releases_by_platform_v(self):
-        """Looks up all compatible releases for each platform version.
-        :return dict with all compatible releases for each platform version.
+        """Looks up all compatible non-nightly releases for each platform
+        version.
+
+        Example of returned dict:
+
+        {'9.1': [<AppRelease object>, <AppRelease object>],
+        '9.0': [<AppRelease object>]}
+
+        :return dict with all compatible non-nightly releases for each platform
+                version.
         """
-        releases = {}
-        for p_version in settings.PLATFORM_VERSIONS:
-            releases[p_version] = self.compatible_releases(p_version)
-        return releases
+
+        return dict(map(
+            lambda v: (v, self.compatible_releases(v)),
+            settings.PLATFORM_VERSIONS))
+
+    def nightly_releases_by_platform_v(self):
+        """Looks up all compatible nightly releases for each platform version.
+
+        Example of returned dict:
+
+        {'9.1': [<AppRelease object>, <AppRelease object>],
+        '9.0': [<AppRelease object>]}
+
+        :return dict with all compatible nightly releases for each platform
+                version.
+        """
+
+        return dict(map(
+            lambda v: (v, self.compatible_nightly_releases(v)),
+            settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
-        """Looks up the latest release for each platform version.
-        Ignores nightly releases.
-        :return dict with the latest release for each platform version.
+        """Looks up the latest stable and nightly release for each platform
+        version.
+
+        Example of returned dict:
+
+        {'9.1': {
+            'stable': <AppRelease object>,
+            'nightly': <AppRelease object>
+        },
+        '9.0': {
+            'stable': <AppRelease object>
+        }}
+
+        :return dict with the latest stable and nightly release for each
+                platform version.
         """
-        all_latest = {}
-        for p_version in settings.PLATFORM_VERSIONS:
-            compatible = self.compatible_releases(p_version)
-            all_latest[p_version] = self._latest_non_nightly(compatible)
-        return all_latest
+
+        def dict_item(ver):
+            return (
+                ver,
+                {
+                    'stable': self._latest(self.compatible_releases(ver)),
+                    'nightly':
+                        self._latest(self.compatible_nightly_releases(ver))
+                }
+            )
+
+        return dict(map(dict_item, settings.PLATFORM_VERSIONS))
 
     def compatible_releases(self, platform_version, inclusive=True):
-        all_releases = self.releases.all()
-        return sorted(list(filter(
-            lambda rel: rel.is_compatible(platform_version, inclusive),
-            all_releases)), key=lambda rel: Version(rel.version), reverse=True)
+        """Returns all non-nightly releases of this app that are compatible
+        with the given platform version.
 
-    def _latest_non_nightly(self, releases):
-        releases = filter(lambda r: not r.version.endswith('-nightly'),
-                          releases)
+        :param inclusive: Use inclusive version check (see
+                          AppRelease.is_compatible()).
+        :return a sorted list of all compatible non-nightly releases.
+        """
+
+        return sorted(
+            filter(
+                lambda rel:
+                    rel.is_compatible(platform_version, inclusive)
+                    and not rel.is_nightly,
+                self.releases.all()),
+            key=lambda rel: Version(rel.version),
+            reverse=True)
+
+    def compatible_nightly_releases(self, platform_version, inclusive=True):
+        """Returns all nightly releases of this app that are compatible with
+        the given platform version.
+
+        :param inclusive: Use inclusive version check (see
+                          AppRelease.is_compatible()).
+        :return a sorted list of all compatible nightly releases.
+        """
+
+        return sorted(
+            filter(
+                lambda rel:
+                    rel.is_compatible(platform_version, inclusive)
+                    and rel.is_nightly,
+                self.releases.all()),
+            key=lambda rel: Version(rel.version),
+            reverse=True)
+
+    def _latest(self, releases):
         try:
             return max(releases, key=lambda r: Version(r.version))
         except ValueError:
             return None
 
 
+class AppAuthor(Model):
+    name = CharField(max_length=256, verbose_name=_('Full name'))
+    homepage = URLField(max_length=256, blank=True,
+                        verbose_name=_('Homepage'))
+    mail = EmailField(max_length=256, verbose_name=_('E-Mail'), blank=True)
+
+
 class AppRelease(Model):
-    version = CharField(max_length=128, verbose_name=_('Version'),
+    version = CharField(max_length=256, verbose_name=_('Version'),
                         help_text=_('Version follows Semantic Versioning'))
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
                      related_name='releases')
@@ -142,9 +224,9 @@ class AppRelease(Model):
     shell_commands = ManyToManyField('ShellCommand', blank=True,
                                      verbose_name=_(
                                          'Shell command dependency'))
-    php_version_spec = CharField(max_length=128,
+    php_version_spec = CharField(max_length=256,
                                  verbose_name=_('PHP version requirement'))
-    platform_version_spec = CharField(max_length=128, verbose_name=_(
+    platform_version_spec = CharField(max_length=256, verbose_name=_(
         'Platform version requirement'))
     min_int_size = IntegerField(blank=True, default=32,
                                 verbose_name=_('Minimum Integer Bits'),
@@ -173,14 +255,15 @@ class AppRelease(Model):
         return '%s %s' % (self.app, self.version)
 
     def is_compatible(self, platform_version, inclusive=False):
-        """
-        Checks if a release is compatible with a platform version
+        """Checks if a release is compatible with a platform version
+
         :param platform_version: the platform version, not required to be
-        semver compatible
+                                 semver compatible
         :param inclusive: if True the check will also return True if an app
-         requires 9.0.1 and the given platform version is 9.0
+                          requires 9.0.1 and the given platform version is 9.0
         :return: True if compatible, otherwise false
         """
+
         min_version = Version(pad_min_version(platform_version))
         spec = Spec(self.platform_version_spec)
         if inclusive:
@@ -188,6 +271,10 @@ class AppRelease(Model):
             return (min_version in spec or max_version in spec)
         else:
             return min_version in spec
+
+    @property
+    def is_nightly(self):
+        return self.version.endswith('-nightly')
 
 
 class Screenshot(Model):
@@ -206,7 +293,7 @@ class Screenshot(Model):
 
 
 class ShellCommand(Model):
-    name = CharField(max_length=128, unique=True, primary_key=True,
+    name = CharField(max_length=256, unique=True, primary_key=True,
                      verbose_name=_('Shell Command'),
                      help_text=_(
                          'Name of a required shell command, e.g. grep'))
@@ -221,7 +308,7 @@ class ShellCommand(Model):
 
 
 class Category(TranslatableModel):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_(
                        'Category id which is used to identify a '
@@ -232,7 +319,7 @@ class Category(TranslatableModel):
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     translations = TranslatedFields(
-        name=CharField(max_length=128, help_text=_(
+        name=CharField(max_length=256, help_text=_(
             'Category name which will be presented to the user'),
                        verbose_name=_('Name')),
         description=TextField(verbose_name=_('Description'),
@@ -249,11 +336,11 @@ class Category(TranslatableModel):
 
 
 class License(Model):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_(
                        'Key which is used to identify a license'))
-    name = CharField(max_length=128, verbose_name=_('Name'),
+    name = CharField(max_length=256, verbose_name=_('Name'),
                      help_text=_(
                          'License name which will be presented to '
                          'the user'))
@@ -267,10 +354,10 @@ class License(Model):
 
 
 class Database(Model):
-    id = CharField(max_length=128, unique=True, primary_key=True,
+    id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_('Key which is used to identify a database'))
-    name = CharField(max_length=128, verbose_name=_('Name'),
+    name = CharField(max_length=256, verbose_name=_('Name'),
                      help_text=_(
                          'Database name which will be presented to the user'))
 
@@ -289,7 +376,7 @@ class DatabaseDependency(Model):
                              related_name='databasedependencies')
     database = ForeignKey('Database', related_name='releasedependencies',
                           on_delete=CASCADE, verbose_name=_('Database'))
-    version_spec = CharField(max_length=128,
+    version_spec = CharField(max_length=256,
                              verbose_name=_('Database version requirement'))
 
     class Meta:
@@ -303,7 +390,7 @@ class DatabaseDependency(Model):
 
 
 class PhpExtension(Model):
-    id = CharField(max_length=128, unique=True, help_text=_('e.g. libxml'),
+    id = CharField(max_length=256, unique=True, help_text=_('e.g. libxml'),
                    primary_key=True, verbose_name=_('PHP extension'))
 
     class Meta:
@@ -322,7 +409,7 @@ class PhpExtensionDependency(Model):
     php_extension = ForeignKey('PhpExtension', on_delete=CASCADE,
                                verbose_name=_('PHP Extension'),
                                related_name='releasedependencies')
-    version_spec = CharField(max_length=128,
+    version_spec = CharField(max_length=256,
                              verbose_name=_('Extension version requirement'))
 
     class Meta:

@@ -13,8 +13,8 @@
             {% for cat in categories %}
             <li class="{% if cat.id == current_category.id %}active{% endif %}">
                 <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
-            {% endfor %}
             </li>
+            {% endfor %}
         </ul>
         {% endif %}
     </div>

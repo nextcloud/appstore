@@ -42,6 +42,10 @@ class ImporterTest(TestCase):
         app.set_current_language('de')  # fallback
         self.assertEqual('News', app.name)
 
+        # authors
+        self.assertEqual(1, app.authors.count())
+        self.assertEqual('Bernhard Posselt', app.authors.all()[0].name)
+
         # categories
         self.assertEqual(1, app.categories.count())
         self.assertEqual('multimedia', app.categories.all()[0].id)
@@ -78,6 +82,7 @@ class ImporterTest(TestCase):
         self.assertEqual('#This is markdown', app.description)
         app.set_current_language('de')  # fallback
         self.assertEqual('Nachrichten', app.name)
+        self.assertEqual('https://help.nextcloud.com/t/news/1', app.discussion)
         self.assertEqual(
             'Eine Nachrichten App, welche mit [RSS/Atom]('
             'https://en.wikipedia.org/wiki/RSS) umgehen kann',

@@ -15,14 +15,14 @@
     <h1>{{ object.name }} {% trans ' - Releases' %}</h1>
     <section><a href="/app/{{ object.id }}/">&larr; {% trans 'App details' %}</a></section>
     <section class="app-releases">
-        {% for platform_v, releases in releases_by_platform_v|sort_by_version:'desc' %}
+        {% for platform_v, releases in releases_by_platform_v %}
             {% if releases %}
                 <a name="{{ platform_v }}"></a>
                 <div class="accordion-item{% if request.GET.platform == platform_v %} open{% endif %}">
                     <div class="accordion-title"><h4>Nextcloud {{ platform_v }}</h4></div>
                     <div class="accordion-content">
                         {% for release in releases %}
-                            <div class="accordion-item {% if forloop.first %}open{% endif %}">
+                            <div class="accordion-item{% if forloop.first %} open{% endif %}{% if release.is_nightly %} unstable{% endif %}">
                                 <div class="accordion-title"><h5>{{ object.name }} {{ release.version }}</h5></div>
                                 <div class="accordion-content">
                                     <table class="table table-condensed">
@@ -61,7 +61,9 @@
                                         </tr>
                                         {% endif %}
                                         <tr><td>{% trans 'Minimum integer bits' %}</td><td>{{ release.min_int_size }}</td></tr>
+                                        {% if release.php_version_spec|version_spec %}
                                         <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec|version_spec }}</td></tr>
+                                        {% endif %}
                                         {% if release.phpextensiondependencies.all %}
                                         <tr>
                                             <td>{% trans 'PHP extensions' %}</td>

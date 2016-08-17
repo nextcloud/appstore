@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.bitbucket',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,6 +142,11 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
     'nextcloudappstore.core.user.forms.SignupFormRecaptcha'
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': ['user:email']
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -199,4 +203,25 @@ NOCAPTCHA = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
-PLATFORM_VERSIONS = ['9.0']
+PLATFORM_VERSIONS = ['9', '10']
+
+LOG_LEVEL = 'WARNING'
+LOG_FILE = join(BASE_DIR, 'appstore.log')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': LOG_LEVEL,
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': LOG_LEVEL,
+            'propagate': True,
+        },
+    },
+}

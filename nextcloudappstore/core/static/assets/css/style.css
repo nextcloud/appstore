@@ -357,6 +357,59 @@ form .text-danger {
     clear: right;
 }
 
+.app-download .unstable {
+    color: #e0543d !important;
+}
+
+.accordion-item.unstable .accordion-title {
+    background-color: #ffe8e4 !important;
+    border-color: #ffe8e4 !important;
+}
+
+.accordion-item.unstable .accordion-content {
+    border-color: #ffe8e4 !important;
+}
+
+.accordion-item.unstable .accordion-content:before {
+    display: inline-block;
+    content: 'Unstable';
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #e0543d;
+    font-weight: normal;
+}
+
+.accordion-item.unstable .accordion-content .release-download {
+    background-color: #e0543d;
+}
+
+.accordion-item.unstable .accordion-content .release-download:after {
+    content: '(Unstable)';
+}
+
 .center {
     text-align: center;
+}
+
+#app-upload-form {
+    margin-bottom: 30px;
+}
+
+#app-upload-form .alert {
+    margin: 0;
+}
+
+#app-upload-form #detail-msg .text-danger {
+    padding: 0px !important;
+}
+
+.app-upload {
+    max-width: 600px;
+    margin: auto;
+    padding: 15px;
+}
+
+.ajax-loader-gif {
+    position: relative;
+    top: -1px;
 }

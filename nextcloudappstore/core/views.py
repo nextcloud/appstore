@@ -1,4 +1,3 @@
-from functools import reduce
 from urllib.parse import urlencode
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -7,9 +6,12 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from nextcloudappstore.core.models import App, Category
+from nextcloudappstore.core.versioning import pad_min_version
+from semantic_version import Version
 
 
 def app_description(request, id):
@@ -40,9 +42,29 @@ class AppReleasesView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+
+        releases = self.object.releases_by_platform_v()
+        nightlies = self.object.nightly_releases_by_platform_v()
+        versions = set(list(releases.keys()) + list(nightlies.keys()))
+        all_releases = list(map(
+            lambda v: (v, releases.get(v, []) + nightlies.get(v, [])),
+            versions))
         context['releases_by_platform_v'] = \
-            self.object.releases_by_platform_v()
+            self._sort_by_platform_v(all_releases)
+
         return context
+
+    def _sort_by_platform_v(self, releases_by_platform, reverse=True):
+        """Sorts a list of tuples like (<platform version>, [releases]) by
+        platform version.
+
+        :param releases_by_platform: A list of tuples.
+        :param reverse: Descending order if True, ascending otherwise.
+        :return sorted list of tuples.
+        """
+
+        return sorted(releases_by_platform, reverse=reverse,
+                      key=lambda v: Version(pad_min_version(v[0])))
 
 
 class CategoryAppListView(ListView):
@@ -134,3 +156,7 @@ class CategoryAppListView(ListView):
     @cached_property
     def search_terms(self):
         return self.request.GET.get('search', '').strip().split()
+
+
+class AppUploadView(TemplateView):
+    template_name = 'app/upload.html'

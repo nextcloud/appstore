@@ -50,7 +50,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
 
 * **Example CURL request**::
 
-    curl http://localhost:8000/api/v1/platform/9.0.0/apps.json -H 'If-None-Match: "1-1-2016-06-17 23:08:58.042321+00:00"'
+    curl https://apps.nextcloud.com/api/v1/platform/9.0.0/apps.json -H 'If-None-Match: "1-1-2016-06-17 23:08:58.042321+00:00"'
 
 * **Returns**: application/json
 
@@ -61,6 +61,23 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "id": "news",
             "categories": [
                 "multimedia"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Posselt",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Alessandro Cosentino",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Jan-Christoph Borchardt",
+                    "mail": "",
+                    "homepage": ""
+                }
             ],
             "userDocs": "https://github.com/owncloud/news/wiki#user-documentation",
             "adminDocs": "https://github.com/owncloud/news#readme",
@@ -186,7 +203,7 @@ This route will return all categories and their translations.
 
 * **Example CURL request**::
 
-    curl http://localhost:8000/api/v1/categories.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
+    curl https://apps.nextcloud.com/api/v1/categories.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
 
 * **Returns**: application/json
 
@@ -289,7 +306,7 @@ Deleting an app will also delete all releases which are associated with it.
 
 * **Example CURL request**::
 
-    curl -X DELETE http://localhost:8000/api/v1/apps/news -u "user:password"
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news -u "user:password"
 
 
 * **Returns**:
@@ -318,7 +335,7 @@ Only app owners or co-maintainers are allowed to delete an app release. The owne
 
 * **Example CURL request**::
 
-    curl -X DELETE http://localhost:8000/api/v1/apps/news/releases/9.0.0 -u "user:password"
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/9.0.0 -u "user:password"
 
 
 * **Returns**:
@@ -360,7 +377,7 @@ The following request will create a new app release:
 
 * **Example CURL request**::
 
-        curl -X POST -u "user:password" http://localhost:8000/api/v1/apps/releases -H "Content-Type: application/json" -d '{"download":"https://example.com/release.tar.gz"}'
+        curl -X POST -u "user:password" https://apps.nextcloud.com/api/v1/apps/releases -H "Content-Type: application/json" -d '{"download":"https://example.com/release.tar.gz"}'
 
 * **Returns**:
 
