@@ -328,4 +328,4 @@ Since we don't host the package ourselves this implies that the download locatio
 
 * You can sign your code `using a certificate <https://docs.nextcloud.org/server/9/developer_manual/app/code_signing.html>`_
 
-* You must supply an HTTPS download url for the archive
+* You must supply an HTTPS download url for the archive (tar.gz only)
