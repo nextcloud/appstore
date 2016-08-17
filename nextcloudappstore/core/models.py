@@ -202,6 +202,17 @@ class AppAuthor(Model):
                         verbose_name=_('Homepage'))
     mail = EmailField(max_length=256, verbose_name=_('E-Mail'), blank=True)
 
+    def __str__(self) -> str:
+        if self.mail:
+            mail = '<%s>' % self.mail
+        else:
+            mail = ''
+        return '%s %s' % (self.name, mail)
+
+    class Meta:
+        verbose_name = _('App Author')
+        verbose_name_plural = _('App Authors')
+
 
 class AppRelease(Model):
     version = CharField(max_length=256, verbose_name=_('Version'),
