@@ -3,18 +3,26 @@
 {% load i18n %}
 {% load staticfiles %}
 
+{% block head %}
+    <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
+    <script defer="defer" src="{% static 'assets/js/user-api-token.js' %}"></script>
+{% endblock %}
+
 {% block head-title %}{% trans "API token" %} - {% endblock %}
 
 {% block account-content %}
     <h1>{% trans "API Token" %}</h1>
     <section>
-        <p>Your API token is:</p>
-        <p><code>{{ token }}</code></p>
+        <div id="regen-success" class="alert alert-success" hidden>{% trans 'New API token generated.' %}</div>
+        <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
+        <span id="regen-confirm-text" hidden>{% trans 'Do you want to regenerate your API token?' %}</span>
+        <p>{% trans 'Your API token is:' %}</p>
+        <p><code id="token" data-error="{% trans 'Failed to fetch token.' %}"></code></p>
     </section>
     <section>
-        <form action="{{ request.url }}" method="post">
+        <form action="{% url 'api:v1:user-token-new' %}" method="post" id="user-api-token-form">
             {% csrf_token %}
-            <button class="btn btn-primary btn-block" type="submit">Regenerate token</button>
+            <button class="btn btn-primary btn-block" type="submit">{% trans 'Regenerate token' %}</button>
         </form>
     </section>
 {% endblock %}

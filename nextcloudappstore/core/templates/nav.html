@@ -58,7 +58,7 @@
                 {% endif %}
                 {% if request.user.is_authenticated %}
                     <li class="nav-link">
-                        <a href="{% url 'user-account' %}">Account</a>
+                        <a href="{% url 'user-account' %}">{% trans 'Account' %}</a>
                     </li>
                     <li class="nav-link">
                         <a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>

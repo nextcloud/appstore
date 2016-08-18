@@ -36,29 +36,13 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
 
 class APITokenView(LoginRequiredMixin, TemplateView):
-    """Display the user's API Token."""
+    """Display the user's API token, and allow it to be regenerated."""
     template_name = 'user/api_token.html'
 
     def get_context_data(self, **kwargs):
         context = super(APITokenView, self).get_context_data(**kwargs)
         context['acc_page'] = 'api_token'
-        if self.request.user.is_authenticated():
-            token = Token.objects.get_or_create(user=self.request.user)[0].key
-        else:
-            token = ''
-        context['token'] = token
         return context
-
-    def post(self, request):
-        if self.request.user.is_authenticated():
-            try:
-                Token.objects.get(user=self.request.user).delete()
-            except:
-                pass
-            new = Token.objects.create(user=self.request.user)
-            new.save()
-            messages.success(request, 'New API token generated.')
-        return self.get(request)
 
 
 class PasswordView(LoginRequiredMixin, PasswordChangeView):
