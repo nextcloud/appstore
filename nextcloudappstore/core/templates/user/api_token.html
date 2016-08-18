@@ -7,4 +7,14 @@
 
 {% block account-content %}
     <h1>{% trans "API Token" %}</h1>
+    <section>
+        <p>Your API token is:</p>
+        <p><code>{{ token }}</code></p>
+    </section>
+    <section>
+        <form action="{{ request.url }}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-block" type="submit">Regenerate token</button>
+        </form>
+    </section>
 {% endblock %}

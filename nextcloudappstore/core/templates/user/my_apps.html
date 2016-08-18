@@ -7,11 +7,13 @@
 
 {% block account-content %}
     <h1>{% trans "My Apps" %}</h1>
-    <ul class="nav nav-pills nav-stacked">
-    {% for obj in object_list %}
-        <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
-    {% empty %}
-        <li>{% trans "No Apps" %}</li>
-    {% endfor %}
-    <ul>
+    <section>
+        <table class="table">
+            {% for obj in object_list %}
+                <tr><td><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></td></tr>
+            {% empty %}
+                <tr><td>{% trans "No Apps" %}</td></tr>
+            {% endfor %}
+        </table>
+    </section>
 {% endblock %}

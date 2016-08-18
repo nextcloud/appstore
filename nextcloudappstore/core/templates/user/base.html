@@ -9,16 +9,16 @@
 <div class="row">
     <div class="col-sm-3">
         <ul id="sidebar" class="nav nav-pills nav-stacked">
-            <li>
+            <li class="{% if acc_page == 'account' %}active{% endif %}">
                 <a href="{% url 'user-account' %}">{% trans 'Account' %}</a>
             </li>
-            <li>
+            <li class="{% if acc_page == 'password' %}active{% endif %}">
                 <a href="{% url 'user-password' %}">{% trans 'Password' %}</a>
             </li>
-            <li>
+            <li class="{% if acc_page == 'my_apps' %}active{% endif %}">
                 <a href="{% url 'user-apps' %}">{% trans 'My apps' %}</a>
             </li>
-            <li>
+            <li class="{% if acc_page == 'api_token' %}active{% endif %}">
                 <a href="{% url 'user-api-token' %}">{% trans 'API token' %}</a>
             </li>
         </ul>
