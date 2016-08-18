@@ -15,9 +15,6 @@
             <li class="{% if acc_page == 'password' %}active{% endif %}">
                 <a href="{% url 'user-password' %}">{% trans 'Password' %}</a>
             </li>
-            <li class="{% if acc_page == 'my_apps' %}active{% endif %}">
-                <a href="{% url 'user-apps' %}">{% trans 'My apps' %}</a>
-            </li>
             <li class="{% if acc_page == 'api_token' %}active{% endif %}">
                 <a href="{% url 'user-api-token' %}">{% trans 'API token' %}</a>
             </li>

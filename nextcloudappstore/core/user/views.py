@@ -35,23 +35,6 @@ class AccountView(LoginRequiredMixin, UpdateView):
             return None
 
 
-class MyAppsView(LoginRequiredMixin, ListView):
-    """List the user's apps."""
-    template_name = 'user/my_apps.html'
-    model = App
-
-    def get_context_data(self, **kwargs):
-        context = super(MyAppsView, self).get_context_data(**kwargs)
-        context['acc_page'] = 'my_apps'
-        return context
-
-    def get_queryset(self):
-        lang = get_language_info(get_language())['code']
-        qs = App.objects.search('', lang).order_by('translations__name')
-        return qs.filter(
-            Q(owner=self.request.user) | Q(co_maintainers=self.request.user))
-
-
 class APITokenView(LoginRequiredMixin, TemplateView):
     """Display the user's API Token."""
     template_name = 'user/api_token.html'
