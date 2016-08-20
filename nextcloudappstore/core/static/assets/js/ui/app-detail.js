@@ -34,6 +34,6 @@
     fetch(appDescriptionUrl.content).then((response) => response.text())
         .then((description) => {
             descriptionTarget.classList.remove('loading');
-            descriptionTarget.innerHTML = global.noreferrerLinks(md.render(description));
+            descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
         });
 }(this));
