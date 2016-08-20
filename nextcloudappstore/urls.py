@@ -1,9 +1,10 @@
-from django.conf.urls import url, include
-from django.contrib import admin
 from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
-
+from django.conf.urls import url, include
+from django.contrib import admin
+from nextcloudappstore.core.user.views import APITokenView, \
+    PasswordView, AccountView
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView
 
@@ -13,6 +14,9 @@ urlpatterns = [
     url(r"^social/signup/$", csp_exempt(social_signup),
         name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),
+    url(r'^account/?$', AccountView.as_view(), name='user-account'),
+    url(r'^account/password/?$', PasswordView.as_view(), name='user-password'),
+    url(r'^account/token/?$', APITokenView.as_view(), name='user-api-token'),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
     url(r'^app/upload/?$', AppUploadView.as_view(), name='app-upload'),

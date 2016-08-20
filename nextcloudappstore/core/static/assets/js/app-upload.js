@@ -1,22 +1,5 @@
-(function (window) {
+(function (global) {
     'use strict';
-
-
-    function fetchToken(csrf) {
-        let request = new Request(
-            '/api/v1/token',
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrf,
-                }),
-                credentials: 'include'
-            }
-        );
-        return fetch(request).then(convertResponse);
-    }
-
 
     function uploadAppRelease(url, download, checksum, nightly, token) {
         let data = {'download': download, 'nightly': nightly};
@@ -35,19 +18,7 @@
                 body: JSON.stringify(data)
             }
         );
-        return fetch(request).then(convertResponse);
-    }
-
-
-    function convertResponse(response) {
-        if (response.status >= 200 && response.status < 300) {
-            if (response.headers.get('Content-Type') === 'application/json') {
-                return response.json();
-            } else {
-                return response.text();
-            }
-        }
-        return response.json().then(Promise.reject.bind(Promise));
+        return fetch(request).then(global.convertResponse);
     }
 
 
@@ -156,7 +127,7 @@
 
     // Get the auth token of the currently authenticated user and
     // bind the app release API request to the form submit event.
-    fetchToken(csrf.value).then(
+    global.fetchAPIToken(csrf.value).then(
         (response) => {
             // User token request successful
             form.addEventListener('submit', (event) => {

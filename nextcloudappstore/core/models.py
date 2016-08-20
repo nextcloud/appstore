@@ -1,6 +1,7 @@
 from functools import reduce
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.core.urlresolvers import reverse  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q  # type: ignore
@@ -83,6 +84,9 @@ class App(TranslatableModel):
 
     def __str__(self) -> str:
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('app-detail', args=[str(self.id)])
 
     def can_update(self, user: User) -> bool:
         return self.owner == user or user in self.co_maintainers.all()

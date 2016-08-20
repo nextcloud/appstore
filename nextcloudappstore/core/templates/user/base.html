@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load css_class %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans "Account" %} - {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-3">
+        <ul id="sidebar" class="nav nav-pills nav-stacked">
+            <li class="{% if acc_page == 'account' %}active{% endif %}">
+                <a href="{% url 'user-account' %}">{% trans 'Account' %}</a>
+            </li>
+            <li class="{% if acc_page == 'password' %}active{% endif %}">
+                <a href="{% url 'user-password' %}">{% trans 'Password' %}</a>
+            </li>
+            <li class="{% if acc_page == 'api_token' %}active{% endif %}">
+                <a href="{% url 'user-api-token' %}">{% trans 'API token' %}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        {% block account-content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
