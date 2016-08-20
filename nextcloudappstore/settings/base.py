@@ -142,11 +142,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
     'nextcloudappstore.core.user.forms.SignupFormRecaptcha'
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': ['user:email']
-    }
-}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
