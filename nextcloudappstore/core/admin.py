@@ -17,6 +17,10 @@ class AppReleaseAdmin(admin.ModelAdmin):
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
 
 
+class AppAuthorAdmin(admin.ModelAdmin):
+    pass
+
+
 class CategoryAdmin(TranslatableAdmin):
     pass
 
@@ -26,6 +30,7 @@ class AppAdmin(TranslatableAdmin):
 
 
 admin.site.register(App, AppAdmin)
+admin.site.register(AppAuthor, AppAuthorAdmin)
 admin.site.register(AppRelease, AppReleaseAdmin)
 admin.site.register(Screenshot)
 admin.site.register(ShellCommand)
