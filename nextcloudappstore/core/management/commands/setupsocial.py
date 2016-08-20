@@ -21,7 +21,7 @@ class Command(BaseCommand):
         # set up site which is required for social login
         site = Site.objects.all()[0]
         site.domain = options['domain']
-        site.name = options['domain']
+        site.name = 'Nextcloud App Store'
         site.save()
         # set up github
         app, created = SocialApp.objects.get_or_create(provider='github')
