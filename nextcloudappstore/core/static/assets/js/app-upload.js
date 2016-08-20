@@ -21,6 +21,7 @@
         return fetch(request).then(global.convertResponse);
     }
 
+
     function clearMessages() {
         let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => {
