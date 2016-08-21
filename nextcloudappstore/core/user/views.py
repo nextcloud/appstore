@@ -1,5 +1,6 @@
 from allauth.account.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView
 
 
@@ -16,6 +17,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
 class PasswordView(LoginRequiredMixin, PasswordChangeView):
     """Allow the user to change their password."""
     template_name = 'user/password.html'
+    success_url = reverse_lazy('account-password')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -24,7 +26,7 @@ class PasswordView(LoginRequiredMixin, PasswordChangeView):
 
 
 class APITokenView(LoginRequiredMixin, TemplateView):
-    """Allow the user to change their password."""
+    """Display the user's API token, and allow it to be regenerated."""
     template_name = 'user/api-token.html'
 
     def get_context_data(self, **kwargs):
