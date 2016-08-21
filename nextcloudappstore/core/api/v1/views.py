@@ -158,7 +158,7 @@ class SessionObtainAuthToken(APIView):
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user:
             user = request.user
         else:
             serializer = self.serializer_class(data=request.data)
