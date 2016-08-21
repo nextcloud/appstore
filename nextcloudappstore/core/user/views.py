@@ -1,3 +1,4 @@
+from allauth.account.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
@@ -12,7 +13,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class PasswordView(LoginRequiredMixin, TemplateView):
+class PasswordView(LoginRequiredMixin, PasswordChangeView):
     """Allow the user to change their password."""
     template_name = 'user/password.html'
 
