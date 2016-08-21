@@ -19,6 +19,10 @@ def app_description(request, id):
     return HttpResponse(app.description, content_type='text/plain')
 
 
+class LegalNoticeView(TemplateView):
+    template_name = 'legal.html'
+
+
 class AppDetailView(DetailView):
     model = App
     template_name = 'app/detail.html'
