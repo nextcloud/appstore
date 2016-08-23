@@ -47,20 +47,19 @@
     </ul>
 </div>
 {% for app in object_list %}
-        <div class="col-lg-6 app-list-container">
+        <div class="col-md-6 app-list-container">
             <div class="well">
+                <div class="app-list-screenshot">
                 {% if app.screenshots.all %}
                 <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0 }}" alt="{% trans 'Screenshot' %}"></a>
                 {% else %}
                 <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
                 {% endif %}
+                </div>
                 <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
                 <p>{{ app.summary }}</p>
             </div>
         </div>
-    {% if forloop.counter|divisibleby:2 %}
-        <div class="row"></div>
-    {% endif %}
 {% empty %}
     <div class="col-lg-6 app-list-container">
         {% if search_query and current_category %}
