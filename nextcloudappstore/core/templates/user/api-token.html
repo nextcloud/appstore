@@ -17,8 +17,15 @@
         <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
         <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch token.' %}</div>
         <span id="regen-confirm-text" hidden>{% trans 'Do you want to regenerate your API token?' %}</span>
-        <p>{% trans 'Your API token is:' %}</p>
-        <p><code id="token"></code></p>
+        {% blocktrans %}
+            <p>
+                The API token can be used for authentication when calling the app store
+                <a href="https://nextcloudappstore.readthedocs.io/en/latest/restapi.html">REST API</a>.
+                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.
+            </p>
+        {% endblocktrans %}
+        <p class="hide-on-token-failure">{% trans 'Your API token is:' %}</p>
+        <p class="hide-on-token-failure"><code id="token"></code></p>
         <form action="{% url 'api:v1:user-token-new' %}" method="post" id="api-token-regen-form">
             {% csrf_token %}
             <button class="btn btn-default btn-block" type="submit">{% trans 'Regenerate token' %}</button>

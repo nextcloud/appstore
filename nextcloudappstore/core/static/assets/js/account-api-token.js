@@ -16,8 +16,8 @@
     };
 
 
-    function showElement(element, boolean) {
-        if (boolean) {
+    function showElement(element, show) {
+        if (show) {
             element.removeAttribute('hidden');
         } else {
             element.setAttribute('hidden', 'true');
@@ -25,23 +25,23 @@
     }
 
 
-    function showTokenFetchFailureMessage(boolean) {
+    function showTokenFetchFailureMessage() {
         let msg = document.getElementById('token-failure');
-        let paragraphs = Array.from(document.querySelectorAll('#tokenSection p'));
-        showElement(msg, boolean);
-        paragraphs.forEach((p) => showElement(p, !boolean));
+        let elementsToHide = Array.from(document.querySelectorAll('#tokenSection .hide-on-token-failure'));
+        showElement(msg, true);
+        elementsToHide.forEach((el) => showElement(el, false));
     }
 
 
-    function showTokenRegenSuccessMessage(boolean) {
+    function showTokenRegenSuccessMessage(show) {
         let msg = document.getElementById('regen-success');
-        showElement(msg, boolean);
+        showElement(msg, show);
     }
 
 
-    function showTokenRegenFailureMessage(boolean) {
+    function showTokenRegenFailureMessage(show) {
         let msg = document.getElementById('regen-failure');
-        showElement(msg, boolean);
+        showElement(msg, show);
     }
 
 
@@ -53,18 +53,14 @@
 
     function updateToken(csrf) {
         global.fetchAPIToken(csrf).then(
-            (response) => {
-                updateTokenDisplay(response.token);
-                showTokenFetchFailureMessage(false);
-            },
-            showTokenFetchFailureMessage(true)
+            (response) => updateTokenDisplay(response.token),
+            showTokenFetchFailureMessage
         );
     }
 
 
     function onTokenRegenSuccess(response) {
         showTokenRegenSuccessMessage(true);
-        showTokenFetchFailureMessage(false);
         updateTokenDisplay(response.token);
     }
 
