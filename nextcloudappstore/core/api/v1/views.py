@@ -160,12 +160,31 @@ class SessionObtainAuthToken(APIView):
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated():
-            user = request.user
-        else:
-            serializer = self.serializer_class(data=request.data)
-            serializer.is_valid(raise_exception=True)
-            user = serializer.validated_data['user']
-
-        token, created = Token.objects.get_or_create(user=user)
+        token, created = Token.objects.get_or_create(user=request.user)
         return Response({'token': token.key})
+
+
+class RegenerateAuthToken(APIView):
+    """Generates a new API token for the authenticated user, regardless of
+    whether a token already exists.
+
+    Accepts TokenAuthentication and BasicAuthentication.
+    """
+
+    authentication_classes = (authentication.TokenAuthentication,
+                              authentication.BasicAuthentication,)
+    throttle_classes = (PostThrottle,)
+    permission_classes = (IsAuthenticated,)
+    parser_classes = (parsers.FormParser,
+                      parsers.MultiPartParser,
+                      parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+    serializer_class = AuthTokenSerializer
+
+    def post(self, request, *args, **kwargs):
+        try:
+            Token.objects.get(user=request.user).delete()
+        except:
+            pass
+        new = Token.objects.create(user=request.user)
+        return Response({'token': new.key})
