@@ -23,11 +23,11 @@
     <ul class="nav-tabs nav sorting">
         <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'last_modified' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_modified&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
         {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% else %}
-        <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
+            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% endif %}
         <li role="presentation" class="filters">
             <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
@@ -51,9 +51,9 @@
             <div class="well">
                 <div class="app-list-screenshot">
                 {% if app.screenshots.all %}
-                <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0 }}" alt="{% trans 'Screenshot' %}"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0 }}" alt="{% trans 'Screenshot' %}"></a>
                 {% else %}
-                <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
                 {% endif %}
                 </div>
                 <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
