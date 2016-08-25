@@ -149,6 +149,8 @@ class SessionObtainAuthToken(APIView):
     sent for BasicAuthentication.
     """
 
+    authentication_classes = (authentication.SessionAuthentication,
+                              authentication.BasicAuthentication,)
     throttle_classes = (PostThrottle,)
     permission_classes = (IsAuthenticated,)
     parser_classes = (parsers.FormParser,
