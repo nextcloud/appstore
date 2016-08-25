@@ -27,7 +27,7 @@
         <p class="hide-on-token-failure"><code id="token"></code></p>
         <form action="{% url 'api:v1:user-token-new' %}" method="post" id="api-token-regen-form">
             {% csrf_token %}
-            <button class="btn btn-default btn-block" type="submit">{% trans 'Regenerate token' %}</button>
+            <button class="btn btn-primary btn-block" type="submit">{% trans 'Regenerate token' %}</button>
         </form>
     </section>
 {% endblock %}
