@@ -9,12 +9,15 @@
 
 {% block head-title %}{% trans 'API Token' %} - {% endblock %}
 
+{% block messages %}
+    <div id="regen-success" class="alert alert-success" hidden>{% trans 'New API token generated.' %}</div>
+    <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
+    <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch token.' %}</div>
+{% endblock %}
+
 {% block account-content %}
     <h1>{% trans "API Token" %}</h1>
     <section id="tokenSection">
-        <div id="regen-success" class="alert alert-success" hidden>{% trans 'New API token generated.' %}</div>
-        <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
-        <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch token.' %}</div>
         <span id="regen-confirm-text" hidden>{% trans 'Do you want to regenerate your API token?' %}</span>
         <p>
             {% blocktrans %}
