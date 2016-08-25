@@ -3,8 +3,8 @@ from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
 from django.conf.urls import url, include
 from django.contrib import admin
-from nextcloudappstore.core.user.views import \
-    PasswordView, AccountView, APITokenView
+from nextcloudappstore.core.user.views import PasswordView, AccountView, \
+    APITokenView
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView
 
