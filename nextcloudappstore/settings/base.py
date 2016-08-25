@@ -199,7 +199,7 @@ NOCAPTCHA = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
-PLATFORM_VERSIONS = ['9', '10']
+PLATFORM_VERSIONS = ['9', '10', '11']
 
 LOG_LEVEL = 'WARNING'
 LOG_FILE = join(BASE_DIR, 'appstore.log')
