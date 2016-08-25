@@ -1,18 +1,32 @@
 from allauth.account.views import PasswordChangeView
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView
+from django.views.generic import UpdateView
 
 
-class AccountView(LoginRequiredMixin, TemplateView):
+class AccountView(LoginRequiredMixin, UpdateView):
     """Display and allow changing of the user's name."""
 
     template_name = 'user/account.html'
+    template_name_suffix = ''
+    model = User
+    fields = ['first_name', 'last_name']
+    success_url = reverse_lazy('account')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['acc_page'] = 'account'
         return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Name saved.')
+        return super().form_valid(form)
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class PasswordView(LoginRequiredMixin, PasswordChangeView):
