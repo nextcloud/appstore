@@ -24,15 +24,14 @@
 <div id="container">
     {% block navbar %}{% include 'nav.html' %}{% endblock %}
     <div class="container" id="body">
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+        <div class="messages">
+            {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% block messages %}{% endblock %}
+        </div>
         {% block content %}{% endblock %}
     </div>
     <footer class="navbar-default" id="footer">
