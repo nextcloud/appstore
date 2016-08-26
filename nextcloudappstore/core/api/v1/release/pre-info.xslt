@@ -23,10 +23,11 @@
             <xsl:copy-of select="namespace"/>
             <xsl:apply-templates select="types"/>
             <xsl:apply-templates select="documentation"/>
+            <xsl:apply-templates select="category"/>
             <xsl:if test="not(category)">
                 <category>tools</category>
             </xsl:if>
-            <xsl:copy-of select="category"/>
+
             <xsl:copy-of select="website"/>
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
@@ -54,6 +55,20 @@
             <xsl:copy-of select="admin"/>
             <xsl:copy-of select="developer"/>
         </documentation>
+    </xsl:template>
+
+    <xsl:template match="category">
+        <xsl:choose>
+            <xsl:when test=". = 'tool' or . = 'other' or . = 'game'">
+                <category>tools</category>
+            </xsl:when>
+            <xsl:when test=". = 'productivity'">
+                <category>organization</category>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="types">
