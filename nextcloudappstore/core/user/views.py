@@ -3,8 +3,17 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
+
+
+class DeleteAccountView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/delete-account.html'
+
+    def post(self, request, *args, **kwargs):
+        self.request.user.delete()
+        return redirect(reverse_lazy('home'))
 
 
 class AccountView(LoginRequiredMixin, UpdateView):
