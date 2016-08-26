@@ -9,7 +9,7 @@
     <section>
         <form method="POST" action="{% url 'account-deletion' %}">
             {% csrf_token %}
-            <p class="alert alert-danger">{% trans 'Deleting your account will delete all your apps and releases as well. To delete your account, insert your e-mail address into input field and click the "Delete account" button:' %}</p>
+            <p class="alert alert-danger">{% trans 'Deleting your account will delete all your apps and releases as well. To delete your account, insert your e-mail address into the input field and click the "Delete account" button:' %}</p>
             {% for field in form %}
                 <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
                     <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
