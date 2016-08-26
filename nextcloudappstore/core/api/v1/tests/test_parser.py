@@ -85,6 +85,40 @@ class ParserTest(TestCase):
         self.assertEqual('10.0.0', min_version)
         self.assertEqual('12.0.0', max_version)
 
+    def test_parse_category_mapping(self):
+        xml = self._get_test_xml('data/infoxmls/category_mapping.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        categories = result['app']['categories']
+        expected = [
+            {'category': {'id': 'organization'}},
+            {'category': {'id': 'tools'}},
+        ]
+        self.assertListEqual(expected, categories)
+
+    def test_parse_category_mapping_tool(self):
+        xml = self._get_test_xml('data/infoxmls/category_mapping_tool.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        categories = result['app']['categories']
+        expected = [
+            {'category': {'id': 'tools'}},
+        ]
+        self.assertListEqual(expected, categories)
+
+    def test_parse_category_mapping_game(self):
+        xml = self._get_test_xml('data/infoxmls/category_mapping_game.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        categories = result['app']['categories']
+        expected = [
+            {'category': {'id': 'tools'}},
+        ]
+        self.assertListEqual(expected, categories)
+
     def test_validate_schema(self):
         xml = self._get_test_xml('data/infoxmls/invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
