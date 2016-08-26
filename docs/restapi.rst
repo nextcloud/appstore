@@ -14,7 +14,7 @@ Several routes require authentication. The following authentication methods are 
 
     Authorization: Basic CREDENTIALS
 
-* **Token**: Http header where **TOKEN** is a token which can be looked up in your profile::
+* **Token**: Http header where **TOKEN** is a token which can be looked up in your account settings or `acquired through the API <api-token_>`_::
 
     Authorization: Token TOKEN
 
@@ -26,6 +26,10 @@ The following API routes are present:
 * :ref:`api-all-releases`
 
 * :ref:`api-all-categories`
+
+* :ref:`api-token`
+
+* :ref:`api-token-new`
 
 * :ref:`api-delete-app`
 
@@ -284,7 +288,47 @@ This route will return all categories and their translations.
 translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
 
+.. _api-token:
 
+Get API Token
+~~~~~~~~~~~~~
+This route will return the API token for the authenticated user. If no token
+exists, one will be generated.
+
+* **Url**: POST /api/v1/token
+
+* **Authentication**: Basic, Session
+
+* **Example CURL request**::
+
+    curl -X POST https://apps.nextcloud.com/api/v1/token -u "user:password"
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    {"token":"4b92477ff8d5fe889be75db4c7d9a09116276920"}
+
+.. _api-token-new:
+
+Regenerate API Token
+~~~~~~~~~~~~~~~~~~~~
+This route will generate and return a new API token for the authenticated user
+regardless of whether a token already exists.
+
+* **Url**: POST /api/v1/token/new
+
+* **Authentication**: Basic, Token
+
+* **Example CURL request**::
+
+    curl -X POST https://apps.nextcloud.com/api/v1/token/new -u "user:password"
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    {"token":"ca3fb97920705d2c2ecdb0900f8ed5cf5744704d"}
 
 .. _api-delete-app:
 
