@@ -1,6 +1,6 @@
 {% extends "user/base.html" %}
 {% load i18n %}
-{% load account socialaccount %}
+{% load account socialaccount css_class %}
 
 {% block head-title %}{% trans "Delete account" %} - {% endblock %}
 
@@ -10,7 +10,25 @@
         <form method="POST" action="{% url 'account-deletion' %}">
             {% csrf_token %}
             <p class="alert alert-danger">{% trans 'Deleting your account will delete all your apps and releases as well. To delete your account, insert your e-mail address into the the following text field and click the "Delete account" button:' %}</p>
-            <p><input type="text" class="form-control" placeholder="{% trans 'mail' %}" pattern="{{ request.user.email }}" required></p>
+            {% for field in form %}
+                <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
+                    <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                    {{ field|css_class:'form-control' }}
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span class="sr-only">(error)</span>
+                            <p class="text-danger">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if field.help_text %}
+                        <p class="help-block">{{ field.help_text }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
             <p><input type="submit" class="btn btn-primary btn-block" value="{% trans 'Delete account' %}"></p>
         </form>
     </section>
