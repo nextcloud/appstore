@@ -16,6 +16,7 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = DeleteAccountForm()
+        context['acc_page'] = 'delete-account'
         return context
 
     def post(self, request, *args, **kwargs):
