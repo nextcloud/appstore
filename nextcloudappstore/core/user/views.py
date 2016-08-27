@@ -3,8 +3,29 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
+
+from nextcloudappstore.core.user.forms import DeleteAccountForm
+
+
+class DeleteAccountView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/delete-account.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = DeleteAccountForm()
+        context['acc_page'] = 'delete-account'
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = DeleteAccountForm(request.POST, user=request.user)
+        if form.is_valid():
+            request.user.delete()
+            return redirect(reverse_lazy('home'))
+        else:
+            return render(request, self.template_name, {'form': form})
 
 
 class AccountView(LoginRequiredMixin, UpdateView):

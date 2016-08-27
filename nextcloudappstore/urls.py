@@ -4,7 +4,7 @@ from csp.decorators import csp_exempt
 from django.conf.urls import url, include
 from django.contrib import admin
 from nextcloudappstore.core.user.views import PasswordView, AccountView, \
-    APITokenView
+    APITokenView, DeleteAccountView
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView
 
@@ -19,6 +19,8 @@ urlpatterns = [
         name='account-password'),
     url(r'^account/token/?$', APITokenView.as_view(),
         name='account-api-token'),
+    url(r'^account/delete/?$', DeleteAccountView.as_view(),
+        name='account-deletion'),
     url(r'^legal/?$', LegalNoticeView.as_view(), name='legal-notice'),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),

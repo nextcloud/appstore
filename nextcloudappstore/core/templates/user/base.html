@@ -17,7 +17,10 @@
                 </li>
             {% endif %}
             <li class="{% if acc_page == 'api-token' %}active{% endif %}">
-                <a href="{% url 'account-api-token' %}">{% trans 'API Token' %}</a>
+                <a href="{% url 'account-api-token' %}">{% trans 'API token' %}</a>
+            </li>
+            <li class="{% if acc_page == 'delete-account' %}active{% endif %}">
+                <a href="{% url 'account-deletion' %}">{% trans 'Delete account' %}</a>
             </li>
         </ul>
     </div>
