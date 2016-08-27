@@ -207,7 +207,7 @@ category
 
     * old categories are migrated:
 
-       * **tool**, **game**, **other** will be converted to **tools**
+       * **tool**, **game** and **other** will be converted to **tools**
        * **productivity** will be converted to **organization**
 
     * can occur more than once with different categories
