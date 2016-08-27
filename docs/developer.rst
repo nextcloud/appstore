@@ -192,7 +192,24 @@ documentation/developer
 category
     * optional
     * if not provided the category **tools** will be used
-    * must contain one of the following values: **customization**, **files**, **integration**, **monitoring**, **multimedia**, **office**, **organization**, **social**, **tools**
+    * must contain one of the following values:
+
+       * **auth**
+       * **customization**
+       * **files**
+       * **integration**
+       * **monitoring**
+       * **multimedia**
+       * **office**
+       * **organization**
+       * **social**
+       * **tools**
+
+    * old categories are migrated:
+
+       * **tool**, **game** and **other** will be converted to **tools**
+       * **productivity** will be converted to **organization**
+
     * can occur more than once with different categories
 website
     * optional

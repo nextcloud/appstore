@@ -8,7 +8,7 @@
         {% if categories %}
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="{% if cat.id == current_category.id and not object %}active{% endif %}">
-                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'All Apps' %}</a>
+                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'All apps' %}</a>
             </li>
             {% for cat in categories %}
             <li class="{% if cat.id == current_category.id %}active{% endif %}">
