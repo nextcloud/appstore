@@ -208,10 +208,12 @@ class AppRating(TranslatableModel):
                      on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
                       on_delete=CASCADE, related_name='user')
-    rating = FloatField(verbose_name=_('Rating'), default=0.5)
+    rating = FloatField(verbose_name=_('Rating'), default=0.5,
+                        help_text=_('Rating from 0.0 (worst) to 1.0 (best)'))
     rated_at = DateTimeField(auto_now=True, db_index=True)
     translations = TranslatedFields(
-        comment=TextField(verbose_name=_('Rating comment'), default='')
+        comment=TextField(verbose_name=_('Rating comment'), default='',
+                          help_text=_('Ratting comment in Markdown'))
     )
 
     class Meta:
