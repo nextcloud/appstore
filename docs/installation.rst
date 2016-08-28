@@ -281,7 +281,7 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
 
 Finally restart Apache::
 
-    systemctl restart apache2
+    sudo systemctl restart apache2
 
 Logging
 ~~~~~~~
@@ -357,7 +357,7 @@ Finally run the **collectstatic** command to copy updated assets into the web se
 
 and reload apache::
 
-    systemctl reload apache2
+    sudo systemctl reload apache2
 
 .. note:: If you are running Ubuntu and Apache, there is a maintenance script available by running
 
