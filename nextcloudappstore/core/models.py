@@ -1,20 +1,19 @@
-from functools import reduce
-
 import datetime
+from functools import reduce
+from semantic_version import Version, Spec
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q, \
     FloatField  # type: ignore
-from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+from parler.models import TranslatedFields, TranslatableModel, \
+    TranslatableManager  # type: ignore
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
-from parler.models import TranslatedFields, TranslatableModel, \
-    TranslatableManager  # type: ignore
-from semantic_version import Version, Spec
 
 
 class AppManager(TranslatableManager):
