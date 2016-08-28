@@ -3,7 +3,8 @@ from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField, EmailField, Q  # type: ignore
+    DateTimeField, Model, BooleanField, EmailField, Q, \
+    FloatField  # type: ignore
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
@@ -76,6 +77,8 @@ class App(TranslatableModel):
     authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
                               verbose_name=_('App authors'))
     featured = BooleanField(verbose_name=_('Featured'), default=False)
+    rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
+    rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
 
     class Meta:
         verbose_name = _('App')
@@ -165,8 +168,8 @@ class App(TranslatableModel):
         return sorted(
             filter(
                 lambda rel:
-                    rel.is_compatible(platform_version, inclusive)
-                    and not rel.is_nightly,
+                rel.is_compatible(platform_version, inclusive)
+                and not rel.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -183,8 +186,8 @@ class App(TranslatableModel):
         return sorted(
             filter(
                 lambda rel:
-                    rel.is_compatible(platform_version, inclusive)
-                    and rel.is_nightly,
+                rel.is_compatible(platform_version, inclusive)
+                and rel.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -194,6 +197,23 @@ class App(TranslatableModel):
             return max(releases, key=lambda r: Version(r.version))
         except ValueError:
             return None
+
+
+class AppRating(Model):
+    app = ForeignKey('App', related_name='app', verbose_name=_('App'),
+                     on_delete=CASCADE)
+    user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
+                      on_delete=CASCADE, related_name='user')
+    rating = FloatField(verbose_name=_('Rating'), default=0.5)
+    rated_at = DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        unique_together = (('app', 'user'),)
+        verbose_name = _('App Rating')
+        verbose_name_plural = _('App Ratings')
+
+    def __str__(self) -> str:
+        return str(self.rating)
 
 
 class AppAuthor(Model):

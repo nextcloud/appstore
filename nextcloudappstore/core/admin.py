@@ -29,8 +29,13 @@ class AppAdmin(TranslatableAdmin):
     pass
 
 
+class AppRatingAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(App, AppAdmin)
 admin.site.register(AppAuthor, AppAuthorAdmin)
+admin.site.register(AppRating, AppRatingAdmin)
 admin.site.register(AppRelease, AppReleaseAdmin)
 admin.site.register(Screenshot)
 admin.site.register(ShellCommand)
