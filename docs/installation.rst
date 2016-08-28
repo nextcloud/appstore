@@ -302,10 +302,6 @@ Afterwards restart your web server::
 
     sudo systemctl restart apache2
 
-**Nginx**:
-
-**TBD**
-
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
 Once the App Store is up and running social login needs to be configured. The App Store uses `django-allauth <https://django-allauth.readthedocs.io>`_ for local and social login. In order to configure these logins, most providers require you to register your app beforehand.
