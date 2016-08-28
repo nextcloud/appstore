@@ -206,6 +206,7 @@ class AppRating(Model):
                       on_delete=CASCADE, related_name='user')
     rating = FloatField(verbose_name=_('Rating'), default=0.5)
     rated_at = DateTimeField(auto_now=True, db_index=True)
+    comment = TextField(verbose_name=_('Rating comment'), default='')
 
     class Meta:
         unique_together = (('app', 'user'),)
