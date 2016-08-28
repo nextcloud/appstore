@@ -213,7 +213,7 @@ class AppRating(TranslatableModel):
     rated_at = DateTimeField(auto_now=True, db_index=True)
     translations = TranslatedFields(
         comment=TextField(verbose_name=_('Rating comment'), default='',
-                          help_text=_('Ratting comment in Markdown'))
+                          help_text=_('Rating comment in Markdown'))
     )
 
     class Meta:
