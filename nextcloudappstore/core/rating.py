@@ -1,26 +1,4 @@
-import datetime
 from typing import List
-
-from nextcloudappstore.core.models import AppRating
-
-
-def compute_app_rating(app_id: str, days: int = 90,
-                       threshold: int = 10) -> float:
-    """
-    Computes an app rating based on
-    :param app_id: the app id of the app whose rating should be computed
-    :param days: passing 30 will only consider ratings from the last 30 days,
-     pass a negative number to include all ratings
-    :param threshold: if the amount of ratings is lower than this number
-    return 0.5
-    :return: the app rating
-    """
-    app_ratings = AppRating.objects.filter(app__id=app_id)
-    if days >= 0:
-        range = datetime.datetime.today() - datetime.timedelta(days=days)
-        app_ratings = app_ratings.filter(rated_at__gte=range)
-    ratings = map(lambda r: r.rating, app_ratings)
-    return compute_rating(list(ratings), threshold)
 
 
 def compute_rating(ratings: List[float], threshold: int = 10) -> float:

@@ -1,4 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
+
+from nextcloudappstore.core.models import App, AppRating
 from nextcloudappstore.core.rating import compute_rating
 
 
@@ -22,3 +25,34 @@ class RatingTest(TestCase):
     def test_full_rating(self):
         result = compute_rating([1.0, 1.0, 0.5, 0.5], 1)
         self.assertEqual(0.75, result)
+
+    def test_app_rating_save(self):
+        user1 = self.create_user(1)
+        user2 = self.create_user(2)
+        user3 = self.create_user(3)
+        user4 = self.create_user(4)
+        user5 = self.create_user(5)
+        app = App.objects.create(id='news', owner=user1)
+        AppRating.objects.create(app=app, user=user1, rating=0.5)
+        AppRating.objects.create(app=app, user=user2, rating=0.5)
+        AppRating.objects.create(app=app, user=user3, rating=0.5)
+        AppRating.objects.create(app=app, user=user4, rating=1.0)
+        AppRating.objects.create(app=app, user=user5, rating=1.0)
+
+        self.assertEqual(5, len(AppRating.objects.all()))
+        self.assertEqual(0.5, App.objects.get(id=app.id).rating_overall)
+        self.assertEqual(0.5, App.objects.get(id=app.id).rating_recent)
+
+        user6 = self.create_user(6)
+        AppRating.objects.create(app=app, user=user6, rating=1.0)
+
+        self.assertEqual(6, len(AppRating.objects.all()))
+        self.assertEqual(0.75, App.objects.get(id=app.id).rating_overall)
+        self.assertEqual(0.75, App.objects.get(id=app.id).rating_recent)
+
+    def create_user(self, id):
+        user_id = 'test%i' % id
+        return get_user_model().objects.create_user(username=user_id,
+                                                    password=user_id,
+                                                    email='%s@test.com'
+                                                          % user_id)

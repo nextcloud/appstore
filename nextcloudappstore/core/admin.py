@@ -29,7 +29,7 @@ class AppAdmin(TranslatableAdmin):
     pass
 
 
-class AppRatingAdmin(admin.ModelAdmin):
+class AppRatingAdmin(TranslatableAdmin):
     pass
 
 

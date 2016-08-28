@@ -1,11 +1,15 @@
 from functools import reduce
+
+import datetime
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q, \
     FloatField  # type: ignore
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _  # type: ignore
+from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
 from parler.models import TranslatedFields, TranslatableModel, \
@@ -199,14 +203,16 @@ class App(TranslatableModel):
             return None
 
 
-class AppRating(Model):
+class AppRating(TranslatableModel):
     app = ForeignKey('App', related_name='app', verbose_name=_('App'),
                      on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
                       on_delete=CASCADE, related_name='user')
     rating = FloatField(verbose_name=_('Rating'), default=0.5)
     rated_at = DateTimeField(auto_now=True, db_index=True)
-    comment = TextField(verbose_name=_('Rating comment'), default='')
+    translations = TranslatedFields(
+        comment=TextField(verbose_name=_('Rating comment'), default='')
+    )
 
     class Meta:
         unique_together = (('app', 'user'),)
@@ -215,6 +221,36 @@ class AppRating(Model):
 
     def __str__(self) -> str:
         return str(self.rating)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # update rating on the app
+        app = self.app
+        day_range = settings.RATING_RECENT_DAY_RANGE
+        threshold = settings.RATING_THRESHOLD
+        app.rating_recent = self._compute_app_rating(app, day_range, threshold)
+        app.rating_overall = self._compute_app_rating(app, threshold=threshold)
+        app.save()
+
+    def _compute_app_rating(self, app: App, days: int = -1,
+                            threshold: int = 10) -> float:
+        """
+        Computes an app rating based on
+        :param app: the app whose rating should be computed
+        :param days: passing 30 will only consider ratings from the last
+        30 days,
+         pass a negative number to include all ratings
+        :param threshold: if the amount of ratings is lower than this
+        number
+        return 0.5
+        :return: the app rating
+        """
+        app_ratings = AppRating.objects.filter(app=app)
+        if days >= 0:
+            range = timezone.now() - datetime.timedelta(days=days)
+            app_ratings = app_ratings.filter(rated_at__gte=range)
+        ratings = map(lambda r: r.rating, app_ratings)
+        return compute_rating(list(ratings), threshold)
 
 
 class AppAuthor(Model):

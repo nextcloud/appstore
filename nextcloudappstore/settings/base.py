@@ -221,3 +221,9 @@ LOGGING = {
         },
     },
 }
+
+# minimum number of comments to calculate a rating
+RATING_THRESHOLD = 5
+
+# number of days to include from today in the recent ratings calculation
+RATING_RECENT_DAY_RANGE = 90
