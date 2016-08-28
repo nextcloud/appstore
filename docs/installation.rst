@@ -1,6 +1,6 @@
 Installation
 ============
-.. note:: This guide will use Ubuntu 16.04, Nginx, Gunicorn and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
+.. note:: This guide will use Ubuntu 16.04, Apache and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
 
 There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
 
@@ -234,119 +234,54 @@ Then copy the files into the folders by executing the following commands::
 
 This will place the contents inside the folder configured under the key **STATIC_ROOT** and **MEDIA_ROOT** inside your **nextcloudappstore/settings/production.py**
 
-Configuring the Server
-~~~~~~~~~~~~~~~~~~~~~~
-First install Nginx::
+Configuring the Web-Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+First install Apache and mod_wsgi::
 
-    sudo apt-get install nginx
+    sudo apt-get install apache2 libapache2-mod-wsgi-py3
 
-Then adjust the config in **/etc/nginx/sites-enabled/default**
+Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add the following configuration to your **VirtualHost** section:
 
-::
+.. code-block:: apache
 
-    worker_processes 1;
+    <VirtualHost *:80>
 
-    events {
-        worker_connections 1024;
-        accept_mutex off; # set to 'on' if nginx worker_processes > 1
-        use epoll;
-    }
+    WSGIDaemonProcess apps python-home=/path/to/appstore/venv python-path=/path/to/appstore
+    WSGIProcessGroup apps
+    WSGIScriptAlias / /path/to/appstore/nextcloudappstore/wsgi.py
+    WSGIPassAuthorization On
+    Alias /static/ /var/www/production-domain.com/static/
+    Alias /schema/apps/info.xsd /path/to/appstore/nextcloudappstore/core/api/v1/release/info.xsd
 
-    http {
-        include mime.types;
-        default_type application/octet-stream;
+    <Directory /path/to/appstore/nextcloudappstore>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
 
-        upstream app_server {
-            server unix:/tmp/gunicorn.sock fail_timeout=0;
-        }
+    <Directory /path/to/appstore/nextcloudappstore/core/api/v1/release>
+        <Files info.xsd>
+            Require all granted
+        </Files>
+    </Directory>
 
-        server {
-            # if no Host match, close the connection to prevent host spoofing
-            listen 80 default_server;
-            return 444;
-        }
+    <Directory /var/www/production-domain.com/static/>
+        Require all granted
+        AllowOverride None
+    </Directory>
 
-        server {
-            listen 80 deferred;
-            gzip off;
-            client_max_body_size 1G;
-            server_name apps.nextcloud.com www.apps.example.com;
+    <Directory /var/www/production-domain.com/media/>
+        Require all granted
+        AllowOverride None
+    </Directory>
 
-            root /var/www;
+    </VirtualHost>
 
-            location / {
-                try_files $uri @proxy_to_app;
-            }
+.. note:: Your configuration will look different depending on where you place your static files and if you enable SSL. This is just a very minimal non HTTPS example.
 
-            location @proxy_to_app {
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto https;
-                proxy_set_header Host $http_host;
-                proxy_redirect off;
-                proxy_pass http://app_server;
-            }
+Finally restart Apache::
 
-            error_page 500 502 503 504 /500.html;
-            location = /500.html {
-                root /var/www/html;
-            }
-        }
-    }
-
-.. note:: Not final
-
-Afterwards configure SystemD to automatically start gunicorn:
-
-**/etc/systemd/system/gunicorn.service**:
-
-.. code-block:: ini
-
-    [Unit]
-    Description=gunicorn daemon
-    Requires=gunicorn.socket
-    After=network.target
-
-    [Service]
-    PIDFile=/run/gunicorn/pid
-    User=appstore
-    Group=appstore
-    Environment=PYTHONPATH=/path/to/code
-    Environment=PYTHONHOME=/path/to/code/venv
-    ExecStart=/path/to/code/venv/bin/gunicorn --pid /run/gunicorn/pid test:app
-    ExecReload=/bin/kill -s HUP $MAINPID
-    ExecStop=/bin/kill -s TERM $MAINPID
-    PrivateTmp=true
-
-    [Install]
-    WantedBy=multi-user.target
-
-**/etc/systemd/system/gunicorn.socket**:
-
-.. code-block:: ini
-
-    [Unit]
-    Description=gunicorn socket
-
-    [Socket]
-    ListenStream=/run/gunicorn/socket
-    ListenStream=0.0.0.0:9000
-    ListenStream=[::]:8000
-
-    [Install]
-    WantedBy=sockets.target
-
-**/usr/lib/tmpfiles.d/gunicorn.conf**::
-
-    d /run/gunicorn 0755 appstore appstore -
-
-Finally restart Nginx and enable Gunicorn::
-
-    systemctl enable nginx.service
-    systemctl enable gunicorn.socket
-    systemctl restart nginx.service
-    systemctl start gunicorn.socket
-
-.. note:: Not final
+    sudo systemctl restart apache2
 
 Logging
 ~~~~~~~
@@ -366,10 +301,6 @@ Then give your web server access to it::
 Afterwards restart your web server::
 
     sudo systemctl restart apache2
-
-**Nginx**:
-
-**TBD**
 
 Configure Social Logins
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -426,7 +357,7 @@ Finally run the **collectstatic** command to copy updated assets into the web se
 
 and reload apache::
 
-    systemctl reload apache2
+    sudo systemctl reload apache2
 
 .. note:: If you are running Ubuntu and Apache, there is a maintenance script available by running
 
