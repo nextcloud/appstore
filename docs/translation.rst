@@ -8,7 +8,7 @@ Generating Translations
 
 To initially add a language for translation run::
 
-    python manage.py makemessages -l $CODE
+    python manage.py makemessages -l $CODE -i venv
 
 where **$CODE** is **de** for instance. This will create the required directories and files in the **locales/** folder.
 
