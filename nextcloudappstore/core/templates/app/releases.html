@@ -29,7 +29,7 @@
                                         <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
                                         <tr><td>{% trans 'Updated' %}</td><td>{{ release.last_modified }}</td></tr>
                                         <tr>
-                                            <td>{% trans 'Licences' %}</td>
+                                            <td>{% trans 'Licenses' %}</td>
                                             <td>
                                                 {% for lic in release.licenses.all %}
                                                     {{ lic.name }}{% if not forloop.last %}, {% endif %}
