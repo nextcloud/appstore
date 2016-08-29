@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block apps %}
-    <h1>{{ object.name }} {% trans ' - Releases' %}</h1>
+    <h1>{{ object.name }} - {% trans 'Releases' %}</h1>
     <section><a href="/app/{{ object.id }}/">&larr; {% trans 'App details' %}</a></section>
     <section class="app-releases">
         {% for platform_v, releases in releases_by_platform_v %}
