@@ -395,6 +395,7 @@ If the app release version is the latest version, everything is updated. If it's
   * bugs
   * website
   * discussion
+  * screenshot
 
 
 For more information about validation and which **info.xml** fields are parsed, see :ref:`app-metadata`
