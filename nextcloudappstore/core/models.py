@@ -170,9 +170,8 @@ class App(TranslatableModel):
 
         return sorted(
             filter(
-                lambda rel:
-                rel.is_compatible(platform_version, inclusive)
-                and not rel.is_nightly,
+                lambda r: r.is_compatible(platform_version,
+                                          inclusive) and not r.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -188,9 +187,8 @@ class App(TranslatableModel):
 
         return sorted(
             filter(
-                lambda rel:
-                rel.is_compatible(platform_version, inclusive)
-                and rel.is_nightly,
+                lambda r: r.is_compatible(platform_version,
+                                          inclusive) and r.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
