@@ -184,6 +184,12 @@ To get your instance running in production you need to create your production se
     LOGGING['handlers']['file']['level'] = LOG_LEVEL
     LOGGING['loggers']['django']['level'] = LOG_LEVEL
 
+    # minimum number of comments to calculate a rating
+    RATING_THRESHOLD = 5
+
+    # number of days to include from today in the recent ratings calculation
+    RATING_RECENT_DAY_RANGE = 90
+
 
 Then set the file as the active settings file::
 

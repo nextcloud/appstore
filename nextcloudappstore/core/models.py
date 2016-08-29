@@ -1,15 +1,19 @@
+import datetime
 from functools import reduce
+from semantic_version import Version, Spec
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField, EmailField, Q  # type: ignore
-from django.utils.translation import ugettext_lazy as _  # type: ignore
-from nextcloudappstore.core.versioning import pad_min_version, \
-    pad_max_inc_version
+    DateTimeField, Model, BooleanField, EmailField, Q, \
+    FloatField  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
-from semantic_version import Version, Spec
+from nextcloudappstore.core.rating import compute_rating
+from nextcloudappstore.core.versioning import pad_min_version, \
+    pad_max_inc_version
 
 
 class AppManager(TranslatableManager):
@@ -76,6 +80,8 @@ class App(TranslatableModel):
     authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
                               verbose_name=_('App authors'))
     featured = BooleanField(verbose_name=_('Featured'), default=False)
+    rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
+    rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
 
     class Meta:
         verbose_name = _('App')
@@ -164,9 +170,8 @@ class App(TranslatableModel):
 
         return sorted(
             filter(
-                lambda rel:
-                    rel.is_compatible(platform_version, inclusive)
-                    and not rel.is_nightly,
+                lambda r: r.is_compatible(platform_version,
+                                          inclusive) and not r.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -182,9 +187,8 @@ class App(TranslatableModel):
 
         return sorted(
             filter(
-                lambda rel:
-                    rel.is_compatible(platform_version, inclusive)
-                    and rel.is_nightly,
+                lambda r: r.is_compatible(platform_version,
+                                          inclusive) and r.is_nightly,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -194,6 +198,58 @@ class App(TranslatableModel):
             return max(releases, key=lambda r: Version(r.version))
         except ValueError:
             return None
+
+
+class AppRating(TranslatableModel):
+    app = ForeignKey('App', related_name='ratings', verbose_name=_('App'),
+                     on_delete=CASCADE)
+    user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
+                      on_delete=CASCADE, related_name='app_ratings')
+    rating = FloatField(verbose_name=_('Rating'), default=0.5,
+                        help_text=_('Rating from 0.0 (worst) to 1.0 (best)'))
+    rated_at = DateTimeField(auto_now=True, db_index=True)
+    translations = TranslatedFields(
+        comment=TextField(verbose_name=_('Rating comment'), default='',
+                          help_text=_('Rating comment in Markdown'))
+    )
+
+    class Meta:
+        unique_together = (('app', 'user'),)
+        verbose_name = _('App Rating')
+        verbose_name_plural = _('App Ratings')
+
+    def __str__(self) -> str:
+        return str(self.rating)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # update rating on the app
+        app = self.app
+        day_range = settings.RATING_RECENT_DAY_RANGE
+        threshold = settings.RATING_THRESHOLD
+        app.rating_recent = self._compute_app_rating(day_range, threshold)
+        app.rating_overall = self._compute_app_rating(threshold=threshold)
+        app.save()
+
+    def _compute_app_rating(self, days: int = -1,
+                            threshold: int = 5) -> float:
+        """
+        Computes an app rating based on
+        :param app: the app whose rating should be computed
+        :param days: passing 30 will only consider ratings from the last
+        30 days,
+         pass a negative number to include all ratings
+        :param threshold: if the amount of ratings is lower than this
+        number
+        return 0.5
+        :return: the app rating
+        """
+        app_ratings = AppRating.objects.filter(app=self.app)
+        if days >= 0:
+            range = timezone.now() - datetime.timedelta(days=days)
+            app_ratings = app_ratings.filter(rated_at__gte=range)
+        ratings = map(lambda r: r.rating, app_ratings)
+        return compute_rating(list(ratings), threshold)
 
 
 class AppAuthor(Model):
