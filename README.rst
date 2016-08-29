@@ -5,6 +5,9 @@ Nextcloud App Store
 .. image:: https://travis-ci.org/nextcloud/appstore.svg?branch=master
      :target: https://travis-ci.org/nextcloud/appstore
      :alt: Build Status
+.. image:: https://readthedocs.org/projects/nextcloudappstore/badge/?version=latest
+     :target: http://nextcloudappstore.readthedocs.io/en/latest/?badge=latest
+     :alt: Documentation Status
 .. image:: https://requires.io/github/nextcloud/appstore/requirements.svg?branch=master
      :target: https://requires.io/github/nextcloud/appstore/requirements/?branch=master
      :alt: Requirements Status
