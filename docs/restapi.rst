@@ -23,19 +23,159 @@ Specification
 
 The following API routes are present:
 
-* :ref:`api-all-releases`
-
-* :ref:`api-all-categories`
-
 * :ref:`api-token`
 
 * :ref:`api-token-new`
 
-* :ref:`api-delete-app`
+* :ref:`api-all-categories`
+
+* :ref:`api-all-releases`
+
+* :ref:`api-create-release`
 
 * :ref:`api-delete-release`
 
-* :ref:`api-create-release`
+* :ref:`api-delete-app`
+
+
+.. _api-token:
+
+Get API Token
+~~~~~~~~~~~~~
+This route will return the API token for the authenticated user. If no token
+exists, one will be generated.
+
+* **Url**: POST /api/v1/token
+
+* **Authentication**: Basic, Session
+
+* **Example CURL request**::
+
+    curl -X POST https://apps.nextcloud.com/api/v1/token -u "user:password"
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    {"token":"4b92477ff8d5fe889be75db4c7d9a09116276920"}
+
+.. _api-token-new:
+
+Regenerate API Token
+~~~~~~~~~~~~~~~~~~~~
+This route will generate and return a new API token for the authenticated user
+regardless of whether a token already exists.
+
+* **Url**: POST /api/v1/token/new
+
+* **Authentication**: Basic, Token
+
+* **Example CURL request**::
+
+    curl -X POST https://apps.nextcloud.com/api/v1/token/new -u "user:password"
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    {"token":"ca3fb97920705d2c2ecdb0900f8ed5cf5744704d"}
+
+
+.. _api-all-categories:
+
+Get All Categories
+~~~~~~~~~~~~~~~~~~
+This route will return all categories and their translations.
+
+* **Url**: GET /api/v1/categories.json
+
+* **Authentication**: None
+
+* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
+
+* **Example CURL request**::
+
+    curl https://apps.nextcloud.com/api/v1/categories.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    [
+        {
+            "id": "games",
+            "translations": {
+                "en": {
+                    "name": "Games",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Spiele",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Jeux",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "multimedia",
+            "translations": {
+                "en": {
+                    "name": "Multimedia",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Multimedia",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Multimedia",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "pim",
+            "translations": {
+                "en": {
+                    "name": "PIM",
+                    "description": ""
+                },
+                "de": {
+                    "name": "PIM",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "PIM",
+                    "description": ""
+                }
+            }
+        },
+        {
+            "id": "tools",
+            "translations": {
+                "en": {
+                    "name": "Tools",
+                    "description": ""
+                },
+                "de": {
+                    "name": "Werkzeuge",
+                    "description": ""
+                },
+                "fr": {
+                    "name": "Outil",
+                    "description": ""
+                }
+            }
+        }
+    ]
+
+
+translations
+    Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
+
 
 .. _api-all-releases:
 
@@ -201,208 +341,11 @@ featured
 categories
     The string value is the category's id attribute, see :ref:`api-all-categories`
 
-.. _api-all-categories:
-
-Get All Categories
-~~~~~~~~~~~~~~~~~~
-This route will return all categories and their translations.
-
-* **Url**: GET /api/v1/categories.json
-
-* **Authentication**: None
-
-* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
-
-* **Example CURL request**::
-
-    curl https://apps.nextcloud.com/api/v1/categories.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
-
-* **Returns**: application/json
-
-.. code-block:: json
-
-    [
-        {
-            "id": "games",
-            "translations": {
-                "en": {
-                    "name": "Games",
-                    "description": ""
-                },
-                "de": {
-                    "name": "Spiele",
-                    "description": ""
-                },
-                "fr": {
-                    "name": "Jeux",
-                    "description": ""
-                }
-            }
-        },
-        {
-            "id": "multimedia",
-            "translations": {
-                "en": {
-                    "name": "Multimedia",
-                    "description": ""
-                },
-                "de": {
-                    "name": "Multimedia",
-                    "description": ""
-                },
-                "fr": {
-                    "name": "Multimedia",
-                    "description": ""
-                }
-            }
-        },
-        {
-            "id": "pim",
-            "translations": {
-                "en": {
-                    "name": "PIM",
-                    "description": ""
-                },
-                "de": {
-                    "name": "PIM",
-                    "description": ""
-                },
-                "fr": {
-                    "name": "PIM",
-                    "description": ""
-                }
-            }
-        },
-        {
-            "id": "tools",
-            "translations": {
-                "en": {
-                    "name": "Tools",
-                    "description": ""
-                },
-                "de": {
-                    "name": "Werkzeuge",
-                    "description": ""
-                },
-                "fr": {
-                    "name": "Outil",
-                    "description": ""
-                }
-            }
-        }
-    ]
-
-
-translations
-    Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
-
-.. _api-token:
-
-Get API Token
-~~~~~~~~~~~~~
-This route will return the API token for the authenticated user. If no token
-exists, one will be generated.
-
-* **Url**: POST /api/v1/token
-
-* **Authentication**: Basic, Session
-
-* **Example CURL request**::
-
-    curl -X POST https://apps.nextcloud.com/api/v1/token -u "user:password"
-
-* **Returns**: application/json
-
-.. code-block:: json
-
-    {"token":"4b92477ff8d5fe889be75db4c7d9a09116276920"}
-
-.. _api-token-new:
-
-Regenerate API Token
-~~~~~~~~~~~~~~~~~~~~
-This route will generate and return a new API token for the authenticated user
-regardless of whether a token already exists.
-
-* **Url**: POST /api/v1/token/new
-
-* **Authentication**: Basic, Token
-
-* **Example CURL request**::
-
-    curl -X POST https://apps.nextcloud.com/api/v1/token/new -u "user:password"
-
-* **Returns**: application/json
-
-.. code-block:: json
-
-    {"token":"ca3fb97920705d2c2ecdb0900f8ed5cf5744704d"}
-
-.. _api-delete-app:
-
-Delete an App
-~~~~~~~~~~~~~
-Only app owners are allowed to delete an app. The owner is the user that pushes the first release of an app to the store.
-
-Deleting an app will also delete all releases which are associated with it.
-
-* **Url**: DELETE /api/v1/apps/{**app-id**}
-
-* **Url parameters**:
-
- * **app-id**: app id, lower case ASCII characters and underscores are allowed
-
-* **Authentication**: Basic, Token
-
-* **Authorization**: App owners
-
-* **Example CURL request**::
-
-    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news -u "user:password"
-
-
-* **Returns**:
-
- * **HTTP 204**: If the app was deleted successfully
- * **HTTP 401**: If the user is not authenticated
- * **HTTP 403**: If the user is not authorized to delete the app
- * **HTTP 404**: If the app could not be found
-
-.. _api-delete-release:
-
-Delete an App Release
-~~~~~~~~~~~~~~~~~~~~~
-Only app owners or co-maintainers are allowed to delete an app release. The owner is the user that pushes the first release of an app to the store.
-
-* **Url**: DELETE /api/v1/apps/{**app-id**}/releases/{**app-version**}
-
-* **Url parameters**:
-
- * **app-id**: app id, lower case ASCII characters and underscores are allowed
- * **app-version**: app version, semantic version, digits only or digits-nightly for deleting a nightly (e.g. 7.9.1-nightly)
-
-* **Authentication**: Basic, Token
-
-* **Authorization**: App owners and co-maintainers
-
-* **Example CURL request**::
-
-    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/9.0.0 -u "user:password"
-
-
-* **Returns**:
-
-  * **HTTP 204**: If the app release was deleted successfully
-  * **HTTP 401**: If the user is not authenticated
-  * **HTTP 403**: If the user is not authorized to delete the app release
-  * **HTTP 404**: If the app release could not be found
-
-
 .. _api-create-release:
 
 Publish a New App Release
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-The following request will create a new app release:
+The following request will create a new app release or update an existing release:
 
 * **Url**: POST /api/v1/apps/releases
 
@@ -441,4 +384,77 @@ The following request will create a new app release:
 
 If there is no app with the given app id yet, a new app is created and the owner is set in to the logged in user. Then the **info.xml** file which lies in the compressed archive's folder **app-id/appinfo/info.xml** is being parsed and validated. The validated result is then saved in the database. Both owners and co-maintainers are allowed to upload new releases.
 
+If the app release version is the latest version, everything is updated. If it's not the latest release, only release relevant details are updated. This **excludes** the following info.xml elements:
+
+  * name
+  * summary
+  * description
+  * category
+  * author
+  * documentation
+  * bugs
+  * website
+  * discussion
+
+
 For more information about validation and which **info.xml** fields are parsed, see :ref:`app-metadata`
+
+.. _api-delete-release:
+
+Delete an App Release
+~~~~~~~~~~~~~~~~~~~~~
+Only app owners or co-maintainers are allowed to delete an app release. The owner is the user that pushes the first release of an app to the store.
+
+* **Url**: DELETE /api/v1/apps/{**app-id**}/releases/{**app-version**}
+
+* **Url parameters**:
+
+ * **app-id**: app id, lower case ASCII characters and underscores are allowed
+ * **app-version**: app version, semantic version, digits only or digits-nightly for deleting a nightly (e.g. 7.9.1-nightly)
+
+* **Authentication**: Basic, Token
+
+* **Authorization**: App owners and co-maintainers
+
+* **Example CURL request**::
+
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/9.0.0 -u "user:password"
+
+
+* **Returns**:
+
+  * **HTTP 204**: If the app release was deleted successfully
+  * **HTTP 401**: If the user is not authenticated
+  * **HTTP 403**: If the user is not authorized to delete the app release
+  * **HTTP 404**: If the app release could not be found
+
+.. _api-delete-app:
+
+Delete an App
+~~~~~~~~~~~~~
+Only app owners are allowed to delete an app. The owner is the user that pushes the first release of an app to the store.
+
+Deleting an app will also delete all releases which are associated with it.
+
+* **Url**: DELETE /api/v1/apps/{**app-id**}
+
+* **Url parameters**:
+
+ * **app-id**: app id, lower case ASCII characters and underscores are allowed
+
+* **Authentication**: Basic, Token
+
+* **Authorization**: App owners
+
+* **Example CURL request**::
+
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news -u "user:password"
+
+
+* **Returns**:
+
+ * **HTTP 204**: If the app was deleted successfully
+ * **HTTP 401**: If the user is not authenticated
+ * **HTTP 403**: If the user is not authorized to delete the app
+ * **HTTP 404**: If the app could not be found
+
