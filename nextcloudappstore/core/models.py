@@ -204,7 +204,7 @@ class AppRating(TranslatableModel):
     app = ForeignKey('App', related_name='ratings', verbose_name=_('App'),
                      on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
-                      on_delete=CASCADE, related_name='ratings')
+                      on_delete=CASCADE, related_name='app_ratings')
     rating = FloatField(verbose_name=_('Rating'), default=0.5,
                         help_text=_('Rating from 0.0 (worst) to 1.0 (best)'))
     rated_at = DateTimeField(auto_now=True, db_index=True)
