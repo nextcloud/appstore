@@ -48,6 +48,7 @@ Look here if you want to work on the app store's source code or install it on yo
 
    installation
    documentation
+   translation
 
 
 
