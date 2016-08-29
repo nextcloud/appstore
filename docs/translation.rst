@@ -18,8 +18,10 @@ The above command only needs to be run if you want to add a new language. To upd
 
 .. note:: The above requirements require exported environment variables and installed libraries. To find out how to do that see :ref:`development-install`.
 
+Deploying Translations
+----------------------
 
-Finally each time the **.po** files are changed, they need to be compiled into a specific binary format for **gettext** using::
+Each time the **.po** files are changed, they need to be compiled into a specific binary format for **gettext** using::
 
     python manage.py compilemessages
 
