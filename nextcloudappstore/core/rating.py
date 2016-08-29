@@ -8,12 +8,12 @@ def compute_rating(ratings: List[float], threshold: int = 10) -> float:
     a 5 star rating would multiply the value by 5. Also a too low number of
     ratings will default to a constant value.
     :param ratings: list of floats from 0 to 1
-    :param threshold: if the amount of ratings is lower than this number
-    return 0.5
+    :param threshold: only calculate the rating if the amount of ratings is
+     higher the threshold, otherwise return 0.5
     :return: the score
     """
     num_ratings = len(ratings)
-    if threshold < num_ratings and num_ratings > 0:
+    if num_ratings > 0 and threshold < num_ratings:
         return sum(ratings) / num_ratings
     else:
         return 0.5

@@ -203,10 +203,10 @@ class App(TranslatableModel):
 
 
 class AppRating(TranslatableModel):
-    app = ForeignKey('App', related_name='app', verbose_name=_('App'),
+    app = ForeignKey('App', related_name='ratings', verbose_name=_('App'),
                      on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
-                      on_delete=CASCADE, related_name='user')
+                      on_delete=CASCADE, related_name='ratings')
     rating = FloatField(verbose_name=_('Rating'), default=0.5,
                         help_text=_('Rating from 0.0 (worst) to 1.0 (best)'))
     rated_at = DateTimeField(auto_now=True, db_index=True)
@@ -229,12 +229,12 @@ class AppRating(TranslatableModel):
         app = self.app
         day_range = settings.RATING_RECENT_DAY_RANGE
         threshold = settings.RATING_THRESHOLD
-        app.rating_recent = self._compute_app_rating(app, day_range, threshold)
-        app.rating_overall = self._compute_app_rating(app, threshold=threshold)
+        app.rating_recent = self._compute_app_rating(day_range, threshold)
+        app.rating_overall = self._compute_app_rating(threshold=threshold)
         app.save()
 
-    def _compute_app_rating(self, app: App, days: int = -1,
-                            threshold: int = 10) -> float:
+    def _compute_app_rating(self, days: int = -1,
+                            threshold: int = 5) -> float:
         """
         Computes an app rating based on
         :param app: the app whose rating should be computed
@@ -246,7 +246,7 @@ class AppRating(TranslatableModel):
         return 0.5
         :return: the app rating
         """
-        app_ratings = AppRating.objects.filter(app=app)
+        app_ratings = AppRating.objects.filter(app=self.app)
         if days >= 0:
             range = timezone.now() - datetime.timedelta(days=days)
             app_ratings = app_ratings.filter(rated_at__gte=range)
