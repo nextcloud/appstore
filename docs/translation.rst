@@ -23,7 +23,6 @@ Finally each time the **.po** files are changed, they need to be compiled into a
 
     python manage.py compilemessages
 
-
 Further details can be looked up in `Django's documentation online <https://docs.djangoproject.com/en/1.10/topics/i18n/translation/>`_
 
 Managing Translations
