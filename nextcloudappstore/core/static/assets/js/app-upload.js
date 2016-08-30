@@ -125,26 +125,24 @@
     let nightly = document.getElementById('nightly');
     let submitButton = document.getElementById('submit');
 
-    // Get the auth token of the currently authenticated user and
-    // bind the app release API request to the form submit event.
-    global.fetchAPIToken(csrf.value).then(
-        (response) => {
-            // User token request successful
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                showSuccessMessage(false);
-                disableInputs(form, true);
-                buttonState(submitButton, 'loading');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        showSuccessMessage(false);
+        disableInputs(form, true);
+        buttonState(submitButton, 'loading');
+        // Get the auth token of the currently authenticated user.
+        global.fetchAPIToken(csrf.value).then(
+            (response) => {
                 uploadAppRelease(
                     form.action,
                     download.value,
                     checksum.value,
                     nightly.checked,
                     response.token)
-                    .then(onSuccess, onFailure);
-            });
-        },
-        onFailure  // User token request failed
-    );
+                .then(onSuccess, onFailure);
+            },
+            onFailure // User token request failed
+        );
+    });
 
 }(this));
