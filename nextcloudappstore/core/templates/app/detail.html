@@ -115,7 +115,7 @@
                     <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
                 {% endif %}
                 {% if request.user.is_authenticated and not user_has_rated_app %}
-                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Review app' %}</button></li>
                 {% endif %}
             </ul>
         </div>
@@ -126,7 +126,7 @@
                 <form action="{% url 'app-detail' object.id %}" method="post">
                     {% csrf_token %}
                     {% include 'form-fields.html' with form=rating_form %}
-                    <input type="submit" value="{% trans 'submit rating' %}" class="btn btn-primary">
+                    <input type="submit" value="{% trans 'Submit review' %}" class="btn btn-primary">
                 </form>
             </div>
         </div>

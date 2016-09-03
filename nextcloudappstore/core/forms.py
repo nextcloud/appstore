@@ -20,11 +20,12 @@ class AppRatingForm(Form):
     rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
                          widget=RadioSelect)
     comment = CharField(widget=Textarea, required=False,
-                        label=_('Rating comment'),
+                        label=_('Review'),
                         help_text=_(
-                            'Comments support Markdown. Do not use comments '
-                            'to report bugs or request features. Developers '
-                            'will not be notified by your comment.'))
+                            'Reviews support Markdown. Do not use reviews '
+                            'to report bugs or request features. Neither '
+                            'developers nor users will be notified by your '
+                            'review.'))
 
     class Meta:
         fields = ('rating', 'comment')
