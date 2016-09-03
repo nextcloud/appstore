@@ -24,7 +24,7 @@ class AppRatingForm(Form):
                         help_text=_(
                             'Comments support Markdown. Do not use comments '
                             'to report bugs or request features. Developers '
-                            'will not be modified by your comment.'))
+                            'will not be notified by your comment.'))
 
     class Meta:
         fields = ('rating', 'comment')
