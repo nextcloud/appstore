@@ -1,20 +1,20 @@
 from urllib.parse import urlencode
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from semantic_version import Version
 
 from nextcloudappstore.core.forms import AppRatingForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
-from semantic_version import Version
 
 
 def app_description(request, id):
