@@ -46,7 +46,6 @@ class AppDetailView(DetailView):
             rating.save()
         return redirect('app-detail', id=id)
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
