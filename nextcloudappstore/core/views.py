@@ -33,17 +33,11 @@ class AppDetailView(DetailView):
     slug_url_kwarg = 'id'
 
     def post(self, request, id):
-        user = request.user
-        form = AppRatingForm(request.POST)
+        form = AppRatingForm(request.POST, id=id, user=request.user,
+                             language_code=request.LANGUAGE_CODE)
         # there is no way that a rating can be invalid by default
-        if form.is_valid() and user.is_authenticated():
-            app = App.objects.get(id=id)
-            rating, created = AppRating.objects.get_or_create(user=user,
-                                                              app=app)
-            rating.rating = form.cleaned_data['rating']
-            rating.set_current_language(request.LANGUAGE_CODE)
-            rating.comment = form.cleaned_data['comment']  # TODO: locale
-            rating.save()
+        if form.is_valid() and request.user.is_authenticated():
+            form.save()
         return redirect('app-detail', id=id)
 
     def get_context_data(self, **kwargs):
@@ -51,14 +45,24 @@ class AppDetailView(DetailView):
         try:
             app_rating = AppRating.objects.get(user=self.request.user,
                                                app=context['app'])
+            # when accessing an empty comment django-parler tries to fall back
+            # to the default language. However for comments the default
+            # (English) does not always exist. Unfortunately it throws the
+            # same exception as non existing models, so we need to access it
+            # beforehand
+            try:
+                comment = app_rating.comment
+            except AppRating.DoesNotExist:
+                comment = ''
+
             context['rating_form'] = AppRatingForm(initial={
                 'rating': app_rating.rating,
-                'comment': app_rating.comment
+                'comment': comment
             })
-            context['user_rated_app'] = True
+            context['user_has_rated_app'] = True
         except AppRating.DoesNotExist:
             context['rating_form'] = AppRatingForm()
-            context['user_rated_app'] = False
+            context['user_has_rated_app'] = False
         context['categories'] = Category.objects.all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()

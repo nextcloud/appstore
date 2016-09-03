@@ -114,14 +114,14 @@
                 {% if object.discussion %}
                     <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'ask questions or discuss' %}</a></li>
                 {% endif %}
-                {% if request.user.is_authenticated and not user_rated_app %}
+                {% if request.user.is_authenticated and not user_has_rated_app %}
                     <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'rate app' %}</button></li>
                 {% endif %}
             </ul>
         </div>
     {% endif %}
     {% if request.user.is_authenticated %}
-        <div class="row app-ratings {% if not user_rated_app %}collapse{% endif %}" id="app-ratings">
+        <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
             <div class="col-md-12">
                 <form action="{% url 'app-detail' object.id %}" method="post">
                     {% csrf_token %}
