@@ -106,16 +106,16 @@
     {% if object.issue_tracker or object.discussion or request.user.is_authenticated %}
         <div class="row app-comments">
             <ul class="col-md-12">
-                <h4 class="section-heading" id="comments">{% trans 'Comments' %}</h4>
+                <h4 class="section-heading" id="comments">{% trans 'Discussion' %}</h4>
                 {% if object.issue_tracker %}
-                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'report problem' %}</a></li>
-                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'request feature' %}</a></li>
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
                 {% endif %}
                 {% if object.discussion %}
-                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'ask questions or discuss' %}</a></li>
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
                 {% endif %}
                 {% if request.user.is_authenticated and not user_has_rated_app %}
-                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'rate app' %}</button></li>
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
                 {% endif %}
             </ul>
         </div>
