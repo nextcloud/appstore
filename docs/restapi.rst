@@ -500,6 +500,6 @@ This route will return all rating comments.
 
 
 translations
-    can contain 0 or any number of translated comments. If no comment is available for the currently chosen language, only the rating should be considered
+    can contain 0 or any number of translated comments. If no comment is available for the currently chosen language, only the rating should be considered. Contains Markdown.
 rating
     range from 0.0 (worst) to 1.0 (best)
