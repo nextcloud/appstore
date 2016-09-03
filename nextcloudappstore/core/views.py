@@ -1,15 +1,18 @@
 from urllib.parse import urlencode
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from nextcloudappstore.core.models import App, Category
+
+from nextcloudappstore.core.forms import AppRatingForm
+from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 from semantic_version import Version
 
@@ -29,8 +32,34 @@ class AppDetailView(DetailView):
     slug_field = 'id'
     slug_url_kwarg = 'id'
 
+    def post(self, request, id):
+        user = request.user
+        form = AppRatingForm(request.POST)
+        # there is no way that a rating can be invalid by default
+        if form.is_valid() and user.is_authenticated():
+            app = App.objects.get(id=id)
+            rating, created = AppRating.objects.get_or_create(user=user,
+                                                              app=app)
+            rating.rating = form.cleaned_data['rating']
+            rating.set_current_language(request.LANGUAGE_CODE)
+            rating.comment = form.cleaned_data['comment']  # TODO: locale
+            rating.save()
+        return redirect('app-detail', id=id)
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        try:
+            app_rating = AppRating.objects.get(user=self.request.user,
+                                               app=context['app'])
+            context['rating_form'] = AppRatingForm(initial={
+                'rating': app_rating.rating,
+                'comment': app_rating.comment
+            })
+            context['user_rated_app'] = True
+        except AppRating.DoesNotExist:
+            context['rating_form'] = AppRatingForm()
+            context['user_rated_app'] = False
         context['categories'] = Category.objects.all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()

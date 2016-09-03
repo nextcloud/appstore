@@ -205,7 +205,9 @@ form .text-danger {
     display: inline-block;
 }
 
-.socialaccount-providers li a {
+.socialaccount-providers li a,
+.btn-secondary {
+    border-radius: 0;
     padding: 6px 12px;
     color: #fff !important;
     text-decoration: none !important;
@@ -431,4 +433,42 @@ address {
 
 .password_change .form-control-feedback {
     top: 33px !important;
+}
+
+.app-comments ul {
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.app-comments li {
+    display: inline-block;
+    padding: 5px;
+}
+
+
+.app-ratings h4,
+.app-comments h4 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.app-ratings {
+    margin-bottom: 25px;
+}
+
+.app-ratings form {
+    padding: 10px;
+}
+
+#id_rating {
+    padding: 0;
+}
+
+#id_rating li {
+    display: inline-block;
+    padding: 15px;
+}
+
+#id_rating li:first-child {
+    padding-left: 0;
 }

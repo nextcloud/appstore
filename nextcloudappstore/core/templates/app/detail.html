@@ -87,6 +87,7 @@
                 <li><a href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and discussion" %}</a></li>
                 {% endif %}
                 <li><a href="#downloads">{% trans "Downloads" %}</a></li>
+                <li><a href="#comments">{% trans "Comments" %}</a></li>
             </ul>
         </section>
     </div>
@@ -110,5 +111,33 @@
             </section>
         </div>
     </div>
+    {% if object.issue_tracker or object.discussion or request.user.is_authenticated %}
+        <div class="row app-comments">
+            <ul class="col-md-12">
+                <h4 id="comments">{% trans 'Comments' %}</h4>
+                {% if object.issue_tracker %}
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'report problem' %}</a></li>
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'request feature' %}</a></li>
+                {% endif %}
+                {% if object.discussion %}
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'ask questions or discuss' %}</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated and not user_rated_app %}
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'rate app' %}</button></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        <div class="row app-ratings {% if not user_rated_app %}collapse{% endif %}" id="app-ratings">
+            <div class="col-md-12">
+                <form action="{% url 'app-detail' object.id %}" method="post">
+                    {% csrf_token %}
+                    {% include 'form-fields.html' with form=rating_form %}
+                    <input type="submit" value="{% trans 'submit rating' %}" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
