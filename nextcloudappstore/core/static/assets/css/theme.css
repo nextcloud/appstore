@@ -9,11 +9,11 @@
 }
 
 
-#body a {
+#body a:not(.btn) {
     color: var(--link-color);
 }
 
-#body a:hover {
+#body a:not(.btn):hover {
     color: var(--link-color);
     text-decoration: underline;
 }

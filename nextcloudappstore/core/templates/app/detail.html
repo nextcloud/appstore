@@ -71,9 +71,6 @@
                 {% if object.website %}
                 <li><a href="{{ object.website }}" rel="noopener noreferrer">{% trans "Homepage" %}</a></li>
                 {% endif %}
-                {% if object.issue_tracker %}
-                <li><a href="{{ object.issue_tracker }}" rel="noopener noreferrer">{% trans "Issue tracker" %}</a></li>
-                {% endif %}
                 {% if object.user_docs %}
                 <li><a href="{{ object.user_docs }}" rel="noopener noreferrer">{% trans "User documentation" %}</a></li>
                 {% endif %}
@@ -83,10 +80,6 @@
                 {% if object.developer_docs %}
                 <li><a href="{{ object.developer_docs }}" rel="noopener noreferrer">{% trans "Developer documentation" %}</a></li>
                 {% endif %}
-                {% if object.discussion %}
-                <li><a href="{{ object.discussion }}" rel="noopener noreferrer">{% trans "Comments and discussion" %}</a></li>
-                {% endif %}
-                <li><a href="#downloads">{% trans "Downloads" %}</a></li>
             </ul>
         </section>
     </div>
@@ -110,5 +103,33 @@
             </section>
         </div>
     </div>
+    {% if object.issue_tracker or object.discussion or request.user.is_authenticated %}
+        <div class="row app-comments">
+            <ul class="col-md-12">
+                <h4 class="section-heading" id="comments">{% trans 'Discussion' %}</h4>
+                {% if object.issue_tracker %}
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
+                {% endif %}
+                {% if object.discussion %}
+                    <li><a target="_blank" rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated and not user_has_rated_app %}
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Review app' %}</button></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
+            <div class="col-md-12">
+                <form action="{% url 'app-detail' object.id %}" method="post">
+                    {% csrf_token %}
+                    {% include 'form-fields.html' with form=rating_form %}
+                    <input type="submit" value="{% trans 'Submit review' %}" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
