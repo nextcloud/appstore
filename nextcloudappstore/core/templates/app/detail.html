@@ -106,7 +106,7 @@
     {% if object.issue_tracker or object.discussion or request.user.is_authenticated %}
         <div class="row app-comments">
             <ul class="col-md-12">
-                <h4 id="comments">{% trans 'Comments' %}</h4>
+                <h4 class="section-heading" id="comments">{% trans 'Comments' %}</h4>
                 {% if object.issue_tracker %}
                     <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'report problem' %}</a></li>
                     <li><a target="_blank" rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'request feature' %}</a></li>
