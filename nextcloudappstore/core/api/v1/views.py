@@ -46,7 +46,7 @@ def app_api_etag(request, version):
 
 def create_etag(queryset, modified_field='last_modified'):
     aggregate = queryset.aggregate(count=Count('*'),
-                                modified=Max(modified_field))
+                                   modified=Max(modified_field))
     modified = aggregate['modified']
     if modified is None:
         return None
