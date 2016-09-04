@@ -44,7 +44,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
     template_name_suffix = ''
     model = User
     fields = ['first_name', 'last_name']
-    success_url = reverse_lazy('account')
+    success_url = reverse_lazy('user:account')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -63,7 +63,7 @@ class PasswordView(LoginRequiredMixin, PasswordChangeView):
     """Allow the user to change their password."""
 
     template_name = 'user/password.html'
-    success_url = reverse_lazy('account-password')
+    success_url = reverse_lazy('user:account-password')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

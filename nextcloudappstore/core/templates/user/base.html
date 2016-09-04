@@ -9,21 +9,21 @@
     <div class="col-sm-3">
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="{% if acc_page == 'account' %}active{% endif %}">
-                <a href="{% url 'account' %}">{% trans 'Account' %}</a>
+                <a href="{% url 'user:account' %}">{% trans 'Account' %}</a>
             </li>
             <li class="{% if acc_page == 'account-change-language' %}active{% endif %}">
-                <a href="{% url 'account-change-language' %}">{% trans 'Change language' %}</a>
+                <a href="{% url 'user:account-change-language' %}">{% trans 'Change language' %}</a>
             </li>
             {% if request.user.has_usable_password %}
                 <li class="{% if acc_page == 'password' %}active{% endif %}">
-                    <a href="{% url 'account-password' %}">{% trans 'Password' %}</a>
+                    <a href="{% url 'user:account-password' %}">{% trans 'Password' %}</a>
                 </li>
             {% endif %}
             <li class="{% if acc_page == 'api-token' %}active{% endif %}">
-                <a href="{% url 'account-api-token' %}">{% trans 'API token' %}</a>
+                <a href="{% url 'user:account-api-token' %}">{% trans 'API token' %}</a>
             </li>
             <li class="{% if acc_page == 'delete-account' %}active{% endif %}">
-                <a href="{% url 'account-deletion' %}">{% trans 'Delete account' %}</a>
+                <a href="{% url 'user:account-deletion' %}">{% trans 'Delete account' %}</a>
             </li>
         </ul>
     </div>
