@@ -10,6 +10,15 @@ from django.views.generic import UpdateView
 from nextcloudappstore.core.user.forms import DeleteAccountForm
 
 
+class ChangeLanguageView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/set-language.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['acc_page'] = 'account-change-language'
+        return context
+
+
 class DeleteAccountView(LoginRequiredMixin, TemplateView):
     template_name = 'user/delete-account.html'
 
