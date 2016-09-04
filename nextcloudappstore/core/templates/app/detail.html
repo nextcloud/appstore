@@ -1,7 +1,5 @@
 {% extends 'app/base.html' %}
-{% load i18n %}
-{% load sort_by_version %}
-{% load staticfiles %}
+{% load i18n sort_by_version staticfiles app_rating app_rating_class humanize %}
 
 {% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
@@ -42,21 +40,25 @@
     <div class="app-meta col-md-4">
         <section>
             {% if object.last_modified %}
-            <h6>{% trans "Updated" %}</h6>
-            <p>{{ object.last_modified }}</p>
+            <h5>{% trans "Updated" %}</h5>
+            <p>{{ object.last_modified|naturalday }}</p>
             {% endif %}
             {% if object.owner %}
-            <h6>{% trans "Publisher" %}</h6>
+            <h5>{% trans "Publisher" %}</h5>
             <p>
                 {% if object.owner.get_fullname %}
-                {{ object.owner.get_fullname }}
+                    {{ object.owner.get_fullname }}
                 {% else %}
-                {{ object.owner.username }}
+                    Anonymous
                 {% endif %}
             </p>
             {% endif %}
+            <h5>{% trans 'Overall rating' %}</h5>
+            <p class="{{ object.rating_overall|app_rating_class }}">{{ object.rating_overall|app_rating }}</p>
+            <h5>{% trans 'Recent rating' %}</h5>
+            <p class="{{ object.rating_recent|app_rating_class }}">{{ object.rating_recent|app_rating }}</p>
             {% if object.co_maintainers.all %}
-            <h6>{% trans "Co-Maintainers" %}</h6>
+            <h5>{% trans "Co-Maintainers" %}</h5>
             <ul class="list-inline">
                 {% for a in object.co_maintainers.all %}
                 <li>{% if a.get_fullname %}
@@ -69,7 +71,7 @@
             {% endif %}
         </section>
         <section class="resources">
-            <h4>{% trans "Resources" %}</h4>
+            <h5>{% trans "Resources" %}</h5>
             <ul>
                 {% if object.website %}
                 <li><a href="{{ object.website }}" rel="noopener noreferrer">{% trans "Homepage" %}</a></li>
