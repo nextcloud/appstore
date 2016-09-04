@@ -41,7 +41,7 @@
         <section>
             {% if object.last_modified %}
             <h5>{% trans "Updated" %}</h5>
-            <p>{{ object.last_modified|naturalday }}</p>
+            <p>{{ object.last_modified|naturaltime }}</p>
             {% endif %}
             {% if object.owner %}
             <h5>{% trans "Publisher" %}</h5>
