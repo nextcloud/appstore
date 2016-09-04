@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="{% static 'vendor/highlightjs/styles/github.css' %}">
     <script defer="defer" src="{% static 'vendor/highlightjs/highlight.pack.js' %}"></script>
     <script defer="defer" src="{% static 'vendor/markdown-it/dist/markdown-it.min.js' %}"></script>
+    <script defer="defer" src="{% static 'vendor/moment/min/moment-with-locales.min.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
-    <meta name="nextcloudappstore-app-detail-url" content="{% url 'app-description' object.id %}">
+    <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
+    <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
+    <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
 {% endblock %}
 
 {% block apps %}
@@ -94,7 +97,7 @@
                             <tr>
                                 <td>Nextcloud {{ platform_v }}</td>
                                 <td>{% if releases.stable %}<a href="{{ releases.stable.download }}" rel="noopener noreferrer">{{ releases.stable.version }}</a>{% endif %}</td>
-                                <td>{% if releases.nightly %}<a href="{{ releases.nightly.download }}" rel="noopener noreferrer" class="unstable">{{ releases.nightly.version }} (Unstable)</a>{% endif %}</td>
+                                <td>{% if releases.nightly %}<a href="{{ releases.nightly.download }}" rel="noopener noreferrer" class="unstable">{{ releases.nightly.version }} ({%  trans 'Unstable' %})</a>{% endif %}</td>
                                 <td><a href="/app/{{ object.id }}/releases/?platform={{ platform_v }}#{{ platform_v }}">{% trans "All releases" %}</a></td>
                             </tr>
                         {% endif %}
@@ -130,6 +133,23 @@
                 </form>
             </div>
         </div>
+        <template id="app-rating-template">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rating-comment">
+                        <header>
+                            <div class="date"></div>
+                            <div class="author"></div>
+                            <div class="rating rating-good">{% trans 'Good' %}</div>
+                            <div class="rating rating-ok">{% trans 'Ok' %}</div>
+                            <div class="rating rating-bad">{% trans 'Bad' %}</div>
+                        </header>
+                        <div class="comment"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div class="app-rating-list loading"></div>
     {% endif %}
 
 {% endblock %}
