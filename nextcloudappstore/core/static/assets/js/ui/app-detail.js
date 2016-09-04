@@ -70,6 +70,9 @@
                     let comment = rating.translations[languageCode].comment;
                     let template = document.importNode(ratingTemplate.content, true);
                     template.childNodes[1].classList.add(createRatingClass(rating.rating));
+                    console.log(rating.ratedAt);
+                    let date = new Date(rating.ratedAt);
+                    template.querySelector('.date').innerHTML = date.toDateString();
                     template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
                     template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
                     ratingTarget.appendChild(template);
