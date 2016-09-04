@@ -1,4 +1,4 @@
-{% load css_class %}
+{% load css_class field_type %}
 {% csrf_token %}
 {% if form.non_field_errors  %}
     {% for error in form.non_field_errors %}
@@ -11,7 +11,11 @@
     <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
         <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
 
-        {{ field|css_class:'form-control' }}
+        {% if field|field_type == 'ChoiceField' %}
+            {{ field }}
+        {% else %}
+            {{ field|css_class:'form-control' }}
+        {% endif %}
 
         {% if field.errors %}
             {% for error in field.errors %}

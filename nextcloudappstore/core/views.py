@@ -10,8 +10,10 @@ from django.utils.translation import get_language, get_language_info
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from rest_framework.generics import ListAPIView
 from semantic_version import Version
 
+from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.forms import AppRatingForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
@@ -20,6 +22,16 @@ from nextcloudappstore.core.versioning import pad_min_version
 def app_description(request, id):
     app = get_object_or_404(App, id=id)
     return HttpResponse(app.description, content_type='text/plain')
+
+
+class AppRatingApi(ListAPIView):
+    serializer_class = AppRatingSerializer
+
+    def get_queryset(self):
+        id = self.kwargs.get('id')
+        app = get_object_or_404(App, id=id)
+        return AppRating.objects.language(self.request.LANGUAGE_CODE).filter(
+            app=app)
 
 
 class LegalNoticeView(TemplateView):

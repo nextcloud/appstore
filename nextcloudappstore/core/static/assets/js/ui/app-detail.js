@@ -29,11 +29,50 @@
     }
 
     // create markdown for app description
-    let appDescriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-detail-url"]');
+    let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]');
     let descriptionTarget = document.querySelector('.app-description');
-    fetch(appDescriptionUrl.content).then((response) => response.text())
+    fetch(descriptionUrl.content).then((response) => response.text())
         .then((description) => {
             descriptionTarget.classList.remove('loading');
             descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
+        });
+
+    // create ratings
+    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]');
+    let languageCode = document.querySelector('meta[name="language-code"]').content;
+    let ratingTarget = document.querySelector('.app-rating-list');
+    let ratingTemplate = document.getElementById('app-rating-template');
+    let createRatingClass = function (value) {
+        // beware: float comparisons
+        if (value === 0.5) {
+            return 'ok';
+        } else if (value === 1.0) {
+            return 'good';
+        } else {
+            return 'bad';
+        }
+    };
+
+    fetch(ratingUrl.content)
+        .then((response) => response.json())
+        .then((ratings) => {
+            ratingTarget.classList.remove('loading');
+            ratings
+                .filter(rating => rating.translations[languageCode] !== undefined)
+                .filter(rating => rating.translations[languageCode].comment !== undefined)
+                .filter(rating => rating.translations[languageCode].comment.trim() !== '')
+                .forEach((rating) => {
+                    let user = rating.user;
+                    let fullName = user.firstName + " " + user.lastName;
+                    if (fullName.trim() === '') {
+                        fullName = 'Anonymous';
+                    }
+                    let comment = rating.translations[languageCode].comment;
+                    let template = document.importNode(ratingTemplate.content, true);
+                    template.childNodes[1].classList.add(createRatingClass(rating.rating));
+                    template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
+                    template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
+                    ratingTarget.appendChild(template);
+                });
         });
 }(this));

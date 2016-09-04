@@ -218,6 +218,7 @@ class AppRating(TranslatableModel):
         unique_together = (('app', 'user'),)
         verbose_name = _('App Rating')
         verbose_name_plural = _('App Ratings')
+        ordering = ('-rated_at',)
 
     def __str__(self) -> str:
         return str(self.rating)

@@ -12,7 +12,9 @@
     <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
-    <meta name="nextcloudappstore-app-detail-url" content="{% url 'app-description' object.id %}">
+    <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
+    <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
+    <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
 {% endblock %}
 
 {% block apps %}
@@ -130,6 +132,22 @@
                 </form>
             </div>
         </div>
+        <template id="app-rating-template">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rating-comment">
+                        <header>
+                            <div class="author">{% trans 'Reviewer' %}: </div>
+                            <div class="rating rating-good">{% trans 'Rating' %}: {% trans 'Good' %}</div>
+                            <div class="rating rating-ok">{% trans 'Rating' %}: {% trans 'Ok' %}</div>
+                            <div class="rating rating-bad">{% trans 'Rating' %}: {% trans 'Bad' %}</div>
+                        </header>
+                        <div class="comment"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div class="app-rating-list loading"></div>
     {% endif %}
 
 {% endblock %}
