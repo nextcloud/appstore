@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'nextcloudappstore.urls'
@@ -227,3 +228,7 @@ RATING_THRESHOLD = 5
 
 # number of days to include from today in the recent ratings calculation
 RATING_RECENT_DAY_RANGE = 90
+
+LOCALE_PATHS = (
+    join(BASE_DIR, 'locale/'),
+)

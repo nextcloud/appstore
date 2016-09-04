@@ -14,7 +14,7 @@ body {
 
 #body {
     padding: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     overflow: hidden;
     line-height: 1.7;
     font-size: 16px;
@@ -205,7 +205,9 @@ form .text-danger {
     display: inline-block;
 }
 
-.socialaccount-providers li a {
+.socialaccount-providers li a,
+.btn-secondary {
+    border-radius: 0;
     padding: 6px 12px;
     color: #fff !important;
     text-decoration: none !important;
@@ -358,7 +360,7 @@ form .text-danger {
 }
 
 .app-download {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     padding-top: 50px;
     clear: right;
 }
@@ -431,4 +433,86 @@ address {
 
 .password_change .form-control-feedback {
     top: 33px !important;
+}
+
+.app-comments ul {
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.app-comments li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.section-heading {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.app-ratings {
+    margin-bottom: 25px;
+}
+
+.app-ratings form {
+    padding: 10px;
+}
+
+#id_rating {
+    padding: 0;
+}
+
+#id_rating li {
+    display: inline-block;
+    padding: 15px;
+}
+
+#id_rating li:first-child {
+    padding-left: 0;
+}
+
+.rating-comment {
+    border: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.rating-comment .author {
+    font-weight: bold;
+}
+
+.rating-comment header {
+    padding: 10px 25px;
+    font-size: 15pt;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.rating-comment .comment {
+    padding: 25px;
+}
+
+.rating-comment .date {
+    float: right;
+}
+
+.rating {
+    display: none;
+}
+
+.good .rating-good {
+    display: block;
+}
+
+.ok .rating-ok {
+    display: block;
+}
+
+.bad .rating-bad {
+    display: block;
+}
+
+.required-field {
+    color: #e84350;
+    padding: 0 5px;
 }

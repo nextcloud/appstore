@@ -4,6 +4,7 @@ from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
+from django.contrib.auth import get_user_model
 
 
 class PhpExtensionDependencySerializer(serializers.ModelSerializer):
@@ -97,6 +98,21 @@ class AppSerializer(serializers.ModelSerializer):
             'screenshots', 'translations', 'featured', 'authors',
             'rating_recent', 'rating_overall'
         )
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ('id', 'first_name', 'last_name')
+
+
+class AppRatingSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False, read_only=True)
+    translations = TranslatedFieldsField(shared_model=AppRating)
+
+    class Meta:
+        model = AppRating
+        fields = ('rating', 'rated_at', 'translations', 'user', 'app')
 
 
 class AppReleaseDownloadSerializer(serializers.Serializer):

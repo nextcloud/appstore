@@ -7,8 +7,8 @@ from rest_framework.exceptions import APIException
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
-    AppReleaseDownloadSerializer, CategorySerializer
-from nextcloudappstore.core.models import App, AppRelease, Category
+    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer
+from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from pymple import Container
@@ -44,19 +44,32 @@ def app_api_etag(request, version):
             return '%s-%s' % (count, release_modified)
 
 
-def category_api_etag(request):
-    category_aggr = Category.objects.aggregate(count=Count('*'),
-                                               modified=Max('last_modified'))
-    category_modified = category_aggr['modified']
-    if category_modified is None:
+def create_etag(queryset, modified_field='last_modified'):
+    aggregate = queryset.aggregate(count=Count('*'),
+                                   modified=Max(modified_field))
+    modified = aggregate['modified']
+    if modified is None:
         return None
     else:
-        return '%s-%s' % (category_aggr['count'], category_modified)
+        return '%s-%s' % (aggregate['count'], modified)
+
+
+def category_api_etag(request):
+    return create_etag(Category.objects.all())
+
+
+def app_rating_api_etag(request):
+    return create_etag(AppRating.objects.all(), 'rated_at')
 
 
 class CategoryView(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+
+class AppRatingView(ListAPIView):
+    queryset = AppRating.objects.all()
+    serializer_class = AppRatingSerializer
 
 
 class AppView(DestroyAPIView):

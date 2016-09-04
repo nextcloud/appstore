@@ -4,7 +4,7 @@
 {% load sort_by_version %}
 {% load version_spec %}
 
-{% block head-title %}{% trans 'Releases'%} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
+{% block head-title %}{% trans 'Releases' %} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'assets/css/accordion.css' %}">
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block apps %}
-    <h1>{{ object.name }} {% trans ' - Releases' %}</h1>
+    <h1>{{ object.name }} - {% trans 'Releases' %}</h1>
     <section><a href="/app/{{ object.id }}/">&larr; {% trans 'App details' %}</a></section>
     <section class="app-releases">
         {% for platform_v, releases in releases_by_platform_v %}
@@ -29,7 +29,7 @@
                                         <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
                                         <tr><td>{% trans 'Updated' %}</td><td>{{ release.last_modified }}</td></tr>
                                         <tr>
-                                            <td>{% trans 'Licences' %}</td>
+                                            <td>{% trans 'Licenses' %}</td>
                                             <td>
                                                 {% for lic in release.licenses.all %}
                                                     {{ lic.name }}{% if not forloop.last %}, {% endif %}

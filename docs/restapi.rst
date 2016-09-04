@@ -37,6 +37,7 @@ The following API routes are present:
 
 * :ref:`api-delete-app`
 
+* :ref:`api-all-app-ratings`
 
 .. _api-token:
 
@@ -459,3 +460,46 @@ Deleting an app will also delete all releases which are associated with it.
  * **HTTP 403**: If the user is not authorized to delete the app
  * **HTTP 404**: If the app could not be found
 
+.. _api-all-app-ratings:
+
+Get All App Ratings
+~~~~~~~~~~~~~~~~~~~
+This route will return all rating comments.
+
+* **Url**: GET /api/v1/apps/ratings.json
+
+* **Authentication**: None
+
+* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
+
+* **Example CURL request**::
+
+    curl https://apps.nextcloud.com/api/v1/apps/ratings.json -H 'If-None-Match: ""1-2016-09-03 17:11:38.772856+00:00""'
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    [
+        {
+            "rating": 1.0,
+            "ratedAt": "2016-09-03T17:11:38.772856Z",
+            "translations": {
+                "en": {
+                    "comment": "I like it"
+                }
+            },
+            "user": {
+                "id": 1,
+                "firstName": "Tom",
+                "lastName": "Jones"
+            },
+            "app": "keeweb"
+        }
+    ]
+
+
+translations
+    can contain 0 or any number of translated comments. If no comment is available for the currently chosen language, only the rating should be considered. Contains Markdown.
+rating
+    range from 0.0 (worst) to 1.0 (best)

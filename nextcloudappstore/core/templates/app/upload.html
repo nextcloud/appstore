@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block head-title %}{% trans 'Upload App'%} - {% endblock %}
+{% block head-title %}{% trans 'Upload App' %} - {% endblock %}
 
 {% block head %}
     <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
@@ -21,13 +21,13 @@
                 <div><div id="detail-msg"></div></div>
 
                 <div class="form-group">
-                    <label class="control-label"for="download">{% trans 'Download link (tar.gz)' %}</label>
+                    <label title="{% trans 'required field' %}" class="control-label"for="download">{% trans 'Download link (tar.gz)' %}<span class="required-field">*</span></label>
                     <input class="form-control" id="download" type="url" name="download" autofocus="autofocus" required>
                     <span id="download-msg"></span>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="checksum">{% trans 'SHA256 checksum (optional)' %}</label>
+                    <label class="control-label" for="checksum">{% trans 'SHA256 checksum' %}</label>
                     <input class="form-control" id="checksum" type="text" name="checksum">
                     <span id="checksum-msg"></span>
                 </div>

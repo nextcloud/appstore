@@ -210,13 +210,15 @@ class AppRating(TranslatableModel):
     rated_at = DateTimeField(auto_now=True, db_index=True)
     translations = TranslatedFields(
         comment=TextField(verbose_name=_('Rating comment'), default='',
-                          help_text=_('Rating comment in Markdown'))
+                          help_text=_('Rating comment in Markdown'),
+                          blank=True)
     )
 
     class Meta:
         unique_together = (('app', 'user'),)
         verbose_name = _('App Rating')
         verbose_name_plural = _('App Ratings')
+        ordering = ('-rated_at',)
 
     def __str__(self) -> str:
         return str(self.rating)

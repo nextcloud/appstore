@@ -1,22 +1,37 @@
 from urllib.parse import urlencode
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from nextcloudappstore.core.models import App, Category
-from nextcloudappstore.core.versioning import pad_min_version
+from rest_framework.generics import ListAPIView
 from semantic_version import Version
+
+from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
+from nextcloudappstore.core.forms import AppRatingForm
+from nextcloudappstore.core.models import App, Category, AppRating
+from nextcloudappstore.core.versioning import pad_min_version
 
 
 def app_description(request, id):
     app = get_object_or_404(App, id=id)
     return HttpResponse(app.description, content_type='text/plain')
+
+
+class AppRatingApi(ListAPIView):
+    serializer_class = AppRatingSerializer
+
+    def get_queryset(self):
+        id = self.kwargs.get('id')
+        app = get_object_or_404(App, id=id)
+        return AppRating.objects.language(self.request.LANGUAGE_CODE).filter(
+            app=app)
 
 
 class LegalNoticeView(TemplateView):
@@ -29,8 +44,37 @@ class AppDetailView(DetailView):
     slug_field = 'id'
     slug_url_kwarg = 'id'
 
+    def post(self, request, id):
+        form = AppRatingForm(request.POST, id=id, user=request.user,
+                             language_code=request.LANGUAGE_CODE)
+        # there is no way that a rating can be invalid by default
+        if form.is_valid() and request.user.is_authenticated():
+            form.save()
+        return redirect('app-detail', id=id)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        try:
+            app_rating = AppRating.objects.get(user=self.request.user,
+                                               app=context['app'])
+            # when accessing an empty comment django-parler tries to fall back
+            # to the default language. However for comments the default
+            # (English) does not always exist. Unfortunately it throws the
+            # same exception as non existing models, so we need to access it
+            # beforehand
+            try:
+                comment = app_rating.comment
+            except AppRating.DoesNotExist:
+                comment = ''
+
+            context['rating_form'] = AppRatingForm(initial={
+                'rating': app_rating.rating,
+                'comment': comment
+            })
+            context['user_has_rated_app'] = True
+        except AppRating.DoesNotExist:
+            context['rating_form'] = AppRatingForm()
+            context['user_has_rated_app'] = False
         context['categories'] = Category.objects.all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()

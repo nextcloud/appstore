@@ -29,5 +29,6 @@ pip install --upgrade -r requirements/production.txt
 python manage.py migrate
 python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 python manage.py collectstatic
+python manage.py compilemessages
 eval $reload_cmd
 deactivate
