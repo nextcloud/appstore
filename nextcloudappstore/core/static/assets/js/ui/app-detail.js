@@ -29,16 +29,16 @@
     }
 
     // create markdown for app description
-    let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]');
+    let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]').content;
     let descriptionTarget = document.querySelector('.app-description');
-    fetch(descriptionUrl.content).then((response) => response.text())
+    fetch(descriptionUrl).then((response) => response.text())
         .then((description) => {
             descriptionTarget.classList.remove('loading');
             descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
         });
 
     // create ratings
-    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]');
+    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
     let languageCode = document.querySelector('meta[name="language-code"]').content;
     let ratingTarget = document.querySelector('.app-rating-list');
     let ratingTemplate = document.getElementById('app-rating-template');
@@ -53,7 +53,7 @@
         }
     };
 
-    fetch(ratingUrl.content)
+    fetch(ratingUrl)
         .then((response) => response.json())
         .then((ratings) => {
             ratingTarget.classList.remove('loading');
