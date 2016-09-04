@@ -44,12 +44,12 @@
     let ratingTemplate = document.getElementById('app-rating-template');
     let createRatingClass = function (value) {
         // beware: float comparisons
-        if (value === 0.5) {
-            return 'ok';
-        } else if (value === 1.0) {
+        if (value === 1.0) {
             return 'good';
-        } else {
+        } else if (value === 0.0) {
             return 'bad';
+        } else {
+            return 'ok';
         }
     };
 
