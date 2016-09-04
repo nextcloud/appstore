@@ -228,3 +228,7 @@ RATING_THRESHOLD = 5
 
 # number of days to include from today in the recent ratings calculation
 RATING_RECENT_DAY_RANGE = 90
+
+LOCALE_PATHS = (
+    join(BASE_DIR, 'locale/'),
+)
