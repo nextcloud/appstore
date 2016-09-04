@@ -29,6 +29,12 @@
             }
         }
         return response.json().then(Promise.reject.bind(Promise));
-    }
+    };
+
+    global.escapeHtml = function (str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    };
 
 }(this));

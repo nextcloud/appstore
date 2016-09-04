@@ -6,7 +6,8 @@ from django.contrib import admin
 from nextcloudappstore.core.user.views import PasswordView, AccountView, \
     APITokenView, DeleteAccountView
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
-    app_description, AppReleasesView, AppUploadView, LegalNoticeView
+    app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
+    AppRatingApi
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
@@ -30,6 +31,8 @@ urlpatterns = [
         name='app-releases'),
     url(r'^app/(?P<id>[\w_]+)/description/?$', app_description,
         name='app-description'),
+    url(r'^app/(?P<id>[\w_]+)/ratings.json$', AppRatingApi.as_view(),
+        name='app-ratings'),
     url(r'^api/', include('nextcloudappstore.core.api.urls',
                           namespace='api')),
     url(r'^admin/', admin.site.urls),
