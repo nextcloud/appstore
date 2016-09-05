@@ -135,23 +135,23 @@
                 </form>
             </div>
         </div>
-        <template id="app-rating-template">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="rating-comment">
-                        <header>
-                            <div class="date"></div>
-                            <div class="author"></div>
-                            <div class="rating rating-good">{% trans 'Good' %}</div>
-                            <div class="rating rating-ok">{% trans 'Ok' %}</div>
-                            <div class="rating rating-bad">{% trans 'Bad' %}</div>
-                        </header>
-                        <div class="comment"></div>
-                    </div>
+    {% endif %}
+    <template id="app-rating-template">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="rating-comment">
+                    <header>
+                        <div class="date"></div>
+                        <div class="author"></div>
+                        <div class="rating rating-good">{% trans 'Good' %}</div>
+                        <div class="rating rating-ok">{% trans 'Ok' %}</div>
+                        <div class="rating rating-bad">{% trans 'Bad' %}</div>
+                    </header>
+                    <div class="comment"></div>
                 </div>
             </div>
-        </template>
-        <div class="app-rating-list loading"></div>
-    {% endif %}
+        </div>
+    </template>
+    <div class="app-rating-list loading"></div>
 
 {% endblock %}
