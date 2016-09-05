@@ -46,8 +46,8 @@
             {% if object.owner %}
             <h5>{% trans "Publisher" %}</h5>
             <p>
-                {% if object.owner.get_fullname %}
-                    {{ object.owner.get_fullname }}
+                {% if object.owner.first_name or object.owner.last_name %}
+                    {{ object.owner.first_name }} {{ object.owner.last_name }}
                 {% else %}
                     Anonymous
                 {% endif %}
