@@ -1,9 +1,7 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
-
-from django.utils import timezone
-
-from nextcloudappstore.core.versioning import to_spec
 from semantic_version import Version  # type: ignore
+from django.utils import timezone
+from nextcloudappstore.core.versioning import to_spec
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension, AppAuthor
