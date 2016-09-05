@@ -21,7 +21,9 @@
 
 <div class="row">
     <ul class="nav-tabs nav sorting">
-        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'last_release' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_release&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
+        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}active{% endif %}"><a href="{{ request.url }}?order_by=rating_overall&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Rating' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'rating_recent' %}active{% endif %}"><a href="{{ request.url }}?order_by=rating_recent&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Rating (recent)' %}</a></li>
+        <li role="presentation" class="{% if request.GET.order_by == 'last_release' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_release&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
         {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
             <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetical' %}</a></li>
         {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
