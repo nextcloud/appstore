@@ -153,9 +153,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+EXCLUDED_LANGS = ('en-au', 'en-gb')
+LANGUAGES = [lang for lang in LANGUAGES if lang[0] not in EXCLUDED_LANGS]
 PARLER_LANGUAGES = {
-    1: [{'code': code} for code, trans in LANGUAGES
-        if code not in ('en-au', 'en-gb')],
+    1: [{'code': code} for code, trans in LANGUAGES],
     'default': {
         'fallbacks': ['en'],
         'hide_untranslated': False,
