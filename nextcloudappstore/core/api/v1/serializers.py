@@ -1,9 +1,11 @@
-from nextcloudappstore.core.models import *
+from nextcloudappstore.core.models import PhpExtensionDependency, \
+    DatabaseDependency, Category, AppAuthor, AppRelease, Screenshot, \
+    AppRating, App
 from nextcloudappstore.core.validators import HttpsUrlValidator
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField
+from rest_framework.fields import SerializerMethodField, DateTimeField
 from django.contrib.auth import get_user_model
 
 
@@ -89,6 +91,7 @@ class AppSerializer(serializers.ModelSerializer):
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
+    last_modified = DateTimeField(source='last_release')
 
     class Meta:
         model = App
