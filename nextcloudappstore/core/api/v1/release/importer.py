@@ -1,6 +1,7 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
-from nextcloudappstore.core.versioning import to_spec
 from semantic_version import Version  # type: ignore
+from django.utils import timezone
+from nextcloudappstore.core.versioning import to_spec
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension, AppAuthor
@@ -223,6 +224,7 @@ class AppImporter(Importer):
 
     def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
                                                                       Any]:
+        obj.last_release = timezone.now()
         # only new releases update an app's data
         if not self._is_latest_version(value):
             value = {'id': value['id'], 'release': value['release']}

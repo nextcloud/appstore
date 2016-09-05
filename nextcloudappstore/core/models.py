@@ -82,6 +82,9 @@ class App(TranslatableModel):
     featured = BooleanField(verbose_name=_('Featured'), default=False)
     rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
     rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
+    last_release = DateTimeField(editable=False, db_index=True,
+                                 verbose_name=_('Last release at'),
+                                 default=timezone.now)
 
     class Meta:
         verbose_name = _('App')
