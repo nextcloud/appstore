@@ -54,27 +54,29 @@ class AppDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        try:
-            app_rating = AppRating.objects.get(user=self.request.user,
-                                               app=context['app'])
-            # when accessing an empty comment django-parler tries to fall back
-            # to the default language. However for comments the default
-            # (English) does not always exist. Unfortunately it throws the
-            # same exception as non existing models, so we need to access it
-            # beforehand
+        context['rating_form'] = AppRatingForm()
+        context['user_has_rated_app'] = False
+        if self.request.user.is_authenticated():
             try:
-                comment = app_rating.comment
-            except AppRating.DoesNotExist:
-                comment = ''
+                app_rating = AppRating.objects.get(user=self.request.user,
+                                                   app=context['app'])
+                # when accessing an empty comment django-parler tries to
+                # fall back to the default language. However for comments
+                # the default (English) does not always exist. Unfortunately
+                # it throws the same exception as non existing models,
+                # so we need to access it beforehand
+                try:
+                    comment = app_rating.comment
+                except AppRating.DoesNotExist:
+                    comment = ''
 
-            context['rating_form'] = AppRatingForm(initial={
-                'rating': app_rating.rating,
-                'comment': comment
-            })
-            context['user_has_rated_app'] = True
-        except AppRating.DoesNotExist:
-            context['rating_form'] = AppRatingForm()
-            context['user_has_rated_app'] = False
+                context['rating_form'] = AppRatingForm(initial={
+                    'rating': app_rating.rating,
+                    'comment': comment
+                })
+                context['user_has_rated_app'] = True
+            except AppRating.DoesNotExist:
+                pass
         context['categories'] = Category.objects.all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()
