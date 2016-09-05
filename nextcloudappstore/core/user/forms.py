@@ -1,15 +1,19 @@
 from django import forms
 from captcha.fields import ReCaptchaField
-from django.forms import EmailField
+from django.forms import EmailField, CharField
 from django.utils.translation import ugettext_lazy as _
 
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
     recaptcha = ReCaptchaField()
+    first_name = CharField(max_length=30, label=_('First name'))
+    last_name = CharField(max_length=30, label=_('Last name'))
 
     def signup(self, request, user):
-        pass
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.save()
 
 
 class DeleteAccountForm(forms.Form):
