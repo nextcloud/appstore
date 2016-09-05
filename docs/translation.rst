@@ -30,4 +30,9 @@ Further details can be looked up in `Django's documentation online <https://docs
 Managing Translations
 ---------------------
 
-Translations are managed on `Transifex <https://www.transifex.com/nextcloud/nextcloud/>`_. If you want to help translating the App Store, click the **Join team** button and `create an issue on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ if your request takes longer than 2 days to process.
+Translations are managed on `Transifex <https://www.transifex.com/nextcloud/nextcloud/dashboard/>`_. If you want to help translating the App Store, click the **Join team** button and `create an issue on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ if your request takes longer than 2 days to process.
+
+All translatable languages for the App Store can be found on its `resources page <https://www.transifex.com/nextcloud/nextcloud/appstore/>`_. Select the language you want to translate and hit the **Translate** or **view strings online** button.
+
+Translated content will be pulled daily from Transifex.
+
