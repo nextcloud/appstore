@@ -145,7 +145,6 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
     'nextcloudappstore.core.user.forms.SignupFormRecaptcha'
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 LANGUAGE_CODE = 'en-us'
@@ -155,7 +154,8 @@ USE_L10N = True
 USE_TZ = True
 
 PARLER_LANGUAGES = {
-    1: [{'code': code} for code, trans in LANGUAGES],
+    1: [{'code': code} for code, trans in LANGUAGES
+        if code not in ('en-au', 'en-gb')],
     'default': {
         'fallbacks': ['en'],
         'hide_untranslated': False,
