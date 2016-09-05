@@ -13,7 +13,7 @@ Development Installation
 ------------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext
 
 Afterwards clone the repository using git and change into it::
 
@@ -51,7 +51,7 @@ Production Installation
 -----------------------
 Certain libraries and Python packages are required before setting up your development instance::
 
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext
 
 
 Database Setup
