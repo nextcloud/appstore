@@ -121,13 +121,13 @@ class CategoryAppListView(ListView):
     allow_empty = True
 
     def get_queryset(self):
-        order_by = self.request.GET.get('order_by', 'last_modified')
+        order_by = self.request.GET.get('order_by', 'last_release')
         ordering = self.request.GET.get('ordering', 'desc')
         featured = self.request.GET.get('featured', False)
         maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
-        allowed_order_by = {'name', 'last_modified'}
+        allowed_order_by = {'name', 'last_release'}
         if order_by in allowed_order_by:
             if order_by == 'name':
                 order_by = 'translations__name'

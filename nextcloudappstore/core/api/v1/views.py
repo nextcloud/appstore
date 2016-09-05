@@ -24,7 +24,7 @@ from rest_framework.views import APIView
 
 def app_api_etag(request, version):
     app_aggr = App.objects.aggregate(count=Count('*'),
-                                     modified=Max('last_modified'))
+                                     modified=Max('last_release'))
     release_aggr = AppRelease.objects.aggregate(count=Count('*'),
                                                 modified=Max('last_modified'))
     release_modified = release_aggr['modified']
