@@ -1,4 +1,5 @@
 import os
+from itertools import chain
 
 """
 Contains small utility and shortcut functions
@@ -36,3 +37,7 @@ def read_relative_file(file_path: str, target_path: str) -> str:
     """
     file = resolve_file_relative_path(file_path, target_path)
     return read_file_contents(file)
+
+
+def flatmap(f, xs):
+    return chain.from_iterable(map(f, xs))

@@ -30,5 +30,6 @@ python manage.py migrate
 python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 python manage.py collectstatic
 python manage.py compilemessages
+python manage.py importdbtranslations
 eval $reload_cmd
 deactivate
