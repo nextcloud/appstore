@@ -225,6 +225,13 @@ To prepopulate the database with categories and other data run the following com
 
     python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 
+Initializing Translations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+To update all translations run::
+
+    python manage.py compilemessages
+    python manage.py importdbtranslations
+
 Placing Static Content
 ~~~~~~~~~~~~~~~~~~~~~~
 Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. To do that first create the appropriate folders::

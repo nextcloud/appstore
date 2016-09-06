@@ -27,6 +27,7 @@ Certain translated strings like categories are stored in the database. If you ch
 
 To import the translated messages back into the database run::
 
+    python manage.py compilemessages
     python manage.py importdbtranslations
 
 Deploying Translations
