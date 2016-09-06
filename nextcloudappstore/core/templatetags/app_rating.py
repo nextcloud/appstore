@@ -13,8 +13,7 @@ to_rating = (
     (lambda r: r <= 0.4, _('Negative')),
     (lambda r: r <= 0.6, _('Neutral')),
     (lambda r: r <= 0.8, _('Positive')),
-    (lambda r: r <= 1.0, _('Very positive')),
-    (lambda r: raise_value_error('Invalid rating: ' + r), None)
+    (lambda r: True, _('Very positive'))
 )
 
 
