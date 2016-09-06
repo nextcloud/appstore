@@ -14,6 +14,7 @@ def flatmap(f, xs):
 def escape_tpl_string(string):
     return string.replace('\\', '\\\\').replace('"', '\\"')
 
+
 class Command(BaseCommand):
     translation_file = ('nextcloudappstore/core/templates/translation/'
                         'db_translations.txt')
