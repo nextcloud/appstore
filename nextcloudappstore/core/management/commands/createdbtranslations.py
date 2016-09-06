@@ -31,5 +31,5 @@ class Command(BaseCommand):
         with open(target_file, 'w') as f:
             f.write(content)
 
-        msg = 'Updated translations in %s' % target_file
+        msg = 'Exported translations to %s' % target_file
         self.stdout.write(self.style.SUCCESS(msg))

@@ -18,6 +18,17 @@ The above command only needs to be run if you want to add a new language. To upd
 
 .. note:: The above requirements require exported environment variables and installed libraries. To find out how to do that see :ref:`development-install`.
 
+Generating Database Translations
+--------------------------------
+Certain translated strings like categories are stored in the database. If you change them in the database, you need to extract them into **.po** files. To do that run::
+
+    python manage.py create createdbtranslations
+    python manage.py makemessages -a -i venv
+
+To import the translated messages back into the database run::
+
+    python manage.py importdbtranslations
+
 Deploying Translations
 ----------------------
 
