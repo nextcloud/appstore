@@ -1,5 +1,9 @@
+from allauth.account.models import EmailAddress
+from allauth.account.utils import filter_users_by_email
 from django import forms
 from captcha.fields import ReCaptchaField
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.forms import EmailField, CharField
 from django.utils.translation import ugettext_lazy as _
 
@@ -30,3 +34,27 @@ class DeleteAccountForm(forms.Form):
         else:
             raise forms.ValidationError(_(
                 'The given e-mail address does not match your e-mail address'))
+
+
+class AccountForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'email')
+
+    def clean_email(self):
+        value = self.cleaned_data["email"]
+        errors = {
+            "this_account": _("This e-mail address is already associated"
+                              " with this account."),
+            "different_account": _("This e-mail address is already associated"
+                                   " with another account."),
+        }
+        users = filter_users_by_email(value)
+        on_this_account = [u for u in users if u.pk == self.instance.pk]
+        on_diff_account = [u for u in users if u.pk != self.instance.pk]
+
+        if on_this_account:
+            raise forms.ValidationError(errors["this_account"])
+        if on_diff_account:
+            raise forms.ValidationError(errors["different_account"])
+        return value

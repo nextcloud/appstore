@@ -1,13 +1,13 @@
+from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
 
-from nextcloudappstore.core.user.forms import DeleteAccountForm
+from nextcloudappstore.core.user.forms import DeleteAccountForm, AccountForm
 
 
 class ChangeLanguageView(LoginRequiredMixin, TemplateView):
@@ -42,8 +42,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
     template_name = 'user/account.html'
     template_name_suffix = ''
-    model = User
-    fields = ['first_name', 'last_name', 'email']
+    form_class = AccountForm
     success_url = reverse_lazy('user:account')
 
     def get_context_data(self, **kwargs):
@@ -52,6 +51,9 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
+        email = EmailAddress.objects.filter(user=self.request.user)[0]
+        email.email = form.cleaned_data['email']
+        email.save()
         messages.success(self.request, 'Account details saved.')
         return super().form_valid(form)
 
