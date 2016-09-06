@@ -10,10 +10,6 @@ branches:
 
 install:
   - make dev-setup
-  - python manage.py createdbtranslations
-  - python manage.py makemessages -a -i venv
-  - python manage.py compilemessages
-  - python manage.py importdbtranslations
 
 script:
   - make test
