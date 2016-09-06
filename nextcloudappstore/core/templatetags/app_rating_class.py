@@ -12,8 +12,7 @@ to_rating_class = (
     (lambda r: r <= 0.4, 'negative-rating'),
     (lambda r: r <= 0.6, 'neutral-rating'),
     (lambda r: r <= 0.8, 'positive-rating'),
-    (lambda r: r <= 1.0, 'very-positive-rating'),
-    (lambda r: raise_value_error('Invalid rating: ' + r), None)
+    (lambda r: True, 'very-positive-rating')
 )
 
 
