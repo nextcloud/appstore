@@ -4,14 +4,14 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head-title %}{% trans "Sign In" %} - {% endblock %}
+{% block head-title %}{% trans "Log in" %} - {% endblock %}
 
 {% block content %}
 
 {% get_providers as socialaccount_providers %}
 
 <div class="central-form">
-    <h1 class="text-center">{% trans "Log In" %}</h1>
+    <h1 class="text-center">{% trans "Log in" %}</h1>
 
     <hr>
     {% if socialaccount_providers %}

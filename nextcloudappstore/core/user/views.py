@@ -43,7 +43,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
     template_name = 'user/account.html'
     template_name_suffix = ''
     model = User
-    fields = ['first_name', 'last_name']
+    fields = ['first_name', 'last_name', 'email']
     success_url = reverse_lazy('user:account')
 
     def get_context_data(self, **kwargs):
@@ -52,7 +52,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        messages.success(self.request, 'Name saved.')
+        messages.success(self.request, 'Account details saved.')
         return super().form_valid(form)
 
     def get_object(self, queryset=None):
