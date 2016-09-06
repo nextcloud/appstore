@@ -362,6 +362,11 @@ and install any dependencies (if changed)::
     pip install --upgrade -r requirements/base.txt
     pip install --upgrade -r requirements/production.txt
 
+update translations::
+
+    python manage.py compilemessages
+    python manage.py importdbtranslations
+
 Finally run the **collectstatic** command to copy updated assets into the web server's folder::
 
     sudo chown -R $(whoami):users /var/www
