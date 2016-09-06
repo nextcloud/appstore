@@ -1,14 +1,10 @@
-from itertools import chain
+from os.path import join
 
 from django.conf import settings
 from django.core.management import BaseCommand
-from os.path import join
 
+from nextcloudappstore.core.facades import flatmap
 from nextcloudappstore.core.models import Category
-
-
-def flatmap(f, xs):
-    return chain.from_iterable(map(f, xs))
 
 
 def escape_tpl_string(string):
