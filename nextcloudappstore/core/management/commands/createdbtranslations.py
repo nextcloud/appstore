@@ -25,7 +25,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         target_file = join(settings.BASE_DIR, self.translation_file)
         translations = flatmap(lambda x: self._create_translations(x[0], x[1]),
-                           self.translated_fields)
+                               self.translated_fields)
         content = '\n'.join(translations)
         with open(target_file, 'w') as f:
             f.write(content)
