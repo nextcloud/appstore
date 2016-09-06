@@ -39,6 +39,10 @@ Each time the **.po** files are changed, they need to be compiled into a specifi
 
 Further details can be looked up in `Django's documentation online <https://docs.djangoproject.com/en/1.10/topics/i18n/translation/>`_
 
+Afterwards you want to import all the translated content in the database:
+
+    python manage.py importdbtranslations
+
 Managing Translations
 ---------------------
 
