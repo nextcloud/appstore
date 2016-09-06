@@ -227,7 +227,7 @@ To prepopulate the database with categories and other data run the following com
 
 Initializing Translations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-To update all translations run::
+To import all translations run::
 
     python manage.py compilemessages
     python manage.py importdbtranslations
