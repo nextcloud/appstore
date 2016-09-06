@@ -51,7 +51,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        email = EmailAddress.objects.filter(user=self.request.user)[0]
+        email = EmailAddress.objects.get_primary(user=self.request.user)
         email.email = form.cleaned_data['email']
         email.save()
         messages.success(self.request, 'Account details saved.')
