@@ -1,7 +1,7 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
 from semantic_version import Version  # type: ignore
 from django.utils import timezone
-from nextcloudappstore.core.versioning import to_spec
+from nextcloudappstore.core.versioning import to_spec, to_raw_spec
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension, AppAuthor
@@ -46,10 +46,14 @@ class PhpExtensionImporter(ScalarImporter):
         for ext in value:
             version_spec = to_spec(ext['php_extension']['min_version'],
                                    ext['php_extension']['max_version'])
+            raw_version_spec = to_raw_spec(
+                ext['php_extension']['raw_min_version'],
+                ext['php_extension']['raw_max_version'])
             extension, created = PhpExtension.objects.get_or_create(
                 id=ext['php_extension']['id'])
             PhpExtensionDependency.objects.create(
                 version_spec=version_spec,
+                raw_version_spec=raw_version_spec,
                 app_release=obj, php_extension=extension,
             )
 
@@ -59,10 +63,13 @@ class DatabaseImporter(ScalarImporter):
         for db in value:
             version_spec = to_spec(db['database']['min_version'],
                                    db['database']['max_version'])
+            raw_version_spec = to_raw_spec(db['database']['raw_min_version'],
+                                           db['database']['raw_max_version'])
             # all dbs should be known already
             database = Database.objects.get(id=db['database']['id'])
             DatabaseDependency.objects.create(
                 version_spec=version_spec,
+                raw_version_spec=raw_version_spec,
                 app_release=obj, database=database,
             )
 
@@ -161,12 +168,24 @@ class AppReleaseImporter(Importer):
             'licenses': license_importer,
             'php_version_spec': string_attribute_importer,
             'platform_version_spec': string_attribute_importer,
+            'raw_php_version_spec': string_attribute_importer,
+            'raw_platform_version_spec': string_attribute_importer,
             'min_int_size': integer_attribute_importer,
             'shell_commands': shell_command_importer,
             'checksum': string_attribute_importer,
             'download': string_attribute_importer,
-        }, {'version', 'php_min_version', 'php_max_version',
-            'platform_min_version', 'platform_max_version'})
+        }, {
+            'version',
+            'raw_version',
+            'php_min_version',
+            'php_max_version',
+            'raw_php_min_version',
+            'raw_php_max_version',
+            'platform_min_version',
+            'platform_max_version',
+            'raw_platform_min_version',
+            'raw_platform_max_version',
+        })
 
     def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
                                                                       Any]:
@@ -175,6 +194,12 @@ class AppReleaseImporter(Importer):
             value['platform_min_version'], value['platform_max_version'])
         value['php_version_spec'] = to_spec(value['php_min_version'],
                                             value['php_max_version'])
+        value['raw_platform_version_spec'] = to_raw_spec(
+            value['raw_platform_min_version'],
+            value['raw_platform_max_version'])
+        value['raw_php_version_spec'] = to_raw_spec(
+            value['raw_php_min_version'],
+            value['raw_php_max_version'])
         obj.licenses.clear()
         obj.shell_commands.clear()
         obj.licenses.clear()

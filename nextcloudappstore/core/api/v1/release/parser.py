@@ -4,7 +4,8 @@ import lxml.etree  # type: ignore
 from typing import Dict, Any, Tuple, List, Set
 
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.versioning import pad_max_version, pad_min_version
+from nextcloudappstore.core.versioning import pad_max_version, \
+    pad_min_version, raw_version
 from rest_framework.exceptions import APIException  # type: ignore
 
 
@@ -134,9 +135,15 @@ def element_to_dict(element: Any) -> Dict:
     elif type == 'list':
         return {key: list(map(element_to_dict, element.iterchildren()))}
     elif type == 'min-version':
-        return {key: pad_min_version(element.text)}
+        return {
+            key: pad_min_version(element.text),
+            'raw_%s' % key: raw_version(element.text)
+        }
     elif type == 'max-version':
-        return {key: pad_max_version(element.text)}
+        return {
+            key: pad_max_version(element.text),
+            'raw_%s' % key: raw_version(element.text)
+        }
     elif len(list(element)) > 0:
         contents = {}
         for child in element.iterchildren():

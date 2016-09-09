@@ -235,38 +235,44 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "ratingRecent": 1.0,
             "releases": [
                 {
-                    "version": "8.8.0",
-                    "nightly": false,
+                    "version": "9.0.4",
                     "phpExtensions": [
                         {
-                            "id": "SimpleXML",
-                            "versionSpec": "*"
+                            "id": "libxml",
+                            "versionSpec": ">=2.7.8",
+                            "rawVersionSpec": ">=2.7.8"
                         },
                         {
                             "id": "curl",
-                            "versionSpec": "*"
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        },
+                        {
+                            "id": "SimpleXML",
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
                         },
                         {
                             "id": "iconv",
-                            "versionSpec": "*"
-                        },
-                        {
-                            "id": "libxml",
-                            "versionSpec": ">=2.7.8"
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
                         }
                     ],
                     "databases": [
                         {
-                            "id": "mysql",
-                            "versionSpec": ">=5.5.0"
-                        },
-                        {
                             "id": "pgsql",
-                            "versionSpec": ">=9.4.0"
+                            "versionSpec": ">=9.4.0",
+                            "rawVersionSpec": ">=9.4"
                         },
                         {
                             "id": "sqlite",
-                            "versionSpec": "*"
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        },
+                        {
+                            "id": "mysql",
+                            "versionSpec": ">=5.5.0",
+                            "rawVersionSpec": ">=5.5"
                         }
                     ],
                     "shellCommands": [
@@ -274,6 +280,8 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     ],
                     "phpVersionSpec": ">=5.6.0",
                     "platformVersionSpec": ">=9.0.0 <9.2.0",
+                    "rawPhpVersionSpec": ">=5.6",
+                    "rawPlatformVersionSpec": ">=10 <=10"
                     "minIntSize": 64,
                     "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
                     "created": "2016-06-25T16:08:56.796646Z",
@@ -321,6 +329,15 @@ versionSpec
      * **Maximum version only**: <8.1.2
      * **Minimum version only**: >=9.3.2
      * **Maximum and minimum version**: >=9.3.2 <8.1.2
+
+rawVersionSpec
+    Non semantic versions as they occur in the info.xml. The following permutations can occur:
+
+     * **All versions**: \*
+     * **Maximum version only**: <=8.1.2
+     * **Minimum version only**: >=9.3.2
+     * **Maximum and minimum version**: >=9.3.2 <=8.1.2
+
 
 ratingRecent
     Rating from 0.0 to 1.0 (0.0 being the worst, 1.0 being the best) in the past 90 days
