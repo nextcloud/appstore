@@ -1,6 +1,18 @@
 from sys import maxsize
 
 
+def raw_version(version: str) -> str:
+    """
+    Returns the exact same version but replaces None with *
+    :param version: version to adjust
+    :return: raw version
+    """
+    if not version:
+        return '*'
+    else:
+        return version
+
+
 def pad_max_version(version: str) -> str:
     """
     Turns inclusive maximum versions into exclusiv semantic versions
@@ -47,6 +59,23 @@ def pad_min_version(version: str) -> str:
     while version.count('.') < 2:
         version += '.0'
     return version
+
+
+def to_raw_spec(min_version: str, max_version: str) -> str:
+    """
+    Combines minimum and maximum version into a raw spec
+    :argument min_version: min version
+    :argument max_version: max version
+    :return: the spec
+    """
+    if max_version == '*' and min_version == '*':
+        return '*'
+    elif max_version == '*':
+        return '>=%s' % min_version
+    elif min_version == '*':
+        return '<=%s' % max_version
+    else:
+        return '>=%s,<=%s' % (min_version, max_version)
 
 
 def to_spec(min_version: str, max_version: str) -> str:

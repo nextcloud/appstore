@@ -297,6 +297,11 @@ class AppRelease(Model):
                                  verbose_name=_('PHP version requirement'))
     platform_version_spec = CharField(max_length=256, verbose_name=_(
         'Platform version requirement'))
+    raw_php_version_spec = CharField(max_length=256,
+                                     verbose_name=_(
+                                         'PHP version requirement (raw)'))
+    raw_platform_version_spec = CharField(max_length=256, verbose_name=_(
+        'Platform version requirement (raw)'))
     min_int_size = IntegerField(blank=True, default=32,
                                 verbose_name=_('Minimum Integer Bits'),
                                 help_text=_('e.g. 32 for 32bit Integers'))
@@ -447,6 +452,9 @@ class DatabaseDependency(Model):
                           on_delete=CASCADE, verbose_name=_('Database'))
     version_spec = CharField(max_length=256,
                              verbose_name=_('Database version requirement'))
+    raw_version_spec = CharField(max_length=256,
+                                 verbose_name=_(
+                                     'Database version requirement (raw)'))
 
     class Meta:
         verbose_name = _('Database Dependency')
@@ -480,6 +488,9 @@ class PhpExtensionDependency(Model):
                                related_name='releasedependencies')
     version_spec = CharField(max_length=256,
                              verbose_name=_('Extension version requirement'))
+    raw_version_spec = CharField(max_length=256,
+                                 verbose_name=_(
+                                     'Extension version requirement (raw)'))
 
     class Meta:
         verbose_name = _('PHP Extension Dependency')

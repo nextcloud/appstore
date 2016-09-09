@@ -14,9 +14,13 @@ class AppReleaseTest(ApiTest):
     app_args = {'app': {'id': 'news', 'release': {
         'version': '9.0.0',
         'platform_min_version': '9.0.0',
+        'raw_platform_min_version': '9.0.0',
         'platform_max_version': '*',
+        'raw_platform_max_version': '*',
         'php_min_version': '5.6.0',
+        'raw_php_min_version': '5.6.0',
         'php_max_version': '*',
+        'raw_php_max_version': '*',
     }}}
 
     def create_release(self, owner, version='9.0.0', co_maintainers=[]):
