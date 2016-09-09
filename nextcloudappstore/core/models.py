@@ -85,6 +85,7 @@ class App(TranslatableModel):
     last_release = DateTimeField(editable=False, db_index=True,
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
+    certificate = TextField(verbose_name=_('Certificate'))
 
     class Meta:
         verbose_name = _('App')
