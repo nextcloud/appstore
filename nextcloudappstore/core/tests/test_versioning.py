@@ -36,7 +36,6 @@ class VersioningTest(TestCase):
         self.assertEqual('*', raw_version(''))
         self.assertEqual('9', raw_version('9'))
 
-
     def test_to_raw_spec(self):
         self.assertEqual('*', to_raw_spec('*', '*'))
         self.assertEqual('>=9,<=11', to_raw_spec('9', '11'))
