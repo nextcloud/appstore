@@ -14,7 +14,7 @@ from rest_framework.generics import ListAPIView
 from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
-from nextcloudappstore.core.forms import AppRatingForm
+from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -211,3 +211,8 @@ class CategoryAppListView(ListView):
 
 class AppUploadView(TemplateView):
     template_name = 'app/upload.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = AppReleaseUploadForm()
+        return context

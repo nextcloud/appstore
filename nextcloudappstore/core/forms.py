@@ -1,4 +1,5 @@
-from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect
+from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
+    BooleanField
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating
@@ -8,6 +9,17 @@ RATING_CHOICES = (
     (0.5, _('Ok')),
     (1.0, _('Good'))
 )
+
+
+class AppReleaseUploadForm(Form):
+    download = CharField(label=_('Download link (tar.gz)'), max_length=256)
+    signature = CharField(widget=Textarea, label=_('SHA512 signature'),
+                          help_text=_(
+                              'Hint: can be calculated by executing the '
+                              'following command: openssl dgst -sha512 -sign '
+                              '/path/to/private-cert.key /path/to/app.tar.gz '
+                              '| openssl base64'))
+    nightly = BooleanField(label=_('Nightly'))
 
 
 class AppRatingForm(Form):

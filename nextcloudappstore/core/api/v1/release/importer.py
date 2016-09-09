@@ -172,7 +172,7 @@ class AppReleaseImporter(Importer):
             'raw_platform_version_spec': string_attribute_importer,
             'min_int_size': integer_attribute_importer,
             'shell_commands': shell_command_importer,
-            'checksum': string_attribute_importer,
+            'signature': string_attribute_importer,
             'download': string_attribute_importer,
         }, {
             'version',
@@ -235,6 +235,7 @@ class AppImporter(Importer):
             'discussion': attribute_importer,
             'developer_docs': attribute_importer,
             'issue_tracker': attribute_importer,
+            'certificate': attribute_importer,
             'name': l10n_importer,
             'summary': l10n_importer,
             'description': l10n_importer,

@@ -102,7 +102,7 @@ class AppReleaseView(DestroyAPIView):
             container = Container()
             provider = container.resolve(AppReleaseProvider)
             try:
-                info = provider.get_release_info(url)
+                info, checksum = provider.get_release_info(url)
             except HTTPError as e:
                 raise APIException(e)
 
@@ -112,9 +112,8 @@ class AppReleaseView(DestroyAPIView):
                 info['app']['release']['version'] += '-nightly'
             version = info['app']['release']['version']
 
-            if 'checksum' in serializer.validated_data:
-                info['app']['release']['checksum'] = \
-                    serializer.validated_data['checksum']
+            info['app']['release']['signature'] = serializer.validated_data[
+                'signature']
             info['app']['release']['download'] = url
             status = self._check_permission(request, app_id, version)
 

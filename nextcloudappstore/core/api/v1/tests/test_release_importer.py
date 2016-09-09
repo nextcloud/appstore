@@ -60,7 +60,7 @@ class ImporterTest(TestCase):
         self.assertEqual('>=9', release.raw_platform_version_spec)
         self.assertEqual('*', release.raw_php_version_spec)
         self.assertEqual(32, release.min_int_size)
-        self._assert_all_empty(release, ['checksum', 'download'])
+        self._assert_all_empty(release, ['signature', 'download'])
         self.assertEqual(0, release.php_extensions.count())
         self.assertEqual(0, release.databases.count())
         self.assertEqual(0, release.shell_commands.count())

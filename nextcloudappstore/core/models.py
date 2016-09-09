@@ -220,8 +220,8 @@ class AppRating(TranslatableModel):
 
     class Meta:
         unique_together = (('app', 'user'),)
-        verbose_name = _('App Rating')
-        verbose_name_plural = _('App Ratings')
+        verbose_name = _('App rating')
+        verbose_name_plural = _('App ratings')
         ordering = ('-rated_at',)
 
     def __str__(self) -> str:
@@ -272,8 +272,8 @@ class AppAuthor(Model):
         return '%s %s' % (self.name, mail)
 
     class Meta:
-        verbose_name = _('App Author')
-        verbose_name_plural = _('App Authors')
+        verbose_name = _('App author')
+        verbose_name_plural = _('App authors')
 
 
 class AppRelease(Model):
@@ -303,19 +303,20 @@ class AppRelease(Model):
     raw_platform_version_spec = CharField(max_length=256, verbose_name=_(
         'Platform version requirement (raw)'))
     min_int_size = IntegerField(blank=True, default=32,
-                                verbose_name=_('Minimum Integer Bits'),
+                                verbose_name=_('Minimum integer bits'),
                                 help_text=_('e.g. 32 for 32bit Integers'))
-    checksum = CharField(max_length=64, verbose_name=_('SHA256 checksum'))
     download = URLField(max_length=256, blank=True,
                         verbose_name=_('Archive download Url'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
+    signature = TextField(verbose_name=_('Signature'), help_text=_(
+        'A signature using SHA512 and the app\'s certificate'))
 
     class Meta:
-        verbose_name = _('App Release')
-        verbose_name_plural = _('App Releases')
+        verbose_name = _('App release')
+        verbose_name_plural = _('App releases')
         unique_together = (('app', 'version'),)
         ordering = ['-version']
 
@@ -368,13 +369,13 @@ class Screenshot(Model):
 
 class ShellCommand(Model):
     name = CharField(max_length=256, unique=True, primary_key=True,
-                     verbose_name=_('Shell Command'),
+                     verbose_name=_('Shell command'),
                      help_text=_(
                          'Name of a required shell command, e.g. grep'))
 
     class Meta:
-        verbose_name = _('Shell Command')
-        verbose_name_plural = _('Shell Commands')
+        verbose_name = _('Shell command')
+        verbose_name_plural = _('Shell commands')
         ordering = ['name']
 
     def __str__(self) -> str:
@@ -457,8 +458,8 @@ class DatabaseDependency(Model):
                                      'Database version requirement (raw)'))
 
     class Meta:
-        verbose_name = _('Database Dependency')
-        verbose_name_plural = _('Database Dependencies')
+        verbose_name = _('Database dependency')
+        verbose_name_plural = _('Database dependencies')
         unique_together = (('app_release', 'database', 'version_spec'),)
 
     def __str__(self) -> str:
@@ -471,8 +472,8 @@ class PhpExtension(Model):
                    primary_key=True, verbose_name=_('PHP extension'))
 
     class Meta:
-        verbose_name = _('PHP Extension')
-        verbose_name_plural = _('PHP Extensions')
+        verbose_name = _('PHP extension')
+        verbose_name_plural = _('PHP extensions')
         ordering = ['id']
 
     def __str__(self) -> str:
@@ -481,10 +482,10 @@ class PhpExtension(Model):
 
 class PhpExtensionDependency(Model):
     app_release = ForeignKey('AppRelease', on_delete=CASCADE,
-                             verbose_name=_('App Release'),
+                             verbose_name=_('App release'),
                              related_name='phpextensiondependencies')
     php_extension = ForeignKey('PhpExtension', on_delete=CASCADE,
-                               verbose_name=_('PHP Extension'),
+                               verbose_name=_('PHP extension'),
                                related_name='releasedependencies')
     version_spec = CharField(max_length=256,
                              verbose_name=_('Extension version requirement'))
@@ -493,8 +494,8 @@ class PhpExtensionDependency(Model):
                                      'Extension version requirement (raw)'))
 
     class Meta:
-        verbose_name = _('PHP Extension Dependency')
-        verbose_name_plural = _('PHP Extension Dependencies')
+        verbose_name = _('PHP extension dependency')
+        verbose_name_plural = _('PHP extension dependencies')
         unique_together = (('app_release', 'php_extension', 'version_spec'),)
 
     def __str__(self) -> str:

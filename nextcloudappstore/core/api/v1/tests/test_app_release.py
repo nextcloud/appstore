@@ -82,9 +82,10 @@ class AppReleaseTest(ApiTest):
         self.create_release(owner)
         self._login()
 
-        get_release_info.return_value = self.app_args
+        get_release_info.return_value = (self.app_args, 'checksum')
         response = self.api_client.post(self.create_url, data={
-            'download': 'https://download.com'
+            'download': 'https://download.com',
+            'signature': 'sign',
         }, format='json')
         self.assertEqual(403, response.status_code)
 
@@ -96,9 +97,10 @@ class AppReleaseTest(ApiTest):
         self.create_release(owner=owner, co_maintainers=[self.user])
         self._login()
 
-        get_release_info.return_value = self.app_args
+        get_release_info.return_value = (self.app_args, 'checksum')
         response = self.api_client.post(self.create_url, data={
-            'download': 'https://download.com'
+            'download': 'https://download.com',
+            'signature': 'sign',
         }, format='json')
         self.assertEqual(200, response.status_code)
         AppRelease.objects.get(version='9.0.0', app__id='news')
@@ -106,6 +108,7 @@ class AppReleaseTest(ApiTest):
     def test_create_validate_https(self):
         self._login_token()
         response = self.api_client.post(self.create_url, data={
-            'download': 'http://download.com'
+            'download': 'http://download.com',
+            'signature': 'sign',
         }, format='json')
         self.assertEqual(400, response.status_code)

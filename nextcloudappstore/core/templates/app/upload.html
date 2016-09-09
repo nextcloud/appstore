@@ -11,32 +11,14 @@
 
 {% block content %}
     <div class="app-upload">
-        <h1>{% trans 'Upload App' %}</h1>
+        <h1>{% trans 'Upload app release' %}</h1>
         <hr>
         {% if request.user.is_authenticated %}
             <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
             <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
                 {% csrf_token %}
-
                 <div><div id="detail-msg"></div></div>
-
-                <div class="form-group">
-                    <label title="{% trans 'required field' %}" class="control-label"for="download">{% trans 'Download link (tar.gz)' %}<span class="required-field">*</span></label>
-                    <input class="form-control" id="download" type="url" name="download" autofocus="autofocus" required>
-                    <span id="download-msg"></span>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="checksum">{% trans 'SHA256 checksum' %}</label>
-                    <input class="form-control" id="checksum" type="text" name="checksum">
-                    <span id="checksum-msg"></span>
-                </div>
-
-                <div class="form-group">
-                    <input id="nightly" type="checkbox" name="nightly">
-                    <label class="control-label" for="nightly">{% trans 'Nightly' %}</label>
-                    <span id="nightly-msg"></span>
-                </div>
+                {% include 'form-fields.html' %}
 
                 <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
             </form>

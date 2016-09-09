@@ -3,8 +3,8 @@ from nextcloudappstore.core.api.v1.release.downloader import \
     AppReleaseDownloader
 from nextcloudappstore.core.api.v1.release.parser import \
     GunZipAppMetadataExtractor, parse_app_metadata
-from hashlib import sha256
-from typing import Dict
+from hashlib import sha512
+from typing import Dict, Tuple
 
 from rest_framework.exceptions import APIException
 
@@ -21,7 +21,7 @@ class AppReleaseProvider:
         self.extractor = extractor
         self.downloader = downloader
 
-    def get_release_info(self, url: str) -> Dict:
+    def get_release_info(self, url: str) -> Tuple[Dict, str]:
         with self.downloader.get_archive(
             url, self.config.download_root, self.config.download_max_timeout,
             self.config.download_max_redirects, self.config.download_max_size
@@ -39,6 +39,5 @@ class AppReleaseProvider:
 
             # generate sha256sum for archive
             with open(download.filename, 'rb') as f:
-                checksum = sha256(f.read()).hexdigest()
-                info['app']['release']['checksum'] = checksum
-        return info
+                checksum = sha512(f.read()).hexdigest()
+        return info, checksum
