@@ -203,6 +203,17 @@ class App(TranslatableModel):
         except ValueError:
             return None
 
+    def save(self, *args, **kwargs):
+        # If the certificate has changed, delete all releases.
+        try:
+            if self.pk is not None:
+                orig = App.objects.get(pk=self.pk)
+                if self.certificate != orig.certificate:
+                    self.releases.all().delete()
+        except self.DoesNotExist:
+            pass
+        super().save(*args, **kwargs)
+
 
 class AppRating(TranslatableModel):
     app = ForeignKey('App', related_name='ratings', verbose_name=_('App'),
