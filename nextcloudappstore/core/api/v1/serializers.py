@@ -73,8 +73,8 @@ class AppReleaseSerializer(serializers.ModelSerializer):
         fields = (
             'version', 'php_extensions', 'databases', 'shell_commands',
             'php_version_spec', 'platform_version_spec', 'min_int_size',
-            'download', 'created', 'licenses', 'last_modified', 'checksum',
-            'nightly', 'raw_php_version_spec', 'raw_platform_version_spec',
+            'download', 'created', 'licenses', 'last_modified', 'nightly',
+            'raw_php_version_spec', 'raw_platform_version_spec', 'signature'
         )
 
     def get_platform_version_spec(self, obj):
