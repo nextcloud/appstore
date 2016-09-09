@@ -12,7 +12,7 @@
 {% block messages %}
     <div id="regen-success" class="alert alert-success" hidden>{% trans 'New API token generated.' %}</div>
     <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
-    <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch token.' %}</div>
+    <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch API token.' %}</div>
 {% endblock %}
 
 {% block account-content %}
@@ -30,7 +30,7 @@
         <p class="hide-on-token-failure"><code id="token"></code></p>
         <form action="{% url 'api:v1:user-token-new' %}" method="post" id="api-token-regen-form">
             {% csrf_token %}
-            <button class="btn btn-primary btn-block" type="submit">{% trans 'Regenerate token' %}</button>
+            <button class="btn btn-primary btn-block" type="submit">{% trans 'Regenerate API token' %}</button>
         </form>
     </section>
 {% endblock %}

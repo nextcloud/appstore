@@ -9,15 +9,6 @@
 
 {% block apps %}
 
-{% if search_query %}
-    <div class="col-lg-6">
-        {% if search_query and current_category %}
-            <h2 class="search-results-title">{% blocktrans with category=current_category query=search_query %}Search results for "{{ query }}" in {{ category }}{% endblocktrans %}</h2>
-        {% elif search_query %}
-            <h2 class="search-results-title">{% blocktrans with query=search_query %}Search results for "{{ query }}"{% endblocktrans %}</h2>
-        {% endif %}
-    </div>
-{% endif %}
 
 <div class="row">
     <ul class="nav-tabs nav sorting">

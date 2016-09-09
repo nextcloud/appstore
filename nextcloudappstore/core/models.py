@@ -303,7 +303,7 @@ class AppRelease(Model):
     raw_platform_version_spec = CharField(max_length=256, verbose_name=_(
         'Platform version requirement (raw)'))
     min_int_size = IntegerField(blank=True, default=32,
-                                verbose_name=_('Minimum integer bits'),
+                                verbose_name=_('Minimum Integer bits'),
                                 help_text=_('e.g. 32 for 32bit Integers'))
     download = URLField(max_length=256, blank=True,
                         verbose_name=_('Archive download Url'))
