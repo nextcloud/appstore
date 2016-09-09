@@ -377,7 +377,7 @@ The following request will create a new app release or update an existing releas
   * **download**: An Https (Http is not allowed!) link to the archive packaged (maximum size: 20 Megabytes) as tar.gz, info.xml must be smaller than 512Kb
   * **signature**: A SHA512 signature over the archive using the app's certificate, can be created using::
 
-        openssl dgst -sha512 -sign /path/to/my.key /path/to/app.tar.gz | openssl base64
+        openssl dgst -sha512 -sign /path/to/private-cert.key /path/to/app.tar.gz | openssl base64
 
   * **nightly (Optional)**: If true this release will be stored as a nightly. All previous nightly releases will be deleted.
 
