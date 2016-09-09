@@ -142,7 +142,7 @@ class CategoryAppListView(ListView):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
-            *sort_columns)
+            *sort_columns).filter(releases__gt=0)
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)
