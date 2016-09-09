@@ -1,11 +1,12 @@
 (function (global) {
     'use strict';
 
-    function uploadAppRelease(url, download, checksum, nightly, token) {
-        let data = {'download': download, 'nightly': nightly};
-        if (checksum) {
-            data['checksum'] = checksum;
-        }
+    function uploadAppRelease(url, download, signature, nightly, token) {
+        let data = {
+            'download': download,
+            'nightly': nightly,
+            'signature': signature
+        };
 
         let request = new Request(
             url,
@@ -121,7 +122,7 @@
     let form = document.getElementById('app-upload-form');
     let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
     let download = document.getElementById('download');
-    let checksum = document.getElementById('checksum');
+    let signature = document.getElementById('signature');
     let nightly = document.getElementById('nightly');
     let submitButton = document.getElementById('submit');
 
@@ -136,7 +137,7 @@
                 uploadAppRelease(
                     form.action,
                     download.value,
-                    checksum.value,
+                    signature.value,
                     nightly.checked,
                     response.token)
                 .then(onSuccess, onFailure);

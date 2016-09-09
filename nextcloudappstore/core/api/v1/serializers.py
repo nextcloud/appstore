@@ -136,6 +136,5 @@ class AppRatingSerializer(serializers.ModelSerializer):
 
 class AppReleaseDownloadSerializer(serializers.Serializer):
     download = serializers.URLField(validators=[HttpsUrlValidator()])
-    checksum = serializers.CharField(max_length=64, min_length=64,
-                                     required=False)
+    signature = serializers.CharField()
     nightly = serializers.BooleanField(required=False, default=False)

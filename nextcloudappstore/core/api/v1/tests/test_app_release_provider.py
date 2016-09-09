@@ -36,10 +36,11 @@ class ImporterTest(TestCase):
         extractor.extract_app_metadata = MagicMock(return_value=(xml, 'news'))
         provider = self.container.resolve(AppReleaseProvider)
 
-        info = provider.get_release_info('http://google.com')
+        info, checksum = provider.get_release_info('http://google.com')
         self.assertEqual(
-            'f44ff51ce0cd12e37367af5cb02ccab0e5fc29625b1b013665b833435'
-            '0bc8836', info['app']['release']['checksum'])
+            '306a81a5db301ed944886526a9303e8d5a670dcea7346cabb4e9c0815a4e218f'
+            '2b1aaf8bc72a4d0ba89872bb0f0c60f53b42090c2ddfd383f65b79bcd8954110',
+            checksum)
 
     def test_invalid_app_id(self):
         xml = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
