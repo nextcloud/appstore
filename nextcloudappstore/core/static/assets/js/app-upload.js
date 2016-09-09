@@ -121,9 +121,9 @@
     // Form elements
     let form = document.getElementById('app-upload-form');
     let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
-    let download = document.getElementById('download');
-    let signature = document.getElementById('signature');
-    let nightly = document.getElementById('nightly');
+    let download = document.getElementById('id_download');
+    let signature = document.getElementById('id_signature');
+    let nightly = document.getElementById('id_nightly');
     let submitButton = document.getElementById('submit');
 
     form.addEventListener('submit', (event) => {

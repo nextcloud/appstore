@@ -17,26 +17,8 @@
             <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
             <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
                 {% csrf_token %}
-
                 <div><div id="detail-msg"></div></div>
-
-                <div class="form-group">
-                    <label title="{% trans 'required field' %}" class="control-label"for="download">{% trans 'Download link (tar.gz)' %}<span class="required-field">*</span></label>
-                    <input class="form-control" id="download" type="url" name="download" autofocus="autofocus" required>
-                    <span id="download-msg"></span>
-                </div>
-
-                <div class="form-group">
-                    <label title="{% trans 'required field' %}" class="control-label" for="signature">{% trans 'SHA512 signature' %}<span class="required-field">*</span></label></label>
-                    <textarea class="form-control" id="signature" type="text" name="signature" required></textarea>
-                    <span id="signature-msg"></span>
-                </div>
-
-                <div class="form-group">
-                    <input id="nightly" type="checkbox" name="nightly">
-                    <label class="control-label" for="nightly">{% trans 'Nightly' %}</label>
-                    <span id="nightly-msg"></span>
-                </div>
+                {% include 'form-fields.html' %}
 
                 <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
             </form>
