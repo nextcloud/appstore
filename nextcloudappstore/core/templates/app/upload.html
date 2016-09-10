@@ -2,28 +2,25 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block head-title %}{% trans 'Upload App' %} - {% endblock %}
+{% block head-title %}{% trans 'Upload app release' %} - {% endblock %}
 
 {% block head %}
     <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
-    <script defer="defer" src="{% static 'assets/js/app-upload.js' %}"></script>
+    <script defer="defer" src="{% static 'assets/js/ui/app-upload.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-    <div class="app-upload">
+    <div class="app-form">
         <h1>{% trans 'Upload app release' %}</h1>
         <hr>
-        {% if request.user.is_authenticated %}
-            <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
-            <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
-                {% csrf_token %}
-                <div><div id="detail-msg"></div></div>
-                {% include 'form-fields.html' %}
+        <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
+        <p>{% blocktrans %}For more information on how to create the SHA512 signature check out <a href="http://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener norefferer">app developer guide</a>.{% endblocktrans %}</p>
+        <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
+            {% csrf_token %}
+            <div><div id="detail-msg"></div></div>
+            {% include 'form-fields.html' %}
 
-                <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
-            </form>
-        {% else %}
-            <p>{% trans 'You need to <a href="/login/" title="Log in">log in</a> in order to upload apps.' %}</p>
-        {% endif %}
+            <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
+        </form>
     </div>
 {% endblock %}

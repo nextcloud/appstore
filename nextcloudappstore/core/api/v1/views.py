@@ -85,6 +85,18 @@ class AppView(DestroyAPIView):
         return Response(serializer.data)
 
 
+class AppRegisterView(APIView):
+    authentication_classes = (authentication.TokenAuthentication,
+                              authentication.BasicAuthentication,)
+    permission_classes = (UpdateDeletePermission, IsAuthenticated)
+    throttle_classes = (PostThrottle,)
+    throttle_scope = 'app_register'
+
+    def post(self, request):
+        # TBD, also adjust permission classes
+        pass
+
+
 class AppReleaseView(DestroyAPIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)

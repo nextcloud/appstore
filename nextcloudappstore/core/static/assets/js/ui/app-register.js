@@ -1,11 +1,10 @@
 (function (global) {
     'use strict';
 
-    function uploadAppRelease(url, download, signature, nightly, token) {
+    function registerApp(url, certificate, signature, token) {
         let data = {
-            'download': download,
-            'nightly': nightly,
-            'signature': signature
+            'certificate': certificate.trim(),
+            'signature': signature.trim()
         };
 
         let request = new Request(
@@ -98,7 +97,7 @@
 
 
     function onSuccess() {
-        let form = document.getElementById('app-upload-form');
+        let form = document.getElementById('app-register-form');
         let submitButton = document.getElementById('submit');
         clearMessages();
         showSuccessMessage(true);
@@ -109,7 +108,7 @@
 
 
     function onFailure(response) {
-        let form = document.getElementById('app-upload-form');
+        let form = document.getElementById('app-register-form');
         let submitButton = document.getElementById('submit');
         clearMessages();
         printErrorMessages(response);
@@ -119,28 +118,39 @@
 
 
     // Form elements
-    let form = document.getElementById('app-upload-form');
+    let form = document.getElementById('app-register-form');
     let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
-    let download = document.getElementById('id_download');
+    let certificate = document.getElementById('id_certificate');
     let signature = document.getElementById('id_signature');
-    let nightly = document.getElementById('id_nightly');
     let submitButton = document.getElementById('submit');
+    let invalidCertificateMsg = document.getElementById('invalid-cert-msg').textContent;
+
+    certificate.addEventListener('change', (event) => {
+        var cert = certificate.value.trim();
+        if (!(cert.startsWith('-----BEGIN CERTIFICATE-----') &&
+              cert.endsWith('-----END CERTIFICATE-----'))) {
+            certificate.setCustomValidity(invalidCertificateMsg);
+        } else {
+            certificate.setCustomValidity('');
+        }
+    });
 
     form.addEventListener('submit', (event) => {
-        event.preventDefault();
+        if (form.checkValidity()) {
+            event.preventDefault();
+        }
         showSuccessMessage(false);
         disableInputs(form, true);
         buttonState(submitButton, 'loading');
         // Get the auth token of the currently authenticated user.
         global.fetchAPIToken(csrf.value).then(
             (response) => {
-                uploadAppRelease(
+                registerApp(
                     form.action,
-                    download.value,
+                    certificate.value,
                     signature.value,
-                    nightly.checked,
                     response.token)
-                .then(onSuccess, onFailure);
+                    .then(onSuccess, onFailure);
             },
             onFailure // User token request failed
         );

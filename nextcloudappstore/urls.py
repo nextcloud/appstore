@@ -5,7 +5,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
-    AppRatingApi
+    AppRatingApi, AppRegisterView
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
     url(r'^app/upload/?$', AppUploadView.as_view(), name='app-upload'),
+    url(r'^app/register/?$', AppRegisterView.as_view(), name='app-register'),
     url(r'^app/(?P<id>[\w_]+)/?$', AppDetailView.as_view(), name='app-detail'),
     url(r'^app/(?P<id>[\w_]+)/releases/?$', AppReleasesView.as_view(),
         name='app-releases'),
