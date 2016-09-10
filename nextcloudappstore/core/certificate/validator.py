@@ -39,7 +39,7 @@ class CertificateValidator:
         """
         cert = self._to_cert(certificate)
         try:
-            verify(cert, signature, data, self.config.digest)
+            verify(cert, signature.encode(), data.encode(), self.config.digest)
         except Exception as e:
             raise InvalidSignatureException(e)
 
