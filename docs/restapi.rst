@@ -383,7 +383,7 @@ Before you can upload release you first need to register its app id. To do that 
   * **certificate**: Your public certificate whose CN is equal to the app id, should be stored in **~/.nextcloud/certificates/APP_ID.cert** where **APP_ID** is your app's id
   * **signature**: A SHA512 signature over the app id using the app's certificate, can be created using::
 
-        openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key  -in < (echo "APP_ID") | openssl base64
+        openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key -in < (echo "APP_ID") | openssl base64
 
   .. code-block:: json
 
