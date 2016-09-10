@@ -36,7 +36,7 @@ class AppRegisterForm(Form):
         help_text=_(
             'Hint: can be calculated by executing the '
             'following command: openssl dgst -sha512 -sign '
-            '~/.nextcloud/certificates/APP_ID.key  -in < (echo "APP_ID") | '
+            '~/.nextcloud/certificates/APP_ID.key -in < (echo "APP_ID") | '
             'openssl base64'))
 
 
