@@ -41,7 +41,10 @@ class CertificateValidator:
         """
         cert = self._to_cert(certificate)
         try:
-            verify(cert, signature.encode(), data.encode(), self.config.digest)
+            result = verify(cert, signature.encode(), data.encode(),
+                            self.config.digest)
+            if result is not None:
+                raise InvalidSignatureException('Signature is invalid')
         except Exception as e:
             raise InvalidSignatureException(e)
 
@@ -66,7 +69,9 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         ctx = X509StoreContext(store, cert)
         try:
-            ctx.verify_certificate()
+            result = ctx.verify_certificate()
+            if result is not None:
+                raise InvalidCertificateException('Certificate is invalid')
         except Exception as e:
             raise InvalidCertificateException(e)
 
@@ -82,4 +87,3 @@ class CertificateValidator:
 
     def _to_cert(self, certificate: str) -> X509:
         return load_certificate(FILETYPE_PEM, certificate.encode())
-
