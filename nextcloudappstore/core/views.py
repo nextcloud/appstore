@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -14,7 +15,8 @@ from rest_framework.generics import ListAPIView
 from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
-from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm
+from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
+    AppRegisterForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -209,10 +211,19 @@ class CategoryAppListView(ListView):
         return self.request.GET.get('search', '').strip().split()
 
 
-class AppUploadView(TemplateView):
+class AppUploadView(LoginRequiredMixin, TemplateView):
     template_name = 'app/upload.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AppReleaseUploadForm()
+        return context
+
+
+class AppRegisterView(LoginRequiredMixin, TemplateView):
+    template_name = 'app/register.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = AppRegisterForm()
         return context

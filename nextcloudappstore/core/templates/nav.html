@@ -43,6 +43,9 @@
                 </li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-link">
+                        <a href="{% url 'app-register' %}">{% trans 'Register app' %}</a>
+                    </li>
+                    <li class="nav-link">
                         <a href="{% url 'app-upload' %}">{% trans 'Upload app release' %}</a>
                     </li>
                 {% endif %}

@@ -169,7 +169,10 @@ To get your instance running in production you need to create your production se
 
     REST_FRAMEWORK['DEFAULT_THROTTLE_RATES'] = {
         # how many times a user is allowed to call the app upload route per day
-        'app_upload': '50/day'
+        'app_upload': '50/day',
+
+        # how many times a user is allowed to call the app register route per day
+        'app_register': '50/day',
     }
 
     # Only set this parameter if you want to use a different tmp directory for app downloads

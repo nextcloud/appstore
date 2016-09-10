@@ -129,7 +129,8 @@ REST_FRAMEWORK = {
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',
     ),
     'DEFAULT_THROTTLE_RATES': {
-        'app_upload': '100/day'
+        'app_upload': '100/day',
+        'app_register': '100/day',
     }
 }
 

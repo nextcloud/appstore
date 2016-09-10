@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans 'Register app' %} - {% endblock %}
+
+{% block head %}
+    <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
+    <script defer="defer" src="{% static 'assets/js/ui/app-register.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <span id="invalid-cert-msg" hidden>{% trans 'Not a public certificate' %}</span>
+    <div class="app-form">
+        <h1>{% trans 'Register app' %}</h1>
+        <hr>
+        <p>{% blocktrans %}For more information on how to obtain the certificate and how to create the signature check out <a href="http://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener norefferer">app developer guide</a>.{% endblocktrans %}</p>
+        <p class="text-danger">{% trans 'This form can also be used to update existing certificates, however only the app owner is allowed to do so. Updating an app certificate will delete all of its already uploaded releases!' %}</p>
+        <div id="form-success" class="alert alert-success" hidden>{% trans 'App successfully registered.' %}</div>
+        <form id="app-register-form" method="post" action="{% url 'api:v1:app-register' %}">
+            {% csrf_token %}
+            <div><div id="detail-msg"></div></div>
+            {% include 'form-fields.html' %}
+
+            <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Registering...' %}">{% trans 'Register' %}</button>
+        </form>
+    </div>
+{% endblock %}
