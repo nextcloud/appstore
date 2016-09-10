@@ -18,6 +18,8 @@ Several routes require authentication. The following authentication methods are 
 
     Authorization: Token TOKEN
 
+.. note:: If you created your account using GitHub you will always need to use token authentication since we do not have access to your password. The token can be looked up in `your account settings <https://apps.nextcloud.com/account/token>`_
+
 Specification
 -------------
 
@@ -30,6 +32,8 @@ The following API routes are present:
 * :ref:`api-all-categories`
 
 * :ref:`api-all-releases`
+
+* :ref:`api-register-app`
 
 * :ref:`api-create-release`
 
@@ -360,6 +364,55 @@ featured
 categories
     The string value is the category's id attribute, see :ref:`api-all-categories`
 
+
+
+.. _api-register-app:
+
+Register a New App
+~~~~~~~~~~~~~~~~~~
+Before you can upload release you first need to register its app id. To do that use:
+
+* **Url**: POST /api/v1/apps
+
+* **Authentication** Basic, Token
+
+* **Content-Type**: application/json
+
+* **Request body**:
+
+  * **certificate**: Your public certificate whose CN is equal to the app id, should be stored in **~/.nextcloud/certificates/APP_ID.cert** where **APP_ID** is your app's id
+  * **signature**: A SHA512 signature over the app id using the app's certificate, can be created using::
+
+        echo -n "APP_ID" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl base64
+
+  .. code-block:: json
+
+      {
+          "certificate": "certificate": "-----BEGIN CERTIFICATE-----\r\nMIIEojCCA4qgAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwezELMAkGA1UEBhMCREUx\r\nGzAZBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzEXMBUGA1UECgwOTmV4dGNsb3Vk\r\nIEdtYkgxNjA0BgNVBAMMLU5leHRjbG91ZCBDb2RlIFNpZ25pbmcgSW50ZXJtZWRp\r\nYXRlIEF1dGhvcml0eTAeFw0xNjA2MTIyMTA1MDZaFw00MTA2MDYyMTA1MDZaMGYx\r\nCzAJBgNVBAYTAkRFMRswGQYDVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNV\r\nBAcMCVN0dXR0Z2FydDEXMBUGA1UECgwOTmV4dGNsb3VkIEdtYkgxDTALBgNVBAMM\r\nBGNvcmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUxcrn2DC892IX\r\n8+dJjZVh9YeHF65n2ha886oeAizOuHBdWBfzqt+GoUYTOjqZF93HZMcwy0P+xyCf\r\nQqak5Ke9dybN06RXUuGP45k9UYBp03qzlUzCDalrkj+Jd30LqcSC1sjRTsfuhc+u\r\nvH1IBuBnf7SMUJUcoEffbmmpAPlEcLHxlUGlGnz0q1e8UFzjbEFj3JucMO4ys35F\r\nqZS4dhvCngQhRW3DaMlQLXEUL9k3kFV+BzlkPzVZEtSmk4HJujFCnZj1vMcjQBg\/\r\nBqq1HCmUB6tulnGcxUzt\/Z\/oSIgnuGyENeke077W3EyryINL7EIyD4Xp7sxLizTM\r\nFCFCjjH1AgMBAAGjggFDMIIBPzAJBgNVHRMEAjAAMBEGCWCGSAGG+EIBAQQEAwIG\r\nQDAzBglghkgBhvhCAQ0EJhYkT3BlblNTTCBHZW5lcmF0ZWQgU2VydmVyIENlcnRp\r\nZmljYXRlMB0GA1UdDgQWBBQwc1H9AL8pRlW2e5SLCfPPqtqc0DCBpQYDVR0jBIGd\r\nMIGagBRt6m6qqTcsPIktFz79Ru7DnnjtdKF+pHwwejELMAkGA1UEBhMCREUxGzAZ\r\nBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBwwJU3R1dHRnYXJ0MRcw\r\nFQYDVQQKDA5OZXh0Y2xvdWQgR21iSDEhMB8GA1UEAwwYTmV4dGNsb3VkIFJvb3Qg\r\nQXV0aG9yaXR5ggIQADAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUH\r\nAwEwDQYJKoZIhvcNAQELBQADggEBADZ6+HV\/+0NEH3nahTBFxO6nKyR\/VWigACH0\r\nnaV0ecTcoQwDjKDNNFr+4S1WlHdwITlnNabC7v9rZ\/6QvbkrOTuO9fOR6azp1EwW\r\n2pixWqj0Sb9\/dSIVRpSq+jpBE6JAiX44dSR7zoBxRB8DgVO2Afy0s80xEpr5JAzb\r\nNYuPS7M5UHdAv2dr16fDcDIvn+vk92KpNh1NTeZFjBbRVQ9DXrgkRGW34TK8uSLI\r\nYG6jnfJ6eJgTaO431ywWPXNg1mUMaT\/+QBOgB299QVCKQU+lcZWptQt+RdsJUm46\r\nNY\/nARy4Oi4uOe88SuWITj9KhrFmEvrUlgM8FvoXA1ldrR7KiEg=\r\n-----END CERTIFICATE-----",
+          "signature": "65e613318107bceb131af5cf8b71e773b79e1a9476506f502c8e2017b52aba15"
+      }
+
+
+* **Example CURL request**::
+
+        curl -X POST -u "user:password" https://apps.nextcloud.com/api/v1/apps -H "Content-Type: application/json" -d '{"certificate": "certificate": "-----BEGIN CERTIFICATE-----\r\nMIIEojCCA4qgAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwezELMAkGA1UEBhMCREUx\r\nGzAZBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzEXMBUGA1UECgwOTmV4dGNsb3Vk\r\nIEdtYkgxNjA0BgNVBAMMLU5leHRjbG91ZCBDb2RlIFNpZ25pbmcgSW50ZXJtZWRp\r\nYXRlIEF1dGhvcml0eTAeFw0xNjA2MTIyMTA1MDZaFw00MTA2MDYyMTA1MDZaMGYx\r\nCzAJBgNVBAYTAkRFMRswGQYDVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNV\r\nBAcMCVN0dXR0Z2FydDEXMBUGA1UECgwOTmV4dGNsb3VkIEdtYkgxDTALBgNVBAMM\r\nBGNvcmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUxcrn2DC892IX\r\n8+dJjZVh9YeHF65n2ha886oeAizOuHBdWBfzqt+GoUYTOjqZF93HZMcwy0P+xyCf\r\nQqak5Ke9dybN06RXUuGP45k9UYBp03qzlUzCDalrkj+Jd30LqcSC1sjRTsfuhc+u\r\nvH1IBuBnf7SMUJUcoEffbmmpAPlEcLHxlUGlGnz0q1e8UFzjbEFj3JucMO4ys35F\r\nqZS4dhvCngQhRW3DaMlQLXEUL9k3kFV+BzlkPzVZEtSmk4HJujFCnZj1vMcjQBg\/\r\nBqq1HCmUB6tulnGcxUzt\/Z\/oSIgnuGyENeke077W3EyryINL7EIyD4Xp7sxLizTM\r\nFCFCjjH1AgMBAAGjggFDMIIBPzAJBgNVHRMEAjAAMBEGCWCGSAGG+EIBAQQEAwIG\r\nQDAzBglghkgBhvhCAQ0EJhYkT3BlblNTTCBHZW5lcmF0ZWQgU2VydmVyIENlcnRp\r\nZmljYXRlMB0GA1UdDgQWBBQwc1H9AL8pRlW2e5SLCfPPqtqc0DCBpQYDVR0jBIGd\r\nMIGagBRt6m6qqTcsPIktFz79Ru7DnnjtdKF+pHwwejELMAkGA1UEBhMCREUxGzAZ\r\nBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBwwJU3R1dHRnYXJ0MRcw\r\nFQYDVQQKDA5OZXh0Y2xvdWQgR21iSDEhMB8GA1UEAwwYTmV4dGNsb3VkIFJvb3Qg\r\nQXV0aG9yaXR5ggIQADAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUH\r\nAwEwDQYJKoZIhvcNAQELBQADggEBADZ6+HV\/+0NEH3nahTBFxO6nKyR\/VWigACH0\r\nnaV0ecTcoQwDjKDNNFr+4S1WlHdwITlnNabC7v9rZ\/6QvbkrOTuO9fOR6azp1EwW\r\n2pixWqj0Sb9\/dSIVRpSq+jpBE6JAiX44dSR7zoBxRB8DgVO2Afy0s80xEpr5JAzb\r\nNYuPS7M5UHdAv2dr16fDcDIvn+vk92KpNh1NTeZFjBbRVQ9DXrgkRGW34TK8uSLI\r\nYG6jnfJ6eJgTaO431ywWPXNg1mUMaT\/+QBOgB299QVCKQU+lcZWptQt+RdsJUm46\r\nNY\/nARy4Oi4uOe88SuWITj9KhrFmEvrUlgM8FvoXA1ldrR7KiEg=\r\n-----END CERTIFICATE-----","signature": "65e613318107bceb131af5cf8b71e773b79e1a9476506f502c8e2017b52aba15"}'
+
+* **Returns**:
+
+  * **HTTP 200**: If the app's certificate was updated successfully and all its releases have been deleted
+  * **HTTP 201**: If the app id was registered successfully
+  * **HTTP 400**: If the app id contains invalid characters, the signature could not be validated or if the posted app certificate has been revoked
+  * **HTTP 401**: If the user is not authenticated
+  * **HTTP 403**: If the user is not authorized to update the app signature (only owners are allowed to do so)
+
+You can also use this route to register a new certificate for an app if you are the app owner. However keep in mind that this will delete all previous app releases, since their signatures are now invalid and not installable anymore.
+
+Find out more how to generate and request the certificate signature by following the :doc:`developer`.
+
+.. note:: **DO NOT** post your private key which is stored in the **.key** file. The private certificate needs to be stored securely. If you are unsure whether a file is a private certificate or the public one: your private certificate's content starts with **-----BEGIN PRIVATE KEY-----**, whereas your public certificate's content starts with **-----BEGIN CERTIFICATE-----**
+
+.. note:: Keep in mind that we verify that the posted certificate and the signature are valid: the certificate needs to be signed by us and your app id signature must stem from the same certificate and match the expected result.
+
 .. _api-create-release:
 
 Publish a New App Release
@@ -377,11 +430,9 @@ The following request will create a new app release or update an existing releas
   * **download**: An Https (Http is not allowed!) link to the archive packaged (maximum size: 20 Megabytes) as tar.gz, info.xml must be smaller than 512Kb
   * **signature**: A SHA512 signature over the archive using the app's certificate, can be created using::
 
-        openssl dgst -sha512 -sign /path/to/private-cert.key /path/to/app.tar.gz | openssl base64
+        openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl base64
 
   * **nightly (Optional)**: If true this release will be stored as a nightly. All previous nightly releases will be deleted.
-
-      sha256sum release.tar.gz
 
   .. code-block:: json
 
@@ -394,17 +445,17 @@ The following request will create a new app release or update an existing releas
 
 * **Example CURL request**::
 
-        curl -X POST -u "user:password" https://apps.nextcloud.com/api/v1/apps/releases -H "Content-Type: application/json" -d '{"download":"https://example.com/release.tar.gz"}'
+        curl -X POST -u "user:password" https://apps.nextcloud.com/api/v1/apps/releases -H "Content-Type: application/json" -d '{"download":"https://example.com/release.tar.gz", "signature": "65e613318107bceb131af5cf8b71e773b79e1a9476506f502c8e2017b52aba15"}'
 
 * **Returns**:
 
   * **HTTP 200**: If the app release was update successfully
   * **HTTP 201**: If the app release was created successfully
-  * **HTTP 400**: If the app contains invalid data, is too large or could not be downloaded
+  * **HTTP 400**: If the app release contains invalid data, is too large, is not registered yet, the signature could not be validated, the current app certificate has been revoked or could not be downloaded from the provided link
   * **HTTP 401**: If the user is not authenticated
   * **HTTP 403**: If the user is not authorized to create or update the app release
 
-If there is no app with the given app id yet, a new app is created and the owner is set in to the logged in user. Then the **info.xml** file which lies in the compressed archive's folder **app-id/appinfo/info.xml** is being parsed and validated. The validated result is then saved in the database. Both owners and co-maintainers are allowed to upload new releases.
+If there is no app with the given app id yet it will fail: you need to :ref:`register your app id first <api-register-app>`. Then the **info.xml** file which lies in the compressed archive's folder **app-id/appinfo/info.xml** is being parsed and validated. Afterwards the provided signature will be validated using the app's certificate and the downloaded archive's SHA512 checksum. The validated result is then saved in the database. Both owners and co-maintainers are allowed to upload new releases.
 
 If the app release version is the latest version, everything is updated. If it's not the latest release, only release relevant details are updated. This **excludes** the following info.xml elements:
 
