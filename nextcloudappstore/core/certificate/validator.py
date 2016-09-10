@@ -1,4 +1,6 @@
-from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509
+import pem
+from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
+    X509Store, X509StoreContext
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
 
@@ -55,8 +57,18 @@ class CertificateValidator:
         :raises: InvalidCertificateException if the certificate is invalid
         :return: None
         """
+        # root and intermediary certificate need to be split
+        cas = pem.parse(chain.encode())
+        store = X509Store()
+        for ca in cas:
+            store.add_cert(self._to_cert(str(ca)))
+
         cert = self._to_cert(certificate)
-        nextcloud_chain = self._to_cert(chain)
+        ctx = X509StoreContext(store, cert)
+        try:
+            ctx.verify_certificate()
+        except Exception as e:
+            raise InvalidCertificateException(e)
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -70,3 +82,4 @@ class CertificateValidator:
 
     def _to_cert(self, certificate: str) -> X509:
         return load_certificate(FILETYPE_PEM, certificate.encode())
+
