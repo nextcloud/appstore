@@ -81,11 +81,11 @@ The interface will ask you for the following things:
 * **Certificate**: Paste in the contents of your public certificate, e.g. **~/.nextcloud/certificates/news.crt**
 * **Signature**: A signature over your app id to verify that you own the private certificate. Can be calculated by using the following command::
 
-    openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key -in < (echo "APP_ID") | openssl base64
+    echo "APP_ID" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl base64
 
   where **APP_ID** is your app's id, e.g::
 
-    openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key -in < (echo "news") | openssl base64
+    echo "APP_ID" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key | openssl base64
 
 We will then verify the certificate and signature and register you as the app's owner. You are now able to publish releases.
 
