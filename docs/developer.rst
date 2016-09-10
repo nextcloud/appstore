@@ -3,7 +3,7 @@ App Developer Guide
 
 Most of today's developers publish their source code on GitHub, BitBucket or on their own GitLab instance. These tools typically also provide a way to release new versions based on Git tags or by uploading custom archives.
 
-Advanced users and developers typically prefer to download the app directly from these services whereas administrators or novice users look for app releases on the app store. This means that you have to take care of publishing two releases on two different platforms.
+Advanced users and developers typically prefer to download the app directly from these services whereas administrators or novice users look for app releases on the App Store. This means that you have to take care of publishing two releases on two different platforms.
 
 We want to avoid duplication and make it harder to ship broken releases by mistake, therefore we went for the following solution:
 
@@ -15,25 +15,113 @@ We want to avoid duplication and make it harder to ship broken releases by mista
 
 This keeps your repository up to date and satisfies the needs of developers and advanced users.
 
-App Release Workflow
---------------------
+Publishing Apps on the App Store
+--------------------------------
+Hosting the archive on a different host means of course that we can not guarantee that the contents have not been tampered with. Neither can we guarantee that the actual app developer uploaded the app. Therefore we require you to sign your app using a certificate.
 
-To publish an app release on the app store you simply send us a download link for the release archive using either :doc:`ncdev <ncdev>`, the `app upload web form <https://apps.nextcloud.com/app/upload>`_, or any tool that can access the :doc:`restapi` (even with curl). We then do the following:
+Obtaining a Certificate
+~~~~~~~~~~~~~~~~~~~~~~~
+The certificates should be stored in **~/.nextcloud/certificates/** so first create the folder if it does not exist yet::
 
-* Your archive is downloaded from the given location. This ensures that your users don't hit dead links. If your archive is too big, we will abort the download.
+    mkdir -p ~/.nextcloud/certificates/
 
-* The archive is then extracted and the package structure is validated:
+Then change into the directory::
 
- * The archive most only contain one top level folder consisting of lower case ASCII characters and underscores
- * The archive must contain an **info.xml** file inside the **appinfo** directory which in turn is located in the top folder
+    cd ~/.nextcloud/certificates/
 
-* The app's metadata is then extracted from the **info.xml** file
+and generate your private certificate and CSR::
 
-* The info.xml is reformatted using XSLT to bring everything into the correct order (required for XSD 1.0) and unknown elements are dropped
+    openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "/CN=APP_ID"
 
-* The cleaned up info.xml is then validated using an XML Schema (see :ref:`info-schema`)
+Replace **APP_ID** with your app id, e.g. if your app had an id called **news** you would execute the following command::
 
-* The release is then either created or updated. The downloaded archive will be deleted
+    openssl req -nodes -newkey rsa:4096 -keyout news.key -out news.csr -subj "/CN=news"
+
+.. note:: Keep in mind that an app id must only contain lowercase ASCII characters and underscores!
+
+Then post the contents of your **APP_ID.csr** (e.g. **~/.nextcloud/certificates/news.csr**) on `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ and configure your GitHub account to show your mail address in your profile.
+
+Nextcloud might ask you for further information to verify that you’re the legitimate owner of the application. Make sure to keep the private key file (**APP_ID.key**, e.g. **~/.nextcloud/certificates/news.key**) secret and not disclose it to any third-parties.
+
+After we approved your certificate, we will post your signed public certificate as a response on your issue. Take the contents and store it in the same folder with the file name **APP_ID.crt** (e.g. **~/.nextcloud/certificates/news.crt**). Make sure to get rid of excess whitespace at the beginning and end of your file. Your public signed certificate's file contents should look similar to this::
+
+    -----BEGIN CERTIFICATE-----
+    MIID+TCCAeECAhAMMA0GCSqGSIb3DQEBCwUAMG0xCzAJBgNVBAYTAlVTMQ8wDQYD
+    VQQIDAZCb3N0b24xFjAUBgNVBAoMDW93bkNsb3VkIEluYy4xNTAzBgNVBAMMLG93
+    bkNsb3VkIENvZGUgU2lnbmluZyBJbnRlcm1lZGlhdGUgQXV0aG9yaXR5MB4XDTE2
+    MDcyNjEwMTIyOFoXDTI2MDcyNDEwMTIyOFowFzEVMBMGA1UEAwwMZm9sZGVycGxh
+    eWVyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8BnaiY7+oPMmYalU
+    Cpv/U+36PUTQd3r9t73l7opUyv7F2yshrgKk9jdINOWZaPYxFi5mSnolu6KP/nNq
+    Bsh7HTHFo9xmVg2lia4WxmO23GBp94GEj4irYSP3FcrrT+aLBmr3sM2zxfIWJ9K/
+    9wC8rFhyQjMaQLqC48VRjz8eI6rRSAUrcY+B6GAB0O2XZifSYVgzwh3lV1Xno2uT
+    69+V5HfXEEz8u5YRnoFBC8hfaRzGlnm0cUZrVEgEcCjt1pPf+HeGUnHafT8uUbET
+    7Ys6QCQoaiKy7D7eiUh2kOOcChFAxiGX+9ahiIESZUrlDs8m8rmoa8C3fqho4C9g
+    nwEoowIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQAZts21nfQGzkPsiDseIZjg1Dh7
+    KavuEjxJHqSbTlqi1W9CxievQF205IbfuRLsbsi1Kw1hFivse//nTkFiMvgdqKsM
+    zSzsUq24tjWFDpNVHgVoPCBG6t7yYP6PdWNZtPSt76w8l7fAo9Fm2tBlFvMfF4Pe
+    3nveZjV5ns71oFpxLJobl25xj4Q63DKRoN0vVv6bEe+rbd6REPI+Ep8w43A8/wqc
+    pB0q6j3Fs4FRlNUqshLaRN2HVbllb/+hlA1REOBGEvAuSHzXrThCS2PpEY8Ds7IG
+    0rSuEdzwCd3c+vk+pssgxmFHBDPDJUsKSgUCF5wzA4k42tK/sixSDJlPcVKZdRrY
+    +8XgaruPdIMoIVZHXdeNvBtra1kYRxZbeCpe1zSOiLL/xjSWVYEFhiO7ZBuHRDrq
+    gaJmQNZxzwEUrpLsN4QB4S3jVmCEZ9Rjp8hWuaShRBWwYjlfhKlRcdwCol/T7ODC
+    oioO3wBapwvsaCS4gmkmdBtvIKvbr62PM2nh6QpJwpyv9LPEXM5ZV0BT3AK8DIK6
+    ThH5+uRF0QgDXHWIR55Gmh2usJ6VluPWT+f81Q3lH/jxXJfagGOFEFHtyT0yo23M
+    iazev6j9O2En+uDYLSWgQ7uN+cFYSdfjj1FRjsQ84e8CwNJ1nhiQ/HexMN8zwqDo
+    6LboOQuGiCet+KggAg==
+    -----END CERTIFICATE-----
+
+.. note:: Be sure to follow the directory and naming structure for certificates. All our documentation examples and tools will assert this structure.
+
+Registering an App
+~~~~~~~~~~~~~~~~~~
+After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/app/register>`_.
+
+The interface will ask you for the following things:
+
+* **Certificate**: Paste in the contents of your public certificate, e.g. **~/.nextcloud/certificates/news.crt**
+* **Signature**: A signature over your app id to verify that you own the private certificate. Can be calculated by using the following command::
+
+    openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key -in < (echo "APP_ID") | openssl base64
+
+  where **APP_ID** is your app's id, e.g::
+
+    openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key -in < (echo "news") | openssl base64
+
+We will then verify the certificate and signature and register you as the app's owner. You are now able to publish releases.
+
+Uploading an App Release
+~~~~~~~~~~~~~~~~~~~~~~~~
+After you've registered your app you can upload your app's releases to the App Store. To do that either use the :ref:`REST API <api-create-release>` or use the App Store's `upload app release web interface <https://apps.nextcloud.com/app/upload>`_.
+
+The interface will ask you for the following things:
+
+* **Download**: A download link to your app release archive (tar.gz)
+* **Nightly**: Check if you are uploading a nightly release
+* **Signature**: A signature over your release archive. Can be calculated by using the following command::
+
+    openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl base64
+
+  where **APP_ID** is your app's id, e.g::
+
+    openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key /path/to/news.tar.gz | openssl base64
+
+We then download the archive and verify the signature. In addition we try to verify and use as much information as possible form the archive, e.g.:
+
+* The archive most only contain one top level folder consisting of lower case ASCII characters and underscores
+
+* The archive must contain an **info.xml** file inside the **appinfo** directory which in turn is located in the top folder
+
+* The info.xml is reformatted using XSLT to bring everything into the correct order (required for XSD 1.0) and unknown elements are dropped. Old elements are migrated to their new equivalents if possible. Afterwards we validate it using an XML Schema (see :ref:`info-schema`)
+
+If everything went well the release is then either created or updated. The downloaded archive will be deleted from our server.
+
+Revoking a Certificate
+~~~~~~~~~~~~~~~~~~~~~~
+If you've lost or leaked your private certificate you want to revoke your certificate.
+
+You can revoke your previous certificate by either posting your public certificate and revocation request `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ or by requesting a new certificate for an already requested app id.
+
+After you've obtained a new certificate, simply use it to register your app id again (only owners are allowed to do this). This will delete all previous releases from our server since their signature has become invalid.
 
 .. _app-metadata:
 
@@ -175,7 +263,7 @@ author
     * can occur multiple times with different authors
     * can contain a **mail** attribute which must be an email
     * can contain a **homepage** which must be an URL
-    * will not (yet) be rendered on the app store
+    * will not (yet) be rendered on the App Store
     * will be provided through the REST API
 documentation/user
     * optional
@@ -337,12 +425,3 @@ Various IDEs automatically validate and auto complete XML elements and attribute
 
     </info>
 
-Verification
-------------
-Since we don't host the package ourselves this implies that the download location must be trusted. The following mechanisms are in place to guarantee that the downloaded version has not been tampered with:
-
-* You can submit a sha256sum hash in addition to the download link. The hash is validated on the user's server when he installs it. If you omit the hash, we generate it from the downloaded archive
-
-* You can sign your code `using a certificate <https://docs.nextcloud.org/server/9/developer_manual/app/code_signing.html>`_
-
-* You must supply an HTTPS download url for the archive (tar.gz only)

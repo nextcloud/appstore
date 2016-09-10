@@ -13,13 +13,31 @@ RATING_CHOICES = (
 
 class AppReleaseUploadForm(Form):
     download = CharField(label=_('Download link (tar.gz)'), max_length=256)
-    signature = CharField(widget=Textarea, label=_('SHA512 signature'),
-                          help_text=_(
-                              'Hint: can be calculated by executing the '
-                              'following command: openssl dgst -sha512 -sign '
-                              '/path/to/private-cert.key /path/to/app.tar.gz '
-                              '| openssl base64'))
+    signature = CharField(
+        widget=Textarea,
+        label=_('SHA512 signature'),
+        help_text=_(
+            'Hint: can be calculated by executing the '
+            'following command: openssl dgst -sha512 -sign '
+            '~/.nextcloud/certificates/APP_ID.key '
+            '/path/to/app.tar.gz | openssl base64'))
     nightly = BooleanField(label=_('Nightly'))
+
+
+class AppRegisterForm(Form):
+    certificate = CharField(
+        widget=Textarea(attrs={'pattern': '-----BEGIN CERTIFICATE-----.*'}),
+        label=_('Public certificate'),
+        help_text=_(
+            'Usually stored in ~/.nextcloud/certificates/APP_ID.crt'))
+    signature = CharField(
+        widget=Textarea,
+        label=_('SHA512 signature'),
+        help_text=_(
+            'Hint: can be calculated by executing the '
+            'following command: openssl dgst -sha512 -sign '
+            '~/.nextcloud/certificates/APP_ID.key  -in < (echo "APP_ID") | '
+            'openssl base64'))
 
 
 class AppRatingForm(Form):

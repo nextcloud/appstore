@@ -6,13 +6,16 @@ pyresttest=venv/bin/pyresttest
 mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 
+.PHONY: lint
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 
+.PHONY: test
 test: lint
 	$(manage) test --settings nextcloudappstore.settings.development
 
+.PHONY: resetup
 resetup:
 	rm -f db.sqlite3
 	$(manage) migrate --settings nextcloudappstore.settings.development
@@ -20,11 +23,13 @@ resetup:
 	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 
+.PHONY: initmigrations
 initmigrations:
 	rm -f $(CURDIR)/nextcloudappstore/**/migrations/0*.py
 	$(manage) makemigrations --settings nextcloudappstore.settings.development
 
 # Only for local setup, do not use in production
+.PHONY: dev-setup
 dev-setup:
 	pyvenv venv
 	$(pip) install -r $(CURDIR)/requirements/development.txt
@@ -43,3 +48,8 @@ dev-setup:
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
+
+.PHONY: docs
+docs:
+	@echo "hi"
+	$(MAKE) -C $(CURDIR)/docs/ html
