@@ -193,6 +193,9 @@ To get your instance running in production you need to create your production se
     # number of days to include from today in the recent ratings calculation
     RATING_RECENT_DAY_RANGE = 90
 
+    # Defaults to true, can be used to for development to only warn when the
+    # certificate check failed
+    # VALIDATE_CERTIFICATES = True
 
 Then set the file as the active settings file::
 
