@@ -196,6 +196,8 @@ To get your instance running in production you need to create your production se
     # Defaults to true, can be used to for development to only warn when the
     # certificate check failed
     # VALIDATE_CERTIFICATES = True
+    # Defaults to sha512
+    # CERTIFICATE_DIGEST = 'sha512'
 
 Then set the file as the active settings file::
 

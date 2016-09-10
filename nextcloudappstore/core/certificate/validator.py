@@ -1,4 +1,4 @@
-from OpenSSL.crypto import FILETYPE_PEM, load_certificate
+from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
 
@@ -6,6 +6,7 @@ from rest_framework.exceptions import APIException
 class CertificateConfiguration:
     def __init__(self) -> None:
         self.validate_certs = settings.VALIDATE_CERTIFICATES
+        self.digest = settings.CERTIFICATE_DIGEST
 
 
 class InvalidSignatureException(APIException):
@@ -36,7 +37,11 @@ class CertificateValidator:
         :raises: InvalidSignatureException if the signature is invalid
         :return: None
         """
-        pass
+        cert = self._to_cert(certificate)
+        try:
+            verify(cert, signature, data, self.config.digest)
+        except Exception as e:
+            raise InvalidSignatureException(e)
 
     def validate_certificate(self, certificate: str, chain: str,
                              crl: str) -> None:
@@ -50,7 +55,8 @@ class CertificateValidator:
         :raises: InvalidCertificateException if the certificate is invalid
         :return: None
         """
-        pass
+        cert = self._to_cert(certificate)
+        nextcloud_chain = self._to_cert(chain)
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -59,5 +65,8 @@ class CertificateValidator:
         :param certificate: certificate
         :return: the certificate's subject without the leading slash
         """
-        cert = load_certificate(FILETYPE_PEM, certificate.encode())
+        cert = self._to_cert(certificate)
         return cert.get_subject().CN[1:]
+
+    def _to_cert(self, certificate: str) -> X509:
+        return load_certificate(FILETYPE_PEM, certificate.encode())
