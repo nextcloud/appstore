@@ -43,8 +43,9 @@ class CertificateValidator:
 
     def get_subject(self, certificate: str) -> str:
         """
-        Extracts the subject from a certificate, e.g. /news
+        Extracts the subject from a certificate and removes the leading
+        slash, e.g. /news should return news
         :param certificate: certificate
-        :return: the certificate's CN
+        :return: the certificate's subject without the leading slash
         """
         pass
