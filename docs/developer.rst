@@ -85,7 +85,7 @@ The interface will ask you for the following things:
 
   where **APP_ID** is your app's id, e.g::
 
-    echo -n "APP_ID" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key | openssl base64
+    echo -n "news" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key | openssl base64
 
 We will then verify the certificate and signature and register you as the app's owner. You are now able to publish releases.
 
