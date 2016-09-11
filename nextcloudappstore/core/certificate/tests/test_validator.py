@@ -3,7 +3,7 @@ from pymple import Container
 
 from nextcloudappstore.core.certificate.validator import \
     CertificateValidator, \
-    InvalidCertificateException
+    InvalidCertificateException, CertificateConfiguration
 from nextcloudappstore.core.facades import read_relative_file
 
 
@@ -19,12 +19,12 @@ class ValidatorTest(TestCase):
     def test_validate_cert_signed(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
         chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
-        self.validator.validate_certificate(cert, chain, None)
+        self.validator.validate_certificate(cert, chain)
 
     def test_validate_old_cert_signed(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
         chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
-        self.validator.validate_certificate(cert, chain, None)
+        self.validator.validate_certificate(cert, chain)
 
     def test_validate_cert_crl(self) -> None:
         # TBD
@@ -35,4 +35,13 @@ class ValidatorTest(TestCase):
         chain = read_relative_file(__file__,
                                    'data/certificates/nextcloud.crt')
         with(self.assertRaises(InvalidCertificateException)):
-            self.validator.validate_certificate(cert, chain, None)
+            self.validator.validate_certificate(cert, chain)
+
+    def test_validate_cert_not_signed_turned_off(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/app.crt')
+        chain = read_relative_file(__file__,
+                                   'data/certificates/nextcloud.crt')
+        config = CertificateConfiguration()
+        config.validate_certs = False
+        validator = CertificateValidator(config)
+        validator.validate_certificate(cert, chain)

@@ -244,7 +244,14 @@ CERTIFICATE_DIGEST = 'sha512'
 # supported Nextcloud versions
 PLATFORM_VERSIONS = ['9', '10', '11']
 
+# app archive downloader configuration
 MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
 MAX_DOWNLOAD_TIMEOUT = 60  # seconds
 MAX_DOWNLOAD_REDIRECTS = 10
 MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+
+# certificate location configuration
+NEXTCLOUD_CERTIFICATE_LOCATION = join(
+    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
+NEXTCLOUD_CRL_LOCATION = join(
+    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')

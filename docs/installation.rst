@@ -200,6 +200,11 @@ To get your instance running in production you need to create your production se
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
     # MAX_DOWNLOAD_REDIRECTS = 10
     # MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+    # certificate location configuration
+    # NEXTCLOUD_CERTIFICATE_LOCATION = join(
+    #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
+    # NEXTCLOUD_CRL_LOCATION = join(
+    #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')
 
 Then set the file as the active settings file::
 

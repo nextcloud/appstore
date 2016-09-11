@@ -1,8 +1,11 @@
 import pem
+import logging
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
     X509Store, X509StoreContext
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
+
+logger = logging.getLogger(__name__)
 
 
 class CertificateConfiguration:
@@ -49,7 +52,7 @@ class CertificateValidator:
             raise InvalidSignatureException(e)
 
     def validate_certificate(self, certificate: str, chain: str,
-                             crl: str) -> None:
+                             crl: str = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired. Logs an error if
@@ -69,11 +72,17 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         ctx = X509StoreContext(store, cert)
         try:
-            result = ctx.verify_certificate()
-            if result is not None:
-                raise InvalidCertificateException('Certificate is invalid')
+            try:
+                result = ctx.verify_certificate()
+                if result is not None:
+                    raise InvalidCertificateException('Certificate is invalid')
+            except Exception as e:
+                raise InvalidCertificateException(e)
         except Exception as e:
-            raise InvalidCertificateException(e)
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(e)
 
     def get_cn(self, certificate: str) -> str:
         """
