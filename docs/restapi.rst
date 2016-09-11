@@ -285,7 +285,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     "phpVersionSpec": ">=5.6.0",
                     "platformVersionSpec": ">=9.0.0 <9.2.0",
                     "rawPhpVersionSpec": ">=5.6",
-                    "rawPlatformVersionSpec": ">=10 <=10"
+                    "rawPlatformVersionSpec": ">=10 <=10",
                     "minIntSize": 64,
                     "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
                     "created": "2016-06-25T16:08:56.796646Z",
