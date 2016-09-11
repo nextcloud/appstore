@@ -1,8 +1,9 @@
-import pem
 import logging
 from base64 import b64decode
+
+import pem
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
-    X509Store, X509StoreContext
+    X509Store, X509StoreContext, load_crl
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
 
@@ -37,21 +38,22 @@ class CertificateValidator:
         """
         Tests if a value is a valid certificate using SHA512
         Logs an error if self.config.validate_certs is False
-        :param certificate: the certificate to use
-        :param signature: the signature string to test
-        :param data: the SHA512 value (e.g. archive SHA512 checksum)
+        :param certificate: the certificate to use as string
+        :param signature: the signature base64 encoded string to test
+        :param data: the binary file content that was signed
         :raises: InvalidSignatureException if the signature is invalid
         :return: None
         """
         cert = self._to_cert(certificate)
+        err_msg = 'Signature is invalid'
         try:
             try:
                 result = verify(cert, b64decode(signature.encode()), data,
                                 self.config.digest)
                 if result is not None:
-                    raise InvalidSignatureException('Signature is invalid')
+                    raise InvalidSignatureException(err_msg)
             except Exception as e:
-                raise InvalidSignatureException(e)
+                raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
         except Exception as e:
             if self.config.validate_certs:
                 raise e
@@ -64,9 +66,9 @@ class CertificateValidator:
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired. Logs an error if
         self.config.validate_certs is False
-        :param certificate: the certificate to test
-        :param chain: the certificate chain file content
-        :param crl: the certificate revocation list file content
+        :param certificate: the certificate to test as string
+        :param chain: the certificate chain file content as string
+        :param crl: the certificate revocation list file content as string
         :raises: InvalidCertificateException if the certificate is invalid
         :return: None
         """
@@ -76,15 +78,20 @@ class CertificateValidator:
         for ca in cas:
             store.add_cert(self._to_cert(str(ca)))
 
+        if crl is not None:
+            crl = load_crl(FILETYPE_PEM, crl)
+            store.add_crl(crl)
+
         cert = self._to_cert(certificate)
         ctx = X509StoreContext(store, cert)
+        err_msg = 'Certificate is invalid'
         try:
             try:
                 result = ctx.verify_certificate()
                 if result is not None:
-                    raise InvalidCertificateException('Certificate is invalid')
+                    raise InvalidCertificateException(err_msg)
             except Exception as e:
-                raise InvalidCertificateException(e)
+                raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
         except Exception as e:
             if self.config.validate_certs:
                 raise e

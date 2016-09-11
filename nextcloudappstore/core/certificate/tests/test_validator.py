@@ -1,5 +1,3 @@
-import hashlib
-from base64 import b64encode
 from django.test import TestCase
 from pymple import Container
 
