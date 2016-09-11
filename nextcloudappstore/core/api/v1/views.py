@@ -122,7 +122,8 @@ class AppRegisterView(APIView):
         crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
         if settings.VALIDATE_CERTIFICATES:
             validator.validate_certificate(app.certificate, chain, crl)
-            validator.validate_signature(app.certificate, signature, app_id)
+            validator.validate_signature(app.certificate, signature,
+                                         app_id.encode())
 
         app.owner = request.user
         app.certificate = certificate.strip()
