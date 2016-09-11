@@ -58,7 +58,7 @@ class AppRegisterTest(ApiTest):
                 'signature': 'sign',
                 'certificate': self._cert
             }, format='json')
-            self.assertEqual(200, response.status_code)
+            self.assertEqual(204, response.status_code)
             app = App.objects.get(id='news')
             self.assertEqual(self.user, app.owner)
             self.assertEqual(self._cert, app.certificate)

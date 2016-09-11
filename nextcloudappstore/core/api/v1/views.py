@@ -131,7 +131,7 @@ class AppRegisterView(APIView):
         if created:
             return Response(status=201)
         else:
-            return Response(status=200)
+            return Response(status=204)
 
 
 class AppReleaseView(DestroyAPIView):
