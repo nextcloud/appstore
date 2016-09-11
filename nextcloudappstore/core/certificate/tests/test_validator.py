@@ -62,6 +62,12 @@ class ValidatorTest(TestCase):
         checksum = self._read_bin_file('data/archives/minimal.tar.gz')
         self.validator.validate_signature(cert, sign, checksum)
 
+    def test_app_id_signature(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
+        sign = read_relative_file(__file__,
+                                  'data/certificates/news-old-app-id.sig')
+        self.validator.validate_signature(cert, sign, 'news'.encode())
+
     def test_bad_signature(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
         sign = read_relative_file(__file__,
