@@ -100,8 +100,8 @@ class AppRegisterView(APIView):
     def post(self, request):
         serializer = AppRegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        signature = serializer.validated_data['signature']
-        certificate = serializer.validated_data['certificate']
+        signature = serializer.validated_data['signature'].strip()
+        certificate = serializer.validated_data['certificate'].strip()
 
         container = Container()
         validator = container.resolve(CertificateValidator)
@@ -121,12 +121,12 @@ class AppRegisterView(APIView):
         chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
         crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
         if settings.VALIDATE_CERTIFICATES:
-            validator.validate_certificate(app.certificate, chain, crl)
-            validator.validate_signature(app.certificate, signature,
+            validator.validate_certificate(certificate, chain, crl)
+            validator.validate_signature(certificate, signature,
                                          app_id.encode())
 
         app.owner = request.user
-        app.certificate = certificate.strip()
+        app.certificate = certificate
         app.save()
 
         if created:
