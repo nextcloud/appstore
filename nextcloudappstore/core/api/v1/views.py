@@ -12,12 +12,14 @@ from rest_framework.generics import DestroyAPIView, \
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
-from rest_framework.exceptions import APIException, ValidationError
+from rest_framework.exceptions import APIException, ValidationError, \
+    PermissionDenied
 
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
-    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer
+    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer, \
+    AppRegisterSerializer
 from nextcloudappstore.core.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
@@ -91,13 +93,45 @@ class AppView(DestroyAPIView):
 class AppRegisterView(APIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)
-    permission_classes = (UpdateDeletePermission, IsAuthenticated)
+    permission_classes = (IsAuthenticated,)
     throttle_classes = (PostThrottle,)
     throttle_scope = 'app_register'
 
     def post(self, request):
-        # TBD, also adjust permission classes
-        pass
+        serializer = AppRegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        signature = serializer.validated_data['signature']
+        certificate = serializer.validated_data['certificate']
+
+        container = Container()
+        validator = container.resolve(CertificateValidator)
+
+        app_id = validator.get_cn(certificate)
+        created = True
+        try:
+            app = App.objects.get(id=app_id)
+            created = False
+        except App.DoesNotExist:
+            app = App.objects.create(id=app_id, owner=request.user)
+
+        if app.owner != request.user:
+            raise PermissionDenied('Only the app owner is allowed to update'
+                                   'the certificate')
+
+        chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
+        crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
+        if settings.VALIDATE_CERTIFICATES:
+            validator.validate_certificate(app.certificate, chain, crl)
+            validator.validate_signature(app.certificate, signature, app_id)
+
+        app.owner = request.user
+        app.certificate = certificate.strip()
+        app.save()
+
+        if created:
+            return Response(status=201)
+        else:
+            return Response(status=204)
 
 
 class AppReleaseView(DestroyAPIView):
@@ -138,9 +172,10 @@ class AppReleaseView(DestroyAPIView):
             validator = container.resolve(CertificateValidator)
             chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
             crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
-            validator.validate_certificate(app.certificate, chain, crl)
-            validator.validate_signature(app.certificate, signature, data)
-            validator.validate_app_id(app.certificate, app_id)
+            if settings.VALIDATE_CERTIFICATES:
+                validator.validate_certificate(app.certificate, chain, crl)
+                validator.validate_signature(app.certificate, signature, data)
+                validator.validate_app_id(app.certificate, app_id)
 
             importer = container.resolve(AppImporter)
             importer.import_data('app', info['app'], None)

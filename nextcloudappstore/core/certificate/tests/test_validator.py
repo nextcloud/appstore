@@ -23,13 +23,6 @@ class ValidatorTest(TestCase):
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
         self.validator.validate_app_id(cert, 'folderplayer')
 
-    def test_validate_app_id_turned_off(self) -> None:
-        cert = read_relative_file(__file__, 'data/certificates/app.crt')
-        config = CertificateConfiguration()
-        config.validate_certs = False
-        validator = CertificateValidator(config)
-        validator.validate_app_id(cert, 'folderplayers')
-
     def test_validate_app_id_invalid(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
         with self.assertRaises(CertificateAppIdMismatchException):
@@ -62,15 +55,6 @@ class ValidatorTest(TestCase):
         with(self.assertRaises(InvalidCertificateException)):
             self.validator.validate_certificate(cert, chain)
 
-    def test_validate_cert_not_signed_turned_off(self) -> None:
-        cert = read_relative_file(__file__, 'data/certificates/app.crt')
-        chain = read_relative_file(__file__,
-                                   'data/certificates/nextcloud.crt')
-        config = CertificateConfiguration()
-        config.validate_certs = False
-        validator = CertificateValidator(config)
-        validator.validate_certificate(cert, chain)
-
     def test_signature(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
         sign = read_relative_file(__file__,
@@ -85,16 +69,6 @@ class ValidatorTest(TestCase):
         checksum = self._read_bin_file('data/archives/minimal.tar.gz')
         with (self.assertRaises(InvalidSignatureException)):
             self.validator.validate_signature(cert, sign, checksum)
-
-    def test_bad_signature_turned_off(self) -> None:
-        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
-        sign = read_relative_file(__file__,
-                                  'data/certificates/bad-news-old-minimal.sig')
-        checksum = self._read_bin_file('data/archives/minimal.tar.gz')
-        config = CertificateConfiguration()
-        config.validate_certs = False
-        validator = CertificateValidator(config)
-        validator.validate_signature(cert, sign, checksum)
 
     def _read_bin_file(self, rel_path: str) -> bytes:
         target_path = resolve_file_relative_path(__file__, rel_path)

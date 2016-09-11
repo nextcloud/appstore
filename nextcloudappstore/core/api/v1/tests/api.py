@@ -12,9 +12,6 @@ class ApiTest(TestCase):
         self.user = get_user_model().objects.create_user(username='test',
                                                          password='test',
                                                          email='test@test.com')
-#        self.token = Token.objects.create(user=self.user)
-#        self.token.save()  # key is generated when token is saved
-
         self.api_client = APIClient()
 
     def _login(self, user='test', password='test'):

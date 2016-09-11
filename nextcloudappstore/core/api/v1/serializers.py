@@ -138,3 +138,8 @@ class AppReleaseDownloadSerializer(serializers.Serializer):
     download = serializers.URLField(validators=[HttpsUrlValidator()])
     signature = serializers.CharField()
     nightly = serializers.BooleanField(required=False, default=False)
+
+
+class AppRegisterSerializer(serializers.Serializer):
+    certificate = serializers.CharField()
+    signature = serializers.CharField()
