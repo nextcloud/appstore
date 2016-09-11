@@ -48,9 +48,9 @@ class CertificateValidator:
         :raises: InvalidSignatureException if the signature is invalid
         :return: None
         """
-        cert = self._to_cert(certificate)
-        err_msg = 'Signature is invalid'
         try:
+            cert = self._to_cert(certificate)
+            err_msg = 'Signature is invalid'
             try:
                 result = verify(cert, b64decode(signature.encode()), data,
                                 self.config.digest)
@@ -76,20 +76,21 @@ class CertificateValidator:
         :raises: InvalidCertificateException if the certificate is invalid
         :return: None
         """
-        # root and intermediary certificate need to be split
-        cas = pem.parse(chain.encode())
-        store = X509Store()
-        for ca in cas:
-            store.add_cert(self._to_cert(str(ca)))
-
-        if crl is not None:
-            crl = load_crl(FILETYPE_PEM, crl)
-            store.add_crl(crl)
-
-        cert = self._to_cert(certificate)
-        ctx = X509StoreContext(store, cert)
-        err_msg = 'Certificate is invalid'
         try:
+            # root and intermediary certificate need to be split
+            cas = pem.parse(chain.encode())
+            store = X509Store()
+            for ca in cas:
+                store.add_cert(self._to_cert(str(ca)))
+
+            cert = self._to_cert(certificate)
+            ctx = X509StoreContext(store, cert)
+            err_msg = 'Certificate is invalid'
+
+            if crl is not None:
+                crl = load_crl(FILETYPE_PEM, crl)
+                store.add_crl(crl)
+
             try:
                 result = ctx.verify_certificate()
                 if result is not None:
@@ -121,10 +122,16 @@ class CertificateValidator:
         not match
         :return: None
         """
-        cn = self.get_cn(certificate)
-        if cn != app_id and self.config.validate_certs:
-            msg = 'App id %s does not match cert CN %s' % (app_id, cn)
-            raise CertificateAppIdMismatchException(msg)
+        try:
+            cn = self.get_cn(certificate)
+            if cn != app_id and self.config.validate_certs:
+                msg = 'App id %s does not match cert CN %s' % (app_id, cn)
+                raise CertificateAppIdMismatchException(msg)
+        except Exception as e:
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(str(e))
 
     def _to_cert(self, certificate: str) -> X509:
         return load_certificate(FILETYPE_PEM, certificate.encode())

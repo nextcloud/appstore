@@ -12,13 +12,14 @@ from rest_framework.generics import DestroyAPIView, \
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
-from rest_framework.exceptions import APIException
+from rest_framework.exceptions import APIException, ValidationError
 
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer
 from nextcloudappstore.core.certificate.validator import CertificateValidator
+from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
@@ -135,10 +136,8 @@ class AppReleaseView(DestroyAPIView):
 
             # verify certs and signature
             validator = container.resolve(CertificateValidator)
-            with open(settings.NEXTCLOUD_CERTIFICATE_LOCATION, 'r') as f:
-                chain = f.read()
-            with open(settings.NEXTCLOUD_CRL_LOCATION, 'r') as f:
-                crl = f.read()
+            chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
+            crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
             validator.validate_certificate(app.certificate, chain, crl)
             validator.validate_signature(app.certificate, signature, data)
             validator.validate_app_id(app.certificate, app_id)
@@ -151,8 +150,8 @@ class AppReleaseView(DestroyAPIView):
         try:
             app = App.objects.get(pk=app_id)
         except App.DoesNotExist:
-            raise APIException('App %s does not exist, you need to register'
-                               'it first' % app_id)
+            raise ValidationError('App %s does not exist, you need to register'
+                                  'it first' % app_id)
 
         # if an app release does not exist, it must be checked if the
         # user is allowed to create it first
