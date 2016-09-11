@@ -87,7 +87,7 @@ class CertificateValidator:
             ctx = X509StoreContext(store, cert)
             err_msg = 'Certificate is invalid'
 
-            if crl is not None:
+            if crl:
                 crl = load_crl(FILETYPE_PEM, crl)
                 store.add_crl(crl)
 
