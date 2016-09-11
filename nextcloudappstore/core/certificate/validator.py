@@ -24,6 +24,10 @@ class InvalidCertificateException(APIException):
     pass
 
 
+class CertificateAppIdMismatchException(APIException):
+    pass
+
+
 class CertificateValidator:
     """
     See https://pyopenssl.readthedocs.io/en/stable/api/crypto.html#signing
@@ -106,7 +110,21 @@ class CertificateValidator:
         :return: the certificate's subject without the leading slash
         """
         cert = self._to_cert(certificate)
-        return cert.get_subject().CN[1:]
+        return cert.get_subject().CN
+
+    def validate_app_id(self, certificate: str, app_id: str) -> None:
+        """
+        Validates if the CN matches the app id
+        :param certificate: app certificate
+        :param app_id: the app id
+        :raises CertificateAppIdMismatchException: if the app id and cert CN do
+        not match
+        :return: None
+        """
+        cn = self.get_cn(certificate)
+        if cn != app_id and self.config.validate_certs:
+            msg = 'App id %s does not match cert CN %s' % (app_id, cn)
+            raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:
         return load_certificate(FILETYPE_PEM, certificate.encode())

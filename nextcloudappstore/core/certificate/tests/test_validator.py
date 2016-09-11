@@ -4,7 +4,7 @@ from pymple import Container
 from nextcloudappstore.core.certificate.validator import \
     CertificateValidator, \
     InvalidCertificateException, CertificateConfiguration, \
-    InvalidSignatureException
+    InvalidSignatureException, CertificateAppIdMismatchException
 from nextcloudappstore.core.facades import read_relative_file, \
     resolve_file_relative_path
 
@@ -17,12 +17,34 @@ class ValidatorTest(TestCase):
 
     def test_get_cn(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
-        self.assertEqual('olderplayer', self.validator.get_cn(cert))
+        self.assertEqual('folderplayer', self.validator.get_cn(cert))
+
+    def test_validate_app_id(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/app.crt')
+        self.validator.validate_app_id(cert, 'folderplayer')
+
+    def test_validate_app_id_turned_off(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/app.crt')
+        config = CertificateConfiguration()
+        config.validate_certs = False
+        validator = CertificateValidator(config)
+        validator.validate_app_id(cert, 'folderplayers')
+
+    def test_validate_app_id_invalid(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/app.crt')
+        with self.assertRaises(CertificateAppIdMismatchException):
+            self.validator.validate_app_id(cert, '/folderplayer')
 
     def test_validate_cert_signed(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
         chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
         self.validator.validate_certificate(cert, chain)
+
+    def test_validate_cert_signed_not_on_crl(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/app.crt')
+        chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
+        crl = read_relative_file(__file__, 'data/certificates/nextcloud.crl')
+        self.validator.validate_certificate(cert, chain, crl)
 
     def test_validate_old_cert_signed(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/news-old.crt')

@@ -1,16 +1,8 @@
 from django.db import transaction
 from django.db.models import Max, Count
 from django.http import Http404
+from django.conf import settings
 from requests import HTTPError
-from rest_framework.exceptions import APIException
-
-from nextcloudappstore.core.api.v1.release.importer import AppImporter
-from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
-from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
-    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer
-from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
-from nextcloudappstore.core.permissions import UpdateDeletePermission
-from nextcloudappstore.core.throttling import PostThrottle
 from pymple import Container
 from rest_framework import authentication, parsers, renderers  # type: ignore
 from rest_framework.authtoken.models import Token
@@ -20,6 +12,16 @@ from rest_framework.generics import DestroyAPIView, \
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
+from rest_framework.exceptions import APIException
+
+from nextcloudappstore.core.api.v1.release.importer import AppImporter
+from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
+from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
+    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer
+from nextcloudappstore.core.certificate.validator import CertificateValidator
+from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
+from nextcloudappstore.core.permissions import UpdateDeletePermission
+from nextcloudappstore.core.throttling import PostThrottle
 
 
 def app_api_etag(request, version):
@@ -109,6 +111,8 @@ class AppReleaseView(DestroyAPIView):
         serializer.is_valid(raise_exception=True)
         with(transaction.atomic()):
             url = serializer.validated_data['download']
+            signature = serializer.validated_data['signature']
+            is_nightly = serializer.validated_data['nightly']
 
             # download the latest release and create or update the models
             container = Container()
@@ -118,28 +122,37 @@ class AppReleaseView(DestroyAPIView):
             except HTTPError as e:
                 raise APIException(e)
 
-            app_id = info['app']['id']
-
-            if serializer.validated_data['nightly']:
+            # populate metadata from request
+            if is_nightly:
                 info['app']['release']['version'] += '-nightly'
+            info['app']['release']['signature'] = signature
+            info['app']['release']['download'] = url
+
+            app_id = info['app']['id']
             version = info['app']['release']['version']
 
-            info['app']['release']['signature'] = serializer.validated_data[
-                'signature']
-            info['app']['release']['download'] = url
-            status = self._check_permission(request, app_id, version)
+            status, app = self._check_permission(request, app_id, version)
+
+            # verify certs and signature
+            validator = container.resolve(CertificateValidator)
+            with open(settings.NEXTCLOUD_CERTIFICATE_LOCATION, 'r') as f:
+                chain = f.read()
+            with open(settings.NEXTCLOUD_CRL_LOCATION, 'r') as f:
+                crl = f.read()
+            validator.validate_certificate(app.certificate, chain, crl)
+            validator.validate_signature(app.certificate, signature, data)
+            validator.validate_app_id(app.certificate, app_id)
 
             importer = container.resolve(AppImporter)
             importer.import_data('app', info['app'], None)
         return Response(status=status)
 
     def _check_permission(self, request, app_id, version):
-        # if an app does not exist, the request should create it with its
-        # owner set to the currently logged in user
         try:
             app = App.objects.get(pk=app_id)
         except App.DoesNotExist:
-            app = App.objects.create(pk=app_id, owner=request.user)
+            raise APIException('App %s does not exist, you need to register'
+                               'it first' % app_id)
 
         # if an app release does not exist, it must be checked if the
         # user is allowed to create it first
@@ -156,7 +169,7 @@ class AppReleaseView(DestroyAPIView):
             release.save()
             status = 201
 
-        return status
+        return status, app
 
     def get_object(self):
         release = AppRelease.objects.filter(version=self.kwargs['version'],
