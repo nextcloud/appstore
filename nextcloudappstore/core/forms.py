@@ -32,11 +32,11 @@ class AppRegisterForm(Form):
             'Usually stored in ~/.nextcloud/certificates/APP_ID.crt where '
             'APP_ID is your app\'s id. If you do not have a certificate you '
             'need to create a certificate sign request first which should be '
-            'posted on the App Store\'s GitHub issue tracker. We will then post '
-            'you the signed certificate as answer. You can generate the sign '
-            'request by  executing the following command: openssl req -nodes '
-            '-newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj '
-            '"/CN=APP_ID"'))
+            'posted on the App Store\'s GitHub issue tracker. We will then '
+            'post  you the signed certificate as answer. You can generate '
+            'the sign request by  executing the following command: openssl '
+            'req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr '
+            '-subj "/CN=APP_ID"'))
     signature = CharField(widget=Textarea(attrs={'required': 'required'}),
                           label=_('SHA512 signature over your app\'s id'),
                           help_text=_(
