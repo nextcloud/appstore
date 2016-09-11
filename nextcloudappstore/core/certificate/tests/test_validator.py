@@ -21,6 +21,11 @@ class ValidatorTest(TestCase):
         chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
         self.validator.validate_certificate(cert, chain, None)
 
+    def test_validate_old_cert_signed(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
+        chain = read_relative_file(__file__, 'data/certificates/owncloud.crt')
+        self.validator.validate_certificate(cert, chain, None)
+
     def test_validate_cert_crl(self) -> None:
         # TBD
         self.assertTrue(True)

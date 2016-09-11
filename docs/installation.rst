@@ -193,11 +193,13 @@ To get your instance running in production you need to create your production se
     # number of days to include from today in the recent ratings calculation
     RATING_RECENT_DAY_RANGE = 90
 
-    # Defaults to true, can be used to for development to only warn when the
-    # certificate check failed
+    # Defaults:
     # VALIDATE_CERTIFICATES = True
-    # Defaults to sha512
     # CERTIFICATE_DIGEST = 'sha512'
+    # MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
+    # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
+    # MAX_DOWNLOAD_REDIRECTS = 10
+    # MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
 
 Then set the file as the active settings file::
 
