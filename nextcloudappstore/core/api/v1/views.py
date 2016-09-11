@@ -114,7 +114,7 @@ class AppReleaseView(DestroyAPIView):
             container = Container()
             provider = container.resolve(AppReleaseProvider)
             try:
-                info, checksum = provider.get_release_info(url)
+                info, data = provider.get_release_info(url)
             except HTTPError as e:
                 raise APIException(e)
 

@@ -1,16 +1,21 @@
+import hashlib
+from base64 import b64encode
 from django.test import TestCase
 from pymple import Container
 
 from nextcloudappstore.core.certificate.validator import \
     CertificateValidator, \
-    InvalidCertificateException, CertificateConfiguration
-from nextcloudappstore.core.facades import read_relative_file
+    InvalidCertificateException, CertificateConfiguration, \
+    InvalidSignatureException
+from nextcloudappstore.core.facades import read_relative_file, \
+    resolve_file_relative_path
 
 
 class ValidatorTest(TestCase):
     def setUp(self) -> None:
         self.container = Container()
         self.validator = self.container.resolve(CertificateValidator)
+        self.config = self.container.resolve(CertificateConfiguration)
 
     def test_get_cn(self) -> None:
         cert = read_relative_file(__file__, 'data/certificates/app.crt')
@@ -45,3 +50,33 @@ class ValidatorTest(TestCase):
         config.validate_certs = False
         validator = CertificateValidator(config)
         validator.validate_certificate(cert, chain)
+
+    def test_signature(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
+        sign = read_relative_file(__file__,
+                                  'data/certificates/news-old-minimal.sig')
+        checksum = self._read_bin_file('data/archives/minimal.tar.gz')
+        self.validator.validate_signature(cert, sign, checksum)
+
+    def test_bad_signature(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
+        sign = read_relative_file(__file__,
+                                  'data/certificates/bad-news-old-minimal.sig')
+        checksum = self._read_bin_file('data/archives/minimal.tar.gz')
+        with (self.assertRaises(InvalidSignatureException)):
+            self.validator.validate_signature(cert, sign, checksum)
+
+    def test_bad_signature_turned_off(self) -> None:
+        cert = read_relative_file(__file__, 'data/certificates/news-old.crt')
+        sign = read_relative_file(__file__,
+                                  'data/certificates/bad-news-old-minimal.sig')
+        checksum = self._read_bin_file('data/archives/minimal.tar.gz')
+        config = CertificateConfiguration()
+        config.validate_certs = False
+        validator = CertificateValidator(config)
+        validator.validate_signature(cert, sign, checksum)
+
+    def _read_bin_file(self, rel_path: str) -> bytes:
+        target_path = resolve_file_relative_path(__file__, rel_path)
+        with open(target_path, 'rb') as f:
+            return f.read()

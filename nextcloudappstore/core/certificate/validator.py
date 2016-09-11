@@ -1,5 +1,6 @@
 import pem
 import logging
+from base64 import b64decode
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
     X509Store, X509StoreContext
 from django.conf import settings  # type: ignore
@@ -32,7 +33,7 @@ class CertificateValidator:
         self.config = config
 
     def validate_signature(self, certificate: str, signature: str,
-                           data: str) -> None:
+                           data: bytes) -> None:
         """
         Tests if a value is a valid certificate using SHA512
         Logs an error if self.config.validate_certs is False
@@ -44,12 +45,18 @@ class CertificateValidator:
         """
         cert = self._to_cert(certificate)
         try:
-            result = verify(cert, signature.encode(), data.encode(),
-                            self.config.digest)
-            if result is not None:
-                raise InvalidSignatureException('Signature is invalid')
+            try:
+                result = verify(cert, b64decode(signature.encode()), data,
+                                self.config.digest)
+                if result is not None:
+                    raise InvalidSignatureException('Signature is invalid')
+            except Exception as e:
+                raise InvalidSignatureException(e)
         except Exception as e:
-            raise InvalidSignatureException(e)
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(str(e))
 
     def validate_certificate(self, certificate: str, chain: str,
                              crl: str = None) -> None:
@@ -82,7 +89,7 @@ class CertificateValidator:
             if self.config.validate_certs:
                 raise e
             else:
-                logger.error(e)
+                logger.error(str(e))
 
     def get_cn(self, certificate: str) -> str:
         """

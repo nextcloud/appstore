@@ -22,7 +22,7 @@ class AppReleaseProvider:
         self.downloader = downloader
 
     def get_release_info(self, url: str) -> Tuple[Dict, str]:
-        checksum = ''
+        data = None
         with self.downloader.get_archive(
             url, self.config.download_root, self.config.download_max_timeout,
             self.config.download_max_redirects, self.config.download_max_size
@@ -39,7 +39,5 @@ class AppReleaseProvider:
                 raise InvalidAppDirectoryException(msg)
 
             with open(download.filename, 'rb') as f:
-                algo = hashlib.new(self.config.digest)
-                algo.update(f.read())
-                checksum = algo.hexdigest()
-        return info, checksum
+                data = f.read()
+        return info, data
