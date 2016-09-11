@@ -1,11 +1,19 @@
-from OpenSSL.crypto import FILETYPE_PEM, load_certificate
+import logging
+from base64 import b64decode
+
+import pem
+from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
+    X509Store, X509StoreContext, load_crl
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
+
+logger = logging.getLogger(__name__)
 
 
 class CertificateConfiguration:
     def __init__(self) -> None:
         self.validate_certs = settings.VALIDATE_CERTIFICATES
+        self.digest = settings.CERTIFICATE_DIGEST
 
 
 class InvalidSignatureException(APIException):
@@ -13,6 +21,10 @@ class InvalidSignatureException(APIException):
 
 
 class InvalidCertificateException(APIException):
+    pass
+
+
+class CertificateAppIdMismatchException(APIException):
     pass
 
 
@@ -26,31 +38,70 @@ class CertificateValidator:
         self.config = config
 
     def validate_signature(self, certificate: str, signature: str,
-                           data: str) -> None:
+                           data: bytes) -> None:
         """
         Tests if a value is a valid certificate using SHA512
         Logs an error if self.config.validate_certs is False
-        :param certificate: the certificate to use
-        :param signature: the signature string to test
-        :param data: the SHA512 value (e.g. archive SHA512 checksum)
+        :param certificate: the certificate to use as string
+        :param signature: the signature base64 encoded string to test
+        :param data: the binary file content that was signed
         :raises: InvalidSignatureException if the signature is invalid
         :return: None
         """
-        pass
+        try:
+            cert = self._to_cert(certificate)
+            err_msg = 'Signature is invalid'
+            try:
+                result = verify(cert, b64decode(signature.encode()), data,
+                                self.config.digest)
+                if result is not None:
+                    raise InvalidSignatureException(err_msg)
+            except Exception as e:
+                raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
+        except Exception as e:
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(str(e))
 
     def validate_certificate(self, certificate: str, chain: str,
-                             crl: str) -> None:
+                             crl: str = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired. Logs an error if
         self.config.validate_certs is False
-        :param certificate: the certificate to test
-        :param chain: the certificate chain file content
-        :param crl: the certificate revocation list file content
+        :param certificate: the certificate to test as string
+        :param chain: the certificate chain file content as string
+        :param crl: the certificate revocation list file content as string
         :raises: InvalidCertificateException if the certificate is invalid
         :return: None
         """
-        pass
+        try:
+            # root and intermediary certificate need to be split
+            cas = pem.parse(chain.encode())
+            store = X509Store()
+            for ca in cas:
+                store.add_cert(self._to_cert(str(ca)))
+
+            cert = self._to_cert(certificate)
+            ctx = X509StoreContext(store, cert)
+            err_msg = 'Certificate is invalid'
+
+            if crl:
+                crl = load_crl(FILETYPE_PEM, crl)
+                store.add_crl(crl)
+
+            try:
+                result = ctx.verify_certificate()
+                if result is not None:
+                    raise InvalidCertificateException(err_msg)
+            except Exception as e:
+                raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
+        except Exception as e:
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(str(e))
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -59,5 +110,28 @@ class CertificateValidator:
         :param certificate: certificate
         :return: the certificate's subject without the leading slash
         """
-        cert = load_certificate(FILETYPE_PEM, certificate.encode())
-        return cert.get_subject().CN[1:]
+        cert = self._to_cert(certificate)
+        return cert.get_subject().CN
+
+    def validate_app_id(self, certificate: str, app_id: str) -> None:
+        """
+        Validates if the CN matches the app id
+        :param certificate: app certificate
+        :param app_id: the app id
+        :raises CertificateAppIdMismatchException: if the app id and cert CN do
+        not match
+        :return: None
+        """
+        try:
+            cn = self.get_cn(certificate)
+            if cn != app_id and self.config.validate_certs:
+                msg = 'App id %s does not match cert CN %s' % (app_id, cn)
+                raise CertificateAppIdMismatchException(msg)
+        except Exception as e:
+            if self.config.validate_certs:
+                raise e
+            else:
+                logger.error(str(e))
+
+    def _to_cert(self, certificate: str) -> X509:
+        return load_certificate(FILETYPE_PEM, certificate.encode())

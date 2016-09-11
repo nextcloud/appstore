@@ -203,8 +203,6 @@ NOCAPTCHA = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
-PLATFORM_VERSIONS = ['9', '10', '11']
-
 LOG_LEVEL = 'WARNING'
 LOG_FILE = join(BASE_DIR, 'appstore.log')
 LOGGING = {
@@ -225,6 +223,11 @@ LOGGING = {
         },
     },
 }
+LOCALE_PATHS = (
+    join(BASE_DIR, 'locale/'),
+)
+
+# App Store specific configs
 
 # minimum number of comments to calculate a rating
 RATING_THRESHOLD = 5
@@ -232,8 +235,23 @@ RATING_THRESHOLD = 5
 # number of days to include from today in the recent ratings calculation
 RATING_RECENT_DAY_RANGE = 90
 
-LOCALE_PATHS = (
-    join(BASE_DIR, 'locale/'),
-)
-
+# for testing app uploads without cert validation set to false
 VALIDATE_CERTIFICATES = True
+
+# certification hash algorithm
+CERTIFICATE_DIGEST = 'sha512'
+
+# supported Nextcloud versions
+PLATFORM_VERSIONS = ['9', '10', '11']
+
+# app archive downloader configuration
+MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
+MAX_DOWNLOAD_TIMEOUT = 60  # seconds
+MAX_DOWNLOAD_REDIRECTS = 10
+MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+
+# certificate location configuration
+NEXTCLOUD_CERTIFICATE_LOCATION = join(
+    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
+NEXTCLOUD_CRL_LOCATION = join(
+    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')

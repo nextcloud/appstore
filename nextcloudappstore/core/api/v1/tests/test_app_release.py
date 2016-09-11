@@ -1,8 +1,9 @@
 from unittest.mock import patch
 
-from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
+
+from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.core.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.models import App, AppRelease
 
@@ -98,12 +99,26 @@ class AppReleaseTest(ApiTest):
         self._login()
 
         get_release_info.return_value = (self.app_args, 'checksum')
-        response = self.api_client.post(self.create_url, data={
-            'download': 'https://download.com',
-            'signature': 'sign',
-        }, format='json')
-        self.assertEqual(200, response.status_code)
-        AppRelease.objects.get(version='9.0.0', app__id='news')
+        with self.settings(VALIDATE_CERTIFICATES=False):
+            response = self.api_client.post(self.create_url, data={
+                'download': 'https://download.com',
+                'signature': 'sign',
+            }, format='json')
+            self.assertEqual(200, response.status_code)
+            AppRelease.objects.get(version='9.0.0', app__id='news')
+
+    @patch.object(AppReleaseProvider, 'get_release_info')
+    def test_no_app(self, get_release_info):
+        self._login()
+        get_release_info.return_value = (self.app_args, 'checksum')
+        with self.settings(VALIDATE_CERTIFICATES=False):
+            response = self.api_client.post(self.create_url, data={
+                'download': 'https://download.com',
+                'signature': 'sign',
+            }, format='json')
+            self.assertEqual(400, response.status_code)
+            with self.assertRaises(AppRelease.DoesNotExist):
+                AppRelease.objects.get(version='9.0.0', app__id='news')
 
     def test_create_validate_https(self):
         self._login_token()
