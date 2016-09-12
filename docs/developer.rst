@@ -39,11 +39,11 @@ Replace **APP_ID** with your app id, e.g. if your app had an id called **news** 
 
 .. note:: Keep in mind that an app id must only contain lowercase ASCII characters and underscores!
 
-Then post the contents of your **APP_ID.csr** (e.g. **~/.nextcloud/certificates/news.csr**) on `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ and configure your GitHub account to show your mail address in your profile.
+Then post the contents of your **APP_ID.csr** (e.g. **~/.nextcloud/certificates/news.csr**) on `on our certificate repository <https://github.com/nextcloud/app-certificate-requests>`_ as pull request and configure your GitHub account to show your mail address in your profile.
 
-Nextcloud might ask you for further information to verify that you’re the legitimate owner of the application. Make sure to keep the private key file (**APP_ID.key**, e.g. **~/.nextcloud/certificates/news.key**) secret and not disclose it to any third-parties.
+We might ask you for further information to verify that you're the legitimate owner of the application. Make sure to keep the private key file (**APP_ID.key**, e.g. **~/.nextcloud/certificates/news.key**) secret and not disclose it to any third-parties.
 
-After we approved your certificate, we will post your signed public certificate as a response on your issue. Take the contents and store it in the same folder with the file name **APP_ID.crt** (e.g. **~/.nextcloud/certificates/news.crt**). Make sure to get rid of excess whitespace at the beginning and end of your file. Your public signed certificate's file contents should look similar to this::
+After we approved your certificate, we will post your signed public certificate (APP_ID.crt) as a response in your app's directory. Take the contents and store it in the same folder with the file name **APP_ID.crt** (e.g. **~/.nextcloud/certificates/news.crt**). Make sure to get rid of excess whitespace at the beginning and end of your file. Your public signed certificate's file contents should look similar to this::
 
     -----BEGIN CERTIFICATE-----
     MIID+TCCAeECAhAMMA0GCSqGSIb3DQEBCwUAMG0xCzAJBgNVBAYTAlVTMQ8wDQYD

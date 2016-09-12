@@ -26,7 +26,11 @@
         {% endif %}
 
         {% if field.help_text %}
-            <p class="help-block">{{ field.help_text }}</p>
+            {% if form.safe_help_fields and field.name in form.safe_help_fields %}
+                <p class="help-block">{{ field.help_text|safe }}</p>
+            {% else %}
+                <p class="help-block">{{ field.help_text }}</p>
+            {% endif %}
         {% endif %}
     </div>
 {% endfor %}
