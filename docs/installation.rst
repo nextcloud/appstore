@@ -344,7 +344,7 @@ GitHub is currently the only supported social login. In order to register the Ap
 
 Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, either log into the admin interface, change your site's domain and add GitHub as a new social application or run the following command::
 
-    python manage.py setupsocial --github-secret "SECRET" --github-client-id "CLIENT_ID" --domain apps.nextcloud.com
+    python manage.py setupsocial --github-client-id "CLIENT_ID" --github-secret "SECRET" --domain apps.nextcloud.com
 
 .. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
 
