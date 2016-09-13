@@ -3,7 +3,7 @@ from base64 import b64decode
 
 import pem
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
-    X509Store, X509StoreContext, load_crl
+    X509Store, X509StoreContext, load_crl, X509StoreFlags
 from django.conf import settings  # type: ignore
 from rest_framework.exceptions import APIException
 
@@ -77,6 +77,7 @@ class CertificateValidator:
 
         if crl:
             parsed_crl = load_crl(FILETYPE_PEM, crl)
+            store.set_flags(X509StoreFlags.CRL_CHECK)
             store.add_crl(parsed_crl)
 
         ctx = X509StoreContext(store, cert)
