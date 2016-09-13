@@ -184,19 +184,23 @@ To get your instance running in production you need to create your production se
     LOGGING['handlers']['file']['level'] = LOG_LEVEL
     LOGGING['loggers']['django']['level'] = LOG_LEVEL
 
+
+    # Overwritable defaults:
+
     # minimum number of comments to calculate a rating
-    RATING_THRESHOLD = 5
+    # RATING_THRESHOLD = 5
 
     # number of days to include from today in the recent ratings calculation
-    RATING_RECENT_DAY_RANGE = 90
+    # RATING_RECENT_DAY_RANGE = 90
 
-    # Defaults:
     # VALIDATE_CERTIFICATES = True
     # CERTIFICATE_DIGEST = 'sha512'
+
     # MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
     # MAX_DOWNLOAD_REDIRECTS = 10
     # MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+
     # certificate location configuration
     # NEXTCLOUD_CERTIFICATE_LOCATION = join(
     #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
