@@ -17,13 +17,14 @@ class Command(BaseCommand):
     source_lang = 'en'
 
     def handle(self, *args, **options):
+        is_verbose = options['verbosity'] >= 2
         langs = [lang[0] for lang in settings.LANGUAGES if
                  lang[0] != self.source_lang]
         for code in langs:
             activate(code)
             for model, attrs in self.translated_fields:
                 if issubclass(model, TranslatableModel):
-                    self._import_translations(model, attrs, code)
+                    self._import_translations(model, attrs, code, is_verbose)
                 else:
                     msg = 'Model "%s" is not translatable' % model.__name__
                     raise CommandError(msg)
@@ -32,7 +33,7 @@ class Command(BaseCommand):
         msg = 'Imported db translations'
         self.stdout.write(self.style.SUCCESS(msg))
 
-    def _import_translations(self, model, attrs, code):
+    def _import_translations(self, model, attrs, code, is_verbose=False):
         """
         Import translations for fields on a model for a language code
         :param model: the translated model
@@ -48,7 +49,7 @@ class Command(BaseCommand):
 
             if self._has_translations(obj, attrs, attrs_trans):
                 for attr, src, trans in zip(attrs, attrs_src, attrs_trans):
-                    self._update_trans(obj, attr, code, src, trans)
+                    self._update_trans(obj, attr, code, src, trans, is_verbose)
                 obj.save()
 
     def _has_translations(self, obj, attrs, attrs_trans):
@@ -74,7 +75,7 @@ class Command(BaseCommand):
         """
         return trans.strip() != '' and getattr(obj, attr) != trans
 
-    def _update_trans(self, obj, attr, code, src, trans):
+    def _update_trans(self, obj, attr, code, src, trans, is_verbose=False):
         """
         Updates a translation for an attribute on the object
         :param obj: object which has the translatable attribute
@@ -85,10 +86,13 @@ class Command(BaseCommand):
         :return:
         """
         if getattr(obj, attr) != trans:
-            msg = ('Update %s.%s for %s: "%s" -> "%s"'
-                   % (obj.__class__.__name__, attr, code, getattr(obj, attr),
-                      trans))
-            self._print(msg)
+            if is_verbose:
+                msg = ('Update %s.%s for %s: "%s" -> "%s"'
+                       % (
+                           obj.__class__.__name__, attr, code,
+                           getattr(obj, attr),
+                           trans))
+                self._print(msg)
             setattr(obj, attr, trans)
         else:
             setattr(obj, attr, src)
