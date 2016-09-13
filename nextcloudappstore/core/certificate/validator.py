@@ -74,12 +74,13 @@ class CertificateValidator:
             store.add_cert(self._to_cert(str(ca)))
 
         cert = self._to_cert(certificate)
-        ctx = X509StoreContext(store, cert)
-        err_msg = 'Certificate is invalid'
 
         if crl:
-            crl = load_crl(FILETYPE_PEM, crl)
-            store.add_crl(crl)
+            parsed_crl = load_crl(FILETYPE_PEM, crl)
+            store.add_crl(parsed_crl)
+
+        ctx = X509StoreContext(store, cert)
+        err_msg = 'Certificate is invalid'
 
         try:
             result = ctx.verify_certificate()

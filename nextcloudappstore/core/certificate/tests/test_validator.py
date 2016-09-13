@@ -66,7 +66,7 @@ class ValidatorTest(TestCase):
     def test_validate_cert_signed_not_on_crl(self) -> None:
         cert = self._read_cert('app.crt')
         chain = self._read_cert('owncloud.crt')
-        crl = self._read_cert('nextcloud.crl')
+        crl = self._read_cert('empty.crl')
         self.validator.validate_certificate(cert, chain, crl)
 
     def test_validate_crl(self) -> None:
