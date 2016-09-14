@@ -52,6 +52,7 @@
             msgArea.appendChild(msgP);
             formGroup.classList.add('has-error');
         });
+        window.scrollTo(0, 0);
     }
 
 
@@ -59,6 +60,7 @@
         let successMsg = document.getElementById('form-success');
         if (boolean) {
             successMsg.removeAttribute('hidden');
+            window.scrollTo(0, 0);
         } else {
             successMsg.setAttribute('hidden', 'true');
         }
