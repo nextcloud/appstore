@@ -9,12 +9,31 @@
 {% endif %}
 {% for field in form %}
     <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
-        <label {% if field.field.required %}title="{% trans 'required field' %}"{% endif %} class="control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}<span class="required-field">*</span>{% endif %}</label>
 
-        {% if field|field_type == 'ChoiceField' %}
+        {% if field|field_type == 'BooleanField' %}
             {{ field }}
-        {% else %}
-            {{ field|css_class:'form-control' }}
+        {% endif %}
+
+        <label
+            {% if field.field.required and field|field_type != 'BooleanField' %}
+                title="{% trans 'required field' %}"
+            {% endif %}
+            class="control-label"
+            for="{{ field.id_for_label }}">
+
+            {{ field.label }}
+
+            {% if field.field.required and field|field_type != 'BooleanField' %}
+                <span class="required-field">*</span>
+            {% endif %}
+        </label>
+
+        {% if field|field_type != 'BooleanField' %}
+            {% if field|field_type == 'ChoiceField' %}
+                {{ field }}
+            {% else %}
+                {{ field|css_class:'form-control' }}
+            {% endif %}
         {% endif %}
 
         {% if field.errors %}
