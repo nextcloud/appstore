@@ -87,7 +87,7 @@
 
 
     function clearInputs(form) {
-        Array.from(form.querySelectorAll('input[type=text], input[type=url]')).forEach((el) => {
+        Array.from(form.querySelectorAll('input[type=text], input[type=url], textarea')).forEach((el) => {
             el.value = '';
         });
         Array.from(form.querySelectorAll('input[type=checkbox]')).forEach((el) => {
