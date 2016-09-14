@@ -12,28 +12,26 @@
 
         {% if field|field_type == 'BooleanField' %}
             {{ field }}
-        {% endif %}
+            <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% else %}
 
-        <label
-            {% if field.field.required and field|field_type != 'BooleanField' %}
-                title="{% trans 'required field' %}"
+            {% if field.field.required %}
+                <label title="{% trans 'required field' %}" class="control-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                    <span class="required-field">*</span>
+                </label>
+            {% else %}
+                <label class="control-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
             {% endif %}
-            class="control-label"
-            for="{{ field.id_for_label }}">
 
-            {{ field.label }}
-
-            {% if field.field.required and field|field_type != 'BooleanField' %}
-                <span class="required-field">*</span>
-            {% endif %}
-        </label>
-
-        {% if field|field_type != 'BooleanField' %}
             {% if field|field_type == 'ChoiceField' %}
                 {{ field }}
             {% else %}
                 {{ field|css_class:'form-control' }}
             {% endif %}
+
         {% endif %}
 
         {% if field.errors %}
