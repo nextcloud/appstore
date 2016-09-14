@@ -23,7 +23,7 @@ class UpdateDeletePermission(BasePermission):
 
         if method in READ_METHODS:
             return True
-        elif request.user and request.user.is_authenticated():
+        elif request.user and request.user.is_authenticated:
             user = request.user
             if method in UPDATE_METHODS:
                 return self.has_update_obj_permission(user, obj)

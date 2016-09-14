@@ -50,7 +50,7 @@ class AppDetailView(DetailView):
         form = AppRatingForm(request.POST, id=id, user=request.user,
                              language_code=request.LANGUAGE_CODE)
         # there is no way that a rating can be invalid by default
-        if form.is_valid() and request.user.is_authenticated():
+        if form.is_valid() and request.user.is_authenticated:
             form.save()
         return redirect('app-detail', id=id)
 
@@ -58,7 +58,7 @@ class AppDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['rating_form'] = AppRatingForm()
         context['user_has_rated_app'] = False
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             try:
                 app_rating = AppRating.objects.get(user=self.request.user,
                                                    app=context['app'])

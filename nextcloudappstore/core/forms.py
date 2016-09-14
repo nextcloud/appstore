@@ -21,7 +21,7 @@ class AppReleaseUploadForm(Form):
                               'following command: <b>openssl dgst -sha512 '
                               '-sign ~/.nextcloud/certificates/APP_ID.key '
                               '/path/to/app.tar.gz | openssl base64</b>'))
-    nightly = BooleanField(label=_('Nightly'))
+    nightly = BooleanField(label=_('Nightly'), required=False)
     safe_help_fields = ['signature']
 
 
