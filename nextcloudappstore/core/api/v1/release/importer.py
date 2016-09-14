@@ -81,7 +81,7 @@ class LicenseImporter(ScalarImporter):
             model, created = License.objects.get_or_create(id=id)
             return model
 
-        obj.licenses = list(map(map_models, value))
+        obj.licenses.set(list(map(map_models, value)))
 
 
 class ShellCommandImporter(ScalarImporter):
@@ -91,7 +91,7 @@ class ShellCommandImporter(ScalarImporter):
             command, created = ShellCommand.objects.get_or_create(name=name)
             return command
 
-        obj.shell_commands = list(map(map_commands, value))
+        obj.shell_commands.set(list(map(map_commands, value)))
 
 
 class AuthorImporter(ScalarImporter):
@@ -104,7 +104,7 @@ class AuthorImporter(ScalarImporter):
                 homepage=none_to_empty_string(author['homepage'])
             )
 
-        obj.authors = list(map(map_authors, value))
+        obj.authors.set(list(map(map_authors, value)))
 
 
 class IntegerAttributeImporter(ScalarImporter):
@@ -129,12 +129,12 @@ class MaxVersionImporter(ScalarImporter):
 
 class ScreenshotsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        obj.screenshots = list(map(
+        obj.screenshots.set(list(map(
             lambda img: Screenshot.objects.create(
                 url=img['screenshot']['url'], app=obj,
                 ordering=img['screenshot']['ordering']
             ), value
-        ))
+        )))
 
 
 class CategoryImporter(ScalarImporter):
@@ -144,7 +144,7 @@ class CategoryImporter(ScalarImporter):
             category, created = Category.objects.get_or_create(id=id)
             return category
 
-        obj.categories = list(map(map_categories, value))
+        obj.categories.set(list(map(map_categories, value)))
 
 
 class L10NImporter(ScalarImporter):
