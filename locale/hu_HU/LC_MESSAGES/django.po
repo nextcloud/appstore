@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 00:56+0000\n"
+"POT-Creation-Date: 2016-09-16 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Faludi Zoltán <info@falu.me>, 2016\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
@@ -39,7 +39,7 @@ msgstr "Letöltési hivatkozás (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:18
 msgid "SHA512 signature"
-msgstr ""
+msgstr "SHA512 aláírás"
 
 #: nextcloudappstore/core/forms.py:20
 msgid ""
@@ -47,6 +47,9 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
+"A következő parancs végrehajtásával lehet generálni: <b>openssl dgst -sha512"
+" -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:24
 msgid "Nightly"
@@ -54,7 +57,7 @@ msgstr "Éjszakai"
 
 #: nextcloudappstore/core/forms.py:31
 msgid "Public certificate"
-msgstr ""
+msgstr "Nyilvános tanúsítvány"
 
 #: nextcloudappstore/core/forms.py:33
 msgid ""
@@ -78,6 +81,9 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
+"A következő parancs végrehajtásával lehet generálni: <b>echo -n \"APP_ID\" |"
+" openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:64
 msgid "Review"
@@ -192,7 +198,7 @@ msgstr "Legutóbbi kiadás:"
 
 #: nextcloudappstore/core/models.py:88
 msgid "Certificate"
-msgstr ""
+msgstr "Tanúsítvány"
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:219
 #: nextcloudappstore/core/models.py:293 nextcloudappstore/core/models.py:368
@@ -229,11 +235,11 @@ msgstr "Hozzászólás értékelése Markdownban"
 
 #: nextcloudappstore/core/models.py:234
 msgid "App rating"
-msgstr ""
+msgstr "Alkalmazás értékelés"
 
 #: nextcloudappstore/core/models.py:235
 msgid "App ratings"
-msgstr ""
+msgstr "Alkalmazás értékelések"
 
 #: nextcloudappstore/core/models.py:273
 msgid "Full name"
@@ -245,7 +251,7 @@ msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:286
 msgid "App author"
-msgstr ""
+msgstr "Alkalmazás szerzője"
 
 #: nextcloudappstore/core/models.py:291
 msgid "Version"
@@ -281,16 +287,16 @@ msgstr "Platform verzió követelmény"
 
 #: nextcloudappstore/core/models.py:313
 msgid "PHP version requirement (raw)"
-msgstr ""
+msgstr "PHP verzió követelmény (nyers)"
 
 #: nextcloudappstore/core/models.py:315
 msgid "Platform version requirement (raw)"
-msgstr ""
+msgstr "Platform verzió követelmény (nyers)"
 
 #: nextcloudappstore/core/models.py:317
 #: nextcloudappstore/core/templates/app/releases.html:63
 msgid "Minimum Integer bits"
-msgstr ""
+msgstr "Minimális egész bitek"
 
 #: nextcloudappstore/core/models.py:318
 msgid "e.g. 32 for 32bit Integers"
@@ -302,11 +308,11 @@ msgstr "Archívul letöltési URL"
 
 #: nextcloudappstore/core/models.py:325
 msgid "Signature"
-msgstr ""
+msgstr "Aláírás"
 
 #: nextcloudappstore/core/models.py:326
 msgid "A signature using SHA512 and the app's certificate"
-msgstr ""
+msgstr "Az aláírás az alkalmazás tanúsítványát és SHA512-t használ"
 
 #: nextcloudappstore/core/models.py:329 nextcloudappstore/core/models.py:461
 #: nextcloudappstore/core/models.py:496
@@ -315,7 +321,7 @@ msgstr "Alkalmazás kiadás"
 
 #: nextcloudappstore/core/models.py:330
 msgid "App releases"
-msgstr ""
+msgstr "Alkalmazás kiadások"
 
 #: nextcloudappstore/core/models.py:367
 msgid "Image url"
@@ -337,7 +343,7 @@ msgstr "Képernyőképek"
 
 #: nextcloudappstore/core/models.py:383 nextcloudappstore/core/models.py:388
 msgid "Shell command"
-msgstr ""
+msgstr "Rendszerhéj parancsok"
 
 #: nextcloudappstore/core/models.py:385
 msgid "Name of a required shell command, e.g. grep"
@@ -398,11 +404,11 @@ msgstr "Adatbázis verzió követelmény"
 
 #: nextcloudappstore/core/models.py:469
 msgid "Database version requirement (raw)"
-msgstr ""
+msgstr "Adatbázis verzió követelmény (nyers)"
 
 #: nextcloudappstore/core/models.py:473
 msgid "Database dependencies"
-msgstr ""
+msgstr "Adatbázis függőségek"
 
 #: nextcloudappstore/core/models.py:482
 msgid "e.g. libxml"
@@ -424,11 +430,11 @@ msgstr "Kiterjesztés verzió követelmény"
 
 #: nextcloudappstore/core/models.py:505
 msgid "Extension version requirement (raw)"
-msgstr ""
+msgstr "Kiterjesztés verzió követelmény (nyers)"
 
 #: nextcloudappstore/core/models.py:509
 msgid "PHP extension dependencies"
-msgstr ""
+msgstr "PHP kiterjesztés függőségek"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -544,7 +550,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr ""
+msgstr "Hibás API token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -680,11 +686,11 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/register.html:15
 #: nextcloudappstore/core/templates/nav.html:46
 msgid "Register app"
-msgstr ""
+msgstr "Alkalmazás regisztráció"
 
 #: nextcloudappstore/core/templates/app/register.html:13
 msgid "Not a public certificate"
-msgstr ""
+msgstr "Nem nyílványos tanúsítvány"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -703,11 +709,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "App successfully registered."
-msgstr ""
+msgstr "Alkalmazás sikeresen regisztrálva."
 
 #: nextcloudappstore/core/templates/app/register.html:25
 msgid "Registering..."
-msgstr ""
+msgstr "Regisztrálás..."
 
 #: nextcloudappstore/core/templates/app/releases.html:7
 #: nextcloudappstore/core/templates/app/releases.html:15
@@ -743,7 +749,7 @@ msgstr "%(name)s %(ver)s letöltés"
 #: nextcloudappstore/core/templates/app/upload.html:14
 #: nextcloudappstore/core/templates/nav.html:49
 msgid "Upload app release"
-msgstr ""
+msgstr "Alkalmazás kiadás feltöltés"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid "App release successfully uploaded."
@@ -792,7 +798,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search %(category)s"
-msgstr ""
+msgstr "Keresés: %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Search all apps"
