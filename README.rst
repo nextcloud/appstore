@@ -18,7 +18,7 @@ Nextcloud App Store
      :target: https://webchat.freenode.net/?channels=nextcloud-dev
      :alt: IRC
 
-A new app store for Nextcloud apps which is currently work in progress.
+A new app store for Nextcloud apps built with Django.
 
 Documentation including Setup and API Specification are `available on Read the Docs <https://nextcloudappstore.readthedocs.io/en/latest/>`_
 
