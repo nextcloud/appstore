@@ -3,8 +3,6 @@ REST API
 
 A REST API for publishing and deleting app releases has been built into the store from day one to help release automation.
 
-All APIs can easily be used with :doc:`ncdev <ncdev>`
-
 Authentication
 --------------
 
