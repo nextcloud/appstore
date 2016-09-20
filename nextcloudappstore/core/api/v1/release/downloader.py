@@ -10,6 +10,10 @@ class MaximumDownloadSizeExceededException(APIException):
     pass
 
 
+class DownloadException(APIException):
+    pass
+
+
 class ReleaseDownload:
     def __init__(self, filename: str) -> None:
         self.filename = filename
@@ -37,9 +41,7 @@ class AppReleaseDownloader:
         defaults to 50Mb
         :raises MaximumDownloadSizeExceededException if the archive is bigger
         than allowed
-        :raises requests.HttpError for non 2xx status codes
-        :raises requests.ConnectionError for failed connections
-        :raises requests.TooManyRedirects of too many redirects were made
+        :raises DownloadException: if any HTTP or connection error occured
         :return the path to the downloaded file
         """
 
@@ -49,13 +51,14 @@ class AppReleaseDownloader:
             os.makedirs(target_directory, mode=0o700, exist_ok=True)
             file = tempfile.NamedTemporaryFile(dir=target_directory,
                                                delete=False)
-
-        with requests.Session() as session:
-            session.max_redirects = max_redirects
-            req = session.get(url, stream=True, timeout=timeout)
-            req.raise_for_status()
-            self._stream_to_file(file, max_size, req)
-
+        try:
+            with requests.Session() as session:
+                session.max_redirects = max_redirects
+                req = session.get(url, stream=True, timeout=timeout)
+                req.raise_for_status()
+                self._stream_to_file(file, max_size, req)
+        except requests.exceptions.RequestException as e:
+            raise DownloadException(e)
         return ReleaseDownload(file.name)
 
     def _stream_to_file(self, file: Any, max_size: int,
