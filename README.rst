@@ -22,6 +22,8 @@ A new app store for Nextcloud apps which is currently work in progress.
 
 Documentation including Setup and API Specification are `available on Read the Docs <https://nextcloudappstore.readthedocs.io/en/latest/>`_
 
+Translations are `handled on Transifex <https://www.transifex.com/nextcloud/nextcloud/appstore/>`_
+
 Supported Browsers
 ------------------
 Supported browsers include the latest versions of:
