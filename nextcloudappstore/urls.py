@@ -1,6 +1,7 @@
 from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
-from csp.decorators import csp_exempt
+from csp.decorators import csp_exempt, csp_update
+from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
@@ -12,8 +13,8 @@ from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
-    url(r"^signup/$", csp_exempt(signup), name="account_signup"),
-    url(r"^social/signup/$", csp_exempt(social_signup),
+    url(r"^signup/$", csp_update(**settings.CSP_SIGNUP)(signup), name="account_signup"),
+    url(r"^social/signup/$", csp_update(**settings.CSP_SIGNUP)(social_signup),
         name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),
     url(r'^legal/?$', LegalNoticeView.as_view(), name='legal-notice'),

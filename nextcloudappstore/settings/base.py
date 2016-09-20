@@ -26,10 +26,10 @@ INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
     'nextcloudappstore.core.user.apps.UserConfig',
     'parler',
-    'captcha',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'snowpenguin.django.recaptcha2',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -195,6 +195,12 @@ CSP_SCRIPT_SRC = ('\'self\'',)
 CSP_CONNECT_SRC = ('\'self\'',)
 CSP_STYLE_SRC = ('\'self\'',)
 CSP_FORM_ACTION = ('\'self\'',)
+
+CSP_SIGNUP = {
+    'SCRIPT_SRC': ['https://www.google.com/recaptcha/', 'https://www.gstatic.com/recaptcha/'],
+    'CHILD_SRC': ['https://www.google.com/recaptcha/'],
+    'STYLE_SRC': '\'unsafe-inline\''
+}
 
 # use modern no Captcha reCaptcha
 NOCAPTCHA = True

@@ -1,16 +1,15 @@
-from allauth.account.models import EmailAddress
 from allauth.account.utils import filter_users_by_email
-from django import forms
 from captcha.fields import ReCaptchaField
-from django.conf import settings
+from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import EmailField, CharField
 from django.utils.translation import ugettext_lazy as _
-
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
-    recaptcha = ReCaptchaField()
+    recaptcha = ReCaptchaField(widget=ReCaptchaWidget())
     first_name = CharField(max_length=30, label=_('First name'))
     last_name = CharField(max_length=30, label=_('Last name'))
 

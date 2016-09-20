@@ -1,8 +1,12 @@
 {% extends "socialaccount/base.html" %}
 
-{% load i18n %}
+{% load i18n recaptcha2 %}
 
 {% block head_title %}{% trans "Register" %}{% endblock %}
+
+{% block head %}
+    {% recaptcha_init request.LANGUAGE_CODE %}
+{% endblock %}
 
 {% block content %}
     <div class="central-form">
@@ -14,9 +18,6 @@
         <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
             {% csrf_token %}
             {%  include 'form-fields.html' %}
-            {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
             <button class="btn btn-primary" type="submit">{% trans "Register" %} &raquo;</button>
         </form>
     </div>
