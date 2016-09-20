@@ -1,17 +1,18 @@
 {% extends "account/base.html" %}
 
-{% load socialaccount %}
-{% load css_class %}
-{% load i18n %}
+{% load css_class recaptcha2 socialaccount i18n %}
 
 {% block head-title %}{% trans "Register" %} - {% endblock %}
+
+{% block head %}
+    {% recaptcha_init request.LANGUAGE_CODE %}
+{% endblock %}
 
 {% block content %}
 {% get_providers as socialaccount_providers %}
 
 <div class="central-form">
     <h1 class="text-center">{% trans "Register" %}</h1>
-
     <hr>
     {% if socialaccount_providers %}
     <ul class="socialaccount-providers">
@@ -27,10 +28,6 @@
         {% csrf_token %}
         {% include 'form-fields.html' %}
         <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Register' %}</button></p>
-
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
     </form>
 </div>
 
