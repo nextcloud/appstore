@@ -2,7 +2,10 @@ from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_exempt
 from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+
+from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
     AppRatingApi, AppRegisterView
@@ -32,3 +35,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
+
+urlpatterns += i18n_patterns(
+    url(r'feeds/releases.rss', AppReleaseRssFeed(), name='feeds-releases-rss'),
+    url(r'feeds/releases.atom', AppReleaseAtomFeed(),
+        name='feeds-releases-atom'),
+)

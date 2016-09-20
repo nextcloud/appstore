@@ -254,3 +254,22 @@ NEXTCLOUD_CERTIFICATE_LOCATION = join(
     BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
 NEXTCLOUD_CRL_LOCATION = join(
     BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')
+
+# whitelist for serializing markdown
+MARKDOWN_ALLOWED_TAGS = [
+    'audio', 'video', 'source', 'dt', 'dd', 'dl', 'table', 'caption', 'tr',
+    'th', 'td', 'tbody', 'thead', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em',
+    'code', 'pre', 'blockquote', 'p', 'ul', 'li', 'ol', 'br', 'del', 'a',
+    'img', 'figure', 'figcaption', 'cite', 'time', 'abbr', 'iframe', 'q'
+]
+MARKDOWN_ALLOWED_ATTRIBUTES = {
+    'audio': ['controls', 'src'],
+    'video': ['poster', 'controls', 'height', 'width', 'src'],
+    'source': ['src', 'type'],
+    'a': ['href'],
+    'img': ['src', 'title', 'alt'],
+    'time': ['datetime'],
+    'abbr': ['title'],
+    'iframe': ['width', 'height', 'frameborder', 'src', 'allowfullscreen'],
+    'q': ['cite'],
+}
