@@ -200,7 +200,9 @@ CSP_SIGNUP = {
     'SCRIPT_SRC': ['https://www.google.com/recaptcha/',
                    'https://www.gstatic.com/recaptcha/'],
     'CHILD_SRC': ['https://www.google.com/recaptcha/'],
-    'STYLE_SRC': '\'unsafe-inline\''
+    # FRAME_SRC is needed for Edge 14
+    'FRAME_SRC': ['https://www.google.com/recaptcha/'],
+    'STYLE_SRC': '\'unsafe-inline\'',
 }
 
 # use modern no Captcha reCaptcha
