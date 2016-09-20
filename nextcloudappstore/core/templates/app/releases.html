@@ -36,7 +36,8 @@
                                                 {% endfor %}
                                             </td>
                                         </tr>
-                                        <tr><td>{% trans 'SHA256 checksum' %}</td><td>{{ release.checksum }}</td></tr>
+                                        <tr><td>{% trans 'Certificate' %}</td><td class="certificate">{{ object.certificate|linebreaksbr }}</td></tr>
+                                        <tr><td>{% trans 'SHA512 signature' %}</td><td class="certificate">{{ release.signature|linebreaksbr }}</td></tr>
                                     </table>
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>

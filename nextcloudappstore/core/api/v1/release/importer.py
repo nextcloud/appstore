@@ -1,4 +1,6 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
+
+from django.conf import settings
 from semantic_version import Version  # type: ignore
 from django.utils import timezone
 from nextcloudappstore.core.versioning import to_spec, to_raw_spec
@@ -149,8 +151,9 @@ class CategoryImporter(ScalarImporter):
 
 class L10NImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        for lang, translation in value.items():
-            obj.set_current_language(lang)
+        for code, _ in settings.LANGUAGES:
+            translation = value.get(code, value.get('en'))
+            obj.set_current_language(code)
             setattr(obj, key, translation)
             obj.save()
 
