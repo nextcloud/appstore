@@ -38,10 +38,10 @@
             if (typeof response[key] === 'string') {
                 msg = response[key];
             } else if (response[key] instanceof Array) {
-                msg = response[key].join(' ');
+                msg = response[key].join(', ');
             }
 
-            let msgArea = document.getElementById(key + '-msg');
+            let msgArea = document.getElementById('detail-msg');
             let formGroup = msgArea.parentNode;
             let msgP = document.createElement('p');
             let msgTextNode = document.createTextNode(msg);
