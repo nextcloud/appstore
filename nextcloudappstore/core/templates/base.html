@@ -14,6 +14,8 @@
           href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
+    <link rel="alternate" type="application/atom+xml" title="News" href="{% url 'feeds-releases-atom' %}" />
+    <link rel="alternate" type="application/rss+xml" title="News" href="{% url 'feeds-releases-rss' %}" />
     <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/fetch/fetch.js' %}"></script>
     <script
