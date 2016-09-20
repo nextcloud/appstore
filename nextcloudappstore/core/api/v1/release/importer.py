@@ -208,11 +208,6 @@ class AppReleaseImporter(Importer):
         obj.licenses.clear()
         obj.php_extensions.clear()
         obj.databases.clear()
-
-        if value['version'].endswith('-nightly'):
-            AppRelease.objects.filter(
-                app__id=obj.id, version__endswith='-nightly').delete()
-
         return value, obj
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:
@@ -264,6 +259,9 @@ class AppImporter(Importer):
             obj.categories.clear()
             for translation in obj.translations.all():
                 translation.delete()
+        if value['release']['version'].endswith('-nightly'):
+            AppRelease.objects.filter(
+                app__id=obj.id, version__endswith='-nightly').delete()
         return value, obj
 
     def _is_latest_version(self, value: Any) -> bool:
