@@ -1,5 +1,4 @@
 from allauth.account.utils import filter_users_by_email
-from captcha.fields import ReCaptchaField
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import EmailField, CharField
