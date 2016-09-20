@@ -21,3 +21,14 @@ Nextcloud App Store
 A new app store for Nextcloud apps which is currently work in progress.
 
 Documentation including Setup and API Specification are `available on Read the Docs <https://nextcloudappstore.readthedocs.io/en/latest/>`_
+
+Supported Browsers
+------------------
+Supported browsers include the latest versions of:
+
+* Chrome
+* Firefox
+* Safari
+* Edge
+
+Older browser versions like Safari 9 or Edge 13 or different browsers such as Internet Explorer are unsupported and known to not work.
