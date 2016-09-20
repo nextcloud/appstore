@@ -43,18 +43,10 @@ class AccountForm(forms.ModelForm):
 
     def clean_email(self):
         value = self.cleaned_data["email"]
-        errors = {
-            "this_account": _("This e-mail address is already associated"
-                              " with this account."),
-            "different_account": _("This e-mail address is already associated"
-                                   " with another account."),
-        }
         users = filter_users_by_email(value)
-        on_this_account = [u for u in users if u.pk == self.instance.pk]
-        on_diff_account = [u for u in users if u.pk != self.instance.pk]
-
-        if on_this_account:
-            raise forms.ValidationError(errors["this_account"])
-        if on_diff_account:
-            raise forms.ValidationError(errors["different_account"])
+        if [u for u in users if u.pk != self.instance.pk]:
+            msg = _(
+                "This e-mail address is already associated with another "
+                "account.")
+            raise forms.ValidationError(msg)
         return value
