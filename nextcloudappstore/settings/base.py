@@ -197,7 +197,8 @@ CSP_STYLE_SRC = ('\'self\'',)
 CSP_FORM_ACTION = ('\'self\'',)
 
 CSP_SIGNUP = {
-    'SCRIPT_SRC': ['https://www.google.com/recaptcha/', 'https://www.gstatic.com/recaptcha/'],
+    'SCRIPT_SRC': ['https://www.google.com/recaptcha/',
+                   'https://www.gstatic.com/recaptcha/'],
     'CHILD_SRC': ['https://www.google.com/recaptcha/'],
     'STYLE_SRC': '\'unsafe-inline\''
 }

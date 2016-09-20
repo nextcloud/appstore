@@ -13,7 +13,8 @@ from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
-    url(r"^signup/$", csp_update(**settings.CSP_SIGNUP)(signup), name="account_signup"),
+    url(r"^signup/$", csp_update(**settings.CSP_SIGNUP)(signup),
+        name="account_signup"),
     url(r"^social/signup/$", csp_update(**settings.CSP_SIGNUP)(social_signup),
         name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),

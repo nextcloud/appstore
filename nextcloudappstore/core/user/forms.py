@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
+
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
     recaptcha = ReCaptchaField(widget=ReCaptchaWidget())
