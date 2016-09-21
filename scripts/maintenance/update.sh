@@ -24,7 +24,6 @@ export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 export LANG=en_EN.UTF-8
 pip install --upgrade wheel
 pip install --upgrade pip
-pip uninstall django-recaptcha
 pip install --upgrade -r requirements/base.txt
 pip install --upgrade -r requirements/production.txt
 python manage.py migrate
