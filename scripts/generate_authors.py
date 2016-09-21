@@ -46,9 +46,11 @@ def get_authors_file(suffix):
 
 
 def main():
+    ignore = {'Nextcloud bot'}
     authors = get_git_authors()
     authors = filter(lambda name: name.strip() != '', authors)
     authors = [parse_git_author(author) for author in authors]
+    authors = filter(lambda author: author['name'] not in ignore, authors)
     text, extension = to_rst(authors)
     with open(get_authors_file(extension), 'w') as f:
         f.write(text)
