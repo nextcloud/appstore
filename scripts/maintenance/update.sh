@@ -25,7 +25,7 @@ export LC_CTYPE="en_US.UTF-8"
 
 # get rid of old venv if present and create a new venv
 rm -rf venvtmp/
-python -m venv venvtmp
+python3 -m venv venvtmp
 source venvtmp/bin/activate
 
 export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
