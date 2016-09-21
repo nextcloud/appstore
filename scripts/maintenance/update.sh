@@ -42,9 +42,12 @@ python manage.py importdbtranslations
 
 deactivate
 
-# get rid of old venv
-mv venv venvold
+# get rid of old venv if it exists
+if [[ -d "venv" ]]; then
+    mv venv venvold
+fi
+
 mv venvtmp venv
-mv venvold venvtmp
+rm -rf venvold
 
 eval $reload_cmd
