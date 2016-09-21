@@ -19,17 +19,32 @@ else
     exit 1
 fi
 
-source venv/bin/activate
+# Fix locales
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+# get rid of old venv if present and create a new venv
+rm -rf venvtmp/
+python -m venvtmp
+source venvtmp/bin/activate
+
 export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 export LANG=en_EN.UTF-8
 pip install --upgrade wheel
 pip install --upgrade pip
-pip install --upgrade -r requirements/base.txt
-pip install --upgrade -r requirements/production.txt
+pip install -r requirements/base.txt
+pip install -r requirements/production.txt
+python manage.py compilemessages
+python manage.py collectstatic
 python manage.py migrate
 python manage.py loaddata nextcloudappstore/**/fixtures/*.json
-python manage.py collectstatic
-python manage.py compilemessages
 python manage.py importdbtranslations
-eval $reload_cmd
+
 deactivate
+
+# get rid of old venv
+mv venv venvold
+mv venvtmp venv
+mv venvold venvtmp
+
+eval $reload_cmd
