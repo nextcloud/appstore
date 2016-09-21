@@ -10,6 +10,8 @@ branches:
 
 install:
   - make dev-setup
+  - env
+  - if [[ "$TRAVIS_PYTHON" == "3.4" ]]; then source venv/bin/activate; pip install typing; deactivate; fi
 
 script:
   - make test
