@@ -80,6 +80,11 @@ and create a user and database::
 
 App Store Setup
 ~~~~~~~~~~~~~~~
+Before you begin to set up the App Store, make sure that your locales are set up correctly. You can fix your locales by running::
+
+    export LC_ALL="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
+    sudo dpkg-reconfigure locales
 
 Afterwards change into your preferred target folder, clone the repository using git and change into it::
 
