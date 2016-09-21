@@ -190,6 +190,7 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     transformed_doc = transform(pre_transformed_doc)  # type: ignore
     mapped = element_to_dict(transformed_doc.getroot())  # type: ignore
     validate_english_present(mapped)
+    fix_partial_translations(mapped)
     return mapped
 
 
@@ -206,3 +207,21 @@ def validate_english_present(info: Dict) -> None:
         if 'en' not in app[field]:
             msg = 'At least one element "%s" with lang "en" required' % field
             raise InvalidAppMetadataXmlException(msg)
+
+
+def fix_partial_translations(info: Dict) -> None:
+    """
+    Collects translations and adds english fallbacks
+    :param info: the parsed info.xml
+    :return: None
+    """
+    app = info['app']
+    trans_fields = ['name', 'summary', 'description']
+    fields = [field for field in trans_fields if field in app]
+    codes = set()  # type: Set[str]
+    for field in fields:
+        codes |= set(app[field].keys())
+    for field in fields:
+        absent_codes = [code for code in codes if code not in app[field]]
+        for code in absent_codes:
+            app[field][code] = app[field]['en']

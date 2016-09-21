@@ -258,6 +258,7 @@ class ParserTest(TestCase):
             ],
             'summary': {
                 'en': 'An RSS/Atom feed reader',
+                'de': 'An RSS/Atom feed reader',
             },
             'description': {
                 'en': '#This is markdown',
