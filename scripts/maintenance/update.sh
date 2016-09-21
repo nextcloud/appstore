@@ -48,6 +48,7 @@ if [[ -d "venv" ]]; then
 fi
 
 mv venvtmp venv
-rm -rf venvold
 
 eval $reload_cmd
+
+rm -rf venvold
