@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 00:56+0000\n"
+"POT-Creation-Date: 2016-09-21 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
+
+#: nextcloudappstore/core/feeds.py:12
+msgid "Newest app releases"
+msgstr ""
+
+#: nextcloudappstore/core/feeds.py:13
+msgid "Get the newest app release updates"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:8
 #: nextcloudappstore/core/templates/app/detail.html:152
@@ -39,6 +47,7 @@ msgid "Download link (tar.gz)"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:18
+#: nextcloudappstore/core/templates/app/releases.html:40
 msgid "SHA512 signature"
 msgstr ""
 
@@ -191,6 +200,7 @@ msgid "Last release at"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:88
+#: nextcloudappstore/core/templates/app/releases.html:39
 msgid "Certificate"
 msgstr ""
 
@@ -288,7 +298,7 @@ msgid "Platform version requirement (raw)"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:317
-#: nextcloudappstore/core/templates/app/releases.html:63
+#: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Minimum Integer bits"
 msgstr ""
 
@@ -344,7 +354,7 @@ msgid "Name of a required shell command, e.g. grep"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:389
-#: nextcloudappstore/core/templates/app/releases.html:55
+#: nextcloudappstore/core/templates/app/releases.html:56
 msgid "Shell commands"
 msgstr ""
 
@@ -388,7 +398,7 @@ msgid "Database"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:452
-#: nextcloudappstore/core/templates/app/releases.html:45
+#: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Databases"
 msgstr ""
 
@@ -414,7 +424,7 @@ msgid "PHP extension"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:487
-#: nextcloudappstore/core/templates/app/releases.html:69
+#: nextcloudappstore/core/templates/app/releases.html:70
 msgid "PHP extensions"
 msgstr ""
 
@@ -509,14 +519,14 @@ msgid "Forgot password"
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/login.html:33
-#: nextcloudappstore/core/templates/account/signup.html:7
-#: nextcloudappstore/core/templates/account/signup.html:13
-#: nextcloudappstore/core/templates/account/signup.html:29
+#: nextcloudappstore/core/templates/account/signup.html:5
+#: nextcloudappstore/core/templates/account/signup.html:15
+#: nextcloudappstore/core/templates/account/signup.html:30
 #: nextcloudappstore/core/templates/app/register.html:25
 #: nextcloudappstore/core/templates/nav.html:74
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
-#: nextcloudappstore/core/templates/socialaccount/signup.html:9
-#: nextcloudappstore/core/templates/socialaccount/signup.html:20
+#: nextcloudappstore/core/templates/socialaccount/signup.html:13
+#: nextcloudappstore/core/templates/socialaccount/signup.html:21
 msgid "Register"
 msgstr ""
 
@@ -716,19 +726,15 @@ msgstr ""
 msgid "Release Details"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/releases.html:39
-msgid "SHA256 checksum"
-msgstr ""
-
-#: nextcloudappstore/core/templates/app/releases.html:42
+#: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Dependencies"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/releases.html:65
+#: nextcloudappstore/core/templates/app/releases.html:66
 msgid "PHP"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/releases.html:80
+#: nextcloudappstore/core/templates/app/releases.html:81
 #, python-format
 msgid "Download %(name)s %(ver)s"
 msgstr ""
@@ -758,11 +764,11 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:42
+#: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:47
 #: nextcloudappstore/core/templates/legal.html:4
 #: nextcloudappstore/core/templates/legal.html:12
 msgid "Legal Notice"
@@ -820,7 +826,7 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: nextcloudappstore/core/templates/socialaccount/signup.html:11
+#: nextcloudappstore/core/templates/socialaccount/signup.html:15
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
@@ -1013,27 +1019,23 @@ msgstr ""
 msgid "Very positive"
 msgstr ""
 
-#: nextcloudappstore/core/user/forms.py:14
+#: nextcloudappstore/core/user/forms.py:13
 msgid "First name"
 msgstr ""
 
-#: nextcloudappstore/core/user/forms.py:15
+#: nextcloudappstore/core/user/forms.py:14
 msgid "Last name"
 msgstr ""
 
-#: nextcloudappstore/core/user/forms.py:24
+#: nextcloudappstore/core/user/forms.py:23
 msgid "Your e-mail address"
 msgstr ""
 
-#: nextcloudappstore/core/user/forms.py:36
+#: nextcloudappstore/core/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
 msgstr ""
 
-#: nextcloudappstore/core/user/forms.py:47
-msgid "This e-mail address is already associated with this account."
-msgstr ""
-
-#: nextcloudappstore/core/user/forms.py:49
+#: nextcloudappstore/core/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
 msgstr ""
 
