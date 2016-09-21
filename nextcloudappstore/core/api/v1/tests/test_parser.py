@@ -255,12 +255,48 @@ class ParserTest(TestCase):
                          'Eine Nachrichten App, welche mit [RSS/Atom]('
                          'https://en.wikipedia.org/wiki/RSS) umgehen kann')
 
+    def test_partial_translations_not_all_present(self):
+        expected = {'app': {
+            'name': {
+                'en': 'Le name',
+            },
+            'description': {
+                'en': '#This is markdown',
+                'de': 'Eine Nachrichten App, welche mit [RSS/Atom]('
+                      'https://en.wikipedia.org/wiki/RSS) umgehen kann'
+            },
+        }}
+        result = deepcopy(expected)
+        fix_partial_translations(result)
+        self.assertNotEqual(json.dumps(expected), json.dumps(result))
+        self.assertEqual(result['app']['name']['de'], 'Le name')
+        self.assertTrue('summary' not in result['app'])
+        self.assertEqual(result['app']['description']['de'],
+                         'Eine Nachrichten App, welche mit [RSS/Atom]('
+                         'https://en.wikipedia.org/wiki/RSS) umgehen kann')
+
     def test_partial_translations_no_change(self):
         expected = {'app': {
             'name': {
                 'en': 'Le name',
                 'de': 'B name',
             },
+            'summary': {
+                'en': 'An RSS/Atom feed reader',
+                'de': 'An RSS/Atom feed reader',
+            },
+            'description': {
+                'en': '#This is markdown',
+                'de': 'Eine Nachrichten App, welche mit [RSS/Atom]('
+                      'https://en.wikipedia.org/wiki/RSS) umgehen kann'
+            },
+        }}
+        result = deepcopy(expected)
+        fix_partial_translations(result)
+        self.assertDictEqual(expected, result)
+
+    def test_partial_translations_no_change_not_all_present(self):
+        expected = {'app': {
             'summary': {
                 'en': 'An RSS/Atom feed reader',
                 'de': 'An RSS/Atom feed reader',
