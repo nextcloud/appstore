@@ -24,12 +24,6 @@ The project root contains a **Makefile** which allows you to quickly set everyth
 
     make dev-setup
 
-If you are on Python 3.4 you also need to install the **typing** backport library::
-
-    source venv/bin/activate
-    pip install typing
-    deactivate
-
 .. note:: Only use this command for a local setup since it is not secure and slow!
 
 This will automatically set up the web app using **venv**, **SQLite** as database and create a default **development** settings file in **nextcloudappstore/settings/development.py**. You need to review the development settings and change them according to your setup. An admin user with name **admin** and password **admin** will also be created.
@@ -121,10 +115,6 @@ Next install the required libraries::
     pip install --upgrade pip
     pip install -r requirements/base.txt
     pip install -r requirements/production.txt
-
-If you are on Python 3.4 you also need to install the **typing** backport library::
-
-    pip install typing
 
 Adjusting Default Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
