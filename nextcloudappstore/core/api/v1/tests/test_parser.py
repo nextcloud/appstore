@@ -1,9 +1,13 @@
+import json
+from copy import deepcopy
+
 from django.test import TestCase
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
     InvalidAppPackageStructureException, \
-    UnsupportedAppArchiveException, InvalidAppMetadataXmlException
+    UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
+    fix_partial_translations
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
 from rest_framework.exceptions import APIException
@@ -226,6 +230,50 @@ class ParserTest(TestCase):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
+
+    def test_partial_translations(self):
+        expected = {'app': {
+            'name': {
+                'en': 'Le name',
+            },
+            'summary': {
+                'en': 'An RSS/Atom feed reader',
+            },
+            'description': {
+                'en': '#This is markdown',
+                'de': 'Eine Nachrichten App, welche mit [RSS/Atom]('
+                      'https://en.wikipedia.org/wiki/RSS) umgehen kann'
+            },
+        }}
+        result = deepcopy(expected)
+        fix_partial_translations(result)
+        self.assertNotEqual(json.dumps(expected), json.dumps(result))
+        self.assertEqual(result['app']['name']['de'], 'Le name')
+        self.assertEqual(result['app']['summary']['de'],
+                         'An RSS/Atom feed reader')
+        self.assertEqual(result['app']['description']['de'],
+                         'Eine Nachrichten App, welche mit [RSS/Atom]('
+                         'https://en.wikipedia.org/wiki/RSS) umgehen kann')
+
+    def test_partial_translations_no_change(self):
+        expected = {'app': {
+            'name': {
+                'en': 'Le name',
+                'de': 'B name',
+            },
+            'summary': {
+                'en': 'An RSS/Atom feed reader',
+                'de': 'An RSS/Atom feed reader',
+            },
+            'description': {
+                'en': '#This is markdown',
+                'de': 'Eine Nachrichten App, welche mit [RSS/Atom]('
+                      'https://en.wikipedia.org/wiki/RSS) umgehen kann'
+            },
+        }}
+        result = deepcopy(expected)
+        fix_partial_translations(result)
+        self.assertDictEqual(expected, result)
 
     def test_map_data(self):
         full = self._get_test_xml('data/infoxmls/full.xml')
