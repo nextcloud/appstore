@@ -269,7 +269,7 @@ MARKDOWN_ALLOWED_TAGS = [
     'audio', 'video', 'source', 'dt', 'dd', 'dl', 'table', 'caption', 'tr',
     'th', 'td', 'tbody', 'thead', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em',
     'code', 'pre', 'blockquote', 'p', 'ul', 'li', 'ol', 'br', 'del', 'a',
-    'img', 'figure', 'figcaption', 'cite', 'time', 'abbr', 'iframe', 'q'
+    'img', 'figure', 'figcaption', 'cite', 'time', 'abbr', 'iframe', 'q', 'h1'
 ]
 MARKDOWN_ALLOWED_ATTRIBUTES = {
     'audio': ['controls', 'src'],
