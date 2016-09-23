@@ -24,7 +24,7 @@ def apps_etag(request: Any, version: str) -> str:
 
 
 def app_etag(request: Any, id: str) -> str:
-    return str(App.objects.get(id=id).last_modified) or ''
+    return str(App.objects.get(id=id).last_modified)
 
 
 def app_rating_etag(request: Any, id: str) -> str:
