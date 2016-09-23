@@ -155,6 +155,13 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
+    def test_bad_shell(self):
+        xml = self._get_test_xml('data/infoxmls/badcommand.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
     def test_extract_contracts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)

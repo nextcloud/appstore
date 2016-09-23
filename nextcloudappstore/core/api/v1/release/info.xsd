@@ -330,7 +330,7 @@
             <xs:element name="php" type="php" minOccurs="0" maxOccurs="1"/>
             <xs:element name="database" type="database" minOccurs="0"
                         maxOccurs="unbounded"/>
-            <xs:element name="command" type="limited-string" minOccurs="0"
+            <xs:element name="command" type="shell-command" minOccurs="0"
                         maxOccurs="unbounded"/>
             <xs:element name="lib" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
@@ -345,6 +345,12 @@
         <xs:attribute name="min-version" type="version" use="required"/>
         <xs:attribute name="max-version" type="version" use="optional"/>
     </xs:complexType>
+
+    <xs:simpleType name="shell-command">
+        <xs:restriction base="limited-string">
+            <xs:pattern value="[a-zA-Z-_]+"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:complexType name="min-max-version">
         <xs:simpleContent>
