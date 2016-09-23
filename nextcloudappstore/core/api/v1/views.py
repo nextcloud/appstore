@@ -1,5 +1,4 @@
 from django.db import transaction
-from django.db.models import Max, Count
 from django.http import Http404
 from django.conf import settings
 from requests import HTTPError
@@ -25,46 +24,6 @@ from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
-
-
-def app_api_etag(request, version):
-    app_aggr = App.objects.aggregate(count=Count('*'),
-                                     modified=Max('last_release'))
-    release_aggr = AppRelease.objects.aggregate(count=Count('*'),
-                                                modified=Max('last_modified'))
-    release_modified = release_aggr['modified']
-    app_modified = app_aggr['modified']
-    count = '%i-%i' % (app_aggr['count'], release_aggr['count'])
-
-    if app_modified is None and release_modified is None:
-        return None
-    elif app_modified is None:
-        return '%s-%s' % (count, release_modified)
-    elif release_modified is None:
-        return '%s-%s' % (count, app_modified)
-    else:
-        if app_modified > release_modified:
-            return '%s-%s' % (count, app_modified)
-        else:
-            return '%s-%s' % (count, release_modified)
-
-
-def create_etag(queryset, modified_field='last_modified'):
-    aggregate = queryset.aggregate(count=Count('*'),
-                                   modified=Max(modified_field))
-    modified = aggregate['modified']
-    if modified is None:
-        return None
-    else:
-        return '%s-%s' % (aggregate['count'], modified)
-
-
-def category_api_etag(request):
-    return create_etag(Category.objects.all())
-
-
-def app_rating_api_etag(request):
-    return create_etag(AppRating.objects.all(), 'rated_at')
 
 
 class CategoryView(ListAPIView):
