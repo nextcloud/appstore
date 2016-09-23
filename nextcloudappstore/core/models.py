@@ -520,54 +520,46 @@ class AppOwnershipTransfer(Model):
     This model fulfills two purposes:
 
     - Be a proposal of an app ownership transfer that may or may not be
-    accepted by the involved users.
-    - Perform (commit) the transfer.
+    accepted by the user acquiring ownership (to_user).
+    - Execute (commit) the transfer.
 
-    When a transfer object is created, the field 'old_owner' is automatically
+    When a transfer object is created, the field 'from_user' is automatically
     set to the owner of the 'app'. Thus, to initiate a transfer, use the
     following statement:
 
-        AppOwnershipTransfer.objects.create(app=app, new_owner=user)
+        AppOwnershipTransfer.objects.create(app=app, to_user=user)
 
     An instance of AppOwnershipTransfer is deleted when the transfer it
     represents is committed.
     """
 
     app = OneToOneField(
-        App, on_delete=CASCADE, related_name='ownership_transfer')
-    old_owner = ForeignKey(
-        User,
+        'App', on_delete=CASCADE, related_name='ownership_transfer')
+    from_user = ForeignKey(
+        settings.AUTH_USER_MODEL,
         related_name='app_ownership_transfers_outgoing',
-        on_delete=CASCADE,
-        null=False)
-    new_owner = ForeignKey(
-        User,
+        on_delete=CASCADE)
+    to_user = ForeignKey(
+        settings.AUTH_USER_MODEL,
         related_name='app_ownership_transfers_incoming',
-        on_delete=CASCADE,
-        null=False)
-    is_accepted_old_owner = BooleanField(default=False)
-    is_accepted_new_owner = BooleanField(default=False)
+        on_delete=CASCADE)
+    is_accepted = BooleanField(default=False)
     proposed = DateTimeField(auto_now_add=True)
 
-    @property
-    def is_accepted(self):
-        return self.is_accepted_old_owner and self.is_accepted_new_owner
-
     def commit(self):
-        """Perform the transfer. Does not check for acceptance by the two
-        involved users.
+        """Execute the transfer. Does not check for acceptance by the user
+        acquiring ownership.
         """
 
-        self.app.owner = self.new_owner
+        self.app.owner = self.to_user
         self.app.save()
         self.delete()
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
+    def save(self, *args, **kwargs):
         if not self.id:  # a.k.a. "if object is being created"
-            self.old_owner = self.app.owner
-            if self.old_owner is self.new_owner:
+            self.from_user = self.app.owner
+            if self.from_user is self.to_user:
                 raise RuntimeError(
                     'Could not initiate transfer of app ownership. '
                     + 'The proposed new owner already owns the app.')
-        return super().save()
+        return super().save(*args, **kwargs)

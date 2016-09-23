@@ -11,8 +11,8 @@ class AppOwnershipTransferTest(TestCase):
 
     def test_transfer(self):
         transfer = AppOwnershipTransfer.objects.create(
-            app=self.app, new_owner=self.user2)
-        self.assertEquals(transfer.old_owner, self.user1)
+            app=self.app, to_user=self.user2)
+        self.assertEquals(transfer.from_user, self.user1)
         transfer.commit()
         self.assertEquals(self.app.owner, self.user2)
         self.assertEquals(transfer.id, None)
@@ -20,4 +20,4 @@ class AppOwnershipTransferTest(TestCase):
     def test_transfer_to_self(self):
         with self.assertRaises(RuntimeError):
             AppOwnershipTransfer.objects.create(
-                app=self.app, new_owner=self.user1)
+                app=self.app, to_user=self.user1)
