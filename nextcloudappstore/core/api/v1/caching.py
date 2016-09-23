@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Any
 from django.db.models import Max, QuerySet
 from nextcloudappstore.core.api.v1.models import AppReleaseDeleteLog
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
@@ -16,16 +16,16 @@ def create_etag(pairs: List[Tuple[QuerySet, str]]) -> str:
     return str(max(result, default=''))
 
 
-def app_etag(request, version: str) -> str:
+def app_etag(request: Any, version: str) -> str:
     return create_etag([
         (App.objects.all(), 'last_release'),
         (AppReleaseDeleteLog.objects.all(), 'last_modified'),
     ])
 
 
-def category_etag(request) -> str:
+def category_etag(request: Any) -> str:
     return create_etag([(Category.objects.all(), 'last_modified')])
 
 
-def app_rating_etag(request) -> str:
+def app_rating_etag(request: Any) -> str:
     return create_etag([(AppRating.objects.all(), 'rated_at')])
