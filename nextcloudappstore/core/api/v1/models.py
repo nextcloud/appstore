@@ -19,5 +19,4 @@ class AppReleaseDeleteLog(Model):
     """
     Used to keep track of app and app release deletions
     """
-    last_modified = DateTimeField(auto_now=True, auto_now_add=True,
-                                  db_index=True)
+    last_modified = DateTimeField(auto_now=True, db_index=True)
