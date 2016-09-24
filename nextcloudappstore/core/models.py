@@ -28,9 +28,16 @@ class AppManager(TranslatableManager):
         return queryset.filter(query)
 
     def get_compatible(self, platform_version, inclusive=False):
-        apps = App.objects.prefetch_related('translations', 'screenshots',
-                                            'releases', 'releases__databases',
-                                            'releases__php_extensions').all()
+        apps = App.objects.prefetch_related(
+            'releases',
+            'releases__databases',
+            'releases__licenses',
+            'releases__phpextensiondependencies__php_extension',
+            'releases__databasedependencies__database',
+            'releases__shell_commands',
+            'translations',
+            'screenshots'
+        ).all()
 
         def app_filter(app):
             for release in app.releases.all():
