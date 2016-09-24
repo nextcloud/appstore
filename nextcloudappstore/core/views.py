@@ -166,7 +166,7 @@ class CategoryAppListView(ListView):
             queryset = queryset.filter(categories__id=category_id)
         if featured == "true":
             queryset = queryset.filter(featured=True)
-        return queryset.prefetch_related('screenshots')
+        return queryset.prefetch_related('screenshots', 'translations')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
