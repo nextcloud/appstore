@@ -27,7 +27,7 @@ from nextcloudappstore.core.throttling import PostThrottle
 
 
 class CategoryView(ListAPIView):
-    queryset = Category.objects.all()
+    queryset = Category.objects.prefetch_related('translations').all()
     serializer_class = CategorySerializer
 
 
