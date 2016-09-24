@@ -41,7 +41,8 @@ class LegalNoticeView(TemplateView):
 
 
 class AppDetailView(DetailView):
-    model = App
+    queryset = App.objects.prefetch_related('releases', 'screenshots', 'owner',
+                                            'co_maintainers')
     template_name = 'app/detail.html'
     slug_field = 'id'
     slug_url_kwarg = 'id'
@@ -79,21 +80,30 @@ class AppDetailView(DetailView):
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
                 pass
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.prefetch_related(
+            'translations').all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()
         return context
 
 
 class AppReleasesView(DetailView):
-    model = App
+    queryset = App.objects.prefetch_related(
+        'releases',
+        'releases__databases',
+        'releases__licenses',
+        'releases__phpextensiondependencies__php_extension',
+        'releases__databasedependencies__database',
+        'releases__shell_commands'
+    )
     template_name = 'app/releases.html'
     slug_field = 'id'
     slug_url_kwarg = 'id'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.prefetch_related(
+            'translations').all()
 
         releases = self.object.releases_by_platform_v()
         nightlies = self.object.nightly_releases_by_platform_v()
@@ -156,11 +166,12 @@ class CategoryAppListView(ListView):
             queryset = queryset.filter(categories__id=category_id)
         if featured == "true":
             queryset = queryset.filter(featured=True)
-        return queryset
+        return queryset.prefetch_related('screenshots')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.prefetch_related(
+            'translations').all()
         category_id = self.kwargs['id']
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
