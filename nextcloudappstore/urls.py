@@ -5,7 +5,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-
+from django.views.decorators.http import etag
+from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
@@ -29,8 +30,8 @@ urlpatterns = [
         name='app-releases'),
     url(r'^apps/(?P<id>[\w_]+)/description/?$', app_description,
         name='app-description'),
-    url(r'^apps/(?P<id>[\w_]+)/ratings.json$', AppRatingApi.as_view(),
-        name='app-ratings'),
+    url(r'^apps/(?P<id>[\w_]+)/ratings.json$',
+        etag(app_rating_etag)(AppRatingApi.as_view()), name='app-ratings'),
     url(r'^api/', include('nextcloudappstore.core.api.urls',
                           namespace='api')),
     url(r'^account/',
