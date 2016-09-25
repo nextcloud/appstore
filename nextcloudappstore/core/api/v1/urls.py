@@ -13,7 +13,7 @@ urlpatterns = [
         name='app-release-create'),
     url(r'^apps/?$', AppRegisterView.as_view(), name='app-register'),
     url(r'^apps/(?P<pk>[a-z_]+)/?$', AppView.as_view(), name='app-delete'),
-    url(r'^apps/ratings.json$',
+    url(r'^ratings.json$',
         etag(app_ratings_etag)(AppRatingView.as_view()),
         name='app-ratings'),
     url(r'^apps/(?P<app>[a-z_]+)/releases/(?P<version>\d+\.\d+\.\d+'
