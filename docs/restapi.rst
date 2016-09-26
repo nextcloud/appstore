@@ -536,7 +536,7 @@ Get All App Ratings
 ~~~~~~~~~~~~~~~~~~~
 This route will return all rating comments.
 
-* **Url**: GET /api/v1/apps/ratings.json
+* **Url**: GET /api/v1/ratings.json
 
 * **Authentication**: None
 
@@ -544,7 +544,7 @@ This route will return all rating comments.
 
 * **Example CURL request**::
 
-    curl https://apps.nextcloud.com/api/v1/apps/ratings.json -H 'If-None-Match: ""1-2016-09-03 17:11:38.772856+00:00""'
+    curl https://apps.nextcloud.com/api/v1/ratings.json -H 'If-None-Match: ""1-2016-09-03 17:11:38.772856+00:00""'
 
 * **Returns**: application/json
 

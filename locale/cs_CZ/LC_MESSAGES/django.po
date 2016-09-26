@@ -10,26 +10,26 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-26 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Richard de Boer <transifex@tubul.net>, 2016\n"
-"Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
+"Last-Translator: Lukáš Tyrychtr <lukastyrychtr@mail.muni.cz>, 2016\n"
+"Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: nextcloudappstore/core/feeds.py:12
 msgid "Newest app releases"
-msgstr "Laatste app releases"
+msgstr "Nejnovější vydání aplikace"
 
 #: nextcloudappstore/core/feeds.py:13
 msgid "Get the newest app release updates"
-msgstr "Bekijk de laatste app release updates"
+msgstr "Získejte nejnovější aktualizace o nových vidáních aplikace"
 
 #: nextcloudappstore/core/forms.py:8
 #: nextcloudappstore/core/templates/app/detail.html:152
 msgid "Bad"
-msgstr "Slecht"
+msgstr "Špatné"
 
 #: nextcloudappstore/core/forms.py:9
 #: nextcloudappstore/core/templates/app/detail.html:151
@@ -39,16 +39,16 @@ msgstr "Ok"
 #: nextcloudappstore/core/forms.py:10
 #: nextcloudappstore/core/templates/app/detail.html:150
 msgid "Good"
-msgstr "Goed"
+msgstr "Dobré"
 
 #: nextcloudappstore/core/forms.py:15
 msgid "Download link (tar.gz)"
-msgstr "Download link (tar.gz)"
+msgstr "Stáhnout odkaz (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:18
 #: nextcloudappstore/core/templates/app/releases.html:40
 msgid "SHA512 signature"
-msgstr "SHA512 handtekening"
+msgstr "SHA512 podpis"
 
 #: nextcloudappstore/core/forms.py:20
 msgid ""
@@ -56,17 +56,17 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
-"Kan worden gegenereerd door het uitvoeren van het volgende commando: "
-"<b>openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key "
-"/path/to/app.tar.gz | openssl base64</b>"
+"Lze vygenerovat spuštěním následujícího příkazu: <b>openssl dgst -sha512 "
+"-sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:24
 msgid "Nightly"
-msgstr "Nachtelijke"
+msgstr "Noční"
 
 #: nextcloudappstore/core/forms.py:31
 msgid "Public certificate"
-msgstr "Openbaar certificaat"
+msgstr "Veřejný certifikát"
 
 #: nextcloudappstore/core/forms.py:33
 msgid ""
@@ -79,18 +79,10 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"Standaard opgeslagen in ~/.nextcloud/certificates/APP_ID.crt waarbij APP_ID "
-"jouw app's id is. Als je geen certificaat hebt, moet je eerst een "
-"certificate sign request (CSR) genereren, die moet worden geplaatst in de <a"
-" href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificaat repository</a> (volg de README). Je "
-"kunt een CSR genereren door het volgende commando uit te voeren: <b>openssl "
-"req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
-"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:43
 msgid "SHA512 signature over your app's id"
-msgstr "SHA512 handtekening voor je app's id"
+msgstr "SHA512 podpis ID vaší aplikace"
 
 #: nextcloudappstore/core/forms.py:45
 msgid ""
@@ -98,13 +90,13 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
-"Kan worden gegenereerd door het uitvoeren van het volgende commando: <b>echo"
-" -n \"APP_ID\" | openssl dgst -sha512 -sign "
-"~/.nextcloud/certificates/APP_ID.key | openssl base64</b>"
+"Lze vygenerovat spuštěním následujícího příkazu: <b>echo -n \"APP_ID\" | "
+"openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:64
 msgid "Review"
-msgstr "Recensie"
+msgstr "Revize"
 
 #: nextcloudappstore/core/models.py:56 nextcloudappstore/core/models.py:407
 #: nextcloudappstore/core/models.py:435 nextcloudappstore/core/models.py:453
@@ -113,369 +105,369 @@ msgstr "Id"
 
 #: nextcloudappstore/core/models.py:57
 msgid "app id, identical to folder name"
-msgstr "app id, identiek aan map naam"
+msgstr "app id, identická se jménem adresáře"
 
 #: nextcloudappstore/core/models.py:58 nextcloudappstore/core/models.py:425
 msgid "Category"
-msgstr "Categorie"
+msgstr "Kategorie"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:419
 #: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:455
 msgid "Name"
-msgstr "Naam"
+msgstr "Název"
 
 #: nextcloudappstore/core/models.py:61
 msgid "Rendered app name for users"
-msgstr "Gegenereerde appnaam voor gebruikers"
+msgstr "Uživateli viditelný název aplikace"
 
 #: nextcloudappstore/core/models.py:62
 msgid "Summary"
-msgstr "Samenvatting"
+msgstr "Souhrn"
 
 #: nextcloudappstore/core/models.py:64
 msgid "Short text describing the app's purpose"
-msgstr "Korte beschrijving van de app"
+msgstr "Krátký text popisující účel aplikace"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:420
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Popis"
 
 #: nextcloudappstore/core/models.py:66 nextcloudappstore/core/models.py:421
 msgid "Will be rendered as Markdown"
-msgstr "Zal worden weergegeven als Markdown"
+msgstr "Bude vykresleno jako Markdown"
 
 #: nextcloudappstore/core/models.py:70
 msgid "User documentation url"
-msgstr "Gebruikersdocumentatie url"
+msgstr "URL uživatelské dokumentace"
 
 #: nextcloudappstore/core/models.py:72
 msgid "Admin documentation url"
-msgstr "Beheerdersdocumentatie url"
+msgstr "Url administrátorské dokumentace"
 
 #: nextcloudappstore/core/models.py:74
 msgid "Developer documentation url"
-msgstr "Ontwikkelaarsdocumentatie url"
+msgstr "URL vývojářské dokumentace"
 
 #: nextcloudappstore/core/models.py:76
 msgid "Issue tracker url"
-msgstr "Issue tracker url"
+msgstr "URL hlášení chyb"
 
 #: nextcloudappstore/core/models.py:77 nextcloudappstore/core/models.py:284
 #: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Homepage"
-msgstr "Homepage"
+msgstr "Domovská stránka"
 
 #: nextcloudappstore/core/models.py:79
 #: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Discussion"
-msgstr "Discussie"
+msgstr "Diskuze"
 
 #: nextcloudappstore/core/models.py:81 nextcloudappstore/core/models.py:331
 #: nextcloudappstore/core/models.py:413
 msgid "Created at"
-msgstr "Aangemaakt op"
+msgstr "Vytvořeno"
 
 #: nextcloudappstore/core/models.py:83 nextcloudappstore/core/models.py:333
 #: nextcloudappstore/core/models.py:415
 msgid "Updated at"
-msgstr "Bijgewerkt op"
+msgstr "Aktualizováno"
 
 #: nextcloudappstore/core/models.py:84
 msgid "App owner"
-msgstr "App eigenaar"
+msgstr "Vlastník aplikace"
 
 #: nextcloudappstore/core/models.py:87
 #: nextcloudappstore/core/templates/app/detail.html:61
 msgid "Co-Maintainers"
-msgstr "Mede-onderhouders"
+msgstr "Spolutvůrci"
 
 #: nextcloudappstore/core/models.py:90 nextcloudappstore/core/models.py:296
 msgid "App authors"
-msgstr "App auteurs"
+msgstr "Autoři aplikace"
 
 #: nextcloudappstore/core/models.py:91
 #: nextcloudappstore/core/templates/app/detail.html:21
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr "Aanbevolen"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Recent rating"
-msgstr "Recente waardering"
+msgstr "Nedávné hodnocení"
 
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:56
 msgid "Overall rating"
-msgstr "Geheele waardering"
+msgstr "Celkové hodnocení"
 
 #: nextcloudappstore/core/models.py:95
 msgid "Last release at"
-msgstr "Laatste release op"
+msgstr "Poslední vydání z"
 
 #: nextcloudappstore/core/models.py:97
 #: nextcloudappstore/core/templates/app/releases.html:39
 msgid "Certificate"
-msgstr "Certificaat"
+msgstr "Certifikát"
 
 #: nextcloudappstore/core/models.py:100 nextcloudappstore/core/models.py:228
 #: nextcloudappstore/core/models.py:302 nextcloudappstore/core/models.py:377
 msgid "App"
-msgstr "App"
+msgstr "Aplikace"
 
 #: nextcloudappstore/core/models.py:101
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:7
 #: nextcloudappstore/core/templates/nav.html:42
 msgid "Apps"
-msgstr "Apps"
+msgstr "Aplikace"
 
 #: nextcloudappstore/core/models.py:230
 msgid "User"
-msgstr "Gebruiker"
+msgstr "Uživatel"
 
 #: nextcloudappstore/core/models.py:232
 #: nextcloudappstore/core/templates/app/list.html:15
 msgid "Rating"
-msgstr "Waardering"
+msgstr "Hodnocení"
 
 #: nextcloudappstore/core/models.py:233
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "Waardering van 0.0 (slechts) tot 1.0 (best)"
+msgstr "Hodnocení od 0.0 (nejhorší) do 1.0 (nejlepší)"
 
 #: nextcloudappstore/core/models.py:236
 msgid "Rating comment"
-msgstr "Beoordeling reactie"
+msgstr "Hodnotící komentář"
 
 #: nextcloudappstore/core/models.py:237
 msgid "Rating comment in Markdown"
-msgstr "Beoordeling reactie in Markdown"
+msgstr "Komentář hodnocení v Markdownu"
 
 #: nextcloudappstore/core/models.py:243
 msgid "App rating"
-msgstr "App beoordeling"
+msgstr "Hodnocení aplikace"
 
 #: nextcloudappstore/core/models.py:244
 msgid "App ratings"
-msgstr "App beoordelingen"
+msgstr "Hodnocení aplikace"
 
 #: nextcloudappstore/core/models.py:282
 msgid "Full name"
-msgstr "Volledige naam"
+msgstr "Celé jméno"
 
 #: nextcloudappstore/core/models.py:285
 msgid "E-Mail"
-msgstr "E-mail"
+msgstr "Email"
 
 #: nextcloudappstore/core/models.py:295
 msgid "App author"
-msgstr "App auteur"
+msgstr "Autor aplikace"
 
 #: nextcloudappstore/core/models.py:300
 msgid "Version"
-msgstr "Versie"
+msgstr "Verze"
 
 #: nextcloudappstore/core/models.py:301
 msgid "Version follows Semantic Versioning"
-msgstr "Versie volgt semantisch versienummering"
+msgstr "Verze následují sémantické verzování"
 
 #: nextcloudappstore/core/models.py:308 nextcloudappstore/core/models.py:517
 msgid "PHP extension dependency"
-msgstr "PHP extensie afhankelijkheid"
+msgstr "Závislost na rozšíření PHP"
 
 #: nextcloudappstore/core/models.py:311 nextcloudappstore/core/models.py:481
 msgid "Database dependency"
-msgstr "Database afhankelijkheid"
+msgstr "Závislost na databázi"
 
 #: nextcloudappstore/core/models.py:312 nextcloudappstore/core/models.py:444
 msgid "License"
-msgstr "Licentie"
+msgstr "Licence"
 
 #: nextcloudappstore/core/models.py:315
 msgid "Shell command dependency"
-msgstr "Shell commando afhankelijkheid"
+msgstr "Závislost na příkazech shellu"
 
 #: nextcloudappstore/core/models.py:317
 msgid "PHP version requirement"
-msgstr "PHP versie vereiste"
+msgstr "Požadavek na verzi PHP"
 
 #: nextcloudappstore/core/models.py:319
 msgid "Platform version requirement"
-msgstr "Platform versie vereiste"
+msgstr "Požadavek na verzi platformy"
 
 #: nextcloudappstore/core/models.py:322
 msgid "PHP version requirement (raw)"
-msgstr "PHP versie vereiste (raw)"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:324
 msgid "Platform version requirement (raw)"
-msgstr "Platform versie vereiste (raw)"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:326
 #: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Minimum Integer bits"
-msgstr "Minimum Integer bits"
+msgstr "Nejmenší počet bitů celého čísla"
 
 #: nextcloudappstore/core/models.py:327
 msgid "e.g. 32 for 32bit Integers"
-msgstr "bijv. 32 voor 32bit integere getallen"
+msgstr "např. 32 pro 32-bitová celá čísla"
 
 #: nextcloudappstore/core/models.py:329
 msgid "Archive download Url"
-msgstr "Archief download Url"
+msgstr "Url ke stažení archivu"
 
 #: nextcloudappstore/core/models.py:334
 msgid "Signature"
-msgstr "Handtekening"
+msgstr "Podpis"
 
 #: nextcloudappstore/core/models.py:335
 msgid "A signature using SHA512 and the app's certificate"
-msgstr "Een handtekening volgens SHA512 en het app certificaat"
+msgstr "Podpis používající SHA512 a certifikát aplikace"
 
 #: nextcloudappstore/core/models.py:338 nextcloudappstore/core/models.py:470
 #: nextcloudappstore/core/models.py:505
 msgid "App release"
-msgstr "App release"
+msgstr "Vydání aplikace"
 
 #: nextcloudappstore/core/models.py:339
 msgid "App releases"
-msgstr "App releases"
+msgstr "Vydání aplikace"
 
 #: nextcloudappstore/core/models.py:376
 msgid "Image url"
-msgstr "Afbeelding url"
+msgstr "URL obrázku"
 
 #: nextcloudappstore/core/models.py:379
 msgid "Ordering"
-msgstr "Sortering"
+msgstr "Řazení"
 
 #: nextcloudappstore/core/models.py:382
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
-msgstr "Screenshot"
+msgstr "Snímek obrazovky"
 
 #: nextcloudappstore/core/models.py:383
 msgid "Screenshots"
-msgstr "Screenshots"
+msgstr "Snímky obrazovky"
 
 #: nextcloudappstore/core/models.py:392 nextcloudappstore/core/models.py:397
 msgid "Shell command"
-msgstr "Shell commando"
+msgstr "Příkaz shellu"
 
 #: nextcloudappstore/core/models.py:394
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Naam van vereist shell commando, bijv. grep"
+msgstr "Název požadovaného příkazu shellu, např. grep"
 
 #: nextcloudappstore/core/models.py:398
 #: nextcloudappstore/core/templates/app/releases.html:56
 msgid "Shell commands"
-msgstr "Shell commando's"
+msgstr "Příkazy shellu"
 
 #: nextcloudappstore/core/models.py:409
 msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
-"Categorie ID die wordt gebruikt om een categorie aan te geven. Gebruikt voor"
-" identificeren categorieën bij uploaden van een app"
+"ID kategorie, identifikující kategorii. Používané pro identifikaci kategorií"
+" při nahrávání aplikace"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Category name which will be presented to the user"
-msgstr "categorienaam die wordt getoond aan de gebruiker"
+msgstr "Jméno kategorie zobrazené uživateli"
 
 #: nextcloudappstore/core/models.py:426
 msgid "Categories"
-msgstr "Categorieën"
+msgstr "Kategorie"
 
 #: nextcloudappstore/core/models.py:437
 msgid "Key which is used to identify a license"
-msgstr "Sleutel die wordt gebruikt om een licentie te identificeren"
+msgstr "Klíč, který je použit k identifikaci licence"
 
 #: nextcloudappstore/core/models.py:440
 msgid "License name which will be presented to the user"
-msgstr "Licentienaam die aan de gebruiker wordt getoond"
+msgstr "Jméno licence zobrazené uživateli"
 
 #: nextcloudappstore/core/models.py:445
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
-msgstr "Licenties"
+msgstr "Licence"
 
 #: nextcloudappstore/core/models.py:454
 msgid "Key which is used to identify a database"
-msgstr "Sleutel die wordt gebruikt om een database te identificeren"
+msgstr "Klíč, který je použit k identifikaci databáze"
 
 #: nextcloudappstore/core/models.py:457
 msgid "Database name which will be presented to the user"
-msgstr "Databasenaam die aan de gebruiker wordt getoond"
+msgstr "Jméno databáze, které bude zobrazeno uživateli"
 
 #: nextcloudappstore/core/models.py:460 nextcloudappstore/core/models.py:473
 msgid "Database"
-msgstr "Database"
+msgstr "Databáze"
 
 #: nextcloudappstore/core/models.py:461
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Databases"
-msgstr "Databases"
+msgstr "Databáze"
 
 #: nextcloudappstore/core/models.py:475
 msgid "Database version requirement"
-msgstr "Databaseversie vereist"
+msgstr "Požadavek na verzi databáze"
 
 #: nextcloudappstore/core/models.py:478
 msgid "Database version requirement (raw)"
-msgstr "Platform versie vereiste (raw)"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:482
 msgid "Database dependencies"
-msgstr "Database afhankelijkheid"
+msgstr "Závislosti databáze"
 
 #: nextcloudappstore/core/models.py:491
 msgid "e.g. libxml"
-msgstr "bijv. libxml"
+msgstr "např. libxml"
 
 #: nextcloudappstore/core/models.py:492 nextcloudappstore/core/models.py:495
 #: nextcloudappstore/core/models.py:508
 msgid "PHP extension"
-msgstr "PHP extensie"
+msgstr "Rozšíření PHP"
 
 #: nextcloudappstore/core/models.py:496
 #: nextcloudappstore/core/templates/app/releases.html:70
 msgid "PHP extensions"
-msgstr "PHP Extensies"
+msgstr "PHP rozšíření"
 
 #: nextcloudappstore/core/models.py:511
 msgid "Extension version requirement"
-msgstr "Extensieversie vereiste"
+msgstr "Požadavek na verzi rozšíření"
 
 #: nextcloudappstore/core/models.py:514
 msgid "Extension version requirement (raw)"
-msgstr "Extensieversie vereiste (raw)"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:518
 msgid "PHP extension dependencies"
-msgstr "PHP extensie afhankelijkheden"
+msgstr "Závislosti na rozšířeních PHP"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
 msgid "Forbidden"
-msgstr "Verboden"
+msgstr "Zakázáno"
 
 #: nextcloudappstore/core/templates/403.html:10
 msgid "You are forbidden to access this page!"
-msgstr "Je mag deze pagina niet bekijken!"
+msgstr "Nejste oprávněni přistupovat na tuto stránku!"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
-msgstr "Niet gevonden"
+msgstr "Nenalezeno"
 
 #: nextcloudappstore/core/templates/404.html:8
 msgid "Page not found"
-msgstr "Pagina niet gevonden"
+msgstr "Stránka nebyla nalezena"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
-msgstr "De pagina die je wilt bekijken, bestaat niet!"
+msgstr "Stránka kterou hledáte neexistuje!"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -488,13 +480,6 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"groetjes, van de %(site_name)s!\n"
-"\n"
-"Je krijgt deze e-mail omdat gebruiker %(user_display)s dit e-mailadres heeft gebruikt voor een account op %(site_domain)s.\n"
-"\n"
-"Om dit gebruik te bevstigen, ga naar %(activate_url)s\n"
-"\n"
-"Als je geen account op %(site_domain)s, hebt, negeer dan dit bericht.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -502,13 +487,11 @@ msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
 msgstr ""
-"Bedankt namens de  %(site_name)s!\n"
-"%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
-msgstr "Bevestig e-mailadres"
+msgstr "Potvrďte e-mailovou adresu"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -516,12 +499,12 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Bevestig dat <a href=\"mailto:%(email)s\">%(email)s</a> het e-mailadres is "
-"van gebruiker  %(user_display)s."
+"Potvrďte prosím, že  <a href=\"mailto:%(email)s\">%(email)s</a> je emailová "
+"adresa uživatele %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
-msgstr "Bevestig"
+msgstr "Potvrdit"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
@@ -529,8 +512,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Deze e-mail bevestigingslink is vervallen of ongeldig. <a "
-"href=\"%(email_url)s\">Doe een nieuwe aanvraag</a>."
+"Tento emailový potvrzující odkaz vypršel, nebo je neplatný. Vytvořte prosím "
+"<a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:7
 #: nextcloudappstore/core/templates/account/login.html:14
@@ -539,11 +522,11 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
 #: nextcloudappstore/core/templates/nav.html:71
 msgid "Log in"
-msgstr "Inloggen"
+msgstr "Přihlásit"
 
 #: nextcloudappstore/core/templates/account/login.html:32
 msgid "Forgot password"
-msgstr "Wachtwoord vergeten"
+msgstr "Zapomenuté heslo"
 
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/signup.html:5
@@ -555,40 +538,38 @@ msgstr "Wachtwoord vergeten"
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
 msgid "Register"
-msgstr "Registreer"
+msgstr "Registrovat"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
-msgstr "Reset wachtwoord"
+msgstr "Reset hesla"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
-"Wachtwoord vergeten? Voer je e-mailadres hieronder in en we sturen je een "
-"e-mailbericht waarmee je het opnieuw kunt instellen."
+"Zapoměli jste své heslo? Zadejte níže svou emailovou adresu na kterou bude "
+"odeslán email pro jeho resetování. "
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
-msgstr "Reset mijn wachtwoord"
+msgstr "Obnovit moje heslo"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
-msgstr ""
-"Neem contact met ons op als je problemen hebt met het herstellen van je "
-"wachtwoord"
+msgstr "Kontaktujte nás, pokud máte problém resetovat své heslo"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "Foutief API Token"
+msgstr "Špatný API token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/core/templates/user/password.html:8
 #: nextcloudappstore/core/templates/user/password.html:13
 msgid "Change Password"
-msgstr "Verander wachtwoord"
+msgstr "Změnit heslo"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
 #, python-format
@@ -597,134 +578,132 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
 msgstr ""
-"De wachtwoordherstel link was ongeldig, vermoedelijk omdat die al eerder is "
-"gebruikt. Vraag een <a href=\"%(passwd_reset_url)s\">nieuw "
-"wachtwoordherstel</a> aan."
+"Odkaz na resetování hesla je neplatný, nejspíše protože byl již použit. "
+"Vyžádejte si prosím <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
-msgstr "Je wachtwoord is gewijzigd."
+msgstr "Vaše heslo je nyní změněno."
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "All apps"
-msgstr "Alle apps"
+msgstr "Všechny aplikace"
 
 #: nextcloudappstore/core/templates/app/detail.html:27
 msgid "Previous"
-msgstr "Vorige"
+msgstr "Předchozí"
 
 #: nextcloudappstore/core/templates/app/detail.html:28
 msgid "Next"
-msgstr "Volgende"
+msgstr "Další"
 
 #: nextcloudappstore/core/templates/app/detail.html:36
 msgid "Fullscreen"
-msgstr "Volledig scherm"
+msgstr "Celá obrazovka"
 
 #: nextcloudappstore/core/templates/app/detail.html:43
 #: nextcloudappstore/core/templates/app/releases.html:30
 msgid "Updated"
-msgstr "Bijgewerkt"
+msgstr "Aktualizováno"
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid "Publisher"
-msgstr "Publicist"
+msgstr "Vydavatel"
 
 #: nextcloudappstore/core/templates/app/detail.html:74
 msgid "Resources"
-msgstr "Bronnen"
+msgstr "Zdroje"
 
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "User documentation"
-msgstr "Gebruikersdocumentatie"
+msgstr "Dokumentace pro uživatele"
 
 #: nextcloudappstore/core/templates/app/detail.html:83
 msgid "Admin documentation"
-msgstr "Beheerdersdocumentatie"
+msgstr "Dokumentace pro administrátory"
 
 #: nextcloudappstore/core/templates/app/detail.html:86
 msgid "Developer documentation"
-msgstr "Ontwikkelaarsdocumentatie"
+msgstr "Dokumentace pro vývojáře"
 
 #: nextcloudappstore/core/templates/app/detail.html:95
 msgid "Downloads"
-msgstr "Downloads"
+msgstr "Stažení"
 
 #: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Unstable"
-msgstr "Onstabiel"
+msgstr "Nestabilní"
 
 #: nextcloudappstore/core/templates/app/detail.html:103
 msgid "All releases"
-msgstr "Alle releases"
+msgstr "Všechna vydání"
 
 #: nextcloudappstore/core/templates/app/detail.html:116
 msgid "Report problem"
-msgstr "Meld een probleem"
+msgstr "Nahlásit problém"
 
 #: nextcloudappstore/core/templates/app/detail.html:117
 msgid "Request feature"
-msgstr "Vraag feature aan"
+msgstr "Vyžádat funkčnost"
 
 #: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Ask questions or discuss"
-msgstr "Stel vragen of discussieer"
+msgstr "Položit dotaz či diskutovat"
 
 #: nextcloudappstore/core/templates/app/detail.html:123
 msgid "Review app"
-msgstr "Review app"
+msgstr "Hodnodit aplikaci"
 
 #: nextcloudappstore/core/templates/app/detail.html:135
 msgid ""
 "Reviews support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use reviews to report bugs or request features. Neither developers nor users will be notified by your review."
 msgstr ""
-"Reviews ondersteunen <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"Gebruik reviews niet om bugs te melden of nieuwe features aan te vragen. Ontwikkelaars en gebruikers zullen geen notificatie ontvangen van us review."
 
 #: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Submit review"
-msgstr "Verstuur review"
+msgstr "Odeslat recenzi"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "Beoordeling (recent)"
+msgstr "Hodnocení (nedávné)"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
-msgstr "Laatste"
+msgstr "Nejnovější"
 
 #: nextcloudappstore/core/templates/app/list.html:19
 #: nextcloudappstore/core/templates/app/list.html:21
 #: nextcloudappstore/core/templates/app/list.html:23
 msgid "Alphabetical"
-msgstr "Alfabetisch"
+msgstr "Abecední"
 
 #: nextcloudappstore/core/templates/app/list.html:31
 msgid "My apps"
-msgstr "Mijn apps"
+msgstr "Moje aplikace"
 
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-"Geen apps gevonden voor zoekopdracht \"<em>%(query)s</em>\" in %(category)s."
+"Nebyly nalezeny žádné aplikace při hledání \"<em>%(query)s</em>\" v "
+"%(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "Geen apps gevonden voor zoekopdracht \"<em>%(query)s</em>\"."
+msgstr "Nebyly nalezeny žádné aplikace při hledání \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:15
 #: nextcloudappstore/core/templates/nav.html:46
 msgid "Register app"
-msgstr "Registreren app"
+msgstr "Registrovat aplikaci"
 
 #: nextcloudappstore/core/templates/app/register.html:13
 msgid "Not a public certificate"
-msgstr "Geen openbaar certificaat"
+msgstr "Neni veřejný certifikát"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -733,10 +712,6 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Meer informatie over het verkrijgen van een certificaat en over het creëren "
-"van een handtekening staat in de <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app ontwikkelaarshandleiding</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
@@ -744,34 +719,31 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Dit formulier kan ook worden gebruikt om de bestaande certficaten te "
-"verversen, maar alleen de app-eigenaar mag dat doen. Bijwerken van een app "
-"certificaat verwijdert ook alle eerdere releases!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "App successfully registered."
-msgstr "App succesvol gëregistreerd."
+msgstr "Aplikace úspěšně zaregistrována."
 
 #: nextcloudappstore/core/templates/app/register.html:25
 msgid "Registering..."
-msgstr "Registreren..."
+msgstr "Registrace..."
 
 #: nextcloudappstore/core/templates/app/releases.html:7
 #: nextcloudappstore/core/templates/app/releases.html:15
 msgid "Releases"
-msgstr "Releases"
+msgstr "Vydání"
 
 #: nextcloudappstore/core/templates/app/releases.html:16
 msgid "App details"
-msgstr "App details"
+msgstr "Detaily aplikace"
 
 #: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Release Details"
-msgstr "Release details"
+msgstr "Detaily vydání"
 
 #: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Dependencies"
-msgstr "Afhankelijkheden"
+msgstr "Závislosti"
 
 #: nextcloudappstore/core/templates/app/releases.html:66
 msgid "PHP"
@@ -780,17 +752,17 @@ msgstr "PHP"
 #: nextcloudappstore/core/templates/app/releases.html:81
 #, python-format
 msgid "Download %(name)s %(ver)s"
-msgstr "Download %(name)s %(ver)s"
+msgstr "Stáhnout %(name)s %(ver)s"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:14
 #: nextcloudappstore/core/templates/nav.html:49
 msgid "Upload app release"
-msgstr "Uploaden app release"
+msgstr "Nahrát vydání aplikace"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid "App release successfully uploaded."
-msgstr "App release succesvol geüploaded."
+msgstr "Vydání aplikace úspěšně nahráno."
 
 #: nextcloudappstore/core/templates/app/upload.html:17
 msgid ""
@@ -798,69 +770,64 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Meer informatie over het creëren van de SHA512 handtekening staat in de <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app ontwikkelaarshandleiding</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
-msgstr "Uploaden..."
+msgstr "Nahrávám..."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Upload"
-msgstr "Uploaden"
+msgstr "Nahrát"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
-msgstr "Fork me on GitHub"
+msgstr "Forkni mě na GitHubu"
 
 #: nextcloudappstore/core/templates/base.html:47
 #: nextcloudappstore/core/templates/legal.html:4
 #: nextcloudappstore/core/templates/legal.html:12
 msgid "Legal Notice"
-msgstr "Juridische bepalingen"
+msgstr "Právní upozornění"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/core/templates/user/set-language.html:13
 msgid "required field"
-msgstr "verplicht veld"
+msgstr "vyžadované pole"
 
 #: nextcloudappstore/core/templates/legal.html:30
 msgid "Managing Directors"
-msgstr "Managing Directors"
+msgstr "Výkonní ředitelé"
 
 #: nextcloudappstore/core/templates/legal.html:37
 msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
-"Alle productnamen en handelsmerken zijn eigendom van de respectievelijke "
-"eigenaren die al dan niet zijn verbonden aan Nextcloud."
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search %(category)s"
-msgstr "Zoeken %(category)s"
+msgstr "Hledat %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Search all apps"
-msgstr "Zoek in alle apps"
+msgstr "Prohledat všechny aplikace"
 
 #: nextcloudappstore/core/templates/nav.html:25
 msgid "Search"
-msgstr "Zoek"
+msgstr "Hledat"
 
 #: nextcloudappstore/core/templates/nav.html:33
 msgid "Toggle navigation"
-msgstr "Omschakelen navigatie"
+msgstr "Přepnout navigaci"
 
 #: nextcloudappstore/core/templates/nav.html:53
 msgid "Documentation"
-msgstr "Documentatie"
+msgstr "Dokumentace"
 
 #: nextcloudappstore/core/templates/nav.html:59
 msgid "Admin"
-msgstr "Beheerder"
+msgstr "Administrace"
 
 #: nextcloudappstore/core/templates/nav.html:64
 #: nextcloudappstore/core/templates/user/account.html:5
@@ -868,11 +835,11 @@ msgstr "Beheerder"
 #: nextcloudappstore/core/templates/user/base.html:5
 #: nextcloudappstore/core/templates/user/base.html:12
 msgid "Account"
-msgstr "Account"
+msgstr "Účet"
 
 #: nextcloudappstore/core/templates/nav.html:67
 msgid "Log out"
-msgstr "Afmelden"
+msgstr "Odhlásit se"
 
 #: nextcloudappstore/core/templates/socialaccount/signup.html:15
 #, python-format
@@ -880,113 +847,111 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Je gaat je %(provider_name)s account gebruiken om in te loggen op\n"
-"%(site_name)s. Als laatste stap moet je het volgende formulier invullen:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
-msgstr "Authenticatie & authorisatie"
+msgstr "Autentizace & autorizace"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Apps that provide additional authentication or authorization services"
-msgstr "Apps die aanvullende authenticatie- en autorisatiediensten bieden"
+msgstr "Aplikace poskytující služby dodatečného ověření nebo přihlášení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
-msgstr "Maatwerk"
+msgstr "Přizpůsobení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Themes, layout and UX change apps"
-msgstr "Thema's, layout en UX aanpassingsapps"
+msgstr "Motivy a aplikace měnící rozvržení a uživatelské rozhraní"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
-msgstr "Bestanden"
+msgstr "Soubory"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
-msgstr "Bestandebeheer en uitbreidingen van bestand apps"
+msgstr "Aplikace rozšiřující správu souborů nebo aplikaci Soubory"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
-msgstr "Integratie"
+msgstr "Propojení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "Apps die Nextcloud verbinden met andere services en platformen"
+msgstr "Aplikace propojující NextCloud s dalšími službami a platformami"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
-msgstr "Monitoren"
+msgstr "Kontrola"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr "Gegevensstatistiek, systeem diagnose en activiteit apps"
+msgstr "Datové statistiky, diagnózy systému a aktivity aplikací"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
-msgstr "Multimedia"
+msgstr "Multimédia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
-msgstr "Audio, video en afbeelding apps"
+msgstr "Aplikace audia, videa a obrázků"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
-msgstr "Office & tekst"
+msgstr "Kancelář a text"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
-msgstr "Office en tekstverwerkingsapps"
+msgstr "Aplikace pro kancelář a zpracování textu"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
-msgstr "Organisatie"
+msgstr "Organizace"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
-msgstr "Tijdmanagement, takenlijsten en agenda apps"
+msgstr "Aplikace pro správu času, plánování a kalendáře"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Social & communication"
-msgstr "Sociaal & communicatie"
+msgstr "Sociální sítě a komunikace"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Messaging, contact management and social media apps"
-msgstr "Messaging, contactbeheer en social media apps"
+msgstr "Aplikace pro zasílání zpráv, správu kontaktů a sociální sítě"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Tools"
-msgstr "Tools"
+msgstr "Nástroje"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Everything else"
-msgstr "De rest"
+msgstr "Vše ostatní"
 
 #: nextcloudappstore/core/templates/user/account.html:12
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Uložit"
 
 #: nextcloudappstore/core/templates/user/api-token.html:10
 #: nextcloudappstore/core/templates/user/api-token.html:19
 msgid "API Token"
-msgstr "API Token"
+msgstr "Token k API"
 
 #: nextcloudappstore/core/templates/user/api-token.html:13
 msgid "New API token generated."
-msgstr "Nieuw API token gegenereerd."
+msgstr "Vygenerován nový API token."
 
 #: nextcloudappstore/core/templates/user/api-token.html:14
 msgid "Failed to regenerate API token."
-msgstr "Genereren API token mislukt."
+msgstr "Nepodařilo se obnovit token k API."
 
 #: nextcloudappstore/core/templates/user/api-token.html:15
 msgid "Failed to fetch API token."
-msgstr "Ophalen API token mislukt."
+msgstr "Nepodařilo se získat token k API."
 
 #: nextcloudappstore/core/templates/user/api-token.html:21
 msgid "Do you want to regenerate your API token?"
-msgstr "Wil je opnieuw je API token genereren?"
+msgstr "Chcete vygenerovat nový API token?"
 
 #: nextcloudappstore/core/templates/user/api-token.html:23
 msgid ""
@@ -996,42 +961,37 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
-"\n"
-"Het API token kan worden gebruikt voor authenticatie bij aanroepen van de app store\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"Zorg ervoor dat het geheim blijft. Een nieuw token kan hieronder worden gegenereerd, waardoor het oude token ongeldig wordt.\n"
-"            "
 
 #: nextcloudappstore/core/templates/user/api-token.html:29
 msgid "Your API token is:"
-msgstr "Je API token is:"
+msgstr "Váš token k API je:"
 
 #: nextcloudappstore/core/templates/user/api-token.html:33
 msgid "Regenerate API token"
-msgstr "Opnieuw genereren API token"
+msgstr "Obnovit token k API"
 
 #: nextcloudappstore/core/templates/user/base.html:15
 #: nextcloudappstore/core/templates/user/set-language.html:4
 #: nextcloudappstore/core/templates/user/set-language.html:7
 #: nextcloudappstore/core/templates/user/set-language.html:26
 msgid "Change language"
-msgstr "Wijzig taal"
+msgstr "Změnit jazyk"
 
 #: nextcloudappstore/core/templates/user/base.html:19
 #: nextcloudappstore/core/templates/user/password.html:5
 msgid "Password"
-msgstr "Wachtwoord"
+msgstr "Heslo"
 
 #: nextcloudappstore/core/templates/user/base.html:23
 msgid "API token"
-msgstr "API token"
+msgstr "Token k API"
 
 #: nextcloudappstore/core/templates/user/base.html:26
 #: nextcloudappstore/core/templates/user/delete-account.html:5
 #: nextcloudappstore/core/templates/user/delete-account.html:8
 #: nextcloudappstore/core/templates/user/delete-account.html:13
 msgid "Delete account"
-msgstr "Verwijder account"
+msgstr "Smazat účet"
 
 #: nextcloudappstore/core/templates/user/delete-account.html:10
 msgid ""
@@ -1039,62 +999,62 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Het verwijderen van je account verwijdert ook al je apps en releases. Om je "
-"account te verwijderen moet je je e-mailadres hier invoeren en drukken op de"
-" \"Verwijderen account\" knop:"
+"Smazání vašeho účtu vymaže všechny vaše aplikace a jejich vydání. Pro "
+"smazání účtu zadejte do pole níže svou emailovou adresu a klikněte na "
+"tlačítko \"Smazat účet\":"
 
 #: nextcloudappstore/core/templates/user/password.html:16
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Je lijkt een account van een derde partij provider te gebruiken. Je "
-"wachtwoord kan dus <strong>niet</strong> op deze pagina worden gewijzigd."
+"Zdá se, že používáte účet registrovaný u třetí strany. Vaše heslo proto "
+"<strong>nelze</strong> změnit na této stránce."
 
 #: nextcloudappstore/core/templates/user/set-language.html:13
 msgid "Language"
-msgstr "Taal"
+msgstr "Jazyk"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
-msgstr "Zeer negatief"
+msgstr "Velmi negativní"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:13
 msgid "Negative"
-msgstr "Negatief"
+msgstr "Negativní"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:14
 msgid "Neutral"
-msgstr "Neutraal"
+msgstr "Neutrální"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:15
 msgid "Positive"
-msgstr "Positief"
+msgstr "Pozitivní"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:16
 msgid "Very positive"
-msgstr "Zeer positief"
+msgstr "Velmi pozitivní"
 
 #: nextcloudappstore/core/user/forms.py:13
 msgid "First name"
-msgstr "Voornaam"
+msgstr "Jméno"
 
 #: nextcloudappstore/core/user/forms.py:14
 msgid "Last name"
-msgstr "Achternaam"
+msgstr "Příjmení"
 
 #: nextcloudappstore/core/user/forms.py:23
 msgid "Your e-mail address"
-msgstr "Uw e-mailadres"
+msgstr "Vaše emailová adresa"
 
 #: nextcloudappstore/core/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
-msgstr "Het opgegeven e-mailadres komt niet overeen met jouw e-mailadres"
+msgstr "Zadaná e-mailová adresa neodpovídá vaší e-mailové adrese."
 
 #: nextcloudappstore/core/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
-msgstr "Dit e-mailadres is al gekoppeld aan een ander account."
+msgstr "Tato e-mailová adresa je již spojena s jiným účtem."
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
-msgstr "Geef een geldige HTTPS Url op"
+msgstr "Zadejte platnou HTTPS adresu"

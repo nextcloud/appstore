@@ -14,6 +14,8 @@ from semantic_version import Version, Spec
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 
 class AppManager(TranslatableManager):
@@ -519,6 +521,22 @@ class PhpExtensionDependency(Model):
     def __str__(self) -> str:
         return '%s: %s %s' % (self.app_release.app, self.php_extension,
                               self.version_spec)
+
+@receiver(post_delete, sender=App)
+def record_app_delete(sender, **kwargs):
+    AppReleaseDeleteLog.objects.create()
+
+
+@receiver(post_delete, sender=AppRelease)
+def record_app_release_delete(sender, **kwargs):
+    AppReleaseDeleteLog.objects.create()
+
+
+class AppReleaseDeleteLog(Model):
+    """
+    Used to keep track of app and app release deletions
+    """
+    last_modified = DateTimeField(auto_now=True, db_index=True)
 
 
 class AppOwnershipTransfer(Model):

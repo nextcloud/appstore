@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
+from django.views.decorators.http import etag
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -15,12 +16,14 @@ from rest_framework.generics import ListAPIView
 from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
+from nextcloudappstore.core.caching import app_etag
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
     AppRegisterForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 
 
+@etag(app_etag)
 def app_description(request, id):
     app = get_object_or_404(App, id=id)
     return HttpResponse(app.description, content_type='text/plain')
