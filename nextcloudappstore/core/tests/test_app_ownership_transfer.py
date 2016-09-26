@@ -9,6 +9,11 @@ class AppOwnershipTransferTest(TestCase):
         self.user2 = User.objects.create_user(username='user2')
         self.app = App.objects.create(name='App', owner=self.user1)
 
+    def tearDown(self):
+        self.user1.delete()
+        self.user2.delete()
+        self.app.delete()
+
     def test_transfer(self):
         transfer = AppOwnershipTransfer.objects.create(
             app=self.app, to_user=self.user2)

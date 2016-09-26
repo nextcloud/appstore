@@ -568,7 +568,6 @@ class AppOwnershipTransfer(Model):
         settings.AUTH_USER_MODEL,
         related_name='app_ownership_transfers_incoming',
         on_delete=CASCADE)
-    is_accepted = BooleanField(default=False)
     proposed = DateTimeField(auto_now_add=True)
 
     def commit(self):
@@ -586,5 +585,5 @@ class AppOwnershipTransfer(Model):
             if self.from_user is self.to_user:
                 raise RuntimeError(
                     'Could not initiate transfer of app ownership. '
-                    + 'The proposed new owner already owns the app.')
+                    'The proposed new owner already owns the app.')
         return super().save(*args, **kwargs)
