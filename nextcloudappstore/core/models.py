@@ -522,6 +522,7 @@ class PhpExtensionDependency(Model):
         return '%s: %s %s' % (self.app_release.app, self.php_extension,
                               self.version_spec)
 
+
 @receiver(post_delete, sender=App)
 def record_app_delete(sender, **kwargs):
     AppReleaseDeleteLog.objects.create()
