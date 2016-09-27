@@ -32,7 +32,9 @@ def build_files(args):
         for root, dirs, files in walk(base):
             for file in files:
                 file_path = join(root, file)
-                rel_file_path = '%s/%s' % (vars['id'], relpath(file_path, base))
+                rel_file_path = '%s/%s' % (
+                    vars['id'], relpath(file_path, base)
+                )
                 with open(file_path) as f:
                     t = Template(f.read())
                     result[rel_file_path] = t.render(context)
