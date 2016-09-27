@@ -12,7 +12,7 @@ from nextcloudappstore.core.facades import resolve_file_relative_path
 
 
 def build_files(args):
-    platform = int(args['platform'])
+    platform = int(args['platform'])  # prevent path traversal
     vars = {
         'id': args['name'].lower(),
         'summary': args['summary'],
