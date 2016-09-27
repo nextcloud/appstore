@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-26 00:56+0000\n"
+"POT-Creation-Date: 2016-09-27 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lukáš Tyrychtr <lukastyrychtr@mail.muni.cz>, 2016\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -79,6 +79,13 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Obvykle uložen v ~/.nextcloud/certificates/APP_ID.crt, kde APP_ID je id vaší"
+" aplikace. Pokud nemáte certifikát, musíte nejprrve vytvořit žádost o "
+"podepsání certifikátu (CSR), kterou následně odešlete <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">do repozitáře certifikátů</a> (držte se README)."
+" CSR můžete vytvořit spuštěním následujícího příkazu <b>openssl req -nodes "
+"-newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:43
 msgid "SHA512 signature over your app's id"
@@ -189,7 +196,7 @@ msgstr "Autoři aplikace"
 #: nextcloudappstore/core/templates/app/detail.html:21
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr ""
+msgstr "Doporučená"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:58
@@ -297,11 +304,11 @@ msgstr "Požadavek na verzi platformy"
 
 #: nextcloudappstore/core/models.py:322
 msgid "PHP version requirement (raw)"
-msgstr ""
+msgstr "Požadavek na verzi PHP (surový)"
 
 #: nextcloudappstore/core/models.py:324
 msgid "Platform version requirement (raw)"
-msgstr ""
+msgstr "Požadavek na verzi platformy (surový)"
 
 #: nextcloudappstore/core/models.py:326
 #: nextcloudappstore/core/templates/app/releases.html:64
@@ -416,7 +423,7 @@ msgstr "Požadavek na verzi databáze"
 
 #: nextcloudappstore/core/models.py:478
 msgid "Database version requirement (raw)"
-msgstr ""
+msgstr "Požadavek na verzi databáze (surový)"
 
 #: nextcloudappstore/core/models.py:482
 msgid "Database dependencies"
@@ -442,7 +449,7 @@ msgstr "Požadavek na verzi rozšíření"
 
 #: nextcloudappstore/core/models.py:514
 msgid "Extension version requirement (raw)"
-msgstr ""
+msgstr "Požadavek na verzi rozšíření (surový)"
 
 #: nextcloudappstore/core/models.py:518
 msgid "PHP extension dependencies"
@@ -480,6 +487,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"%(site_name)s vás zdraví!\n"
+"\n"
+"Tento e-mail dostáváte proto, že uživatel %(user_display)s  připojil tuto e-mailovou adresu ke svému účtu na %(site_domain)s.\n"
+"\n"
+"Pro potvrzení, že je to správně, běžte na %(activate_url)s\n"
+"\n"
+"Pokud na %(site_domain)s účet nemáte, jednoduše si této zprávy nevšímejte.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -487,6 +501,8 @@ msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
 msgstr ""
+"Poděkování z %(site_name)s!\n"
+"%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
@@ -660,6 +676,8 @@ msgid ""
 "Reviews support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use reviews to report bugs or request features. Neither developers nor users will be notified by your review."
 msgstr ""
+"Hodnocení podporují <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Nepoužívejte hodnocení k hlášení chyb nebo žádostem o další vlastnosti. Na vaše hodnocení nebudou upozorněni ani vývojáři, ani uživatelé."
 
 #: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Submit review"
@@ -712,6 +730,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Více informací o tom, jak získat certifikát a vytvořit podpis naleznete v <a"
+" href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">příručce vývojáře aplikací</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
@@ -719,6 +740,9 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Tento formulář může být rovněž použit k aktualizaci certifikátu, což ale "
+"může provést pouze její vlastník. Aktualizace certifikátu aplikace způsobí "
+"smazání všech předchozích vydání."
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "App successfully registered."
@@ -770,6 +794,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Více informací o vytvoření SHA512 podpisu naleznete v <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">příručce pro vývojáře</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -803,6 +830,8 @@ msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
+"Všechna jména a ochranné známky jsou vlastnictvím jejich majitelů. V žádném "
+"případě nemohou být spojovány s Nextcloudem."
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -847,6 +876,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Chystáte se váš účet na %(provider_name)s použít k přihlášení na\n"
+"            %(site_name)s. Jako poslední krok, prosím, vyplňte následující formulář:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
@@ -961,6 +992,11 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                Klíč k API může být použit při volání\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a> obchodu s aplikacemi.\n"
+"                Ujistěte se, že zůstane utajen. Nový token může být vygenerován níže, což zneplatní starý token.\n"
+"            "
 
 #: nextcloudappstore/core/templates/user/api-token.html:29
 msgid "Your API token is:"
