@@ -3,10 +3,10 @@
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
     <id>{{ app.id }}</id>
     <name>{{ app.name }}</name>
-    <summary>My first Nextcloud app</summary>
-    <description>My first Nextcloud app</description>
+    <summary>{{ app.summary }}</summary>
+    <description>{{ app.description }}</description>
     <licence>agpl</licence>
-    <author mail="{{ app.author_mail }}" homepage="{{ app.author_homepage }}">{{ app.author_name }}</author>
+    <author {% if app.author_mail %}mail="{{ app.author_mail }}"{% endif %} {% if app.author_homepage %}homepage="{{ app.author_homepage }}"{% endif %}>{{ app.author_name }}</author>
     <version>0.0.1</version>
     <namespace>{{ app.namespace }}</namespace>
     <category>tools</category>
