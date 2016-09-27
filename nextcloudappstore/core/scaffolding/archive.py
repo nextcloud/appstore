@@ -11,7 +11,7 @@ from django.template import Template
 from nextcloudappstore.core.facades import resolve_file_relative_path
 
 
-def build_files(args):
+def build_files(args: Dict[str, str]) -> Dict[str, str]:
     platform = int(args['platform'])  # prevent path traversal
     vars = {
         'id': args['name'].lower(),
