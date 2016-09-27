@@ -1,4 +1,5 @@
 import re
+from os import listdir
 
 from django.core.exceptions import ValidationError
 from django.forms import Textarea, Form, URLField
@@ -6,8 +7,11 @@ from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField
 from django.conf import settings
 
-versions = zip(settings.PLATFORM_VERSIONS, settings.PLATFORM_VERSIONS)
+from nextcloudappstore.core.facades import resolve_file_relative_path
 
+tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
+available_versions = [v for v in settings.PLATFORM_VERSIONS if v in tpls]
+versions = zip(settings.PLATFORM_VERSIONS, available_versions)
 
 def validate_id(input: str) -> str:
     regex = r'^([A-Z][a-z]+)+$'
