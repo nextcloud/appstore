@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -9,6 +10,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.decorators.http import etag
+from django.views.generic import FormView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -20,6 +22,7 @@ from nextcloudappstore.core.caching import app_etag
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
     AppRegisterForm
 from nextcloudappstore.core.models import App, Category, AppRating
+from nextcloudappstore.core.scaffolding.forms import AppScaffoldingForm
 from nextcloudappstore.core.versioning import pad_min_version
 
 
@@ -232,6 +235,24 @@ class AppUploadView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['form'] = AppReleaseUploadForm()
         return context
+
+
+class AppScaffoldingView(FormView):
+    template_name = 'app/scaffold.html'
+    form_class = AppScaffoldingForm
+
+    def get_initial(self):
+        init = {
+            'platform': settings.CURRENT_PLATFORM_STABLE_VERSION
+        }
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            init['author_name'] = '%s %s' % (user.first_name, user.last_name)
+            init['author_email'] = user.email
+        return init
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 class AppRegisterView(LoginRequiredMixin, TemplateView):
