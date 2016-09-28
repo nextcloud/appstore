@@ -41,16 +41,26 @@
                 <li class="nav-link">
                     <a href="{% url 'home' %}">{% trans 'Apps' %}</a>
                 </li>
-                {% if request.user.is_authenticated %}
-                    <li class="nav-link">
-                        <a href="{% url 'app-register' %}">{% trans 'Register app' %}</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="{% url 'app-upload' %}">{% trans 'Upload app release' %}</a>
-                    </li>
-                {% endif %}
-                <li class="nav-link">
-                    <a href="https://nextcloudappstore.readthedocs.io/en/latest/" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle nav-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        {% trans 'App developer' %} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-link">
+                            <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{% url 'app-scaffold' %}">{% trans 'Generate app' %}</a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-link">
+                                <a href="{% url 'app-register' %}">{% trans 'Register app' %}</a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="{% url 'app-upload' %}">{% trans 'Upload app release' %}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

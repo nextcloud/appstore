@@ -10,10 +10,13 @@ Changelog
 
 - Faster API E-Tag generation
 - Faster API and web interface due to reduced sql queries
+- Generate apps through the web interface
+- Combine app developer related tasks in one dropdown-menu
 
 **Bugfixes**
 
 - Fixed syntax highlightning for Markdown
+- Fixed regex for commands
 
 
 0.1.0 (2016-09-21)

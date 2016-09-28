@@ -10,7 +10,7 @@ from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
-    AppRatingApi, AppRegisterView
+    AppRatingApi, AppRegisterView, AppScaffoldingView
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
     url(r'^apps/upload/?$', AppUploadView.as_view(), name='app-upload'),
+    url(r'^apps/scaffold/?$', AppScaffoldingView.as_view(),
+        name='app-scaffold'),
     url(r'^apps/register/?$', AppRegisterView.as_view(), name='app-register'),
     url(r'^apps/(?P<id>[\w_]+)/?$', AppDetailView.as_view(),
         name='app-detail'),

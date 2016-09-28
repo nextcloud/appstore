@@ -10,7 +10,7 @@
 {% for field in form %}
     <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
 
-        {% if field|field_type == 'BooleanField' %}
+        {% if field|field_type == 'CheckboxInput' %}
             {{ field }}
             <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
         {% else %}
@@ -26,7 +26,7 @@
                 </label>
             {% endif %}
 
-            {% if field|field_type == 'ChoiceField' %}
+            {% if field|field_type == 'RadioSelect' %}
                 {{ field }}
             {% else %}
                 {{ field|css_class:'form-control' }}
