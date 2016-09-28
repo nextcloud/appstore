@@ -49,10 +49,10 @@
                         <li class="nav-link">
                             <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
                         </li>
+                        <li class="nav-link">
+                            <a href="{% url 'app-scaffold' %}">{% trans 'Generate app' %}</a>
+                        </li>
                         {% if request.user.is_authenticated %}
-                            <li class="nav-link">
-                                <a href="{% url 'app-scaffold' %}">{% trans 'Generate app' %}</a>
-                            </li>
                             <li class="nav-link">
                                 <a href="{% url 'app-register' %}">{% trans 'Register app' %}</a>
                             </li>

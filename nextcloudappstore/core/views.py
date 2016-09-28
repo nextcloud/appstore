@@ -238,7 +238,7 @@ class AppUploadView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class AppScaffoldingView(LoginRequiredMixin, FormView):
+class AppScaffoldingView(FormView):
     template_name = 'app/scaffold.html'
     form_class = AppScaffoldingForm
 
