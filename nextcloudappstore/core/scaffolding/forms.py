@@ -11,7 +11,7 @@ from nextcloudappstore.core.facades import resolve_file_relative_path
 
 tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
 available_versions = [v for v in settings.PLATFORM_VERSIONS if v in tpls]
-versions = zip(settings.PLATFORM_VERSIONS, available_versions)
+versions = zip(available_versions, available_versions)
 
 
 def validate_id(input: str) -> str:
@@ -21,7 +21,7 @@ def validate_id(input: str) -> str:
 
 
 class AppScaffoldingForm(Form):
-    id = CharField(max_length=80, label=_('App name'),
+    name = CharField(max_length=80, label=_('App name'),
                    validators=[validate_id],
                    help_text=_('The app name must be camel case e.g. MyApp'))
     platform = ChoiceField(choices=versions, required=True,

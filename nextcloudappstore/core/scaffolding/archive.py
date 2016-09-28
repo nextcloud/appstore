@@ -1,6 +1,6 @@
 import re
 import tarfile
-from io import BytesIO
+from io import BytesIO, StringIO
 from typing import Dict
 from os.path import join, isdir, relpath
 from os import walk
@@ -42,10 +42,13 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
     return result
 
 
-def create_archive(parameters: Dict[str, str]) -> BytesIO:
-    # TODO: hash django user name and create archive for that
+def build_archive(parameters: Dict[str, str]) -> BytesIO:
     buffer = BytesIO()
-    with tarfile.open('', mode='w:gz') as f:
-        pass
-        # build_archive(parameters, f)
+    with tarfile.open(fileobj=buffer, mode='w:gz') as f:
+        files = build_files(parameters)
+        for path, contents in files.items():
+            info = tarfile.TarInfo(path)
+            info.size = len(contents)
+            f.addfile(info, BytesIO(contents.encode()))
+    buffer.seek(0)
     return buffer

@@ -1,7 +1,10 @@
+import tarfile
+
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
-from nextcloudappstore.core.scaffolding.archive import build_files
+from nextcloudappstore.core.scaffolding.archive import build_files, \
+    build_archive
 
 
 class ArchiveTest(TestCase):
@@ -30,3 +33,11 @@ class ArchiveTest(TestCase):
         self.args['platform'] = '8'
         result = build_files(self.args)
         self.assertDictEqual({}, result)
+
+    def test_build_archive(self):
+        result = build_archive(self.args)
+        expected = read_relative_file(__file__, 'data/info.xml').strip()
+        with tarfile.open(fileobj=result, mode='r:gz') as f:
+            member = f.getmember('theapp/appinfo/info.xml')
+            with f.extractfile(member) as info:
+                self.assertEqual(expected, info.read().strip().decode('utf-8'))
