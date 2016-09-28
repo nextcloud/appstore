@@ -34,10 +34,12 @@ class AppScaffoldingForm(Form):
     platform = ChoiceField(choices=lazy(get_versions, list), required=True,
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
-    author_email = EmailField(label=_('Author\'s E-Mail'))
+    author_email = EmailField(label=_('Author\'s e-mail'))
     author_homepage = URLField(label=_('Author\'s homepage'), required=False)
     categories = MultipleChoiceField(required=True, label=_('Categories'),
-                                     choices=lazy(get_categories, list))
+                                     choices=lazy(get_categories, list),
+                                     help_text=_('Hold down CTRL and click to '
+                                                 'select multiple entries'))
     summary = CharField(max_length=256, label=_('Summary'), help_text=_(
         'Short description of your app that will be rendered as short teaser'))
     description = CharField(widget=Textarea, label=_('Description'),
