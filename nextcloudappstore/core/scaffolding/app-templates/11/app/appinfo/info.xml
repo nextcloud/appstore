@@ -4,7 +4,7 @@
     <id>{{ app.id }}</id>
     <name>{{ app.name }}</name>
     <summary>{{ app.summary }}</summary>
-    <description>{{ app.description }}</description>
+    <description><![CDATA[{{ app.description }}]]></description>
     <licence>agpl</licence>
     <author {% if app.author_mail %}mail="{{ app.author_mail }}"{% endif %} {% if app.author_homepage %}homepage="{{ app.author_homepage }}"{% endif %}>{{ app.author_name }}</author>
     <version>0.0.1</version>

@@ -22,8 +22,8 @@ def validate_id(input: str) -> str:
 
 class AppScaffoldingForm(Form):
     name = CharField(max_length=80, label=_('App name'),
-                   validators=[validate_id],
-                   help_text=_('The app name must be camel case e.g. MyApp'))
+                     validators=[validate_id],
+                     help_text=_('The app name must be camel case e.g. MyApp'))
     platform = ChoiceField(choices=versions, required=True,
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
