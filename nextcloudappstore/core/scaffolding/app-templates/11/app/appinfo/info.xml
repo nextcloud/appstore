@@ -8,8 +8,8 @@
     <licence>agpl</licence>
     <author {% if app.author_mail %}mail="{{ app.author_mail }}"{% endif %} {% if app.author_homepage %}homepage="{{ app.author_homepage }}"{% endif %}>{{ app.author_name }}</author>
     <version>0.0.1</version>
-    <namespace>{{ app.namespace }}</namespace>
-    <category>tools</category>
+    <namespace>{{ app.namespace }}</namespace>{% for category in app.categories %}
+    <category>{{ category }}</category>{% endfor %}
     <dependencies>
         <owncloud min-version="9.2"/>
         <nextcloud min-version="11"/>

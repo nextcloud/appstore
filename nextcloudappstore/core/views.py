@@ -244,7 +244,8 @@ class AppScaffoldingView(LoginRequiredMixin, FormView):
 
     def get_initial(self):
         init = {
-            'platform': settings.CURRENT_PLATFORM_STABLE_VERSION
+            'platform': settings.CURRENT_PLATFORM_STABLE_VERSION,
+            'categories': ('tools',)
         }
         if self.request.user.is_authenticated:
             user = self.request.user

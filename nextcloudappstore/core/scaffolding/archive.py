@@ -22,6 +22,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_name': args['author_name'],
         'author_mail': args['author_email'],
         'author_homepage': args['author_homepage'],
+        'categories': args['categories'],
     }
     relative_base = 'app-templates/%i/app/' % platform
     base = resolve_file_relative_path(__file__, relative_base)

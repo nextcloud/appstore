@@ -16,7 +16,8 @@ class ArchiveTest(TestCase):
             'author_name': 'author name',
             'author_email': 'author email',
             'author_homepage': 'author homepage',
-            'platform': '11'
+            'platform': '11',
+            'categories': ['tools'],
         }
 
     def test_build_files(self):
