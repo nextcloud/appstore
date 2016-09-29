@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+{% load ocs_categoryid %}<?xml version="1.0"?>
 <ocs>
     <meta>
         <status>ok</status>
@@ -9,7 +9,7 @@
     <data>
         {% for cat in categories %}
         <category>
-            <id>{{ cat.id }}</id>
+            <id>{{ cat.id|ocs_categoryid }}</id>
             <name>{{ cat.name }}</name>
         </category>
         {% endfor %}
