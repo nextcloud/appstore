@@ -3,6 +3,13 @@ REST API
 
 A REST API for publishing and deleting app releases has been built into the store from day one to help release automation.
 
+Legacy API
+----------
+
+Nextcloud 9 and 10 use the old App Store at https://apps.owncloud.com which exposes an XML API called OCS. This API is available under **https://apps.nextcloud.com/api/v0** and can be added to your Nextcloud installation by adding the following paramter to **config/config.php**::
+
+    'appstoreurl' => 'https://apps.nextcloud.com/api/v0',
+
 Authentication
 --------------
 
@@ -64,7 +71,7 @@ exists, one will be generated.
 
 .. _api-token-new:
 
-Regenerate API Token
+Regenerate API Tokenalso copy commands
 ~~~~~~~~~~~~~~~~~~~~
 This route will generate and return a new API token for the authenticated user
 regardless of whether a token already exists.
