@@ -37,6 +37,7 @@
             <xsl:copy-of select="background-jobs"/>
             <xsl:apply-templates select="repair-steps"/>
             <xsl:copy-of select="two-factor-providers"/>
+            <xsl:copy-of select="commands"/>
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>
