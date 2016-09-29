@@ -119,13 +119,13 @@
                 {% if object.discussion %}
                     <li><a rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
                 {% endif %}
-                {% if request.user.is_authenticated and not user_has_rated_app %}
-                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Review app' %}</button></li>
+                {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate and review' %}</button></li>
                 {% endif %}
             </ul>
         </div>
     {% endif %}
-    {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated and request.user != object.owner %}
         <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
             <div class="col-md-12">
                 <form action="{% url 'app-detail' object.id %}" method="post">
@@ -133,9 +133,14 @@
                     {% include 'form-fields.html' with form=rating_form %}
                     <p class="help-block">
                         {% blocktrans %}Reviews support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
-                            Do not use reviews to report bugs or request features. Neither developers nor users will be notified by your review.{% endblocktrans %}
+                            Do not use reviews to report bugs or request features. Neither developers nor users will be notified by your review.
+                            A rating without a review still counts, but will not be listed below.{% endblocktrans %}
                     </p>
-                    <input type="submit" value="{% trans 'Submit review' %}" class="btn btn-primary">
+                    {% if rating_form.is_bound %}
+                        <input type="submit" value="{% trans 'Update rating' %}" class="btn btn-primary">
+                    {% else %}
+                        <input type="submit" value="{% trans 'Submit rating' %}" class="btn btn-primary">
+                    {% endif %}
                 </form>
             </div>
         </div>
