@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-28 00:56+0000\n"
+"POT-Creation-Date: 2016-09-29 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Anders <anders@aasemartinsen.net>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -118,6 +118,7 @@ msgid "Rendered app name for users"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:62
+#: nextcloudappstore/core/scaffolding/forms.py:43
 msgid "Summary"
 msgstr "Oppsummering"
 
@@ -126,6 +127,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Kort tekst som beskriver appens mening"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:420
+#: nextcloudappstore/core/scaffolding/forms.py:45
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -372,6 +374,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Kategorinavn vil bli presentert til brukeren"
 
 #: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -442,6 +445,43 @@ msgstr "Påkrevd versjon for utvidelse (rå)"
 #: nextcloudappstore/core/models.py:518
 msgid "PHP extension dependencies"
 msgstr "Avhengigheter for PHP utvidelser"
+
+#: nextcloudappstore/core/scaffolding/forms.py:27
+#: nextcloudappstore/core/scaffolding/forms.py:33
+msgid "The app name must be camel case e.g. MyApp"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:31
+msgid "App name"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:35
+msgid "Nextcloud version"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:36
+msgid "Author's full name"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:37
+msgid "Author's e-mail"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:38
+msgid "Author's homepage"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:41
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:44
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:46
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr ""
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -524,7 +564,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:30
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:71
+#: nextcloudappstore/core/templates/nav.html:81
 msgid "Log in"
 msgstr "Logg inn"
 
@@ -537,7 +577,7 @@ msgstr "Glemt passord"
 #: nextcloudappstore/core/templates/account/signup.html:15
 #: nextcloudappstore/core/templates/account/signup.html:30
 #: nextcloudappstore/core/templates/app/register.html:25
-#: nextcloudappstore/core/templates/nav.html:74
+#: nextcloudappstore/core/templates/nav.html:84
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -703,7 +743,7 @@ msgstr "Ingen apper ble funnet med søkebegrep \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:15
-#: nextcloudappstore/core/templates/nav.html:46
+#: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr "Registrer app"
 
@@ -760,15 +800,25 @@ msgstr "PHP"
 msgid "Download %(name)s %(ver)s"
 msgstr "Last ned %(name)s %(ver)s"
 
+#: nextcloudappstore/core/templates/app/scaffold.html:4
+#: nextcloudappstore/core/templates/app/scaffold.html:8
+#: nextcloudappstore/core/templates/nav.html:53
+msgid "Generate app"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/scaffold.html:13
+msgid "Generate and download"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:14
-#: nextcloudappstore/core/templates/nav.html:49
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
 msgstr "Last opp app utgivelse"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid "App release successfully uploaded."
-msgstr ""
+msgstr "Apputgivelsen ble lastet opp"
 
 #: nextcloudappstore/core/templates/app/upload.html:17
 msgid ""
@@ -776,6 +826,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"For mer informasjon om hvordan du oppretter en SHA512 signatur sjekk ut <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app utvikler guiden</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -809,6 +862,8 @@ msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
+"Alle produkter og varemerker tilhører de respektive eierne, som muligens, "
+"eller på ingen måte er assosiert med Nextcloud."
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -827,15 +882,19 @@ msgstr "Søk"
 msgid "Toggle navigation"
 msgstr "Håndter navigering"
 
-#: nextcloudappstore/core/templates/nav.html:53
+#: nextcloudappstore/core/templates/nav.html:46
+msgid "App developer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:50
 msgid "Documentation"
 msgstr "Dokumentasjon"
 
-#: nextcloudappstore/core/templates/nav.html:59
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Admin"
 msgstr "Admin"
 
-#: nextcloudappstore/core/templates/nav.html:64
+#: nextcloudappstore/core/templates/nav.html:74
 #: nextcloudappstore/core/templates/user/account.html:5
 #: nextcloudappstore/core/templates/user/account.html:8
 #: nextcloudappstore/core/templates/user/base.html:5
@@ -843,7 +902,7 @@ msgstr "Admin"
 msgid "Account"
 msgstr "Konto"
 
-#: nextcloudappstore/core/templates/nav.html:67
+#: nextcloudappstore/core/templates/nav.html:77
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -1007,12 +1066,17 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Ved å slette kontoen din vil du også slette alle apper og utgivelser. For å "
+"slette din konto, skrive inn din e-postadresse i feltet og klikk på knappen,"
+" Slett konto:"
 
 #: nextcloudappstore/core/templates/user/password.html:16
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Det ser ut til at du bruker en konto som er registrert hos en tredjepart. "
+"Ditt passord kan derfor <strong>ikke</strong> endres fra denne siden."
 
 #: nextcloudappstore/core/templates/user/set-language.html:13
 msgid "Language"

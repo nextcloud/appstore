@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-28 00:56+0000\n"
+"POT-Creation-Date: 2016-09-29 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,6 +113,7 @@ msgid "Rendered app name for users"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:62
+#: nextcloudappstore/core/scaffolding/forms.py:43
 msgid "Summary"
 msgstr ""
 
@@ -121,6 +122,7 @@ msgid "Short text describing the app's purpose"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:420
+#: nextcloudappstore/core/scaffolding/forms.py:45
 msgid "Description"
 msgstr ""
 
@@ -367,6 +369,7 @@ msgid "Category name which will be presented to the user"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Categories"
 msgstr ""
 
@@ -436,6 +439,43 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:518
 msgid "PHP extension dependencies"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:27
+#: nextcloudappstore/core/scaffolding/forms.py:33
+msgid "The app name must be camel case e.g. MyApp"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:31
+msgid "App name"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:35
+msgid "Nextcloud version"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:36
+msgid "Author's full name"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:37
+msgid "Author's e-mail"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:38
+msgid "Author's homepage"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:41
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:44
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr ""
+
+#: nextcloudappstore/core/scaffolding/forms.py:46
+msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
 
 #: nextcloudappstore/core/templates/403.html:4
@@ -508,7 +548,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:30
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:71
+#: nextcloudappstore/core/templates/nav.html:81
 msgid "Log in"
 msgstr ""
 
@@ -521,7 +561,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/signup.html:15
 #: nextcloudappstore/core/templates/account/signup.html:30
 #: nextcloudappstore/core/templates/app/register.html:25
-#: nextcloudappstore/core/templates/nav.html:74
+#: nextcloudappstore/core/templates/nav.html:84
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -681,7 +721,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:15
-#: nextcloudappstore/core/templates/nav.html:46
+#: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr ""
 
@@ -737,9 +777,19 @@ msgstr ""
 msgid "Download %(name)s %(ver)s"
 msgstr ""
 
+#: nextcloudappstore/core/templates/app/scaffold.html:4
+#: nextcloudappstore/core/templates/app/scaffold.html:8
+#: nextcloudappstore/core/templates/nav.html:53
+msgid "Generate app"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/scaffold.html:13
+msgid "Generate and download"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:14
-#: nextcloudappstore/core/templates/nav.html:49
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
 msgstr ""
 
@@ -804,15 +854,19 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:53
+#: nextcloudappstore/core/templates/nav.html:46
+msgid "App developer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:50
 msgid "Documentation"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:59
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Admin"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:64
+#: nextcloudappstore/core/templates/nav.html:74
 #: nextcloudappstore/core/templates/user/account.html:5
 #: nextcloudappstore/core/templates/user/account.html:8
 #: nextcloudappstore/core/templates/user/base.html:5
@@ -820,7 +874,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:67
+#: nextcloudappstore/core/templates/nav.html:77
 msgid "Log out"
 msgstr ""
 
