@@ -120,7 +120,7 @@
                     <li><a rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
                 {% endif %}
                 {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
-                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate and review' %}</button></li>
+                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
                 {% endif %}
             </ul>
         </div>
@@ -132,9 +132,9 @@
                     {% csrf_token %}
                     {% include 'form-fields.html' with form=rating_form %}
                     <p class="help-block">
-                        {% blocktrans %}Reviews support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
-                            Do not use reviews to report bugs or request features. Neither developers nor users will be notified by your review.
-                            A rating without a review still counts, but will not be listed below.{% endblocktrans %}
+                        {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
+                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.
+                            A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
                     </p>
                     {% if rating_form.is_bound %}
                         <input type="submit" value="{% trans 'Update rating' %}" class="btn btn-primary">
