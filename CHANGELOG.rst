@@ -12,6 +12,8 @@ Changelog
 - Faster API and web interface due to reduced sql queries
 - Generate apps through the web interface
 - Combine app developer related tasks in one dropdown-menu
+- Hide app rating form from app owner
+- Naming and usability fixes for app rating form
 
 **Bugfixes**
 

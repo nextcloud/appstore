@@ -61,7 +61,7 @@ class AppRatingForm(Form):
     rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
                          widget=RadioSelect)
     comment = CharField(widget=Textarea, required=False,
-                        label=_('Review'))
+                        label=_('Comment'))
 
     class Meta:
         fields = ('rating', 'comment')

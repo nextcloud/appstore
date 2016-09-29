@@ -80,7 +80,7 @@ class AppDetailView(DetailView):
                 except AppRating.DoesNotExist:
                     comment = ''
 
-                context['rating_form'] = AppRatingForm(initial={
+                context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
                     'comment': comment
                 })
