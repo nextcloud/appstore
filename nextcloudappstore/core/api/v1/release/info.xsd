@@ -44,6 +44,8 @@
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="two-factor-providers" type="two-factor-providers"
                             minOccurs="0" maxOccurs="1"/>
+                <xs:element name="commands" type="commands"
+                            minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -426,6 +428,13 @@
     <xs:complexType name="two-factor-providers">
         <xs:sequence>
             <xs:element name="provider" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="commands">
+        <xs:sequence>
+            <xs:element name="command" type="php-class" minOccurs="1"
                         maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
