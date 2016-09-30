@@ -10,6 +10,8 @@ Nextcloud 9 and 10 use the old App Store at https://apps.owncloud.com which expo
 
     'appstoreurl' => 'https://apps.nextcloud.com/api/v0',
 
+.. note:: The API is undocumented on purpose and can be removed at any time so do not rely on it
+
 Authentication
 --------------
 
