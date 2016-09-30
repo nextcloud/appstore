@@ -71,7 +71,7 @@ exists, one will be generated.
 
 .. _api-token-new:
 
-Regenerate API Tokenalso copy commands
+Regenerate API Token
 ~~~~~~~~~~~~~~~~~~~~
 This route will generate and return a new API token for the authenticated user
 regardless of whether a token already exists.
