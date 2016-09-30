@@ -225,6 +225,9 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <two-factor-providers>
             <provider>OCA\AuthF\TwoFactor\Provider</provider>
         </two-factor-providers>
+        <commands>
+            <command>A\Php\Class</command>
+        </commands>
     </info>
 
 The following tags are validated and used in the following way:
@@ -387,6 +390,10 @@ repair-steps/uninstall/step
 two-factor-providers/provider
     * optional
     * must contain a php class which is registered as two factor auth provider
+    * will not be used, only validated
+commands/command
+    * optional
+    * must contain a php class which is registered as occ command
     * will not be used, only validated
 
 The following character maximum lengths are enforced:
