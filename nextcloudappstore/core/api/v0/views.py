@@ -19,9 +19,20 @@ def categories(request):
     }, content_type='application/xml')
 
 
+def in_category(app, category):
+    categories = app.categories.all()
+    for cat in categories:
+        if cat.id == category:
+            return True
+    return False
+
+
 def apps(request):
     version = transform_version(request.GET.get('version'))
+    category = request.GET.get('categories', None)
     apps = App.objects.get_compatible(version)
+    if category is not None:
+        apps = filter(lambda app: in_category(app, category), apps)
     return render_to_response('api/v0/apps.xml', {
         'apps': apps,
         'request': request,
