@@ -292,12 +292,14 @@ def parse_changelog(changelog: str, version: str) -> str:
     changelog = changelog.strip()
     # version lines have a format of: app_id (8.9.0)
     regex = r'^[a-zA-Z_]+\s*\((\d+\.\d+\.\d+)\)$'
-    result = {}
-    current_version = ''
+    result = {}  # type: Dict[str, List[str]]
+    curr_version = ''
+    empty_list = []  # type: List[str]
     for line in changelog.splitlines():
         search = re.search(regex, line)
         if search:
-            current_version = search.group(1)
+            curr_version = search.group(1)
         else:
-            result[current_version] = result.get(current_version, []) + [line]
-    return '\n'.join(result.get(version, [])).strip()
+            result[curr_version] = result.get(curr_version, empty_list) + [
+                line]
+    return '\n'.join(result.get(version, empty_list)).strip()
