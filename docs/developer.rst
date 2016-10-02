@@ -454,6 +454,9 @@ Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.co
     - Update folder counters when reading/deleting messages
       [#1585](https://github.com/owncloud/mail/pull/1585)
 
+    ### Removed
+    - Removed old API
+
 .. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**
 
 The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
