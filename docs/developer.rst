@@ -417,21 +417,46 @@ Changelog
 
 The changelog has to be named **CHANGELOG.md** and being placed in your app's top level folder, e.g. **news/CHANGELOG.md**.
 
-The changelog version sections are being identified by checking for a line in the format of **appid (version)** (no spaces before or after the line), e.g.::
+Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.com>`_, e.g.::
 
-    news (9.0.0)
+    ## 0.6.0 – 2016-09-20
+    ### Added
+    - Alias support
+      [#1523](https://github.com/owncloud/mail/pull/1523) @tahaalibra
+    - New incoming messages are prefetched
+      [#1631](https://github.com/owncloud/mail/pull/1631) @ChristophWurst
+    - Custom app folder support
+      [#1627](https://github.com/owncloud/mail/pull/1627) @juliushaertl
+    - Improved search
+      [#1609](https://github.com/owncloud/mail/pull/1609) @ChristophWurst
+    - Scroll to refresh
+      [#1595](https://github.com/owncloud/mail/pull/1593) @ChristophWurst
+    - Shortcuts to star and mark messages as unread
+      [#1590](https://github.com/owncloud/mail/pull/1590) @ChristophWurst
+    - Shortcuts to select previous/next messsage
+      [#1557](https://github.com/owncloud/mail/pull/1557) @ChristophWurst
 
-    * Change 1
-    * Change 2
+    ## Changed
+    - Minimum server is Nextcloud 10/ownCloud 9.1
+      [#84](https://github.com/nextcloud/mail/pull/84) @ChristophWurst
+    - Use session storage instead of local storage for client-side cache
+      [#1612](https://github.com/owncloud/mail/pull/1612) @ChristophWurst
+    - When deleting the current message, the next one is selected immediatelly
+      [#1585](https://github.com/owncloud/mail/pull/1585) @ChristophWurst
 
-    news (8.0.0)
+    ## Fixed
+    - Client error while composing a new message
+      [#1609](https://github.com/owncloud/mail/pull/1609) @ChristophWurst
+    - Delay app start until page has finished loading
+      [#1634](https://github.com/owncloud/mail/pull/1634) @ChristophWurst
+    - Auto-redirection of HTML mail links
+      [#1603](https://github.com/owncloud/mail/pull/1603) @ChristophWurst
+    - Update folder counters when reading/deleting messages
+      [#1585](https://github.com/owncloud/mail/pull/1585)
 
-    * Change 1
-    * Change 2
+.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**
 
-.. note:: The regex for matching the line is **^[a-zA-Z_]+\s*\((\d+\.\d+\.\d+)\)$**
-
-The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string
+The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
 
 .. _info-schema:
 

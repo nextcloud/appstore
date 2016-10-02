@@ -291,7 +291,7 @@ def parse_changelog(changelog: str, version: str) -> str:
     """
     changelog = changelog.strip()
     # version lines have a format of: app_id (8.9.0)
-    regex = r'^[a-zA-Z_]+\s*\((\d+\.\d+\.\d+)\)$'
+    regex = r'^## (\d+\.\d+\.\d+)'
     result = {}  # type: Dict[str, List[str]]
     curr_version = ''
     empty_list = []  # type: List[str]
