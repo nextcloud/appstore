@@ -128,12 +128,12 @@ After you've obtained a new certificate, simply use it to register your app id a
 App Metadata
 ------------
 
-App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
-
-The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
+App metadata is currently being read from the **appinfo/info.xml** and **CHANGELOG.md** file.
 
 info.xml
 ~~~~~~~~
+The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
+
 A minimum valid **info.xml** would look like this:
 
 .. code-block:: xml
@@ -411,6 +411,27 @@ The following elements are either deprecated or for internal use only and will f
 * **requiremin**
 * **requiremax**
 
+
+Changelog
+~~~~~~~~~
+
+The changelog has to be named **CHANGELOG.md** and being placed in your app's top level folder, e.g. **news/CHANGELOG.md**.
+
+The changelog version sections are being identified by checking for a line in the format of **appid (version)** (no spaces before or after the line), e.g.::
+
+    news (9.0.0)
+
+    * Change 1
+    * Change 2
+
+    news (8.0.0)
+
+    * Change 1
+    * Change 2
+
+.. note:: The regex for matching the line is **^[a-zA-Z_]+\s*\((\d+\.\d+\.\d+)\)$**
+
+The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string
 
 .. _info-schema:
 
