@@ -419,6 +419,10 @@ The changelog has to be named **CHANGELOG.md** and being placed in your app's to
 
 Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.com>`_, e.g.::
 
+    ## [Unreleased]
+    ### Added
+    - Nighly changes here
+
     ## 0.6.0 – 2016-09-20
     ### Added
     - Alias support
@@ -457,9 +461,17 @@ Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.co
     ### Removed
     - Removed old API
 
+    ### Deprecated
+    - Deprecated new API
+
+    ### Security
+    - Fixed XXE in xml upload
+
 .. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**
 
 The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
+
+The changelog for nightlies will be taken from the **## [Unreleased]** block
 
 .. _info-schema:
 

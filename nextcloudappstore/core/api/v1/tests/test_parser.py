@@ -471,6 +471,12 @@ class ParserTest(TestCase):
         expected = self._get_contents('data/changelogs/0.4.3.md').strip()
         self.assertEqual(expected, changelog)
 
+    def test_parse_changelog_nightly(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '0.4.3-nightly')
+        expected = self._get_contents('data/changelogs/unreleased.md').strip()
+        self.assertEqual(expected, changelog)
+
     def _get_contents(self, target):
         path = self.get_path(target)
         return read_file_contents(path)
