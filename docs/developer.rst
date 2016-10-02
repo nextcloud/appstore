@@ -467,7 +467,7 @@ Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.co
     ### Security
     - Fixed XXE in xml upload
 
-.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**
+.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**, the regex for nightlies is **^## [Unreleased]**
 
 The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
 
