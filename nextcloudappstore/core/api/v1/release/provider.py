@@ -21,7 +21,7 @@ class AppReleaseProvider:
         self.downloader = downloader
 
     def get_release_info(self, url: str, is_nightly: bool = False) -> Tuple[
-        Dict, str]:
+                                                                    Dict, str]:
         data = None
         with self.downloader.get_archive(
             url, self.config.download_root, self.config.download_max_timeout,
