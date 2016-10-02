@@ -74,7 +74,8 @@ class AppReleaseSerializer(serializers.ModelSerializer):
             'version', 'php_extensions', 'databases', 'shell_commands',
             'php_version_spec', 'platform_version_spec', 'min_int_size',
             'download', 'created', 'licenses', 'last_modified', 'nightly',
-            'raw_php_version_spec', 'raw_platform_version_spec', 'signature'
+            'raw_php_version_spec', 'raw_platform_version_spec', 'signature',
+            'changelog',
         )
 
     def get_platform_version_spec(self, obj):
@@ -115,7 +116,7 @@ class AppSerializer(serializers.ModelSerializer):
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
             'screenshots', 'translations', 'featured', 'authors',
-            'rating_recent', 'rating_overall', 'certificate', 'changelog',
+            'rating_recent', 'rating_overall', 'certificate',
         )
 
 

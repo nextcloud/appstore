@@ -291,7 +291,8 @@ This route will return all releases to display inside Nextcloud's apps admin are
                         "agpl"
                     ],
                     "lastModified": "2016-06-25T16:49:25.319425Z",
-                    "signature": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5"
+                    "signature": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5",
+                    "changelog": "* **Bugfix**: Pad API last modified timestamp to milliseconds in updated items API to return only new items. API users however need to re-sync their complete contents, #24\n* **Bugfix**: Do not pad milliseconds for non millisecond timestamps in API"
                 }
             ],
             "screenshots": [
