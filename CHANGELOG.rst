@@ -16,6 +16,7 @@ Changelog
 - Hide app rating form from app owner
 - Naming and usability fixes for app rating form
 - Add validation for command tags in info.xml
+- Parse appid/CHANGELOG.md if present
 
 **Bugfixes**
 

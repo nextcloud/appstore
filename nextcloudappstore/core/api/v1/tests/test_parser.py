@@ -7,7 +7,7 @@ from nextcloudappstore.core.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
     InvalidAppPackageStructureException, \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
-    fix_partial_translations
+    fix_partial_translations, parse_changelog
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
 from rest_framework.exceptions import APIException
@@ -19,7 +19,7 @@ class ParserTest(TestCase):
         self.maxDiff = None
 
     def test_parse_minimal(self):
-        xml = self._get_test_xml('data/infoxmls/minimal.xml')
+        xml = self._get_contents('data/infoxmls/minimal.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -62,20 +62,20 @@ class ParserTest(TestCase):
         self.assertDictEqual(expected, result)
 
     def test_parse_repair_jobs(self):
-        xml = self._get_test_xml('data/infoxmls/repair-and-jobs.xml')
+        xml = self._get_contents('data/infoxmls/repair-and-jobs.xml')
         parse_app_metadata(xml, self.config.info_schema,
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
 
     def test_parse_invalid_elements(self):
-        xml = self._get_test_xml('data/infoxmls/invalid-elements.xml')
+        xml = self._get_contents('data/infoxmls/invalid-elements.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_parse_minimal_transform(self):
-        xml = self._get_test_xml('data/infoxmls/transform.xml')
+        xml = self._get_contents('data/infoxmls/transform.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -85,7 +85,7 @@ class ParserTest(TestCase):
         self.assertEqual('12.0.0', max_version)
 
     def test_parse_minimal_nextcloud(self):
-        xml = self._get_test_xml('data/infoxmls/nextcloud.xml')
+        xml = self._get_contents('data/infoxmls/nextcloud.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -95,7 +95,7 @@ class ParserTest(TestCase):
         self.assertEqual('12.0.0', max_version)
 
     def test_parse_category_mapping(self):
-        xml = self._get_test_xml('data/infoxmls/category_mapping.xml')
+        xml = self._get_contents('data/infoxmls/category_mapping.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -107,7 +107,7 @@ class ParserTest(TestCase):
         self.assertListEqual(expected, categories)
 
     def test_parse_category_mapping_tool(self):
-        xml = self._get_test_xml('data/infoxmls/category_mapping_tool.xml')
+        xml = self._get_contents('data/infoxmls/category_mapping_tool.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -118,7 +118,7 @@ class ParserTest(TestCase):
         self.assertListEqual(expected, categories)
 
     def test_parse_category_mapping_game(self):
-        xml = self._get_test_xml('data/infoxmls/category_mapping_game.xml')
+        xml = self._get_contents('data/infoxmls/category_mapping_game.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -129,34 +129,34 @@ class ParserTest(TestCase):
         self.assertListEqual(expected, categories)
 
     def test_validate_schema(self):
-        xml = self._get_test_xml('data/infoxmls/invalid.xml')
+        xml = self._get_contents('data/infoxmls/invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_fixes_xml(self):
-        xml = self._get_test_xml('data/infoxmls/news.xml')
+        xml = self._get_contents('data/infoxmls/news.xml')
         parse_app_metadata(xml, self.config.info_schema,
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
 
     def test_broken_xml(self):
-        xml = self._get_test_xml('data/infoxmls/broken-xml.xml')
+        xml = self._get_contents('data/infoxmls/broken-xml.xml')
         with (self.assertRaises(APIException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_entities(self):
-        xml = self._get_test_xml('data/infoxmls/entities.xml')
+        xml = self._get_contents('data/infoxmls/entities.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_bad_shell(self):
-        xml = self._get_test_xml('data/infoxmls/badcommand.xml')
+        xml = self._get_contents('data/infoxmls/badcommand.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
@@ -165,15 +165,24 @@ class ParserTest(TestCase):
     def test_extract_contracts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id = extractor.extract_app_metadata(path)
+        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('contacts', app_id)
+        self.assertEqual('', changes)
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id = extractor.extract_app_metadata(path)
-        full = self._get_test_xml('data/infoxmls/full.xml')
+        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        full = self._get_contents('data/infoxmls/full.xml')
         self.assertEqual(full, full_extracted)
+        self.assertEqual('', changes)
+
+    def test_extract_changelog(self):
+        path = self.get_path('data/archives/changelog.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        full_extracted, app_id, changes = extractor.extract_app_metadata(
+            path)
+        self.assertNotEqual('', changes)
 
     def test_extract_gunzip_no_appinfo(self):
         path = self.get_path('data/archives/invalid.tar.gz')
@@ -218,21 +227,21 @@ class ParserTest(TestCase):
             extractor.extract_app_metadata(path)
 
     def test_validate_english_name(self):
-        xml = self._get_test_xml('data/infoxmls/no_en_name.xml')
+        xml = self._get_contents('data/infoxmls/no_en_name.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_validate_english_summary(self):
-        xml = self._get_test_xml('data/infoxmls/no_en_summary.xml')
+        xml = self._get_contents('data/infoxmls/no_en_summary.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
     def test_validate_english_description(self):
-        xml = self._get_test_xml('data/infoxmls/no_en_description.xml')
+        xml = self._get_contents('data/infoxmls/no_en_description.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
@@ -319,7 +328,7 @@ class ParserTest(TestCase):
         self.assertDictEqual(expected, result)
 
     def test_map_data(self):
-        full = self._get_test_xml('data/infoxmls/full.xml')
+        full = self._get_contents('data/infoxmls/full.xml')
         result = parse_app_metadata(full, self.config.info_schema,
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
@@ -447,7 +456,22 @@ class ParserTest(TestCase):
         }}
         self.assertDictEqual(expected, result)
 
-    def _get_test_xml(self, target):
+    def test_parse_changelog_empty(self):
+        changelog = parse_changelog('', '9.0')
+        self.assertEqual('', changelog)
+
+    def test_parse_changelog_not_found(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '9.0.5')
+        self.assertEqual('', changelog)
+
+    def test_parse_changelog(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '8.7.0')
+        expected = self._get_contents('data/changelogs/8.7.0.md').strip()
+        self.assertEqual(expected, changelog)
+
+    def _get_contents(self, target):
         path = self.get_path(target)
         return read_file_contents(path)
 

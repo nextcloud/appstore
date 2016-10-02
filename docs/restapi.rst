@@ -351,7 +351,7 @@ signature
     A signature using SHA512 and the app's certificate
 
 description
-    A full blown description containing markdown
+    A full blown description containing Markdown
 
 summary
     A brief explanation what the app tries to do
@@ -362,7 +362,8 @@ featured
 categories
     The string value is the category's id attribute, see :ref:`api-all-categories`
 
-
+changelog
+    The release changelog in Markdown
 
 .. _api-register-app:
 
