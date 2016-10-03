@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ocs>
+    <meta>
+        <status>ok</status>
+        <statuscode>100</statuscode>
+        <message></message>
+        <totalitems>{{ categories|length }}</totalitems>
+    </meta>
+    <data>
+        {% for cat in categories %}
+        <category>
+            <id>{{ cat.id }}</id>
+            <name>{{ cat.name }}</name>
+        </category>
+        {% endfor %}
+    </data>
+</ocs>
