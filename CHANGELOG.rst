@@ -17,6 +17,7 @@ Changelog
 - Naming and usability fixes for app rating form
 - Add validation for command tags in info.xml
 - Parse appid/CHANGELOG.md if present
+- Add legacy API so Nextcloud 9 and 10 can switch to the new store
 
 **Bugfixes**
 
