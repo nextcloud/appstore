@@ -7,7 +7,7 @@ from nextcloudappstore.core.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
     InvalidAppPackageStructureException, \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
-    fix_partial_translations, parse_changelog
+    fix_partial_translations, parse_changelog, ForbiddenLinkException
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
 from rest_framework.exceptions import APIException
@@ -205,19 +205,19 @@ class ParserTest(TestCase):
     def test_extract_gunzip_symlink(self):
         path = self.get_path('data/archives/symlink.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        with (self.assertRaises(InvalidAppPackageStructureException)):
+        with (self.assertRaises(ForbiddenLinkException)):
             extractor.extract_app_metadata(path)
 
     def test_extract_gunzip_appinfo_symlink(self):
         path = self.get_path('data/archives/appinfosymlink.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        with (self.assertRaises(InvalidAppPackageStructureException)):
+        with (self.assertRaises(ForbiddenLinkException)):
             extractor.extract_app_metadata(path)
 
     def test_extract_gunzip_app_symlink(self):
         path = self.get_path('data/archives/appsymlink.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        with (self.assertRaises(InvalidAppPackageStructureException)):
+        with (self.assertRaises(ForbiddenLinkException)):
             extractor.extract_app_metadata(path)
 
     def test_extract_zip(self):

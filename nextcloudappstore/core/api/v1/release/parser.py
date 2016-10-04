@@ -27,6 +27,10 @@ class InvalidAppPackageStructureException(APIException):
     pass
 
 
+class ForbiddenLinkException(InvalidAppPackageStructureException):
+    pass
+
+
 class XMLSyntaxError(APIException):
     pass
 
@@ -122,7 +126,7 @@ class GunZipAppMetadataExtractor:
             if member.issym() or member.islnk():
                 msg = 'Symlinks and hard links can not be used for %s' % \
                       member
-                raise InvalidAppPackageStructureException(msg)
+                raise ForbiddenLinkException(msg)
         return check_member(path)
 
     def _find_app_id(self, tar: Any) -> str:
