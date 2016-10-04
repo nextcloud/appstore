@@ -221,7 +221,8 @@ class AppImporter(Importer):
                  attribute_importer: StringAttributeImporter,
                  l10n_importer: L10NImporter,
                  category_importer: CategoryImporter,
-                 author_importer: AuthorImporter) -> None:
+                 author_importer: AuthorImporter,
+                 integer_attribute_importer: IntegerAttributeImporter) -> None:
         super().__init__({
             'release': release_importer,
             'screenshots': screenshots_importer,
@@ -236,7 +237,8 @@ class AppImporter(Importer):
             'summary': l10n_importer,
             'description': l10n_importer,
             'categories': category_importer,
-            'authors': author_importer
+            'authors': author_importer,
+            'ocsid': integer_attribute_importer,
         }, {'id'})
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:

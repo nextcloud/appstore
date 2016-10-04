@@ -10,13 +10,13 @@
     <data>
         {% for app in apps %}
         <content details="summary">
-            <id>{{ app.id }}</id>
+            <id>{{ app.ocsid }}</id>
             <name>{{ app.name }}</name>
             {% with releases=app|compatible_releases:version %}
             <version>{{ releases.0.version }}</version>
             {% endwith %}
             <changed>{{ app.last_release|date:'c' }}</changed>
-            <typeid>{{ app.categories.all.0.id }}</typeid>
+            <typeid>{{ app.categories.all.0.ocsid }}</typeid>
             <typename>{{ app.categories.all.0.name }}</typename>
             <personid>{{ app.owner.first_name }} {{ app.owner.last_name }}</personid>
             <profilepage>http://opendesktop.org/usermanager/search.php?username=anonymous</profilepage>

@@ -32,7 +32,8 @@
                             maxOccurs="1"/>
                 <xs:element name="repository" type="repository" minOccurs="0"
                             maxOccurs="1"/>
-                <xs:element name="discussion" type="discussion-url" minOccurs="0"
+                <xs:element name="discussion" type="discussion-url"
+                            minOccurs="0"
                             maxOccurs="1"/>
                 <xs:element name="screenshot" type="secure-url" minOccurs="0"
                             maxOccurs="10"/>
@@ -42,10 +43,13 @@
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="repair-steps" type="repair-steps"
                             minOccurs="0" maxOccurs="1"/>
-                <xs:element name="two-factor-providers" type="two-factor-providers"
+                <xs:element name="two-factor-providers"
+                            type="two-factor-providers"
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="commands" type="commands"
                             minOccurs="0" maxOccurs="1"/>
+                <xs:element name="ocsid" type="xs:int" minOccurs="0"
+                            maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -441,7 +445,8 @@
 
     <xs:simpleType name="php-class">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[a-zA-Z_][0-9a-zA-Z_]*(\\[a-zA-Z_][0-9a-zA-Z_]*)*"/>
+            <xs:pattern
+                    value="[a-zA-Z_][0-9a-zA-Z_]*(\\[a-zA-Z_][0-9a-zA-Z_]*)*"/>
         </xs:restriction>
     </xs:simpleType>
 
