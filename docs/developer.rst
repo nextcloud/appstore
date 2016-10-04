@@ -128,12 +128,12 @@ After you've obtained a new certificate, simply use it to register your app id a
 App Metadata
 ------------
 
-App metadata is currently only being read from the **appinfo/info.xml** file. Future releases might include further files like CHANGELOG.md and AUTHORS.md files.
-
-The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
+App metadata is currently being read from the **appinfo/info.xml** and **CHANGELOG.md** file.
 
 info.xml
 ~~~~~~~~
+The info.xml is validated using an XML Schema which can be accessed `online <https://apps.nextcloud.com/schema/apps/info.xsd>`_.
+
 A minimum valid **info.xml** would look like this:
 
 .. code-block:: xml
@@ -411,6 +411,67 @@ The following elements are either deprecated or for internal use only and will f
 * **requiremin**
 * **requiremax**
 
+
+Changelog
+~~~~~~~~~
+
+The changelog has to be named **CHANGELOG.md** and being placed in your app's top level folder, e.g. **news/CHANGELOG.md**.
+
+Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.com>`_, e.g.::
+
+    ## [Unreleased]
+    ### Added
+    - Nighly changes here
+
+    ## 0.6.0 – 2016-09-20
+    ### Added
+    - Alias support
+      [#1523](https://github.com/owncloud/mail/pull/1523) @tahaalibra
+    - New incoming messages are prefetched
+      [#1631](https://github.com/owncloud/mail/pull/1631) @ChristophWurst
+    - Custom app folder support
+      [#1627](https://github.com/owncloud/mail/pull/1627) @juliushaertl
+    - Improved search
+      [#1609](https://github.com/owncloud/mail/pull/1609) @ChristophWurst
+    - Scroll to refresh
+      [#1595](https://github.com/owncloud/mail/pull/1593) @ChristophWurst
+    - Shortcuts to star and mark messages as unread
+      [#1590](https://github.com/owncloud/mail/pull/1590) @ChristophWurst
+    - Shortcuts to select previous/next messsage
+      [#1557](https://github.com/owncloud/mail/pull/1557) @ChristophWurst
+
+    ### Changed
+    - Minimum server is Nextcloud 10/ownCloud 9.1
+      [#84](https://github.com/nextcloud/mail/pull/84) @ChristophWurst
+    - Use session storage instead of local storage for client-side cache
+      [#1612](https://github.com/owncloud/mail/pull/1612) @ChristophWurst
+    - When deleting the current message, the next one is selected immediatelly
+      [#1585](https://github.com/owncloud/mail/pull/1585) @ChristophWurst
+
+    ### Fixed
+    - Client error while composing a new message
+      [#1609](https://github.com/owncloud/mail/pull/1609) @ChristophWurst
+    - Delay app start until page has finished loading
+      [#1634](https://github.com/owncloud/mail/pull/1634) @ChristophWurst
+    - Auto-redirection of HTML mail links
+      [#1603](https://github.com/owncloud/mail/pull/1603) @ChristophWurst
+    - Update folder counters when reading/deleting messages
+      [#1585](https://github.com/owncloud/mail/pull/1585)
+
+    ### Removed
+    - Removed old API
+
+    ### Deprecated
+    - Deprecated new API
+
+    ### Security
+    - Fixed XXE in xml upload
+
+.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**, the regex for nightlies is **^## [Unreleased]**
+
+The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
+
+The changelog for nightlies will be taken from the **## [Unreleased]** block
 
 .. _info-schema:
 

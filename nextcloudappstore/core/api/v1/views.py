@@ -113,13 +113,11 @@ class AppReleaseView(DestroyAPIView):
             container = Container()
             provider = container.resolve(AppReleaseProvider)
             try:
-                info, data = provider.get_release_info(url)
+                info, data = provider.get_release_info(url, is_nightly)
             except HTTPError as e:
                 raise APIException(e)
 
             # populate metadata from request
-            if is_nightly:
-                info['app']['release']['version'] += '-nightly'
             info['app']['release']['signature'] = signature
             info['app']['release']['download'] = url
 

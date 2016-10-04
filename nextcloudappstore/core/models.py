@@ -333,6 +333,8 @@ class AppRelease(Model):
                                   verbose_name=_('Updated at'))
     signature = TextField(verbose_name=_('Signature'), help_text=_(
         'A signature using SHA512 and the app\'s certificate'))
+    changelog = TextField(verbose_name=_('Changelog'), help_text=_(
+        'The release changelog. Can contain Markdown'), default='')
 
     class Meta:
         verbose_name = _('App release')

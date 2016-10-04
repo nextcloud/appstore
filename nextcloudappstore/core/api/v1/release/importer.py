@@ -174,6 +174,7 @@ class AppReleaseImporter(Importer):
             'shell_commands': shell_command_importer,
             'signature': string_attribute_importer,
             'download': string_attribute_importer,
+            'changelog': string_attribute_importer,
         }, {
             'version',
             'raw_version',
