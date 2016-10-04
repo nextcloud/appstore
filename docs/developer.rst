@@ -228,6 +228,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <commands>
             <command>A\Php\Class</command>
         </commands>
+        <ocsid>123</ocsid>
     </info>
 
 The following tags are validated and used in the following way:
@@ -395,6 +396,13 @@ commands/command
     * optional
     * must contain a php class which is registered as occ command
     * will not be used, only validated
+ocsid
+    * optional
+    * used only to identify the app for Nextcloud versions 9 and 10
+    * equal to the id on the old app store, e.g. **https://apps.owncloud.com/content/show.php/Spreed.ME?content=174436** would use **174436**
+    * if not provided in your info.xml then the app will not be available for Nextcloud 9 and 10
+    * if you do not have an id yet, create an app on the apps.owncloud.com app store and use that id. This ensures that the id is unique and unused. You can delete the app afterwards if you do not want to publish your app on both stores.
+    * deprecated; Support will be moved once 9 an 10 run out of support
 
 The following character maximum lengths are enforced:
 

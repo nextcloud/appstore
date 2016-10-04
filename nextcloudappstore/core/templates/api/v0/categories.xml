@@ -9,7 +9,7 @@
     <data>
         {% for cat in categories %}
         <category>
-            <id>{{ cat.id }}</id>
+            <id>{{ cat.ocsid }}</id>
             <name>{{ cat.name }}</name>
         </category>
         {% endfor %}

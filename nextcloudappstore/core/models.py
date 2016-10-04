@@ -95,6 +95,8 @@ class App(TranslatableModel):
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
     certificate = TextField(verbose_name=_('Certificate'))
+    ocsid = IntegerField(verbose_name=_('OCS id'), null=True, blank=True,
+                         help_text=_('Old store id. Deprecated'), unique=True)
 
     class Meta:
         verbose_name = _('App')
@@ -430,6 +432,14 @@ class Category(TranslatableModel):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def ocsid(self):
+        """Deprecated hack, assumes that the first two chars are unique"""
+        initials = self.id[:2]
+        ascii = map(ord, initials)
+        chars = map(str, ascii)
+        return ''.join(chars)
 
 
 class License(Model):

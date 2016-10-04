@@ -38,6 +38,7 @@
             <xsl:apply-templates select="repair-steps"/>
             <xsl:copy-of select="two-factor-providers"/>
             <xsl:copy-of select="commands"/>
+            <xsl:copy-of select="ocsid"/>
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>

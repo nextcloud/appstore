@@ -189,7 +189,7 @@ class GunZipAppMetadataExtractor:
 def element_to_dict(element: Any) -> Dict:
     type = element.get('type')
     key = element.tag.replace('-', '_')
-    if type == 'int':
+    if type == 'int' and element.text is not None:
         return {key: int(element.text)}
     elif type == 'list':
         return {key: list(map(element_to_dict, element.iterchildren()))}

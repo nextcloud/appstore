@@ -116,6 +116,9 @@
             <discussion>
                 <xsl:value-of select="discussion"/>
             </discussion>
+            <ocsid type="int">
+                <xsl:value-of select="ocsid"/>
+            </ocsid>
 
             <!-- release -->
             <release>

@@ -155,6 +155,23 @@ class ImporterTest(TestCase):
         app = App.objects.get(pk='news')
         self.assertEqual('', app.website)
 
+    def test_release_import_ocsid_present(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        result['app']['ocsid'] = 3
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual(3, app.ocsid)
+
+    def test_release_import_ocsid_absent(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual(None, app.ocsid)
+
     def _assert_all_empty(self, obj, attribs):
         for attrib in attribs:
             self.assertEqual('', getattr(obj, attrib), attrib)

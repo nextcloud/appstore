@@ -22,7 +22,7 @@ def categories(request):
 def in_category(app, category):
     categories = app.categories.all()
     for cat in categories:
-        if cat.id == category:
+        if cat.ocsid == category:
             return True
     return False
 
@@ -30,7 +30,8 @@ def in_category(app, category):
 def apps(request):
     version = transform_version(request.GET.get('version'))
     category = request.GET.get('categories', None)
-    apps = App.objects.get_compatible(version)
+    compatible_apps = App.objects.get_compatible(version)
+    apps = filter(lambda a: a.ocsid is not None, compatible_apps)
     if category is not None:
         apps = filter(lambda app: in_category(app, category), apps)
     return render_to_response('api/v0/apps.xml', {
@@ -42,7 +43,7 @@ def apps(request):
 
 def app(request, id):
     version = transform_version(request.GET.get('version'))
-    app = get_object_or_404(App, id=id)
+    app = get_object_or_404(App, ocsid=id)
     return render_to_response('api/v0/app.xml', {
         'app': app,
         'request': request,
@@ -52,7 +53,7 @@ def app(request, id):
 
 def download(request, id):
     version = transform_version(request.GET.get('version'))
-    app = get_object_or_404(App, id=id)
+    app = get_object_or_404(App, ocsid=id)
     releases = app.compatible_releases(version)
     if len(releases) == 0:
         raise Http404('No release downloads found')

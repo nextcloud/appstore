@@ -57,7 +57,8 @@ class ParserTest(TestCase):
                 'shell_commands': [],
                 'version': '8.8.2',
                 'raw_version': '8.8.2',
-            }
+            },
+            'ocsid': None,
         }}
         self.assertDictEqual(expected, result)
 
@@ -453,6 +454,7 @@ class ParserTest(TestCase):
                 {'screenshot': {'url': 'https://example.com/2.jpg',
                                 'ordering': 2}}
             ],
+            'ocsid': None,
         }}
         self.assertDictEqual(expected, result)
 
