@@ -5,7 +5,7 @@ from django.contrib.auth.models import User  # type: ignore
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q, \
-    FloatField, OneToOneField, Max  # type: ignore
+    FloatField, OneToOneField  # type: ignore
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
