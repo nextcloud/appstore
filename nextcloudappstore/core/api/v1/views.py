@@ -72,6 +72,10 @@ class AppRegisterView(APIView):
             created = False
         except App.DoesNotExist:
             app = App.objects.create(id=app_id, owner=request.user)
+            app.set_current_language('en')
+            app.description = app_id
+            app.name = app_id
+            app.summary = app_id
 
         if app.owner != request.user:
             raise PermissionDenied('Only the app owner is allowed to update'
