@@ -6,6 +6,13 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+def create_default_changelogs(apps, schema_editor):
+    model = apps.get_model('core', 'AppRelease')
+    for release in model.objects.all():
+        release.set_current_language('en')
+        release.changelog = ''
+        release.save()
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -41,4 +48,5 @@ class Migration(migrations.Migration):
             name='appreleasetranslation',
             unique_together=set([('language_code', 'master')]),
         ),
+        migrations.RunPython(create_default_changelogs, migrations.RunPython.noop)
     ]
