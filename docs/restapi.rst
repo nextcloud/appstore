@@ -377,7 +377,7 @@ categories
     The string value is the category's id attribute, see :ref:`api-all-categories`
 
 changelog
-    The release changelog in Markdown
+    The translated release changelog in Markdown. Can be empty for all languages
 
 .. _api-register-app:
 
