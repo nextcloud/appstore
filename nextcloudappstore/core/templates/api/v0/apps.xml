@@ -5,7 +5,7 @@
         <statuscode>100</statuscode>
         <message></message>
         <totalitems>{{ apps|length }}</totalitems>
-        <itemsperpage>1000000</itemsperpage>
+        <itemsperpage>{{ apps|length }}</itemsperpage>
     </meta>
     <data>
         {% for app in apps %}

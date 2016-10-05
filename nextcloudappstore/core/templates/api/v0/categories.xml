@@ -5,6 +5,7 @@
         <statuscode>100</statuscode>
         <message></message>
         <totalitems>{{ categories|length }}</totalitems>
+        <itemsperpage>{{ categories|length }}</itemsperpage>
     </meta>
     <data>
         {% for cat in categories %}

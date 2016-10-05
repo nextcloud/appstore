@@ -35,7 +35,7 @@ def apps(request):
     if category is not None:
         apps = filter(lambda app: in_category(app, category), apps)
     return render_to_response('api/v0/apps.xml', {
-        'apps': apps,
+        'apps': list(apps),
         'request': request,
         'version': version
     }, content_type='application/xml')
