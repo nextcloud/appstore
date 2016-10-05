@@ -220,7 +220,12 @@ class App(TranslatableModel):
         try:
             if self.pk is not None:
                 orig = App.objects.get(pk=self.pk)
-                if self.certificate != orig.certificate:
+                current = self.certificate
+                former = orig.certificate
+                # for some reason the django admin inserts \r\n for \n so
+                # saving a model in the admin with the same cert kills all
+                # releases
+                if current.replace('\r', '') != former.replace('\r', ''):
                     self.releases.all().delete()
         except self.DoesNotExist:
             pass
