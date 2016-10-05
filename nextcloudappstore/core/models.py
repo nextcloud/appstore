@@ -586,6 +586,13 @@ class AppOwnershipTransfer(Model):
         on_delete=CASCADE)
     proposed = DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = _('App ownership transfer')
+        verbose_name_plural = _('App ownership transfers')
+
+    def __str__(self) -> str:
+        return '%s: from %s to %s' % (self.app, self.from_user, self.to_user)
+
     def commit(self):
         """Execute the transfer. Does not check for acceptance by the user
         acquiring ownership.
