@@ -45,6 +45,7 @@ dev-setup:
 	@echo "EMAIL_HOST = 'localhost'" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "DEFAULT_FROM_EMAIL = 'Appstore <appstore@nextcloud.com>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	@echo "INSTALLED_APPS.append('debug_toolbar')" >> $(CURDIR)/nextcloudappstore/settings/development.py
+	@echo "MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')" >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
