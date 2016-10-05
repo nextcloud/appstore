@@ -13,35 +13,72 @@ class PhpExtensionDependencyInline(admin.TabularInline):
     extra = 1
 
 
+@admin.register(AppRelease)
 class AppReleaseAdmin(TranslatableAdmin):
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
+    list_filter = ('last_modified', 'app__owner', 'app__id')
+    ordering = ('-last_modified',)
 
 
+@admin.register(AppAuthor)
 class AppAuthorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'mail', 'homepage')
 
 
+@admin.register(Category)
 class CategoryAdmin(TranslatableAdmin):
-    pass
+    list_display = ('id', 'name')
 
 
+@admin.register(App)
 class AppAdmin(TranslatableAdmin):
-    pass
+    list_display = ('id', 'owner', 'name', 'last_release', 'rating_recent',
+                    'rating_overall', 'summary')
+    list_filter = ('owner', 'co_maintainers', 'categories', 'created',
+                   'last_release')
+    ordering = ('id',)
 
 
+@admin.register(AppRating)
 class AppRatingAdmin(TranslatableAdmin):
+    list_display = ('rating', 'app', 'user', 'rated_at')
+    list_filter = ('app__id', 'user', 'rating', 'rated_at')
+
+
+@admin.register(Database)
+class DatabaseAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+
+@admin.register(DatabaseDependency)
+class DatabaseDependencyAdmin(admin.ModelAdmin):
+    list_display = ('app_release', 'database', 'version_spec')
+    list_filter = ('app_release', 'database')
+
+
+@admin.register(PhpExtension)
+class PhpExtensionAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(App, AppAdmin)
-admin.site.register(AppAuthor, AppAuthorAdmin)
-admin.site.register(AppRating, AppRatingAdmin)
-admin.site.register(AppRelease, AppReleaseAdmin)
-admin.site.register(Screenshot)
-admin.site.register(ShellCommand)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Database)
-admin.site.register(DatabaseDependency)
-admin.site.register(PhpExtension)
-admin.site.register(License)
-admin.site.register(PhpExtensionDependency)
+@admin.register(License)
+class LicenseAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+
+@admin.register(PhpExtensionDependency)
+class PhpExtensionDependencyAdmin(admin.ModelAdmin):
+    list_display = ('app_release', 'php_extension', 'version_spec')
+    list_filter = ('app_release', 'php_extension')
+
+
+@admin.register(Screenshot)
+class ScreenshotAdmin(admin.ModelAdmin):
+    ordering = ('app', 'ordering')
+    list_display = ('url', 'app', 'ordering')
+    list_filter = ('app__id',)
+
+
+@admin.register(ShellCommand)
+class ShellCommandAdmin(admin.ModelAdmin):
+    pass
