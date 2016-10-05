@@ -35,6 +35,9 @@ class XMLSyntaxError(APIException):
     pass
 
 
+Metadata = Tuple[str, str, Dict[str, str]]
+
+
 class GunZipAppMetadataExtractor:
     def __init__(self, config: ReleaseConfig) -> None:
         """
@@ -43,7 +46,7 @@ class GunZipAppMetadataExtractor:
         self.config = config
         self.app_folder_regex = re.compile(r'^[a-z]+[a-z_]*(?:/.*)*$')
 
-    def extract_app_metadata(self, archive_path: str) -> Tuple[str, str, str]:
+    def extract_app_metadata(self, archive_path: str) -> Metadata:
         """
         Extracts the info.xml from an tar.gz archive
         :argument archive_path: the path to the tar.gz archive
@@ -60,10 +63,19 @@ class GunZipAppMetadataExtractor:
             result = self._parse_archive(tar)
         return result
 
-    def _parse_archive(self, tar: Any) -> Tuple[str, str, str]:
+    def _parse_archive(self, tar: Any) -> Metadata:
         app_id = self._find_app_id(tar)
         info = self._get_contents('%s/appinfo/info.xml' % app_id, tar)
-        changelog = self._get_contents('%s/CHANGELOG.md' % app_id, tar, '')
+        changelog = {}  # type: Dict[str, str]
+        changelog['en'] = self._get_contents('%s/CHANGELOG.md' % app_id, tar,
+                                             '')
+        for code, _ in self.config.languages:
+            trans_changelog = self._get_contents(
+                '%s/CHANGELOG.%s.md' % (app_id, code), tar, ''
+            )
+            if trans_changelog:
+                changelog[code] = trans_changelog
+
         return info, app_id, changelog
 
     def _get_contents(self, path: str, tar: Any, default: Any = None) -> str:

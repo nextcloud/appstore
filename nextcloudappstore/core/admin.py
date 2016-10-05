@@ -13,7 +13,7 @@ class PhpExtensionDependencyInline(admin.TabularInline):
     extra = 1
 
 
-class AppReleaseAdmin(admin.ModelAdmin):
+class AppReleaseAdmin(TranslatableAdmin):
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
 
 

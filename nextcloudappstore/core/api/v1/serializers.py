@@ -67,6 +67,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
     raw_platform_version_spec = SerializerMethodField()
     version = SerializerMethodField()
     nightly = SerializerMethodField()
+    translations = TranslatedFieldsField(shared_model=AppRelease)
 
     class Meta:
         model = AppRelease
@@ -75,7 +76,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
             'php_version_spec', 'platform_version_spec', 'min_int_size',
             'download', 'created', 'licenses', 'last_modified', 'nightly',
             'raw_php_version_spec', 'raw_platform_version_spec', 'signature',
-            'changelog',
+            'translations',
         )
 
     def get_platform_version_spec(self, obj):

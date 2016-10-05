@@ -38,11 +38,13 @@ class AppReleaseProvider:
                       % (app_id, info_app_id)
                 raise InvalidAppDirectoryException(msg)
 
-            version = info['app']['release']['version']
+            release = info['app']['release']
+            version = release['version']
             if is_nightly:
                 version += '-nightly'
-            info['app']['release']['changelog'] = parse_changelog(changelog,
-                                                                  version)
+            release['changelog'] = changelog
+            for code, value in changelog.items():
+                release['changelog'][code] = parse_changelog(value, version)
 
             with open(download.filename, 'rb') as f:
                 data = f.read()
