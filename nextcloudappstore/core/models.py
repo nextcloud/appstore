@@ -32,6 +32,7 @@ class AppManager(TranslatableManager):
     def get_compatible(self, platform_version, inclusive=False):
         apps = App.objects.prefetch_related(
             'releases',
+            'releases__translations',
             'releases__databases',
             'releases__licenses',
             'releases__phpextensiondependencies__php_extension',
@@ -298,7 +299,7 @@ class AppAuthor(Model):
         verbose_name_plural = _('App authors')
 
 
-class AppRelease(Model):
+class AppRelease(TranslatableModel):
     version = CharField(max_length=256, verbose_name=_('Version'),
                         help_text=_('Version follows Semantic Versioning'))
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
@@ -335,8 +336,10 @@ class AppRelease(Model):
                                   verbose_name=_('Updated at'))
     signature = TextField(verbose_name=_('Signature'), help_text=_(
         'A signature using SHA512 and the app\'s certificate'))
-    changelog = TextField(verbose_name=_('Changelog'), help_text=_(
-        'The release changelog. Can contain Markdown'), default='')
+    translations = TranslatedFields(
+        changelog=TextField(verbose_name=_('Changelog'), help_text=_(
+            'The release changelog. Can contain Markdown'), default='')
+    )
 
     class Meta:
         verbose_name = _('App release')

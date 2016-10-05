@@ -168,7 +168,7 @@ class ParserTest(TestCase):
         extractor = GunZipAppMetadataExtractor(self.config)
         full_extracted, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('contacts', app_id)
-        self.assertEqual('', changes)
+        self.assertEqual('', changes['en'])
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
@@ -176,7 +176,7 @@ class ParserTest(TestCase):
         full_extracted, app_id, changes = extractor.extract_app_metadata(path)
         full = self._get_contents('data/infoxmls/full.xml')
         self.assertEqual(full, full_extracted)
-        self.assertEqual('', changes)
+        self.assertEqual('', changes['en'])
 
     def test_extract_changelog(self):
         path = self.get_path('data/archives/changelog.tar.gz')

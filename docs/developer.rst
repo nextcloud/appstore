@@ -481,6 +481,8 @@ The version has to be equal to the version in your info.xml. If the parser can't
 
 The changelog for nightlies will be taken from the **## [Unreleased]** block
 
+Changelogs can be translated as well. To add a changelog for a specific translation, use **CHANGELOG.code.md**, e.g.: **CHANGELOG.fr.md**
+
 .. _info-schema:
 
 Schema Integration

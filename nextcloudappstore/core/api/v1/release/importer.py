@@ -161,7 +161,8 @@ class AppReleaseImporter(Importer):
                  license_importer: LicenseImporter,
                  shell_command_importer: ShellCommandImporter,
                  string_attribute_importer: StringAttributeImporter,
-                 integer_attribute_importer: IntegerAttributeImporter) -> None:
+                 integer_attribute_importer: IntegerAttributeImporter,
+                 l10n_importer: L10NImporter) -> None:
         super().__init__({
             'php_extensions': php_extension_importer,
             'databases': database_importer,
@@ -174,7 +175,7 @@ class AppReleaseImporter(Importer):
             'shell_commands': shell_command_importer,
             'signature': string_attribute_importer,
             'download': string_attribute_importer,
-            'changelog': string_attribute_importer,
+            'changelog': l10n_importer,
         }, {
             'version',
             'raw_version',

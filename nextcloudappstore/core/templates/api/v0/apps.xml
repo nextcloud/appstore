@@ -24,9 +24,9 @@
             <score>{% widthratio app.rating_overall 1 100 %}</score>
             <description>{{ app.description }}</description>
             {% if app.featured %}
-                <approved>200</approved>
-            {% else %}
                 <approved>100</approved>
+            {% else %}
+                <approved>0</approved>
             {% endif %}
             <license>AGPL</license>
             {% for shot in app.screenshots.all %}
