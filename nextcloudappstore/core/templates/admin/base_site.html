@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load i18n staticfiles %}
+
+{% block title %}{{ title }} | {% trans 'Nextcloud App Store admin' %}{% endblock %}
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'assets/css/admin/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fonts.css' %}">
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">{% trans 'Nextcloud App Store administration' %}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
