@@ -20,3 +20,17 @@ class CertDeleteReleasesTest(TestCase):
         self.app.certificate = 'CERT2'
         self.app.save()
         self.assertEquals(self.app.releases.count(), 0)
+
+    def test_ignore_carriage_return(self):
+        AppRelease.objects.create(version='5.0.0', app=self.app)
+        self.assertEquals(self.app.releases.count(), 5)
+        self.app.certificate = 'CER\rT1'
+        self.app.save()
+        self.assertEquals(self.app.releases.count(), 5)
+
+    def test_ignore_start_end_spaces(self):
+        AppRelease.objects.create(version='5.0.0', app=self.app)
+        self.assertEquals(self.app.releases.count(), 5)
+        self.app.certificate = '\n\nCER\rT1\n\n'
+        self.app.save()
+        self.assertEquals(self.app.releases.count(), 5)
