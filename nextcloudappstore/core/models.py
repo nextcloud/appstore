@@ -220,12 +220,12 @@ class App(TranslatableModel):
         try:
             if self.pk is not None:
                 orig = App.objects.get(pk=self.pk)
-                current = self.certificate
-                former = orig.certificate
+                current = self.certificate.replace('\r', '').strip()
+                former = orig.certificate.replace('\r', '').strip()
                 # for some reason the django admin inserts \r\n for \n so
                 # saving a model in the admin with the same cert kills all
                 # releases
-                if current.replace('\r', '') != former.replace('\r', ''):
+                if current != former:
                     self.releases.all().delete()
         except self.DoesNotExist:
             pass
@@ -558,6 +558,13 @@ class AppReleaseDeleteLog(Model):
     Used to keep track of app and app release deletions
     """
     last_modified = DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        verbose_name = _('App release deletion')
+        verbose_name_plural = _('App release deletions')
+
+    def __str__(self) -> str:
+        return str(self.last_modified)
 
 
 class AppOwnershipTransfer(Model):

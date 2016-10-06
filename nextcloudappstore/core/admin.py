@@ -1,7 +1,8 @@
 from django.contrib import admin
 from nextcloudappstore.core.models import DatabaseDependency, AppRelease, \
     ShellCommand, Screenshot, PhpExtensionDependency, License, PhpExtension, \
-    Database, AppRating, App, Category, AppAuthor, AppOwnershipTransfer
+    Database, AppRating, App, Category, AppAuthor, AppOwnershipTransfer, \
+    AppReleaseDeleteLog
 
 from parler.admin import TranslatableAdmin
 
@@ -14,6 +15,13 @@ class DatabaseDependencyInline(admin.TabularInline):
 class PhpExtensionDependencyInline(admin.TabularInline):
     model = PhpExtensionDependency
     extra = 1
+
+
+@admin.register(AppReleaseDeleteLog)
+class AppReleaseAdmin(admin.ModelAdmin):
+    list_display = ('last_modified',)
+    list_filter = ('last_modified',)
+    ordering = ('-last_modified',)
 
 
 @admin.register(AppRelease)
