@@ -330,7 +330,7 @@ translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
 
 nightly
-    True if the release is a nightly version. Currently we only support one nightly release because downgrading apps is unsupported. New nightly releases are not required to have a higher version than the previous one. Instead look at the **lastModified** attribute to detect updates.
+    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both versions are equal. Example: 1.0.0 is equal to than 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
 
 screenshots
     Guaranteed to be HTTPS
