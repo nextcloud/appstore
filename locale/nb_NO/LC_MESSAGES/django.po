@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-11 00:56+0000\n"
+"POT-Creation-Date: 2016-10-12 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Anders <anders@aasemartinsen.net>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -115,7 +115,7 @@ msgstr "Navn"
 
 #: nextcloudappstore/core/models.py:62
 msgid "Rendered app name for users"
-msgstr ""
+msgstr "Gjengitt app navn for brukere"
 
 #: nextcloudappstore/core/models.py:63
 #: nextcloudappstore/core/scaffolding/forms.py:43
@@ -133,7 +133,7 @@ msgstr "Beskrivelse"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:433
 msgid "Will be rendered as Markdown"
-msgstr ""
+msgstr "Vil bli gjengitt som Markdown"
 
 #: nextcloudappstore/core/models.py:71
 msgid "User documentation url"
@@ -178,7 +178,7 @@ msgstr "App eier"
 #: nextcloudappstore/core/models.py:88
 #: nextcloudappstore/core/templates/app/detail.html:61
 msgid "Co-Maintainers"
-msgstr ""
+msgstr "Med-vedlikeholdere"
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:304
 msgid "App authors"
@@ -215,7 +215,7 @@ msgstr "OCS id"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Old store id. Deprecated"
-msgstr ""
+msgstr "Gammel butikkid. Utløpt"
 
 #: nextcloudappstore/core/models.py:103 nextcloudappstore/core/models.py:236
 #: nextcloudappstore/core/models.py:310 nextcloudappstore/core/models.py:389
@@ -248,7 +248,7 @@ msgstr "Kommentar til vurdering"
 
 #: nextcloudappstore/core/models.py:245
 msgid "Rating comment in Markdown"
-msgstr ""
+msgstr "Vurderingskommentar i Markdown"
 
 #: nextcloudappstore/core/models.py:251
 msgid "App rating"
@@ -276,7 +276,7 @@ msgstr "Versjon"
 
 #: nextcloudappstore/core/models.py:309
 msgid "Version follows Semantic Versioning"
-msgstr ""
+msgstr "Versjonsnummer følger Sematisk versjonering"
 
 #: nextcloudappstore/core/models.py:316 nextcloudappstore/core/models.py:537
 msgid "PHP extension dependency"
@@ -337,7 +337,7 @@ msgstr "Endringslogg"
 
 #: nextcloudappstore/core/models.py:346
 msgid "The release changelog. Can contain Markdown"
-msgstr ""
+msgstr "Endringlogg for utgivelse. Kan inneholde Markdown"
 
 #: nextcloudappstore/core/models.py:350 nextcloudappstore/core/models.py:490
 #: nextcloudappstore/core/models.py:525
@@ -464,24 +464,24 @@ msgstr "Avhengigheter for PHP utvidelser"
 
 #: nextcloudappstore/core/models.py:563
 msgid "App release deletion"
-msgstr ""
+msgstr "App utgivelse sletting"
 
 #: nextcloudappstore/core/models.py:564
 msgid "App release deletions"
-msgstr ""
+msgstr "App utgivelse slettinger"
 
 #: nextcloudappstore/core/models.py:602
 msgid "App ownership transfer"
-msgstr ""
+msgstr "App eierskap overdragelse"
 
 #: nextcloudappstore/core/models.py:603
 msgid "App ownership transfers"
-msgstr ""
+msgstr "App eierskap overdragelser"
 
 #: nextcloudappstore/core/scaffolding/forms.py:27
 #: nextcloudappstore/core/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
-msgstr ""
+msgstr "Appens navn må være i kamelcase f.eks MinApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
 msgid "App name"
@@ -509,11 +509,11 @@ msgstr "Hold nede CTRL og klikk for å velge flere"
 
 #: nextcloudappstore/core/scaffolding/forms.py:44
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
+msgstr "Kort beskrivelse av appen din som vil vises som en kort teaser"
 
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
+msgstr "Full beskrivelse av hva appen gjør. Kan inneholde Markdown"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -666,11 +666,11 @@ msgstr "Passordet ble endret."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr ""
+msgstr "Nextcloud App butikk admin"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr ""
+msgstr "Nextcloud App butikk administrasjon"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -1073,6 +1073,10 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"API nøkkelen kan brukes for autentisering ved tilkobling til app butikken\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Pass på og hold den hemmelig. En ny nøkkel kan genereres under, og gjør den gamle nøkkelen ugyldig."
 
 #: nextcloudappstore/core/templates/user/api-token.html:29
 msgid "Your API token is:"
