@@ -64,6 +64,7 @@ class AppDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
         context['rating_form'] = AppRatingForm()
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
@@ -120,7 +121,6 @@ class AppReleasesView(DetailView):
             versions))
         context['releases_by_platform_v'] = \
             self._sort_by_platform_v(all_releases)
-
         return context
 
     def _sort_by_platform_v(self, releases_by_platform, reverse=True):

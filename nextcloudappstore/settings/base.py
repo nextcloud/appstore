@@ -283,3 +283,8 @@ MARKDOWN_ALLOWED_ATTRIBUTES = {
     'iframe': ['width', 'height', 'frameborder', 'src', 'allowfullscreen'],
     'q': ['cite'],
 }
+
+DISCOURSE_URL = 'https://help.nextcloud.com'
+DISCOURSE_USER = None
+DISCOURSE_TOKEN = None
+DISCOURSE_PARENT_CATEGORY_ID = 26

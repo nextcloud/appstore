@@ -189,6 +189,8 @@ To get your instance running in production you need to create your production se
     LOGGING['handlers']['file']['level'] = LOG_LEVEL
     LOGGING['loggers']['django']['level'] = LOG_LEVEL
 
+    DISCOURSE_USER = 'tom'
+    DISCOURSE_TOKEN = 'a token'
 
     # Overwritable defaults:
 
@@ -211,6 +213,15 @@ To get your instance running in production you need to create your production se
     #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
     # NEXTCLOUD_CRL_LOCATION = join(
     #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')
+
+    # DISCOURSE_URL = 'https://help.nextcloud.com'
+
+    # If given a sub category will be created at this location
+    # If not given a root category will be created
+    # You can get the category id here at the /categories.json route, e.g.
+    # https://help.nextcloud.com/categories.json
+    # DISCOURSE_PARENT_CATEGORY_ID = 26
+
 
 Then set the file as the active settings file::
 
