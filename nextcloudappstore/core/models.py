@@ -269,7 +269,6 @@ class AppRating(TranslatableModel):
                             threshold: int = 5) -> float:
         """
         Computes an app rating based on
-        :param app: the app whose rating should be computed
         :param days: passing 30 will only consider ratings from the last
         30 days,
          pass a negative number to include all ratings
