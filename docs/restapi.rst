@@ -246,7 +246,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "ratingRecent": 1.0,
             "releases": [
                 {
-                    "version": "9.0.4",
+                    "version": "9.0.4-alpha.1",
                     "phpExtensions": [
                         {
                             "id": "libxml",
@@ -378,6 +378,9 @@ categories
 
 changelog
     The translated release changelog in Markdown. Can be empty for all languages
+
+version
+    A full semantic version
 
 .. _api-register-app:
 
