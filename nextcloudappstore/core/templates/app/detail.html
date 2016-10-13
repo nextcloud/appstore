@@ -115,7 +115,7 @@
                 <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
                 <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
             {% endif %}
-            <li><a rel="noreferrer noopener" href="https://help.nextcloud.com/c/apps/{{ object.id }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
+            <li><a rel="noreferrer noopener" href="{{ DISCOURSE_URL }}/c/apps/{{ object.id }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
             {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
                 <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
             {% endif %}

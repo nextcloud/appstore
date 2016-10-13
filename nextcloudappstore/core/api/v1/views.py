@@ -1,3 +1,4 @@
+import requests
 from django.db import transaction
 from django.http import Http404
 from django.conf import settings
@@ -93,9 +94,33 @@ class AppRegisterView(APIView):
         app.save()
 
         if created:
+            if settings.DISCOURSE_TOKEN is not None:
+                self._create_discourse_category(app_id)
             return Response(status=201)
         else:
             return Response(status=204)
+
+    def _create_discourse_category(self, app_id: str) -> None:
+        url = '%s/categories?api_key=%s&api_username=%s' % (
+            settings.DISCOURSE_URL.rstrip('/'),
+            settings.DISCOURSE_TOKEN,
+            settings.DISCOURSE_USER
+        )
+        data = {
+            'name': app_id,
+            'color': '3c3945',
+            'text_color': 'ffffff'
+        }
+        if settings.DISCOURSE_PARENT_CATEGORY_ID:
+            data['parent_category_id'] = settings.DISCOURSE_PARENT_CATEGORY_ID
+
+        # ignore requests errors because there can be many issues and we do not
+        # want to abort app registration just because the forum is down or
+        # leak sensitive data like tokens or users
+        try:
+            requests.post(url, data=data)
+        except requests.HTTPError:
+            pass
 
 
 class AppReleaseView(DestroyAPIView):
