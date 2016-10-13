@@ -94,7 +94,7 @@ class AppRegisterView(APIView):
         app.save()
 
         if created:
-            if settings.DISCOURSE_TOKEN is not None:
+            if settings.DISCOURSE_TOKEN:
                 self._create_discourse_category(app_id)
             return Response(status=201)
         else:
