@@ -113,9 +113,6 @@
             <issue-tracker>
                 <xsl:value-of select="bugs"/>
             </issue-tracker>
-            <discussion>
-                <xsl:value-of select="discussion"/>
-            </discussion>
             <ocsid type="int">
                 <xsl:value-of select="ocsid"/>
             </ocsid>

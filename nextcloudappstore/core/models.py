@@ -76,8 +76,6 @@ class App(TranslatableModel):
     issue_tracker = URLField(max_length=256, blank=True,
                              verbose_name=_('Issue tracker url'))
     website = URLField(max_length=256, blank=True, verbose_name=_('Homepage'))
-    discussion = URLField(max_length=256, blank=True,
-                          verbose_name=_('Discussion'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,

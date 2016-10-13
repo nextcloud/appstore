@@ -184,7 +184,6 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <website>https://github.com/owncloud/news</website>
         <bugs>https://github.com/owncloud/news/issues</bugs>
         <repository>https://github.com/owncloud/news</repository>
-        <discussion>https://help.nextcloud.com/t/nextcloud-conference-in-berlin-sept-16-22/1710</discussion>
         <screenshot>https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <dependencies>
@@ -316,10 +315,6 @@ repository
     * must contain an URL to the project's repository
     * can contain a **type** attribute, **git**, **mercurial**, **subversion** and **bzr** are allowed values, defaults to **git**
     * currently not used
-discussion
-    * optional
-    * must contain an URL to the forum, starting with https://help.nextcloud.com
-    * will be rendered on the app detail page
 screenshot
     * optional
     * must contain an HTTPS URL to an image
