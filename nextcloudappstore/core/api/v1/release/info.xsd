@@ -32,9 +32,6 @@
                             maxOccurs="1"/>
                 <xs:element name="repository" type="repository" minOccurs="0"
                             maxOccurs="1"/>
-                <xs:element name="discussion" type="discussion-url"
-                            minOccurs="0"
-                            maxOccurs="1"/>
                 <xs:element name="screenshot" type="secure-url" minOccurs="0"
                             maxOccurs="10"/>
                 <xs:element name="dependencies" type="dependencies"
@@ -229,14 +226,6 @@
     <xs:simpleType name="secure-url">
         <xs:restriction base="xs:anyURI">
             <xs:pattern value="https://.+"/>
-            <xs:maxLength value="256"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <!-- for now only allow urls to our forum -->
-    <xs:simpleType name="discussion-url">
-        <xs:restriction base="xs:anyURI">
-            <xs:pattern value="https://help\.nextcloud\.com.*/\d+"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>

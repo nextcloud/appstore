@@ -480,7 +480,6 @@ If the app release version is the latest version, everything is updated. If it's
   * documentation
   * bugs
   * website
-  * discussion
   * screenshot
 
 

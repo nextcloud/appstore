@@ -108,23 +108,19 @@
             </section>
         </div>
     </div>
-    {% if object.issue_tracker or object.discussion or request.user.is_authenticated %}
-        <div class="row app-comments">
-            <ul class="col-md-12">
-                <h4 class="section-heading" id="comments">{% trans 'Discussion' %}</h4>
-                {% if object.issue_tracker %}
-                    <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
-                    <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
-                {% endif %}
-                {% if object.discussion %}
-                    <li><a rel="noreferrer noopener" href="{{ object.discussion }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
-                {% endif %}
-                {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
-                    <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
-                {% endif %}
-            </ul>
-        </div>
-    {% endif %}
+    <div class="row app-comments">
+        <ul class="col-md-12">
+            <h4 class="section-heading" id="comments">{% trans 'Discussion' %}</h4>
+            {% if object.issue_tracker %}
+                <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
+                <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
+            {% endif %}
+            <li><a rel="noreferrer noopener" href="https://help.nextcloud.com/c/apps/{{ object.id }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
+            {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
+                <li><button aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
+            {% endif %}
+        </ul>
+    </div>
     {% if request.user.is_authenticated and request.user != object.owner %}
         <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
             <div class="col-md-12">
