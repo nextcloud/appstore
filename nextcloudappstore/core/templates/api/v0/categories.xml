@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+{% load first_word %}<?xml version="1.0"?>
 <ocs>
     <meta>
         <status>ok</status>
@@ -11,7 +11,7 @@
         {% for cat in categories %}
         <category>
             <id>{{ cat.ocsid }}</id>
-            <name>{{ cat.name }}</name>
+            <name>{{ cat.name|first_word }}</name>
         </category>
         {% endfor %}
     </data>

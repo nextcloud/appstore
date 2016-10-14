@@ -1,4 +1,4 @@
-{% load compatible_releases %}<?xml version="1.0"?>
+{% load compatible_releases first_word %}<?xml version="1.0"?>
 <ocs>
     <meta>
         <status>ok</status>
@@ -14,7 +14,7 @@
             {% endwith %}
             <changed>{{ app.last_release|date:'c' }}</changed>
             <typeid>{{ app.categories.all.0.ocsid }}</typeid>
-            <typename>{{ app.categories.all.0.name }}</typename>
+            <typename>{{ app.categories.all.0.name|first_word }}</typename>
             <personid>{{ app.owner.first_name }} {{ app.owner.last_name }}</personid>
             <profilepage>http://opendesktop.org/usermanager/search.php?username=anonymous</profilepage>
             <downloads>0</downloads>
