@@ -333,7 +333,7 @@ translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
 
 isNightly
-    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both versions are equal. Example: 1.0.0 is equal to 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
+    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both nightly versions are equal. Example: 1.0.0 is equal to 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
 
 screenshots
     Guaranteed to be HTTPS
@@ -383,7 +383,7 @@ changelog
     The translated release changelog in Markdown. Can be empty for all languages
 
 version
-    A full semantic version
+    A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
 
 .. _api-register-app:
 
