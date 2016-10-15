@@ -1,4 +1,31 @@
+from datetime import datetime
 from sys import maxsize
+
+from semantic_version import Version
+
+
+class AppSemVer:
+    """
+    Class used to sort a semantic version by nightly flags and released_at
+    time
+    """
+
+    def __init__(self, version: str, is_nightly: bool = False,
+                 released_at: datetime = None) -> None:
+        self.released_at = released_at
+        self.is_nightly = is_nightly
+        self.version = Version(version)
+
+    def __lt__(self, other: 'SemVer') -> bool:
+        if self.version == other.version:
+            if self.is_nightly and other.is_nightly:
+                return self.released_at < other.released_at
+            elif self.is_nightly:
+                return False
+            else:
+                return True
+        else:
+            return self.version < other.version
 
 
 def raw_version(version: str) -> str:

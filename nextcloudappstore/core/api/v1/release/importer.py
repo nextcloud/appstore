@@ -268,6 +268,8 @@ class AppImporter(Importer):
 
     def _is_latest_version(self, value: Any) -> bool:
         releases = AppRelease.objects.filter(app__id=value['id'])
+        # we do not care about nightlies here so it's fine to just use a
+        # normal semver
         uploaded_version = Version(value['release']['version'])
         for release in releases:
             if uploaded_version < Version(release.version):

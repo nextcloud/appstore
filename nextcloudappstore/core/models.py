@@ -13,7 +13,7 @@ from parler.models import TranslatedFields, TranslatableModel, \
 from semantic_version import Version, Spec
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
-    pad_max_inc_version
+    pad_max_inc_version, AppSemVer
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
@@ -187,7 +187,7 @@ class App(TranslatableModel):
                 lambda r: r.is_compatible(platform_version,
                                           inclusive) and not r.is_unstable,
                 self.releases.all()),
-            key=lambda rel: Version(rel.version),
+            key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True)
 
     def compatible_unstable_releases(self, platform_version, inclusive=True):
@@ -204,12 +204,14 @@ class App(TranslatableModel):
                 lambda r: r.is_compatible(platform_version,
                                           inclusive) and r.is_unstable,
                 self.releases.all()),
-            key=lambda rel: Version(rel.version),
+            key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True)
 
     def _latest(self, releases):
         try:
-            return max(releases, key=lambda r: Version(r.version))
+            return max(releases,
+                       key=lambda r: AppSemVer(r.version, r.is_nightly,
+                                               r.last_modified))
         except ValueError:
             return None
 
