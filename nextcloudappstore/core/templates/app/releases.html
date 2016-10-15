@@ -23,7 +23,7 @@
                     <div class="accordion-content">
                         {% for release in releases %}
                             <div class="accordion-item{% if forloop.first %} open{% endif %}{% if release.is_unstable %} unstable{% endif %}">
-                                <div class="accordion-title"><h5>{{ object.name }} {{ release.version }}{% if release.is_nightly %} - {% trans 'nightly' %}{% endif %}</h5></div>
+                                <div class="accordion-title"><h5>{{ object.name }} {{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}) {% endif %}</h5></div>
                                 <div class="accordion-content">
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
@@ -78,7 +78,7 @@
                                     </table>
                                     <div class="center">
                                         <a href="{{ release.download }}" rel="noopener noreferrer" class="release-download">
-                                            {% blocktrans with ver=release.version name=object.name %}Download {{ name }} {{ ver }}{% endblocktrans %}
+                                            {% trans 'Download' %} {{ object.name }} {{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}) {% endif %}
                                         </a>
                                     </div>
                                 </div>

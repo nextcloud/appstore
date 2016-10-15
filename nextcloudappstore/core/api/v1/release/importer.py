@@ -212,7 +212,7 @@ class AppReleaseImporter(Importer):
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:
         release, created = AppRelease.objects.get_or_create(
-            version=value['version'], app=obj
+            version=value['version'], app=obj, is_nightly=value['is_nightly']
         )
         return release
 

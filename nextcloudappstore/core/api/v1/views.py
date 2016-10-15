@@ -153,7 +153,8 @@ class AppReleaseView(DestroyAPIView):
             app_id = info['app']['id']
             version = info['app']['release']['version']
 
-            status, app = self._check_permission(request, app_id, version)
+            status, app = self._check_permission(request, app_id, version,
+                                                 is_nightly)
 
             # verify certs and signature
             validator = container.resolve(CertificateValidator)
@@ -168,7 +169,7 @@ class AppReleaseView(DestroyAPIView):
             importer.import_data('app', info['app'], None)
         return Response(status=status)
 
-    def _check_permission(self, request, app_id, version):
+    def _check_permission(self, request, app_id, version, is_nightly):
         try:
             app = App.objects.get(pk=app_id)
         except App.DoesNotExist:
@@ -178,7 +179,8 @@ class AppReleaseView(DestroyAPIView):
         # if an app release does not exist, it must be checked if the
         # user is allowed to create it first
         try:
-            release = AppRelease.objects.filter(version=version, app=app)
+            release = AppRelease.objects.filter(version=version, app=app,
+                                                is_nightly=is_nightly)
             release = get_object_or_404(release)
             self.check_object_permissions(self.request, release)
             status = 200
@@ -186,6 +188,7 @@ class AppReleaseView(DestroyAPIView):
             release = AppRelease()
             release.version = version
             release.app = app
+            release.is_nightly = is_nightly
             self.check_object_permissions(request, release)
             release.save()
             status = 201

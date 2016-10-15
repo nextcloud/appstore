@@ -99,7 +99,7 @@
                             <tr>
                                 <td>Nextcloud {{ platform_v }}</td>
                                 <td>{% if releases.stable %}<a href="{{ releases.stable.download }}" rel="noopener noreferrer">{{ releases.stable.version }}</a>{% endif %}</td>
-                                <td>{% if releases.unstable %}<a href="{{ releases.unstable.download }}" rel="noopener noreferrer" class="unstable">{{ releases.unstable.version }}{% if releases.unstable.version.is_nightly %} - {% trans 'nightly' %} {% endif %}({%  trans 'Unstable' %})</a>{% endif %}</td>
+                                <td>{% if releases.unstable %}<a href="{{ releases.unstable.download }}" rel="noopener noreferrer" class="unstable">{{ releases.unstable.version }}{% if releases.unstable.is_nightly %} - {% trans 'nightly' %} {% endif %}({%  trans 'Unstable' %})</a>{% endif %}</td>
                                 <td><a href="{% url 'app-releases' object.id %}?platform={{ platform_v }}#{{ platform_v }}">{% trans "All releases" %}</a></td>
                             </tr>
                         {% endif %}
