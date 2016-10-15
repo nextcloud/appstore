@@ -3,8 +3,8 @@
 Changelog
 ---------
 
-0.2.0 (2016-xx-xx)
-++++++++++++++++++
+Unreleased
+++++++++++
 
 **Added**
 - Faster API E-Tag generation
@@ -33,7 +33,7 @@ Changelog
 - Fix backlinks on app releases page
 
 
-0.1.0 (2016-09-21)
+0.1.0 - 2016-09-21
 ++++++++++++++++++
 
 **Added**
