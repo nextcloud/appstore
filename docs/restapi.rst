@@ -523,7 +523,7 @@ Only app owners or co-maintainers are allowed to delete an app release. The owne
 .. _api-delete-nightly-release:
 
 Delete a Nightly App Release
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Only app owners or co-maintainers are allowed to delete a nightly app release. The owner is the user that pushes the first release of an app to the store.
 
 * **Url**: DELETE /api/v1/apps/{**app-id**}/releases/nightly/{**app-version**}
