@@ -87,7 +87,7 @@ class App(TranslatableModel):
                                      related_name='co_maintained_apps')
     authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
                               verbose_name=_('App authors'))
-    featured = BooleanField(verbose_name=_('Featured'), default=False)
+    is_featured = BooleanField(verbose_name=_('Featured'), default=False)
     rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
     rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
     last_release = DateTimeField(editable=False, db_index=True,

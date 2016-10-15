@@ -18,7 +18,7 @@
 
 {% block apps %}
     <div class="header-wrap">
-        <h1>{{ object.name }}</h1>{% if object.featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+        <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
     </div>
     <section class="app-gallery">
         {% if object.screenshots.all %}

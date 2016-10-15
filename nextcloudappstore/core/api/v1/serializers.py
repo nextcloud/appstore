@@ -108,7 +108,7 @@ class AppSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'screenshots', 'translations', 'featured', 'authors',
+            'screenshots', 'translations', 'is_featured', 'authors',
             'rating_recent', 'rating_overall', 'certificate',
         )
 
