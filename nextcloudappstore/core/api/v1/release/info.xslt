@@ -119,7 +119,7 @@
 
             <!-- release -->
             <release>
-                <version type="min-version">
+                <version>
                     <xsl:value-of select="version"/>
                 </version>
                 <licenses type="list">

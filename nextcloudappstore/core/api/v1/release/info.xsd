@@ -12,7 +12,7 @@
                             maxOccurs="unbounded"/>
                 <xs:element name="description" type="l10n-text" minOccurs="1"
                             maxOccurs="unbounded"/>
-                <xs:element name="version" type="version"
+                <xs:element name="version" type="semver"
                             minOccurs="1" maxOccurs="1"/>
                 <xs:element name="licence" type="licence" minOccurs="1"
                             maxOccurs="1"/>
@@ -207,6 +207,12 @@
             <xs:enumeration value="vi"/>
             <xs:enumeration value="zh-hans"/>
             <xs:enumeration value="zh-hant"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="semver">
+        <xs:restriction base="limited-string">
+            <xs:pattern value="(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-([0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*))?"/>
         </xs:restriction>
     </xs:simpleType>
 

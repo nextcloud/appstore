@@ -1,7 +1,13 @@
+import re
 from datetime import datetime
 from sys import maxsize
 
 from semantic_version import Version
+
+SEMVER_REGEX = (r'(?:0|[1-9][0-9]*)'
+                r'\.(?:0|[1-9][0-9]*)'
+                r'\.(?:0|[1-9][0-9]*)'
+                r'(?:\-(?:[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?')
 
 
 class AppSemVer:
