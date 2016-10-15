@@ -11,6 +11,9 @@ from nextcloudappstore.core.models import App, AppRelease
 class AppReleaseTest(ApiTest):
     delete_url = reverse('api:v1:app-release-delete',
                          kwargs={'app': 'news', 'version': '9.0.0'})
+    delete_url_nightly = reverse('api:v1:app-release-delete',
+                                 kwargs={'app': 'news', 'version': '9.0.0',
+                                         'nightly': 'nightly'})
     create_url = reverse('api:v1:app-release-create')
     app_args = {'app': {'id': 'news', 'release': {
         'version': '9.0.0',
@@ -51,6 +54,15 @@ class AppReleaseTest(ApiTest):
         self._login_token()
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(403, response.status_code)
+
+    def test_delete_not_found(self):
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
+        self.create_release(owner)
+        self._login_token()
+        response = self.api_client.delete(self.delete_url_nightly)
+        self.assertEqual(404, response.status_code)
 
     def test_delete_co_maintainer(self):
         owner = get_user_model().objects.create_user(username='owner',
