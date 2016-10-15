@@ -114,10 +114,10 @@ class AppReleasesView(DetailView):
             'translations').all()
 
         releases = self.object.releases_by_platform_v()
-        nightlies = self.object.nightly_releases_by_platform_v()
-        versions = set(list(releases.keys()) + list(nightlies.keys()))
+        unstables = self.object.unstable_releases_by_platform_v()
+        versions = set(list(releases.keys()) + list(unstables.keys()))
         all_releases = list(map(
-            lambda v: (v, releases.get(v, []) + nightlies.get(v, [])),
+            lambda v: (v, releases.get(v, []) + unstables.get(v, [])),
             versions))
         context['releases_by_platform_v'] = \
             self._sort_by_platform_v(all_releases)

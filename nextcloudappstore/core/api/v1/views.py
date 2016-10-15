@@ -193,8 +193,10 @@ class AppReleaseView(DestroyAPIView):
         return status, app
 
     def get_object(self):
+        is_nightly = 'nightly' in self.kwargs
         release = AppRelease.objects.filter(version=self.kwargs['version'],
-                                            app__id=self.kwargs['app'])
+                                            app__id=self.kwargs['app'],
+                                            is_nightly=is_nightly)
         release = get_object_or_404(release)
         self.check_object_permissions(self.request, release)
         return release

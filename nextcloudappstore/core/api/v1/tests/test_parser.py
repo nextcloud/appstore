@@ -477,9 +477,15 @@ class ParserTest(TestCase):
         expected = self._get_contents('data/changelogs/0.6.0.md').strip()
         self.assertEqual(expected, changelog)
 
+    def test_parse_changelog_unstable(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '0.4.3-beta')
+        expected = self._get_contents('data/changelogs/unreleased.md').strip()
+        self.assertEqual(expected, changelog)
+
     def test_parse_changelog_nightly(self):
         file = self._get_contents('data/changelogs/CHANGELOG.md')
-        changelog = parse_changelog(file, '0.4.3-nightly')
+        changelog = parse_changelog(file, '0.4.3', True)
         expected = self._get_contents('data/changelogs/unreleased.md').strip()
         self.assertEqual(expected, changelog)
 

@@ -26,8 +26,11 @@ class CompatibilityTest(TestCase):
                                   platform_version_spec='>=9.2.0')
         AppRelease.objects.create(app=self.app1, version='5.0.0',
                                   platform_version_spec='>=10.0.0')
-        AppRelease.objects.create(app=self.app1, version='6.0.0-nightly',
+        AppRelease.objects.create(app=self.app1, version='6.0.0-alpha',
                                   platform_version_spec='>=10.0.0')
+        AppRelease.objects.create(app=self.app1, version='6.0.0',
+                                  platform_version_spec='>=10.0.0',
+                                  is_nightly=True)
 
         self.app2 = App.objects.create(pk='notes', owner=self.user)
         self.app2.set_current_language('en')
@@ -69,11 +72,13 @@ class CompatibilityTest(TestCase):
         self.assertEqual(len(app2rel), 1)
         self.assertEqual(len(app2rel2), 1)
 
-    def test_compatible_nightly_releases(self):
-        app1 = self.app1.compatible_nightly_releases('10.0')
-        app2 = self.app2.compatible_nightly_releases('10.0')
-        self.assertEqual(app1[0].version, '6.0.0-nightly')
-        self.assertEqual(len(app1), 1)
+    def test_compatible_unstable_releases(self):
+        app1 = self.app1.compatible_unstable_releases('10.0')
+        app2 = self.app2.compatible_unstable_releases('10.0')
+        self.assertEqual(app1[0].version, '6.0.0-alpha')
+        self.assertEqual(app1[1].version, '6.0.0')
+        self.assertEqual(app1[1].is_nightly, True)
+        self.assertEqual(len(app1), 2)
         self.assertEqual(app2, [])
 
     def test_compatible_releases_by_platform_v(self):
@@ -81,13 +86,14 @@ class CompatibilityTest(TestCase):
             app1 = self.app1.latest_releases_by_platform_v()
             app2 = self.app2.latest_releases_by_platform_v()
             self.assertEqual(app1['9.0']['stable'].version, '2.0.0')
-            self.assertEqual(app1['9.0']['nightly'], None)
+            self.assertEqual(app1['9.0']['unstable'], None)
             self.assertEqual(app1['9.1']['stable'].version, '3.0.0')
-            self.assertEqual(app1['9.1']['nightly'], None)
+            self.assertEqual(app1['9.1']['unstable'], None)
             self.assertEqual(app1['9.2']['stable'].version, '4.0.0')
-            self.assertEqual(app1['9.2']['nightly'], None)
+            self.assertEqual(app1['9.2']['unstable'], None)
             self.assertEqual(app1['10.0']['stable'].version, '5.0.0')
-            self.assertEqual(app1['10.0']['nightly'].version, '6.0.0-nightly')
+            self.assertEqual(app1['10.0']['unstable'].version, '6.0.0')
+            self.assertEqual(app1['10.0']['unstable'].is_nightly, True)
             self.assertEqual(app2['9.0']['stable'].version, '1.0.0')
             self.assertEqual(app2['9.1']['stable'].version, '2.0.0')
             self.assertEqual(app2['9.2']['stable'].version, '4.0.0')
@@ -97,4 +103,4 @@ class CompatibilityTest(TestCase):
         with self.settings(PLATFORM_VERSIONS=self.platform_versions):
             app1 = self.app1.latest_releases_by_platform_v()
             self.assertEqual(app1['10.0']['stable'].version, '5.0.0')
-            self.assertEqual(app1['10.0']['nightly'].version, '6.0.0-nightly')
+            self.assertEqual(app1['10.0']['unstable'].version, '6.0.0')

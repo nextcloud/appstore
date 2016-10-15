@@ -111,7 +111,7 @@ class App(TranslatableModel):
         return self.owner == user
 
     def releases_by_platform_v(self):
-        """Looks up all compatible non-nightly releases for each platform
+        """Looks up all compatible stable releases for each platform
         version.
 
         Example of returned dict:
@@ -119,7 +119,7 @@ class App(TranslatableModel):
         {'9.1': [<AppRelease object>, <AppRelease object>],
         '9.0': [<AppRelease object>]}
 
-        :return dict with all compatible non-nightly releases for each platform
+        :return dict with all compatible stable releases for each platform
                 version.
         """
 
@@ -127,37 +127,37 @@ class App(TranslatableModel):
             lambda v: (v, self.compatible_releases(v)),
             settings.PLATFORM_VERSIONS))
 
-    def nightly_releases_by_platform_v(self):
-        """Looks up all compatible nightly releases for each platform version.
+    def unstable_releases_by_platform_v(self):
+        """Looks up all compatible unstable releases for each platform version.
 
         Example of returned dict:
 
         {'9.1': [<AppRelease object>, <AppRelease object>],
         '9.0': [<AppRelease object>]}
 
-        :return dict with all compatible nightly releases for each platform
+        :return dict with all compatible unstable releases for each platform
                 version.
         """
 
         return dict(map(
-            lambda v: (v, self.compatible_nightly_releases(v)),
+            lambda v: (v, self.compatible_unstable_releases(v)),
             settings.PLATFORM_VERSIONS))
 
     def latest_releases_by_platform_v(self):
-        """Looks up the latest stable and nightly release for each platform
+        """Looks up the latest stable and unstable release for each platform
         version.
 
         Example of returned dict:
 
         {'9.1': {
             'stable': <AppRelease object>,
-            'nightly': <AppRelease object>
+            'unstable': <AppRelease object>
         },
         '9.0': {
             'stable': <AppRelease object>
         }}
 
-        :return dict with the latest stable and nightly release for each
+        :return dict with the latest stable and unstable release for each
                 platform version.
         """
 
@@ -166,43 +166,43 @@ class App(TranslatableModel):
                 ver,
                 {
                     'stable': self._latest(self.compatible_releases(ver)),
-                    'nightly':
-                        self._latest(self.compatible_nightly_releases(ver))
+                    'unstable':
+                        self._latest(self.compatible_unstable_releases(ver))
                 }
             )
 
         return dict(map(dict_item, settings.PLATFORM_VERSIONS))
 
     def compatible_releases(self, platform_version, inclusive=True):
-        """Returns all non-nightly releases of this app that are compatible
+        """Returns all stable releases of this app that are compatible
         with the given platform version.
 
         :param inclusive: Use inclusive version check (see
                           AppRelease.is_compatible()).
-        :return a sorted list of all compatible non-nightly releases.
+        :return a sorted list of all compatible stable releases.
         """
 
         return sorted(
             filter(
                 lambda r: r.is_compatible(platform_version,
-                                          inclusive) and not r.is_nightly,
+                                          inclusive) and not r.is_unstable,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
 
-    def compatible_nightly_releases(self, platform_version, inclusive=True):
-        """Returns all nightly releases of this app that are compatible with
+    def compatible_unstable_releases(self, platform_version, inclusive=True):
+        """Returns all unstable releases of this app that are compatible with
         the given platform version.
 
         :param inclusive: Use inclusive version check (see
                           AppRelease.is_compatible()).
-        :return a sorted list of all compatible nightly releases.
+        :return a sorted list of all compatible unstable releases.
         """
 
         return sorted(
             filter(
                 lambda r: r.is_compatible(platform_version,
-                                          inclusive) and r.is_nightly,
+                                          inclusive) and r.is_unstable,
                 self.releases.all()),
             key=lambda rel: Version(rel.version),
             reverse=True)
@@ -342,11 +342,12 @@ class AppRelease(TranslatableModel):
         changelog=TextField(verbose_name=_('Changelog'), help_text=_(
             'The release changelog. Can contain Markdown'), default='')
     )
+    is_nightly = BooleanField(verbose_name=_('Nightly'), default=False)
 
     class Meta:
         verbose_name = _('App release')
         verbose_name_plural = _('App releases')
-        unique_together = (('app', 'version'),)
+        unique_together = (('app', 'version', 'is_nightly'),)
         ordering = ['-version']
 
     def can_update(self, user: User) -> bool:
@@ -376,9 +377,8 @@ class AppRelease(TranslatableModel):
         else:
             return min_version in spec
 
-    @property
-    def is_nightly(self):
-        return self.version.endswith('-nightly')
+    def is_unstable(self):
+        return self.is_nightly or '-' in self.version
 
 
 class Screenshot(Model):

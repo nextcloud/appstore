@@ -298,7 +298,8 @@ def fix_partial_translations(info: Dict) -> None:
             app[field][code] = app[field]['en']
 
 
-def parse_changelog(changelog: str, version: str) -> str:
+def parse_changelog(changelog: str, version: str,
+                    is_nightly: bool = False) -> str:
     """
     Parses and finds the changelog for the current version. Follows the "Keep
     a changelog" format.
@@ -307,20 +308,20 @@ def parse_changelog(changelog: str, version: str) -> str:
     releases
     :return: the parsed changelog
     """
-    if version.endswith('-nightly'):
+    if is_nightly or '-' in version:
         version = 'Unreleased'
     changelog = changelog.strip()
     regex = re.compile(r'^## (?:\[)?(\d+\.\d+\.\d+)')
-    nightly_regex = re.compile(r'^## \[Unreleased\]')
+    unstable_regex = re.compile(r'^## \[Unreleased\]')
     result = {}  # type: Dict[str, List[str]]
     curr_version = ''
     empty_list = []  # type: List[str]
     for line in changelog.splitlines():
         search = re.search(regex, line)
-        nightly_search = re.match(nightly_regex, line)
+        unstable_search = re.match(unstable_regex, line)
         if search:
             curr_version = search.group(1)
-        elif nightly_search:
+        elif unstable_search:
             curr_version = 'Unreleased'
         else:
             result[curr_version] = result.get(curr_version, empty_list) + [

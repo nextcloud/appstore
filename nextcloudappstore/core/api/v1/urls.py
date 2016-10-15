@@ -16,8 +16,8 @@ urlpatterns = [
     url(r'^ratings.json$',
         etag(app_ratings_etag)(AppRatingView.as_view()),
         name='app-ratings'),
-    url(r'^apps/(?P<app>[a-z_]+)/releases/(?P<version>\d+\.\d+\.\d+'
-        r'(?:-nightly)?)/?$',
+    url(r'^apps/(?P<app>[a-z_]+)/releases/(?:(?P<is_nightly>nightly)/)?'
+        r'(?P<version>\d+\.\d+\.\d+)/?$',
         AppReleaseView.as_view(), name='app-release-delete'),
     url(r'^token/?$', SessionObtainAuthToken.as_view(), name='user-token'),
     url(r'^token/new/?$', RegenerateAuthToken.as_view(),

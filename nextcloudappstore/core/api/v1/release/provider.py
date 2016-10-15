@@ -21,7 +21,7 @@ class AppReleaseProvider:
         self.downloader = downloader
 
     def get_release_info(self, url: str, is_nightly: bool = False) -> Tuple[
-                                                                    Dict, str]:
+        Dict, str]:
         data = None
         with self.downloader.get_archive(
             url, self.config.download_root, self.config.download_max_timeout,
@@ -39,12 +39,12 @@ class AppReleaseProvider:
                 raise InvalidAppDirectoryException(msg)
 
             release = info['app']['release']
+            info['app']['release']['is_nightly'] = is_nightly
             version = release['version']
-            if is_nightly:
-                version += '-nightly'
             release['changelog'] = changelog
             for code, value in changelog.items():
-                release['changelog'][code] = parse_changelog(value, version)
+                release['changelog'][code] = parse_changelog(value, version,
+                                                             is_nightly)
 
             with open(download.filename, 'rb') as f:
                 data = f.read()

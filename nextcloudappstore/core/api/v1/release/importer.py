@@ -107,7 +107,7 @@ class AuthorImporter(ScalarImporter):
         obj.authors.set(list(map(map_authors, value)))
 
 
-class IntegerAttributeImporter(ScalarImporter):
+class DefaultAttributeImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         setattr(obj, key, value)
 
@@ -161,7 +161,7 @@ class AppReleaseImporter(Importer):
                  license_importer: LicenseImporter,
                  shell_command_importer: ShellCommandImporter,
                  string_attribute_importer: StringAttributeImporter,
-                 integer_attribute_importer: IntegerAttributeImporter,
+                 default_attribute_importer: DefaultAttributeImporter,
                  l10n_importer: L10NImporter) -> None:
         super().__init__({
             'php_extensions': php_extension_importer,
@@ -171,11 +171,12 @@ class AppReleaseImporter(Importer):
             'platform_version_spec': string_attribute_importer,
             'raw_php_version_spec': string_attribute_importer,
             'raw_platform_version_spec': string_attribute_importer,
-            'min_int_size': integer_attribute_importer,
+            'min_int_size': default_attribute_importer,
             'shell_commands': shell_command_importer,
             'signature': string_attribute_importer,
             'download': string_attribute_importer,
             'changelog': l10n_importer,
+            'is_nightly': default_attribute_importer,
         }, {
             'version',
             'raw_version',
@@ -223,7 +224,7 @@ class AppImporter(Importer):
                  l10n_importer: L10NImporter,
                  category_importer: CategoryImporter,
                  author_importer: AuthorImporter,
-                 integer_attribute_importer: IntegerAttributeImporter) -> None:
+                 default_attribute_importer: DefaultAttributeImporter) -> None:
         super().__init__({
             'release': release_importer,
             'screenshots': screenshots_importer,
@@ -238,7 +239,7 @@ class AppImporter(Importer):
             'description': l10n_importer,
             'categories': category_importer,
             'authors': author_importer,
-            'ocsid': integer_attribute_importer,
+            'ocsid': default_attribute_importer,
         }, {'id'})
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:
@@ -259,9 +260,8 @@ class AppImporter(Importer):
             obj.categories.clear()
             for translation in obj.translations.all():
                 translation.delete()
-        if value['release']['version'].endswith('-nightly'):
-            AppRelease.objects.filter(
-                app__id=obj.id, version__endswith='-nightly').delete()
+        if value['release']['version']['is_nightly']:
+            AppRelease.objects.filter(app__id=obj.id, is_nightly=True).delete()
         return value, obj
 
     def _is_latest_version(self, value: Any) -> bool:
