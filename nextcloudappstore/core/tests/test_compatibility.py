@@ -75,9 +75,9 @@ class CompatibilityTest(TestCase):
     def test_compatible_unstable_releases(self):
         app1 = self.app1.compatible_unstable_releases('10.0')
         app2 = self.app2.compatible_unstable_releases('10.0')
-        self.assertEqual(app1[0].version, '6.0.0-alpha')
-        self.assertEqual(app1[1].version, '6.0.0')
-        self.assertEqual(app1[1].is_nightly, True)
+        self.assertEqual(app1[0].version, '6.0.0')
+        self.assertEqual(app1[0].is_nightly, True)
+        self.assertEqual(app1[1].version, '6.0.0-alpha')
         self.assertEqual(len(app1), 2)
         self.assertEqual(app2, [])
 

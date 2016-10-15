@@ -193,7 +193,7 @@ class AppReleaseView(DestroyAPIView):
         return status, app
 
     def get_object(self):
-        is_nightly = 'nightly' in self.kwargs
+        is_nightly = self.kwargs['nightly'] is not None
         release = AppRelease.objects.filter(version=self.kwargs['version'],
                                             app__id=self.kwargs['app'],
                                             is_nightly=is_nightly)

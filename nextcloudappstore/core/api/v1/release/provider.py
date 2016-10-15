@@ -12,6 +12,9 @@ class InvalidAppDirectoryException(APIException):
     pass
 
 
+Release = Tuple[Dict, str]
+
+
 class AppReleaseProvider:
     def __init__(self, downloader: AppReleaseDownloader,
                  extractor: GunZipAppMetadataExtractor,
@@ -20,8 +23,7 @@ class AppReleaseProvider:
         self.extractor = extractor
         self.downloader = downloader
 
-    def get_release_info(self, url: str, is_nightly: bool = False) -> Tuple[
-        Dict, str]:
+    def get_release_info(self, url: str, is_nightly: bool = False) -> Release:
         data = None
         with self.downloader.get_archive(
             url, self.config.download_root, self.config.download_max_timeout,

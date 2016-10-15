@@ -260,7 +260,9 @@ class AppImporter(Importer):
             obj.categories.clear()
             for translation in obj.translations.all():
                 translation.delete()
-        if value['release']['version']['is_nightly']:
+        if 'is_nightly' not in value['release']:
+            value['release']['is_nightly'] = False
+        if value['release']['is_nightly']:
             AppRelease.objects.filter(app__id=obj.id, is_nightly=True).delete()
         return value, obj
 
