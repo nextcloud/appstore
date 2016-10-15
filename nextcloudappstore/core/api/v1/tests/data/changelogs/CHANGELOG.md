@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 - Sub-folders can not be selected
   [#1505](https://github.com/owncloud/mail/pull/1505) @ChristophWurst
 
-## 0.6.0 – 2016-09-20
+## [0.6.0] – 2016-09-20
 ### Added
 - Alias support
   [#1523](https://github.com/owncloud/mail/pull/1523) @tahaalibra
