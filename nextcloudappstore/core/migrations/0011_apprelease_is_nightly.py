@@ -7,10 +7,9 @@ from django.db import migrations, models
 
 def migrate_nightlies(apps, schema_editor):
     release_model = apps.get_model('core', 'AppRelease')
-    for row in release_model.objects.all():
-        if row.endswith('-nightly'):
-            row.is_nightly = True
-            row.version = row.version.split('-')[0]
+    for row in release_model.objects.filter(version__endswith='-nightly'):
+        row.is_nightly = True
+        row.version = row.version.split('-')[0]
         row.save()
 
 
