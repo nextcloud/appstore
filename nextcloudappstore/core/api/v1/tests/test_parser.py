@@ -471,6 +471,12 @@ class ParserTest(TestCase):
         expected = self._get_contents('data/changelogs/0.4.3.md').strip()
         self.assertEqual(expected, changelog)
 
+    def test_parse_changelog_brackets(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '0.6.0')
+        expected = self._get_contents('data/changelogs/0.6.0.md').strip()
+        self.assertEqual(expected, changelog)
+
     def test_parse_changelog_nightly(self):
         file = self._get_contents('data/changelogs/CHANGELOG.md')
         changelog = parse_changelog(file, '0.4.3-nightly')
