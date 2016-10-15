@@ -377,6 +377,7 @@ class AppRelease(TranslatableModel):
         else:
             return min_version in spec
 
+    @property
     def is_unstable(self):
         return self.is_nightly or '-' in self.version
 

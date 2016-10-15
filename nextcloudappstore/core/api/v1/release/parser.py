@@ -304,8 +304,8 @@ def parse_changelog(changelog: str, version: str,
     Parses and finds the changelog for the current version. Follows the "Keep
     a changelog" format.
     :param changelog: the full changelog
-    :param version: the version to look for or version-nightly for nightly
-    releases
+    :param version: the version to look for
+    :param is_nightly: if the version is a nightly
     :return: the parsed changelog
     """
     if is_nightly or '-' in version:
