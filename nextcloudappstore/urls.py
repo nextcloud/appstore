@@ -1,11 +1,12 @@
 from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
-from csp.decorators import csp_exempt, csp_update
+from csp.decorators import csp_update
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.decorators.http import etag
+
 from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \

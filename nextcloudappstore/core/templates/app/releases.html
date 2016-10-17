@@ -1,8 +1,5 @@
 {% extends 'app/base.html' %}
-{% load i18n %}
-{% load staticfiles %}
-{% load sort_by_version %}
-{% load version_spec %}
+{% load i18n staticfiles sort_by_version version_spec markdown %}
 
 {% block head-title %}{% trans 'Releases' %} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 
@@ -28,6 +25,9 @@
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
                                         <tr><td>{% trans 'Updated' %}</td><td>{{ release.last_modified }}</td></tr>
+                                        {% if release.changelog %}
+                                        <tr><td>{% trans 'Changelog' %}</td><td>{{ release.changelog|markdown }}</td></tr>
+                                        {% endif %}
                                         <tr>
                                             <td>{% trans 'Licenses' %}</td>
                                             <td>
