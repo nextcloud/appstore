@@ -55,7 +55,6 @@ class ParserTest(TestCase):
                 'raw_platform_min_version': '9',
                 'shell_commands': [],
                 'version': '8.8.2',
-                'raw_version': '8.8.2',
             },
             'ocsid': None,
         }}
@@ -66,6 +65,14 @@ class ParserTest(TestCase):
         parse_app_metadata(xml, self.config.info_schema,
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
+
+    def test_parse_pre_release(self):
+        xml = self._get_contents('data/infoxmls/prerelease.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        version = result['app']['release']['version']
+        self.assertEqual('1.0.0-alpha.1', version)
 
     def test_parse_invalid_elements(self):
         xml = self._get_contents('data/infoxmls/invalid-elements.xml')
@@ -444,7 +451,6 @@ class ParserTest(TestCase):
                     {'shell_command': {'name': 'ls'}}
                 ],
                 'version': '8.8.2',
-                'raw_version': '8.8.2',
             },
             'screenshots': [
                 {'screenshot': {'url': 'https://example.com/1.png',
@@ -477,9 +483,15 @@ class ParserTest(TestCase):
         expected = self._get_contents('data/changelogs/0.6.0.md').strip()
         self.assertEqual(expected, changelog)
 
+    def test_parse_changelog_unstable(self):
+        file = self._get_contents('data/changelogs/CHANGELOG.md')
+        changelog = parse_changelog(file, '0.4.3-beta')
+        expected = self._get_contents('data/changelogs/unreleased.md').strip()
+        self.assertEqual(expected, changelog)
+
     def test_parse_changelog_nightly(self):
         file = self._get_contents('data/changelogs/CHANGELOG.md')
-        changelog = parse_changelog(file, '0.4.3-nightly')
+        changelog = parse_changelog(file, '0.4.3', True)
         expected = self._get_contents('data/changelogs/unreleased.md').strip()
         self.assertEqual(expected, changelog)
 

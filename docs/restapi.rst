@@ -46,6 +46,8 @@ The following API routes are present:
 
 * :ref:`api-delete-release`
 
+* :ref:`api-delete-nightly-release`
+
 * :ref:`api-delete-app`
 
 * :ref:`api-all-app-ratings`
@@ -294,6 +296,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     "rawPhpVersionSpec": ">=5.6",
                     "rawPlatformVersionSpec": ">=10 <=10",
                     "minIntSize": 64,
+                    "isNightly": false,
                     "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
                     "created": "2016-06-25T16:08:56.796646Z",
                     "licenses": [
@@ -320,7 +323,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     "description": "# This is markdown\nnext line"
                 }
             },
-            "featured": false,
+            "isFeatured": false,
             "certificate": "-----BEGIN CERTIFICATE-----\r\nMIIEojCCA4qgAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwezELMAkGA1UEBhMCREUx\r\nGzAZBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzEXMBUGA1UECgwOTmV4dGNsb3Vk\r\nIEdtYkgxNjA0BgNVBAMMLU5leHRjbG91ZCBDb2RlIFNpZ25pbmcgSW50ZXJtZWRp\r\nYXRlIEF1dGhvcml0eTAeFw0xNjA2MTIyMTA1MDZaFw00MTA2MDYyMTA1MDZaMGYx\r\nCzAJBgNVBAYTAkRFMRswGQYDVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNV\r\nBAcMCVN0dXR0Z2FydDEXMBUGA1UECgwOTmV4dGNsb3VkIEdtYkgxDTALBgNVBAMM\r\nBGNvcmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUxcrn2DC892IX\r\n8+dJjZVh9YeHF65n2ha886oeAizOuHBdWBfzqt+GoUYTOjqZF93HZMcwy0P+xyCf\r\nQqak5Ke9dybN06RXUuGP45k9UYBp03qzlUzCDalrkj+Jd30LqcSC1sjRTsfuhc+u\r\nvH1IBuBnf7SMUJUcoEffbmmpAPlEcLHxlUGlGnz0q1e8UFzjbEFj3JucMO4ys35F\r\nqZS4dhvCngQhRW3DaMlQLXEUL9k3kFV+BzlkPzVZEtSmk4HJujFCnZj1vMcjQBg\/\r\nBqq1HCmUB6tulnGcxUzt\/Z\/oSIgnuGyENeke077W3EyryINL7EIyD4Xp7sxLizTM\r\nFCFCjjH1AgMBAAGjggFDMIIBPzAJBgNVHRMEAjAAMBEGCWCGSAGG+EIBAQQEAwIG\r\nQDAzBglghkgBhvhCAQ0EJhYkT3BlblNTTCBHZW5lcmF0ZWQgU2VydmVyIENlcnRp\r\nZmljYXRlMB0GA1UdDgQWBBQwc1H9AL8pRlW2e5SLCfPPqtqc0DCBpQYDVR0jBIGd\r\nMIGagBRt6m6qqTcsPIktFz79Ru7DnnjtdKF+pHwwejELMAkGA1UEBhMCREUxGzAZ\r\nBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBwwJU3R1dHRnYXJ0MRcw\r\nFQYDVQQKDA5OZXh0Y2xvdWQgR21iSDEhMB8GA1UEAwwYTmV4dGNsb3VkIFJvb3Qg\r\nQXV0aG9yaXR5ggIQADAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUH\r\nAwEwDQYJKoZIhvcNAQELBQADggEBADZ6+HV\/+0NEH3nahTBFxO6nKyR\/VWigACH0\r\nnaV0ecTcoQwDjKDNNFr+4S1WlHdwITlnNabC7v9rZ\/6QvbkrOTuO9fOR6azp1EwW\r\n2pixWqj0Sb9\/dSIVRpSq+jpBE6JAiX44dSR7zoBxRB8DgVO2Afy0s80xEpr5JAzb\r\nNYuPS7M5UHdAv2dr16fDcDIvn+vk92KpNh1NTeZFjBbRVQ9DXrgkRGW34TK8uSLI\r\nYG6jnfJ6eJgTaO431ywWPXNg1mUMaT\/+QBOgB299QVCKQU+lcZWptQt+RdsJUm46\r\nNY\/nARy4Oi4uOe88SuWITj9KhrFmEvrUlgM8FvoXA1ldrR7KiEg=\r\n-----END CERTIFICATE-----"
         }
     ]
@@ -329,8 +332,8 @@ This route will return all releases to display inside Nextcloud's apps admin are
 translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
 
-nightly
-    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both versions are equal. Example: 1.0.0 is equal to than 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
+isNightly
+    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both nightly versions are equal. Example: 1.0.0 is equal to 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
 
 screenshots
     Guaranteed to be HTTPS
@@ -370,7 +373,7 @@ description
 summary
     A brief explanation what the app tries to do
 
-featured
+isFeatured
     Simple boolean flag which will be presented to the user as "hey take a look at this app". Does not imply that it has been reviewed or we recommend it officially
 
 categories
@@ -380,7 +383,7 @@ changelog
     The translated release changelog in Markdown. Can be empty for all languages
 
 version
-    A full semantic version
+    A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
 
 .. _api-register-app:
 
@@ -499,7 +502,36 @@ Only app owners or co-maintainers are allowed to delete an app release. The owne
 * **Url parameters**:
 
  * **app-id**: app id, lower case ASCII characters and underscores are allowed
- * **app-version**: app version, semantic version, digits only or digits-nightly for deleting a nightly (e.g. 7.9.1-nightly)
+ * **app-version**: app version, semantic version, digits only
+
+* **Authentication**: Basic, Token
+
+* **Authorization**: App owners and co-maintainers
+
+* **Example CURL request**::
+
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/9.0.0 -u "user:password"
+
+
+* **Returns**:
+
+  * **HTTP 204**: If the app release was deleted successfully
+  * **HTTP 401**: If the user is not authenticated
+  * **HTTP 403**: If the user is not authorized to delete the app release
+  * **HTTP 404**: If the app release could not be found
+
+.. _api-delete-nightly-release:
+
+Delete a Nightly App Release
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Only app owners or co-maintainers are allowed to delete a nightly app release. The owner is the user that pushes the first release of an app to the store.
+
+* **Url**: DELETE /api/v1/apps/{**app-id**}/releases/nightly/{**app-version**}
+
+* **Url parameters**:
+
+ * **app-id**: app id, lower case ASCII characters and underscores are allowed
+ * **app-version**: app version, semantic version, digits only
 
 * **Authentication**: Basic, Token
 

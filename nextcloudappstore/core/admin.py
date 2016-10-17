@@ -27,7 +27,8 @@ class AppReleaseAdmin(admin.ModelAdmin):
 @admin.register(AppRelease)
 class AppReleaseAdmin(TranslatableAdmin):
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
-    list_filter = ('last_modified', 'app__owner', 'app__id')
+    list_display = ('app', 'version', 'is_nightly', 'last_modified')
+    list_filter = ('app__id', 'is_nightly', 'last_modified')
     ordering = ('-last_modified',)
 
 
@@ -50,9 +51,9 @@ class CategoryAdmin(TranslatableAdmin):
 @admin.register(App)
 class AppAdmin(TranslatableAdmin):
     list_display = ('id', 'owner', 'name', 'last_release', 'rating_recent',
-                    'rating_overall', 'summary', 'ocsid')
+                    'rating_overall', 'summary', 'ocsid', 'is_featured')
     list_filter = ('owner', 'co_maintainers', 'categories', 'created',
-                   'last_release')
+                   'is_featured', 'last_release')
     ordering = ('id',)
 
 

@@ -256,8 +256,7 @@ description
     * will be rendered on the app detail page
 version
     * required
-    * must be a `semantic version <http://semver.org/>`_, digits only
-    * will be padded to a version with three numbers (e.g. 9 will be padded to 9.0.0)
+    * must be a `semantic version <http://semver.org/>`_ without build metadata, e.g. 9.0.1 or 9.1.0-alpha.1
 licence
     * required
     * must contain **agpl** as the only valid value

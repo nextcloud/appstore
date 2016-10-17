@@ -114,10 +114,10 @@ class AppReleasesView(DetailView):
             'translations').all()
 
         releases = self.object.releases_by_platform_v()
-        nightlies = self.object.nightly_releases_by_platform_v()
-        versions = set(list(releases.keys()) + list(nightlies.keys()))
+        unstables = self.object.unstable_releases_by_platform_v()
+        versions = set(list(releases.keys()) + list(unstables.keys()))
         all_releases = list(map(
-            lambda v: (v, releases.get(v, []) + nightlies.get(v, [])),
+            lambda v: (v, releases.get(v, []) + unstables.get(v, [])),
             versions))
         context['releases_by_platform_v'] = \
             self._sort_by_platform_v(all_releases)
@@ -144,7 +144,7 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         order_by = self.request.GET.get('order_by', 'rating_overall')
         ordering = self.request.GET.get('ordering', 'desc')
-        featured = self.request.GET.get('featured', False)
+        is_featured = self.request.GET.get('is_featured', False)
         maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
@@ -171,8 +171,8 @@ class CategoryAppListView(ListView):
                 return queryset.none()
         if category_id:
             queryset = queryset.filter(categories__id=category_id)
-        if featured == "true":
-            queryset = queryset.filter(featured=True)
+        if is_featured == "true":
+            queryset = queryset.filter(is_featured=True)
         return queryset.prefetch_related('screenshots', 'translations')
 
     def get_context_data(self, **kwargs):
@@ -204,7 +204,7 @@ class CategoryAppListView(ListView):
         """
 
         search = self._url_params_str('search')
-        filters = self._url_params_str('featured', 'maintainer')
+        filters = self._url_params_str('is_featured', 'maintainer')
         ordering = self._url_params_str('order_by', 'ordering')
 
         return {

@@ -65,8 +65,6 @@ class AppReleaseSerializer(serializers.ModelSerializer):
     platform_version_spec = SerializerMethodField()
     raw_php_version_spec = SerializerMethodField()
     raw_platform_version_spec = SerializerMethodField()
-    version = SerializerMethodField()
-    nightly = SerializerMethodField()
     translations = TranslatedFieldsField(shared_model=AppRelease)
 
     class Meta:
@@ -74,7 +72,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
         fields = (
             'version', 'php_extensions', 'databases', 'shell_commands',
             'php_version_spec', 'platform_version_spec', 'min_int_size',
-            'download', 'created', 'licenses', 'last_modified', 'nightly',
+            'download', 'created', 'licenses', 'last_modified', 'is_nightly',
             'raw_php_version_spec', 'raw_platform_version_spec', 'signature',
             'translations',
         )
@@ -90,12 +88,6 @@ class AppReleaseSerializer(serializers.ModelSerializer):
 
     def get_raw_php_version_spec(self, obj):
         return obj.raw_php_version_spec.replace(',', ' ')
-
-    def get_version(self, obj):
-        return obj.version.replace('-nightly', '')
-
-    def get_nightly(self, obj):
-        return obj.version.endswith('-nightly')
 
 
 class ScreenshotSerializer(serializers.ModelSerializer):
@@ -116,7 +108,7 @@ class AppSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
-            'screenshots', 'translations', 'featured', 'authors',
+            'screenshots', 'translations', 'is_featured', 'authors',
             'rating_recent', 'rating_overall', 'certificate',
         )
 
