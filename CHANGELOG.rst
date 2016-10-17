@@ -33,6 +33,9 @@ Changelog
 - Fixed regex for commands
 - Fix backlinks on app releases page
 
+**Removed**
+
+- Removed discussion info.xml tag, instead link to the discourse forum app category and create categories in the forum when registering apps
 
 0.1.0 - 2016-09-21
 ++++++++++++++++++
