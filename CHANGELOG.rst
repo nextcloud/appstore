@@ -31,7 +31,7 @@ Changelog
 
 - Fixed syntax highlightning for Markdown
 - Fixed regex for commands
-- Fix backlinks on app releases page
+- Fixed backlinks on app releases page
 
 **Removed**
 
