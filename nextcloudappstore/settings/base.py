@@ -268,10 +268,9 @@ NEXTCLOUD_CRL_LOCATION = join(
 # whitelist for serializing markdown
 MARKDOWN_ALLOWED_TAGS = [
     'audio', 'video', 'source', 'dt', 'dd', 'dl', 'table', 'caption', 'tr',
-    'th', 'td', 'tbody', 'thead', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em',
-    'code', 'pre', 'blockquote', 'p', 'ul', 'li', 'ol', 'br', 'del', 'a',
-    'img', 'figure', 'figcaption', 'cite', 'time', 'abbr', 'iframe', 'q', 'h1'
-]
+    'th', 'td', 'tbody', 'thead', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong',
+    'em', 'code', 'pre', 'blockquote', 'p', 'ul', 'li', 'ol', 'br', 'del', 'a',
+    'img', 'figure', 'figcaption', 'cite', 'time', 'abbr', 'iframe', 'q', ]
 MARKDOWN_ALLOWED_ATTRIBUTES = {
     'audio': ['controls', 'src'],
     'video': ['poster', 'controls', 'height', 'width', 'src'],
