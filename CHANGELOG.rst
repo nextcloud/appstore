@@ -3,10 +3,11 @@
 Changelog
 ---------
 
-Unreleased
-++++++++++
+0.1.0 - 2016-10-xx
+++++++++++++++++++
 
 **Added**
+
 - Faster API E-Tag generation
 - Faster API and web interface due to reduced sql queries
 - Generate apps through the web interface
