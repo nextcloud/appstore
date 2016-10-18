@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 00:56+0000\n"
+"POT-Creation-Date: 2016-10-18 00:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Artyom Tikhonov <sql_debuger@mail.ru>, 2016\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -57,7 +57,7 @@ msgid ""
 "base64</b>"
 msgstr ""
 
-#: nextcloudappstore/core/forms.py:24
+#: nextcloudappstore/core/forms.py:24 nextcloudappstore/core/models.py:347
 msgid "Nightly"
 msgstr "Ночная"
 
@@ -92,8 +92,8 @@ msgstr ""
 msgid "Comment"
 msgstr "Комментарий"
 
-#: nextcloudappstore/core/models.py:57 nextcloudappstore/core/models.py:416
-#: nextcloudappstore/core/models.py:452 nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:57 nextcloudappstore/core/models.py:419
+#: nextcloudappstore/core/models.py:455 nextcloudappstore/core/models.py:473
 msgid "Id"
 msgstr "Id"
 
@@ -101,12 +101,12 @@ msgstr "Id"
 msgid "app id, identical to folder name"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:59 nextcloudappstore/core/models.py:434
+#: nextcloudappstore/core/models.py:59 nextcloudappstore/core/models.py:437
 msgid "Category"
 msgstr "Категория"
 
-#: nextcloudappstore/core/models.py:61 nextcloudappstore/core/models.py:428
-#: nextcloudappstore/core/models.py:455 nextcloudappstore/core/models.py:472
+#: nextcloudappstore/core/models.py:61 nextcloudappstore/core/models.py:431
+#: nextcloudappstore/core/models.py:458 nextcloudappstore/core/models.py:475
 msgid "Name"
 msgstr "Имя"
 
@@ -123,12 +123,12 @@ msgstr "Итого"
 msgid "Short text describing the app's purpose"
 msgstr "Краткое описание назначения приложения"
 
-#: nextcloudappstore/core/models.py:66 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:66 nextcloudappstore/core/models.py:432
 #: nextcloudappstore/core/scaffolding/forms.py:45
 msgid "Description"
 msgstr "Описание"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:430
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:433
 msgid "Will be rendered as Markdown"
 msgstr "Будет указано как уцененное "
 
@@ -148,18 +148,18 @@ msgstr "URL-адрес документации для разработчика"
 msgid "Issue tracker url"
 msgstr "URL проблемы на трекере"
 
-#: nextcloudappstore/core/models.py:78 nextcloudappstore/core/models.py:289
+#: nextcloudappstore/core/models.py:78 nextcloudappstore/core/models.py:291
 #: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: nextcloudappstore/core/models.py:80 nextcloudappstore/core/models.py:336
-#: nextcloudappstore/core/models.py:422
+#: nextcloudappstore/core/models.py:80 nextcloudappstore/core/models.py:338
+#: nextcloudappstore/core/models.py:425
 msgid "Created at"
 msgstr "Создано:"
 
-#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:338
-#: nextcloudappstore/core/models.py:424
+#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:340
+#: nextcloudappstore/core/models.py:427
 msgid "Updated at"
 msgstr "Обновлено:"
 
@@ -172,7 +172,7 @@ msgstr "Владелец приложения"
 msgid "Co-Maintainers"
 msgstr "Совместное сопровождение с"
 
-#: nextcloudappstore/core/models.py:89 nextcloudappstore/core/models.py:301
+#: nextcloudappstore/core/models.py:89 nextcloudappstore/core/models.py:303
 msgid "App authors"
 msgstr "Авторы приложения"
 
@@ -209,264 +209,265 @@ msgstr ""
 msgid "Old store id. Deprecated"
 msgstr "Старый идентификатор магазина. Устаревшее"
 
-#: nextcloudappstore/core/models.py:101 nextcloudappstore/core/models.py:234
-#: nextcloudappstore/core/models.py:307 nextcloudappstore/core/models.py:386
+#: nextcloudappstore/core/models.py:101 nextcloudappstore/core/models.py:236
+#: nextcloudappstore/core/models.py:309 nextcloudappstore/core/models.py:389
 msgid "App"
 msgstr "Приложение"
 
 #: nextcloudappstore/core/models.py:102
 #: nextcloudappstore/core/templates/app/detail.html:4
-#: nextcloudappstore/core/templates/app/releases.html:7
+#: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/nav.html:42
 msgid "Apps"
 msgstr "Приложения"
 
-#: nextcloudappstore/core/models.py:236
+#: nextcloudappstore/core/models.py:238
 msgid "User"
 msgstr "Пользователь"
 
-#: nextcloudappstore/core/models.py:238
+#: nextcloudappstore/core/models.py:240
 #: nextcloudappstore/core/templates/app/list.html:15
 msgid "Rating"
 msgstr "Рейтинг"
 
-#: nextcloudappstore/core/models.py:239
+#: nextcloudappstore/core/models.py:241
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
 msgstr "Рейтинг от 0.0 (низкий) до 1.0 (высокий)"
 
-#: nextcloudappstore/core/models.py:242
+#: nextcloudappstore/core/models.py:244
 msgid "Rating comment"
 msgstr "Рейтинг комментария"
 
-#: nextcloudappstore/core/models.py:243
+#: nextcloudappstore/core/models.py:245
 msgid "Rating comment in Markdown"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:249
+#: nextcloudappstore/core/models.py:251
 msgid "App rating"
 msgstr "Рейтинг приложения"
 
-#: nextcloudappstore/core/models.py:250
+#: nextcloudappstore/core/models.py:252
 msgid "App ratings"
 msgstr "Рейтинги приложения"
 
-#: nextcloudappstore/core/models.py:287
+#: nextcloudappstore/core/models.py:289
 msgid "Full name"
 msgstr "Полное имя"
 
-#: nextcloudappstore/core/models.py:290
+#: nextcloudappstore/core/models.py:292
 msgid "E-Mail"
 msgstr "Почта"
 
-#: nextcloudappstore/core/models.py:300
+#: nextcloudappstore/core/models.py:302
 msgid "App author"
 msgstr "Автор приложения"
 
-#: nextcloudappstore/core/models.py:305
+#: nextcloudappstore/core/models.py:307
 msgid "Version"
 msgstr "Версия"
 
-#: nextcloudappstore/core/models.py:306
+#: nextcloudappstore/core/models.py:308
 msgid "Version follows Semantic Versioning"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:313 nextcloudappstore/core/models.py:534
+#: nextcloudappstore/core/models.py:315 nextcloudappstore/core/models.py:537
 msgid "PHP extension dependency"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:316 nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:318 nextcloudappstore/core/models.py:501
 msgid "Database dependency"
 msgstr "Зависимость от базы данных"
 
-#: nextcloudappstore/core/models.py:317 nextcloudappstore/core/models.py:461
+#: nextcloudappstore/core/models.py:319 nextcloudappstore/core/models.py:464
 msgid "License"
 msgstr "Лицензия"
 
-#: nextcloudappstore/core/models.py:320
+#: nextcloudappstore/core/models.py:322
 msgid "Shell command dependency"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:322
+#: nextcloudappstore/core/models.py:324
 msgid "PHP version requirement"
 msgstr "Требование к версии PHP"
 
-#: nextcloudappstore/core/models.py:324
+#: nextcloudappstore/core/models.py:326
 msgid "Platform version requirement"
 msgstr "Требования к версии платформы"
 
-#: nextcloudappstore/core/models.py:327
+#: nextcloudappstore/core/models.py:329
 msgid "PHP version requirement (raw)"
 msgstr "Требование к версии PHP (raw)"
 
-#: nextcloudappstore/core/models.py:329
+#: nextcloudappstore/core/models.py:331
 msgid "Platform version requirement (raw)"
 msgstr "Требования к версии платформы (raw)"
 
-#: nextcloudappstore/core/models.py:331
+#: nextcloudappstore/core/models.py:333
 #: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Minimum Integer bits"
 msgstr "Минимум бит для Integer"
 
-#: nextcloudappstore/core/models.py:332
+#: nextcloudappstore/core/models.py:334
 msgid "e.g. 32 for 32bit Integers"
 msgstr "Н-р, 32 как 32-х битное целое"
 
-#: nextcloudappstore/core/models.py:334
+#: nextcloudappstore/core/models.py:336
 msgid "Archive download Url"
 msgstr "URL-адрес для скачивания архива"
 
-#: nextcloudappstore/core/models.py:339
+#: nextcloudappstore/core/models.py:341
 msgid "Signature"
 msgstr "Подпись"
 
-#: nextcloudappstore/core/models.py:340
+#: nextcloudappstore/core/models.py:342
 msgid "A signature using SHA512 and the app's certificate"
 msgstr "Подпись использует алгоритм SHA512 и сертификат приложения"
 
-#: nextcloudappstore/core/models.py:342
+#: nextcloudappstore/core/models.py:344
+#: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Changelog"
 msgstr "Журнал изменений"
 
-#: nextcloudappstore/core/models.py:343
+#: nextcloudappstore/core/models.py:345
 msgid "The release changelog. Can contain Markdown"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:347 nextcloudappstore/core/models.py:487
-#: nextcloudappstore/core/models.py:522
+#: nextcloudappstore/core/models.py:350 nextcloudappstore/core/models.py:490
+#: nextcloudappstore/core/models.py:525
 msgid "App release"
 msgstr "Релиз приложения"
 
-#: nextcloudappstore/core/models.py:348
+#: nextcloudappstore/core/models.py:351
 msgid "App releases"
 msgstr "Релизы приложения"
 
-#: nextcloudappstore/core/models.py:385
+#: nextcloudappstore/core/models.py:388
 msgid "Image url"
 msgstr "URL-адрес изображения"
 
-#: nextcloudappstore/core/models.py:388
+#: nextcloudappstore/core/models.py:391
 msgid "Ordering"
 msgstr "Порядок"
 
-#: nextcloudappstore/core/models.py:391
+#: nextcloudappstore/core/models.py:394
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
 msgstr "Скриншот"
 
-#: nextcloudappstore/core/models.py:392
+#: nextcloudappstore/core/models.py:395
 msgid "Screenshots"
 msgstr "Скриншоты"
 
-#: nextcloudappstore/core/models.py:401 nextcloudappstore/core/models.py:406
+#: nextcloudappstore/core/models.py:404 nextcloudappstore/core/models.py:409
 msgid "Shell command"
 msgstr "Команда Shell"
 
-#: nextcloudappstore/core/models.py:403
+#: nextcloudappstore/core/models.py:406
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Название требуемой Shell команды, например, grep"
 
-#: nextcloudappstore/core/models.py:407
+#: nextcloudappstore/core/models.py:410
 #: nextcloudappstore/core/templates/app/releases.html:56
 msgid "Shell commands"
 msgstr "Команды Shell"
 
-#: nextcloudappstore/core/models.py:418
+#: nextcloudappstore/core/models.py:421
 msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:427
+#: nextcloudappstore/core/models.py:430
 msgid "Category name which will be presented to the user"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Categories"
 msgstr "Категории"
 
-#: nextcloudappstore/core/models.py:454
+#: nextcloudappstore/core/models.py:457
 msgid "Key which is used to identify a license"
 msgstr "Ключ для идентификации лицензии"
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 msgid "License name which will be presented to the user"
 msgstr "Название лицензии, представленной пользователю"
 
-#: nextcloudappstore/core/models.py:462
+#: nextcloudappstore/core/models.py:465
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Лицензии"
 
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Key which is used to identify a database"
 msgstr "Ключ для идентификации в базе данных"
 
-#: nextcloudappstore/core/models.py:474
+#: nextcloudappstore/core/models.py:477
 msgid "Database name which will be presented to the user"
 msgstr "Название базы данных, представленное пользователю"
 
-#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:490
+#: nextcloudappstore/core/models.py:480 nextcloudappstore/core/models.py:493
 msgid "Database"
 msgstr "База данных"
 
-#: nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:481
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Databases"
 msgstr "Базы данных"
 
-#: nextcloudappstore/core/models.py:492
+#: nextcloudappstore/core/models.py:495
 msgid "Database version requirement"
 msgstr "Требования к версии базы данных"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Database version requirement (raw)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:499
+#: nextcloudappstore/core/models.py:502
 msgid "Database dependencies"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:508
+#: nextcloudappstore/core/models.py:511
 msgid "e.g. libxml"
 msgstr "например, libxml"
 
-#: nextcloudappstore/core/models.py:509 nextcloudappstore/core/models.py:512
-#: nextcloudappstore/core/models.py:525
+#: nextcloudappstore/core/models.py:512 nextcloudappstore/core/models.py:515
+#: nextcloudappstore/core/models.py:528
 msgid "PHP extension"
 msgstr "Расширение PHP"
 
-#: nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:516
 #: nextcloudappstore/core/templates/app/releases.html:70
 msgid "PHP extensions"
 msgstr "Расширения PHP"
 
-#: nextcloudappstore/core/models.py:528
+#: nextcloudappstore/core/models.py:531
 msgid "Extension version requirement"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:534
 msgid "Extension version requirement (raw)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:535
+#: nextcloudappstore/core/models.py:538
 msgid "PHP extension dependencies"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:560
+#: nextcloudappstore/core/models.py:563
 msgid "App release deletion"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:561
+#: nextcloudappstore/core/models.py:564
 msgid "App release deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:599
+#: nextcloudappstore/core/models.py:602
 msgid "App ownership transfer"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:600
+#: nextcloudappstore/core/models.py:603
 msgid "App ownership transfers"
 msgstr ""
 
@@ -665,7 +666,7 @@ msgid "Fullscreen"
 msgstr "Во весь экран"
 
 #: nextcloudappstore/core/templates/app/detail.html:43
-#: nextcloudappstore/core/templates/app/releases.html:30
+#: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -692,6 +693,12 @@ msgstr "Документация разработчика"
 #: nextcloudappstore/core/templates/app/detail.html:95
 msgid "Downloads"
 msgstr "Загрузки"
+
+#: nextcloudappstore/core/templates/app/detail.html:102
+#: nextcloudappstore/core/templates/app/releases.html:23
+#: nextcloudappstore/core/templates/app/releases.html:81
+msgid "nightly"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Unstable"
@@ -797,16 +804,16 @@ msgstr "Приложение успешно зарегистрировано."
 msgid "Registering..."
 msgstr "Регистрация..."
 
-#: nextcloudappstore/core/templates/app/releases.html:7
-#: nextcloudappstore/core/templates/app/releases.html:15
+#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/releases.html:12
 msgid "Releases"
 msgstr "Релизы"
 
-#: nextcloudappstore/core/templates/app/releases.html:16
+#: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
 msgstr "Подробно о приложении"
 
-#: nextcloudappstore/core/templates/app/releases.html:29
+#: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "Подробно о релизе"
 
@@ -819,9 +826,8 @@ msgid "PHP"
 msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/releases.html:81
-#, python-format
-msgid "Download %(name)s %(ver)s"
-msgstr "Скачать %(name)s %(ver)s"
+msgid "Download"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
