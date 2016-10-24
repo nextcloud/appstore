@@ -3,6 +3,13 @@
 Changelog
 ---------
 
+Unreleased
+++++++++++
+
+**Changed**
+
+- Information related to the app and not the app release should only be updated when stable, new releases are uploaded
+
 0.2.0 - 2016-10-23
 ++++++++++++++++++
 
