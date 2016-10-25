@@ -3,6 +3,8 @@ from django.contrib.syndication.views import Feed
 from django.urls import reverse_lazy
 from django.utils.feedgenerator import Atom1Feed
 from django.utils.translation import ugettext_lazy as _  # type: ignore
+from parler.models import TranslationDoesNotExist
+
 from nextcloudappstore.core.models import AppRelease
 from markdown import markdown
 from bleach import clean
@@ -13,14 +15,28 @@ class AppReleaseRssFeed(Feed):
     description = _('Get the newest app release updates')
     link = reverse_lazy('home')
 
+    def __call__(self, request, *args, **kwargs):
+        self.request = request
+        return super().__call__(request, *args, **kwargs)
+
     def items(self):
-        return AppRelease.objects.order_by('-last_modified')[:10]
+        queryset = AppRelease.objects.order_by('-last_modified')
+        if 'nightly' not in self.request.GET:
+            queryset = queryset.filter(is_nightly=False)
+        if 'prerelease' not in self.request.GET:
+            queryset = queryset.exclude(version__contains='-')
+        return queryset[:10]
 
     def item_title(self, item):
         return '%s (%s)' % (item.app.name, item.version)
 
     def item_description(self, item):
-        return clean(markdown(item.app.description),
+        try:
+            content = ('%s\n\n# %s\n\n%s' % (
+                item.app.description, _('Changes'), item.changelog))
+        except TranslationDoesNotExist:
+            content = item.app.description
+        return clean(markdown(content),
                      attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES,
                      tags=settings.MARKDOWN_ALLOWED_TAGS)
 
