@@ -1,5 +1,6 @@
 import os
 from itertools import chain
+from typing import List, Callable
 
 """
 Contains small utility and shortcut functions
@@ -43,3 +44,16 @@ def read_relative_file(file_path: str, target_path: str) -> str:
 
 def flatmap(f, xs):
     return chain.from_iterable(map(f, xs))
+
+
+def any_match(predicate, iterable) -> bool:
+    """
+    :param predicate: function to test items
+    :param iterable: iterable
+    :return: true if a predicate returns true for at least one element in an
+     iterable
+    """
+    for entry in iterable:
+        if predicate(entry):
+            return True
+    return False

@@ -1,6 +1,8 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
 from django.utils import timezone
 from semantic_version import Version  # type: ignore
+
+from nextcloudappstore.core.facades import any_match
 from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension, AppAuthor
@@ -250,28 +252,46 @@ class AppImporter(Importer):
     def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any,
                                                                       Any]:
         obj.last_release = timezone.now()
+
+        if 'is_nightly' not in value['release']:
+            value['release']['is_nightly'] = False
+        if value['release']['is_nightly']:
+            AppRelease.objects.filter(app__id=obj.id, is_nightly=True).delete()
+
         # only new releases update an app's data
-        if not self._is_latest_version(value):
-            value = {'id': value['id'], 'release': value['release']}
-        else:
+        if self._should_update_everything(value):
             # clear all relations
             obj.screenshots.all().delete()
             obj.authors.all().delete()
             obj.categories.clear()
             for translation in obj.translations.all():
                 translation.delete()
-        if 'is_nightly' not in value['release']:
-            value['release']['is_nightly'] = False
-        if value['release']['is_nightly']:
-            AppRelease.objects.filter(app__id=obj.id, is_nightly=True).delete()
+        else:
+            value = {'id': value['id'], 'release': value['release']}
+
         return value, obj
 
-    def _is_latest_version(self, value: Any) -> bool:
+    def _should_update_everything(self, value: Any) -> bool:
         releases = AppRelease.objects.filter(app__id=value['id'])
+
+        # if its the first release it should always set the required initial
+        # data
+        if len(releases) == 0:
+            return True
+
+        current_version = value['release']['version']
+
         # we do not care about nightlies here so it's fine to just use a
         # normal semver
-        uploaded_version = Version(value['release']['version'])
-        for release in releases:
-            if uploaded_version < Version(release.version):
-                return False
-        return True
+        uploaded_version = Version(current_version)
+        is_prerelease = '-' in current_version
+        is_nightly = value['release']['is_nightly']
+        is_stable = not is_prerelease and not is_nightly
+
+        def is_newer_version(release: Any) -> bool:
+            return uploaded_version >= Version(release.version)
+
+        # the main page should only be updated when stable and new releases
+        # are uploaded
+        is_latest_version = any_match(is_newer_version, releases)
+        return is_latest_version and is_stable

@@ -154,6 +154,28 @@ class ImporterTest(TestCase):
         app = App.objects.get(pk='news')
         self.assertEqual('', app.website)
 
+    def test_release_no_update_prerelease(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.importer.import_data('app', result['app'], None)
+        result['app']['website'] = 'https://website.com'
+        result['app']['release']['version'] = '9.0.0-alpha'
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual('', app.website)
+
+    def test_release_no_update_nighly(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.importer.import_data('app', result['app'], None)
+        result['app']['website'] = 'https://website.com'
+        result['app']['release']['is_nightly'] = True
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual('', app.website)
+
     def test_release_import_ocsid_present(self):
         result = parse_app_metadata(self.min, self.config.info_schema,
                                     self.config.pre_info_xslt,
@@ -170,6 +192,26 @@ class ImporterTest(TestCase):
         self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self.assertEqual(None, app.ocsid)
+
+    def test_release_create_prerelease(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        result['app']['release']['version'] = '9.0.0-alpha'
+        result['app']['website'] = 'https://website.com'
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual('https://website.com', app.website)
+
+    def test_release_create_nighly(self):
+        result = parse_app_metadata(self.min, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        result['app']['release']['is_nightly'] = True
+        result['app']['website'] = 'https://website.com'
+        self.importer.import_data('app', result['app'], None)
+        app = App.objects.get(pk='news')
+        self.assertEqual('https://website.com', app.website)
 
     def _assert_all_empty(self, obj, attribs):
         for attrib in attribs:
