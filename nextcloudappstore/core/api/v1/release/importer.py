@@ -288,10 +288,10 @@ class AppImporter(Importer):
         is_nightly = value['release']['is_nightly']
         is_stable = not is_prerelease and not is_nightly
 
-        def newer_version(release: Any) -> bool:
+        def is_newer_version(release: Any) -> bool:
             return uploaded_version >= Version(release.version)
 
         # the main page should only be updated when stable and new releases
         # are uploaded
-        is_latest_version = any_match(newer_version, releases)
+        is_latest_version = any_match(is_newer_version, releases)
         return is_latest_version and is_stable
