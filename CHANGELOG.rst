@@ -6,9 +6,18 @@ Changelog
 Unreleased
 ++++++++++
 
+**Added**
+
+- Add ability to add nightlies and pre-releases to app release feed by appending ?prerelease=true&nightly=true to feed url
+- Add changelog to app release feed
+
 **Changed**
 
 - Information related to the app and not the app release should only be updated when stable, new releases are uploaded
+
+**Removed**
+
+- Remove nightlies and pre-releases from app release feed
 
 0.2.0 - 2016-10-23
 ++++++++++++++++++
