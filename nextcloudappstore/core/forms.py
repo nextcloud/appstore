@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
     BooleanField, TextInput
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 
-from nextcloudappstore.core.models import App, AppRating
+from nextcloudappstore.core.models import App, AppRating, AppOwnershipTransfer
 
 RATING_CHOICES = (
     (0.0, _('Bad')),
@@ -74,3 +76,31 @@ class AppRatingForm(Form):
         app_rating.set_current_language(self._language_code)
         app_rating.comment = self.cleaned_data['comment']
         app_rating.save()
+
+
+class AppOwnershipTransferForm(Form):
+    new_owner_username = CharField(
+        max_length=User._meta.get_field('username').max_length,
+        label=_('New owner (username)'))
+
+    def __init__(self, *args, app=None, **kwargs):
+        self.app = app
+        super().__init__(*args, **kwargs)
+
+    def clean_new_owner_username(self):
+        new_owner_username = self.cleaned_data['new_owner_username']
+        try:
+            new_owner = User.objects.get(username=new_owner_username)
+            self.new_owner = new_owner
+            return new_owner_username
+        except User.DoesNotExist:
+            self.add_error(
+                'new_owner_username',
+                ValidationError(_('There is no such user.'), code='no-user'))
+            return new_owner_username
+
+    def save(self):
+        AppOwnershipTransfer.objects.create(
+            app=self.app,
+            from_user=self.app.owner,
+            to_user=self.new_owner)

@@ -1,14 +1,17 @@
 from urllib.parse import urlencode
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import IntegrityError
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
+from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.http import etag
 from django.views.generic import FormView
 from django.views.generic.base import TemplateView
@@ -20,7 +23,7 @@ from semantic_version import Version
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.caching import app_etag
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
-    AppRegisterForm
+    AppRegisterForm, AppOwnershipTransferForm
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.scaffolding.archive import build_archive
 from nextcloudappstore.core.scaffolding.forms import AppScaffoldingForm
@@ -269,4 +272,43 @@ class AppRegisterView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AppRegisterForm()
+        return context
+
+
+class AppEditView(LoginRequiredMixin, TemplateView):
+    template_name = 'app/edit.html'
+    http_method_names = ['get', 'post']
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        app_own_transfer_form = AppOwnershipTransferForm(
+            request.POST, app=context['object'])
+        app_own_transfer_form.full_clean()
+
+        user_is_owner = request.user == context['object'].owner
+
+        if user_is_owner and app_own_transfer_form.is_valid():
+            try:
+                app_own_transfer_form.save()
+                messages.success(
+                    request,
+                    _('App ownership transfer request created. Awaiting '
+                      'approval from the other user. Visit your account pages '
+                      'to see and manage pending requests.'))
+            except IntegrityError:
+                messages.error(
+                    request,
+                    _('Creation of app ownership transfer request failed. '
+                      'There may already be a pending request for this app.'),
+                    extra_tags='danger')
+
+        context['app_ownership_transfer_form'] = app_own_transfer_form
+        return self.render_to_response(context)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        object = App.objects.get(id=self.kwargs['id'])
+        context['object'] = object
+        context['app_ownership_transfer_form'] = \
+            AppOwnershipTransferForm(app=object)
         return context

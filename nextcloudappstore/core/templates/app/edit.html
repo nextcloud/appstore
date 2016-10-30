@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load i18n staticfiles humanize %}
+
+{% block head-title %}{% blocktrans with appname=object.name %}Edit app: {{ app_name }}{% endblocktrans %} - {% trans 'Apps' %} - {% endblock %}
+{% block head %}
+    <script defer="defer" src="{% static 'assets/js/ui/app-edit.js' %}"></script>
+    <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
+{% endblock %}
+
+{% block apps %}
+    <div class="header-wrap">
+        <h1>{% blocktrans with app_name=object.name %}Edit app: {{ app_name }}{% endblocktrans %}</h1>
+    </div>
+    <p><a href="{% url 'app-detail' object.id %}">&larr; App details</a></p>
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <h2>Transfer app ownership</h2>
+                <form method="post"
+                      action="{{ request.path }}"
+                      id="app-ownership-transfer-form"
+                      data-app-id="{{ object.id }}"
+                      data-prompt="{% trans 'Please enter the app ID to confirm that you really want to transfer the ownership of this app to another user.' %}"
+                      data-fail="{% trans 'The entered app ID did not match the actual app ID. No action has been taken.' %}">
+                    {% include 'form-fields.html' with form=app_ownership_transfer_form %}
+                    <button id="app-ownership-transfer-submit" class="btn btn-primary btn-block">{% trans 'Transfer' %}</button>
+                </form>
+            </section>
+        </div>
+    </div>
+{% endblock %}
