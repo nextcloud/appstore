@@ -11,20 +11,24 @@ class RatingTest(TestCase):
     """
 
     def test_below_threshold_rating(self):
-        result = compute_rating([1.0], 2)
+        result, num = compute_rating([1.0], 2)
         self.assertEqual(0.5, result)
+        self.assertEqual(0, num)
 
     def test_simple_rating(self):
-        result = compute_rating([1.0], 0)
+        result, num = compute_rating([1.0], 0)
         self.assertEqual(1.0, result)
+        self.assertEqual(1, num)
 
     def test_no_ratings(self):
-        result = compute_rating([], -1)
+        result, num = compute_rating([], -1)
         self.assertEqual(0.5, result)
+        self.assertEqual(0, num)
 
     def test_full_rating(self):
-        result = compute_rating([1.0, 1.0, 0.5, 0.5], 1)
+        result, num = compute_rating([1.0, 1.0, 0.5, 0.5], 1)
         self.assertEqual(0.75, result)
+        self.assertEqual(4, num)
 
     def test_app_rating_save(self):
         user1 = self.create_user(1)
@@ -39,14 +43,18 @@ class RatingTest(TestCase):
 
         self.assertEqual(4, len(AppRating.objects.all()))
         self.assertEqual(0.5, App.objects.get(id=app.id).rating_overall)
+        self.assertEqual(0, App.objects.get(id=app.id).rating_num_overall)
         self.assertEqual(0.5, App.objects.get(id=app.id).rating_recent)
+        self.assertEqual(0, App.objects.get(id=app.id).rating_num_recent)
 
         user5 = self.create_user(5)
         AppRating.objects.create(app=app, user=user5, rating=1.0)
 
         self.assertEqual(5, len(AppRating.objects.all()))
         self.assertEqual(0.7, App.objects.get(id=app.id).rating_overall)
+        self.assertEqual(5, App.objects.get(id=app.id).rating_num_overall)
         self.assertEqual(0.7, App.objects.get(id=app.id).rating_recent)
+        self.assertEqual(5, App.objects.get(id=app.id).rating_num_recent)
 
     def create_user(self, id):
         user_id = 'test%i' % id

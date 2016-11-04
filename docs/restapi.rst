@@ -245,7 +245,9 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "created": "2016-06-25T16:08:56.794719Z",
             "lastModified": "2016-06-25T16:49:25.326855Z",
             "ratingOverall": 0.5,
+            "ratingNumOverall": 20,
             "ratingRecent": 1.0,
+            "ratingNumRecent": 10,
             "releases": [
                 {
                     "version": "9.0.4-alpha.1",
@@ -361,8 +363,14 @@ rawVersionSpec
 ratingRecent
     Rating from 0.0 to 1.0 (0.0 being the worst, 1.0 being the best) in the past 90 days
 
+ratingNumRecent
+    Number of ratings for an app in the past 90 days, as in: how many votes were casted. 0 Means no ratings yet.
+
 ratingOverall
     Rating from 0.0 to 1.0 (0.0 being the worst, 1.0 being the best) of all time
+
+ratingNumOverall
+    Number of ratings for an app overall, as in: how many votes were casted. 0 Means no ratings yet.
 
 signature
     A signature using SHA512 and the app's certificate
