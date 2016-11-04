@@ -15,10 +15,15 @@ Unreleased
 **Changed**
 
 - Information related to the app and not the app release should only be updated when stable, new releases are uploaded
+- Manage Nextcloud releases in the admin interface instead of a Python file
 
 **Removed**
 
 - Remove nightlies and pre-releases from app release feed
+
+**Fixed**
+
+- Apps depending on Nextcloud minor or patch versions are now rendered on the app detail and releases page
 
 0.2.0 - 2016-10-23
 ++++++++++++++++++

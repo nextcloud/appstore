@@ -650,12 +650,13 @@ class NextcloudReleaseManager(Manager):
 class NextcloudRelease(Model):
     objects = NextcloudReleaseManager()
     version = CharField(max_length=100, verbose_name=_('Nextcloud version'),
-                        help_text=_('e.g. 9.0.54'))
+                        help_text=_('e.g. 9.0.54'), primary_key=True)
     is_current = BooleanField(verbose_name=_('Is current version'),
                               help_text=_('Only one version is allowed to be '
                                           'the current version. This field is '
                                           'used to pre-select drop downs for '
-                                          'app generation etc.'))
+                                          'app generation etc.'),
+                              default=False)
 
     class Meta:
         verbose_name = _('Nextcloud release')
