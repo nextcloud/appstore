@@ -249,10 +249,6 @@ VALIDATE_CERTIFICATES = True
 # certification hash algorithm
 CERTIFICATE_DIGEST = 'sha512'
 
-# supported Nextcloud versions
-PLATFORM_VERSIONS = ['9', '10', '11']
-CURRENT_PLATFORM_STABLE_VERSION = '11'
-
 # app archive downloader configuration
 MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
 MAX_DOWNLOAD_TIMEOUT = 60  # seconds

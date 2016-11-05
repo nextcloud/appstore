@@ -18,7 +18,7 @@ def get_categories():
 
 def get_versions():
     tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
-    return [(v, v) for v in settings.PLATFORM_VERSIONS if v in tpls]
+    return [(v, v) for v in tpls]
 
 
 def validate_id(input: str) -> str:

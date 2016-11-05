@@ -41,6 +41,10 @@
                                     </table>
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>
+                                        <tr>
+                                            <td>{% trans 'Rquired Nextcloud versions' %}</td>
+                                            <td>{{ release.platform_version_spec|version_spec }}</td>
+                                        </tr>
                                         {% if release.databasedependencies.all %}
                                         <tr>
                                             <td>{% trans 'Databases' %}</td>

@@ -21,7 +21,8 @@ from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.caching import app_etag
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
     AppRegisterForm
-from nextcloudappstore.core.models import App, Category, AppRating
+from nextcloudappstore.core.models import App, Category, AppRating, \
+    NextcloudRelease
 from nextcloudappstore.core.scaffolding.archive import build_archive
 from nextcloudappstore.core.scaffolding.forms import AppScaffoldingForm
 from nextcloudappstore.core.versioning import pad_min_version
@@ -244,7 +245,7 @@ class AppScaffoldingView(FormView):
 
     def get_initial(self):
         init = {
-            'platform': settings.CURRENT_PLATFORM_STABLE_VERSION,
+            'platform': NextcloudRelease.get_current_main(),
             'categories': ('tools',)
         }
         if self.request.user.is_authenticated:

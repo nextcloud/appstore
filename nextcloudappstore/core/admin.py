@@ -2,7 +2,7 @@ from django.contrib import admin
 from nextcloudappstore.core.models import DatabaseDependency, AppRelease, \
     ShellCommand, Screenshot, PhpExtensionDependency, License, PhpExtension, \
     Database, AppRating, App, Category, AppAuthor, AppOwnershipTransfer, \
-    AppReleaseDeleteLog
+    AppReleaseDeleteLog, NextcloudRelease
 
 from parler.admin import TranslatableAdmin
 
@@ -95,6 +95,12 @@ class ScreenshotAdmin(admin.ModelAdmin):
     ordering = ('app', 'ordering')
     list_display = ('url', 'app', 'ordering')
     list_filter = ('app__id',)
+
+
+@admin.register(NextcloudRelease)
+class NextcloudReleaseAdmin(admin.ModelAdmin):
+    list_display = ('version', 'is_current')
+    list_filter = ('is_current',)
 
 
 @admin.register(ShellCommand)
