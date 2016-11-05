@@ -109,7 +109,8 @@ class AppSerializer(serializers.ModelSerializer):
             'id', 'categories', 'user_docs', 'admin_docs', 'developer_docs',
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
             'screenshots', 'translations', 'is_featured', 'authors',
-            'rating_recent', 'rating_overall', 'certificate',
+            'rating_recent', 'rating_overall', 'rating_num_recent',
+            'rating_num_overall', 'certificate',
         )
 
 
