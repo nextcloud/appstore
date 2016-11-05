@@ -10,6 +10,7 @@ Unreleased
 
 - Add ability to add nightlies and pre-releases to app release feed by appending ?prerelease=true&nightly=true to feed url
 - Add changelog to app release feed
+- Add number of recent and overall ratings to API
 
 **Changed**
 
