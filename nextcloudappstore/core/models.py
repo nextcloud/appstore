@@ -661,6 +661,7 @@ class NextcloudRelease(Model):
     class Meta:
         verbose_name = _('Nextcloud release')
         verbose_name_plural = _('Nextcloud releases')
+        ordering = ('-version',)
 
     @staticmethod
     def get_current_main():
