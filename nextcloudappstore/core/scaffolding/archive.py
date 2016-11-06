@@ -9,17 +9,7 @@ from django.template import Context
 from django.template import Template
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
-
-PROFILES = {
-    10: {
-        'nextcloud_version': '10',
-        'owncloud_version': '9.1'
-    },
-    11: {
-        'nextcloud_version': '11',
-        'owncloud_version': '9.2'
-    }
-}
+from nextcloudappstore.settings.base import APP_SCAFFOLDING_PROFILES
 
 
 def build_files(args: Dict[str, str]) -> Dict[str, str]:
@@ -34,8 +24,9 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_mail': args['author_email'],
         'author_homepage': args['author_homepage'],
         'categories': args['categories'],
+        'nextcloud_version': platform
     }
-    vars.update(PROFILES.get(platform, {}))
+    vars.update(APP_SCAFFOLDING_PROFILES.get(platform, {}))
     relative_base = 'app-templates/%i/app/' % platform
     base = resolve_file_relative_path(__file__, relative_base)
 
