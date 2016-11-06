@@ -6,7 +6,7 @@ php:
     - 7
 env:
     global:
-        - CORE_BRANCH=stable11
+        - CORE_BRANCH=stable{{ app.nextcloud_version }}
     matrix:
         - DB=pgsql
 

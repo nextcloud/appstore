@@ -10,6 +10,17 @@ from django.template import Template
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 
+PROFILES = {
+    10: {
+        'nextcloud_version': '10',
+        'owncloud_version': '9.1'
+    },
+    11: {
+        'nextcloud_version': '11',
+        'owncloud_version': '9.2'
+    }
+}
+
 
 def build_files(args: Dict[str, str]) -> Dict[str, str]:
     platform = int(args['platform'])  # prevent path traversal
@@ -24,6 +35,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_homepage': args['author_homepage'],
         'categories': args['categories'],
     }
+    vars.update(PROFILES.get(platform, {}))
     relative_base = 'app-templates/%i/app/' % platform
     base = resolve_file_relative_path(__file__, relative_base)
 
