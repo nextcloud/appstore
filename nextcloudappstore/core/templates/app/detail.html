@@ -89,9 +89,9 @@
         </section>
     </div>
     <section class="app-description markdown loading"></section>
-    <div class="row">
+    <div class="row app-download">
         <div class="col-md-12">
-            <section class="app-download">
+            <section>
                 <h4 id="downloads">{% trans "Downloads" %}</h4>
                 <table class="table">
                     {% for platform_v, releases in latest_releases_by_platform_v|sort_by_version:'desc' %}
