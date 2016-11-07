@@ -95,9 +95,9 @@ class App(TranslatableModel):
     rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
     rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
     rating_num_recent = IntegerField(
-        verbose_name=_('Number of recently casted ratings'), default=0)
+        verbose_name=_('Number of recently submitted ratings'), default=0)
     rating_num_overall = IntegerField(
-        verbose_name=_('Number of overall casted rating'), default=0)
+        verbose_name=_('Number of overall submitted ratings'), default=0)
     last_release = DateTimeField(editable=False, db_index=True,
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
