@@ -222,6 +222,16 @@ To get your instance running in production you need to create your production se
     # https://help.nextcloud.com/categories.json
     # DISCOURSE_PARENT_CATEGORY_ID = 26
 
+    # Additional variables that are used for generating apps
+    #APP_SCAFFOLDING_PROFILES = {
+    #    10: {
+    #        'owncloud_version': '9.1'
+    #    },
+    #    11: {
+    #        'owncloud_version': '9.2'
+    #    }
+    #}
+
 
 Then set the file as the active settings file::
 
