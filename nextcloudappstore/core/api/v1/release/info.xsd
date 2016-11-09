@@ -245,7 +245,7 @@
     <!-- first level elements -->
     <xs:simpleType name="id">
         <xs:restriction base="limited-string">
-            <xs:pattern value="[a-z]+[a-z_]*[a-z]+"/>
+            <xs:pattern value="[a-z]+[a-z0-9_]*[a-z0-9]+"/>
         </xs:restriction>
     </xs:simpleType>
 
