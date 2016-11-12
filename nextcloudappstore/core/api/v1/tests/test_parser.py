@@ -74,6 +74,13 @@ class ParserTest(TestCase):
         version = result['app']['release']['version']
         self.assertEqual('1.0.0-alpha.1', version)
 
+    def test_parse_digit_id(self):
+        xml = self._get_contents('data/infoxmls/digits.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.assertEqual('twofactor_u2f', result['app']['id'])
+
     def test_parse_invalid_elements(self):
         xml = self._get_contents('data/infoxmls/invalid-elements.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
