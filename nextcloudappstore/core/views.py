@@ -307,12 +307,10 @@ class AppEditView(LoginRequiredMixin, TemplateView):
     http_method_names = ['get', 'post']
 
     def post(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        app_own_transfer_form = AppOwnershipTransferForm(
-            request.POST, app=context['object'])
+        app = self.get_object()
+        app_own_transfer_form = AppOwnershipTransferForm(request.POST, app=app)
         app_own_transfer_form.full_clean()
-
-        user_is_owner = request.user == context['object'].owner
+        user_is_owner = request.user == app.owner
 
         if user_is_owner and app_own_transfer_form.is_valid():
             try:
@@ -329,13 +327,20 @@ class AppEditView(LoginRequiredMixin, TemplateView):
                       'There may already be a pending request for this app.'),
                     extra_tags='danger')
 
-        context['app_ownership_transfer_form'] = app_own_transfer_form
+        context = self.get_context_data(
+            object=app,
+            app_own_transfer_form=app_own_transfer_form,
+            **kwargs)
         return self.render_to_response(context)
+
+    def get_object(self):
+        return get_object_or_404(App, id=self.kwargs['id'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        object = App.objects.get(id=self.kwargs['id'])
-        context['object'] = object
-        context['app_ownership_transfer_form'] = \
-            AppOwnershipTransferForm(app=object)
+        if 'object' not in context:
+            context['object'] = self.get_object()
+        if 'app_ownership_transfer_form' not in context:
+            context['app_ownership_transfer_form'] = AppOwnershipTransferForm(
+                app=context['object'])
         return context
