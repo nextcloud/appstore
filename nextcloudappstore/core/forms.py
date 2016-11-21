@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
@@ -7,6 +7,8 @@ from django.utils.translation import get_language_info, \
     ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating, AppOwnershipTransfer
+
+User = get_user_model()
 
 RATING_CHOICES = (
     (0.0, _('Bad')),
@@ -98,8 +100,8 @@ class AppOwnershipTransferForm(Form):
         max_length=User._meta.get_field('username').max_length,
         label=_('New owner (username)'))
 
-    def __init__(self, *args, app=None, **kwargs):
-        self.app = app
+    def __init__(self, *args, **kwargs):
+        self.app = kwargs.pop('app', None)
         super().__init__(*args, **kwargs)
 
     def clean_new_owner_username(self):

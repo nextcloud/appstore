@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
@@ -95,15 +95,15 @@ class AppOwnershipTransferView(LoginRequiredMixin, ListView):
 
     def post(self, request, *args, **kwargs):
         transfer_id = request.POST.get('transfer-id', '')
-        op = request.POST.get('op', '')
+        operation = request.POST.get('operation', '')
         user = request.user
 
-        if transfer_id and op:
-            transfer = self.model.objects.get(id=transfer_id)
-            if op == 'commit' and user == transfer.to_user:
+        if transfer_id and operation:
+            transfer = get_object_or_404(self.model, id=transfer_id)
+            if operation == 'commit' and user == transfer.to_user:
                 transfer.commit()
                 messages.success(request, _('App ownership transferred.'))
-            elif op == 'delete' \
+            elif operation == 'delete' \
                 and (user == transfer.to_user
                      or user == transfer.from_user):
                 transfer.delete()
