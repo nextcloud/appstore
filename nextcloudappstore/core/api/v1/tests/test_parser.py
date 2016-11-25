@@ -176,12 +176,18 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
-    def test_extract_contracts(self):
+    def test_extract_contacts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
         full_extracted, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('contacts', app_id)
         self.assertEqual('', changes['en'])
+
+    def test_extract_u2f(self):
+        path = self.get_path('data/archives/twofactor_u2f.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        self.assertEqual('twofactor_u2f', app_id)
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')

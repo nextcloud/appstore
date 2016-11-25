@@ -44,7 +44,7 @@ class GunZipAppMetadataExtractor:
         :argument config the config
         """
         self.config = config
-        self.app_folder_regex = re.compile(r'^[a-z]+[a-z_]*(?:/.*)*$')
+        self.app_folder_regex = re.compile(r'^[a-z]+[a-z0-9_]*(?:/.*)*$')
 
     def extract_app_metadata(self, archive_path: str) -> Metadata:
         """
