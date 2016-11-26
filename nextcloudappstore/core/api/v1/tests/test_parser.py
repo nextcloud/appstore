@@ -154,6 +154,10 @@ class ParserTest(TestCase):
         parse_app_metadata(xml, self.config.info_schema,
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/11.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
         xml = self._get_contents('data/infoxmls/9and10invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
