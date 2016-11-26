@@ -55,9 +55,9 @@ class ImporterTest(TestCase):
 
         release = app.releases.all()[0]
         self.assertEqual('8.8.2', release.version)
-        self.assertEqual('>=9.0.0', release.platform_version_spec)
+        self.assertEqual('>=9.0.0,<10.0.0', release.platform_version_spec)
         self.assertEqual('*', release.php_version_spec)
-        self.assertEqual('>=9', release.raw_platform_version_spec)
+        self.assertEqual('>=9,<=9', release.raw_platform_version_spec)
         self.assertEqual('*', release.raw_php_version_spec)
         self.assertEqual(32, release.min_int_size)
         self._assert_all_empty(release, ['signature', 'download'])
