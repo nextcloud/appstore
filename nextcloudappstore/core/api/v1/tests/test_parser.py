@@ -149,6 +149,17 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
+    def test_validate_pre_11(self):
+        xml = self._get_contents('data/infoxmls/9and10.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/9and10invalid.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
     def test_fixes_xml(self):
         xml = self._get_contents('data/infoxmls/news.xml')
         parse_app_metadata(xml, self.config.info_schema,

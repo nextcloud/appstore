@@ -5,6 +5,8 @@ from functools import reduce
 import lxml.etree  # type: ignore
 from typing import Dict, Any, Tuple, List, Set
 
+from semantic_version import Version
+
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, \
     pad_min_version, raw_version
@@ -261,8 +263,26 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     transformed_doc = transform(pre_transformed_doc)  # type: ignore
     mapped = element_to_dict(transformed_doc.getroot())  # type: ignore
     validate_english_present(mapped)
+    validate_pre_11(mapped, doc)
     fix_partial_translations(mapped)
     return mapped
+
+
+def validate_pre_11(info: Dict, doc: Any) -> None:
+    """
+    Apps before 11 need to provide an owncloud min-version tag to run
+    :param info: the transformed and parsed info xml
+    :param doc: the original xml document
+    :raises: InvalidAppMetadataXmlException if no owncloud min-version is
+    present for apps with min-version 9 or 10
+    """
+    min_version = Version(info['app']['release']['platform_min_version'])
+
+    test_xpath = 'dependencies/owncloud'
+    if min_version < Version('11.0.0') and len(doc.xpath(test_xpath)) == 0:
+        msg = '<owncloud> tag is required for apps that run on Nextcloud 9 ' \
+              'and 10'
+        raise InvalidAppMetadataXmlException(msg)
 
 
 def validate_english_present(info: Dict) -> None:

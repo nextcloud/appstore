@@ -17,6 +17,8 @@ Unreleased
 
 - Information related to the app and not the app release should only be updated when stable, new releases are uploaded
 - Manage Nextcloud releases in the admin interface instead of a Python file
+- Apps need to provide a maximum version in addition to the minimum version
+- Apps do not need to provide an owncloud tag anymore for Nextcloud 11
 
 **Removed**
 
