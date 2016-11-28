@@ -131,7 +131,7 @@ class MaxVersionImporter(ScalarImporter):
 
 class ScreenshotsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def create_screenshot(img):
+        def create_screenshot(img: Dict[str, str]) -> Screenshot:
             return Screenshot.objects.create(
                 url=img['url'], app=obj, ordering=img['ordering'],
                 small_thumbnail=none_to_empty_string(img['small_thumbnail']))
