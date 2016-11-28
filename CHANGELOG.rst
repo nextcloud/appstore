@@ -12,6 +12,7 @@ Unreleased
 - Add changelog to app release feed
 - Add number of recent and overall ratings to API
 - Add app development templates for Nextcloud 10
+- Add a way for developers to define a smaller thumbnail for a screenshot and expose it in the API
 
 **Changed**
 
