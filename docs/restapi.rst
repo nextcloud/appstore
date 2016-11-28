@@ -315,7 +315,8 @@ This route will return all releases to display inside Nextcloud's apps admin are
             ],
             "screenshots": [
                 {
-                    "url": "https://example.com/news.jpg"
+                    "url": "https://example.com/news.jpg",
+                    "smallThumbnail": ""
                 }
             ],
             "translations": {
@@ -339,6 +340,9 @@ isNightly
 
 screenshots
     Guaranteed to be HTTPS
+
+smallThumbnail
+    Small thumbnail which can be used as preview image. Guaranteed to be HTTPS. Not required, so if not present or an empty string, use the screenshot url instead.
 
 download
     Download archive location, guaranteed to be HTTPS
@@ -392,6 +396,8 @@ changelog
 
 version
     A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
+
+
 
 .. _api-register-app:
 

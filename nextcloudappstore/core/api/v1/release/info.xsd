@@ -32,7 +32,7 @@
                             maxOccurs="1"/>
                 <xs:element name="repository" type="repository" minOccurs="0"
                             maxOccurs="1"/>
-                <xs:element name="screenshot" type="secure-url" minOccurs="0"
+                <xs:element name="screenshot" type="screenshot" minOccurs="0"
                             maxOccurs="10"/>
                 <xs:element name="dependencies" type="dependencies"
                             minOccurs="1" maxOccurs="1"/>
@@ -243,6 +243,15 @@
     </xs:simpleType>
 
     <!-- first level elements -->
+    <xs:complexType name="screenshot">
+        <xs:simpleContent>
+            <xs:extension base="secure-url">
+                <xs:attribute name="small-thumbnail" use="optional"
+                              type="secure-url"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:simpleType name="id">
         <xs:restriction base="limited-string">
             <xs:pattern value="[a-z]+[a-z0-9_]*[a-z0-9]+"/>

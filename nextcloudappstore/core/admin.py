@@ -93,7 +93,7 @@ class PhpExtensionDependencyAdmin(admin.ModelAdmin):
 @admin.register(Screenshot)
 class ScreenshotAdmin(admin.ModelAdmin):
     ordering = ('app', 'ordering')
-    list_display = ('url', 'app', 'ordering')
+    list_display = ('url', 'small_thumbnail', 'app', 'ordering')
     list_filter = ('app__id',)
 
 

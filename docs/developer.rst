@@ -184,7 +184,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <website>https://github.com/owncloud/news</website>
         <bugs>https://github.com/owncloud/news/issues</bugs>
         <repository>https://github.com/owncloud/news</repository>
-        <screenshot>https://example.com/1.png</screenshot>
+        <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <dependencies>
             <php min-version="5.6" min-int-size="64"/>
@@ -317,6 +317,7 @@ repository
 screenshot
     * optional
     * must contain an HTTPS URL to an image
+    * can contain a **small-thumbnail** attribute which must contain an https url to an image. This image will be used as small preview (e.g. on the app list overview). Keep it small so it renders fast
     * will be rendered on the app list and detail page in the given order
 dependencies/php
     * optional

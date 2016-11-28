@@ -14,7 +14,8 @@ class ImporterTest(TestCase):
         self.importer = container.resolve(AppImporter)
         self.config = ReleaseConfig()
         self.min = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
-        self.full = read_relative_file(__file__, 'data/infoxmls/full.xml')
+        self.full = read_relative_file(__file__,
+                                       'data/infoxmls/fullimport.xml')
         self.user = get_user_model().objects.create_user(username='test',
                                                          password='test',
                                                          email='test@test.com')
@@ -89,9 +90,14 @@ class ImporterTest(TestCase):
             'https://en.wikipedia.org/wiki/RSS) umgehen kann',
             app.description)
         release = app.releases.all()[0]
+        screenshots = app.screenshots.all()
         extensions = release.php_extensions.all()
         databases = release.databases.all()
 
+        self.assertEqual(2, screenshots.count())
+        self.assertEqual('https://example.com/1-thumb.png',
+                         screenshots[0].small_thumbnail)
+        self.assertEqual('', screenshots[1].small_thumbnail)
         self.assertEqual(3, databases.count())
         self.assertEqual(4, extensions.count())
 
