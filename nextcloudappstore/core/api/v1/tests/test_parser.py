@@ -49,9 +49,9 @@ class ParserTest(TestCase):
                 'php_min_version': '*',
                 'raw_php_max_version': '*',
                 'raw_php_min_version': '*',
-                'platform_max_version': '*',
+                'platform_max_version': '10.0.0',
                 'platform_min_version': '9.0.0',
-                'raw_platform_max_version': '*',
+                'raw_platform_max_version': '9',
                 'raw_platform_min_version': '9',
                 'shell_commands': [],
                 'version': '8.8.2',
@@ -144,6 +144,21 @@ class ParserTest(TestCase):
 
     def test_validate_schema(self):
         xml = self._get_contents('data/infoxmls/invalid.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
+    def test_validate_pre_11(self):
+        xml = self._get_contents('data/infoxmls/9and10.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/11.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/9and10invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,

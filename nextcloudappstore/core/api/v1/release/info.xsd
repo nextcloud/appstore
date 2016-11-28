@@ -335,16 +335,21 @@
                         maxOccurs="unbounded"/>
             <xs:element name="lib" type="min-max-version" minOccurs="0"
                         maxOccurs="unbounded"/>
-            <xs:element name="owncloud" type="nextcloud" minOccurs="0"
+            <xs:element name="owncloud" type="owncloud" minOccurs="0"
                         maxOccurs="1"/>
             <xs:element name="nextcloud" type="nextcloud" minOccurs="1"
                         maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="nextcloud">
+    <xs:complexType name="owncloud">
         <xs:attribute name="min-version" type="version" use="required"/>
         <xs:attribute name="max-version" type="version" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="nextcloud">
+        <xs:attribute name="min-version" type="version" use="required"/>
+        <xs:attribute name="max-version" type="version" use="required"/>
     </xs:complexType>
 
     <xs:simpleType name="shell-command">

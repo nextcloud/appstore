@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
-<!DOCTYPE author [
-    <!ELEMENT name (#PCDATA)>
-    <!ENTITY js "Jo Smith">
-]>
-<info>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../release/info.xsd">
     <id>news</id>
-    <name>News &js;</name>
+    <name>News</name>
+    <summary>An RSS/Atom feed reader</summary>
     <description>An RSS/Atom feed reader</description>
     <version>8.8.2</version>
     <licence>agpl</licence>
     <author>Bernhard Posselt</author>
     <category>multimedia</category>
     <dependencies>
-        <owncloud min-version="9.0" max-version="9.0"/>
+        <nextcloud min-version="11" max-version="11"/>
     </dependencies>
 </info>
