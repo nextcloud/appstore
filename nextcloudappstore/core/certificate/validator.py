@@ -118,4 +118,5 @@ class CertificateValidator:
         try:
             return load_certificate(FILETYPE_PEM, certificate.encode())
         except Exception as e:
-            raise InvalidCertificateException('%s: %s' % ('Invalid certificate', str(e)))
+            msg = '%s: %s' % ('Invalid certificate', str(e))
+            raise InvalidCertificateException(msg)
