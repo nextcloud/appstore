@@ -115,4 +115,8 @@ class CertificateValidator:
             raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:
-        return load_certificate(FILETYPE_PEM, certificate.encode())
+        try:
+            return load_certificate(FILETYPE_PEM, certificate.encode())
+        except Exception as e:
+            msg = '%s: %s' % ('Invalid certificate', str(e))
+            raise InvalidCertificateException(msg)

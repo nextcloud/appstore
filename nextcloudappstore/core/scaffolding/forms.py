@@ -22,7 +22,7 @@ def get_versions():
 
 
 def validate_id(input: str) -> str:
-    regex = r'^([A-Z][a-z]+)+$'
+    regex = r'^([A-Z][a-z]*)+$'
     if not re.match(regex, input):
         raise ValidationError(_('The app name must be camel case e.g. MyApp'))
 
