@@ -118,11 +118,18 @@ class AppSerializer(serializers.ModelSerializer):
         )
 
     def get_releases(self, obj):
+        releases = obj.releases.prefetch_related(
+            'translations',
+            'databases',
+            'licenses',
+            'phpextensiondependencies__php_extension',
+            'databasedependencies__database',
+            'shell_commands',
+        ).all()
         if self.version:
-            data = [r for r in obj.releases.all() if
-                    r.is_compatible(self.version)]
+            data = [r for r in releases if r.is_compatible(self.version)]
         else:
-            data = obj.releases
+            data = releases
         return AppReleaseSerializer(data, many=True, read_only=True).data
 
 
