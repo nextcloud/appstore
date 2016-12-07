@@ -49,10 +49,7 @@ class AppView(DestroyAPIView):
         working_apps = App.objects.get_compatible(version)
         serializer = self.get_serializer(working_apps, many=True,
                                          version=version)
-        data = serializer.data
-        # manually filter out incompatible releases because the serializer
-        # works on querysets and therefore ignores this
-        return Response(data)
+        return Response(serializer.data)
 
 
 class AppRegisterView(APIView):
