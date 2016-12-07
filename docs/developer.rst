@@ -74,7 +74,7 @@ After we approved your certificate, we will post your signed public certificate 
 
 Registering an App
 ~~~~~~~~~~~~~~~~~~
-After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/app/register>`_.
+After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/developer/apps/new>`_.
 
 The interface will ask you for the following things:
 
@@ -91,7 +91,7 @@ We will then verify the certificate and signature and register you as the app's 
 
 Uploading an App Release
 ~~~~~~~~~~~~~~~~~~~~~~~~
-After you've registered your app you can upload your app's releases to the App Store. To do that either use the :ref:`REST API <api-create-release>` or use the App Store's `upload app release web interface <https://apps.nextcloud.com/app/upload>`_.
+After you've registered your app you can upload your app's releases to the App Store. To do that either use the :ref:`REST API <api-create-release>` or use the App Store's `upload app release web interface <https://apps.nextcloud.com/developer/apps/releases/new>`_.
 
 The interface will ask you for the following things:
 

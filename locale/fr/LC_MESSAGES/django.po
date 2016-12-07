@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 01:56+0000\n"
+"POT-Creation-Date: 2016-12-07 01:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: David T <turbo.djembe@hotmail.fr>, 2016\n"
+"Last-Translator: Charles Thivierge <alracsol@gmail.com>, 2016\n"
 "Language-Team: French (https://www.transifex.com/nextcloud/teams/64236/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,7 +216,7 @@ msgstr "Nombre de votes récemment soumis"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Number of overall submitted ratings"
-msgstr ""
+msgstr "Nombre global de votes envoyés"
 
 #: nextcloudappstore/core/models.py:102
 msgid "Last release at"
@@ -331,7 +331,7 @@ msgstr "Version de la plateforme requise (raw)"
 #: nextcloudappstore/core/models.py:351
 #: nextcloudappstore/core/templates/app/releases.html:68
 msgid "Minimum Integer bits"
-msgstr ""
+msgstr "Version d'architecture minimum requise en bits"
 
 #: nextcloudappstore/core/models.py:352
 msgid "e.g. 32 for 32bit Integers"
@@ -403,6 +403,8 @@ msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
+"ID de la catégorie qui est utilisée pour identifier une catégorie. Utilisé "
+"pour identifier les catégories quand une application est téléversée"
 
 #: nextcloudappstore/core/models.py:448
 msgid "Category name which will be presented to the user"
@@ -515,6 +517,8 @@ msgid ""
 "Only one version is allowed to be the current version. This field is used to"
 " pre-select drop downs for app generation etc."
 msgstr ""
+"Seule une version n'est permise comme version courante.  Ce champ permet de "
+"choisir les menus déroulants pour la génération d'applis, etc."
 
 #: nextcloudappstore/core/models.py:662
 msgid "Nextcloud release"
@@ -593,6 +597,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Salutations de %(site_name)s !\n"
+"\n"
+"Vous recevez ce courriel car l'utilisateur %(user_display)s a lié cette adresse mail à son compte sur %(site_domain)s.\n"
+"\n"
+"Pour confirmer que ceci est correct, allez sur %(activate_url)s\n"
+"\n"
+"Sur vous n'avez pas de compte sur %(site_domain)s, ignorez simplement ce message.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -798,6 +809,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Les commentaires d'évaluation supportent <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            N'utilisez pas les commentaires d'évaluation pour reporter des bugs ou des requêtes de nouvelles fonctionnalités. Ni les développeurs ni les utilisateurs ne seront notifiés de votre commentaire.\n"
+"                            Une évaluation sans commentaire sera pris en compte mais ne sera pas listé ci-dessous."
 
 #: nextcloudappstore/core/templates/app/detail.html:136
 msgid "Update rating"
@@ -854,6 +868,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Pour plus d'informations sur l'obtention du certificat et sur la création "
+"d'une signature, consultez le <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">guide du développeur d'applications</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
@@ -861,6 +879,10 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Ce formulaire peut également être utilisé pour mettre à jour les certificats"
+" existants, cependant seul le propriétaire de l'application y est autorisé. "
+"Mettre à jour le certificat d'une application supprimera toutes les versions"
+" de celle-ci déjà téléversées !"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "App successfully registered."
@@ -928,7 +950,7 @@ msgstr ""
 "Pour plus d'informations sur la création d'une signature SHA512, regardez le"
 "  <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">guide du dévellopeur d'applications</a>"
+"rel=\"noopener norefferer\">guide du développeur d'applications</a>"
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -955,7 +977,7 @@ msgstr "champ requis"
 
 #: nextcloudappstore/core/templates/legal.html:30
 msgid "Managing Directors"
-msgstr ""
+msgstr "Chargés de projet"
 
 #: nextcloudappstore/core/templates/legal.html:37
 msgid ""
@@ -1178,6 +1200,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Supprimer votre compte va supprimer aussi toutes vos applications et "
+"publications. Pour supprimer votre compte, insérez votre adresse e-mail dans"
+" le champ de saisie puis cliquez sur le bouton \"Supprimer le compte\" :"
 
 #: nextcloudappstore/core/templates/user/password.html:16
 msgid ""
