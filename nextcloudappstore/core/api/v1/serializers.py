@@ -93,7 +93,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
 class ScreenshotSerializer(serializers.ModelSerializer):
     class Meta:
         model = Screenshot
-        fields = ('url',)
+        fields = ('url', 'small_thumbnail')
 
 
 class AppSerializer(serializers.ModelSerializer):

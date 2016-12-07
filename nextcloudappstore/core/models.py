@@ -404,6 +404,8 @@ class AppRelease(TranslatableModel):
 
 class Screenshot(Model):
     url = URLField(max_length=256, verbose_name=_('Image url'))
+    small_thumbnail = URLField(max_length=256,
+                               verbose_name=_('Small thumbnail'), default='')
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
                      related_name='screenshots')
     ordering = IntegerField(verbose_name=_('Ordering'))
@@ -412,6 +414,13 @@ class Screenshot(Model):
         verbose_name = _('Screenshot')
         verbose_name_plural = _('Screenshots')
         ordering = ['ordering']
+
+    @property
+    def front_img_small(self):
+        if self.small_thumbnail:
+            return self.small_thumbnail
+        else:
+            return self.url
 
     def __str__(self) -> str:
         return self.url

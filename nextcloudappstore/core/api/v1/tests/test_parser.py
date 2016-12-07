@@ -482,9 +482,9 @@ class ParserTest(TestCase):
             },
             'screenshots': [
                 {'screenshot': {'url': 'https://example.com/1.png',
-                                'ordering': 1}},
+                                'small_thumbnail': None, 'ordering': 1}},
                 {'screenshot': {'url': 'https://example.com/2.jpg',
-                                'ordering': 2}}
+                                'small_thumbnail': None, 'ordering': 2}}
             ],
             'ocsid': None,
         }}
