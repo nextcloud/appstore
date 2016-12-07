@@ -4,6 +4,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.6-dev"
 
 branches:
   only:
@@ -18,3 +19,4 @@ script:
 matrix:
   allow_failures:
     - python: "3.6"
+    - python: "3.6-dev"
