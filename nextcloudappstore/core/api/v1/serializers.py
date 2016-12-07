@@ -97,11 +97,15 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 
 
 class AppSerializer(serializers.ModelSerializer):
-    releases = AppReleaseSerializer(many=True, read_only=True)
+    releases = SerializerMethodField()
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
     last_modified = DateTimeField(source='last_release')
+
+    def __init__(self, *args, **kwargs):
+        self.version = kwargs.pop('version')
+        super().__init__(*args, **kwargs)
 
     class Meta:
         model = App
@@ -112,6 +116,14 @@ class AppSerializer(serializers.ModelSerializer):
             'rating_recent', 'rating_overall', 'rating_num_recent',
             'rating_num_overall', 'certificate',
         )
+
+    def get_releases(self, obj):
+        if self.version:
+            data = [r for r in obj.releases.all() if
+                    r.is_compatible(self.version)]
+        else:
+            data = obj.releases
+        return AppReleaseSerializer(data, many=True, read_only=True).data
 
 
 class UserSerializer(serializers.ModelSerializer):

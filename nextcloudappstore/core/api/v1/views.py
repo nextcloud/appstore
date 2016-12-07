@@ -45,9 +45,14 @@ class AppView(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        working_apps = App.objects.get_compatible(self.kwargs['version'])
-        serializer = self.get_serializer(working_apps, many=True)
-        return Response(serializer.data)
+        version = self.kwargs['version']
+        working_apps = App.objects.get_compatible(version)
+        serializer = self.get_serializer(working_apps, many=True,
+                                         version=version)
+        data = serializer.data
+        # manually filter out incompatible releases because the serializer
+        # works on querysets and therefore ignores this
+        return Response(data)
 
 
 class AppRegisterView(APIView):
