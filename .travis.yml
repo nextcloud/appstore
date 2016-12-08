@@ -5,18 +5,31 @@ python:
   - "3.5"
   - "3.6"
   - "3.6-dev"
+env:
+  matrix:
+    - DB=postgres
+
+matrix:
+  include:
+    - python: 3.4
+      env: DB=sqlite
+  allow_failures:
+    - python: "3.6"
+    - python: "3.6-dev"
 
 branches:
   only:
     - master
 
+before_install:
+  - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
+
 install:
-  - make dev-setup
+  - make dev-setup db="$DB"
 
 script:
   - make test
 
-matrix:
-  allow_failures:
-    - python: "3.6"
-    - python: "3.6-dev"
+
+services:
+  - postgresql
