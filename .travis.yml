@@ -22,7 +22,7 @@ branches:
     - master
 
 install:
-  - make dev-setup
+  - make travis-setup
 
 before_script:
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi

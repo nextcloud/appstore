@@ -51,6 +51,10 @@ dev-setup:
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
 
+# Only for local setup, do not use in production
+.PHONY: travis-setup
+travis-setup: dev-setup
+	$(pip) install -r $(CURDIR)/requirements/production.txt
 
 .PHONY: docs
 docs:
