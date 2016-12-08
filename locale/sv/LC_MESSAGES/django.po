@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-07 01:56+0000\n"
+"POT-Creation-Date: 2016-12-08 01:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Adam Tjernström <adam.tjernstrom@orestad-linux.se>, 2016\n"
 "Language-Team: Swedish (https://www.transifex.com/nextcloud/teams/64236/sv/)\n"
@@ -60,7 +60,7 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
-"Kan genereras genom att exekvera följande kommando: <b>openssl dgst -sha512 "
+"Kan skapas genom att exekvera följande kommando: <b>openssl dgst -sha512 "
 "-sign ~/nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 
@@ -88,8 +88,8 @@ msgstr ""
 "certifikatsunderskriftsbegäran (CSR) först som borde postas i <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certifikat-repositoriet</a> (följ READMEn). Du "
-"kan generera CSR:en genom att exekvera följande kommando: <b>openssl req "
-"-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"kan skapa CSR:en genom att exekvera följande kommando: <b>openssl req -nodes"
+" -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:43
@@ -102,7 +102,7 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
-"Kan genereras genom att exekvera följande kommando: <b>echo -n \"APP_ID\" | "
+"Kan skapas genom att exekvera följande kommando: <b>echo -n \"APP_ID\" | "
 "openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 
@@ -110,8 +110,8 @@ msgstr ""
 msgid "Comment"
 msgstr "Kommentar"
 
-#: nextcloudappstore/core/models.py:61 nextcloudappstore/core/models.py:437
-#: nextcloudappstore/core/models.py:473 nextcloudappstore/core/models.py:491
+#: nextcloudappstore/core/models.py:61 nextcloudappstore/core/models.py:446
+#: nextcloudappstore/core/models.py:482 nextcloudappstore/core/models.py:500
 msgid "Id"
 msgstr "Id"
 
@@ -119,12 +119,12 @@ msgstr "Id"
 msgid "app id, identical to folder name"
 msgstr "app id, identiskt med mappens namn"
 
-#: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:455
+#: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:464
 msgid "Category"
 msgstr "Kategori"
 
-#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:449
-#: nextcloudappstore/core/models.py:476 nextcloudappstore/core/models.py:493
+#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:458
+#: nextcloudappstore/core/models.py:485 nextcloudappstore/core/models.py:502
 msgid "Name"
 msgstr "Namn"
 
@@ -141,12 +141,12 @@ msgstr "Sammanfattning"
 msgid "Short text describing the app's purpose"
 msgstr "Kort text som beskriver appens syfte"
 
-#: nextcloudappstore/core/models.py:70 nextcloudappstore/core/models.py:450
+#: nextcloudappstore/core/models.py:70 nextcloudappstore/core/models.py:459
 #: nextcloudappstore/core/scaffolding/forms.py:45
 msgid "Description"
 msgstr "Beskrivning"
 
-#: nextcloudappstore/core/models.py:71 nextcloudappstore/core/models.py:451
+#: nextcloudappstore/core/models.py:71 nextcloudappstore/core/models.py:460
 msgid "Will be rendered as Markdown"
 msgstr "Kommer renderas som Markdown"
 
@@ -172,12 +172,12 @@ msgid "Homepage"
 msgstr "Hemsida"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:356
-#: nextcloudappstore/core/models.py:443
+#: nextcloudappstore/core/models.py:452
 msgid "Created at"
 msgstr "Skapad"
 
 #: nextcloudappstore/core/models.py:86 nextcloudappstore/core/models.py:358
-#: nextcloudappstore/core/models.py:445
+#: nextcloudappstore/core/models.py:454
 msgid "Updated at"
 msgstr "Uppdaterad"
 
@@ -198,7 +198,7 @@ msgstr "App-skapare"
 #: nextcloudappstore/core/templates/app/detail.html:21
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr "Utvald"
+msgstr "Utvalda"
 
 #: nextcloudappstore/core/models.py:95
 #: nextcloudappstore/core/templates/app/detail.html:58
@@ -236,7 +236,7 @@ msgid "Old store id. Deprecated"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:109 nextcloudappstore/core/models.py:250
-#: nextcloudappstore/core/models.py:327 nextcloudappstore/core/models.py:407
+#: nextcloudappstore/core/models.py:327 nextcloudappstore/core/models.py:409
 msgid "App"
 msgstr "App"
 
@@ -296,15 +296,15 @@ msgstr "Version"
 msgid "Version follows Semantic Versioning"
 msgstr "Versionen följer Sematisk Versionering"
 
-#: nextcloudappstore/core/models.py:333 nextcloudappstore/core/models.py:555
+#: nextcloudappstore/core/models.py:333 nextcloudappstore/core/models.py:564
 msgid "PHP extension dependency"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:336 nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:336 nextcloudappstore/core/models.py:528
 msgid "Database dependency"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:482
+#: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:491
 msgid "License"
 msgstr "Licens"
 
@@ -358,8 +358,8 @@ msgstr "Ändringslogg"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Versionens ändringslogg. Kan innehålla Markdown"
 
-#: nextcloudappstore/core/models.py:368 nextcloudappstore/core/models.py:508
-#: nextcloudappstore/core/models.py:543
+#: nextcloudappstore/core/models.py:368 nextcloudappstore/core/models.py:517
+#: nextcloudappstore/core/models.py:552
 msgid "App release"
 msgstr "App-version"
 
@@ -371,34 +371,38 @@ msgstr "App-versioner"
 msgid "Image url"
 msgstr "Bild-url"
 
-#: nextcloudappstore/core/models.py:409
+#: nextcloudappstore/core/models.py:408
+msgid "Small thumbnail"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:411
 msgid "Ordering"
 msgstr "Ordning"
 
-#: nextcloudappstore/core/models.py:412
+#: nextcloudappstore/core/models.py:414
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
 msgstr "Skärmbild"
 
-#: nextcloudappstore/core/models.py:413
+#: nextcloudappstore/core/models.py:415
 msgid "Screenshots"
 msgstr "Skärmbilder"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/core/models.py:427
+#: nextcloudappstore/core/models.py:431 nextcloudappstore/core/models.py:436
 msgid "Shell command"
 msgstr "Shell-kommando"
 
-#: nextcloudappstore/core/models.py:424
+#: nextcloudappstore/core/models.py:433
 msgid "Name of a required shell command, e.g. grep"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/releases.html:60
 msgid "Shell commands"
 msgstr "Shell-kommando"
 
-#: nextcloudappstore/core/models.py:439
+#: nextcloudappstore/core/models.py:448
 msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
@@ -406,113 +410,113 @@ msgstr ""
 "Kategori-id som används för att identifiera en kategori. Används för att "
 "identifiera kategorier när en app laddas upp"
 
-#: nextcloudappstore/core/models.py:448
+#: nextcloudappstore/core/models.py:457
 msgid "Category name which will be presented to the user"
 msgstr "Kategorinamn som kommer visas för användaren"
 
-#: nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:465
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Categories"
 msgstr "Kategorier"
 
-#: nextcloudappstore/core/models.py:475
+#: nextcloudappstore/core/models.py:484
 msgid "Key which is used to identify a license"
 msgstr "Nyckel som används för att identifiera en licens"
 
-#: nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:487
 msgid "License name which will be presented to the user"
 msgstr "Licensnamn som kommer visas för användaren"
 
-#: nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:492
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licenser"
 
-#: nextcloudappstore/core/models.py:492
+#: nextcloudappstore/core/models.py:501
 msgid "Key which is used to identify a database"
 msgstr "Nyckel som används för att identifiera en databas"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:504
 msgid "Database name which will be presented to the user"
 msgstr "Databasnamn som kommer visas för användaren"
 
-#: nextcloudappstore/core/models.py:498 nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:507 nextcloudappstore/core/models.py:520
 msgid "Database"
 msgstr "Databas"
 
-#: nextcloudappstore/core/models.py:499
+#: nextcloudappstore/core/models.py:508
 #: nextcloudappstore/core/templates/app/releases.html:50
 msgid "Databases"
 msgstr "Databaser"
 
-#: nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:522
 msgid "Database version requirement"
 msgstr "Databas versionskrav"
 
-#: nextcloudappstore/core/models.py:516
+#: nextcloudappstore/core/models.py:525
 msgid "Database version requirement (raw)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:520
+#: nextcloudappstore/core/models.py:529
 msgid "Database dependencies"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:529
+#: nextcloudappstore/core/models.py:538
 msgid "e.g. libxml"
 msgstr "t ex libxml"
 
-#: nextcloudappstore/core/models.py:530 nextcloudappstore/core/models.py:533
-#: nextcloudappstore/core/models.py:546
+#: nextcloudappstore/core/models.py:539 nextcloudappstore/core/models.py:542
+#: nextcloudappstore/core/models.py:555
 msgid "PHP extension"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:534
+#: nextcloudappstore/core/models.py:543
 #: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP extensions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:558
 msgid "Extension version requirement"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:552
+#: nextcloudappstore/core/models.py:561
 msgid "Extension version requirement (raw)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:565
 msgid "PHP extension dependencies"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:581
+#: nextcloudappstore/core/models.py:590
 msgid "App release deletion"
 msgstr "App-version borttagning"
 
-#: nextcloudappstore/core/models.py:582
+#: nextcloudappstore/core/models.py:591
 msgid "App release deletions"
 msgstr "App-versioner borttagningar"
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:629
 msgid "App ownership transfer"
 msgstr "App-ägarbyte"
 
-#: nextcloudappstore/core/models.py:621
+#: nextcloudappstore/core/models.py:630
 msgid "App ownership transfers"
 msgstr "App-ägarbyten"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:661
 #: nextcloudappstore/core/scaffolding/forms.py:35
 msgid "Nextcloud version"
 msgstr "Nextcloud version"
 
-#: nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:662
 msgid "e.g. 9.0.54"
 msgstr "t.ex. 9.0.54"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:663
 msgid "Is current version"
 msgstr "Är den senaste versionen"
 
-#: nextcloudappstore/core/models.py:655
+#: nextcloudappstore/core/models.py:664
 msgid ""
 "Only one version is allowed to be the current version. This field is used to"
 " pre-select drop downs for app generation etc."
@@ -520,11 +524,11 @@ msgstr ""
 "Endast en version tillåts att vara den nuvarande versionen. Detta fält "
 "används för att välja drop-downs för app-generering etc."
 
-#: nextcloudappstore/core/models.py:662
+#: nextcloudappstore/core/models.py:671
 msgid "Nextcloud release"
 msgstr "Nextcloud version"
 
-#: nextcloudappstore/core/models.py:663
+#: nextcloudappstore/core/models.py:672
 msgid "Nextcloud releases"
 msgstr "Nextcloud versioner"
 
@@ -897,11 +901,11 @@ msgstr "Ladda ner"
 #: nextcloudappstore/core/templates/app/scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:53
 msgid "Generate app"
-msgstr "Generera app"
+msgstr "Skapa app"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Generera och ladda ner"
+msgstr "Skapa och ladda ner"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:14
@@ -933,7 +937,7 @@ msgstr "Ladda upp"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
-msgstr "Forka mig på Github"
+msgstr "Forka appstore på Github"
 
 #: nextcloudappstore/core/templates/base.html:47
 #: nextcloudappstore/core/templates/legal.html:4
@@ -1098,11 +1102,11 @@ msgstr "API-token"
 
 #: nextcloudappstore/core/templates/user/api-token.html:13
 msgid "New API token generated."
-msgstr "Ny API-token genererad."
+msgstr "Ny API-token skapat."
 
 #: nextcloudappstore/core/templates/user/api-token.html:14
 msgid "Failed to regenerate API token."
-msgstr "Misslyckades att generera nytt API-token."
+msgstr "Misslyckades att skapa nytt API-token."
 
 #: nextcloudappstore/core/templates/user/api-token.html:15
 msgid "Failed to fetch API token."
@@ -1110,7 +1114,7 @@ msgstr "Misslyckades att hämta API-token"
 
 #: nextcloudappstore/core/templates/user/api-token.html:21
 msgid "Do you want to regenerate your API token?"
-msgstr "Vill du generera ett nytt API-token?"
+msgstr "Vill du skapa ett nytt API-token?"
 
 #: nextcloudappstore/core/templates/user/api-token.html:23
 msgid ""
@@ -1127,7 +1131,7 @@ msgstr "Ditt API-token är:"
 
 #: nextcloudappstore/core/templates/user/api-token.html:33
 msgid "Regenerate API token"
-msgstr "Generera API-token"
+msgstr "Skapa API-token"
 
 #: nextcloudappstore/core/templates/user/base.html:15
 #: nextcloudappstore/core/templates/user/set-language.html:4
