@@ -28,7 +28,6 @@ install:
   - make dev-setup db="$DB"
 
 script:
-  - cat nextcloudappstore/settings/development.py
   - make test
 
 
