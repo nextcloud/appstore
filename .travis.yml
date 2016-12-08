@@ -21,20 +21,14 @@ branches:
   only:
     - master
 
-install:
-  - make travis-setup
-
-before_script:
+before_install:
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'" >> nextcloudappstore/settings/development.py; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['NAME'] = 'nextcloudappstore'" >> nextcloudappstore/settings/development.py; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['USER'] = 'postgres'" >> nextcloudappstore/settings/development.py; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['PASSWORD'] = ''" >> nextcloudappstore/settings/development.py; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['PORT'] = '5432'" >> nextcloudappstore/settings/development.py; fi
-  - if [[ "$DB" == "postgres" ]]; then echo "DATABASES['default']['HOST'] = '127.0.0.1'" >> nextcloudappstore/settings/development.py; fi
-  - cat nextcloudappstore/settings/development.py
+
+install:
+  - make dev-setup db="$DB"
 
 script:
+  - cat nextcloudappstore/settings/development.py
   - make test
 
 
