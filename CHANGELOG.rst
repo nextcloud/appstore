@@ -20,6 +20,7 @@ Unreleased
 - Manage Nextcloud releases in the admin interface instead of a Python file
 - Apps need to provide a maximum version in addition to the minimum version
 - Apps do not need to provide an owncloud tag anymore for Nextcloud 11
+- RSS and Atom feed links now redirect to the app store app detail page instead of the download link. The download link is now available at the bottom of the entry
 
 **Removed**
 
