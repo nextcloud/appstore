@@ -3,6 +3,33 @@ REST API
 
 A REST API for publishing and deleting app releases has been built into the store from day one to help release automation.
 
+API Stability Contract
+----------------------
+The API level **will change** if the following occurs:
+
+* a required HTTP request header is added
+* a required request parameter is added
+* a JSON field of a response object is removed
+* a JSON field of a response object is changed to appear optionally
+* a JSON field of a response object is changed to a different datatype
+* an explicitly documented HTTP response header is removed
+* an explicitly documented HTTP response header is changed to a different datatype
+* the meaning of an API call changes
+
+The API level **will not change** if:
+
+* a new HTTP response header is added
+* an optional new HTTP request header is added
+* a new response parameter is added
+* The order of the JSON attributes is changed
+
+You have to design your app with these things in mind!:
+
+* Don't depend on the order of object attributes. In JSON it does not matter where the object attribute is since you access the value by name, not by index
+* Don't limit your app to the currently available attributes. New ones might be added. If you don't handle them, ignore them
+* Use a library to compare versions, ideally one that uses semantic versioning
+
+
 Legacy API
 ----------
 
