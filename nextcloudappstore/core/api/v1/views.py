@@ -45,8 +45,10 @@ class AppView(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        working_apps = App.objects.get_compatible(self.kwargs['version'])
-        serializer = self.get_serializer(working_apps, many=True)
+        version = self.kwargs['version']
+        working_apps = App.objects.get_compatible(version)
+        serializer = self.get_serializer(working_apps, many=True,
+                                         version=version)
         return Response(serializer.data)
 
 

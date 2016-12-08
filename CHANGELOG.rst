@@ -30,6 +30,8 @@ Unreleased
 - Apps depending on Nextcloud minor or patch versions are now rendered on the app detail and releases page
 - Fix styling bug that would sometimes hide the app resource links when in mobile mode
 - Allow digits in app id, #370
+- Do not expose incompatible app releases in REST API
+
 
 0.2.0 - 2016-10-23
 ++++++++++++++++++
