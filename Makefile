@@ -48,3 +48,8 @@ initdb:
 docs:
 	@echo "hi"
 	$(MAKE) -C $(CURDIR)/docs/ html
+
+.PHONY: update-dev-deps
+update-dev-deps:
+	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
+	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
