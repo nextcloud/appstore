@@ -42,6 +42,13 @@ class AppReleaseRssFeed(Feed):
                      attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES,
                      tags=settings.MARKDOWN_ALLOWED_TAGS)
 
+    def item_guid(self, obj):
+        if obj.is_nightly:
+            nightly = '-nightly'
+        else:
+            nightly = ''
+        return '%s-%s%s' % (obj.app.id, obj.version, nightly)
+
     def item_link(self, item):
         return reverse('app-detail', kwargs={'id': item.app.id})
 
