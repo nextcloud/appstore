@@ -53,3 +53,7 @@ docs:
 update-dev-deps:
 	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
 	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
+
+.PHONY: authors
+authors:
+	$(python) $(CURDIR)/scripts/generate_authors.py
