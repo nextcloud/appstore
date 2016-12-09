@@ -34,7 +34,3 @@ Supported browsers include the latest versions of:
 * Edge
 
 Older browser versions like Safari 9 or Edge 13 or different browsers such as Internet Explorer are unsupported and known to not work.
-
-API stability
--------------
-The REST API is subject to change (aka unstable) until 1.0.0 is released.

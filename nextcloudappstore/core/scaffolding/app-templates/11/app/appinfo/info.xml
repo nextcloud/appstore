@@ -12,6 +12,6 @@
     <category>{{ category }}</category>{% endfor %}
     <dependencies>
         <owncloud min-version="{{ app.owncloud_version }}"/>
-        <nextcloud min-version="{{ app.nextcloud_version }}"/>
+        <nextcloud min-version="{{ app.nextcloud_version }}" max-version="{{ app.nextcloud_version }}"/>
     </dependencies>
 </info>
