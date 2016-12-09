@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-08 01:56+0000\n"
+"POT-Creation-Date: 2016-12-09 01:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Toon van Gerwen <iot@vgerwen.nl>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -18,17 +18,22 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: nextcloudappstore/core/feeds.py:14
+#: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
 msgstr "Laatste app releases"
 
-#: nextcloudappstore/core/feeds.py:15
+#: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
 msgstr "Bekijk de laatste app release updates"
 
-#: nextcloudappstore/core/feeds.py:36
+#: nextcloudappstore/core/feeds.py:37
 msgid "Changes"
 msgstr "Wijzigingen"
+
+#: nextcloudappstore/core/feeds.py:40
+#: nextcloudappstore/core/templates/app/releases.html:85
+msgid "Download"
+msgstr "Downloaden"
 
 #: nextcloudappstore/core/forms.py:8
 #: nextcloudappstore/core/templates/app/detail.html:153
@@ -373,7 +378,7 @@ msgstr "Afbeelding url"
 
 #: nextcloudappstore/core/models.py:408
 msgid "Small thumbnail"
-msgstr ""
+msgstr "miniatuurweergave"
 
 #: nextcloudappstore/core/models.py:411
 msgid "Ordering"
@@ -914,10 +919,6 @@ msgstr "Vereiste Nextcloud versies"
 #: nextcloudappstore/core/templates/app/releases.html:70
 msgid "PHP"
 msgstr "PHP"
-
-#: nextcloudappstore/core/templates/app/releases.html:85
-msgid "Download"
-msgstr "Downloaden"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
