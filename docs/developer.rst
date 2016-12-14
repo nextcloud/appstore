@@ -175,15 +175,15 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <author>Alessandro Cosentino</author>
         <author>Jan-Christoph Borchardt</author>
         <documentation>
-            <user>https://github.com/owncloud/news/wiki#user-documentation</user>
-            <admin>https://github.com/owncloud/news#readme</admin>
-            <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+            <user>https://github.com/nextcloud/news/wiki#user-documentation</user>
+            <admin>https://github.com/nextcloud/news#readme</admin>
+            <developer>https://github.com/nextcloud/news/wiki#developer-documentation</developer>
         </documentation>
         <category>multimedia</category>
         <category>tools</category>
-        <website>https://github.com/owncloud/news</website>
-        <bugs>https://github.com/owncloud/news/issues</bugs>
-        <repository>https://github.com/owncloud/news</repository>
+        <website>https://github.com/nextcloud/news</website>
+        <bugs>https://github.com/nextcloud/news/issues</bugs>
+        <repository>https://github.com/nextcloud/news</repository>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <dependencies>
