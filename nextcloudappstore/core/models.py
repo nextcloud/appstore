@@ -15,6 +15,8 @@ from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
 from semantic_version import Version, Spec
+
+from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version, AppSemVer, group_by_main_version
@@ -122,7 +124,12 @@ class App(TranslatableModel):
         releases = NextcloudRelease.objects.all()
         versions = map(lambda r: r.version, releases)
         compatible_releases = map(lambda v: (v, get_release_func(v)), versions)
-        return group_by_main_version(dict(compatible_releases))
+        grouped_releases = group_by_main_version(dict(compatible_releases))
+        # deduplicate releases
+        result = {}
+        for version, releases in grouped_releases.items():
+            result[version] = list(distinct(releases, lambda r: r.version))
+        return result
 
     def releases_by_platform_v(self):
         """Looks up all compatible stable releases for each platform

@@ -57,3 +57,18 @@ def any_match(predicate, iterable) -> bool:
         if predicate(entry):
             return True
     return False
+
+
+def distinct(iterable, criteria=id):
+    """
+    :param iterable:
+    :param criteria: by default the object in the list. Pass a lambda to choose
+    a custom distinctness criteria
+    :return: a distinct iterator of elements from an iterable
+    """
+    occurred_values = set()
+    for element in iterable:
+        value = criteria(element)
+        if value not in occurred_values:
+            occurred_values.add(value)
+            yield element
