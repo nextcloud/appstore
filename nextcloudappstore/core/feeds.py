@@ -33,8 +33,11 @@ class AppReleaseRssFeed(Feed):
 
     def item_description(self, item):
         try:
-            content = ('%s\n\n# %s\n\n%s' % (
-                item.app.description, _('Changes'), item.changelog))
+            if item.changelog:
+                changelog = '\n\n# %s\n\n%s' % (_('Changes'), item.changelog)
+            else:
+                changelog = ''
+            content = '%s%s' % (item.app.description, changelog)
         except TranslationDoesNotExist:
             content = item.app.description
         content += '\n\n [%s](%s)' % (_('Download'), item.download)
