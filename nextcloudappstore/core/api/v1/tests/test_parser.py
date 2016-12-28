@@ -10,7 +10,7 @@ from nextcloudappstore.core.api.v1.release.parser import \
     fix_partial_translations, parse_changelog, ForbiddenLinkException
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
-from rest_framework.exceptions import APIException
+from rest_framework.exceptions import ParseError
 
 
 class ParserTest(TestCase):
@@ -172,7 +172,7 @@ class ParserTest(TestCase):
 
     def test_broken_xml(self):
         xml = self._get_contents('data/infoxmls/broken-xml.xml')
-        with (self.assertRaises(APIException)):
+        with (self.assertRaises(ParseError)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)

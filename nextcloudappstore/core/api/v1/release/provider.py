@@ -5,10 +5,10 @@ from nextcloudappstore.core.api.v1.release.parser import \
     GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog
 from typing import Dict, Tuple
 
-from rest_framework.exceptions import APIException
+from rest_framework.exceptions import ValidationError
 
 
-class InvalidAppDirectoryException(APIException):
+class InvalidAppDirectoryException(ValidationError):
     pass
 
 

@@ -3,14 +3,14 @@ import tempfile
 from typing import Any
 
 import requests
-from rest_framework.exceptions import APIException  # type: ignore
+from rest_framework.exceptions import ValidationError  # type: ignore
 
 
-class MaximumDownloadSizeExceededException(APIException):
+class MaximumDownloadSizeExceededException(ValidationError):
     pass
 
 
-class DownloadException(APIException):
+class DownloadException(ValidationError):
     pass
 
 

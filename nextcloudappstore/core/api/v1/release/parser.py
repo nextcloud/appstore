@@ -10,22 +10,23 @@ from semantic_version import Version
 from nextcloudappstore.core.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, \
     pad_min_version, raw_version
-from rest_framework.exceptions import APIException  # type: ignore
+from rest_framework.exceptions import ParseError, \
+    ValidationError  # type: ignore
 
 
-class MaxSizeAppMetadataXmlException(APIException):
+class MaxSizeAppMetadataXmlException(ValidationError):
     pass
 
 
-class InvalidAppMetadataXmlException(APIException):
+class InvalidAppMetadataXmlException(ValidationError):
     pass
 
 
-class UnsupportedAppArchiveException(APIException):
+class UnsupportedAppArchiveException(ValidationError):
     pass
 
 
-class InvalidAppPackageStructureException(APIException):
+class InvalidAppPackageStructureException(ValidationError):
     pass
 
 
@@ -33,7 +34,7 @@ class ForbiddenLinkException(InvalidAppPackageStructureException):
     pass
 
 
-class XMLSyntaxError(APIException):
+class XMLSyntaxError(ParseError):
     pass
 
 
