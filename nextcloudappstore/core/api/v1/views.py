@@ -12,8 +12,7 @@ from rest_framework.generics import DestroyAPIView, \
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
-from rest_framework.exceptions import APIException, ValidationError, \
-    PermissionDenied
+from rest_framework.exceptions import ValidationError, PermissionDenied
 
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
@@ -146,7 +145,7 @@ class AppReleaseView(DestroyAPIView):
             try:
                 info, data = provider.get_release_info(url, is_nightly)
             except HTTPError as e:
-                raise APIException(e)
+                raise ValidationError(e)
 
             # populate metadata from request
             info['app']['release']['signature'] = signature
