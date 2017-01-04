@@ -4,7 +4,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-  - "3.6-dev"
+  
 env:
   matrix:
     - DB=postgres
@@ -13,9 +13,6 @@ matrix:
   include:
     - python: 3.4
       env: DB=sqlite
-  allow_failures:
-    - python: "3.6"
-    - python: "3.6-dev"
 
 branches:
   only:

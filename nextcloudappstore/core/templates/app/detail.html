@@ -23,11 +23,13 @@
     <section class="app-gallery">
         {% if object.screenshots.all %}
             <div class="img-slider">
-                <div class="img-slider-controls">
-                    <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
-                    <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
-                    <div class="slider-nav"></div>
-                </div>
+                {% if object.screenshots.all|length > 1 %}
+                    <div class="img-slider-controls">
+                        <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
+                        <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                        <div class="slider-nav"></div>
+                    </div>
+                {% endif %}
                 <div class="img-slider-view">
                     <div class="img-strip">
                         {% for screenshot in object.screenshots.all %}<img class="img" src="{{ screenshot.url }}">{% endfor %}
