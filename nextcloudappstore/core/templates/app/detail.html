@@ -165,9 +165,8 @@
         </div>
     </template>
     <div class="app-rating-language">
-
         {% get_language_info_list for languages as languages %}
-        {% blocktrans %}Please choose the language to display the comments in:{% endblocktrans %}
+        {% blocktrans %}Please choose the language to of the comments to display:{% endblocktrans %}
         <select class="form-control" id="comment_display_language_code">
             {% for language in languages %}
                 <option value="{{ language.code }}"{% if language.code == language_code %} selected="selected"{% endif %}>
