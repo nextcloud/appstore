@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
     BooleanField, TextInput
 from django.utils.translation import ugettext_lazy as _  # type: ignore
@@ -55,7 +56,6 @@ class AppRatingForm(Form):
     def __init__(self, *args, **kwargs):
         self._id = kwargs.pop('id', None)
         self._user = kwargs.pop('user', None)
-        self._language_code = kwargs.pop('language_code', None)
         super().__init__(*args, **kwargs)
 
     rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
@@ -63,14 +63,16 @@ class AppRatingForm(Form):
     comment = CharField(widget=Textarea, required=False,
                         label=_('Comment'))
 
+    language_code = ChoiceField(initial="", choices=settings.LANGUAGES)
+
     class Meta:
-        fields = ('rating', 'comment')
+        fields = ('rating', 'comment', 'language_code')
 
     def save(self):
         app = App.objects.get(id=self._id)
         app_rating, created = AppRating.objects.get_or_create(user=self._user,
                                                               app=app)
         app_rating.rating = self.cleaned_data['rating']
-        app_rating.set_current_language(self._language_code)
+        app_rating.set_current_language(self.cleaned_data['language_code'])
         app_rating.comment = self.cleaned_data['comment']
         app_rating.save()

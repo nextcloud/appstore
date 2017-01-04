@@ -56,8 +56,7 @@ class AppDetailView(DetailView):
     slug_url_kwarg = 'id'
 
     def post(self, request, id):
-        form = AppRatingForm(request.POST, id=id, user=request.user,
-                             language_code=request.LANGUAGE_CODE)
+        form = AppRatingForm(request.POST, id=id, user=request.user)
         # there is no way that a rating can be invalid by default
         if form.is_valid() and request.user.is_authenticated:
             form.save()
@@ -66,7 +65,12 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
-        context['rating_form'] = AppRatingForm()
+        language_code = get_language()
+        if not language_code:
+            language_code = self.request.LANGUAGE_CODE
+        context['rating_form'] = AppRatingForm(initial={'language_code':language_code})
+        context['languages'] = settings.LANGUAGES
+        context['language_code'] = language_code
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
             try:
@@ -84,7 +88,8 @@ class AppDetailView(DetailView):
 
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
-                    'comment': comment
+                    'comment': comment,
+                    'language_code': app_rating.get_current_language(),
                 })
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
