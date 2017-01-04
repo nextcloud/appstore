@@ -171,7 +171,7 @@
         <select class="form-control" id="comment_display_language_code">
             {% for language in languages %}
                 <option value="{{ language.code }}"{% if language.code == language_code %} selected="selected"{% endif %}>
-                    {{ language.name_local }} ({{ language.code }})
+                    {{ language.name_local }}
                 </option>
             {% endfor %}
         </select>
