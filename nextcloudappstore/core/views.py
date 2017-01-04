@@ -69,7 +69,14 @@ class AppDetailView(DetailView):
         if not language_code:
             language_code = self.request.LANGUAGE_CODE
         context['rating_form'] = AppRatingForm(initial={'language_code':language_code})
-        context['languages'] = settings.LANGUAGES
+
+        rating_languages = set()
+        ratings = AppRating.objects.filter(app=context['app'])
+        for r in ratings:
+            for l in r.get_available_languages():
+                rating_languages.add(l)
+
+        context['languages'] = sorted(rating_languages)
         context['language_code'] = language_code
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
