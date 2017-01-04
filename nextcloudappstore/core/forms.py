@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
     BooleanField, TextInput
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+from django.utils.translation import get_language_info, ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating
 
@@ -51,6 +51,18 @@ class AppRegisterForm(Form):
                               'openssl base64</b>'))
     safe_help_fields = ['certificate', 'signature']
 
+def get_languages_local(language=None):
+    if language:
+        languages = list(language)
+    else:
+        languages = [ l[0] for l in settings.LANGUAGES]
+
+    language_infos = list()
+    for l in languages:
+        lang_info =  get_language_info(l)
+        language_infos.append((lang_info['code'], lang_info['name_local']))
+
+    return language_infos
 
 class AppRatingForm(Form):
     def __init__(self, *args, **kwargs):
@@ -63,7 +75,7 @@ class AppRatingForm(Form):
     comment = CharField(widget=Textarea, required=False,
                         label=_('Comment'))
 
-    language_code = ChoiceField(initial="", choices=settings.LANGUAGES)
+    language_code = ChoiceField(initial="", choices=get_languages_local())
 
     class Meta:
         fields = ('rating', 'comment', 'language_code')
