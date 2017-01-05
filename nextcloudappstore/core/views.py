@@ -19,6 +19,7 @@ from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.caching import app_etag
+from nextcloudappstore.core.facades import flatmap
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
     AppRegisterForm
 from nextcloudappstore.core.models import App, Category, AppRating, \
@@ -65,19 +66,12 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
-        language_code = get_language()
-        if not language_code:
-            language_code = self.request.LANGUAGE_CODE
-        context['rating_form'] = AppRatingForm(initial={'language_code':language_code})
+        context['rating_form'] = AppRatingForm(initial={'language_code':get_language()})
 
-        rating_languages = set()
         ratings = AppRating.objects.filter(app=context['app'])
-        for r in ratings:
-            for l in r.get_available_languages():
-                rating_languages.add(l)
+        rating_languages = flatmap(lambda r: r.get_available_languages(), ratings)
 
         context['languages'] = sorted(rating_languages)
-        context['language_code'] = language_code
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
             try:
