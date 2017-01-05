@@ -57,12 +57,7 @@ def get_languages_local(language=None):
     else:
         languages = [ l[0] for l in settings.LANGUAGES]
 
-    language_infos = []
-    for l in languages:
-        lang_info =  get_language_info(l)
-        language_infos.append((lang_info['code'], lang_info['name_local']))
-
-    return language_infos
+    return [(li['code'], li['name_local']) for li in [get_language_info(l) for l in languages]]
 
 class AppRatingForm(Form):
     def __init__(self, *args, **kwargs):
