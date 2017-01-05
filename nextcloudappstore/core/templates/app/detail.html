@@ -162,20 +162,26 @@
     <template id="app-rating-template-no-comments">
         <div class="row">
             <div class="col-md-12">
-                {% blocktrans %}No comments found.{% endblocktrans %}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                      <p class="text-center lead">{% blocktrans %}No comments found.{% endblocktrans %}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
     <div class="app-rating-language">
-        {% get_language_info_list for languages as languages %}
-        {% blocktrans %}Display comments in:{% endblocktrans %}
-        <select class="form-control" id="comment_display_language_code">
-            {% for language in languages %}
-                <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
-                    {{ language.name_local }}
-                </option>
-            {% endfor %}
-        </select>
+        {% if languages %}
+            {% get_language_info_list for languages as languages %}
+            {% blocktrans %}Display comments in:{% endblocktrans %}
+            <select class="form-control" id="comment_display_language_code">
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
+                        {{ language.name_local }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% endif %}
     </div>
     <div class="app-rating-list loading"></div>
 
