@@ -53,11 +53,11 @@ class AppRegisterForm(Form):
 
 def get_languages_local(language=None):
     if language:
-        languages = list(language)
+        languages = [language]
     else:
         languages = [ l[0] for l in settings.LANGUAGES]
 
-    language_infos = list()
+    language_infos = []
     for l in languages:
         lang_info =  get_language_info(l)
         language_infos.append((lang_info['code'], lang_info['name_local']))
