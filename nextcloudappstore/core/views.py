@@ -66,10 +66,12 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
-        context['rating_form'] = AppRatingForm(initial={'language_code':get_language()})
+        context['rating_form'] = AppRatingForm(
+            initial={'language_code': get_language()})
 
         ratings = AppRating.objects.filter(app=context['app'])
-        rating_languages = flatmap(lambda r: r.get_available_languages(), ratings)
+        rating_languages = flatmap(
+            lambda r: r.get_available_languages(), ratings)
 
         context['languages'] = sorted(rating_languages)
         context['user_has_rated_app'] = False
