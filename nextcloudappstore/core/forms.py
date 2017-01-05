@@ -74,7 +74,8 @@ class AppRatingForm(Form):
     comment = CharField(widget=Textarea, required=False,
                         label=_('Comment'))
 
-    language_code = ChoiceField(initial="", choices=get_languages_local())
+    language_code = ChoiceField(initial="", verbose_name=_('Language'),
+                                choices=get_languages_local())
 
     class Meta:
         fields = ('rating', 'comment', 'language_code')
