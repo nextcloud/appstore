@@ -13,7 +13,7 @@
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
     <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
     <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
-    <meta name="language-code" content="{{ language_code }}">
+    <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
 {% endblock %}
 
 {% block apps %}
@@ -171,7 +171,7 @@
         {% blocktrans %}Please choose the language to of the comments to display:{% endblocktrans %}
         <select class="form-control" id="comment_display_language_code">
             {% for language in languages %}
-                <option value="{{ language.code }}"{% if language.code == language_code %} selected="selected"{% endif %}>
+                <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
                     {{ language.name_local }}
                 </option>
             {% endfor %}
