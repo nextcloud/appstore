@@ -427,3 +427,7 @@ and reload apache::
     sudo chown -R $(whoami):users /var/www
     bash scripts/maintenance/update.sh apache
     sudo chown -R www-data:www-data /var/www
+
+Monitoring
+~~~~~~~~~~
+By default monitoring the application via New Relic is supported by simply placing a file called **newrelic.ini** into the base folder (the folder that also contains the **manage.py** file).
