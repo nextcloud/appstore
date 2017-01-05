@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
 import os
-from os.path import pardir, join, dirname, abspath, realpath
+from os.path import pardir, join, dirname, abspath, realpath, isfile
 
 from django.core.wsgi import get_wsgi_application
 
@@ -25,7 +25,7 @@ def find_in_root(path):
 # if a new relic config file is present enable it
 relic_conf = find_in_root('newrelic.ini')
 
-if os.path.isfile(relic_conf):
+if isfile(relic_conf):
     import newrelic.agent
     newrelic.agent.initialize(relic_conf)
     application = newrelic.agent.WSGIApplicationWrapper(application)
