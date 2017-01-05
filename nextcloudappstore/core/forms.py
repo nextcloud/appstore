@@ -71,14 +71,15 @@ class AppRatingForm(Form):
 
     rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
                          widget=RadioSelect)
-    comment = CharField(widget=Textarea, required=False,
-                        label=_('Comment'))
 
     language_code = ChoiceField(initial="", label=_('Language'),
                                 choices=get_languages_local())
 
+    comment = CharField(widget=Textarea, required=False,
+                        label=_('Comment'))
+
     class Meta:
-        fields = ('rating', 'comment', 'language_code')
+        fields = ('rating', 'language_code', 'comment')
 
     def save(self):
         app = App.objects.get(id=self._id)
