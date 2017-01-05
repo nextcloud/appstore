@@ -126,6 +126,7 @@
     {% if request.user.is_authenticated and request.user != object.owner %}
         <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
             <div class="col-md-12">
+                <h4 class="section-heading" id="comments">{% trans 'Rate' %}</h4>
                 <form action="{% url 'app-detail' object.id %}" method="post">
                     {% csrf_token %}
                     {% include 'form-fields.html' with form=rating_form %}
@@ -170,18 +171,23 @@
             </div>
         </div>
     </template>
-    <div class="app-rating-language">
-        {% if languages %}
-            {% get_language_info_list for languages as languages %}
-            {% blocktrans %}Display comments in:{% endblocktrans %}
-            <select class="form-control" id="comment_display_language_code">
-                {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
-                        {{ language.name_local }}
-                    </option>
-                {% endfor %}
-            </select>
-        {% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="section-heading" id="comments">{% trans 'Comments' %}</h4>
+            <div class="app-rating-language">
+                {% if languages %}
+                    {% get_language_info_list for languages as languages %}
+                    {% blocktrans %}Display comments in:{% endblocktrans %}
+                    <select class="form-control" id="comment_display_language_code">
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                {{ language.name_local }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
+            </div>
+        </div>
     </div>
     <div class="app-rating-list loading"></div>
 
