@@ -29,7 +29,7 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	pyvenv venv
+	python3 -m venv venv
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
