@@ -30,6 +30,8 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	python3 -m venv venv
+	ls venv
+	ls venv/bin/
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
