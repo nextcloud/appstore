@@ -4,7 +4,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-  
+
 env:
   matrix:
     - DB=postgres
@@ -22,7 +22,7 @@ before_install:
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
 
 install:
-  - make dev-setup db="$DB"
+  - make dev-setup db="$DB" pyvenv="pyvenv"
 
 script:
   - make test

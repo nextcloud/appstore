@@ -5,6 +5,7 @@ pyresttest=venv/bin/pyresttest
 mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 db=sqlite
+pyvenv=python3 -m venv
 
 .PHONY: lint
 lint:
@@ -29,10 +30,7 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	python3 -m venv venv
-	python3 -m ensurepip
-	ls venv
-	ls venv/bin/
+	$(pyvenv) venv
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
