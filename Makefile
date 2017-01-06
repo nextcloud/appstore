@@ -30,6 +30,7 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	python3 -m venv venv
+	python3 -m ensurepip
 	ls venv
 	ls venv/bin/
 	$(pip) install -r $(CURDIR)/requirements/development.txt
