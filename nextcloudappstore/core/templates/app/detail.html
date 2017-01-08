@@ -23,13 +23,11 @@
     <section class="app-gallery">
         {% if object.screenshots.all %}
             <div class="img-slider">
-                {% if object.screenshots.all|length > 1 %}
-                    <div class="img-slider-controls">
-                        <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
-                        <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
-                        <div class="slider-nav"></div>
-                    </div>
-                {% endif %}
+                <div class="img-slider-controls {% if object.screenshots.all|length < 2 %}hidden{% endif %}">
+                    <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
+                    <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                    <div class="slider-nav"></div>
+                </div>
                 <div class="img-slider-view">
                     <div class="img-strip">
                         {% for screenshot in object.screenshots.all %}<img class="img" src="{{ screenshot.url }}">{% endfor %}
@@ -126,6 +124,7 @@
     {% if request.user.is_authenticated and request.user != object.owner %}
         <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
             <div class="col-md-12">
+                <h4 class="section-heading" id="comments">{% trans 'Rate' %}</h4>
                 <form action="{% url 'app-detail' object.id %}" method="post">
                     {% csrf_token %}
                     {% include 'form-fields.html' with form=rating_form %}
@@ -159,6 +158,35 @@
             </div>
         </div>
     </template>
+    <template id="app-rating-template-no-comments">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                      <p class="text-center lead">{% blocktrans %}No comments found.{% endblocktrans %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="section-heading" id="comments">{% trans 'Comments' %}</h4>
+            <div class="app-rating-language">
+                {% if languages %}
+                    {% get_language_info_list for languages as languages %}
+                    {% blocktrans %}Display comments in:{% endblocktrans %}
+                    <select class="form-control" id="comment_display_language_code">
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                {{ language.name_local }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <div class="app-rating-list loading"></div>
 
 {% endblock %}
