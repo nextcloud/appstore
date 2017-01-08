@@ -19,6 +19,7 @@ from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.caching import app_etag
+from nextcloudappstore.core.facades import flatmap
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
     AppRegisterForm
 from nextcloudappstore.core.models import App, Category, AppRating, \
@@ -56,8 +57,7 @@ class AppDetailView(DetailView):
     slug_url_kwarg = 'id'
 
     def post(self, request, id):
-        form = AppRatingForm(request.POST, id=id, user=request.user,
-                             language_code=request.LANGUAGE_CODE)
+        form = AppRatingForm(request.POST, id=id, user=request.user)
         # there is no way that a rating can be invalid by default
         if form.is_valid() and request.user.is_authenticated:
             form.save()
@@ -66,7 +66,20 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
-        context['rating_form'] = AppRatingForm()
+        context['rating_form'] = AppRatingForm(
+            initial={'language_code': get_language()})
+
+        ratings = AppRating.objects.filter(app=context['app'])
+        rating_languages = flatmap(
+            lambda r: r.get_available_languages(), ratings)
+
+        # make sure current session language is in the list even if there are
+        # no comments
+        rating_languages = list(rating_languages)
+        if get_language() not in rating_languages:
+            rating_languages.append(get_language())
+
+        context['languages'] = sorted(rating_languages)
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
             try:
@@ -84,7 +97,8 @@ class AppDetailView(DetailView):
 
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
-                    'comment': comment
+                    'comment': comment,
+                    'language_code': app_rating.get_current_language(),
                 })
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
