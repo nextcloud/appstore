@@ -73,8 +73,8 @@ class AppDetailView(DetailView):
         rating_languages = flatmap(
             lambda r: r.get_available_languages(), ratings)
 
-        #make sure current session language is in the
-        #list even if there are no comments
+        # make sure current session language is in the list even if there are
+        # no comments
         rating_languages = list(rating_languages)
         if get_language() not in rating_languages:
             rating_languages.append(get_language())
