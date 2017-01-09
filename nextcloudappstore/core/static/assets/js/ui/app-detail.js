@@ -87,9 +87,9 @@
         }
     };
 
-    $('#comment_display_language_code').change(function() {
-        let optionSelected = $(this).find("option:selected");
-        load_comments(optionSelected.val());
+    const langCode = global.id('comment_display_language_code');
+    langCode.addEventListener('change', (event) => {
+        load_comments(event.target.value);
     });
 
     load_comments(languageCode);

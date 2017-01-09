@@ -171,11 +171,11 @@
     </template>
     <div class="row">
         <div class="col-md-12">
-            <h4 class="section-heading" id="comments">{% trans 'Comments' %}</h4>
+            <h4 class="section-heading" id="comments">{% trans 'Rating comments' %}</h4>
             <div class="app-rating-language">
                 {% if languages %}
                     {% get_language_info_list for languages as languages %}
-                    {% blocktrans %}Display comments in:{% endblocktrans %}
+                    <label for="comment_display_language_code">{% blocktrans %}Display ratings comments in:{% endblocktrans %}</label>
                     <select class="form-control" id="comment_display_language_code">
                         {% for language in languages %}
                             <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
