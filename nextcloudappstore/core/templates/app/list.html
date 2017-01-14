@@ -49,8 +49,8 @@
                     <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
                 {% endif %}
                 </div>
-                <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
-                <p>{{ app.summary }}</p>
+                <h3><a title="{{ app.name }}" href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
+                <p title="{{ app.summary }}">{{ app.summary }}</p>
             </div>
         </div>
 {% empty %}
