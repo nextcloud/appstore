@@ -19,6 +19,7 @@ branches:
     - master
 
 before_install:
+  - pip install --upgrade pip
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
 
 install:
