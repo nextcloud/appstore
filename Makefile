@@ -34,6 +34,9 @@ dev-setup:
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
+ifeq ($db, 'postgres')
+	$(pip) install -r $(CURDIR)/requirements/production.txt
+endif
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
 	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(MAKE) initdb
