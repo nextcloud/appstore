@@ -1,6 +1,6 @@
 (function (global) {
     'use strict';
-    function load_comments(languageCode, fromEvent = false) {
+    function load_comments(languageCode) {
         fetch(ratingUrl)
             .then((response) => response.json())
             .then((ratings) => {
@@ -27,13 +27,6 @@
                         ratingTarget.appendChild(template);
                     });
                 } else {
-                    if( fromEvent == false && languageCode != 'en'){
-                        const langCode = global.id('comment_display_language_code');
-                        if( langCode && langCode.value) {
-                            langCode.value = 'en';
-                            load_comments(langCode.value);
-                        }
-                    }
                     let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
                     ratingTarget.appendChild(templateNoComments);
                 };
@@ -96,7 +89,7 @@
 
     const langCode = global.id('comment_display_language_code');
     langCode.addEventListener('change', (event) => {
-        load_comments(event.target.value, true);
+        load_comments(event.target.value);
     });
 
     load_comments(languageCode);
