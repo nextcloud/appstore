@@ -248,7 +248,7 @@ class RegenerateAuthToken(APIView):
     def post(self, request, *args, **kwargs):
         try:
             Token.objects.get(user=request.user).delete()
-        except:
+        except Exception:
             pass
         new = Token.objects.create(user=request.user)
         return Response({'token': new.key})
