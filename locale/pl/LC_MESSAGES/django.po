@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 01:18+0000\n"
+"POT-Creation-Date: 2017-02-02 01:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: R Kolatzek <robert@kolatzek.org>, 2017\n"
 "Language-Team: Polish (https://www.transifex.com/nextcloud/teams/64236/pl/)\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:26 nextcloudappstore/core/models.py:372
 msgid "Nightly"
-msgstr "Nocny"
+msgstr "Nocne"
 
 #: nextcloudappstore/core/forms.py:33
 msgid "Public certificate"
@@ -89,12 +89,12 @@ msgid ""
 msgstr ""
 "Zazwyczaj znajduje się w ~/.nextcloud/certificates/APP_ID.crt gdzie APP_ID "
 "jest ID twojej aplikacji. Jeśli nie masz jeszcze certyfikatu, powinienieś "
-"najpierw stworzyć plik „Żądania Podpisania Certyfikatu” (CSR) i wysłać go je"
-" do <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"najpierw stworzyć plik „Żądanie Podpisania Certyfikatu” (CSR) i wysłać go do"
+" <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">repozytorium certyfikatów</a> (jak opisano w "
-"README). Żądanie podpisania certyfikatu utworzysz poleceniem: <b>openssl req"
-" -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
-"\"/CN=APP_ID\"</b>"
+"README). \"Żądanie Podpisania Certyfikatu\" (CSR) utworzysz poleceniem: "
+"<b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr "
+"-subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's id"
@@ -161,19 +161,19 @@ msgstr "Będzie wyświetlany jako Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation url"
-msgstr "Dokumentacja użytkownika url"
+msgstr "Link do dokumentacji użytkownika"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation url"
-msgstr "Dokumentacja Admina url"
+msgstr "Link do dokumentacja administratora"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation url"
-msgstr "Dokumentacja developera url"
+msgstr "Link do dokumentacji developera"
 
 #: nextcloudappstore/core/models.py:83
 msgid "Issue tracker url"
-msgstr "URL monitora błędów"
+msgstr "Link do trackera błędów"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:316
 #: nextcloudappstore/core/templates/app/detail.html:77
@@ -188,7 +188,7 @@ msgstr "Utworzono"
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:365
 #: nextcloudappstore/core/models.py:461
 msgid "Updated at"
-msgstr "Aktualizacja"
+msgstr "Zaktualizowano"
 
 #: nextcloudappstore/core/models.py:89
 msgid "App owner"
@@ -201,7 +201,7 @@ msgstr "Inni opiekunowie"
 
 #: nextcloudappstore/core/models.py:95 nextcloudappstore/core/models.py:328
 msgid "App authors"
-msgstr "Autor aplikacji"
+msgstr "Autorzy aplikacji"
 
 #: nextcloudappstore/core/models.py:96
 #: nextcloudappstore/core/templates/app/detail.html:21
@@ -212,7 +212,7 @@ msgstr "Przedstawiony"
 #: nextcloudappstore/core/models.py:97
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Recent rating"
-msgstr "Ostatnia ocena"
+msgstr "Ostatnie oceny"
 
 #: nextcloudappstore/core/models.py:98
 #: nextcloudappstore/core/templates/app/detail.html:56
@@ -327,7 +327,7 @@ msgstr "Wymagana wersja PHP"
 
 #: nextcloudappstore/core/models.py:351
 msgid "Platform version requirement"
-msgstr "Zależność od wersji platformy"
+msgstr "Wymagana wersja platformy"
 
 #: nextcloudappstore/core/models.py:354
 msgid "PHP version requirement (raw)"
@@ -335,12 +335,12 @@ msgstr "Wymagana wersja PHP (raw)"
 
 #: nextcloudappstore/core/models.py:356
 msgid "Platform version requirement (raw)"
-msgstr "Zależność od wersji platformy (raw)"
+msgstr "Wymagana wersja platformy (raw)"
 
 #: nextcloudappstore/core/models.py:358
 #: nextcloudappstore/core/templates/app/releases.html:68
 msgid "Minimum Integer bits"
-msgstr "Minimalnie bitów liczby całkowitej"
+msgstr "Minimalnia ilość bitów liczby całkowitej"
 
 #: nextcloudappstore/core/models.py:359
 msgid "e.g. 32 for 32bit Integers"
@@ -348,7 +348,7 @@ msgstr "n.p.: 32 dla liczby całkowitej o 32 bitach"
 
 #: nextcloudappstore/core/models.py:361
 msgid "Archive download Url"
-msgstr "Url do pobrania archiwum"
+msgstr "Asres do pobrania archiwum"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Signature"
@@ -378,7 +378,7 @@ msgstr "Wersje aplikacji"
 
 #: nextcloudappstore/core/models.py:413
 msgid "Image url"
-msgstr "Url obrazu"
+msgstr "Adres obrazu"
 
 #: nextcloudappstore/core/models.py:415
 msgid "Small thumbnail"
@@ -531,7 +531,7 @@ msgid ""
 " pre-select drop downs for app generation etc."
 msgstr ""
 "Tylko jedna wersja może być aktualną wersją. To pole jest wykorzystywane "
-"jako wybrana wartość w liście dla generatora aplikacji itp."
+"jako wybrana wartość na liście dla generatora aplikacji itp."
 
 #: nextcloudappstore/core/models.py:678
 msgid "Nextcloud release"
@@ -544,7 +544,7 @@ msgstr "Wydania Nextcloud"
 #: nextcloudappstore/core/scaffolding/forms.py:27
 #: nextcloudappstore/core/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "Nazwa aplikacji musi mieć pisownię wielbłądzią"
+msgstr "Nazwa aplikacji musi mieć pisownię camelCase"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
 msgid "App name"
@@ -572,7 +572,8 @@ msgstr "Krótki opis aplikacji, który będzie wyświetlany jako krótki zwiastu
 
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Pełny opis tego, co twoja aplikacja potrafi. Może zawierać Markdown."
+msgstr ""
+"Pełny opis tego, co twoja aplikacja potrafi. Może zawierać styl Markdown."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -625,6 +626,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Prosze potwierdzić, że <a href=\"mailto:%(email)s\">%(email)s</a> jest "
+"adresem e-mail użytkownika %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -636,6 +639,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
+"Ten mailowy link potwierdzający wygasł lub jest niepoprawny. Proszę  <a "
+"href=\"%(email_url)s\"> wystosuj kolejną prośbę potwierdzenia adresu e-mail."
 
 #: nextcloudappstore/core/templates/account/login.html:7
 #: nextcloudappstore/core/templates/account/login.html:14
@@ -648,7 +653,7 @@ msgstr "Zaloguj"
 
 #: nextcloudappstore/core/templates/account/login.html:32
 msgid "Forgot password"
-msgstr "Zapomniałeś hasła"
+msgstr "Zapomniane hasło"
 
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/signup.html:5
@@ -660,7 +665,7 @@ msgstr "Zapomniałeś hasła"
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
 msgid "Register"
-msgstr "Zarejestrować się"
+msgstr "Zarejestruj się"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
@@ -671,6 +676,8 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
+"Zapomniałeś swoje hasło? Wpisz tu swój adres e-mail i prześlemy ci e-mail, "
+"który umożliwi Ci ustawienie nowego hasła."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -679,12 +686,12 @@ msgstr "Zresetuj moje hasło"
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Proszę o kontakt z nami, jeśli masz jakiekolwiek problemy z resetowaniem "
-"hasła"
+"Proszę skontaktuj się z nami, jeśli masz jakiekolwiek problemy z "
+"resetowaniem hasła"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "Błędny API Token"
+msgstr "Błędny Token API"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -700,6 +707,9 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
 msgstr ""
+"Adres do ustawienia nowego hasła jest niepoprawny, prawdopodobnie dlatego, "
+"że został już użyty. Proszę zgłoś <a href=\"%(passwd_reset_url)s\">nową "
+"prośbę o ustawienie  hasła</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -707,7 +717,7 @@ msgstr "Twoje hasło zostało zmienione."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Nextcloud App Store administrator"
+msgstr "Administrator Nextcloud App Store"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
@@ -763,7 +773,7 @@ msgstr "Pliki do pobrania"
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
-msgstr "nocny"
+msgstr "nocne"
 
 #: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Unstable"
@@ -783,11 +793,11 @@ msgstr "Zgłoś problem"
 
 #: nextcloudappstore/core/templates/app/detail.html:116
 msgid "Request feature"
-msgstr ""
+msgstr "Zgłoś propozycję"
 
 #: nextcloudappstore/core/templates/app/detail.html:118
 msgid "Ask questions or discuss"
-msgstr ""
+msgstr "Zadaj pytanie lub weź udział w dyskusji"
 
 #: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Rate app"
@@ -795,7 +805,7 @@ msgstr "Oceń aplikację"
 
 #: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Rate"
-msgstr ""
+msgstr "Oceń"
 
 #: nextcloudappstore/core/templates/app/detail.html:132
 msgid ""
@@ -826,7 +836,7 @@ msgstr "Wyświetl komentarze ocen w:"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "Ocena (ostatnio)"
+msgstr "Ostatnie oceny"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -951,7 +961,7 @@ msgstr "Wyślij"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
-msgstr ""
+msgstr "Znajdź mnie na GitHub"
 
 #: nextcloudappstore/core/templates/base.html:47
 #: nextcloudappstore/core/templates/legal.html:4
@@ -1109,23 +1119,23 @@ msgstr "Zapisz"
 #: nextcloudappstore/core/templates/user/api-token.html:10
 #: nextcloudappstore/core/templates/user/api-token.html:19
 msgid "API Token"
-msgstr "API Token"
+msgstr "Token API"
 
 #: nextcloudappstore/core/templates/user/api-token.html:13
 msgid "New API token generated."
-msgstr "Nowy API token został wygenerowany."
+msgstr "Nowy token API został wygenerowany."
 
 #: nextcloudappstore/core/templates/user/api-token.html:14
 msgid "Failed to regenerate API token."
-msgstr "Błąd ponownego wygenerowania API token."
+msgstr "Błąd ponownego wygenerowania tokenu API."
 
 #: nextcloudappstore/core/templates/user/api-token.html:15
 msgid "Failed to fetch API token."
-msgstr "Nie udało się pobrać API token."
+msgstr "Nie udało się pobrać tokenu API."
 
 #: nextcloudappstore/core/templates/user/api-token.html:21
 msgid "Do you want to regenerate your API token?"
-msgstr "Czy chcesz ponownie wygenerować twój API token?"
+msgstr "Czy chcesz ponownie wygenerować swój token API?"
 
 #: nextcloudappstore/core/templates/user/api-token.html:23
 msgid ""
@@ -1138,11 +1148,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/user/api-token.html:29
 msgid "Your API token is:"
-msgstr "Twój API token to:"
+msgstr "Twój token API to:"
 
 #: nextcloudappstore/core/templates/user/api-token.html:33
 msgid "Regenerate API token"
-msgstr "Ponownie generuj API token"
+msgstr "Ponownie generuj token API"
 
 #: nextcloudappstore/core/templates/user/base.html:15
 #: nextcloudappstore/core/templates/user/set-language.html:4
@@ -1158,7 +1168,7 @@ msgstr "Hasło"
 
 #: nextcloudappstore/core/templates/user/base.html:23
 msgid "API token"
-msgstr "API token"
+msgstr "Token API"
 
 #: nextcloudappstore/core/templates/user/base.html:26
 #: nextcloudappstore/core/templates/user/delete-account.html:5
@@ -1222,4 +1232,4 @@ msgstr "Ten adres e-mail jest już powiązany z innym kontem."
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
-msgstr "Wprowadź poprawny Url HTTPS"
+msgstr "Wprowadź poprawny adres HTTPS"
