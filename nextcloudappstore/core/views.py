@@ -74,10 +74,13 @@ class AppDetailView(DetailView):
             lambda r: r.get_available_languages(), ratings)
 
         # make sure current session language is in the list even if there are
-        # no comments
+        # no comments and English, since we fallback to english if there are
+        # no ratings in the current users language.
         rating_languages = list(rating_languages)
         if get_language() not in rating_languages:
             rating_languages.append(get_language())
+        if 'en' not in rating_languages:
+            rating_languages.append('en')
 
         context['languages'] = sorted(rating_languages)
         context['user_has_rated_app'] = False
