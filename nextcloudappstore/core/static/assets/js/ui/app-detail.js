@@ -30,7 +30,7 @@
                     let langCode = global.id('comment_display_language_code');
                     if( initial && langCode && langCode.value != fallbackLanguageCode ) {
                         for (var i = 0; i < langCode.length; ++i){
-                            if (langCode.options[i].value == fallbackLanguageCode){
+                            if (langCode.options[i].value === fallbackLanguageCode){
                                 load_comments(fallbackLanguageCode);
                                 langCode.value = fallbackLanguageCode;
                             }
