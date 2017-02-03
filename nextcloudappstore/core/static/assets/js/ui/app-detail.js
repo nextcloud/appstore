@@ -28,7 +28,7 @@
                     });
                 } else {
                     let langCode = global.id('comment_display_language_code');
-                    if( initial == true && langCode && langCode.value != 'en' ) {
+                    if( initial && langCode && langCode.value != 'en' ) {
                         load_comments('en');
                         langCode.value = 'en';
                     } else {
