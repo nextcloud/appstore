@@ -95,10 +95,18 @@ class AppDetailView(DetailView):
                 except AppRating.DoesNotExist:
                     comment = ''
 
+                # if parler fallsback to a fallback language
+                # it doesn't set the language as current language
+                language_code = app_rating.get_current_language()
+                if not app_rating.has_translation(language_code):
+                    for fallback in app_rating.get_fallback_languages():
+                        if app_rating.has_translation(fallback):
+                            language_code = fallback
+
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
                     'comment': comment,
-                    'language_code': app_rating.get_current_language(),
+                    'language_code': language_code,
                 })
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
