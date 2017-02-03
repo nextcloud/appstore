@@ -85,6 +85,18 @@ class AppDetailView(DetailView):
             try:
                 app_rating = AppRating.objects.get(user=self.request.user,
                                                    app=context['app'])
+
+                # if parler fallsback to a fallback language
+                # it doesn't set the language as current language
+                # and we can't select the correct language in the
+                # frontend. So we try and find a languge that is
+                # available
+                language_code = app_rating.get_current_language()
+                if not app_rating.has_translation(language_code):
+                    for fallback in app_rating.get_fallback_languages():
+                        if app_rating.has_translation(fallback):
+                            app_rating.set_language(fallback)
+
                 # when accessing an empty comment django-parler tries to
                 # fall back to the default language. However for comments
                 # the default (English) does not always exist. Unfortunately
@@ -94,14 +106,6 @@ class AppDetailView(DetailView):
                     comment = app_rating.comment
                 except AppRating.DoesNotExist:
                     comment = ''
-
-                # if parler fallsback to a fallback language
-                # it doesn't set the language as current language
-                language_code = app_rating.get_current_language()
-                if not app_rating.has_translation(language_code):
-                    for fallback in app_rating.get_fallback_languages():
-                        if app_rating.has_translation(fallback):
-                            language_code = fallback
 
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
