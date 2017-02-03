@@ -28,9 +28,13 @@
                     });
                 } else {
                     let langCode = global.id('comment_display_language_code');
-                    if( initial && langCode && langCode.value != 'en' ) {
-                        load_comments('en');
-                        langCode.value = 'en';
+                    if( initial && langCode && langCode.value != fallbackLanguageCode ) {
+                        for (var i = 0; i < langCode.length; ++i){
+                            if (langCode.options[i].value == fallbackLanguageCode){
+                                load_comments(fallbackLanguageCode);
+                                langCode.value = fallbackLanguageCode;
+                            }
+                        }
                     } else {
                         let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
                         ratingTarget.appendChild(templateNoComments);
@@ -79,6 +83,7 @@
     // create ratings
     let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
     let languageCode = document.querySelector('meta[name="language-code"]').content;
+    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
     let ratingTarget = document.querySelector('.app-rating-list');
     let ratingTemplate = document.getElementById('app-rating-template');
     let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');

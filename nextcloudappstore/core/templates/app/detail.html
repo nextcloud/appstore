@@ -14,6 +14,7 @@
     <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
     <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
     <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
+    <meta name="fallback-language-code" content="en">
 {% endblock %}
 
 {% block apps %}
