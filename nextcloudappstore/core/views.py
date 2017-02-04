@@ -110,7 +110,7 @@ class AppDetailView(DetailView):
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
                     'comment': comment,
-                    'language_code': language_code,
+                    'language_code': app_rating.get_current_language(),
                 })
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
