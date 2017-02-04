@@ -95,7 +95,7 @@ class AppDetailView(DetailView):
                 if not app_rating.has_translation(language_code):
                     for fallback in app_rating.get_fallback_languages():
                         if app_rating.has_translation(fallback):
-                            app_rating.set_language(fallback)
+                            app_rating.set_current_language(fallback)
 
                 # when accessing an empty comment django-parler tries to
                 # fall back to the default language. However for comments
