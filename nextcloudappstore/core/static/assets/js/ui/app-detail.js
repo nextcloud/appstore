@@ -28,13 +28,11 @@
                     });
                 } else {
                     let langCode = global.id('comment_display_language_code');
-                    if( initial && langCode && langCode.value != fallbackLanguageCode ) {
-                        for (var i = 0; i < langCode.length; ++i){
-                            if (langCode.options[i].value === fallbackLanguageCode){
-                                load_comments(fallbackLanguageCode);
-                                langCode.value = fallbackLanguageCode;
-                            }
-                        }
+                    let options = Array.from(langCode.options);
+                    let fallback = options.filter( function (o) { return o.value == fallbackLanguageCode; } );
+                    if( initial && fallback ) {
+                        load_comments(fallbackLanguageCode);
+                        langCode.value = fallbackLanguageCode;
                     } else {
                         let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
                         ratingTarget.appendChild(templateNoComments);
