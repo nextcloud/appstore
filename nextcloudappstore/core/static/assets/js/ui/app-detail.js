@@ -28,18 +28,18 @@
                     });
                 } else {
                     let langCode = global.id('comment_display_language_code');
-                    let options = Array.from(langCode.options)
-                                    .filter( (o) => { return o.value === fallbackLanguageCode; } );
-                    if( initial && fallback ) {
+                    let fallback = Array.from(langCode.options)
+                                    .filter( (o) => o.value === fallbackLanguageCode);
+                    if(initial && fallback.length > 0) {
                         load_comments(fallbackLanguageCode);
                         langCode.value = fallbackLanguageCode;
                     } else {
                         let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
                         ratingTarget.appendChild(templateNoComments);
-                    };
-                };
+                    }
+                }
             });
-    };
+    }
 
     let moment = global.moment;
     let document = global.document;
