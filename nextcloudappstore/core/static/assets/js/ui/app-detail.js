@@ -28,8 +28,8 @@
                     });
                 } else {
                     let langCode = global.id('comment_display_language_code');
-                    let options = Array.from(langCode.options);
-                    let fallback = options.filter( function (o) { return o.value == fallbackLanguageCode; } );
+                    let options = Array.from(langCode.options)
+                                    .filter( (o) => { return o.value === fallbackLanguageCode; } );
                     if( initial && fallback ) {
                         load_comments(fallbackLanguageCode);
                         langCode.value = fallbackLanguageCode;
