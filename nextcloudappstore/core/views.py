@@ -5,13 +5,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.decorators.http import etag
 from django.views.generic import FormView
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -52,17 +52,22 @@ class AppRatingApi(ListAPIView):
             app=app)
 
 
-class AppCommentApi(RetrieveAPIView):
-    serializer_class = AppCommentSerializer
+class AppCommentApi(View):
 
-    def get_object(self):
+    def get(self, request, *args, **kwargs):
         id = self.kwargs.get('id')
-        lang =  self.request.query_params['lang']
+        lang =  self.request.GET['lang']
         app_rating = AppRating.objects.get(user=self.request.user,
                                            app=id)
-        if app_Rating.has_language(lang):
+        if app_rating.has_translation(lang):
             app_rating.set_current_language(lang)
-        return app_rating
+            comment = app_rating.comment
+        else:
+            comment = ''
+
+        context = {'comment': comment}
+
+        return JsonResponse(context)
 
 
 class LegalNoticeView(TemplateView):
