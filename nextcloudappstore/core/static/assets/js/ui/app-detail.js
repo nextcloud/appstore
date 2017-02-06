@@ -1,6 +1,6 @@
 (function (global) {
     'use strict';
-    function load_comments(languageCode) {
+    function load_comments(languageCode, initial=false) {
         fetch(ratingUrl)
             .then((response) => response.json())
             .then((ratings) => {
@@ -27,11 +27,19 @@
                         ratingTarget.appendChild(template);
                     });
                 } else {
-                    let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
-                    ratingTarget.appendChild(templateNoComments);
-                };
+                    let langCode = global.id('comment_display_language_code');
+                    let fallback = Array.from(langCode.options)
+                                    .filter( (o) => o.value === fallbackLanguageCode);
+                    if(initial && fallback.length > 0) {
+                        load_comments(fallbackLanguageCode);
+                        langCode.value = fallbackLanguageCode;
+                    } else {
+                        let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
+                        ratingTarget.appendChild(templateNoComments);
+                    }
+                }
             });
-    };
+    }
 
     let moment = global.moment;
     let document = global.document;
@@ -73,6 +81,7 @@
     // create ratings
     let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
     let languageCode = document.querySelector('meta[name="language-code"]').content;
+    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
     let ratingTarget = document.querySelector('.app-rating-list');
     let ratingTemplate = document.getElementById('app-rating-template');
     let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
@@ -92,5 +101,5 @@
         load_comments(event.target.value);
     });
 
-    load_comments(languageCode);
+    load_comments(languageCode, true);
 }(this));
