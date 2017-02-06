@@ -41,6 +41,14 @@
             });
     }
 
+    function load_language(lang) {
+        fetch(commentUrl + "?lang=" + lang, {credentials: 'include'})
+            .then((response) => response.json())
+            .then((json) => {
+                commentTextarea.value = json.comment;
+        });
+    };
+
     let moment = global.moment;
     let document = global.document;
     let hljs = global.hljs;
@@ -80,6 +88,7 @@
 
     // create ratings
     let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
+    let commentUrl = document.querySelector('meta[name="nextcloudappstore-app-comment-url"]').content;
     let languageCode = document.querySelector('meta[name="language-code"]').content;
     let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
     let ratingTarget = document.querySelector('.app-rating-list');
@@ -100,6 +109,13 @@
     langCode.addEventListener('change', (event) => {
         load_comments(event.target.value);
     });
+
+    const ratingLangCode = global.id('id_language_code');
+    const commentTextarea = global.id('id_comment');
+    ratingLangCode.addEventListener('change', (event) => {
+        load_language(event.target.value);
+    });
+
 
     load_comments(languageCode, true);
 }(this));

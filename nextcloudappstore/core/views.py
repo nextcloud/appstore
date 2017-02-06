@@ -14,7 +14,8 @@ from django.views.generic import FormView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.serializers import ModelSerializer
 from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
@@ -27,6 +28,12 @@ from nextcloudappstore.core.models import App, Category, AppRating, \
 from nextcloudappstore.core.scaffolding.archive import build_archive
 from nextcloudappstore.core.scaffolding.forms import AppScaffoldingForm
 from nextcloudappstore.core.versioning import pad_min_version
+
+
+class AppCommentSerializer(ModelSerializer):
+    class Meta:
+        model = AppRating
+        fields = ('comment', )
 
 
 @etag(app_etag)
@@ -43,6 +50,19 @@ class AppRatingApi(ListAPIView):
         app = get_object_or_404(App, id=id)
         return AppRating.objects.language(self.request.LANGUAGE_CODE).filter(
             app=app)
+
+
+class AppCommentApi(RetrieveAPIView):
+    serializer_class = AppCommentSerializer
+
+    def get_object(self):
+        id = self.kwargs.get('id')
+        lang =  self.request.query_params['lang']
+        app_rating = AppRating.objects.get(user=self.request.user,
+                                           app=id)
+        if app_Rating.has_language(lang):
+            app_rating.set_current_language(lang)
+        return app_rating
 
 
 class LegalNoticeView(TemplateView):
