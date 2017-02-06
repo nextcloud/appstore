@@ -42,11 +42,13 @@
     }
 
     function load_language(lang) {
+        commentTextarea.readOnly = true;
         fetch(commentUrl + "?lang=" + lang, {credentials: 'include'})
             .then((response) => response.json())
             .then((json) => {
                 commentTextarea.value = json.comment;
         });
+        commentTextarea.readOnly = false;
     };
 
     let moment = global.moment;
