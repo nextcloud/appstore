@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-09 01:19+0000\n"
+"POT-Creation-Date: 2017-02-10 01:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: R Kolatzek <robert@kolatzek.org>, 2017\n"
 "Language-Team: Polish (https://www.transifex.com/nextcloud/teams/64236/pl/)\n"
@@ -607,6 +607,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Pozdrowienia z %(site_name)s!\n"
+"\n"
+"Otrzymujesz tego e-maila, ponieważ użytkownik %(user_display)s podał ten adres e-mail dla swojego konta w %(site_domain)s.\n"
+"\n"
+"Aby potwierdzić, że to się zgadza idż do %(activate_url)s\n"
+"\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -813,6 +820,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"System ocen komentarzy wpiera <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">tryb Markdown</a>.\n"
+"Nie używaj systemu ocen komentarzy do zgłaszania błędów lub próśb o nowe funkcje. Ani użytkownicy ani deweloperzy nie będą powiadomieni o twoim komentarzu.\n"
+"Ocena bez komentarza nadal się liczy, ale nie będzie poniżej widoczna."
 
 #: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Update rating"
@@ -890,6 +900,9 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Ten formularz może być również użyty, aby zaktualizować istniejące "
+"certyfikaty, ale tylko właściciel aplikacji może to zrobić. Aktualizacja "
+"certyfikatu aplikacji usunie wszystkie wysłane wcześniej wersje!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "App successfully registered."
@@ -950,6 +963,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Po więcej informacji jak wygenerować sygnaturę SHA512 sprawdź <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">przewodnik dewelopera aplikacji</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -983,6 +999,9 @@ msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
+"Wszystkie nazwy produktów i znaki towarowe są własnością ich odpowiednich "
+"właścicieli, którzy mogą nie być w ogóle powiązani lub stowarzyszeni z "
+"Nextcloud."
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -1031,6 +1050,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Zamierzasz użyć swojego %(provider_name)s konta do logowania do \n"
+"%(site_name)s. Ostatnim krokiem jest wypełnienie niniejszego formularza:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
@@ -1145,6 +1166,10 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"Token API może być używany do uwierzytelnienia sklepu aplikacji przez\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Upewnij się, że jest bezpiecznie przechowywany. Nowy token może być wygenerowany poniżej."
 
 #: nextcloudappstore/core/templates/user/api-token.html:29
 msgid "Your API token is:"
@@ -1183,12 +1208,18 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Usunięcie twojego konta usunie również wszystkie twoje aplikacje i wszystkie"
+" ich wersje. Aby skasować konto, wprowadź swój adres e-mail do pola i "
+"kliknij klawisz \"Usuń konto\":"
 
 #: nextcloudappstore/core/templates/user/password.html:16
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Wygląda na to, że używasz swojego konta zarejestrowanego przez zewnętrznego "
+"dostawcę. Twoje hasło dlatego <strong>nie może</strong> zostać zmienione na "
+"tej stronie."
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
