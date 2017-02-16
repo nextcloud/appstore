@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 01:19+0000\n"
+"POT-Creation-Date: 2017-02-16 01:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: R Kolatzek <robert@kolatzek.org>, 2017\n"
 "Language-Team: Polish (https://www.transifex.com/nextcloud/teams/64236/pl/)\n"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's id"
-msgstr "SHA512 podpis identyfikatora aplikacji"
+msgstr "Sygnatura SHA512 identyfikatora aplikacji"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -148,7 +148,7 @@ msgstr "Podsumowanie"
 
 #: nextcloudappstore/core/models.py:71
 msgid "Short text describing the app's purpose"
-msgstr "Krótki tekst opisujący cel aplikacji"
+msgstr "Krótki tekst opisujący przeznaczenie aplikacji"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:466
 #: nextcloudappstore/core/scaffolding/forms.py:45
@@ -207,7 +207,7 @@ msgstr "Autorzy aplikacji"
 #: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr "Przedstawiony"
+msgstr "Funkcje"
 
 #: nextcloudappstore/core/models.py:97
 #: nextcloudappstore/core/templates/app/detail.html:59
@@ -229,7 +229,7 @@ msgstr "Całkowita ilość dodanych ocen"
 
 #: nextcloudappstore/core/models.py:104
 msgid "Last release at"
-msgstr "Ostatnie wydanie na"
+msgstr "Ostatnie wydanie w"
 
 #: nextcloudappstore/core/models.py:106
 #: nextcloudappstore/core/templates/app/releases.html:39
@@ -242,7 +242,7 @@ msgstr "OCS id"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store id. Deprecated"
-msgstr "Stare ID magazynu. Przestarzałe"
+msgstr "Stare ID magazynu. Nieużywane."
 
 #: nextcloudappstore/core/models.py:111 nextcloudappstore/core/models.py:257
 #: nextcloudappstore/core/models.py:334 nextcloudappstore/core/models.py:416
@@ -307,7 +307,7 @@ msgstr "Wersja odnosi się do Wersjonowania Semantycznego"
 
 #: nextcloudappstore/core/models.py:340 nextcloudappstore/core/models.py:571
 msgid "PHP extension dependency"
-msgstr "Zależność od rozszerzenia PHP"
+msgstr "Zależność rozszerzeń PHP"
 
 #: nextcloudappstore/core/models.py:343 nextcloudappstore/core/models.py:535
 msgid "Database dependency"
@@ -356,7 +356,7 @@ msgstr "Podpis"
 
 #: nextcloudappstore/core/models.py:367
 msgid "A signature using SHA512 and the app's certificate"
-msgstr "Sygnatura korzystająca z SHA512 i certyfikatu aplikacji"
+msgstr "Podpis korzystający z SHA512 i certyfikatu aplikacji"
 
 #: nextcloudappstore/core/models.py:369
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -365,7 +365,7 @@ msgstr "Lista zmian"
 
 #: nextcloudappstore/core/models.py:370
 msgid "The release changelog. Can contain Markdown"
-msgstr "Lista zmian. Może zawierać Markdown"
+msgstr "Lista zmian. Może zawierać styl Markdown"
 
 #: nextcloudappstore/core/models.py:375 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
@@ -400,24 +400,24 @@ msgstr "Zrzuty ekranu"
 
 #: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:443
 msgid "Shell command"
-msgstr "Polecenie powłoki Shell"
+msgstr "Polecenie powłoki shell"
 
 #: nextcloudappstore/core/models.py:440
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Nazwa wymaganego polecenia powłoki shell, na przykład grep"
+msgstr "Nazwa wymaganego polecenia powłoki shell, np. grep"
 
 #: nextcloudappstore/core/models.py:444
 #: nextcloudappstore/core/templates/app/releases.html:60
 msgid "Shell commands"
-msgstr "Polecenia powłoki Shell"
+msgstr "Polecenia powłoki shell"
 
 #: nextcloudappstore/core/models.py:455
 msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
-"ID kategorii, którego wykorzystuje się do zidentyfikowania kategorii. Używa "
-"się go podczas wysyłania aplikacji."
+"ID kategorii, który jest wykorzystywany do zidentyfikowania kategorii. Używa"
+" się go podczas wysyłania aplikacji."
 
 #: nextcloudappstore/core/models.py:464
 msgid "Category name which will be presented to the user"
@@ -544,7 +544,8 @@ msgstr "Wydania Nextcloud"
 #: nextcloudappstore/core/scaffolding/forms.py:27
 #: nextcloudappstore/core/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "Nazwa aplikacji musi mieć pisownię camelCase"
+msgstr ""
+"Nazwa aplikacji musi mieć pisownię w stylu camelCase, np. MojaAplikacja"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
 msgid "App name"
@@ -573,7 +574,7 @@ msgstr "Krótki opis aplikacji, który będzie wyświetlany jako krótki zwiastu
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
-"Pełny opis tego, co twoja aplikacja potrafi. Może zawierać styl Markdown."
+"Pełen opis tego, co twoja aplikacja potrafi. Może zawierać styl Markdown."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -609,11 +610,11 @@ msgid ""
 msgstr ""
 "Pozdrowienia z %(site_name)s!\n"
 "\n"
-"Otrzymujesz tego e-maila, ponieważ użytkownik %(user_display)s podał ten adres e-mail dla swojego konta w %(site_domain)s.\n"
+"Otrzymujesz tę wiadomość, ponieważ użytkownik %(user_display)s podał/-a ten adres e-mail dla swojego konta w %(site_domain)s.\n"
 "\n"
-"Aby potwierdzić, że to się zgadza idż do %(activate_url)s\n"
+"Aby potwierdzić, że to się zgadza idź do %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"Jeśli nie masz konta na %(site_domain)s, po prostu zignoruj tę wiadomość.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -633,7 +634,7 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Prosze potwierdzić, że <a href=\"mailto:%(email)s\">%(email)s</a> jest "
+"Proszę potwierdzić, że <a href=\"mailto:%(email)s\">%(email)s</a> jest "
 "adresem e-mail użytkownika %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
@@ -646,7 +647,7 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Ten mailowy link potwierdzający wygasł lub jest niepoprawny. Proszę  <a "
+"Ten e-mailowy link potwierdzający wygasł lub jest niepoprawny. Proszę <a "
 "href=\"%(email_url)s\"> wystosuj kolejną prośbę potwierdzenia adresu e-mail."
 
 #: nextcloudappstore/core/templates/account/login.html:7
@@ -683,8 +684,8 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
-"Zapomniałeś swoje hasło? Wpisz tu swój adres e-mail i prześlemy ci e-mail, "
-"który umożliwi Ci ustawienie nowego hasła."
+"Zapomniałeś/-aś swoje hasło? Wpisz tu swój adres e-mail i prześlemy ci "
+"wiadomość, dzięki której ustawisz nowe hasło."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -766,7 +767,7 @@ msgstr "Dokumentacja użytkownika"
 
 #: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Admin documentation"
-msgstr "Dokumentacja Administratora"
+msgstr "Dokumentacja administratora"
 
 #: nextcloudappstore/core/templates/app/detail.html:87
 msgid "Developer documentation"
@@ -820,13 +821,13 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"System ocen komentarzy wpiera <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">tryb Markdown</a>.\n"
+"System ocen komentarzy wspiera <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">styl Markdown</a>.\n"
 "Nie używaj systemu ocen komentarzy do zgłaszania błędów lub próśb o nowe funkcje. Ani użytkownicy ani deweloperzy nie będą powiadomieni o twoim komentarzu.\n"
-"Ocena bez komentarza nadal się liczy, ale nie będzie poniżej widoczna."
+"Ocena bez komentarza nadal się liczy, ale nie będzie widoczna poniżej."
 
 #: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Update rating"
-msgstr "Zakualizuj ocenę"
+msgstr "Zaktualizuj ocenę"
 
 #: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Submit rating"
@@ -846,7 +847,7 @@ msgstr "Wyświetl komentarze ocen w:"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "Ostatnie oceny"
+msgstr "Oceny (ostatnie)"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -890,9 +891,9 @@ msgid ""
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "Więcej informacji o tym, jak otrzymać certyfikat i jak utworzyć sprawdzanie "
-"sygnatury znajdziesz w <a "
+"podpisu znajdziesz w <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"rel=\"noopener norefferer\">podręczniku dewelopera aplikacji</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
@@ -963,9 +964,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Po więcej informacji jak wygenerować sygnaturę SHA512 sprawdź <a "
+"Więcej informacji jak wygenerować sygnaturę SHA512 znajdziesz w <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">przewodnik dewelopera aplikacji</a>."
+"rel=\"noopener norefferer\">przewodniku dewelopera aplikacji</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -977,7 +978,7 @@ msgstr "Wyślij"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
-msgstr "Znajdź mnie na GitHub"
+msgstr "Znajdź mnie na GitHubie"
 
 #: nextcloudappstore/core/templates/base.html:47
 #: nextcloudappstore/core/templates/legal.html:4
@@ -1055,11 +1056,12 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
-msgstr "Uwierzytelnianie i uprawnienia"
+msgstr "Uwierzytelnienie i poświadczenia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Apps that provide additional authentication or authorization services"
-msgstr "Dodatkowe uprawniena i serwisy kontroli dostępu"
+msgstr ""
+"Aplikacje dostarczające dodatkowe poświadczenia lub usługi uwierzytelniania"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1083,7 +1085,7 @@ msgstr "Integracja"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "Połączenie Nextcloud z innymi serwisami i platformami"
+msgstr "Połączenie Nextcloud z innymi usługami i platformami"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
@@ -1099,7 +1101,7 @@ msgstr "Multimedia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
-msgstr "Aplikacje audio, wideo i graficzne"
+msgstr "Aplikacje graficzne, audio i wideo"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
@@ -1115,15 +1117,17 @@ msgstr "Organizacja"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
-msgstr "Zarządanie czasem, listami zadań i kalendarze"
+msgstr "Aplikacje do zarządania czasem, listami zadań i kalendarze"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Social & communication"
-msgstr "Socjalne i komunikacja"
+msgstr "Społeczności i komunikacja"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Messaging, contact management and social media apps"
-msgstr "Wiadomości, dane adresowe i media społecznościowe"
+msgstr ""
+"Aplikacje do komunikacji, zarządzania kontaktami i dla mediów "
+"społecznościowych"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Tools"
