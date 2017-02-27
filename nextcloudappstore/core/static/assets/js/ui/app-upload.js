@@ -1,6 +1,12 @@
 (function (global) {
     'use strict';
 
+    const Request = global.Request;
+    const Headers = global.Headers;
+    const fetch = global.fetch;
+    const document = global.document;
+    const buttonState = global.buttonState;
+
     function uploadAppRelease(url, download, signature, nightly, token) {
         let data = {
             'download': download,
@@ -67,21 +73,6 @@
     }
 
 
-    function buttonState(button, state) {
-        switch (state) {
-            case 'loading':
-                button.setAttribute('data-orig-text', button.innerHTML);
-                button.innerHTML = button.getAttribute('data-loading-text');
-                break;
-            case 'reset':
-                if (button.getAttribute('data-orig-text')) {
-                    button.innerHTML = button.getAttribute('data-orig-text');
-                }
-                break;
-        }
-    }
-
-
     function disableInputs(form, boolean) {
         Array.from(form.querySelectorAll('input, button')).forEach((el) => {
             el.disabled = boolean;
@@ -90,10 +81,15 @@
 
 
     function clearInputs(form) {
-        Array.from(form.querySelectorAll('input[type=text], input[type=url], textarea')).forEach((el) => {
+        let input = form.querySelectorAll(
+            'input[type=text], input[type=url], textarea'
+        );
+        Array.from(input).forEach((el) => {
             el.value = '';
         });
-        Array.from(form.querySelectorAll('input[type=checkbox]')).forEach((el) => {
+
+        let checkbox = form.querySelectorAll('input[type=checkbox]');
+        Array.from(checkbox).forEach((el) => {
             el.checked = false;
         });
     }
@@ -144,7 +140,7 @@
                     signature.value,
                     nightly.checked,
                     response.token)
-                .then(onSuccess, onFailure);
+                    .then(onSuccess, onFailure);
             },
             onFailure // User token request failed
         );

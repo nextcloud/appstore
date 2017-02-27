@@ -1,6 +1,12 @@
 (function (global) {
     'use strict';
 
+    const confirm = global.confirm;
+    const Request = global.Request;
+    const Headers = global.Headers;
+    const fetch = global.fetch;
+    const document = global.document;
+
     function regenAuthToken(url, api_token) {
         let request = new Request(
             url,
@@ -13,8 +19,7 @@
             }
         );
         return fetch(request).then(global.convertResponse);
-    };
-
+    }
 
     function showElement(element, show) {
         if (show) {
@@ -26,10 +31,12 @@
 
 
     function showTokenFetchFailureMessage() {
-        let msg = document.getElementById('token-failure');
-        let elementsToHide = Array.from(document.querySelectorAll('#tokenSection .hide-on-token-failure'));
+        const msg = document.getElementById('token-failure');
+        const hideSelector = '#tokenSection .hide-on-token-failure';
+        const elementsToHide = document.querySelectorAll(hideSelector);
         showElement(msg, true);
-        elementsToHide.forEach((el) => showElement(el, false));
+        Array.from(elementsToHide)
+            .forEach((el) => showElement(el, false));
     }
 
 

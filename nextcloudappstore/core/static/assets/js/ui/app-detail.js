@@ -1,91 +1,29 @@
 (function (global) {
     'use strict';
-    function load_comments(languageCode, initial=false) {
-        fetch(ratingUrl)
-            .then((response) => response.json())
-            .then((ratings) => {
-                ratingTarget.classList.remove('loading');
-                ratingTarget.innerHTML = '';
-                ratings = ratings
-                    .filter(rating => rating.translations[languageCode] !== undefined)
-                    .filter(rating => rating.translations[languageCode].comment !== undefined)
-                    .filter(rating => rating.translations[languageCode].comment.trim() !== '');
-                if( ratings.length > 0) {
-                    ratings.forEach((rating) => {
-                        let user = rating.user;
-                        let fullName = user.firstName + " " + user.lastName;
-                        if (fullName.trim() === '') {
-                            fullName = 'Anonymous';
-                        }
-                        let comment = rating.translations[languageCode].comment;
-                        let template = document.importNode(ratingTemplate.content, true);
-                        template.childNodes[1].classList.add(createRatingClass(rating.rating));
-                        let date = moment(rating.ratedAt);
-                        template.querySelector('.date').innerHTML = date.locale(languageCode).fromNow();
-                        template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
-                        template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
-                        ratingTarget.appendChild(template);
-                    });
-                } else {
-                    let langCode = global.id('comment_display_language_code');
-                    let fallback = Array.from(langCode.options)
-                                    .filter( (o) => o.value === fallbackLanguageCode);
-                    if(initial && fallback.length > 0) {
-                        load_comments(fallbackLanguageCode);
-                        langCode.value = fallbackLanguageCode;
-                    } else {
-                        let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
-                        ratingTarget.appendChild(templateNoComments);
-                    }
-                }
-            });
-    }
 
-    let moment = global.moment;
-    let document = global.document;
-    let hljs = global.hljs;
-    let md = global.markdownit({
-        highlight: function (str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-                try {
-                    return hljs.highlight(lang, str).value;
-                } catch (__) {
-                }
-            }
-            return ''; // use external default escaping
-        }
-    });
+    const moment = global.moment;
+    const Image = global.Image;
+    const hljs = global.hljs;
+    const fetch = global.fetch;
+    const document = global.document;
+    const markdownit = global.markdownit;
+    const console = global.console;
+    const id = global.id;
+    const noReferrerLinks = global.noReferrerLinks;
+    const metaVal = global.metaVal;
+    const escapeHtml = global.escapeHtml;
+    const importNode = document.importNode.bind(document);
+    const querySelector = document.querySelector.bind(document);
+    const querySelectorAll = document.querySelectorAll.bind(document);
 
-    // init image slider
-    let imgEls = Array.from(document.querySelectorAll('.img-slider .img'));
-    let imgURLs = imgEls.map((img) => img.src);
+    const ratingUrl = metaVal('nextcloudappstore-app-ratings-url');
+    const languageCode = metaVal('language-code');
+    const fallbackLang = metaVal('fallback-language-code');
+    const ratingTarget = querySelector('.app-rating-list');
+    const tmpl = id('app-rating-template').content;
+    const tmplNoComments = id('app-rating-template-no-comments').content;
 
-    if (imgURLs.length > 0) {
-        let firstImg = new Image();
-        firstImg.addEventListener('load', () => {
-            let sliderLogic = new global.SliderLogic(imgURLs, 0);
-            new global.ImageSlider(sliderLogic, document.querySelector('.img-slider'));
-        });
-        firstImg.src = imgURLs[0];
-    }
-
-    // create markdown for app description
-    let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]').content;
-    let descriptionTarget = document.querySelector('.app-description');
-    fetch(descriptionUrl).then((response) => response.text())
-        .then((description) => {
-            descriptionTarget.classList.remove('loading');
-            descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
-        });
-
-    // create ratings
-    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
-    let languageCode = document.querySelector('meta[name="language-code"]').content;
-    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
-    let ratingTarget = document.querySelector('.app-rating-list');
-    let ratingTemplate = document.getElementById('app-rating-template');
-    let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
-    let createRatingClass = function (value) {
+    function createRatingClass(value) {
         // beware: float comparisons
         if (value === 1.0) {
             return 'good';
@@ -94,9 +32,102 @@
         } else {
             return 'ok';
         }
-    };
+    }
 
-    const langCode = global.id('comment_display_language_code');
+    const md = markdownit({
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (ex) {
+                    console.error(ex);
+                }
+            }
+            return ''; // use external default escaping
+        }
+    });
+
+    function renderMd(text) {
+        return noReferrerLinks(md.render(text));
+    }
+
+    function buildUserName(user) {
+        let fullName = user.firstName + ' ' + user.lastName;
+        if (fullName.trim() === '') {
+            fullName = 'Anonymous';
+        }
+        return escapeHtml(fullName.trim());
+    }
+
+    function updateRating(rating, lang) {
+        const user = rating.user;
+        const fullName = buildUserName(user);
+        const comment = rating.translations[lang].comment;
+        const escapedComment = renderMd(comment);
+        const template = importNode(tmpl, true);
+        const className = createRatingClass(rating.rating);
+        template.childNodes[1].classList.add(className);
+        const relativeDate = moment(rating.ratedAt)
+            .locale(lang)
+            .fromNow();
+        template.querySelector('.date').innerHTML = relativeDate;
+        template.querySelector('.author').innerHTML += fullName;
+        template.querySelector('.comment').innerHTML = escapedComment;
+        ratingTarget.appendChild(template);
+    }
+
+    function load_comments(lang, initial = false) {
+        fetch(ratingUrl)
+            .then((response) => response.json())
+            .then((ratings) => {
+                ratingTarget.classList.remove('loading');
+                ratingTarget.innerHTML = '';
+                ratings = ratings
+                    .filter(r => r.translations[lang] !== undefined)
+                    .filter(r => r.translations[lang].comment !== undefined)
+                    .filter(r => r.translations[lang].comment.trim() !== '');
+                if (ratings.length > 0) {
+                    ratings.forEach((rating) => {
+                        updateRating(rating, lang);
+                    });
+                } else {
+                    let langCode = id('comment_display_language_code');
+                    let fallback = Array.from(langCode.options)
+                        .filter((option) => option.value === fallbackLang);
+                    if (initial && fallback.length > 0) {
+                        load_comments(fallbackLang);
+                        langCode.value = fallbackLang;
+                    } else {
+                        let noComments = importNode(tmplNoComments, true);
+                        ratingTarget.appendChild(noComments);
+                    }
+                }
+            });
+    }
+
+    // init image slider
+    let imgEls = Array.from(querySelectorAll('.img-slider .img'));
+    let imgURLs = imgEls.map((img) => img.src);
+
+    if (imgURLs.length > 0) {
+        let firstImg = new Image();
+        firstImg.addEventListener('load', () => {
+            let sliderLogic = new global.SliderLogic(imgURLs, 0);
+            new global.ImageSlider(sliderLogic, querySelector('.img-slider'));
+        });
+        firstImg.src = imgURLs[0];
+    }
+
+    // create markdown for app description
+    fetch(metaVal('nextcloudappstore-app-description-url'))
+        .then((response) => response.text())
+        .then((description) => {
+            const target = querySelector('.app-description');
+            target.classList.remove('loading');
+            target.innerHTML = renderMd(description);
+        });
+
+    const langCode = id('comment_display_language_code');
     langCode.addEventListener('change', (event) => {
         load_comments(event.target.value);
     });
