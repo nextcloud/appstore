@@ -91,14 +91,14 @@
                         updateRating(rating, lang);
                     });
                 } else {
-                    let langCode = id('comment_display_language_code');
-                    let fallback = Array.from(langCode.options)
+                    const langCode = id('comment_display_language_code');
+                    const fallback = Array.from(langCode.options)
                         .filter((option) => option.value === fallbackLang);
                     if (initial && fallback.length > 0) {
                         load_comments(fallbackLang);
                         langCode.value = fallbackLang;
                     } else {
-                        let noComments = importNode(tmplNoComments, true);
+                        const noComments = importNode(tmplNoComments, true);
                         ratingTarget.appendChild(noComments);
                     }
                 }
@@ -106,13 +106,13 @@
     }
 
     // init image slider
-    let imgEls = Array.from(querySelectorAll('.img-slider .img'));
-    let imgURLs = imgEls.map((img) => img.src);
+    const imgEls = Array.from(querySelectorAll('.img-slider .img'));
+    const imgURLs = imgEls.map((img) => img.src);
 
     if (imgURLs.length > 0) {
-        let firstImg = new Image();
+        const firstImg = new Image();
         firstImg.addEventListener('load', () => {
-            let sliderLogic = new global.SliderLogic(imgURLs, 0);
+            const sliderLogic = new global.SliderLogic(imgURLs, 0);
             new global.ImageSlider(sliderLogic, querySelector('.img-slider'));
         });
         firstImg.src = imgURLs[0];

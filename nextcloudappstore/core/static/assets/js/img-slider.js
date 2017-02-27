@@ -65,15 +65,15 @@
         }
 
         _generateButtons() {
-            let btns = [];
-            let createListener = (index) => {
+            const btns = [];
+            const createListener = (index) => {
                 return (ev) => {
                     this.logic.setSlide(index);
                     ev.stopPropagation();
                 };
             };
             for (let i = 0; i < this.logic.imgCount(); i++) {
-                let btn = document.createElement('a');
+                const btn = document.createElement('a');
                 btn.addEventListener('click', createListener(i));
                 this.controls.querySelector('.slider-nav').appendChild(btn);
                 btns.push(btn);
@@ -82,13 +82,13 @@
         }
 
         _setSlide(slide) {
-            let url = this.logic.imgURLs[this.logic.curSlide];
+            const url = this.logic.imgURLs[this.logic.curSlide];
             this.imgWrap.innerHTML = '<img class="img" src="' + url + '">' +
                 '<a class="close-fullscreen-btn">' +
                 '<span class="glyphicon glyphicon-remove" aria-hidden="true">' +
                 '</span></a>';
 
-            let img = this.imgWrap.querySelector('.img');
+            const img = this.imgWrap.querySelector('.img');
             img.addEventListener('click', (ev) => {
                 this.logic.increment(1);
                 ev.stopPropagation();
@@ -103,20 +103,20 @@
         }
 
         _resizeImg() {
-            let cArea = this.contentArea;
-            let wrap = this.imgWrap;
-            let img = wrap.querySelector('.img');
+            const cArea = this.contentArea;
+            const wrap = this.imgWrap;
+            const img = wrap.querySelector('.img');
 
             // reset previously set size
             img.style.height = '';
             img.style.width = '';
 
-            let padding = 60;
-            let cAreaHeight = cArea.offsetHeight - padding;
-            let cAreaWidth = cArea.offsetWidth - padding;
-            let cAreaRatio = cAreaWidth / cAreaHeight;
+            const padding = 60;
+            const cAreaHeight = cArea.offsetHeight - padding;
+            const cAreaWidth = cArea.offsetWidth - padding;
+            const cAreaRatio = cAreaWidth / cAreaHeight;
 
-            let imgRatio = img.offsetWidth / img.offsetHeight;
+            const imgRatio = img.offsetWidth / img.offsetHeight;
 
             // resize img
             if (imgRatio < cAreaRatio && img.offsetHeight > cAreaHeight) {
@@ -142,7 +142,7 @@
         }
 
         _showScrollbar(isShowScrollbar) {
-            let body = document.querySelector('body');
+            const body = document.querySelector('body');
             if (!isShowScrollbar) {
                 body.style.overflow = 'hidden';
             } else {
@@ -174,7 +174,7 @@
         }
 
         increment(steps) {
-            let imgCount = this.imgCount();
+            const imgCount = this.imgCount();
             let next = this.curSlide + steps;
             // because a simple % does it wrong
             next = ((next % imgCount) + imgCount) % imgCount;
@@ -227,9 +227,9 @@
         }
 
         _setSlide(slide) {
-            let imgSpacing = 4;
-            let imgWidth = this.view.offsetWidth + imgSpacing;
-            let curHeight = this.images[slide].offsetHeight;
+            const imgSpacing = 4;
+            const imgWidth = this.view.offsetWidth + imgSpacing;
+            const curHeight = this.images[slide].offsetHeight;
             this.view.style.height = (curHeight - 1) + 'px';
             this.strip.style.right = (imgWidth * slide) + 'px';
             this._setActiveNav(slide);
@@ -243,14 +243,14 @@
         }
 
         _generateButtons() {
-            let btns = [];
-            let createListener = (index) => {
+            const btns = [];
+            const createListener = (index) => {
                 return () => {
                     this.logic.setSlide(index);
                 };
             };
             for (let i = 0; i < this.logic.imgCount(); i++) {
-                let btn = document.createElement('a');
+                const btn = document.createElement('a');
                 btn.addEventListener('click', createListener(i));
                 this.nav.appendChild(btn);
                 btns.push(btn);

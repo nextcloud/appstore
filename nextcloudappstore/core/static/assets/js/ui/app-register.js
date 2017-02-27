@@ -6,14 +6,15 @@
     const fetch = global.fetch;
     const document = global.document;
     const buttonState = global.buttonState;
+    const id = global.id;
 
     function registerApp(url, certificate, signature, token) {
-        let data = {
+        const data = {
             'certificate': certificate.trim(),
             'signature': signature.trim()
         };
 
-        let request = new Request(
+        const request = new Request(
             url,
             {
                 method: 'POST',
@@ -29,7 +30,7 @@
 
 
     function clearMessages() {
-        let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
+        const msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => {
             el.innerHTML = '';
             el.parentNode.classList.remove('has-error');
@@ -46,10 +47,10 @@
                 msg = response[key].join(' ');
             }
 
-            let msgArea = document.getElementById(key + '-msg');
-            let formGroup = msgArea.parentNode;
-            let msgP = document.createElement('p');
-            let msgTextNode = document.createTextNode(msg);
+            const msgArea = id(key + '-msg');
+            const formGroup = msgArea.parentNode;
+            const msgP = document.createElement('p');
+            const msgTextNode = document.createTextNode(msg);
 
             msgP.appendChild(msgTextNode);
             msgP.classList.add('text-danger');
@@ -62,7 +63,7 @@
 
 
     function showSuccessMessage(boolean) {
-        let successMsg = document.getElementById('form-success');
+        const successMsg = id('form-success');
         if (boolean) {
             successMsg.removeAttribute('hidden');
             window.scrollTo(0, 0);
@@ -79,13 +80,13 @@
 
 
     function clearInputs(form) {
-        let input = form.querySelectorAll(
+        const input = form.querySelectorAll(
             'input[type=text], input[type=url], textarea'
         );
         Array.from(input).forEach((el) => {
             el.value = '';
         });
-        let checkbox = form.querySelectorAll('input[type=checkbox]');
+        const checkbox = form.querySelectorAll('input[type=checkbox]');
         Array.from(checkbox).forEach((el) => {
             el.checked = false;
         });
@@ -93,8 +94,8 @@
 
 
     function onSuccess() {
-        let form = document.getElementById('app-register-form');
-        let submitButton = document.getElementById('submit');
+        const form = id('app-register-form');
+        const submitButton = id('submit');
         clearMessages();
         showSuccessMessage(true);
         clearInputs(form);
@@ -104,8 +105,8 @@
 
 
     function onFailure(response) {
-        let form = document.getElementById('app-register-form');
-        let submitButton = document.getElementById('submit');
+        const form = id('app-register-form');
+        const submitButton = id('submit');
         clearMessages();
         printErrorMessages(response);
         disableInputs(form, false);
@@ -114,12 +115,12 @@
 
 
     // Form elements
-    let form = document.getElementById('app-register-form');
-    let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
-    let certificate = document.getElementById('id_certificate');
-    let signature = document.getElementById('id_signature');
-    let submitButton = document.getElementById('submit');
-    let invalidCertificateMsg = document.getElementById('invalid-cert-msg')
+    const form = id('app-register-form');
+    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
+    const certificate = id('id_certificate');
+    const signature = id('id_signature');
+    const submitButton = id('submit');
+    const invalidCertificateMsg = id('invalid-cert-msg')
         .textContent;
 
     certificate.addEventListener('change', () => {

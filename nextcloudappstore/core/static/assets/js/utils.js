@@ -8,15 +8,15 @@
     const document = global.document;
 
     global.noReferrerLinks = function (html) {
-        let parser = new DOMParser();
-        let doc = parser.parseFromString(html, 'text/html');
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
         Array.from(doc.getElementsByTagName('a'))
             .forEach(link => link.rel = 'noopener noreferrer');
         return doc.body.innerHTML;
     };
 
     global.fetchAPIToken = function (csrfToken) {
-        let request = new Request('/api/v1/token', {
+        const request = new Request('/api/v1/token', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@
     };
 
     global.escapeHtml = function (str) {
-        let div = document.createElement('div');
+        const div = document.createElement('div');
         div.appendChild(document.createTextNode(str));
         return div.innerHTML;
     };
