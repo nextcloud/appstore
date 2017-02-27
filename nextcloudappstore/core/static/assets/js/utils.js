@@ -44,7 +44,7 @@
         return div.innerHTML;
     };
 
-    global.id = (selector) => global.document.getElementById(selector);
+    global.id = (selector) => document.getElementById(selector);
 
     global.buttonState = (button, state) => {
         if (state === 'loading') {
