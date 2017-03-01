@@ -47,8 +47,8 @@
             .then((response) => response.json())
             .then((json) => {
                 commentTextarea.value = json.comment;
-        });
-        commentTextarea.readOnly = false;
+                commentTextarea.readOnly = false;
+        }).catch( () => commentTextarea.readOnly = false );
     };
 
     let moment = global.moment;
