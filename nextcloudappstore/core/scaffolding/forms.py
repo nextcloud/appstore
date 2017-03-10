@@ -35,7 +35,7 @@ class AppScaffoldingForm(Form):
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
     author_email = EmailField(label=_('Author\'s e-mail'))
-    issue_tracker = URLField(label=_('Issue tracker'), required=True,
+    issue_tracker = URLField(label=_('Issue tracker URL'), required=True,
                              help_text=_('Bug reports and feature requests'))
     author_homepage = URLField(label=_('Author\'s homepage'), required=False)
     categories = MultipleChoiceField(required=True, label=_('Categories'),
