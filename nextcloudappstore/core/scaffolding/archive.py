@@ -23,6 +23,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_name': args['author_name'],
         'author_mail': args['author_email'],
         'author_homepage': args['author_homepage'],
+        'issue_tracker': args['issue_tracker'],
         'categories': args['categories'],
         'nextcloud_version': platform
     }
