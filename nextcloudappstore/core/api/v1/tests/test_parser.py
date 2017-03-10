@@ -37,7 +37,7 @@ class ParserTest(TestCase):
             'developer_docs': None,
             'user_docs': None,
             'website': None,
-            'issue_tracker': None,
+            'issue_tracker': 'https://github.com/nextcloud/news/issues',
             'screenshots': [],
             'categories': [{'category': {'id': 'multimedia'}}],
             'release': {
