@@ -149,6 +149,7 @@ A minimum valid **info.xml** would look like this:
         <licence>agpl</licence>
         <author>Bernhard Posselt</author>
         <category>multimedia</category>
+        <bugs>https://github.com/nextcloud/news/issues</bugs>
         <dependencies>
             <!-- owncloud tag is required on Nextcloud 9 and 10 -->
             <owncloud min-version="9.1"/>
@@ -182,7 +183,6 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <category>multimedia</category>
         <category>tools</category>
         <website>https://github.com/nextcloud/news</website>
-        <bugs>https://github.com/nextcloud/news/issues</bugs>
         <repository>https://github.com/nextcloud/news</repository>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
@@ -306,7 +306,7 @@ website
     * must contain an URL to the project's homepage
     * will be rendered on the app detail page
 bugs
-    * optional
+    * required
     * must contain an URL to the project's bug tracker
     * will be rendered on the app detail page
 repository

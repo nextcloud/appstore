@@ -35,7 +35,7 @@ class ImporterTest(TestCase):
         self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self._assert_all_empty(app, ['user_docs', 'admin_docs', 'website',
-                                     'developer_docs', 'issue_tracker'])
+                                     'developer_docs'])
         # l10n
         app.set_current_language('en')
         self.assertEqual('News', app.name)
@@ -50,6 +50,9 @@ class ImporterTest(TestCase):
         # categories
         self.assertEqual(1, app.categories.count())
         self.assertEqual('multimedia', app.categories.all()[0].id)
+
+        self.assertEqual('https://github.com/nextcloud/news/issues',
+                         app.issue_tracker)
 
         self.assertEqual(0, app.screenshots.count())
         self.assertEqual(0, Screenshot.objects.count())
