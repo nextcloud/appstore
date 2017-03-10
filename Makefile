@@ -6,9 +6,14 @@ mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 db=sqlite
 pyvenv=python3 -m venv
+npm=npm
+jshint=node_modules/jshint/bin/jshint
+eslint=node_modules/eslint/bin/eslint.js
 
 .PHONY: lint
 lint:
+	#$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
+	#$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
@@ -30,6 +35,8 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
+	$(npm) install --upgrade jshint
+	$(npm) install --upgrade eslint
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
