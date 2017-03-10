@@ -183,6 +183,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <category>multimedia</category>
         <category>tools</category>
         <website>https://github.com/nextcloud/news</website>
+        <bugs>https://github.com/nextcloud/news/issues</bugs>
         <repository>https://github.com/nextcloud/news</repository>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
