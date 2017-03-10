@@ -1,8 +1,15 @@
 (function (global) {
     'use strict';
 
+    const confirm = global.confirm;
+    const Request = global.Request;
+    const Headers = global.Headers;
+    const fetch = global.fetch;
+    const document = global.document;
+    const id = global.id;
+
     function regenAuthToken(url, api_token) {
-        let request = new Request(
+        const request = new Request(
             url,
             {
                 method: 'POST',
@@ -13,8 +20,7 @@
             }
         );
         return fetch(request).then(global.convertResponse);
-    };
-
+    }
 
     function showElement(element, show) {
         if (show) {
@@ -26,27 +32,29 @@
 
 
     function showTokenFetchFailureMessage() {
-        let msg = document.getElementById('token-failure');
-        let elementsToHide = Array.from(document.querySelectorAll('#tokenSection .hide-on-token-failure'));
+        const msg = document.getElementById('token-failure');
+        const hideSelector = '#tokenSection .hide-on-token-failure';
+        const elementsToHide = document.querySelectorAll(hideSelector);
         showElement(msg, true);
-        elementsToHide.forEach((el) => showElement(el, false));
+        Array.from(elementsToHide)
+            .forEach((el) => showElement(el, false));
     }
 
 
     function showTokenRegenSuccessMessage(show) {
-        let msg = document.getElementById('regen-success');
+        const msg = document.getElementById('regen-success');
         showElement(msg, show);
     }
 
 
     function showTokenRegenFailureMessage(show) {
-        let msg = document.getElementById('regen-failure');
+        const msg = document.getElementById('regen-failure');
         showElement(msg, show);
     }
 
 
     function updateTokenDisplay(token) {
-        let tokenEl = document.getElementById('token');
+        const tokenEl = document.getElementById('token');
         tokenEl.innerHTML = token;
     }
 
@@ -70,10 +78,10 @@
     }
 
 
-    let form = document.getElementById('api-token-regen-form');
-    let csrfEl = document.getElementsByName('csrfmiddlewaretoken')[0];
-    let tokenEl = document.getElementById('token');
-    let confirmText = document.getElementById('regen-confirm-text').innerHTML;
+    const form = id('api-token-regen-form');
+    const csrfEl = document.getElementsByName('csrfmiddlewaretoken')[0];
+    const tokenEl = id('token');
+    const confirmText = id('regen-confirm-text').innerHTML;
 
     updateToken(csrfEl.value);
 

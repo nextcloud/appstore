@@ -1,14 +1,21 @@
 (function (global) {
     'use strict';
 
+    const Request = global.Request;
+    const Headers = global.Headers;
+    const fetch = global.fetch;
+    const document = global.document;
+    const buttonState = global.buttonState;
+    const id = global.id;
+
     function uploadAppRelease(url, download, signature, nightly, token) {
-        let data = {
+        const data = {
             'download': download,
             'nightly': nightly,
             'signature': signature
         };
 
-        let request = new Request(
+        const request = new Request(
             url,
             {
                 method: 'POST',
@@ -24,7 +31,7 @@
 
 
     function clearMessages() {
-        let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
+        const msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => {
             el.innerHTML = '';
             el.parentNode.classList.remove('has-error');
@@ -41,10 +48,10 @@
                 msg = response[key].join(', ');
             }
 
-            let msgArea = document.getElementById('detail-msg');
-            let formGroup = msgArea.parentNode;
-            let msgP = document.createElement('p');
-            let msgTextNode = document.createTextNode(msg);
+            const msgArea = id('detail-msg');
+            const formGroup = msgArea.parentNode;
+            const msgP = document.createElement('p');
+            const msgTextNode = document.createTextNode(msg);
 
             msgP.appendChild(msgTextNode);
             msgP.classList.add('text-danger');
@@ -56,28 +63,13 @@
     }
 
 
-    function showSuccessMessage(boolean) {
-        let successMsg = document.getElementById('form-success');
-        if (boolean) {
+    function showSuccessMessage(isShowSuccessMsg) {
+        const successMsg = id('form-success');
+        if (isShowSuccessMsg) {
             successMsg.removeAttribute('hidden');
             window.scrollTo(0, 0);
         } else {
             successMsg.setAttribute('hidden', 'true');
-        }
-    }
-
-
-    function buttonState(button, state) {
-        switch (state) {
-            case 'loading':
-                button.setAttribute('data-orig-text', button.innerHTML);
-                button.innerHTML = button.getAttribute('data-loading-text');
-                break;
-            case 'reset':
-                if (button.getAttribute('data-orig-text')) {
-                    button.innerHTML = button.getAttribute('data-orig-text');
-                }
-                break;
         }
     }
 
@@ -90,18 +82,23 @@
 
 
     function clearInputs(form) {
-        Array.from(form.querySelectorAll('input[type=text], input[type=url], textarea')).forEach((el) => {
+        const input = form.querySelectorAll(
+            'input[type=text], input[type=url], textarea'
+        );
+        Array.from(input).forEach((el) => {
             el.value = '';
         });
-        Array.from(form.querySelectorAll('input[type=checkbox]')).forEach((el) => {
+
+        const checkbox = form.querySelectorAll('input[type=checkbox]');
+        Array.from(checkbox).forEach((el) => {
             el.checked = false;
         });
     }
 
 
     function onSuccess() {
-        let form = document.getElementById('app-upload-form');
-        let submitButton = document.getElementById('submit');
+        const form = id('app-upload-form');
+        const submitButton = id('submit');
         clearMessages();
         showSuccessMessage(true);
         clearInputs(form);
@@ -111,8 +108,8 @@
 
 
     function onFailure(response) {
-        let form = document.getElementById('app-upload-form');
-        let submitButton = document.getElementById('submit');
+        const form = id('app-upload-form');
+        const submitButton = id('submit');
         clearMessages();
         printErrorMessages(response);
         disableInputs(form, false);
@@ -121,12 +118,12 @@
 
 
     // Form elements
-    let form = document.getElementById('app-upload-form');
-    let csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
-    let download = document.getElementById('id_download');
-    let signature = document.getElementById('id_signature');
-    let nightly = document.getElementById('id_nightly');
-    let submitButton = document.getElementById('submit');
+    const form = id('app-upload-form');
+    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0];
+    const download = id('id_download');
+    const signature = id('id_signature');
+    const nightly = id('id_nightly');
+    const submitButton = id('submit');
 
     form.addEventListener('submit', (event) => {
         if (form.checkValidity()) {
@@ -144,7 +141,7 @@
                     signature.value,
                     nightly.checked,
                     response.token)
-                .then(onSuccess, onFailure);
+                    .then(onSuccess, onFailure);
             },
             onFailure // User token request failed
         );

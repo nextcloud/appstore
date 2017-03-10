@@ -1,6 +1,7 @@
-(function () {
+(function (global) {
     'use strict';
 
+    const document = global.document;
 
     class AccordionItem {
         constructor(elem) {
