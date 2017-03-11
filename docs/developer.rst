@@ -229,6 +229,30 @@ A full blown example would look like this (needs to be utf-8 encoded):
             <command>A\Php\Class</command>
         </commands>
         <ocsid>123</ocsid>
+        <settings>
+            <admin>OCA\Theming\Settings\Admin</admin>
+            <admin-section>OCA\Theming\Settings\Section</admin-section>
+        </settings>
+        <activity>
+            <settings>
+                <setting>OCA\Files\Activity\Settings\FavoriteAction</setting>
+                <setting>OCA\Files\Activity\Settings\FileChanged</setting>
+                <setting>OCA\Files\Activity\Settings\FileCreated</setting>
+                <setting>OCA\Files\Activity\Settings\FileDeleted</setting>
+                <setting>OCA\Files\Activity\Settings\FileFavorite</setting>
+                <setting>OCA\Files\Activity\Settings\FileRestored</setting>
+            </settings>
+
+            <filters>
+                <filter>OCA\Files\Activity\Filter\FileChanges</filter>
+                <filter>OCA\Files\Activity\Filter\Favorites</filter>
+            </filters>
+
+            <providers>
+                <provider>OCA\Files\Activity\FavoriteProvider</provider>
+                <provider>OCA\Files\Activity\Provider</provider>
+            </providers>
+        </activity>
     </info>
 
 The following tags are validated and used in the following way:
@@ -397,6 +421,21 @@ ocsid
     * if not provided in your info.xml then the app will not be available for Nextcloud 9 and 10
     * if you do not have an id yet, create an app on the apps.owncloud.com app store and use that id. This ensures that the id is unique and unused. You can delete the app afterwards if you do not want to publish your app on both stores.
     * deprecated; Support will be moved once 9 an 10 run out of support
+activity/settings/setting
+    * optional
+    * must contain a php class which implements OCP\Activity\ISetting and is used to add additional settings ui elements to the activity app
+activity/filters/filter
+    * optional
+    * must contain a php class which implements OCP\Activity\IFilter and is used to add additional filters to the activity app
+activity/providers/provider
+    * optional
+    * must contain a php class which implements OCP\Activity\IProvider and is used to react to events from the activity app
+settings/admin
+    * optional
+    * must contain a php class which implements OCP\Settings\ISettings and returns the form to render for the global settings area
+settings/admin-section
+    * optional
+    * must contain a php class which implements OCP\Settings\ISection and returns data to render navigation entries in the global settings area
 
 The following character maximum lengths are enforced:
 
