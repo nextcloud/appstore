@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 01:21+0000\n"
+"POT-Creation-Date: 2017-03-15 01:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>, 2016\n"
 "Language-Team: Icelandic (https://www.transifex.com/nextcloud/teams/64236/is/)\n"
@@ -65,10 +65,13 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
+"Er hægt að útbúa með því að gefa eftirfarandi skipun: <b>openssl dgst "
+"-sha512 -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | "
+"openssl base64</b>"
 
 #: nextcloudappstore/core/forms.py:26 nextcloudappstore/core/models.py:372
 msgid "Nightly"
-msgstr ""
+msgstr "Náttfari (e. nightly build)"
 
 #: nextcloudappstore/core/forms.py:33
 msgid "Public certificate"
@@ -88,7 +91,7 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's id"
-msgstr ""
+msgstr "SHA512 undirritun yfir auðkenni forritsins þíns"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -96,6 +99,9 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
+"Er hægt að útbúa með því að gefa eftirfarandi skipun: <b>echo -n \"APP_ID\" "
+"| openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:75
 #: nextcloudappstore/core/templates/user/set-language.html:13
@@ -113,7 +119,7 @@ msgstr "Id"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app id, identical to folder name"
-msgstr ""
+msgstr "forritsauðkenni, sama og möppuheiti"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:471
 msgid "Category"
@@ -290,7 +296,7 @@ msgstr "Útgáfa"
 
 #: nextcloudappstore/core/models.py:333
 msgid "Version follows Semantic Versioning"
-msgstr ""
+msgstr "Heiti útgáfu fylgir merkingarlegri útgáfustýringu"
 
 #: nextcloudappstore/core/models.py:340 nextcloudappstore/core/models.py:571
 msgid "PHP extension dependency"
@@ -403,6 +409,8 @@ msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
+"Flokksauðkenni sem notað er til að auðkenna flokk þegar forrit er sent inn á"
+" þjón"
 
 #: nextcloudappstore/core/models.py:464
 msgid "Category name which will be presented to the user"
@@ -415,7 +423,7 @@ msgstr "Flokkar"
 
 #: nextcloudappstore/core/models.py:491
 msgid "Key which is used to identify a license"
-msgstr ""
+msgstr "Lykill sem notaður er til að auðkenna notkunarleyfi"
 
 #: nextcloudappstore/core/models.py:494
 msgid "License name which will be presented to the user"
@@ -428,7 +436,7 @@ msgstr "Notkunarleyfi"
 
 #: nextcloudappstore/core/models.py:508
 msgid "Key which is used to identify a database"
-msgstr ""
+msgstr "Lykill sem notaður er til að auðkenna gagnagrunn"
 
 #: nextcloudappstore/core/models.py:511
 msgid "Database name which will be presented to the user"
@@ -479,23 +487,23 @@ msgstr "Krafa um útgáfu viðauka (raw)"
 
 #: nextcloudappstore/core/models.py:572
 msgid "PHP extension dependencies"
-msgstr ""
+msgstr "Kerfiskröfur fyrir PHP-viðbótina"
 
 #: nextcloudappstore/core/models.py:597
 msgid "App release deletion"
-msgstr ""
+msgstr "Eyðing á útgáfu forrits"
 
 #: nextcloudappstore/core/models.py:598
 msgid "App release deletions"
-msgstr ""
+msgstr "Eyðingar á útgáfu forrits"
 
 #: nextcloudappstore/core/models.py:636
 msgid "App ownership transfer"
-msgstr ""
+msgstr "Millifærsla á eigendum forrits"
 
 #: nextcloudappstore/core/models.py:637
 msgid "App ownership transfers"
-msgstr ""
+msgstr "Millifærslur á eigendum forrits"
 
 #: nextcloudappstore/core/models.py:668
 #: nextcloudappstore/core/scaffolding/forms.py:35
@@ -515,6 +523,8 @@ msgid ""
 "Only one version is allowed to be the current version. This field is used to"
 " pre-select drop downs for app generation etc."
 msgstr ""
+"Aðeins einni útgáfu er leyft að vera núverandi útgáfa. Þessi reitur er "
+"notaður til að forvelja fellilista fyrir gerð forrita, o.fl."
 
 #: nextcloudappstore/core/models.py:678
 msgid "Nextcloud release"
@@ -547,11 +557,11 @@ msgstr "Vefsíða höfundar"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Issue tracker URL"
-msgstr ""
+msgstr "Slóð á skrásetjara (tracker)"
 
 #: nextcloudappstore/core/scaffolding/forms.py:40
 msgid "Bug reports and feature requests"
-msgstr ""
+msgstr "Villutilkynningar og beiðnir um nýja eiginleika"
 
 #: nextcloudappstore/core/scaffolding/forms.py:43
 msgid "Hold down CTRL and click to select multiple entries"
@@ -598,6 +608,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Kveðjur frá %(site_name)s!\n"
+"\n"
+"Þú færð þennan tölvupóst vegna þess að notandinn %(user_display)s hefur tengt þetta netfang við aðgang sinn á %(site_domain)s.\n"
+"\n"
+"Til að staðfesta að þetta sé rétt, farðu á %(activate_url)s\n"
+"\n"
+"Ef þú ert ekki með notandaaðgang á %(site_domain)s, geturðu einfaldlega hunsað þessi skilaboð.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -766,7 +783,7 @@ msgstr "Sóttar skrár"
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
-msgstr ""
+msgstr "náttfari (e. nightly build)"
 
 #: nextcloudappstore/core/templates/app/detail.html:103
 msgid "Unstable"
@@ -874,6 +891,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Til að sjá frekari upplýsingar um hvernig eigi að nálgast skilríkið og "
+"hvernig eigi að útbúa undirritunina, skoðaðu <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">leiðbeiningar fyrir forritahönnuði</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
@@ -941,6 +962,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Til að sjá frekari upplýsingar um hvernig eigi að útbúa SHA512-undirritun, "
+"skoðaðu <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">leiðbeiningar fyrir forritahönnuði</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:23
 msgid "Uploading..."
@@ -974,6 +999,8 @@ msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
+"Öll nöfn og vörumerki eru eign viðkomandi eigenda, sem gætu verið án nokkurs"
+" sambands eða samvinnu við Nextcloud."
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -1022,6 +1049,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Þú ert í þann mund að nota %(provider_name)s aðganginn til innskráningar á\n"
+"            %(site_name)s. Til að ljúka því, fylltu út í eftirfarandi reiti:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
@@ -1181,6 +1210,9 @@ msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Það lítur út fyrir að þú sért að nota notandaaðgang sem skráður er hjá "
+"utanaðkomandi þjónustu. Þess vegna er <strong>ekki hægt</strong> að breyta "
+"lykilorðinu þínu frá þessari síðu."
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
