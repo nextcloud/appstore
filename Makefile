@@ -17,6 +17,7 @@ lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
+	$(npm) test
 
 .PHONY: test
 test: lint
@@ -35,8 +36,7 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	$(npm) install --upgrade jshint
-	$(npm) install --upgrade eslint
+	$(npm) install
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt

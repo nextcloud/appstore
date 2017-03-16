@@ -19,6 +19,8 @@ branches:
     - master
 
 before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - nvm install 7
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
 
@@ -31,3 +33,6 @@ script:
 
 services:
   - postgresql
+
+addons:
+  firefox: "latest"
