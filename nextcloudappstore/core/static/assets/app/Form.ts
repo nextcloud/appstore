@@ -9,7 +9,9 @@ type ErrorMessages = {
     fields: IDjangoFieldErrors;
 };
 
-export function parseJSONError(errorJSON: (IDjangoFieldErrors | DjangoGlobalErrors)): ErrorMessages {
+type DjangoErrors = IDjangoFieldErrors | DjangoGlobalErrors;
+
+export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
     const result: ErrorMessages = {
         fields: {},
         global: [],
