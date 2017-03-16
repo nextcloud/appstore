@@ -3,7 +3,6 @@
 
 {% block head-title %}{% trans 'Edit app' %}: {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
-    <script defer="defer" src="{% static 'assets/js/ui/app-edit.js' %}"></script>
     <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
 {% endblock %}
 
@@ -23,7 +22,7 @@
                       data-prompt="{% trans 'Please enter the app ID to confirm that you really want to transfer the ownership of this app to another user.' %}"
                       data-fail="{% trans 'The entered app ID did not match the actual app ID. No action has been taken.' %}">
                     {% include 'form-fields.html' with form=app_own_transfer_form %}
-                    <button id="app-ownership-transfer-submit" class="btn btn-primary btn-block">{% trans 'Transfer' %}</button>
+                    <button id="app-ownership-transfer-submit" class="btn btn-danger btn-block">{% trans 'Transfer app ownership' %}</button>
                 </form>
             </section>
         </div>
