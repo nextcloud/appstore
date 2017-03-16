@@ -7,14 +7,11 @@ manage=$(python) $(CURDIR)/manage.py
 db=sqlite
 pyvenv=python3 -m venv
 npm=npm
-jshint=node_modules/jshint/bin/jshint
-eslint=node_modules/eslint/bin/eslint.js
+tslint=node_modules/.bin/tslint
 
 .PHONY: lint
 lint:
-	$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
-	$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js/app
-	$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js/test
+	$(tslint) $(CURDIR)/nextcloudappstore/core/static/assets/app/**/*.ts
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate

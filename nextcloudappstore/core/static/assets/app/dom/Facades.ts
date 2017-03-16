@@ -10,7 +10,7 @@ export function query(selector: string): Element | null {
     return window.document.querySelector(selector);
 }
 
-export function queryAll(selector: string): Array<Element> {
+export function queryAll(selector: string): Element[] {
     return Array.from(window.document.querySelectorAll(selector));
 }
 
