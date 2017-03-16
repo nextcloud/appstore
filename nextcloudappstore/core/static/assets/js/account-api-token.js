@@ -13,7 +13,7 @@
             }
         );
         return fetch(request).then(global.convertResponse);
-    };
+    }
 
 
     function showElement(element, show) {

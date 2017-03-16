@@ -65,41 +65,36 @@ class AppRegisterView(APIView):
         certificate = serializer.validated_data['certificate'].strip()
 
         container = Container()
-        validator = container.resolve(CertificateValidator)
 
-        app_id = validator.get_cn(certificate)
-        created = True
-        try:
-            app = App.objects.get(id=app_id)
-            created = False
-        except App.DoesNotExist:
-            app = App.objects.create(id=app_id, owner=request.user)
-            app.set_current_language('en')
-            app.description = app_id
-            app.name = app_id
-            app.summary = app_id
-
-        if app.owner != request.user:
-            raise PermissionDenied('Only the app owner is allowed to update'
-                                   'the certificate')
-
+        # validate certificate and signature
         chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
         crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
+        validator = container.resolve(CertificateValidator)
+        app_id = validator.get_cn(certificate)
         if settings.VALIDATE_CERTIFICATES:
             validator.validate_certificate(certificate, chain, crl)
             validator.validate_signature(certificate, signature,
                                          app_id.encode())
 
-        app.owner = request.user
-        app.certificate = certificate
-        app.save()
-
-        if created:
+        try:
+            app = App.objects.get(id=app_id)
+            if app.owner != request.user:
+                msg = 'Only the app owner is allowed to update the certificate'
+                raise PermissionDenied(msg)
+            app.certificate = certificate
+            app.save()
+            return Response(status=204)
+        except App.DoesNotExist:
+            app = App.objects.create(id=app_id, owner=request.user,
+                                     certificate=certificate)
+            app.set_current_language('en')
+            app.description = app_id
+            app.name = app_id
+            app.summary = app_id
+            app.save()
             if settings.DISCOURSE_TOKEN:
                 self._create_discourse_category(app_id)
             return Response(status=201)
-        else:
-            return Response(status=204)
 
     def _create_discourse_category(self, app_id: str) -> None:
         url = '%s/categories?api_key=%s&api_username=%s' % (

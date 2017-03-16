@@ -12,7 +12,7 @@ eslint=node_modules/eslint/bin/eslint.js
 
 .PHONY: lint
 lint:
-	#$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
+	$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
 	#$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release

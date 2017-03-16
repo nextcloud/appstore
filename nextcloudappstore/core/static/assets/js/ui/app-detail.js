@@ -1,5 +1,39 @@
 (function (global) {
     'use strict';
+    let document = global.document;
+    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
+    let languageCode = document.querySelector('meta[name="language-code"]').content;
+    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
+    let ratingTarget = document.querySelector('.app-rating-list');
+    let ratingTemplate = document.getElementById('app-rating-template');
+    let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
+    let moment = global.moment;
+    let hljs = global.hljs;
+
+    let md = global.markdownit({
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {
+                }
+            }
+            return ''; // use external default escaping
+        }
+    });
+
+    // create ratings
+    let createRatingClass = function (value) {
+        // beware: float comparisons
+        if (value === 1.0) {
+            return 'good';
+        } else if (value === 0.0) {
+            return 'bad';
+        } else {
+            return 'ok';
+        }
+    };
+
     function load_comments(languageCode, initial=false) {
         fetch(ratingUrl)
             .then((response) => response.json())
@@ -41,21 +75,6 @@
             });
     }
 
-    let moment = global.moment;
-    let document = global.document;
-    let hljs = global.hljs;
-    let md = global.markdownit({
-        highlight: function (str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-                try {
-                    return hljs.highlight(lang, str).value;
-                } catch (__) {
-                }
-            }
-            return ''; // use external default escaping
-        }
-    });
-
     // init image slider
     let imgEls = Array.from(document.querySelectorAll('.img-slider .img'));
     let imgURLs = imgEls.map((img) => img.src);
@@ -77,24 +96,6 @@
             descriptionTarget.classList.remove('loading');
             descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
         });
-
-    // create ratings
-    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
-    let languageCode = document.querySelector('meta[name="language-code"]').content;
-    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
-    let ratingTarget = document.querySelector('.app-rating-list');
-    let ratingTemplate = document.getElementById('app-rating-template');
-    let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
-    let createRatingClass = function (value) {
-        // beware: float comparisons
-        if (value === 1.0) {
-            return 'good';
-        } else if (value === 0.0) {
-            return 'bad';
-        } else {
-            return 'ok';
-        }
-    };
 
     const langCode = global.id('comment_display_language_code');
     langCode.addEventListener('change', (event) => {
