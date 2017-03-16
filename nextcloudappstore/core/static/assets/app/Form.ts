@@ -1,18 +1,18 @@
-interface DjangoFieldErrors {
-    [index: string]: Array<string>
+interface IDjangoFieldErrors {
+    [index: string]: string[];
 }
 
-type DjangoGlobalErrors = Array<string>;
+type DjangoGlobalErrors = string[];
 
 type ErrorMessages = {
-    global: Array<string>;
-    fields: DjangoFieldErrors;
-}
+    global: string[];
+    fields: IDjangoFieldErrors;
+};
 
-export function parseJSONError(errorJSON: (DjangoFieldErrors | DjangoGlobalErrors)): ErrorMessages {
+export function parseJSONError(errorJSON: (IDjangoFieldErrors | DjangoGlobalErrors)): ErrorMessages {
     const result: ErrorMessages = {
+        fields: {},
         global: [],
-        fields: {}
     };
 
     if (Array.isArray(errorJSON)) {
