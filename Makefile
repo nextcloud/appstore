@@ -36,7 +36,7 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	$(npm) install --dev
+	$(npm) install
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt

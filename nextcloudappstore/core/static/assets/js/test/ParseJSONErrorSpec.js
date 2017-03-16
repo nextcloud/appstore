@@ -9,8 +9,4 @@ describe('Testing the window error result parser', () => {
             });
     });
 
-    it('should break', () => {
-        expect(true).toBe(false);
-    });
-
 });
