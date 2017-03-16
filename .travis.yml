@@ -18,7 +18,7 @@ branches:
   only:
     - master
 
-before_install:
+before_install:https://github.com/angular/quickstart.git
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - nvm install 7

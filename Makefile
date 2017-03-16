@@ -38,6 +38,7 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	$(npm) install
+	$(npm) run build
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt

@@ -6,19 +6,23 @@
     "directories": {
         "doc": "docs"
     },
-    "dependencies": {
-    },
+    "dependencies": {},
     "devDependencies": {
         "bower": "^1.7.9",
         "eslint": "^3.16.1",
-        "jshint": "^2.9.4",
         "jasmine-core": "^2.5.2",
+        "jshint": "^2.9.4",
         "karma": "^1.5.0",
+        "karma-firefox-launcher": "^1.0.1",
         "karma-jasmine": "^1.1.0",
-        "karma-firefox-launcher": "^1.0.1"
+        "karma-requirejs": "^1.1.0",
+        "typescript": "^2.2.1"
     },
     "scripts": {
-        "test": "./node_modules/karma/bin/karma start --single-run"
+        "test": "./node_modules/karma/bin/karma start --single-run",
+        "testWatch": "./node_modules/karma/bin/karma start",
+        "build": "./node_modules/.bin/tsc",
+        "watch": "./node_modules/.bin/tsc --watch"
     },
     "repository": {
         "type": "git",
