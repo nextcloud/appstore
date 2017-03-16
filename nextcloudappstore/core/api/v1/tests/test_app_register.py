@@ -27,11 +27,12 @@ class AppRegisterTest(ApiTest):
                                                      email='owner@owner.com')
         self._create_app(owner, 'news')
         self._login_token()
-        response = self.api_client.post(self.create_url, data={
-            'signature': 'sign',
-            'certificate': self._cert
-        }, format='json')
-        self.assertEqual(403, response.status_code)
+        with self.settings(VALIDATE_CERTIFICATES=False):
+            response = self.api_client.post(self.create_url, data={
+                'signature': 'sign',
+                'certificate': self._cert
+            }, format='json')
+            self.assertEqual(403, response.status_code)
 
     def test_register(self):
         self._login()
