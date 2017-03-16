@@ -13,14 +13,15 @@ eslint=node_modules/eslint/bin/eslint.js
 .PHONY: lint
 lint:
 	$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
-	#$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js
+	$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js/app
+	$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js/test
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
-	$(npm) test
 
 .PHONY: test
 test: lint
+	$(npm) test
 	$(manage) test --settings nextcloudappstore.settings.development
 
 .PHONY: resetup

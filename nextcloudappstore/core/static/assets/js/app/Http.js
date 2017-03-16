@@ -3,8 +3,8 @@
 
     exports.parseJSONError = (errorJSON) => {
         const result = {
-            "global": [],
-            "fields": {}
+            'global': [],
+            'fields': {}
         };
 
         if (Array.isArray(errorJSON)) {

@@ -3,7 +3,7 @@ module.exports = function (config) {
         basePath: 'nextcloudappstore/core/static/assets/js/',
         frameworks: ['jasmine'],
         files: [
-            'Http.js',
+            'app/**/*.js',
             'test/**/*Spec.js',
         ],
         exclude: [],
