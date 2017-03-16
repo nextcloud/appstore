@@ -1,12 +1,13 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.conf import settings
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
-    BooleanField, TextInput
+    BooleanField, TextInput, ModelForm
 from django.utils.translation import get_language_info, \
     ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating, AppOwnershipTransfer
+from nextcloudappstore.core.user.fields import UsernameField
 
 User = get_user_model()
 
@@ -95,29 +96,24 @@ class AppRatingForm(Form):
         app_rating.save()
 
 
-class AppOwnershipTransferForm(Form):
-    new_owner_username = CharField(
-        max_length=User._meta.get_field('username').max_length,
-        label=_('New owner (username)'))
+class AppOwnershipTransferForm(ModelForm):
+    to_user = UsernameField(label=_('New owner (username)'))
+
+    class Meta:
+        model = AppOwnershipTransfer
+        fields = ['to_user']
 
     def __init__(self, *args, **kwargs):
-        self.app = kwargs.pop('app', None)
+        app = kwargs.pop('app', None)
         super().__init__(*args, **kwargs)
+        self.instance.app = app
+        self.instance.from_user = app.owner
 
-    def clean_new_owner_username(self):
-        new_owner_username = self.cleaned_data['new_owner_username']
-        try:
-            new_owner = User.objects.get(username=new_owner_username)
-            self.new_owner = new_owner
-            return new_owner_username
-        except User.DoesNotExist:
-            self.add_error(
-                'new_owner_username',
-                ValidationError(_('There is no such user.'), code='no-user'))
-            return new_owner_username
+    def clean(self):
+        cleaned_data = super().clean()
+        from_user = self.instance.app.owner
+        to_user = cleaned_data.get('to_user')
 
-    def save(self):
-        AppOwnershipTransfer.objects.create(
-            app=self.app,
-            from_user=self.app.owner,
-            to_user=self.new_owner)
+        if to_user and from_user.pk == to_user.pk:
+                raise ValidationError(_(
+                    'The proposed new owner already owns the app.'))

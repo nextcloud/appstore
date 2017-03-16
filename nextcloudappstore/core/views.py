@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db import IntegrityError
 from django.db.models import Q
 from django.http import HttpResponse
@@ -312,7 +312,19 @@ class AppEditView(LoginRequiredMixin, TemplateView):
         app_own_transfer_form.full_clean()
         user_is_owner = request.user == app.owner
 
-        if user_is_owner and app_own_transfer_form.is_valid():
+        context = self.get_context_data(
+            object=app,
+            app_own_transfer_form=app_own_transfer_form,
+            **kwargs)
+
+        if not user_is_owner:
+            messages.error(
+                request,
+                _('You are not the owner of this app.'),
+                extra_tags='danger')
+            return self.render_to_response(context)
+
+        if app_own_transfer_form.is_valid():
             try:
                 app_own_transfer_form.save()
                 messages.success(
@@ -320,17 +332,18 @@ class AppEditView(LoginRequiredMixin, TemplateView):
                     _('App ownership transfer request created. Awaiting '
                       'approval from the other user. Visit your account pages '
                       'to see and manage pending requests.'))
-            except IntegrityError:
+            except (IntegrityError):
                 messages.error(
                     request,
                     _('Creation of app ownership transfer request failed. '
                       'There may already be a pending request for this app.'),
                     extra_tags='danger')
+        else:
+            messages.error(
+                request,
+                _('Please correct the errors in the form.'),
+                extra_tags='danger')
 
-        context = self.get_context_data(
-            object=app,
-            app_own_transfer_form=app_own_transfer_form,
-            **kwargs)
         return self.render_to_response(context)
 
     def get_object(self):
@@ -340,7 +353,7 @@ class AppEditView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         if 'object' not in context:
             context['object'] = self.get_object()
-        if 'app_ownership_transfer_form' not in context:
-            context['app_ownership_transfer_form'] = AppOwnershipTransferForm(
+        if 'app_own_transfer_form' not in context:
+            context['app_own_transfer_form'] = AppOwnershipTransferForm(
                 app=context['object'])
         return context

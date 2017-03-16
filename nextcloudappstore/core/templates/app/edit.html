@@ -22,7 +22,7 @@
                       data-app-id="{{ object.id }}"
                       data-prompt="{% trans 'Please enter the app ID to confirm that you really want to transfer the ownership of this app to another user.' %}"
                       data-fail="{% trans 'The entered app ID did not match the actual app ID. No action has been taken.' %}">
-                    {% include 'form-fields.html' with form=app_ownership_transfer_form %}
+                    {% include 'form-fields.html' with form=app_own_transfer_form %}
                     <button id="app-ownership-transfer-submit" class="btn btn-primary btn-block">{% trans 'Transfer' %}</button>
                 </form>
             </section>
