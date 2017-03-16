@@ -123,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_PARSER_CLASSES': (
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',
@@ -249,10 +250,6 @@ VALIDATE_CERTIFICATES = True
 # certification hash algorithm
 CERTIFICATE_DIGEST = 'sha512'
 
-# supported Nextcloud versions
-PLATFORM_VERSIONS = ['9', '10', '11']
-CURRENT_PLATFORM_STABLE_VERSION = '11'
-
 # app archive downloader configuration
 MAX_DOWNLOAD_INFO_XML_SIZE = 512 * 1024  # bytes
 MAX_DOWNLOAD_TIMEOUT = 60  # seconds
@@ -287,3 +284,13 @@ DISCOURSE_URL = 'https://help.nextcloud.com'
 DISCOURSE_USER = None
 DISCOURSE_TOKEN = None
 DISCOURSE_PARENT_CATEGORY_ID = 26
+
+
+APP_SCAFFOLDING_PROFILES = {
+    10: {
+        'owncloud_version': '9.1'
+    },
+    11: {
+        'owncloud_version': '9.2'
+    }
+}

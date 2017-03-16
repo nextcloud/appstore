@@ -22,9 +22,11 @@ from semantic_version import Version
 
 from nextcloudappstore.core.api.v1.serializers import AppRatingSerializer
 from nextcloudappstore.core.caching import app_etag
+from nextcloudappstore.core.facades import flatmap
 from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
-    AppRegisterForm, AppOwnershipTransferForm
-from nextcloudappstore.core.models import App, Category, AppRating
+    AppRegisterForm, AppOwnershipTransferForm, AppRegisterForm
+from nextcloudappstore.core.models import App, Category, AppRating, \
+    NextcloudRelease
 from nextcloudappstore.core.scaffolding.archive import build_archive
 from nextcloudappstore.core.scaffolding.forms import AppScaffoldingForm
 from nextcloudappstore.core.versioning import pad_min_version
@@ -58,8 +60,7 @@ class AppDetailView(DetailView):
     slug_url_kwarg = 'id'
 
     def post(self, request, id):
-        form = AppRatingForm(request.POST, id=id, user=request.user,
-                             language_code=request.LANGUAGE_CODE)
+        form = AppRatingForm(request.POST, id=id, user=request.user)
         # there is no way that a rating can be invalid by default
         if form.is_valid() and request.user.is_authenticated:
             form.save()
@@ -68,12 +69,37 @@ class AppDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
-        context['rating_form'] = AppRatingForm()
+        context['rating_form'] = AppRatingForm(
+            initial={'language_code': get_language()})
+
+        ratings = AppRating.objects.filter(app=context['app'])
+        rating_languages = flatmap(
+            lambda r: r.get_available_languages(), ratings)
+
+        # make sure current session language is in the list even if there are
+        # no comments.
+        rating_languages = list(rating_languages)
+        if get_language() not in rating_languages:
+            rating_languages.append(get_language())
+
+        context['languages'] = set(sorted(rating_languages))
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
             try:
                 app_rating = AppRating.objects.get(user=self.request.user,
                                                    app=context['app'])
+
+                # if parler fallsback to a fallback language
+                # it doesn't set the language as current language
+                # and we can't select the correct language in the
+                # frontend. So we try and find a languge that is
+                # available
+                language_code = app_rating.get_current_language()
+                if not app_rating.has_translation(language_code):
+                    for fallback in app_rating.get_fallback_languages():
+                        if app_rating.has_translation(fallback):
+                            app_rating.set_current_language(fallback)
+
                 # when accessing an empty comment django-parler tries to
                 # fall back to the default language. However for comments
                 # the default (English) does not always exist. Unfortunately
@@ -86,7 +112,8 @@ class AppDetailView(DetailView):
 
                 context['rating_form'] = AppRatingForm({
                     'rating': app_rating.rating,
-                    'comment': comment
+                    'comment': comment,
+                    'language_code': app_rating.get_current_language(),
                 })
                 context['user_has_rated_app'] = True
             except AppRating.DoesNotExist:
@@ -247,7 +274,7 @@ class AppScaffoldingView(FormView):
 
     def get_initial(self):
         init = {
-            'platform': settings.CURRENT_PLATFORM_STABLE_VERSION,
+            'platform': NextcloudRelease.get_current_main(),
             'categories': ('tools',)
         }
         if self.request.user.is_authenticated:

@@ -10,7 +10,7 @@ from nextcloudappstore.core.api.v1.release.parser import \
     fix_partial_translations, parse_changelog, ForbiddenLinkException
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
-from rest_framework.exceptions import APIException
+from rest_framework.exceptions import ParseError
 
 
 class ParserTest(TestCase):
@@ -37,7 +37,7 @@ class ParserTest(TestCase):
             'developer_docs': None,
             'user_docs': None,
             'website': None,
-            'issue_tracker': None,
+            'issue_tracker': 'https://github.com/nextcloud/news/issues',
             'screenshots': [],
             'categories': [{'category': {'id': 'multimedia'}}],
             'release': {
@@ -49,9 +49,9 @@ class ParserTest(TestCase):
                 'php_min_version': '*',
                 'raw_php_max_version': '*',
                 'raw_php_min_version': '*',
-                'platform_max_version': '*',
+                'platform_max_version': '10.0.0',
                 'platform_min_version': '9.0.0',
-                'raw_platform_max_version': '*',
+                'raw_platform_max_version': '9',
                 'raw_platform_min_version': '9',
                 'shell_commands': [],
                 'version': '8.8.2',
@@ -73,6 +73,13 @@ class ParserTest(TestCase):
                                     self.config.info_xslt)
         version = result['app']['release']['version']
         self.assertEqual('1.0.0-alpha.1', version)
+
+    def test_parse_digit_id(self):
+        xml = self._get_contents('data/infoxmls/digits.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.assertEqual('twofactor_u2f', result['app']['id'])
 
     def test_parse_invalid_elements(self):
         xml = self._get_contents('data/infoxmls/invalid-elements.xml')
@@ -142,6 +149,21 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
+    def test_validate_pre_11(self):
+        xml = self._get_contents('data/infoxmls/9and10.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/11.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+        xml = self._get_contents('data/infoxmls/9and10invalid.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
     def test_fixes_xml(self):
         xml = self._get_contents('data/infoxmls/news.xml')
         parse_app_metadata(xml, self.config.info_schema,
@@ -150,7 +172,7 @@ class ParserTest(TestCase):
 
     def test_broken_xml(self):
         xml = self._get_contents('data/infoxmls/broken-xml.xml')
-        with (self.assertRaises(APIException)):
+        with (self.assertRaises(ParseError)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
@@ -169,12 +191,18 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
-    def test_extract_contracts(self):
+    def test_extract_contacts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
         full_extracted, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('contacts', app_id)
         self.assertEqual('', changes['en'])
+
+    def test_extract_u2f(self):
+        path = self.get_path('data/archives/twofactor_u2f.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        self.assertEqual('twofactor_u2f', app_id)
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
@@ -454,9 +482,9 @@ class ParserTest(TestCase):
             },
             'screenshots': [
                 {'screenshot': {'url': 'https://example.com/1.png',
-                                'ordering': 1}},
+                                'small_thumbnail': None, 'ordering': 1}},
                 {'screenshot': {'url': 'https://example.com/2.jpg',
-                                'ordering': 2}}
+                                'small_thumbnail': None, 'ordering': 2}}
             ],
             'ocsid': None,
         }}

@@ -1,6 +1,7 @@
-import re
 from datetime import datetime
+from functools import reduce
 from sys import maxsize
+from typing import Dict, Any, List
 
 from semantic_version import Version
 
@@ -127,3 +128,23 @@ def to_spec(min_version: str, max_version: str) -> str:
         return '<%s' % max_version
     else:
         return '>=%s,<%s' % (min_version, max_version)
+
+
+GroupedVersions = Dict[str, List[Any]]
+
+
+def group_by_main_version(versions: GroupedVersions) -> GroupedVersions:
+    """
+    Groups a dict with semver version as key by their main version
+    :param versions: dicts of version: value,
+    e.g. {'9.0.1': [r1], '9.0.1': [r2]}
+    :return: a grouped by main version dict, e.g. {'9': [r1, r2]}
+    """
+
+    def reduction(prev, item):
+        key, value = item
+        main_version = str(Version(key).major)
+        prev[main_version] = prev.get(main_version, []) + value
+        return prev
+
+    return reduce(reduction, versions.items(), {})

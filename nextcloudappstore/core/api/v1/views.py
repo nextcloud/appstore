@@ -12,8 +12,7 @@ from rest_framework.generics import DestroyAPIView, \
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
-from rest_framework.exceptions import APIException, ValidationError, \
-    PermissionDenied
+from rest_framework.exceptions import ValidationError, PermissionDenied
 
 from nextcloudappstore.core.api.v1.release.importer import AppImporter
 from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
@@ -45,8 +44,10 @@ class AppView(DestroyAPIView):
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        working_apps = App.objects.get_compatible(self.kwargs['version'])
-        serializer = self.get_serializer(working_apps, many=True)
+        version = self.kwargs['version']
+        working_apps = App.objects.get_compatible(version)
+        serializer = self.get_serializer(working_apps, many=True,
+                                         version=version)
         return Response(serializer.data)
 
 
@@ -144,7 +145,7 @@ class AppReleaseView(DestroyAPIView):
             try:
                 info, data = provider.get_release_info(url, is_nightly)
             except HTTPError as e:
-                raise APIException(e)
+                raise ValidationError(e)
 
             # populate metadata from request
             info['app']['release']['signature'] = signature
@@ -247,7 +248,7 @@ class RegenerateAuthToken(APIView):
     def post(self, request, *args, **kwargs):
         try:
             Token.objects.get(user=request.user).delete()
-        except:
+        except Exception:
             pass
         new = Token.objects.create(user=request.user)
         return Response({'token': new.key})

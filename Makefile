@@ -1,13 +1,19 @@
-# only random once obviously ;)
 python=venv/bin/python
 pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
 mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
+db=sqlite
+pyvenv=python3 -m venv
+npm=npm
+jshint=node_modules/jshint/bin/jshint
+eslint=node_modules/eslint/bin/eslint.js
 
 .PHONY: lint
 lint:
+	#$(jshint) $(CURDIR)/nextcloudappstore/core/static/assets/js
+	#$(eslint) $(CURDIR)/nextcloudappstore/core/static/assets/js
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
@@ -19,10 +25,7 @@ test: lint
 .PHONY: resetup
 resetup:
 	rm -f db.sqlite3
-	$(manage) migrate --settings nextcloudappstore.settings.development
-	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
-	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
-	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
+	$(MAKE) initdb
 
 .PHONY: initmigrations
 initmigrations:
@@ -32,20 +35,22 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	pyvenv venv
+	$(npm) install --upgrade jshint
+	$(npm) install --upgrade eslint
+	$(pyvenv) venv
+	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
-	@echo "from nextcloudappstore.settings.base import *" > $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "DEBUG = True" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "SECRET_KEY = 'secret'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "RECAPTCHA_PUBLIC_KEY = '<RECAPTCHA_PUBLIC_KEY>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "RECAPTCHA_PRIVATE_KEY = '<RECAPTCHA_PRIVATE_KEY>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "EMAIL_HOST = 'localhost'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "DEFAULT_FROM_EMAIL = 'Appstore <appstore@nextcloud.com>'" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "INSTALLED_APPS.append('debug_toolbar')" >> $(CURDIR)/nextcloudappstore/settings/development.py
-	@echo "MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')" >> $(CURDIR)/nextcloudappstore/settings/development.py
+ifeq ($(db), postgres)
+	$(pip) install -r $(CURDIR)/requirements/production.txt
+endif
+	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
+	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
+	$(MAKE) initdb
+
+
+.PHONY: initdb
+initdb:
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
 	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
@@ -55,3 +60,12 @@ dev-setup:
 docs:
 	@echo "hi"
 	$(MAKE) -C $(CURDIR)/docs/ html
+
+.PHONY: update-dev-deps
+update-dev-deps:
+	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
+	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
+
+.PHONY: authors
+authors:
+	$(python) $(CURDIR)/scripts/generate_authors.py

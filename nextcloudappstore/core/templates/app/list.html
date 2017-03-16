@@ -44,13 +44,13 @@
             <div class="well">
                 <div class="app-list-screenshot">
                 {% if app.screenshots.all %}
-                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0 }}" alt="{% trans 'Screenshot' %}"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0.front_img_small }}" alt="{% trans 'Screenshot' %}"></a>
                 {% else %}
-                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/logo-icon.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/no-screenshot.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
                 {% endif %}
                 </div>
-                <h3><a href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
-                <p>{{ app.summary }}</p>
+                <h3><a title="{{ app.name }}" href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
+                <p title="{{ app.summary }}">{{ app.summary }}</p>
             </div>
         </div>
 {% empty %}

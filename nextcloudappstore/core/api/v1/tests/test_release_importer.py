@@ -14,7 +14,8 @@ class ImporterTest(TestCase):
         self.importer = container.resolve(AppImporter)
         self.config = ReleaseConfig()
         self.min = read_relative_file(__file__, 'data/infoxmls/minimal.xml')
-        self.full = read_relative_file(__file__, 'data/infoxmls/full.xml')
+        self.full = read_relative_file(__file__,
+                                       'data/infoxmls/fullimport.xml')
         self.user = get_user_model().objects.create_user(username='test',
                                                          password='test',
                                                          email='test@test.com')
@@ -34,7 +35,7 @@ class ImporterTest(TestCase):
         self.importer.import_data('app', result['app'], None)
         app = App.objects.get(pk='news')
         self._assert_all_empty(app, ['user_docs', 'admin_docs', 'website',
-                                     'developer_docs', 'issue_tracker'])
+                                     'developer_docs'])
         # l10n
         app.set_current_language('en')
         self.assertEqual('News', app.name)
@@ -50,14 +51,17 @@ class ImporterTest(TestCase):
         self.assertEqual(1, app.categories.count())
         self.assertEqual('multimedia', app.categories.all()[0].id)
 
+        self.assertEqual('https://github.com/nextcloud/news/issues',
+                         app.issue_tracker)
+
         self.assertEqual(0, app.screenshots.count())
         self.assertEqual(0, Screenshot.objects.count())
 
         release = app.releases.all()[0]
         self.assertEqual('8.8.2', release.version)
-        self.assertEqual('>=9.0.0', release.platform_version_spec)
+        self.assertEqual('>=9.0.0,<10.0.0', release.platform_version_spec)
         self.assertEqual('*', release.php_version_spec)
-        self.assertEqual('>=9', release.raw_platform_version_spec)
+        self.assertEqual('>=9,<=9', release.raw_platform_version_spec)
         self.assertEqual('*', release.raw_php_version_spec)
         self.assertEqual(32, release.min_int_size)
         self._assert_all_empty(release, ['signature', 'download'])
@@ -89,9 +93,14 @@ class ImporterTest(TestCase):
             'https://en.wikipedia.org/wiki/RSS) umgehen kann',
             app.description)
         release = app.releases.all()[0]
+        screenshots = app.screenshots.all()
         extensions = release.php_extensions.all()
         databases = release.databases.all()
 
+        self.assertEqual(2, screenshots.count())
+        self.assertEqual('https://example.com/1-thumb.png',
+                         screenshots[0].small_thumbnail)
+        self.assertEqual('', screenshots[1].small_thumbnail)
         self.assertEqual(3, databases.count())
         self.assertEqual(4, extensions.count())
 

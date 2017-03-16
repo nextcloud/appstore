@@ -3,22 +3,36 @@
 Changelog
 ---------
 
-Unreleased
-++++++++++
+1.0.0 - 2016-13-12
+++++++++++++++++++
 
 **Added**
 
 - Add ability to add nightlies and pre-releases to app release feed by appending ?prerelease=true&nightly=true to feed url
 - Add changelog to app release feed
 - Add number of recent and overall ratings to API
+- Add app development templates for Nextcloud 10
+- Add a way for developers to define a smaller thumbnail for a screenshot and expose it in the API
 
 **Changed**
 
 - Information related to the app and not the app release should only be updated when stable, new releases are uploaded
+- Manage Nextcloud releases in the admin interface instead of a Python file
+- Apps need to provide a maximum version in addition to the minimum version
+- Apps do not need to provide an owncloud tag anymore for Nextcloud 11
+- RSS and Atom feed links now redirect to the app store app detail page instead of the download link. The download link is now available at the bottom of the entry
 
 **Removed**
 
 - Remove nightlies and pre-releases from app release feed
+
+**Fixed**
+
+- Apps depending on Nextcloud minor or patch versions are now rendered on the app detail and releases page
+- Fix styling bug that would sometimes hide the app resource links when in mobile mode
+- Allow digits in app id, #370
+- Do not expose incompatible app releases in REST API
+
 
 0.2.0 - 2016-10-23
 ++++++++++++++++++

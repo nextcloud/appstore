@@ -17,6 +17,7 @@ class ArchiveTest(TestCase):
             'author_email': 'author email',
             'author_homepage': 'author homepage',
             'platform': '11',
+            'issue_tracker': 'https://test.com',
             'categories': ['tools'],
         }
 
@@ -41,4 +42,5 @@ class ArchiveTest(TestCase):
         with tarfile.open(fileobj=result, mode='r:gz') as f:
             member = f.getmember('theapp/appinfo/info.xml')
             with f.extractfile(member) as info:
-                self.assertEqual(expected, info.read().strip().decode('utf-8'))
+                result = info.read().strip().decode('utf-8')
+                self.assertEqual(expected, result)

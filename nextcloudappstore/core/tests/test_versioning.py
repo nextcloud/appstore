@@ -1,8 +1,11 @@
+from collections import OrderedDict
 from datetime import datetime
 from sys import maxsize
 from django.test import TestCase
 from nextcloudappstore.core.versioning import pad_min_version, to_spec, \
-    pad_max_version, pad_max_inc_version, raw_version, to_raw_spec, AppSemVer
+    pad_max_version, pad_max_inc_version, raw_version, to_raw_spec, \
+    AppSemVer, \
+    group_by_main_version
 
 
 class VersioningTest(TestCase):
@@ -65,3 +68,11 @@ class VersioningTest(TestCase):
         v4 = AppSemVer('1.0.0')
         versions = [v1, v3, v2, v4]
         self.assertEqual(v2, max(versions))
+
+    def test_group_by_version(self):
+        example = OrderedDict()
+        example['1.0.1'] = [2]
+        example['1.0.0'] = [3]
+        example['2.0.0'] = [1]
+        result = group_by_main_version(example)
+        self.assertDictEqual({'1': [2, 3], '2': [1]}, result)

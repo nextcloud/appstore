@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.syndication.views import Feed
+from django.urls import reverse
 from django.urls import reverse_lazy
 from django.utils.feedgenerator import Atom1Feed
 from django.utils.translation import ugettext_lazy as _  # type: ignore
@@ -32,16 +33,27 @@ class AppReleaseRssFeed(Feed):
 
     def item_description(self, item):
         try:
-            content = ('%s\n\n# %s\n\n%s' % (
-                item.app.description, _('Changes'), item.changelog))
+            if item.changelog:
+                changelog = '\n\n# %s\n\n%s' % (_('Changes'), item.changelog)
+            else:
+                changelog = ''
+            content = '%s%s' % (item.app.description, changelog)
         except TranslationDoesNotExist:
             content = item.app.description
+        content += '\n\n [%s](%s)' % (_('Download'), item.download)
         return clean(markdown(content),
                      attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES,
                      tags=settings.MARKDOWN_ALLOWED_TAGS)
 
+    def item_guid(self, obj):
+        if obj.is_nightly:
+            nightly = '-nightly'
+        else:
+            nightly = ''
+        return '%s-%s%s' % (obj.app.id, obj.version, nightly)
+
     def item_link(self, item):
-        return item.download
+        return reverse('app-detail', kwargs={'id': item.app.id})
 
     def item_author_name(self, item):
         return '%s %s' % (item.app.owner.first_name, item.app.owner.last_name)

@@ -89,6 +89,9 @@
                         <url>
                             <xsl:value-of select="."/>
                         </url>
+                        <small-thumbnail>
+                            <xsl:value-of select="@small-thumbnail"/>
+                        </small-thumbnail>
                         <ordering type="int">
                             <xsl:value-of select="position()"/>
                         </ordering>

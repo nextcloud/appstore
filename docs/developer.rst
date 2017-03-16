@@ -74,7 +74,7 @@ After we approved your certificate, we will post your signed public certificate 
 
 Registering an App
 ~~~~~~~~~~~~~~~~~~
-After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/app/register>`_.
+After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/developer/apps/new>`_.
 
 The interface will ask you for the following things:
 
@@ -91,7 +91,7 @@ We will then verify the certificate and signature and register you as the app's 
 
 Uploading an App Release
 ~~~~~~~~~~~~~~~~~~~~~~~~
-After you've registered your app you can upload your app's releases to the App Store. To do that either use the :ref:`REST API <api-create-release>` or use the App Store's `upload app release web interface <https://apps.nextcloud.com/app/upload>`_.
+After you've registered your app you can upload your app's releases to the App Store. To do that either use the :ref:`REST API <api-create-release>` or use the App Store's `upload app release web interface <https://apps.nextcloud.com/developer/apps/releases/new>`_.
 
 The interface will ask you for the following things:
 
@@ -149,8 +149,9 @@ A minimum valid **info.xml** would look like this:
         <licence>agpl</licence>
         <author>Bernhard Posselt</author>
         <category>multimedia</category>
+        <bugs>https://github.com/nextcloud/news/issues</bugs>
         <dependencies>
-            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
+            <!-- owncloud tag is required on Nextcloud 9 and 10 -->
             <owncloud min-version="9.1"/>
             <nextcloud min-version="10"/>
         </dependencies>
@@ -175,16 +176,16 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <author>Alessandro Cosentino</author>
         <author>Jan-Christoph Borchardt</author>
         <documentation>
-            <user>https://github.com/owncloud/news/wiki#user-documentation</user>
-            <admin>https://github.com/owncloud/news#readme</admin>
-            <developer>https://github.com/owncloud/news/wiki#developer-documentation</developer>
+            <user>https://github.com/nextcloud/news/wiki#user-documentation</user>
+            <admin>https://github.com/nextcloud/news#readme</admin>
+            <developer>https://github.com/nextcloud/news/wiki#developer-documentation</developer>
         </documentation>
         <category>multimedia</category>
         <category>tools</category>
-        <website>https://github.com/owncloud/news</website>
-        <bugs>https://github.com/owncloud/news/issues</bugs>
-        <repository>https://github.com/owncloud/news</repository>
-        <screenshot>https://example.com/1.png</screenshot>
+        <website>https://github.com/nextcloud/news</website>
+        <bugs>https://github.com/nextcloud/news/issues</bugs>
+        <repository>https://github.com/nextcloud/news</repository>
+        <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <dependencies>
             <php min-version="5.6" min-int-size="64"/>
@@ -197,7 +198,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
             <lib>curl</lib>
             <lib>SimpleXML</lib>
             <lib>iconv</lib>
-            <!-- owncloud tag is required on Nextcloud 9, 10 and 11 -->
+            <!-- owncloud tag is required on Nextcloud 9 and 10 -->
             <owncloud min-version="9.0" max-version="9.1"/>
             <nextcloud min-version="9" max-version="10"/>
         </dependencies>
@@ -306,7 +307,7 @@ website
     * must contain an URL to the project's homepage
     * will be rendered on the app detail page
 bugs
-    * optional
+    * required
     * must contain an URL to the project's bug tracker
     * will be rendered on the app detail page
 repository
@@ -317,6 +318,7 @@ repository
 screenshot
     * optional
     * must contain an HTTPS URL to an image
+    * can contain a **small-thumbnail** attribute which must contain an https url to an image. This image will be used as small preview (e.g. on the app list overview). Keep it small so it renders fast
     * will be rendered on the app list and detail page in the given order
 dependencies/php
     * optional
@@ -344,19 +346,17 @@ dependencies/lib
     * can contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
 dependencies/nextcloud
-    * required on Nextcloud 12 or higher
+    * required on Nextcloud 11 or higher
     * if absent white-listed owncloud versions will be taken from the owncloud element (see below)
     * must contain a **min-version** attribute (maximum 3 digits separated by dots)
     * can contain a **max-version** attribute (maximum 3 digits separated by dots)
 dependencies/owncloud
     * optional
-    * used for app migration period (Nextcloud 9, 10 and 11)
-    * must contain a **min-version** attribute (**9.0**, **9.1** or **9.2**)
-    * can contain a **max-version** attribute (**9.0**, **9.1** or **9.2**)
-    * will be ignored if a **nextcloud** tag exists
+    * used for app migration period (Nextcloud 9 and 10)
+    * must contain a **min-version** attribute (**9.0** or **9.1**)
+    * can contain a **max-version** attribute (**9.0** or **9.1**)
     * 9.0 will be migrated to Nextcloud 9
     * 9.1 will be migrated to Nextcloud 10
-    * 9.2 will be migrated to Nextcloud 11
     * All other versions will be ignored
 background-jobs/job
     * optional

@@ -1,9 +1,11 @@
 import datetime
 from functools import reduce
+from itertools import chain
 from typing import Tuple
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.db.models import Manager
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q, \
@@ -13,9 +15,11 @@ from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
     TranslatableManager  # type: ignore
 from semantic_version import Version, Spec
+
+from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
-    pad_max_inc_version, AppSemVer
+    pad_max_inc_version, AppSemVer, group_by_main_version
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
@@ -93,9 +97,9 @@ class App(TranslatableModel):
     rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
     rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
     rating_num_recent = IntegerField(
-        verbose_name=_('Number of recently casted ratings'), default=0)
+        verbose_name=_('Number of recently submitted ratings'), default=0)
     rating_num_overall = IntegerField(
-        verbose_name=_('Number of overall casted rating'), default=0)
+        verbose_name=_('Number of overall submitted ratings'), default=0)
     last_release = DateTimeField(editable=False, db_index=True,
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
@@ -116,6 +120,17 @@ class App(TranslatableModel):
     def can_delete(self, user: User) -> bool:
         return self.owner == user
 
+    def _get_grouped_releases(self, get_release_func):
+        releases = NextcloudRelease.objects.all()
+        versions = map(lambda r: r.version, releases)
+        compatible_releases = map(lambda v: (v, get_release_func(v)), versions)
+        grouped_releases = group_by_main_version(dict(compatible_releases))
+        # deduplicate releases
+        result = {}
+        for version, releases in grouped_releases.items():
+            result[version] = list(distinct(releases, lambda r: r.version))
+        return result
+
     def releases_by_platform_v(self):
         """Looks up all compatible stable releases for each platform
         version.
@@ -128,10 +143,7 @@ class App(TranslatableModel):
         :return dict with all compatible stable releases for each platform
                 version.
         """
-
-        return dict(map(
-            lambda v: (v, self.compatible_releases(v)),
-            settings.PLATFORM_VERSIONS))
+        return self._get_grouped_releases(self.compatible_releases)
 
     def unstable_releases_by_platform_v(self):
         """Looks up all compatible unstable releases for each platform version.
@@ -144,10 +156,7 @@ class App(TranslatableModel):
         :return dict with all compatible unstable releases for each platform
                 version.
         """
-
-        return dict(map(
-            lambda v: (v, self.compatible_unstable_releases(v)),
-            settings.PLATFORM_VERSIONS))
+        return self._get_grouped_releases(self.compatible_unstable_releases)
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest stable and unstable release for each platform
@@ -166,18 +175,24 @@ class App(TranslatableModel):
         :return dict with the latest stable and unstable release for each
                 platform version.
         """
+        stable = self.releases_by_platform_v()
+        unstable = self.unstable_releases_by_platform_v()
 
-        def dict_item(ver):
-            return (
-                ver,
-                {
-                    'stable': self._latest(self.compatible_releases(ver)),
-                    'unstable':
-                        self._latest(self.compatible_unstable_releases(ver))
-                }
-            )
+        def filter_latest(pair):
+            version, releases = pair
+            return (version, self._latest(releases))
 
-        return dict(map(dict_item, settings.PLATFORM_VERSIONS))
+        latest_stable = dict(map(filter_latest, stable.items()))
+        latest_unstable = dict(map(filter_latest, unstable.items()))
+        all_versions = set(chain(latest_stable.keys(), latest_unstable.keys()))
+
+        def stable_or_unstable_releases(ver):
+            return (ver, {
+                'stable': latest_stable.get(ver, None),
+                'unstable': latest_unstable.get(ver, None)
+            })
+
+        return dict(map(stable_or_unstable_releases, all_versions))
 
     def compatible_releases(self, platform_version, inclusive=True):
         """Returns all stable releases of this app that are compatible
@@ -396,6 +411,8 @@ class AppRelease(TranslatableModel):
 
 class Screenshot(Model):
     url = URLField(max_length=256, verbose_name=_('Image url'))
+    small_thumbnail = URLField(max_length=256,
+                               verbose_name=_('Small thumbnail'), default='')
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
                      related_name='screenshots')
     ordering = IntegerField(verbose_name=_('Ordering'))
@@ -404,6 +421,13 @@ class Screenshot(Model):
         verbose_name = _('Screenshot')
         verbose_name_plural = _('Screenshots')
         ordering = ['ordering']
+
+    @property
+    def front_img_small(self):
+        if self.small_thumbnail:
+            return self.small_thumbnail
+        else:
+            return self.url
 
     def __str__(self) -> str:
         return self.url
@@ -632,3 +656,36 @@ class AppOwnershipTransfer(Model):
                     'Could not initiate transfer of app ownership. '
                     'The proposed new owner already owns the app.')
         return super().save(*args, **kwargs)
+
+
+class NextcloudReleaseManager(Manager):
+    def get_current(self):
+        return self.get_queryset().filter(is_current=True)[:1]
+
+
+class NextcloudRelease(Model):
+    objects = NextcloudReleaseManager()
+    version = CharField(max_length=100, verbose_name=_('Nextcloud version'),
+                        help_text=_('e.g. 9.0.54'), primary_key=True)
+    is_current = BooleanField(verbose_name=_('Is current version'),
+                              help_text=_('Only one version is allowed to be '
+                                          'the current version. This field is '
+                                          'used to pre-select drop downs for '
+                                          'app generation etc.'),
+                              default=False)
+
+    class Meta:
+        verbose_name = _('Nextcloud release')
+        verbose_name_plural = _('Nextcloud releases')
+        ordering = ('-version',)
+
+    @staticmethod
+    def get_current_main():
+        current = NextcloudRelease.objects.get_current()
+        if len(current) > 0:
+            return current[0].version.split('.')[0]
+        else:
+            return None
+
+    def __str__(self):
+        return self.version

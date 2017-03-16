@@ -1,5 +1,46 @@
 (function (global) {
     'use strict';
+    function load_comments(languageCode, initial=false) {
+        fetch(ratingUrl)
+            .then((response) => response.json())
+            .then((ratings) => {
+                ratingTarget.classList.remove('loading');
+                ratingTarget.innerHTML = '';
+                ratings = ratings
+                    .filter(rating => rating.translations[languageCode] !== undefined)
+                    .filter(rating => rating.translations[languageCode].comment !== undefined)
+                    .filter(rating => rating.translations[languageCode].comment.trim() !== '');
+                if( ratings.length > 0) {
+                    ratings.forEach((rating) => {
+                        let user = rating.user;
+                        let fullName = user.firstName + " " + user.lastName;
+                        if (fullName.trim() === '') {
+                            fullName = 'Anonymous';
+                        }
+                        let comment = rating.translations[languageCode].comment;
+                        let template = document.importNode(ratingTemplate.content, true);
+                        template.childNodes[1].classList.add(createRatingClass(rating.rating));
+                        let date = moment(rating.ratedAt);
+                        template.querySelector('.date').innerHTML = date.locale(languageCode).fromNow();
+                        template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
+                        template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
+                        ratingTarget.appendChild(template);
+                    });
+                } else {
+                    let langCode = global.id('comment_display_language_code');
+                    let fallback = Array.from(langCode.options)
+                                    .filter( (o) => o.value === fallbackLanguageCode);
+                    if(initial && fallback.length > 0) {
+                        load_comments(fallbackLanguageCode);
+                        langCode.value = fallbackLanguageCode;
+                    } else {
+                        let templateNoComments = document.importNode(ratingTemplateNoComments.content, true);
+                        ratingTarget.appendChild(templateNoComments);
+                    }
+                }
+            });
+    }
+
     let moment = global.moment;
     let document = global.document;
     let hljs = global.hljs;
@@ -40,8 +81,10 @@
     // create ratings
     let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
     let languageCode = document.querySelector('meta[name="language-code"]').content;
+    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
     let ratingTarget = document.querySelector('.app-rating-list');
     let ratingTemplate = document.getElementById('app-rating-template');
+    let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
     let createRatingClass = function (value) {
         // beware: float comparisons
         if (value === 1.0) {
@@ -53,28 +96,10 @@
         }
     };
 
-    fetch(ratingUrl)
-        .then((response) => response.json())
-        .then((ratings) => {
-            ratingTarget.classList.remove('loading');
-            ratings
-                .filter(rating => rating.translations[languageCode] !== undefined)
-                .filter(rating => rating.translations[languageCode].comment !== undefined)
-                .filter(rating => rating.translations[languageCode].comment.trim() !== '')
-                .forEach((rating) => {
-                    let user = rating.user;
-                    let fullName = user.firstName + " " + user.lastName;
-                    if (fullName.trim() === '') {
-                        fullName = 'Anonymous';
-                    }
-                    let comment = rating.translations[languageCode].comment;
-                    let template = document.importNode(ratingTemplate.content, true);
-                    template.childNodes[1].classList.add(createRatingClass(rating.rating));
-                    let date = moment(rating.ratedAt);
-                    template.querySelector('.date').innerHTML = date.locale(languageCode).fromNow();
-                    template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
-                    template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
-                    ratingTarget.appendChild(template);
-                });
-        });
+    const langCode = global.id('comment_display_language_code');
+    langCode.addEventListener('change', (event) => {
+        load_comments(event.target.value);
+    });
+
+    load_comments(languageCode, true);
 }(this));

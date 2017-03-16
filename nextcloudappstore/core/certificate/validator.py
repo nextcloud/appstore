@@ -5,7 +5,7 @@ import pem
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
     X509Store, X509StoreContext, load_crl, X509StoreFlags
 from django.conf import settings  # type: ignore
-from rest_framework.exceptions import APIException
+from rest_framework.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)
 
@@ -15,15 +15,15 @@ class CertificateConfiguration:
         self.digest = settings.CERTIFICATE_DIGEST
 
 
-class InvalidSignatureException(APIException):
+class InvalidSignatureException(ValidationError):
     pass
 
 
-class InvalidCertificateException(APIException):
+class InvalidCertificateException(ValidationError):
     pass
 
 
-class CertificateAppIdMismatchException(APIException):
+class CertificateAppIdMismatchException(ValidationError):
     pass
 
 
@@ -115,4 +115,8 @@ class CertificateValidator:
             raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:
-        return load_certificate(FILETYPE_PEM, certificate.encode())
+        try:
+            return load_certificate(FILETYPE_PEM, certificate.encode())
+        except Exception as e:
+            msg = '%s: %s' % ('Invalid certificate', str(e))
+            raise InvalidCertificateException(msg)

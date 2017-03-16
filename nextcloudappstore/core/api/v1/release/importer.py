@@ -131,12 +131,13 @@ class MaxVersionImporter(ScalarImporter):
 
 class ScreenshotsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        obj.screenshots.set(list(map(
-            lambda img: Screenshot.objects.create(
-                url=img['screenshot']['url'], app=obj,
-                ordering=img['screenshot']['ordering']
-            ), value
-        )))
+        def create_screenshot(img: Dict[str, str]) -> Screenshot:
+            return Screenshot.objects.create(
+                url=img['url'], app=obj, ordering=img['ordering'],
+                small_thumbnail=none_to_empty_string(img['small_thumbnail']))
+
+        shots = map(lambda val: create_screenshot(val['screenshot']), value)
+        obj.screenshots.set(list(shots))
 
 
 class CategoryImporter(ScalarImporter):
