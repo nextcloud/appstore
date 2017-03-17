@@ -16,7 +16,7 @@ export function queryAll(selector: string): Element[] {
 
 export function getMetaValue(name: string): string | null {
     const result = query(`meta[name="${name}]"`);
-    if (result === undefined) {
+    if (result === null) {
         return null;
     } else {
         const metaTag = result as HTMLMetaElement;
