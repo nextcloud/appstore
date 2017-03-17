@@ -37,7 +37,6 @@ initmigrations:
 dev-setup:
 	$(npm) install
 	$(npm) run build
-	$(bower) install
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
@@ -66,7 +65,6 @@ docs:
 update-dev-deps:
 	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
 	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
-	$(bower) install --upgrade
 	$(npm) install --upgrade
 
 .PHONY: authors
