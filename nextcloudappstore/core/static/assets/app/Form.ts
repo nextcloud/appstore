@@ -29,7 +29,7 @@ export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
 type SelectorPairs = Map<string, string[]>;
 
 /**
- * Turns a parsed JSON error into a map of
+ * Turns a parsed JSON error into a map of element id's and array of error msgs
  * @param messages
  * @returns {Map<string, string[]>}
  */
