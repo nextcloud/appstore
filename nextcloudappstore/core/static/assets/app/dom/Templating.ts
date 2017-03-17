@@ -18,6 +18,6 @@ export function noReferrerLinks(html: string) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     Array.from(doc.getElementsByTagName('a'))
-        .forEach(link => link.rel = 'noopener noreferrer');
+        .forEach((link) => link.rel = 'noopener noreferrer');
     return doc.body.innerHTML;
 }

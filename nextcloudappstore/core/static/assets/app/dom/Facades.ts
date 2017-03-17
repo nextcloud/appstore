@@ -35,7 +35,7 @@ export function getMetaValue(name: string): string | null {
  */
 export function removeElements(selector: string): void {
     queryAll(selector)
-        .forEach(elem => elem.remove());
+        .forEach((elem) => elem.remove());
 }
 
 /**
@@ -77,7 +77,7 @@ export function appendHtml(parentSelector: string, html: string): Element {
  * @param callback function that is executed in between
  */
 export function testDom(parentSelector: string, html: string,
-                 callback: (elem: Element) => void): void {
+                        callback: (elem: Element) => void): void {
     const elem = appendHtml(parentSelector, html);
     callback(elem);
     elem.remove();
