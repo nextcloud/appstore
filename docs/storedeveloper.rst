@@ -1,44 +1,53 @@
-.. _development-install:
-
-Development Installation
-------------------------
-First you want to switch your machine to an up to date Node.js version::
-
-    su -c "echo 'deb https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
-    su -c "echo 'deb-src https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
-
-Certain libraries and Python packages are required before setting up your development instance::
-
-    sudo apt-get update
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs
+Development
+===========
+The app store uses a Makefile for common tasks. The following useful Make commands are available:
 
 
-Afterwards clone the repository using git and change into it::
+make dev-setup
+    installs a local development setup (requires previous setup, see :ref:`development-install`)
 
-    git clone https://github.com/nextcloud/appstore.git
-    cd appstore
+make test
+    runs the frontend and backend test suite
 
-The project root contains a **Makefile** which allows you to quickly set everything up by running::
+make lint
+    runs the code-style checker
 
-    make dev-setup
+make authors
+    updates the AUTHORS.rst file based on the git database
 
-.. note:: Only use this command for a local setup since it is not secure and slow!
+make docs
+    regenerates up to html date docs in docs/_build/html
 
-This will automatically set up the web app using **venv**, **SQLite** as database and create a default **development** settings file in **nextcloudappstore/settings/development.py**. You need to review the development settings and change them according to your setup. An admin user with name **admin** and password **admin** will also be created.
+make update-dev-deps
+    updates your python, bower and npm dependencies
 
-The server can be started after activating the virtual environment first::
+make resetup
+    kills the current sqlite database and creates a new one
 
-    source venv/bin/activate
-    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
-    python manage.py runserver
+Frontend
+--------
 
-The website is available at `http://127.0.0.1:8000 <http://127.0.0.1:8000>`_. Code changes will auto reload the server so happy developing!
+The frontend is written in TypeScript and compiles to ES6 and RequireJS.
 
-Every time you start a new terminal session you will need to reactive the virtual environment and set the development settings::
+To run the frontend build make sure that all your deps are up to date::
 
-    source venv/bin/activate
-    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
+    npm install --upgrade
 
-We therefore recommend creating a small bash alias in your **~/.bashrc**::
+and then run::
 
-    alias cda='cd path/to/appstore && source venv/bin/activate && export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development'
+    npm run build
+
+If you are developing and wish to automatically compile on filechanges run::
+
+    npm run watch
+
+Testing
+~~~~~~~
+
+The unit and integration test suite is run by executing the following command::
+
+    npm test
+
+If you are developing and wish to automatically re-run your test suite on filechanges run::
+
+    npm run watch-test

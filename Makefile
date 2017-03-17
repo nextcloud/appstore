@@ -58,8 +58,7 @@ initdb:
 
 .PHONY: docs
 docs:
-	@echo "hi"
-	$(MAKE) -C $(CURDIR)/docs/ html
+	$(MAKE) -C $(CURDIR)/docs/ clean html
 
 .PHONY: update-dev-deps
 update-dev-deps:
