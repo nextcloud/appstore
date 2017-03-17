@@ -19,6 +19,8 @@ export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
 
     if (Array.isArray(errorJSON)) {
         result.global = errorJSON;
+    } else if (errorJSON !== null && typeof errorJSON === 'object') {
+        result.fields = errorJSON;
     }
 
     return result;
