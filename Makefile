@@ -11,7 +11,7 @@ tslint=node_modules/.bin/tslint
 
 .PHONY: lint
 lint:
-	$(tslint) $(CURDIR)/nextcloudappstore/core/static/assets/**/*.ts
+	$(tslint) "$(CURDIR)/nextcloudappstore/core/static/assets/**/*.ts"
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
