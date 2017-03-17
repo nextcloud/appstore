@@ -11,6 +11,11 @@ type ErrorMessages = {
 
 type DjangoErrors = IDjangoFieldErrors | DjangoGlobalErrors;
 
+/**
+ * Parses a JSON error from a Django Restframework API
+ * @param errorJSON
+ * @returns {ErrorMessages}
+ */
 export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
     const result: ErrorMessages = {
         fields: {},
