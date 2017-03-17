@@ -16,16 +16,15 @@ describe('Testing the window error result parser', () => {
                 'Field must not be empty',
                 'Field must be a signature',
             ],
-        }))
-            .toEqual({
-                fields: {
-                    signature: [
-                        'Field must not be empty',
-                        'Field must be a signature',
-                    ],
-                },
-                global: [],
-            });
+        })).toEqual({
+            fields: {
+                signature: [
+                    'Field must not be empty',
+                    'Field must be a signature',
+                ],
+            },
+            global: [],
+        });
     });
 
 });
