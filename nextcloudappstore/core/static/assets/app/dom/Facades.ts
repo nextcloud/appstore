@@ -61,7 +61,7 @@ export function appendHtml(parentSelector: string, html: string): Element {
     const child = toHtml(html);
 
     if (parent === null || child === null) {
-        throw new Error('')
+        throw new Error('Parent or child are null');
     } else {
         parent.appendChild(child);
     }
