@@ -1,4 +1,4 @@
-import {Form, FormField} from '../../form/Form';
+import {Form, FormField} from '../../forms/Form';
 
 export class AppListForm extends Form {
 
