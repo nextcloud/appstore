@@ -9,7 +9,7 @@ type ErrorMessages = {
     fields: IDjangoFieldErrors;
 };
 
-type DjangoErrors = IDjangoFieldErrors | DjangoGlobalErrors;
+export type DjangoErrors = IDjangoFieldErrors | DjangoGlobalErrors;
 
 /**
  * Parses a JSON error from a Django Restframework API

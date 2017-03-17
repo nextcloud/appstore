@@ -1,4 +1,4 @@
-import {parseJSONError, toIdErrorMap} from './Form';
+import {parseJSONError, toIdErrorMap} from './ErrorParser';
 
 describe('Testing the window error result parser', () => {
 
