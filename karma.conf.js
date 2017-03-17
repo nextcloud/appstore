@@ -1,13 +1,13 @@
 module.exports = function (config) {
     config.set({
-        basePath: 'nextcloudappstore/core/static/assets/js/',
-        frameworks: ['jasmine'],
+        basePath: 'nextcloudappstore/core/static/',
+        frameworks: ['jasmine', 'requirejs'],
         files: [
-            'app/**/*.js',
-            'test/**/*Spec.js',
+            {pattern: 'public/**/*.js', included: false},
+            {pattern: 'assets/test/**/*Spec.js', included: false},
+            'assets/test/test-main.js',
         ],
         exclude: [],
-        preprocessors: {},
         reporters: ['progress'],
         port: 9876,
         colors: true,
