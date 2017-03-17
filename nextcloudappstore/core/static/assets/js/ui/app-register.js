@@ -127,8 +127,8 @@
     let submitButton = document.getElementById('submit');
     let invalidCertificateMsg = document.getElementById('invalid-cert-msg').textContent;
 
-    certificate.addEventListener('change', (event) => {
-        var cert = certificate.value.trim();
+    certificate.addEventListener('change', () => {
+        let cert = certificate.value.trim();
         if (!(cert.startsWith('-----BEGIN CERTIFICATE-----') &&
               cert.endsWith('-----END CERTIFICATE-----'))) {
             certificate.setCustomValidity(invalidCertificateMsg);
