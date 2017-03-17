@@ -19,6 +19,7 @@ branches:
     - master
 
 before_install:
+  - node -v
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - nvm install 7
