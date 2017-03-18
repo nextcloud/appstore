@@ -6,24 +6,34 @@
   "directories": {
     "doc": "docs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "highlight.js": "^9.10.0",
+    "jquery": "^3.2.0",
+    "markdown-it": "^8.3.1",
+    "moment": "^2.17.1",
+    "whatwg-fetch": "^2.0.3"
+  },
   "devDependencies": {
+    "@types/highlight.js": "^9.1.9",
     "@types/jasmine": "^2.5.46",
-    "bower": "^1.7.9",
+    "@types/markdown-it": "0.0.2",
+    "copy-webpack-plugin": "^4.0.1",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
-    "karma-requirejs": "^1.1.0",
-    "requirejs": "^2.3.3",
+    "karma-webpack": "^2.0.3",
+    "ts-loader": "^2.0.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.2.1"
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run",
-    "testWatch": "./node_modules/karma/bin/karma start",
-    "build": "./node_modules/.bin/tsc",
-    "watch": "./node_modules/.bin/tsc --watch"
+    "build": "./node_modules/.bin/webpack --progress --colors",
+    "watch": "./node_modules/.bin/webpack --progress --colors --watch",
+    "watch-test": "./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -37,7 +47,7 @@
     "django",
     "python"
   ],
-  "author": "",
+  "author": "Nextcloud Community",
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/nextcloud/appstore/issues"

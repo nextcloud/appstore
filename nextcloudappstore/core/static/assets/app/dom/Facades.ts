@@ -2,6 +2,9 @@
  * shortcuts for unreasonably long DOM methods
  */
 
+import {DomElementDoesNotExist} from './DomElementDoesNotExist';
+import {NotAForm} from './NotAForm';
+
 export function id(selector: string): HTMLElement | null {
     return window.document.getElementById(selector);
 }
@@ -12,6 +15,39 @@ export function query(selector: string): Element | null {
 
 export function queryAll(selector: string): Element[] {
     return Array.from(window.document.querySelectorAll(selector));
+}
+
+/**
+ * Similar to query but throws if no element is found
+ * use this function to fail early if you absolutely expect it to not return
+ * null
+ * @param selector
+ * @throws DomElementDoesNotExist if the query returns no element
+ */
+export function queryOrThrow(selector: string): Element {
+    const elem = query(selector);
+    if (elem === null) {
+        const msg = `No element found for selector ${selector}`;
+        throw new DomElementDoesNotExist(msg);
+    } else {
+        return elem;
+    }
+}
+
+/**
+ * Finds a form based on a selector
+ * @param selector
+ * @throws NotAForm if the found element is not a form
+ * @throws DomElementDoesNotExist if no element was found
+ * @returns {HTMLFormElement}
+ */
+export function queryForm(selector: string): HTMLFormElement {
+    const form = queryOrThrow(selector);
+    if (form instanceof HTMLFormElement) {
+        return form;
+    } else {
+        throw new NotAForm(`Element ${form.tagName} is not a form`);
+    }
 }
 
 /**
@@ -81,4 +117,16 @@ export function testDom(parentSelector: string, html: string,
     const elem = appendHtml(parentSelector, html);
     callback(elem);
     elem.remove();
+}
+
+/**
+ * Similar to $.ready
+ * @param callback to execute after the dom has loaded
+ */
+export function ready(callback: () => void) {
+    if (document.readyState !== 'loading') {
+        callback();
+    } else {
+        document.addEventListener('DOMContentLoaded', callback);
+    }
 }
