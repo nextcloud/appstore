@@ -5,6 +5,7 @@ const base = './nextcloudappstore/core/static/';
 module.exports = {
     entry: {
         list: `${base}assets/app/app/views/List.ts`,
+        detail: `${base}assets/app/app/views/Detail.ts`,
     },
     output: {
         filename: `${base}public/[name].js`
