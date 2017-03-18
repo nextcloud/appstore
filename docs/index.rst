@@ -38,14 +38,24 @@ Look here if you want to upload your own apps or use the REST API
    developer
    restapi
 
-App Store Developer Documentation
----------------------------------
-Look here if you want to work on the app store's source code or install it on your own server
+App Store Admin Documentation
+-----------------------------
+Look here if you want to install the store on your server and keep it up to date
 
 .. toctree::
    :maxdepth: 2
 
    installation
+
+App Store Developer Documentation
+---------------------------------
+Look here if you want to work on the app store's source code
+
+.. toctree::
+   :maxdepth: 2
+
+   devinstall
+   storedeveloper
    documentation
    translation
 
