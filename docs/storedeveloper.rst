@@ -27,7 +27,7 @@ make resetup
 Frontend
 --------
 
-The frontend is written in TypeScript and compiles to ES6 and RequireJS.
+The frontend is written in TypeScript and compiles to ES6 using Webpack.
 
 To run the frontend build make sure that all your deps are up to date::
 
