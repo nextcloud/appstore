@@ -1,13 +1,6 @@
 (function (global) {
     'use strict';
 
-    global.noReferrerLinks = function (html) {
-        let parser = new DOMParser();
-        let doc = parser.parseFromString(html, 'text/html');
-        Array.from(doc.getElementsByTagName('a')).forEach(link => link.rel = 'noopener noreferrer');
-        return doc.body.innerHTML;
-    };
-
     global.fetchAPIToken = function (csrfToken) {
         let request = new Request('/api/v1/token', {
             method: 'POST',
