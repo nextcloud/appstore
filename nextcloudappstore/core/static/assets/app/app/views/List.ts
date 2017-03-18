@@ -1,8 +1,8 @@
-import {queryForm} from '../../dom/Facades';
+import {queryForm, ready} from '../../dom/Facades';
 import {AppListForm} from '../forms/AppListForm';
 
-window.onload = () => {
+ready(() => {
     const elem = queryForm('#filter-form');
     const form = new AppListForm(elem);
     form.attachEventListeners();
-};
+});

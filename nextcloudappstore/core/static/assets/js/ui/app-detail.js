@@ -8,19 +8,6 @@
     let ratingTemplate = document.getElementById('app-rating-template');
     let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
     let moment = global.moment;
-    let hljs = global.hljs;
-
-    let md = global.markdownit({
-        highlight: function (str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-                try {
-                    return hljs.highlight(lang, str).value;
-                } catch (__) {
-                }
-            }
-            return ''; // use external default escaping
-        }
-    });
 
     // create ratings
     let createRatingClass = function (value) {
@@ -57,7 +44,7 @@
                         let date = moment(rating.ratedAt);
                         template.querySelector('.date').innerHTML = date.locale(languageCode).fromNow();
                         template.querySelector('.author').innerHTML += global.escapeHtml(fullName.trim());
-                        template.querySelector('.comment').innerHTML = global.noReferrerLinks(md.render(comment));
+                        template.querySelector('.comment').innerHTML = renderMd(comment);
                         ratingTarget.appendChild(template);
                     });
                 } else {
@@ -94,7 +81,7 @@
     fetch(descriptionUrl).then((response) => response.text())
         .then((description) => {
             descriptionTarget.classList.remove('loading');
-            descriptionTarget.innerHTML = global.noReferrerLinks(md.render(description));
+            descriptionTarget.innerHTML = renderMd(description);
         });
 
     const langCode = global.id('comment_display_language_code');
