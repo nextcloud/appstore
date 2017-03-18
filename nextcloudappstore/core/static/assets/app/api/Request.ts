@@ -14,12 +14,12 @@ export function apiRequest(request: ApiRequest,
                            csrfToken: string): Promise<string|JSON> {
     return fetchToken(csrfToken).then((token) => {
         const req = new Request(request.url, {
-            method: request.method || 'GET',
+            body: JSON.stringify(request.data),
             headers: new Headers({
+                'Authorization': `Token ${token}`,
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${token}`
             }),
-            body: JSON.stringify(request.data)
+            method: request.method || 'GET',
         });
         return fetch(req).then(convertResponse);
     });
@@ -32,12 +32,12 @@ export function apiRequest(request: ApiRequest,
  */
 function fetchToken(csrfToken: string): Promise<string> {
     const request = new Request('/api/v1/token', {
-        method: 'POST',
+        credentials: 'include',
         headers: new Headers({
             'Content-Type': 'application/json',
             'X-CSRFToken': csrfToken,
         }),
-        credentials: 'include'
+        method: 'POST',
     });
     return fetch(request).then(convertResponse);
 }
