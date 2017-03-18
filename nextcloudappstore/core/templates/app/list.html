@@ -4,7 +4,7 @@
 
 {% block head-title %}{% if current_category %}{{ current_category.name }} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}
-    <script src="{% static 'vendor/requirejs/require.js' %}" async data-main="{% static 'public/main' %}" data-view="app/views/List"></script>
+    <script src="{% static 'public/list.js' %}"></script>
 {% endblock %}
 
 {% block apps %}
