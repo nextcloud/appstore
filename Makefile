@@ -8,7 +8,6 @@ db=sqlite
 pyvenv=python3 -m venv
 npm=npm
 tslint=node_modules/.bin/tslint
-bower=node_modules/.bin/bower
 
 .PHONY: lint
 lint:
@@ -66,7 +65,6 @@ docs:
 update-dev-deps:
 	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
 	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
-	$(bower) install --upgrade
 	$(npm) install --upgrade
 
 .PHONY: authors
