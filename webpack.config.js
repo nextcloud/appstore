@@ -15,8 +15,20 @@ module.exports = {
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
-        loaders: [
-            {test: /\.tsx?$/, loader: 'ts-loader'}
+        rules: [
+            {
+                test: /\.tsx?$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: {
+                    configFile: './tslint.json',
+                    failOnHint: true,
+                }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader'
+            }
         ]
     },
     plugins: [
