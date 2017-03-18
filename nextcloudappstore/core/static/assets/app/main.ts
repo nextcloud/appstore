@@ -1,3 +1,11 @@
+require.config({
+    packages: [{
+        location: '../vendor/moment/',
+        main: 'moment',
+        name: 'moment',
+    }],
+});
+
 const script = document.querySelector('script[data-view]');
 
 if (script !== null && script instanceof HTMLScriptElement) {
