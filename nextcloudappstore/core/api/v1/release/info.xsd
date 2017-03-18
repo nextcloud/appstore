@@ -47,6 +47,10 @@
                             minOccurs="0" maxOccurs="1"/>
                 <xs:element name="ocsid" type="xs:int" minOccurs="0"
                             maxOccurs="1"/>
+                <xs:element name="settings" type="settings" minOccurs="0"
+                            maxOccurs="1"/>
+                <xs:element name="activity" type="activity" minOccurs="0"
+                            maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -212,7 +216,8 @@
 
     <xs:simpleType name="semver">
         <xs:restriction base="limited-string">
-            <xs:pattern value="(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-([0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*))?"/>
+            <xs:pattern
+                    value="(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-([0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*))?"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -331,6 +336,46 @@
             <xs:element name="admin" type="url" minOccurs="0" maxOccurs="1"/>
             <xs:element name="developer" type="url" minOccurs="0"
                         maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="settings">
+        <xs:sequence>
+            <xs:element name="admin" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="admin-section" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="activity">
+        <xs:sequence>
+            <xs:element name="settings" type="activity-settings" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element name="filters" type="activity-filters" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="providers" type="activity-providers" minOccurs="0"
+                        maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="activity-settings">
+        <xs:sequence>
+            <xs:element name="setting" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="activity-filters">
+        <xs:sequence>
+            <xs:element name="filter" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="activity-providers">
+        <xs:sequence>
+            <xs:element name="provider" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 

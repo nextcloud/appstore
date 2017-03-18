@@ -38,6 +38,8 @@
             <xsl:copy-of select="two-factor-providers"/>
             <xsl:copy-of select="commands"/>
             <xsl:copy-of select="ocsid"/>
+            <xsl:apply-templates select="settings"/>
+            <xsl:apply-templates select="activity"/>
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>
@@ -48,6 +50,21 @@
             <xsl:copy-of select="requiremin"/>
             <xsl:copy-of select="requiremax"/>
         </info>
+    </xsl:template>
+
+    <xsl:template match="activity">
+        <activity>
+            <xsl:copy-of select="admin"/>
+            <xsl:copy-of select="admin-section"/>
+        </activity>
+    </xsl:template>
+
+    <xsl:template match="settings">
+        <settings>
+            <xsl:copy-of select="settings"/>
+            <xsl:copy-of select="filters"/>
+            <xsl:copy-of select="providers"/>
+        </settings>
     </xsl:template>
 
     <xsl:template match="documentation">
