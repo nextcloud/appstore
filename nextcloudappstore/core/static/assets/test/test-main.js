@@ -16,6 +16,20 @@ require.config({
     // Karma serves files under /base, which is the basePath from your config file
     baseUrl: '/base',
 
+    packages: [{
+        location: '../vendor/moment/',
+        main: 'moment',
+        name: 'moment',
+    }, {
+        location: '../vendor/markdown-it/dist/',
+        main: 'markdown-it',
+        name: 'markdown-it',
+    }, {
+        location: '../vendor/highlightjs/',
+        main: 'highlight.pack',
+        name: 'highlight.js',
+    }],
+
     // dynamically load all test files
     deps: allTestFiles,
 

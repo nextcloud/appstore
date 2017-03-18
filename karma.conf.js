@@ -1,13 +1,39 @@
 module.exports = function (config) {
     config.set({
         basePath: 'nextcloudappstore/core/static/',
-        frameworks: ['jasmine', 'requirejs'],
+        frameworks: ['jasmine'],
+        mime: { 'text/x-typescript': ['ts','tsx'] },
         files: [
-            {pattern: 'public/**/*.js', included: false},
-            {pattern: 'assets/test/**/*Spec.js', included: false},
-            'assets/test/test-main.js',
+            {pattern: 'assets/app/**/*Spec.ts', watched: false}
         ],
         exclude: [],
+        preprocessors: {
+            'assets/app/**/*.ts': ['webpack']
+        },
+        webpackMiddleware: {
+            noInfo: true,
+            stats: {
+                chunks: false,
+                colors: true
+            }
+        },
+        webpack: {
+            resolve: {
+                extensions: ['.js', '.ts', '.tsx']
+            },
+            module: {
+                loaders: [
+                    {test: /\.tsx?$/, loader: 'ts-loader'}
+                ]
+            },
+            stats: {
+                colors: true,
+                modules: true,
+                reasons: true,
+                errorDetails: true
+            },
+            devtool: 'inline-source-map',
+        },
         reporters: ['progress'],
         port: 9876,
         colors: true,
@@ -15,6 +41,6 @@ module.exports = function (config) {
         autoWatch: true,
         browsers: ['Firefox'],
         singleRun: false,
-        concurrency: Infinity
+        concurrency: Infinity,
     })
 };

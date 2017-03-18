@@ -118,3 +118,15 @@ export function testDom(parentSelector: string, html: string,
     callback(elem);
     elem.remove();
 }
+
+/**
+ * Similar to $.ready
+ * @param callback to execute after the dom has loaded
+ */
+export function ready(callback: () => void) {
+    if (document.readyState !== 'loading') {
+        callback();
+    } else {
+        document.addEventListener('DOMContentLoaded', callback);
+    }
+}
