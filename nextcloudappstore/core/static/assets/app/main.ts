@@ -3,6 +3,14 @@ require.config({
         location: '../vendor/moment/',
         main: 'moment',
         name: 'moment',
+    }, {
+        location: '../vendor/markdown-it/dist/',
+        main: 'markdown-it',
+        name: 'markdown-it',
+    }, {
+        location: '../vendor/highlightjs/',
+        main: 'highlight.pack',
+        name: 'highlight.js',
     }],
 });
 
