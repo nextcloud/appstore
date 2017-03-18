@@ -1,7 +1,8 @@
-import {ready} from '../../dom/Facades';
-import {renderMd} from "../../dom/Markdown";
 import * as moment from 'moment';
+import {ready} from '../../dom/Facades';
+import {renderMd} from '../../dom/Markdown';
 
+/* tslint:disable */
 declare global {
     interface Window {
         renderMd: (html: string) => string;
@@ -14,3 +15,4 @@ ready(() => {
     window.renderMd = renderMd;
     window.moment = moment;
 });
+/* tslint:enable */
