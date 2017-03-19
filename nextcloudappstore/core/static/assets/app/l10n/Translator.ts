@@ -19,22 +19,23 @@ export class Translator {
 }
 
 /**
- * Based on a root element finds all children elements that have data-l10n-key
+ * Based on a root element finds all children elements that have data-l10n-id
  * attributes and extracts their text as translation
  * @param root
  * @returns {Map<string, string>}
  */
 export function scanTranslations(root: HTMLElement): Map<string, string> {
     const result = new Map<string, string>();
-    const translations = queryAll('[data-l10n-key]');
+    const translations = queryAll('[data-l10n-id]', root);
+    const dataKey = 'l10nId';
     translations.forEach((elem: HTMLElement) => {
-        const key = elem.dataset['data-l10n-key'];
+        const id = elem.dataset[dataKey];
         const value = elem.textContent;
-        if (key === undefined) {
+        if (id === undefined) {
             const msg = `Found improperly configured translation for ${elem}`;
             console.error(msg);
         } else {
-            result.set(key, value || '');
+            result.set(id, value || '');
         }
     });
     return result;
