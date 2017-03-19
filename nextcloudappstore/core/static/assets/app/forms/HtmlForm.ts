@@ -3,20 +3,12 @@ export type FormField = HTMLInputElement | HTMLTextAreaElement |
     HTMLSelectElement;
 
 export class HtmlForm {
-    public form: HTMLFormElement;
-    public fields: Map<string, FormField>;
-    public submit: HTMLInputElement;
-    public globalMessage: HTMLElement;
-    public messages: Map<string, HTMLElement>;
-
-    constructor(form: HTMLFormElement, fields: Map<string, FormField>,
-                submit: HTMLInputElement, globalMessage: HTMLElement,
-                messages: Map<string, HTMLElement>) {
-        this.form = form;
-        this.fields = fields;
-        this.submit = submit;
-        this.globalMessage = globalMessage;
-        this.messages = messages;
+    constructor(public form: HTMLFormElement,
+                public fields: Map<string, FormField>,
+                public submit: HTMLInputElement,
+                public globalSuccessMessage: HTMLElement,
+                public globalErrorMessage: HTMLElement,
+                public messages: Map<string, HTMLElement>) {
     }
 }
 
@@ -51,14 +43,21 @@ export function findFormFields(form: HTMLFormElement): Map<string, FormField> {
 export function scanForm(form: HTMLFormElement): HtmlForm {
     const fields = findFormFields(form);
     const submit = queryOrThrow<HTMLInputElement>('input[type="submit"]', form);
-    const globalMsgElement = queryOrThrow<HTMLElement>('.global-msg', form);
+    const globalErrorMsg = queryOrThrow<HTMLElement>(
+        '.global-error-msg', form,
+    );
+    const globalSuccessMsg = queryOrThrow<HTMLElement>(
+        '.global-success-msg', form,
+    );
     const msgElements = new Map<string, HTMLElement>();
 
     fields.forEach((field, name) => {
         if (field.type !== 'hidden') {
-            msgElements.set(name, queryOrThrow(`.msg-${name}`, form));
+            msgElements.set(name, queryOrThrow(`.error-msg-${name}`, form));
         }
     });
 
-    return new HtmlForm(form, fields, submit, globalMsgElement, msgElements);
+    return new HtmlForm(
+        form, fields, submit, globalSuccessMsg, globalErrorMsg, msgElements,
+    );
 }

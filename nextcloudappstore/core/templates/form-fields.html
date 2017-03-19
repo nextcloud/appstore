@@ -42,6 +42,13 @@
             {% endfor %}
         {% endif %}
 
+        <!-- javascript errors -->
+        <div hidden>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="sr-only">(error)</span>
+            <p class="text-danger error-msg-{{field.name}}"></p>
+        </div>
+
         {% if field.help_text %}
             {% if form.safe_help_fields and field.name in form.safe_help_fields %}
                 <p class="help-block">{{ field.help_text|safe }}</p>

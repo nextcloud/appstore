@@ -7,6 +7,7 @@ module.exports = {
         migrate: `${base}assets/app/app/views/Migrate.ts`,
         'app/list': `${base}assets/app/app/views/List.ts`,
         'app/register': `${base}assets/app/app/views/Register.ts`,
+        'app/upload': `${base}assets/app/app/views/Upload.ts`,
         'app/releases': `${base}assets/app/app/views/Releases.ts`,
     },
     output: {

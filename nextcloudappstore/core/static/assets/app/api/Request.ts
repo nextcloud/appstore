@@ -1,6 +1,14 @@
+export const HttpMethod = {
+    DELETE: 'DELETE' as 'DELETE',
+    GET: 'GET' as 'GET',
+    PATCH: 'PATCH' as 'PATCH',
+    POST: 'POST' as 'POST',
+    PUT: 'PUT' as 'PUT',
+};
+
 export type RequestData = {
     url: string;
-    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+    method?: keyof typeof HttpMethod;
     data: Object;
 };
 
@@ -77,6 +85,10 @@ function convertResponse<T>(response: Response): Promise<T> {
         const contentType = response.headers.get('Content-Type');
         if (contentType === 'application/json') {
             return response.json();
+        } else if (contentType === null || contentType === undefined ||
+            contentType === '') {
+            // no content type, we don't care
+            return Promise.resolve.bind(Promise);
         } else {
             const msg = `Can only deal with JSON but received: ${contentType}`;
             console.error(msg);
