@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import {apiRequest, pageRequest} from '../../api/Request';
+import {apiRequest, fetchToken, pageRequest} from '../../api/Request';
 import {id} from '../../dom/Facades';
 import {renderMd} from '../../dom/Markdown';
 import {escapeHtml} from '../../dom/Templating';
@@ -13,6 +13,7 @@ declare global {
         pageRequest: any;
         escapeHtml: any;
         id: any;
+        fetchToken: any;
     }
 }
 
@@ -22,4 +23,5 @@ window.pageRequest = pageRequest;
 window.apiRequest = apiRequest;
 window.escapeHtml = escapeHtml;
 window.id = id;
+window.fetchToken = fetchToken;
 /* tslint:enable */

@@ -1,28 +1,6 @@
 (function (global) {
     'use strict';
 
-    function uploadAppRelease(url, download, signature, nightly, token) {
-        let data = {
-            'download': download,
-            'nightly': nightly,
-            'signature': signature
-        };
-
-        let request = new Request(
-            url,
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Token ' + token
-                }),
-                body: JSON.stringify(data)
-            }
-        );
-        return fetch(request).then(global.convertResponse);
-    }
-
-
     function clearMessages() {
         let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => {
@@ -30,7 +8,6 @@
             el.parentNode.classList.remove('has-error');
         });
     }
-
 
     function printErrorMessages(response) {
         Object.keys(response).forEach((key) => {
@@ -136,18 +113,18 @@
         disableInputs(form, true);
         buttonState(submitButton, 'loading');
         // Get the auth token of the currently authenticated user.
-        global.fetchAPIToken(csrf.value).then(
-            (response) => {
-                uploadAppRelease(
-                    form.action,
-                    download.value,
-                    signature.value,
-                    nightly.checked,
-                    response.token)
-                .then(onSuccess, onFailure);
-            },
-            onFailure // User token request failed
-        );
+
+        global.apiRequest({
+            url: form.action,
+            method: 'POST',
+            data: {
+                'download': download.value.trim(),
+                'nightly': nightly.checked,
+                'signature': signature.value.trim(),
+            }
+        }, csrf.value)
+            .then(onSuccess)
+            .catch(onFailure);
     });
 
 }(this));

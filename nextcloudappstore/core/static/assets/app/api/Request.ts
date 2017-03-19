@@ -58,7 +58,7 @@ type TokenData = {
  * @param csrfToken
  * @returns the API token
  */
-function fetchToken(csrfToken: string): Promise<string> {
+export function fetchToken(csrfToken: string): Promise<string> {
     return pageRequest<TokenData>({
         data: {},
         method: 'POST',

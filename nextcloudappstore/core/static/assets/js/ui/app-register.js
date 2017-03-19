@@ -1,19 +1,6 @@
 (function (global) {
     'use strict';
 
-    function registerApp(url, certificate, signature, token) {
-        const data = {
-            'certificate': certificate.trim(),
-            'signature': signature.trim()
-        };
-
-        return global.apiRequest({
-            url: url,
-            method: 'POST',
-            data
-        }, token);
-    }
-
     function clearMessages() {
         let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
         msgAreas.forEach((el) => {
@@ -128,7 +115,15 @@
         showSuccessMessage(false);
         disableInputs(form, true);
         buttonState(submitButton, 'loading');
-        registerApp(form.action, certificate.value, signature.value, csrf.value)
+
+        global.apiRequest({
+            url: form.action,
+            method: 'POST',
+            data: {
+                'certificate': certificate.value.trim(),
+                'signature': signature.value.trim()
+            }
+        }, csrf.value)
             .then(onSuccess)
             .catch(onFailure);
 
