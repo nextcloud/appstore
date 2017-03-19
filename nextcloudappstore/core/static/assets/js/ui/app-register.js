@@ -2,25 +2,17 @@
     'use strict';
 
     function registerApp(url, certificate, signature, token) {
-        let data = {
+        const data = {
             'certificate': certificate.trim(),
             'signature': signature.trim()
         };
 
-        let request = new Request(
-            url,
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Token ' + token
-                }),
-                body: JSON.stringify(data)
-            }
-        );
-        return fetch(request).then(global.convertResponse);
+        return global.apiRequest({
+            url: url,
+            method: 'POST',
+            data
+        }, token);
     }
-
 
     function clearMessages() {
         let msgAreas = Array.from(document.querySelectorAll('[id$="-msg"]'));
@@ -29,7 +21,6 @@
             el.parentNode.classList.remove('has-error');
         });
     }
-
 
     function printErrorMessages(response) {
         Object.keys(response).forEach((key) => {
@@ -54,7 +45,6 @@
         window.scrollTo(0, 0);
     }
 
-
     function showSuccessMessage(boolean) {
         let successMsg = document.getElementById('form-success');
         if (boolean) {
@@ -64,7 +54,6 @@
             successMsg.setAttribute('hidden', 'true');
         }
     }
-
 
     function buttonState(button, state) {
         switch (state) {
@@ -80,13 +69,11 @@
         }
     }
 
-
     function disableInputs(form, boolean) {
         Array.from(form.querySelectorAll('input, button')).forEach((el) => {
             el.disabled = boolean;
         });
     }
-
 
     function clearInputs(form) {
         Array.from(form.querySelectorAll('input[type=text], input[type=url], textarea')).forEach((el) => {
@@ -96,7 +83,6 @@
             el.checked = false;
         });
     }
-
 
     function onSuccess() {
         let form = document.getElementById('app-register-form');
@@ -108,7 +94,6 @@
         buttonState(submitButton, 'reset');
     }
 
-
     function onFailure(response) {
         let form = document.getElementById('app-register-form');
         let submitButton = document.getElementById('submit');
@@ -117,7 +102,6 @@
         disableInputs(form, false);
         buttonState(submitButton, 'reset');
     }
-
 
     // Form elements
     let form = document.getElementById('app-register-form');
@@ -130,7 +114,7 @@
     certificate.addEventListener('change', () => {
         let cert = certificate.value.trim();
         if (!(cert.startsWith('-----BEGIN CERTIFICATE-----') &&
-              cert.endsWith('-----END CERTIFICATE-----'))) {
+            cert.endsWith('-----END CERTIFICATE-----'))) {
             certificate.setCustomValidity(invalidCertificateMsg);
         } else {
             certificate.setCustomValidity('');
@@ -144,18 +128,10 @@
         showSuccessMessage(false);
         disableInputs(form, true);
         buttonState(submitButton, 'loading');
-        // Get the auth token of the currently authenticated user.
-        global.fetchAPIToken(csrf.value).then(
-            (response) => {
-                registerApp(
-                    form.action,
-                    certificate.value,
-                    signature.value,
-                    response.token)
-                    .then(onSuccess, onFailure);
-            },
-            onFailure // User token request failed
-        );
+        registerApp(form.action, certificate.value, signature.value, csrf.value)
+            .then(onSuccess)
+            .catch(onFailure);
+
     });
 
 }(this));

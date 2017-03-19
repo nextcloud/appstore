@@ -24,12 +24,6 @@
         return response.json().then(Promise.reject.bind(Promise));
     };
 
-    global.escapeHtml = function (str) {
-        let div = document.createElement('div');
-        div.appendChild(document.createTextNode(str));
-        return div.innerHTML;
-    };
-
     global.id = (selector) => global.document.getElementById(selector);
 
 }(this));

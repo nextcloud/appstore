@@ -1,8 +1,32 @@
-export type ApiRequest = {
+export type RequestData = {
     url: string;
-    method?: string;
-    data: JSON;
+    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+    data: Object;
 };
+
+/**
+ * Similar to authApiRequest but does not hit the API (/api) and therefore
+ * identifies itself using a session cookie instead of a request token
+ */
+export function pageRequest<T>(request: RequestData,
+                               csrfToken?: string): Promise<T> {
+    const headers = new Headers({
+        'Content-Type': 'application/json',
+    });
+
+    if (csrfToken) {
+        headers.append('X-CSRFToken', csrfToken);
+    }
+
+    const req = new Request(request.url, {
+        body: JSON.stringify(request.data),
+        credentials: 'include',
+        headers,
+        method: request.method || 'GET',
+    });
+
+    return fetch(req).then((response) => convertResponse<T>(response));
+}
 
 /**
  * Performs an authenticated API request
@@ -10,8 +34,8 @@ export type ApiRequest = {
  * @param csrfToken
  * @returns
  */
-export function apiRequest(request: ApiRequest,
-                           csrfToken: string): Promise<string|JSON> {
+export function apiRequest<T>(request: RequestData,
+                              csrfToken: string): Promise<T> {
     return fetchToken(csrfToken).then((token) => {
         const req = new Request(request.url, {
             body: JSON.stringify(request.data),
@@ -21,9 +45,13 @@ export function apiRequest(request: ApiRequest,
             }),
             method: request.method || 'GET',
         });
-        return fetch(req).then(convertResponse);
+        return fetch(req).then((response) => convertResponse<T>(response));
     });
 }
+
+type TokenData = {
+    token: string;
+};
 
 /**
  * Fetches the API token by providing the JSON token
@@ -31,15 +59,11 @@ export function apiRequest(request: ApiRequest,
  * @returns the API token
  */
 function fetchToken(csrfToken: string): Promise<string> {
-    const request = new Request('/api/v1/token', {
-        credentials: 'include',
-        headers: new Headers({
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrfToken,
-        }),
+    return pageRequest<TokenData>({
+        data: {},
         method: 'POST',
-    });
-    return fetch(request).then(convertResponse);
+        url: '/api/v1/token',
+    }, csrfToken).then((response: TokenData) => response.token);
 }
 
 /**
@@ -48,12 +72,14 @@ function fetchToken(csrfToken: string): Promise<string> {
  * @param response
  * @returns
  */
-function convertResponse(response: Response): Promise<string|JSON> {
+function convertResponse<T>(response: Response): Promise<T> {
     if (response.status >= 200 && response.status < 400) {
-        if (response.headers.get('Content-Type') === 'application/json') {
+        const contentType = response.headers.get('Content-Type');
+        if (contentType === 'application/json') {
             return response.json();
         } else {
-            return response.text();
+            const msg = `Can only deal with JSON but received: ${contentType}`;
+            console.error(msg);
         }
     }
     return response.json()
