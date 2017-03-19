@@ -3,50 +3,38 @@
  */
 
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
-import {NotAForm} from './NotAForm';
 
 export function id(selector: string): HTMLElement | null {
     return window.document.getElementById(selector);
 }
 
-export function query(selector: string): Element | null {
-    return window.document.querySelector(selector);
+export function query<T extends Element>(selector: string,
+                                         parent?: Element): T | null {
+    const elem = parent || window.document;
+    return elem.querySelector(selector) as T;
 }
 
-export function queryAll(selector: string): Element[] {
-    return Array.from(window.document.querySelectorAll(selector));
+export function queryAll(selector: string, parent?: Element): Element[] {
+    const elem = parent || window.document;
+    return Array.from(elem.querySelectorAll(selector));
 }
 
 /**
  * Similar to query but throws if no element is found
  * use this function to fail early if you absolutely expect it to not return
  * null
- * @param selector
+ * @param selector selector to use
+ * @param parent element to start the search from if given, otherwise document
  * @throws DomElementDoesNotExist if the query returns no element
  */
-export function queryOrThrow(selector: string): Element {
-    const elem = query(selector);
+export function queryOrThrow<T extends HTMLElement>(selector: string,
+                                                    parent?: Element): T {
+    const elem = query<T>(selector, parent);
     if (elem === null) {
         const msg = `No element found for selector ${selector}`;
         throw new DomElementDoesNotExist(msg);
     } else {
         return elem;
-    }
-}
-
-/**
- * Finds a form based on a selector
- * @param selector
- * @throws NotAForm if the found element is not a form
- * @throws DomElementDoesNotExist if no element was found
- * @returns {HTMLFormElement}
- */
-export function queryForm(selector: string): HTMLFormElement {
-    const form = queryOrThrow(selector);
-    if (form instanceof HTMLFormElement) {
-        return form;
-    } else {
-        throw new NotAForm(`Element ${form.tagName} is not a form`);
     }
 }
 
@@ -79,10 +67,10 @@ export function removeElements(selector: string): void {
  * @param html must have a root element
  * @returns {Element}
  */
-export function toHtml(html: string): Element | null {
+export function toHtml<T extends Element>(html: string): T | null {
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
-    return tmp.querySelector('*');
+    return tmp.querySelector('*') as T;
 }
 
 /**
