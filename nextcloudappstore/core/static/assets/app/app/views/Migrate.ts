@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import {apiRequest, pageRequest} from '../../api/Request';
-import {ready} from '../../dom/Facades';
+import {id} from '../../dom/Facades';
 import {renderMd} from '../../dom/Markdown';
 import {escapeHtml} from '../../dom/Templating';
 
@@ -12,14 +12,14 @@ declare global {
         apiRequest: any;
         pageRequest: any;
         escapeHtml: any;
+        id: any;
     }
 }
 
-ready(() => {
-    window.renderMd = renderMd;
-    window.moment = moment;
-    window.pageRequest = pageRequest;
-    window.apiRequest = apiRequest;
-    window.escapeHtml = escapeHtml;
-});
+window.renderMd = renderMd;
+window.moment = moment;
+window.pageRequest = pageRequest;
+window.apiRequest = apiRequest;
+window.escapeHtml = escapeHtml;
+window.id = id;
 /* tslint:enable */

@@ -24,6 +24,4 @@
         return response.json().then(Promise.reject.bind(Promise));
     };
 
-    global.id = (selector) => global.document.getElementById(selector);
-
 }(this));

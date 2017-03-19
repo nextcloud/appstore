@@ -5,7 +5,8 @@ const base = './nextcloudappstore/core/static/';
 module.exports = {
     entry: {
         migrate: `${base}assets/app/app/views/Migrate.ts`,
-        list: `${base}assets/app/app/views/List.ts`,
+        'app/list': `${base}assets/app/app/views/List.ts`,
+        'app/releases': `${base}assets/app/app/views/Releases.ts`,
     },
     output: {
         filename: `${base}public/[name].js`
@@ -28,6 +29,10 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
