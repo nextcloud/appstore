@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import {apiRequest, pageRequest} from '../../api/Request';
 import {ready} from '../../dom/Facades';
 import {renderMd} from '../../dom/Markdown';
-import {escapeHtml} from "../../dom/Templating";
+import {escapeHtml} from '../../dom/Templating';
 
 /* tslint:disable */
 declare global {
