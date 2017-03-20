@@ -653,8 +653,8 @@ class AppOwnershipTransfer(Model):
             self.from_user = self.app.owner
             if self.from_user is self.to_user:
                 raise RuntimeError(
-                    'Could not initiate transfer of app ownership. '
-                    'The proposed new owner already owns the app.')
+                    _('Could not initiate transfer of app ownership. '
+                      'The proposed new owner already owns the app.'))
         return super().save(*args, **kwargs)
 
 

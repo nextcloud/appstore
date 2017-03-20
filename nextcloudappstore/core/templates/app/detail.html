@@ -38,6 +38,9 @@
     </section>
     <div class="app-meta col-md-4">
         <section>
+            {% if object.owner == request.user and request.user.is_authenticated %}
+                <p><a href="{% url 'app-edit' object.id %}"><button class="btn btn-primary">{% trans 'Edit app' %}</button></a></p>
+            {% endif %}
             {% if object.last_release %}
             <h5>{% trans "Updated" %}</h5>
             <p>{{ object.last_release|naturaltime }}</p>

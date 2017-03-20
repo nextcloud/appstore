@@ -1,7 +1,8 @@
 from django.conf.urls import url
 
 from nextcloudappstore.core.user.views import PasswordView, AccountView, \
-    APITokenView, DeleteAccountView, ChangeLanguageView
+    APITokenView, DeleteAccountView, ChangeLanguageView, \
+    AppOwnershipTransferView
 
 urlpatterns = [
     url(r'^$', AccountView.as_view(), name='account'),
@@ -10,4 +11,6 @@ urlpatterns = [
     url(r'^delete/?$', DeleteAccountView.as_view(), name='account-deletion'),
     url(r'^change-language/?$', ChangeLanguageView.as_view(),
         name='account-change-language'),
+    url(r'^app-ownership-transfer/?$', AppOwnershipTransferView.as_view(),
+        name='app-ownership-transfer'),
 ]

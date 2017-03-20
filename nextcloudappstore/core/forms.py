@@ -1,10 +1,15 @@
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
-    BooleanField, TextInput
+    BooleanField, TextInput, ModelForm
 from django.utils.translation import get_language_info, \
     ugettext_lazy as _  # type: ignore
 
-from nextcloudappstore.core.models import App, AppRating
+from nextcloudappstore.core.models import App, AppRating, AppOwnershipTransfer
+from nextcloudappstore.core.user.fields import UsernameField
+
+User = get_user_model()
 
 RATING_CHOICES = (
     (0.0, _('Bad')),
@@ -89,3 +94,36 @@ class AppRatingForm(Form):
         app_rating.set_current_language(self.cleaned_data['language_code'])
         app_rating.comment = self.cleaned_data['comment']
         app_rating.save()
+
+
+class AppOwnershipTransferForm(ModelForm):
+    to_user = UsernameField(label=_('New owner (username)'))
+    app_id_confirm = CharField(
+        label=_('App ID (for confirmation)'),
+        max_length=App._meta.get_field('id').max_length)
+
+    class Meta:
+        model = AppOwnershipTransfer
+        fields = ['to_user', 'app_id_confirm']
+
+    def __init__(self, *args, **kwargs):
+        app = kwargs.pop('app', None)
+        super().__init__(*args, **kwargs)
+        self.instance.app = app
+        self.instance.from_user = app.owner
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        from_user = self.instance.app.owner
+        to_user = cleaned_data.get('to_user')
+        if to_user and from_user.pk == to_user.pk:
+            self.add_error('to_user', ValidationError(_(
+                'The proposed new owner already owns the app.')))
+
+        correct_app_id = self.instance.app.id
+        given_app_id = cleaned_data.get('app_id_confirm')
+        if correct_app_id != given_app_id:
+            self.add_error('app_id_confirm', ValidationError(_(
+                'The given app ID does not match the actual app ID. '
+                'Are you about to transfer the correct app?')))

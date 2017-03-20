@@ -1,0 +1,41 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans 'App ownership transfers' %} - {% endblock %}
+
+{% block account-content %}
+    <h1>{% trans "Pending app ownership transfers" %}</h1>
+    <section>
+        {% for transfer in object_list %}
+            <h2><a href="{% url 'app-detail' transfer.app.id %}">{{ transfer.app.name }}</a></h2>
+            <p>{% trans 'Transfer proposed' %}: {{ transfer.proposed }}</p>
+                {% if transfer.to_user == request.user %}
+                    <p><strong>{% blocktrans with other=transfer.from_user %}From {{ other }} to you{% endblocktrans %}</strong></p>
+                    <form class="app-ownership-transfer-op" method="post" action="{{ request.path }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="transfer-id" value="{{ transfer.id }}">
+                        <input type="hidden" name="operation" value="commit">
+                        <button type="submit" class="btn btn-primary">{% trans 'Accept' %}</button>
+                    </form>
+                    <form class="app-ownership-transfer-op" method="post" action="{{ request.path }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="transfer-id" value="{{ transfer.id }}">
+                        <input type="hidden" name="operation" value="delete">
+                        <button type="submit" class="btn btn-danger">{% trans 'Decline' %}</button>
+                    </form>
+                {% endif %}
+                {% if transfer.from_user == request.user %}
+                    <p><strong>{% blocktrans with other=transfer.to_user %}From you to {{ other }}, awaiting approval{% endblocktrans %}</strong></p>
+                    <form class="app-ownership-transfer-op" method="post" action="{{ request.path }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="transfer-id" value="{{ transfer.id }}">
+                        <input type="hidden" name="operation" value="delete">
+                        <button type="submit" class="btn btn-danger">{% trans 'Cancel' %}</button>
+                    </form>
+                {% endif %}
+        {% empty %}
+            <p>{% trans 'No pending transfers.'%}</p>
+        {% endfor %}
+    </section>
+{% endblock %}

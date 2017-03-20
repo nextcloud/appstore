@@ -3,10 +3,14 @@ from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect, render
+from django.db.models import Q
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views.generic import ListView
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
+from django.utils.translation import ugettext_lazy as _
 
+from nextcloudappstore.core.models import AppOwnershipTransfer
 from nextcloudappstore.core.user.forms import DeleteAccountForm, AccountForm
 
 
@@ -81,4 +85,41 @@ class APITokenView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['acc_page'] = 'api-token'
+        return context
+
+
+class AppOwnershipTransferView(LoginRequiredMixin, ListView):
+    model = AppOwnershipTransfer
+    template_name = 'user/app-ownership-transfer.html'
+    http_method_names = ['get', 'post']
+
+    def post(self, request, *args, **kwargs):
+        transfer_id = request.POST.get('transfer-id', '')
+        operation = request.POST.get('operation', '')
+        user = request.user
+
+        if transfer_id and operation:
+            transfer = get_object_or_404(self.model, id=transfer_id)
+            if operation == 'commit' and user == transfer.to_user:
+                transfer.commit()
+                messages.success(request, _('App ownership transferred.'))
+            elif operation == 'delete' \
+                and (user == transfer.to_user
+                     or user == transfer.from_user):
+                transfer.delete()
+                messages.success(
+                    request, _('App ownership transfer canceled.'))
+        else:
+            messages.error(
+                request, _('Operation failed.'), extra_tags='danger')
+
+        return self.get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return super().get_queryset().filter(
+            Q(from_user=self.request.user) | Q(to_user=self.request.user))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['acc_page'] = 'app-ownership-transfer'
         return context

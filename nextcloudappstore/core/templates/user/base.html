@@ -25,6 +25,9 @@
             <li class="{% if acc_page == 'delete-account' %}active{% endif %}">
                 <a href="{% url 'user:account-deletion' %}">{% trans 'Delete account' %}</a>
             </li>
+            <li class="{% if acc_page == 'app-ownership-transfer' %}active{% endif %}">
+                <a href="{% url 'user:app-ownership-transfer' %}">{% trans 'App ownership transfers' %}</a>
+            </li>
         </ul>
     </div>
     <div class="col-sm-9">
