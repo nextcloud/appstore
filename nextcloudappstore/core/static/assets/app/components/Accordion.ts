@@ -13,18 +13,9 @@ export class Accordion {
     }
 
     public attachEventListeners() {
-        this.title.addEventListener('click', this.toggle.bind(this));
+        this.title.addEventListener('click', () => {
+            this.elem.classList.toggle('open');
+        });
     }
 
-    private isOpen(): boolean {
-        return this.elem.classList.contains('open');
-    }
-
-    private toggle() {
-        if (this.isOpen()) {
-            this.elem.classList.remove('open');
-        } else {
-            this.elem.classList.add('open');
-        }
-    }
 }
