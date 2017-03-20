@@ -1,18 +1,8 @@
-export class Accordion {
-    private title: HTMLElement;
+import {queryOrThrow} from '../dom/Facades';
 
-    constructor(private elem: HTMLElement) {
-        const title = elem.querySelector('.accordion-title') as HTMLElement;
-        if (title === null) {
-            throw new Error(`No content or title found for elem ${elem}`);
-        }
-        this.title = title;
-    }
-
-    public attachEventListeners() {
-        this.title.addEventListener('click', () => {
-            this.elem.classList.toggle('open');
-        });
-    }
-
+export function createAccordion(elem: HTMLElement) {
+    const title = queryOrThrow<HTMLElement>('.accordion-title', elem);
+    title.addEventListener('click', () => {
+        elem.classList.toggle('open');
+    });
 }
