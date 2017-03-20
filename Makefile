@@ -71,9 +71,8 @@ authors:
 
 .PHONY: clean
 clean:
-	rm -r $(CURDIR)/nextcloudappstore/core/static/vendor
-	rm -r $(CURDIR)/nextcloudappstore/core/static/public
-	rm -r $(CURDIR)/node_modules
+	rm -rf $(CURDIR)/nextcloudappstore/core/static/vendor
+	rm -rf $(CURDIR)/nextcloudappstore/core/static/public
+	rm -rf $(CURDIR)/node_modules
 	$(MAKE) -C $(CURDIR)/docs/ clean
-	find $(CURDIR) -name \*.pyc -o -name \*.pyo -o -name __pycache__ -delete
 

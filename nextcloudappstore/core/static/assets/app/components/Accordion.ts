@@ -22,10 +22,8 @@ export class Accordion {
 
     private toggle() {
         if (this.isOpen()) {
-            this.content.style.display = 'none';
             this.elem.classList.remove('open');
         } else {
-            this.content.style.display = '';
             this.elem.classList.add('open');
         }
     }
