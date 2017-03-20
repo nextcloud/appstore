@@ -1,8 +1,12 @@
-import {queryForm, ready} from '../../dom/Facades';
-import {AppListForm} from '../forms/AppListForm';
+import {queryOrThrow, ready} from '../../dom/Facades';
+import {findFormFields, FormField} from '../../forms/HtmlForm';
 
 ready(() => {
-    const elem = queryForm('#filter-form');
-    const form = new AppListForm(elem);
-    form.attachEventListeners();
+    const form = queryOrThrow<HTMLFormElement>('#filter-form');
+    const fields = findFormFields(form);
+    fields.forEach((elem: FormField) => {
+        elem.addEventListener('change', () => {
+            form.submit();
+        });
+    });
 });

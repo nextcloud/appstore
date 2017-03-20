@@ -5,8 +5,7 @@
 {% block head-title %}{% trans 'Upload app release' %} - {% endblock %}
 
 {% block head %}
-    <script defer="defer" src="{% static 'assets/js/utils.js' %}"></script>
-    <script defer="defer" src="{% static 'assets/js/ui/app-upload.js' %}"></script>
+    <script defer="defer" src="{% static 'public/app/upload.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -16,11 +15,14 @@
         <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
         <p>{% blocktrans %}For more information on how to create the SHA512 signature check out the <a href="http://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener norefferer">app developer guide</a>.{% endblocktrans %}</p>
         <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
+            <span data-l10n-id="msg-form-success" hidden>{% trans 'App release successfully uploaded.' %}</span>
+            <div><div class="alert alert-success global-success-msg" hidden></div></div>
+            <div><div class="alert alert-danger global-error-msg" hidden></div></div>
+
             {% csrf_token %}
-            <div><div id="detail-msg"></div></div>
             {% include 'form-fields.html' %}
 
-            <button id="submit" class="btn btn-primary btn-block" data-loading-text="<img class='ajax-loader-gif' src='{% static 'assets/img/ajax-loader.gif' %}'> {% trans 'Uploading...' %}">{% trans 'Upload' %}</button>
+            <input type="submit" id="submit" class="btn btn-primary btn-block" value="{% trans 'Upload' %}">
         </form>
     </div>
 {% endblock %}

@@ -4,8 +4,11 @@ const base = './nextcloudappstore/core/static/';
 
 module.exports = {
     entry: {
-        list: `${base}assets/app/app/views/List.ts`,
-        detail: `${base}assets/app/app/views/Detail.ts`,
+        migrate: `${base}assets/app/app/views/Migrate.ts`,
+        'app/list': `${base}assets/app/app/views/List.ts`,
+        'app/register': `${base}assets/app/app/views/Register.ts`,
+        'app/upload': `${base}assets/app/app/views/Upload.ts`,
+        'app/releases': `${base}assets/app/app/views/Releases.ts`,
     },
     output: {
         filename: `${base}public/[name].js`
@@ -28,6 +31,10 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
