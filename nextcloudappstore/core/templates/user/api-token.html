@@ -3,21 +3,14 @@
 {% load staticfiles %}
 
 {% block head %}
-    <script defer="defer" src="{% static 'assets/js/account-api-token.js' %}"></script>
+    <script defer="defer" src="{% static 'public/user/token.js' %}"></script>
 {% endblock %}
 
 {% block head-title %}{% trans 'API Token' %} - {% endblock %}
 
-{% block messages %}
-    <div id="regen-success" class="alert alert-success" hidden>{% trans 'New API token generated.' %}</div>
-    <div id="regen-failure" class="alert alert-danger" hidden>{% trans 'Failed to regenerate API token.' %}</div>
-    <div id="token-failure" class="alert alert-danger" hidden>{% trans 'Failed to fetch API token.' %}</div>
-{% endblock %}
-
 {% block account-content %}
     <h1>{% trans "API Token" %}</h1>
     <section id="tokenSection">
-        <span id="regen-confirm-text" hidden>{% trans 'Do you want to regenerate your API token?' %}</span>
         <p>
             {% blocktrans %}
                 The API token can be used for authentication when calling the app store
@@ -25,11 +18,18 @@
                 Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.
             {% endblocktrans %}
         </p>
-        <p class="hide-on-token-failure">{% trans 'Your API token is:' %}</p>
-        <p class="hide-on-token-failure"><code id="token"></code></p>
+
+        <p>{% trans 'Your API token is:' %}</p>
+
+        <!-- DO NOT print the HTML token here because of BREACH attack but fetch it with JS -->
+        <p><code id="token"></code></p>
         <form action="{% url 'api:v1:user-token-new' %}" method="post" id="api-token-regen-form">
+            <span data-l10n-id="msg-form-success" hidden>{% trans 'New API token generated.' %}</span>
+            <div><div class="alert alert-success global-success-msg" hidden></div></div>
+            <div><div class="alert alert-danger global-error-msg" hidden></div></div>
+
             {% csrf_token %}
-            <button class="btn btn-primary btn-block" type="submit">{% trans 'Regenerate API token' %}</button>
+            <input type="submit" class="btn btn-primary btn-block" value="{% trans 'Regenerate API token' %}">
         </form>
     </section>
 {% endblock %}
