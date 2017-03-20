@@ -9,18 +9,6 @@
     let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
     let moment = global.moment;
 
-    // create ratings
-    let createRatingClass = function (value) {
-        // beware: float comparisons
-        if (value === 1.0) {
-            return 'good';
-        } else if (value === 0.0) {
-            return 'bad';
-        } else {
-            return 'ok';
-        }
-    };
-
     function load_comments(languageCode, initial=false) {
         fetch(ratingUrl)
             .then((response) => response.json())

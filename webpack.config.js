@@ -47,6 +47,10 @@ module.exports = {
             {from: 'node_modules/bootstrap', to: base + 'vendor/bootstrap/'},
             {from: 'node_modules/jquery', to: base + 'vendor/jquery/'},
             {from: 'node_modules/whatwg-fetch', to: base + 'vendor/fetch/'},
+            {
+                from: 'node_modules/highlight.js/styles/github.css',
+                to: base + 'vendor/github.css'
+            },
         ])
     ]
 };

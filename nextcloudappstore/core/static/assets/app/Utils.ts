@@ -11,14 +11,14 @@ export function getOrDefault<K, V>(map: Map<K, V>, key: K, defaultValue: V): V {
  * Yeah, we're doing this ;D
  */
 export class Maybe<T> {
-    constructor(private value: T | null | undefined) {
+    constructor(private value?: T | null | undefined) {
     }
 
     public map<V>(func: (val: T) => V | null | undefined): Maybe<V> {
         if (this.value !== null && this.value !== undefined) {
             return new Maybe<V>(func(this.value));
         } else {
-            return new Maybe<V>(null);
+            return new Maybe<V>();
         }
     }
 
@@ -26,7 +26,7 @@ export class Maybe<T> {
         if (this.value !== null && this.value !== undefined) {
             return func(this.value);
         } else {
-            return new Maybe<V>(null);
+            return new Maybe<V>();
         }
     }
 

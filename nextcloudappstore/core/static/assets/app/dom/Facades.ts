@@ -2,6 +2,7 @@
  * shortcuts for unreasonably long DOM methods
  */
 
+import {Maybe} from '../Utils';
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
 
 export function id(selector: string): HTMLElement | null {
@@ -43,13 +44,13 @@ export function queryOrThrow<T extends HTMLElement>(selector: string,
  * @param name
  * @returns {any}
  */
-export function getMetaValue(name: string): string | null {
+export function getMetaValue(name: string): Maybe<string> {
     const result = query(`meta[name="${name}"]`);
     if (result === null || !(result instanceof HTMLMetaElement)) {
-        return null;
+        return new Maybe<string>();
     } else {
         const metaTag = result as HTMLMetaElement;
-        return metaTag.content;
+        return new Maybe<string>(metaTag.content);
     }
 }
 
