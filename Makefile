@@ -68,3 +68,12 @@ update-dev-deps:
 .PHONY: authors
 authors:
 	$(python) $(CURDIR)/scripts/generate_authors.py
+
+.PHONY: clean
+clean:
+	rm -r $(CURDIR)/nextcloudappstore/core/static/vendor
+	rm -r $(CURDIR)/nextcloudappstore/core/static/public
+	rm -r $(CURDIR)/node_modules
+	$(MAKE) -C $(CURDIR)/docs/ clean
+	find $(CURDIR) -name \*.pyc -o -name \*.pyo -o -name __pycache__ -delete
+
