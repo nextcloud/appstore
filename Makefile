@@ -36,7 +36,6 @@ initmigrations:
 dev-setup:
 	$(npm) install
 	$(npm) run build
-	$(webdriver-manager) update
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
