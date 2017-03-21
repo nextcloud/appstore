@@ -94,6 +94,14 @@
     overflow: hidden;
 }
 
+.accordion-item.open > .accordion-content {
+    display: block;
+}
+
+.accordion-item:not(.open) > .accordion-content {
+    display: none;
+}
+
 .accordion-item .accordion-item .accordion-content table {
     font-size: 14px;
 }

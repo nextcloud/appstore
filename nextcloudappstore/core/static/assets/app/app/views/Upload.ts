@@ -8,5 +8,5 @@ ready(() => {
     const formMeta = scanForm(formElement);
     const translations = scanTranslations(formElement);
     const translator = new Translator(translations);
-    const form = new AppUploadForm(formMeta, new Map(), translator);
+    const form = new AppUploadForm(formMeta, translator);
 });

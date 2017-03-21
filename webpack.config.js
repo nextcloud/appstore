@@ -6,9 +6,11 @@ module.exports = {
     entry: {
         migrate: `${base}assets/app/app/views/Migrate.ts`,
         'app/list': `${base}assets/app/app/views/List.ts`,
+        'app/detail': `${base}assets/app/app/views/Detail.ts`,
         'app/register': `${base}assets/app/app/views/Register.ts`,
         'app/upload': `${base}assets/app/app/views/Upload.ts`,
         'app/releases': `${base}assets/app/app/views/Releases.ts`,
+        'user/token': `${base}assets/app/user/views/Token.ts`,
     },
     output: {
         filename: `${base}public/[name].js`
@@ -45,6 +47,10 @@ module.exports = {
             {from: 'node_modules/bootstrap', to: base + 'vendor/bootstrap/'},
             {from: 'node_modules/jquery', to: base + 'vendor/jquery/'},
             {from: 'node_modules/whatwg-fetch', to: base + 'vendor/fetch/'},
+            {
+                from: 'node_modules/highlight.js/styles/github.css',
+                to: base + 'vendor/github.css'
+            },
         ])
     ]
 };

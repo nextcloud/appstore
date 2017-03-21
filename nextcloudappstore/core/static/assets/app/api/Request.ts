@@ -57,7 +57,7 @@ export function apiRequest<T>(request: RequestData,
     });
 }
 
-type TokenData = {
+export type TokenData = {
     token: string;
 };
 
