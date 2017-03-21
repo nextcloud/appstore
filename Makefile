@@ -36,6 +36,7 @@ initmigrations:
 dev-setup:
 	$(npm) install
 	$(npm) run build
+	$(webdriver-manager) update
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
@@ -52,8 +53,7 @@ endif
 initdb:
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
-	@echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | $(manage) shell --settings nextcloudappstore.settings.development
-	@echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | $(manage) shell --settings nextcloudappstore.settings.development
+	$(manage) shell --settings nextcloudappstore.settings.development < $(CURDIR)/scripts/development/setup.py
 
 .PHONY: docs
 docs:

@@ -10,3 +10,4 @@ DEFAULT_FROM_EMAIL = 'Nextcloud App Store <appstore@nextcloud.com>'
 INSTALLED_APPS.append('debug_toolbar')
 MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
 INTERNAL_IPS = ('127.0.0.1',)
+VALIDATE_CERTIFICATES = False
