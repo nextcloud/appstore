@@ -8,10 +8,8 @@ import {Maybe} from '../../Utils';
 export class AppUploadForm extends AjaxForm<Object> {
     private url: string;
 
-    constructor(form: HtmlForm,
-                validators: Map<string, IValidator[]>,
-                translator: Translator) {
-        super(form, validators, translator);
+    constructor(form: HtmlForm, translator: Translator) {
+        super(form, new Map(), translator);
         this.url = form.form.action;
     }
 

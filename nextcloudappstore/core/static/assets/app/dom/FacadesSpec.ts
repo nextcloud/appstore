@@ -5,12 +5,17 @@ describe('DOM Facades', () => {
 
     it('should find no meta values', () => {
         const tpl = `<meta name="tests" content="value">`;
-        testDom('head', tpl, () => expect(getMetaValue('test')).toBeNull());
+        testDom('head', tpl, () => expect(getMetaValue('test').isPresent())
+            .toBe(false));
     });
 
     it('should find meta values', () => {
         const tpl = `<meta name="test" content="value">`;
-        testDom('head', tpl, () => expect(getMetaValue('test')).toBe('value'));
+        testDom('head', tpl, () => {
+            const result = getMetaValue('test');
+            expect(result.isPresent()).toBe(true);
+            result.ifPresent((value) => expect(value).toBe('value'));
+        });
     });
 
     it('should throw if no element is found', () => {
