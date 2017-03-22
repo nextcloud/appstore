@@ -4,7 +4,6 @@ const base = './nextcloudappstore/core/static/';
 
 module.exports = {
     entry: {
-        migrate: `${base}assets/app/app/views/Migrate.ts`,
         'app/list': `${base}assets/app/app/views/List.ts`,
         'app/detail': `${base}assets/app/app/views/Detail.ts`,
         'app/register': `${base}assets/app/app/views/Register.ts`,
