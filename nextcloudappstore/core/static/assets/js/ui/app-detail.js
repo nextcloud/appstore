@@ -19,7 +19,7 @@
                     .filter(rating => rating.translations[languageCode] !== undefined)
                     .filter(rating => rating.translations[languageCode].comment !== undefined)
                     .filter(rating => rating.translations[languageCode].comment.trim() !== '');
-                if( ratings.length > 0) {
+                if (ratings.length > 0) {
                     ratings.forEach((rating) => {
                         let user = rating.user;
                         let fullName = user.firstName + " " + user.lastName;
@@ -38,8 +38,8 @@
                 } else {
                     let langCode = global.id('comment_display_language_code');
                     let fallback = Array.from(langCode.options)
-                                    .filter( (o) => o.value === fallbackLanguageCode);
-                    if(initial && fallback.length > 0) {
+                        .filter((o) => o.value === fallbackLanguageCode);
+                    if (initial && fallback.length > 0) {
                         load_comments(fallbackLanguageCode);
                         langCode.value = fallbackLanguageCode;
                     } else {
@@ -62,6 +62,26 @@
         });
         firstImg.src = imgURLs[0];
     }
+
+    // language selection for posting
+    function load_language(lang) {
+        const commentTextarea = global.id('id_comment');
+        commentTextarea.readOnly = true;
+        fetch(ratingUrl + "?current_user=true&lang=" + lang, {credentials: 'include'})
+            .then((response) => response.json())
+            .then((json) => {
+                let value = '';
+                if (json.length > 0 && json[0].translations[lang] !== undefined) {
+                    value = json[0].translations[lang].comment;
+                }
+                commentTextarea.value = value;
+                commentTextarea.readOnly = false;
+            }).catch(() => commentTextarea.readOnly = false);
+    }
+
+    global.id('id_language_code').addEventListener('change', (event) => {
+        load_language(event.target.value);
+    });
 
     // create markdown for app description
     let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]').content;
