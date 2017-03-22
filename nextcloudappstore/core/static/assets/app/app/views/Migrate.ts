@@ -1,23 +1,22 @@
-import * as moment from 'moment';
+import {fetchDescription} from '../../api/Api';
+import {fetchRatings} from '../../api/Ratings';
 import {id} from '../../dom/Facades';
-import {renderMd} from '../../dom/Markdown';
-import {escapeHtml} from '../../dom/Templating';
-import {createRatingClass} from '../Ratings';
+import {renderEmptyRatings, renderRating} from '../templates/Ratings';
 
 /* tslint:disable */
 declare global {
     interface Window {
-        renderMd: (html: string) => string;
-        moment: any;
-        escapeHtml: any;
         id: any;
-        createRatingClass: any;
+        fetchRatings: any;
+        fetchDescription: any;
+        renderRating: any;
+        renderEmptyRatings: any;
     }
 }
 
-window.renderMd = renderMd;
-window.moment = moment;
-window.escapeHtml = escapeHtml;
 window.id = id;
-window.createRatingClass = createRatingClass;
+window.fetchRatings = fetchRatings;
+window.fetchDescription = fetchDescription;
+window.renderRating = renderRating;
+window.renderEmptyRatings = renderEmptyRatings;
 /* tslint:enable */
