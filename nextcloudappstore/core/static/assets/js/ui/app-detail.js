@@ -34,8 +34,8 @@
         firstImg.src = imgURLs[0];
     }
 
-    // language selection for posting
-    function load_language(lang) {
+    languageInput.addEventListener('change', (event) => {
+        const lang = event.target.value;
         commentInput.readOnly = true;
         fetchRatings(ratingUrl + "?current_user=true&lang=" + lang, lang)
             .then((result) => {
@@ -47,10 +47,6 @@
                 commentInput.value = value;
                 commentInput.readOnly = false;
             }).catch(() => commentInput.readOnly = false);
-    }
-
-    languageInput.addEventListener('change', (event) => {
-        load_language(event.target.value);
     });
 
     // create markdown for app description
@@ -64,5 +60,5 @@
         load_comments(event.target.value);
     });
 
-    load_comments(currentLang, true);
+    load_comments(currentLang);
 }(this));
