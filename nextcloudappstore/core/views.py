@@ -40,9 +40,15 @@ class AppRatingApi(ListAPIView):
 
     def get_queryset(self):
         id = self.kwargs.get('id')
+        lang = self.request.GET.get('lang', self.request.LANGUAGE_CODE)
         app = get_object_or_404(App, id=id)
-        return AppRating.objects.language(self.request.LANGUAGE_CODE).filter(
-            app=app)
+        queryset = AppRating.objects.language(lang).filter(app=app)
+
+        current_user = self.request.GET.get('current_user', 'false')
+        if current_user == 'true':
+            return queryset.filter(user=self.request.user)
+        else:
+            return queryset
 
 
 class LegalNoticeView(TemplateView):

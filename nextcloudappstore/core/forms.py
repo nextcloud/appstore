@@ -64,19 +64,22 @@ def get_languages_local(language=None):
 
 
 class AppRatingForm(Form):
+    rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
+                         widget=RadioSelect)
+    language_code = ChoiceField(initial="", label=_('Language'),
+                                choices=get_languages_local(),
+                                help_text=_(
+                                    '<b>Important</b>: Changing the language '
+                                    'will clear your current comment. Changes '
+                                    'will not be saved!')
+                                )
+    comment = CharField(widget=Textarea, required=False, label=_('Comment'))
+    safe_help_fields = ['language_code']
+
     def __init__(self, *args, **kwargs):
         self._id = kwargs.pop('id', None)
         self._user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-
-    rating = ChoiceField(initial=0.5, choices=RATING_CHOICES,
-                         widget=RadioSelect)
-
-    language_code = ChoiceField(initial="", label=_('Language'),
-                                choices=get_languages_local())
-
-    comment = CharField(widget=Textarea, required=False,
-                        label=_('Comment'))
 
     class Meta:
         fields = ('rating', 'language_code', 'comment')
