@@ -39,15 +39,20 @@ function findRoot(template: Node): HTMLElement {
     }
 }
 
+export class Unescaped {
+    constructor(public value: string) {}
+}
+
 export type Context = {
-    [selector: string]: string;
+    [selector: string]: string | Unescaped;
 };
 
 /**
  * Renders an HTML template
  * @param template the template dom element
- * @param context an object whose keys are selectors and values are ESCAPED
- * values to render to the document
+ * @param context an object whose keys are selectors and values are
+ * values to render to the document. Wrap your values in Unescaped if you want
+ * to include raw HTML, otherwise everything is escaped
  * @param transformer if given will be executed by passing in the root element
  */
 export function render(template: HTMLTemplateElement,
@@ -58,7 +63,12 @@ export function render(template: HTMLTemplateElement,
 
     Object.keys(context).forEach((selector: string) => {
         queryAll(selector, root).forEach((element: HTMLElement) => {
-            element.innerHTML = context[selector];
+            const value = context[selector];
+            if (value instanceof Unescaped) {
+                element.innerHTML = value.value;
+            } else {
+                element.innerHTML = escapeHtml(value);
+            }
         });
     });
 
