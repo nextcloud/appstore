@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/img-slider.css' %}">
     <link rel="stylesheet" href="{% static 'vendor/github.css' %}">
     <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
+    <script defer="defer" src="{% static 'public/app/detail.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
     <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
     <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
@@ -140,7 +141,7 @@
             </div>
         </div>
     {% endif %}
-    <template id="app-rating-template">
+    <template id="rating-template">
         <div class="row">
             <div class="col-md-12">
                 <div class="rating-comment">
@@ -156,7 +157,7 @@
             </div>
         </div>
     </template>
-    <template id="app-rating-template-no-comments">
+    <template id="no-ratings-template">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">

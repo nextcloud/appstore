@@ -1,37 +1,22 @@
 (function (global) {
     'use strict';
-    let document = global.document;
-    let ratingUrl = document.querySelector('meta[name="nextcloudappstore-app-ratings-url"]').content;
-    let languageCode = document.querySelector('meta[name="language-code"]').content;
-    let fallbackLanguageCode = document.querySelector('meta[name="fallback-language-code"]').content;
-    let ratingTarget = document.querySelector('.app-rating-list');
-    let ratingTemplate = document.getElementById('app-rating-template');
-    let ratingTemplateNoComments = document.getElementById('app-rating-template-no-comments');
 
     function load_comments(languageCode) {
-        // note to myself: the code below checks if the fallback lang
-        // is present in the language dropdown
-        let langCode = global.id('comment_display_language_code');
-        let fallback = Array.from(langCode.options)
-            .filter((o) => o.value === fallbackLanguageCode);
-        if (fallback.length !== 0) {
-            fallbackLanguageCode = undefined;
-        }
-        fetchRatings(ratingUrl, languageCode, fallbackLanguageCode)
+        fetchRatings(ratingUrl, languageCode, fallbackLang)
             .then((result) => {
                 const ratings = result.ratings;
                 const ratingLang = result.lang;
-                ratingTarget.classList.remove('loading');
-                ratingTarget.innerHTML = '';
+                ratingContainer.classList.remove('loading');
+                ratingContainer.innerHTML = '';
                 if (ratings.length > 0) {
                     ratings.forEach((rating) => {
-                        const result = renderRating(ratingTemplate, rating, ratingLang);
-                        ratingTarget.appendChild(result);
-                        langCode.value = ratingLang;
+                        const result = renderRating(ratingTpl, rating, ratingLang);
+                        ratingContainer.appendChild(result);
+                        commentLangInput.value = ratingLang;
                     });
                 } else {
-                    const result = renderEmptyRatings(ratingTemplateNoComments);
-                    ratingTarget.appendChild(result);
+                    const result = renderEmptyRatings(noRatingTpl);
+                    ratingContainer.appendChild(result);
                 }
             });
     }
@@ -51,8 +36,7 @@
 
     // language selection for posting
     function load_language(lang) {
-        const commentTextarea = global.id('id_comment');
-        commentTextarea.readOnly = true;
+        commentInput.readOnly = true;
         fetchRatings(ratingUrl + "?current_user=true&lang=" + lang, lang)
             .then((result) => {
                 let value = '';
@@ -60,29 +44,25 @@
                 if (ratings.length > 0) {
                     value = ratings[0].comment;
                 }
-                commentTextarea.value = value;
-                commentTextarea.readOnly = false;
-            }).catch(() => commentTextarea.readOnly = false);
+                commentInput.value = value;
+                commentInput.readOnly = false;
+            }).catch(() => commentInput.readOnly = false);
     }
 
-    global.id('id_language_code').addEventListener('change', (event) => {
+    languageInput.addEventListener('change', (event) => {
         load_language(event.target.value);
     });
 
     // create markdown for app description
-    let descriptionUrl = document.querySelector('meta[name="nextcloudappstore-app-description-url"]').content;
-    let descriptionTarget = document.querySelector('.app-description');
-
-    fetchDescription(descriptionUrl)
+    fetchDescription(descriptUrl)
         .then((description) => {
-            descriptionTarget.innerHTML = description;
-            descriptionTarget.classList.remove('loading')
+            descriptContainer.innerHTML = description;
+            descriptContainer.classList.remove('loading')
         });
 
-    const langCode = global.id('comment_display_language_code');
-    langCode.addEventListener('change', (event) => {
+    commentLangInput.addEventListener('change', (event) => {
         load_comments(event.target.value);
     });
 
-    load_comments(languageCode, true);
+    load_comments(currentLang, true);
 }(this));
