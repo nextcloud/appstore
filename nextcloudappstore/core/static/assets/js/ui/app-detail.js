@@ -74,7 +74,10 @@
     let descriptionTarget = document.querySelector('.app-description');
 
     fetchDescription(descriptionUrl)
-        .then(() => descriptionTarget.classList.remove('loading'));
+        .then((description) => {
+            descriptionTarget.innerHTML = description;
+            descriptionTarget.classList.remove('loading')
+        });
 
     const langCode = global.id('comment_display_language_code');
     langCode.addEventListener('change', (event) => {
