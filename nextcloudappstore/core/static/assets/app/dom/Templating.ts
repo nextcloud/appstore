@@ -14,20 +14,6 @@ export function noReferrerLinks(html: string) {
     return doc.body.innerHTML;
 }
 
-/**
- * Finds the first root element or throws
- * @param template
- * @throws TemplateEmpty if the root template element is not found
- * @returns {HTMLElement}
- */
-function findRoot(template: Node): HTMLElement {
-    if (template.childNodes.length === 0) {
-        throw new TemplateEmpty('Given template is empty');
-    } else {
-        return template.childNodes[1] as HTMLElement;
-    }
-}
-
 export class Unescaped {
     constructor(public value: string) {}
 }
@@ -48,7 +34,11 @@ export function render(template: HTMLTemplateElement,
                        context: Context,
                        transformer?: (root: HTMLElement) => void): Node {
     const result = document.importNode(template.content, true);
-    const root = findRoot(result);
+
+    // result is a WebFragment so we need to make an HTMLElement out of it
+    const tmp = document.createElement('div');
+    tmp.appendChild(result);
+    const root = tmp.children.item(0) as HTMLElement;
 
     Object.keys(context).forEach((selector: string) => {
         queryAll(selector, root).forEach((element: HTMLElement) => {
@@ -65,5 +55,5 @@ export function render(template: HTMLTemplateElement,
         transformer(root);
     }
 
-    return result;
+    return root;
 }
