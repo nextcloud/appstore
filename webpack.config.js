@@ -22,15 +22,6 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                enforce: 'pre',
-                loader: 'tslint-loader',
-                options: {
-                    configFile: './tslint.json',
-                    failOnHint: true,
-                }
-            },
-            {
-                test: /\.tsx?$/,
                 loader: 'ts-loader'
             },
             {

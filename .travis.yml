@@ -27,6 +27,8 @@ before_install:
 
 install:
   - make dev-setup db="$DB" pyvenv="pyvenv"
+  - npm install tslint
+  - ./node_modules/.bin/tslint
 
 script:
   - make test

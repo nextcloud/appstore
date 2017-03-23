@@ -7,11 +7,9 @@ manage=$(python) $(CURDIR)/manage.py
 db=sqlite
 pyvenv=python3 -m venv
 npm=npm
-tslint=node_modules/.bin/tslint
 
 .PHONY: lint
 lint:
-	$(tslint) "$(CURDIR)/nextcloudappstore/core/static/assets/**/*.ts"
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
