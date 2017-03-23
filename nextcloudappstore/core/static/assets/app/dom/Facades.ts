@@ -72,6 +72,18 @@ export function getMetaValue(name: string): Maybe<string> {
 }
 
 /**
+ * Parses the header for a meta tag with a certain name and returns the content
+ * @param name
+ * @throws DomElementDoesNotExist if not found
+ * @returns {any}
+ */
+export function getMetaValueOrThrow(name: string): string {
+    const msg = `Meta tag with name ${name} not found`;
+    return getMetaValue(name)
+        .orThrow(() => new DomElementDoesNotExist(msg));
+}
+
+/**
  * Remove elements from the dom
  * @param selector selector that matches the elements
  */

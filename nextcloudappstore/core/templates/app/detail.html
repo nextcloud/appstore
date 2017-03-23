@@ -8,10 +8,10 @@
     <script defer="defer" src="{% static 'assets/js/img-slider.js' %}"></script>
     <script defer="defer" src="{% static 'public/app/detail.js' %}"></script>
     <script defer="defer" src="{% static 'assets/js/ui/app-detail.js' %}"></script>
-    <meta name="nextcloudappstore-app-description-url" content="{% url 'app-description' object.id %}">
-    <meta name="nextcloudappstore-app-ratings-url" content="{% url 'app-ratings' object.id %}">
+    <meta name="description-url" content="{% url 'app-description' object.id %}">
+    <meta name="ratings-url" content="{% url 'app-ratings' object.id %}">
     <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">
-    <meta name="fallback-language-code" content="en">
+    <meta name="fallback-language-code" content="{{ fallbackLang }}">
 {% endblock %}
 
 {% block apps %}
@@ -173,8 +173,8 @@
             <div class="app-rating-language">
                 {% if languages %}
                     {% get_language_info_list for languages as languages %}
-                    <label for="comment_display_language_code">{% blocktrans %}Display ratings comments in:{% endblocktrans %}</label>
-                    <select class="form-control" id="comment_display_language_code">
+                    <label for="comment_language">{% blocktrans %}Display ratings comments in:{% endblocktrans %}</label>
+                    <select class="form-control" id="comment_language">
                         {% for language in languages %}
                             <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
                                 {{ language.name_local }}

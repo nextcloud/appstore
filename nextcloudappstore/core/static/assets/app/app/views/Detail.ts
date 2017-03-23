@@ -1,7 +1,7 @@
 import {fetchDescription} from '../../api/Api';
 import {fetchRatings} from '../../api/Ratings';
 import {
-    getMetaValue, idOrThrow, query, queryOrThrow, ready,
+    getMetaValueOrThrow, idOrThrow, query, queryOrThrow, ready,
 } from '../../dom/Facades';
 import {renderEmptyRatings, renderRating} from '../templates/Ratings';
 
@@ -34,36 +34,24 @@ window.renderEmptyRatings = renderEmptyRatings;
 /* tslint:enable */
 
 ready(() => {
-    const ratingUrl = getMetaValue('nextcloudappstore-app-ratings-url')
-        .orThrow(() => new Error('App ratings url not found'));
-
-    const descriptUrl = getMetaValue('nextcloudappstore-app-description-url')
-        .orThrow(() => new Error('App description url not found'));
-
-    const currentLang = getMetaValue('language-code')
-        .orThrow(() => new Error('Current language not found'));
-
-    const fallbackLang = getMetaValue('fallback-language-code')
-        .orThrow(() => new Error('Fallback language not found'));
+    const ratingUrl = getMetaValueOrThrow('ratings-url');
+    const descriptUrl = getMetaValueOrThrow('description-url');
+    const currentLang = getMetaValueOrThrow('language-code');
+    const fallbackLang = getMetaValueOrThrow('fallback-language-code');
 
     const ratingTpl = idOrThrow<HTMLTemplateElement>('rating-template');
     const noRatingTpl = idOrThrow<HTMLTemplateElement>('no-ratings-template');
     const commentInput = idOrThrow<HTMLTextAreaElement>('id_comment');
     const languageInput = idOrThrow<HTMLSelectElement>('id_language_code');
-    const commentLangInput = idOrThrow<HTMLSelectElement>(
-        'comment_display_language_code');
-    const actualFallbackLang = query<HTMLOptionElement>(
-        `option[value="${fallbackLang}"]`, commentLangInput);
+    const commentLangInput = idOrThrow<HTMLSelectElement>('comment_language');
 
-    if (actualFallbackLang) {
-        window.fallbackLang = fallbackLang;
-    }
     const descriptContainer = queryOrThrow<HTMLDivElement>('.app-description');
     const ratingContainer = queryOrThrow<HTMLDivElement>('.app-rating-list');
 
     window.ratingUrl = ratingUrl;
     window.descriptUrl = descriptUrl;
     window.currentLang = currentLang;
+    window.fallbackLang = fallbackLang;
     window.ratingTpl = ratingTpl;
     window.noRatingTpl = noRatingTpl;
     window.ratingContainer = ratingContainer;
