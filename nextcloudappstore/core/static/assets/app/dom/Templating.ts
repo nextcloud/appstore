@@ -2,17 +2,6 @@ import {queryAll} from './Facades';
 import {TemplateEmpty} from './TemplateEmpty';
 
 /**
- * Escapes a string for including it in HTML
- * @param text
- * @returns {string}
- */
-export function escapeHtml(text: string): string {
-    const div = window.document.createElement('div');
-    div.appendChild(window.document.createTextNode(text));
-    return div.innerHTML;
-}
-
-/**
  * Adds rel="nooopener noreferrer" to all <a> tags in an html string
  * @param html
  * @returns {string}
@@ -67,7 +56,7 @@ export function render(template: HTMLTemplateElement,
             if (value instanceof Unescaped) {
                 element.innerHTML = value.value;
             } else {
-                element.innerHTML = escapeHtml(value);
+                element.innerText = value;
             }
         });
     });
