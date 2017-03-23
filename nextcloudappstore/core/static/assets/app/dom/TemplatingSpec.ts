@@ -1,4 +1,4 @@
-import {testDom} from "./Facades";
+import {testDom} from './Facades';
 import {noReferrerLinks, render} from './Templating';
 
 describe('HTML templating utilities', () => {
@@ -14,7 +14,7 @@ describe('HTML templating utilities', () => {
         const tpl = `<template><span><p></p></span></template>`;
         const expected = `<span class="test"><p>&lt;hi alt="as"&gt;</p></span>`;
         testDom('body', tpl, (elem: HTMLTemplateElement) => {
-            const result = render(elem, {'p': '<hi alt="as">'});
+            const result = render(elem, {p: '<hi alt="as">'});
             result.classList.add('test');
             const tmp = document.createElement('div');
             tmp.appendChild(result);
