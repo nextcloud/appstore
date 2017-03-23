@@ -28,11 +28,9 @@ export type Context = {
  * @param context an object whose keys are selectors and values are
  * values to render to the document. Wrap your values in Unescaped if you want
  * to include raw HTML, otherwise everything is escaped
- * @param transformer if given will be executed by passing in the root element
  */
 export function render(template: HTMLTemplateElement,
-                       context: Context,
-                       transformer?: (root: HTMLElement) => void): Node {
+                       context: Context): HTMLElement {
     const result = document.importNode(template.content, true);
 
     // result is a WebFragment so we need to make an HTMLElement out of it
@@ -50,10 +48,6 @@ export function render(template: HTMLTemplateElement,
             }
         });
     });
-
-    if (transformer) {
-        transformer(root);
-    }
 
     return root;
 }
