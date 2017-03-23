@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 01:21+0000\n"
+"POT-Creation-Date: 2017-03-23 01:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ramil Yafizov <ramil.yafizov@gmail.com>, 2017\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -110,12 +110,18 @@ msgstr ""
 "Может быть сгенерирован следующей командой: <b>echo -n \"APP_ID\" | openssl "
 "dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl base64</b>"
 
-#: nextcloudappstore/core/forms.py:75
+#: nextcloudappstore/core/forms.py:69
 #: nextcloudappstore/core/templates/user/set-language.html:13
 msgid "Language"
 msgstr "Язык"
 
-#: nextcloudappstore/core/forms.py:79
+#: nextcloudappstore/core/forms.py:72
+msgid ""
+"<b>Important</b>: Changing the language will clear your current comment. "
+"Changes will not be saved!"
+msgstr ""
+
+#: nextcloudappstore/core/forms.py:76
 msgid "Comment"
 msgstr "Комментарий"
 
