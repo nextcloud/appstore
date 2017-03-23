@@ -14,7 +14,6 @@ declare global {
         renderRating: any;
         renderEmptyRatings: any;
         ratingUrl: any;
-        descriptUrl: any;
         currentLang: any;
         fallbackLang: any;
         ratingTpl: any;
@@ -28,7 +27,6 @@ declare global {
 }
 
 window.fetchRatings = fetchRatings;
-window.fetchDescription = fetchDescription;
 window.renderRating = renderRating;
 window.renderEmptyRatings = renderEmptyRatings;
 /* tslint:enable */
@@ -49,7 +47,6 @@ ready(() => {
     const ratingContainer = queryOrThrow<HTMLDivElement>('.app-rating-list');
 
     window.ratingUrl = ratingUrl;
-    window.descriptUrl = descriptUrl;
     window.currentLang = currentLang;
     window.fallbackLang = fallbackLang;
     window.ratingTpl = ratingTpl;
@@ -59,4 +56,11 @@ ready(() => {
     window.languageInput = languageInput;
     window.commentLangInput = commentLangInput;
     window.descriptContainer = descriptContainer;
+
+    // load app description
+    fetchDescription(descriptUrl)
+        .then((description) => {
+            descriptContainer.innerHTML = description;
+            descriptContainer.classList.remove('loading')
+        });
 });

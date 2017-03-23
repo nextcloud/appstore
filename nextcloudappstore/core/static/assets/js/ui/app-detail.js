@@ -4,19 +4,18 @@
     function load_comments(languageCode) {
         fetchRatings(ratingUrl, languageCode, fallbackLang)
             .then((result) => {
-                const ratings = result.ratings;
-                const ratingLang = result.lang;
                 ratingContainer.classList.remove('loading');
                 ratingContainer.innerHTML = '';
-                if (ratings.length > 0) {
-                    ratings.forEach((rating) => {
-                        const result = renderRating(ratingTpl, rating, ratingLang);
-                        ratingContainer.appendChild(result);
-                        commentLangInput.value = ratingLang;
+                commentLangInput.value = result.lang;
+
+                if (result.ratings.length > 0) {
+                    result.ratings.forEach((rating) => {
+                        const tpl = renderRating(ratingTpl, rating, result.lang);
+                        ratingContainer.appendChild(tpl);
                     });
                 } else {
-                    const result = renderEmptyRatings(noRatingTpl);
-                    ratingContainer.appendChild(result);
+                    const tpl = renderEmptyRatings(noRatingTpl);
+                    ratingContainer.appendChild(tpl);
                 }
             });
     }
@@ -48,13 +47,6 @@
                 commentInput.readOnly = false;
             }).catch(() => commentInput.readOnly = false);
     });
-
-    // create markdown for app description
-    fetchDescription(descriptUrl)
-        .then((description) => {
-            descriptContainer.innerHTML = description;
-            descriptContainer.classList.remove('loading')
-        });
 
     commentLangInput.addEventListener('change', (event) => {
         load_comments(event.target.value);
