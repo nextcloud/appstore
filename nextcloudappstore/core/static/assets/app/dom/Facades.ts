@@ -89,27 +89,24 @@ export function removeElements(selector: string): void {
  * @param html must have a root element
  * @returns {Element}
  */
-export function toHtml<T extends Element>(html: string): T | null {
+export function toHtml<T extends Element>(html: string): Maybe<T> {
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
-    return tmp.querySelector('*') as T;
+    return new Maybe(tmp.querySelector('*') as T);
 }
 
 /**
  * Appends an HTML string to a parent element
  * @param parentSelector selector to find the parent
  * @param html Html string, must have a root element
- * @throws Error if either parent or Html is invalid
+ * @throws DomElementDoesNotExist if either parent or Html is invalid
  * @returns {Element}
  */
 export function appendHtml(parentSelector: string, html: string): Element {
-    const parent = query(parentSelector);
-    const child = toHtml(html);
-
-    if (!parent.isPresent() || child === null) {
-        throw new Error('Parent or child are null');
-    }
-    parent.ifPresent((elem) => elem.appendChild(child));
+    const parent = queryOrThrow(parentSelector);
+    const child = toHtml(html)
+        .orThrow(() => new DomElementDoesNotExist('Child does not exist'));
+    parent.appendChild(child);
     return child;
 }
 
