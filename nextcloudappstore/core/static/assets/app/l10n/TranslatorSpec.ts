@@ -1,7 +1,7 @@
+import {DomElementDoesNotExist} from '../dom/DomElementDoesNotExist';
 import {toHtml} from '../dom/Facades';
 import {NoTranslationFound} from './NoTranslationFound';
 import {scanTranslations, Translator} from './Translator';
-import {DomElementDoesNotExist} from "../dom/DomElementDoesNotExist";
 
 const translations = `
 <div>
