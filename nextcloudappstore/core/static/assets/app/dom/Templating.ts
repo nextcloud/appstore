@@ -15,7 +15,7 @@ export function noReferrerLinks(html: string) {
 }
 
 export class Unescaped {
-    constructor(public value: string) {}
+    constructor(public readonly value: string) {}
 }
 
 export type Context = {

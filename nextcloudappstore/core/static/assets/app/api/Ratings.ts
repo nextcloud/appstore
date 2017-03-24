@@ -1,3 +1,4 @@
+import {Maybe} from '../Utils';
 import {pageRequest} from './Request';
 
 export type Ratings = {
@@ -97,4 +98,15 @@ export function fetchRatings(url: string, lang: string,
                 return fetchRatings(url, fallbackLang);
             }
         });
+}
+
+/**
+ * Fetches the first rating comment from a rating result
+ * @param result
+ * @returns
+ */
+export function findUserComment(result: Ratings): Maybe<string> {
+    return new Maybe(result.ratings)
+        .map((ratings) => ratings[0])
+        .map((rating: Rating) => rating.comment);
 }

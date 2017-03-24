@@ -1,3 +1,4 @@
+import {DomElementDoesNotExist} from '../dom/DomElementDoesNotExist';
 import {toHtml} from '../dom/Facades';
 import {NoTranslationFound} from './NoTranslationFound';
 import {scanTranslations, Translator} from './Translator';
@@ -12,18 +13,15 @@ const translations = `
 describe('Testing l10n translation', () => {
 
     it('should parse translations', () => {
-        const root = toHtml<HTMLDivElement>(translations);
-        if (root === null) {
-            fail('root is null');
-        } else {
-            const scannedTranslations = scanTranslations(root);
-            const translator = new Translator(scannedTranslations);
-            expect(translator.get('test')).toBe('translated');
+        const root = toHtml<HTMLDivElement>(translations)
+            .orThrow(() => new DomElementDoesNotExist('No element found'));
+        const scannedTranslations = scanTranslations(root);
+        const translator = new Translator(scannedTranslations);
+        expect(translator.get('test')).toBe('translated');
 
-            const msg = 'Could not find translation for id test2';
-            expect(() => translator.get('test2'))
-                .toThrow(new NoTranslationFound(msg));
-        }
+        const msg = 'Could not find translation for id test2';
+        expect(() => translator.get('test2'))
+            .toThrow(new NoTranslationFound(msg));
     });
 
 });

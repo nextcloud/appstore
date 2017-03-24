@@ -1,4 +1,4 @@
 export class Invalid {
-    constructor(public errorMsgId: string) {
+    constructor(public readonly errorMsgId: string) {
     }
 }

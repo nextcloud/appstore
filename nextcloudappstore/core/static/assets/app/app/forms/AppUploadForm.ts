@@ -1,12 +1,11 @@
 import {apiRequest, HttpMethod} from '../../api/Request';
 import {AjaxForm} from '../../forms/AjaxForm';
 import {FormField, HtmlForm} from '../../forms/HtmlForm';
-import {IValidator} from '../../forms/validators/IValidator';
 import {Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 
 export class AppUploadForm extends AjaxForm<Object> {
-    private url: string;
+    private readonly url: string;
 
     constructor(form: HtmlForm, translator: Translator) {
         super(form, new Map(), translator);

@@ -1,3 +1,4 @@
+import {DomElementDoesNotExist} from '../dom/DomElementDoesNotExist';
 import {toHtml} from '../dom/Facades';
 import {scanForm} from './HtmlForm';
 
@@ -23,17 +24,14 @@ const validForm = `
 describe('HTML form parsing', () => {
 
     it('should parse all fields', () => {
-        const formHtml = toHtml<HTMLFormElement>(validForm);
-        if (formHtml !== null) {
-            const form = scanForm(formHtml);
-            expect(form.fields.size).toBe(4);
-            expect(form.messages.size).toBe(3);
-            expect(form.globalErrorMessage.innerText).toBe('error');
-            expect(form.globalSuccessMessage.innerText).toBe('success');
-            expect(form.submit.name).toBe('test-submit');
-        } else {
-            fail('Form is null');
-        }
+        const formHtml = toHtml<HTMLFormElement>(validForm)
+            .orThrow(() => new DomElementDoesNotExist('Root does not exist'));
+        const form = scanForm(formHtml);
+        expect(form.fields.size).toBe(4);
+        expect(form.messages.size).toBe(3);
+        expect(form.globalErrorMessage.innerText).toBe('error');
+        expect(form.globalSuccessMessage.innerText).toBe('success');
+        expect(form.submit.name).toBe('test-submit');
     });
 
 });

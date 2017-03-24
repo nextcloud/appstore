@@ -7,9 +7,9 @@ import {IValidator} from './validators/IValidator';
 
 export abstract class AjaxForm<T> {
 
-    constructor(private form: HtmlForm,
-                private validators: Map<string, IValidator[]>,
-                protected translator: Translator) {
+    constructor(private readonly form: HtmlForm,
+                private readonly validators: Map<string, IValidator[]>,
+                protected readonly translator: Translator) {
         this.bindValidators();
         this.bindSubmit();
     }

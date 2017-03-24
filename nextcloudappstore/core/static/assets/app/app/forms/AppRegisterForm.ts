@@ -6,7 +6,7 @@ import {Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 
 export class AppRegisterForm extends AjaxForm<Object> {
-    private url: string;
+    private readonly url: string;
 
     constructor(form: HtmlForm,
                 validators: Map<string, IValidator[]>,

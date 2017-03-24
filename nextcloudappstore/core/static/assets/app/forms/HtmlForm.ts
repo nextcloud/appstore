@@ -3,12 +3,12 @@ export type FormField = HTMLInputElement | HTMLTextAreaElement |
     HTMLSelectElement;
 
 export class HtmlForm {
-    constructor(public form: HTMLFormElement,
-                public fields: Map<string, FormField>,
-                public submit: HTMLInputElement,
-                public globalSuccessMessage: HTMLElement,
-                public globalErrorMessage: HTMLElement,
-                public messages: Map<string, HTMLElement>) {
+    constructor(public readonly form: HTMLFormElement,
+                public readonly fields: Map<string, FormField>,
+                public readonly submit: HTMLInputElement,
+                public readonly globalSuccessMessage: HTMLElement,
+                public readonly globalErrorMessage: HTMLElement,
+                public readonly messages: Map<string, HTMLElement>) {
     }
 }
 
