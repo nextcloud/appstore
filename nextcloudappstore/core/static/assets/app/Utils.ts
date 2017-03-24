@@ -38,6 +38,14 @@ export class Maybe<T> {
         }
     }
 
+    public orThrow(exceptionCreator: () => Error): T {
+        if (this.value !== null && this.value !== undefined) {
+            return this.value;
+        } else {
+            throw exceptionCreator();
+        }
+    }
+
     public isPresent(): boolean {
         return this.value !== null && this.value !== undefined;
     }

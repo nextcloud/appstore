@@ -86,6 +86,7 @@ class AppDetailView(DetailView):
             rating_languages.append(get_language())
 
         context['languages'] = set(sorted(rating_languages))
+        context['fallbackLang'] = 'en' if 'en' in context['languages'] else ''
         context['user_has_rated_app'] = False
         if self.request.user.is_authenticated:
             try:

@@ -5,8 +5,8 @@
 import {Maybe} from '../Utils';
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
 
-export function id(selector: string): HTMLElement | null {
-    return window.document.getElementById(selector);
+export function id<T extends HTMLElement>(selector: string): T | null {
+    return window.document.getElementById(selector) as T;
 }
 
 export function query<T extends Element>(selector: string,
@@ -18,6 +18,23 @@ export function query<T extends Element>(selector: string,
 export function queryAll(selector: string, parent?: Element): Element[] {
     const elem = parent || window.document;
     return Array.from(elem.querySelectorAll(selector));
+}
+
+/**
+ * Similar to id but throws if no element is found
+ * use this function to fail early if you absolutely expect it to not return
+ * null
+ * @param selector id to use
+ * @throws DomElementDoesNotExist if the query returns no element
+ */
+export function idOrThrow<T extends HTMLElement>(selector: string): T {
+    const elem = id<T>(selector);
+    if (elem === null) {
+        const msg = `No element found for id ${selector}`;
+        throw new DomElementDoesNotExist(msg);
+    } else {
+        return elem;
+    }
 }
 
 /**
@@ -52,6 +69,18 @@ export function getMetaValue(name: string): Maybe<string> {
         const metaTag = result as HTMLMetaElement;
         return new Maybe<string>(metaTag.content);
     }
+}
+
+/**
+ * Parses the header for a meta tag with a certain name and returns the content
+ * @param name
+ * @throws DomElementDoesNotExist if not found
+ * @returns {any}
+ */
+export function getMetaValueOrThrow(name: string): string {
+    const msg = `Meta tag with name ${name} not found`;
+    return getMetaValue(name)
+        .orThrow(() => new DomElementDoesNotExist(msg));
 }
 
 /**

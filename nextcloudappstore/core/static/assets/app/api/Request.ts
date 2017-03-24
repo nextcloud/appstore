@@ -18,6 +18,8 @@ export type RequestData = {
  */
 export function pageRequest<T>(request: RequestData,
                                csrfToken?: string): Promise<T> {
+    const method = request.method || 'GET';
+
     const headers = new Headers({
         'Content-Type': 'application/json',
     });
@@ -26,11 +28,16 @@ export function pageRequest<T>(request: RequestData,
         headers.append('X-CSRFToken', csrfToken);
     }
 
+    let body: string | undefined = JSON.stringify(request.data);
+    if (method === 'GET') {
+        body = undefined;
+    }
+
     const req = new Request(request.url, {
-        body: JSON.stringify(request.data),
+        body,
         credentials: 'include',
         headers,
-        method: request.method || 'GET',
+        method,
     });
 
     return fetch(req).then((response) => convertResponse<T>(response));
