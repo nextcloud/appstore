@@ -128,15 +128,13 @@ export function testDom(parentSelector: string, html: string,
 }
 
 /**
- * Similar to $.ready
+ * Similar to $.ready however uses a promise
  * @return a promise that resolves once the document has loaded
  */
-export function ready(): Promise<{}> {
-    return new Promise((resolve) => {
-        if (document.readyState !== 'loading') {
-            resolve();
-        } else {
-            document.addEventListener('DOMContentLoaded', resolve);
-        }
-    });
-}
+export const ready = new Promise((resolve) => {
+    if (document.readyState !== 'loading') {
+        resolve();
+    } else {
+        document.addEventListener('DOMContentLoaded', resolve);
+    }
+});

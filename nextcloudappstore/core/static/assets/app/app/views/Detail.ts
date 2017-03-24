@@ -4,7 +4,7 @@ import {
 } from '../../dom/Facades';
 import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
 
-ready().then(() => {
+ready.then(() => {
     const ratingUrl = getMetaValueOrThrow('ratings-url');
     const descriptionUrl = getMetaValueOrThrow('description-url');
     const currentLang = getMetaValueOrThrow('language-code');

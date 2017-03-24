@@ -11,7 +11,7 @@ export type RatingTemplateConfig = {
     };
 };
 
-export const ratingConfig: Promise<RatingTemplateConfig> = ready().then(() => {
+export const ratingConfig: Promise<RatingTemplateConfig> = ready.then(() => {
     return Promise.resolve({
         languageChooser: idOrThrow<HTMLSelectElement>('comment_language'),
         target: queryOrThrow<HTMLDivElement>('.app-rating-list'),

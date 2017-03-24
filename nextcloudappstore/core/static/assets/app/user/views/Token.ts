@@ -5,7 +5,7 @@ import {scanTranslations, Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 import {TokenRegenForm} from '../forms/TokenRegenForm';
 
-ready().then(() => {
+ready.then(() => {
     const formElement = queryOrThrow<HTMLFormElement>('#api-token-regen-form');
     const formMeta = scanForm(formElement);
     const translations = scanTranslations(formElement);
