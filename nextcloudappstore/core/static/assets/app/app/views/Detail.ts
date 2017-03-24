@@ -61,6 +61,6 @@ ready(() => {
     fetchDescription(descriptUrl)
         .then((description) => {
             descriptContainer.innerHTML = description;
-            descriptContainer.classList.remove('loading')
+            descriptContainer.classList.remove('loading');
         });
 });
