@@ -1,9 +1,8 @@
 import {fetchDescription} from '../../api/Api';
 import {
-    getMetaValueOrThrow, id, idOrThrow, query, queryOrThrow, ready,
+    getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
 } from '../../dom/Facades';
 import {loadUserRating, loadUserRatings, ratingConfig} from "../dom/Ratings";
-import {createSlideshow} from "../../components/Slideshow";
 
 ready().then(() => {
     const ratingUrl = getMetaValueOrThrow('ratings-url');
@@ -40,8 +39,5 @@ ready().then(() => {
         });
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);
     });
-
-    // initialize slideshow
-    query<HTMLElement>('.img-slider').ifPresent(createSlideshow);
 
 });

@@ -18,23 +18,39 @@
     <div class="header-wrap">
         <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
     </div>
-    <section class="app-gallery">
-        {% if object.screenshots.all %}
-            <div class="img-slider">
-                <div class="img-slider-controls {% if object.screenshots.all|length < 2 %}hidden{% endif %}">
-                    <a class="control prev"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> {% trans "Previous" %}</a>
-                    <a class="control next">{% trans "Next" %} <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
-                    <div class="slider-nav"></div>
+    {% if object.screenshots.all %}
+        <section id="app-gallery-container">
+            <div id="app-gallery" class="carousel slide" data-ride="carousel">
+                <div {% if object.screenshots.all|length < 2 %}hidden{% endif %} class="carousel-controls">
+                    <a class="left carousel-control" href="#app-gallery" role="button" data-slide="prev">
+                        <span>
+                            <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                            {% trans 'Previous' %}
+                        </span>
+                    </a>
+                    <ol class="carousel-indicators">
+                        {% for screenshot in object.screenshots.all %}
+                            <li data-target="#app-gallery" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                        {% endfor %}
+                    </ol>
+                    <a class="right carousel-control" href="#app-gallery" role="button" data-slide="next">
+                        <span>
+                            {% trans 'Next' %}
+                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                        </span>
+                    </a>
                 </div>
-                <div class="img-slider-view">
-                    <div class="img-strip">
-                        {% for screenshot in object.screenshots.all %}<img class="img" src="{{ screenshot.url }}">{% endfor %}
-                    </div>
+                <div class="carousel-inner" role="listbox">
+                    {% for screenshot in object.screenshots.all %}
+                        <div class="item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ screenshot.url }}" alt="{% trans 'Screenshot' %}">
+                        </div>
+                    {% endfor %}
                 </div>
-                <a class="fullscreen-btn"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span> {% trans "Fullscreen" %}</a>
             </div>
-        {% endif %}
-    </section>
+
+        </section>
+    {% endif %}
     <div class="app-meta col-md-4">
         <section>
             {% if object.last_release %}
