@@ -2,7 +2,7 @@ import {fetchDescription} from '../../api/Api';
 import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
 } from '../../dom/Facades';
-import {loadUserRating, loadUserRatings, ratingConfig} from "../dom/Ratings";
+import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
 
 ready().then(() => {
     const ratingUrl = getMetaValueOrThrow('ratings-url');
@@ -15,13 +15,12 @@ ready().then(() => {
         .ifPresent((commentInput) => {
             const input = idOrThrow<HTMLSelectElement>('id_language_code');
             input.addEventListener('change', (event: Event) => {
-                const target = <HTMLSelectElement>event.target;
+                const target = <HTMLSelectElement> event.target;
                 const lang = target.value;
-                let url = `${ratingUrl}?current_user=true&lang=${lang}`;
+                const url = `${ratingUrl}?current_user=true&lang=${lang}`;
                 loadUserRating(url, lang, commentInput);
             });
         });
-
 
     // load app description
     const descriptionTarget = queryOrThrow<HTMLDivElement>('.app-description');
@@ -34,7 +33,7 @@ ready().then(() => {
     // load user ratings list
     ratingConfig.then((config) => {
         config.languageChooser.addEventListener('change', (event: Event) => {
-            const target = <HTMLSelectElement>event.target;
+            const target = <HTMLSelectElement> event.target;
             loadUserRatings(ratingUrl, target.value, fallbackLang, config);
         });
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);

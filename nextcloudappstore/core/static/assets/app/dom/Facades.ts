@@ -10,7 +10,7 @@ export function id<T extends HTMLElement>(selector: string): Maybe<T> {
 }
 
 export function query<T extends Element>(selector: string,
-                                         parent?: Element): Maybe<T>{
+                                         parent?: Element): Maybe<T> {
     const elem = parent || window.document;
     return new Maybe(elem.querySelector(selector) as T);
 }
@@ -140,4 +140,3 @@ export function ready(): Promise<{}> {
         }
     });
 }
-
