@@ -5,7 +5,7 @@ import {IValidator} from '../../forms/validators/IValidator';
 import {scanTranslations, Translator} from '../../l10n/Translator';
 import {AppRegisterForm} from '../forms/AppRegisterForm';
 
-ready(() => {
+ready().then(() => {
     const formElement = queryOrThrow<HTMLFormElement>('#app-register-form');
     const formMeta = scanForm(formElement);
     const validators = new Map<string, IValidator[]>();

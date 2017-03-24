@@ -30,6 +30,15 @@ export class Maybe<T> {
         }
     }
 
+    public filter(predicate: (val: T) => boolean): Maybe<T> {
+        if (this.value !== null && this.value !== undefined &&
+            predicate(this.value)) {
+            return this;
+        } else {
+            return new Maybe<T>();
+        }
+    }
+
     public orElse(value: T): T {
         if (this.value !== null && this.value !== undefined) {
             return this.value;

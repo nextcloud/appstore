@@ -5,14 +5,14 @@
 import {Maybe} from '../Utils';
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
 
-export function id<T extends HTMLElement>(selector: string): T | null {
-    return window.document.getElementById(selector) as T;
+export function id<T extends HTMLElement>(selector: string): Maybe<T> {
+    return new Maybe(document.getElementById(selector) as T);
 }
 
 export function query<T extends Element>(selector: string,
-                                         parent?: Element): T | null {
+                                         parent?: Element): Maybe<T>{
     const elem = parent || window.document;
-    return elem.querySelector(selector) as T;
+    return new Maybe(elem.querySelector(selector) as T);
 }
 
 export function queryAll(selector: string, parent?: Element): Element[] {
@@ -28,13 +28,11 @@ export function queryAll(selector: string, parent?: Element): Element[] {
  * @throws DomElementDoesNotExist if the query returns no element
  */
 export function idOrThrow<T extends HTMLElement>(selector: string): T {
-    const elem = id<T>(selector);
-    if (elem === null) {
-        const msg = `No element found for id ${selector}`;
-        throw new DomElementDoesNotExist(msg);
-    } else {
-        return elem;
-    }
+    return id<T>(selector)
+        .orThrow(() => {
+            const msg = `No element found for id ${selector}`;
+            throw new DomElementDoesNotExist(msg);
+        });
 }
 
 /**
@@ -47,13 +45,11 @@ export function idOrThrow<T extends HTMLElement>(selector: string): T {
  */
 export function queryOrThrow<T extends HTMLElement>(selector: string,
                                                     parent?: Element): T {
-    const elem = query<T>(selector, parent);
-    if (elem === null) {
-        const msg = `No element found for selector ${selector}`;
-        throw new DomElementDoesNotExist(msg);
-    } else {
-        return elem;
-    }
+    return query<T>(selector, parent)
+        .orThrow(() => {
+            const msg = `No element found for selector ${selector}`;
+            throw new DomElementDoesNotExist(msg);
+        });
 }
 
 /**
@@ -62,13 +58,9 @@ export function queryOrThrow<T extends HTMLElement>(selector: string,
  * @returns {any}
  */
 export function getMetaValue(name: string): Maybe<string> {
-    const result = query(`meta[name="${name}"]`);
-    if (result === null || !(result instanceof HTMLMetaElement)) {
-        return new Maybe<string>();
-    } else {
-        const metaTag = result as HTMLMetaElement;
-        return new Maybe<string>(metaTag.content);
-    }
+    return query(`meta[name="${name}"]`)
+        .filter((elem) => elem instanceof HTMLMetaElement)
+        .map((elem) => (elem as HTMLMetaElement).content);
 }
 
 /**
@@ -114,12 +106,10 @@ export function appendHtml(parentSelector: string, html: string): Element {
     const parent = query(parentSelector);
     const child = toHtml(html);
 
-    if (parent === null || child === null) {
+    if (!parent.isPresent() || child === null) {
         throw new Error('Parent or child are null');
-    } else {
-        parent.appendChild(child);
     }
-
+    parent.ifPresent((elem) => elem.appendChild(child));
     return child;
 }
 
@@ -139,12 +129,15 @@ export function testDom(parentSelector: string, html: string,
 
 /**
  * Similar to $.ready
- * @param callback to execute after the dom has loaded
+ * @return a promise that resolves once the document has loaded
  */
-export function ready(callback: () => void) {
-    if (document.readyState !== 'loading') {
-        callback();
-    } else {
-        document.addEventListener('DOMContentLoaded', callback);
-    }
+export function ready(): Promise<{}> {
+    return new Promise((resolve) => {
+        if (document.readyState !== 'loading') {
+            resolve();
+        } else {
+            document.addEventListener('DOMContentLoaded', resolve);
+        }
+    });
 }
+
