@@ -1,5 +1,5 @@
-import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
 import {fetchRatings, findUserComment} from '../../api/Ratings';
+import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
 import {renderEmptyRatings, renderRating} from '../templates/Ratings';
 
 export type RatingTemplateConfig = {
@@ -13,11 +13,11 @@ export type RatingTemplateConfig = {
 
 export const ratingConfig: Promise<RatingTemplateConfig> = ready().then(() => {
     return Promise.resolve({
-        target: queryOrThrow<HTMLDivElement>('.app-rating-list'),
         languageChooser: idOrThrow<HTMLSelectElement>('comment_language'),
+        target: queryOrThrow<HTMLDivElement>('.app-rating-list'),
         templates: {
-            rating: idOrThrow<HTMLTemplateElement>('rating-template'),
             empty: idOrThrow<HTMLTemplateElement>('no-ratings-template'),
+            rating: idOrThrow<HTMLTemplateElement>('rating-template'),
         },
     });
 });

@@ -1,5 +1,5 @@
-import {pageRequest} from './Request';
 import {Maybe} from '../Utils';
+import {pageRequest} from './Request';
 
 export type Ratings = {
     lang: string;
