@@ -3,6 +3,38 @@
 Changelog
 ---------
 
+Unreleased
+++++++++++
+
+**Security**
+
+- Validate certificate signatures before letting people register public certificates. This would only allow developers to claim apps if they knew the public certificate. App uploads however were impossible without knowing the signature.
+
+**Added**
+
+- Added new Nextcloud version fixtures
+- Added support for several new XML elements in schema
+- Added support to switch between language comments
+- Added support to easily post ratings in multiple languages
+- Added support for running New Relic on servers
+
+**Fixed**
+
+- Remove duplicate entries for languages in comments
+- Fix layout issues in list view if app names were longer than expected
+- Return proper 400 codes in case certificate validation fails
+- API: Do not return duplicate releases for apps
+
+**Changed**
+
+- Migrated frontend code to Typescript + Webpack
+- Require bug tracker to present in info.xml
+- Require max-version to be present for Nextcloud versions
+
+**Removed**
+
+- Dropped Python 3.4 support
+
 1.0.0 - 2016-13-12
 ++++++++++++++++++
 

@@ -1,7 +1,6 @@
 sudo: false
 language: python
 python:
-  - "3.4"
   - "3.5"
   - "3.6"
 
@@ -11,7 +10,7 @@ env:
 
 matrix:
   include:
-    - python: 3.4
+    - python: 3.5
       env: DB=sqlite
 
 branches:
