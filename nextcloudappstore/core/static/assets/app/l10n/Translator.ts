@@ -3,8 +3,7 @@ import {NoTranslationFound} from './NoTranslationFound';
 
 export class Translator {
 
-    constructor(private translations: Map<string, string>) {
-
+    constructor(private readonly translations: Map<string, string>) {
     }
 
     public get(id: string): string {

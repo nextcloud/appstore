@@ -4,10 +4,10 @@ import {FormField, HtmlForm} from '../../forms/HtmlForm';
 import {Translator} from '../../l10n/Translator';
 
 export class TokenRegenForm extends AjaxForm<Object> {
-    private url: string;
+    private readonly url: string;
 
     constructor(form: HtmlForm, translator: Translator,
-                private tokenElement: HTMLElement) {
+                private readonly tokenElement: HTMLElement) {
         super(form, new Map(), translator);
         this.url = form.form.action;
     }
