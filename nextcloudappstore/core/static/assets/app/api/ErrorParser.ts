@@ -10,7 +10,11 @@ interface IDjangoFieldErrors {
     [index: string]: string[];
 }
 
-export type DjangoErrors = IDjangoFieldErrors | GlobalErrors;
+type DetailErrors = {
+    detail: string;
+};
+
+export type DjangoErrors = IDjangoFieldErrors | GlobalErrors | DetailErrors;
 
 /**
  * Parses a JSON error from a Django Restframework API
@@ -26,9 +30,14 @@ export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
     if (Array.isArray(errorJSON)) {
         result.global = errorJSON;
     } else if (typeof errorJSON === 'object') {
-        Object.keys(errorJSON).forEach((name) => {
-            result.fields.set(name, errorJSON[name]);
-        });
+        // standard error messages
+        if (errorJSON.hasOwnProperty('detail')) {
+            result.global = [(errorJSON as DetailErrors).detail];
+        } else {
+            Object.keys(errorJSON).forEach((name) => {
+                result.fields.set(name, (errorJSON as IDjangoFieldErrors)[name]);
+            });
+        }
     }
 
     return result;
