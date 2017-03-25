@@ -25,7 +25,7 @@
         <p><code id="token"></code></p>
         <form action="{% url 'api:v1:user-token-new' %}" method="post" id="api-token-regen-form">
             <span data-l10n-id="msg-form-success" hidden>{% trans 'New API token generated.' %}</span>
-            <div><div class="alert alert-success global-success-msg" hidden></div></div>
+            <div><div class="hidden alert alert-success global-success-msg" hidden></div></div>
             <div><div class="alert alert-danger global-error-msg" hidden></div></div>
 
             {% csrf_token %}
