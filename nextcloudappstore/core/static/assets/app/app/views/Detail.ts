@@ -1,3 +1,4 @@
+import * as screenfull from 'screenfull';
 import {fetchDescription} from '../../api/Api';
 import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
@@ -39,4 +40,13 @@ ready.then(() => {
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);
     });
 
+    // fullscreen bindings
+    id<HTMLElement>('app-gallery-container').ifPresent((gallery) => {
+        const fullscreen = queryOrThrow<HTMLElement>('.fullscreen', gallery);
+        fullscreen.addEventListener('click', () => {
+            if (screenfull.enabled) {
+                screenfull.toggle(gallery);
+            }
+        });
+    });
 });

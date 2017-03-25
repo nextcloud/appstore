@@ -1,5 +1,10 @@
 #app-gallery-container {
     box-shadow: 0 0 4px #ccc;
+
+    /* center items in fullscreen mode */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-controls {
@@ -44,4 +49,23 @@
 
 .carousel-indicators li {
     border-radius: 0;
+}
+
+.fullscreen {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    color: #fff;
+    padding: 5px;
+    text-shadow: none;
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.fullscreen:hover {
+    background-color: #fff;
+    color: var(--bg-color);
 }

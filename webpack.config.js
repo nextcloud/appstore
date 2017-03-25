@@ -34,12 +34,12 @@ module.exports = {
         // we dont care about bootstrap, jquery or polyfills, just copy it from
         // node_modules to the vendor directory for each page load to include
         new CopyWebpackPlugin([
-            {from: 'node_modules/bootstrap', to: base + 'vendor/bootstrap/'},
-            {from: 'node_modules/jquery', to: base + 'vendor/jquery/'},
-            {from: 'node_modules/whatwg-fetch', to: base + 'vendor/fetch/'},
+            {from: 'node_modules/bootstrap', to: `${base}vendor/bootstrap/`},
+            {from: 'node_modules/jquery', to: `${base}vendor/jquery/`},
+            {from: 'node_modules/whatwg-fetch', to: `${base}vendor/fetch/`},
             {
                 from: 'node_modules/highlight.js/styles/github.css',
-                to: base + 'vendor/github.css'
+                to: `${base}vendor/github.css`
             },
         ])
     ]
