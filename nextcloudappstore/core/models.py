@@ -106,6 +106,11 @@ class App(TranslatableModel):
     certificate = TextField(verbose_name=_('Certificate'))
     ocsid = IntegerField(verbose_name=_('OCS id'), null=True, blank=True,
                          help_text=_('Old store id. Deprecated'), unique=True)
+    ownership_transfer_enabled = BooleanField(
+        verbose_name=_('Ownership transfer enabled'), default=False,
+        help_text=_('If enabled, a user can try to register the same app '
+                    'again using the public certificate and signature. If he '
+                    'does, the app will be transferred to him.'))
 
     class Meta:
         verbose_name = _('App')

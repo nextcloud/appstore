@@ -78,7 +78,10 @@ class AppRegisterView(APIView):
 
         try:
             app = App.objects.get(id=app_id)
-            if app.owner != request.user:
+            if app.ownership_transfer_enabled:
+                app.owner = request.user
+                app.ownership_transfer_enabled = False
+            elif app.owner != request.user:
                 msg = 'Only the app owner is allowed to update the certificate'
                 raise PermissionDenied(msg)
             app.certificate = certificate

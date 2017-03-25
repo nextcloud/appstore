@@ -34,6 +34,24 @@ class AppRegisterTest(ApiTest):
             }, format='json')
             self.assertEqual(403, response.status_code)
 
+    def test_register_transfer(self):
+        owner = get_user_model().objects.create_user(username='owner',
+                                                     password='owner',
+                                                     email='owner@owner.com')
+        app = self._create_app(owner, 'news')
+        app.ownership_transfer_enabled = True
+        app.save()
+        self._login_token()
+        with self.settings(VALIDATE_CERTIFICATES=False):
+            response = self.api_client.post(self.create_url, data={
+                'signature': 'sign',
+                'certificate': self._cert
+            }, format='json')
+            self.assertEqual(204, response.status_code)
+            app = App.objects.get(id='news')
+            self.assertEqual(self.user, app.owner)
+            self.assertFalse(app.ownership_transfer_enabled)
+
     def test_register(self):
         self._login()
         with self.settings(VALIDATE_CERTIFICATES=False):
