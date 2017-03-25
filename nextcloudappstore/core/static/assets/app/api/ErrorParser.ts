@@ -35,7 +35,10 @@ export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
             result.global = [(errorJSON as DetailErrors).detail];
         } else {
             Object.keys(errorJSON).forEach((name) => {
-                result.fields.set(name, (errorJSON as IDjangoFieldErrors)[name]);
+                result.fields.set(
+                    name,
+                    (errorJSON as IDjangoFieldErrors)[name],
+                );
             });
         }
     }
