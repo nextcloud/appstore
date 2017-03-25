@@ -605,6 +605,7 @@ class AppReleaseDeleteLog(Model):
     def __str__(self) -> str:
         return str(self.last_modified)
 
+
 class NextcloudReleaseManager(Manager):
     def get_current(self):
         return self.get_queryset().filter(is_current=True)[:1]
