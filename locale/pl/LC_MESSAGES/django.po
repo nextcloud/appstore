@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 01:22+0000\n"
+"POT-Creation-Date: 2017-03-25 01:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: R Kolatzek <robert@kolatzek.org>, 2017\n"
 "Language-Team: Polish (https://www.transifex.com/nextcloud/teams/64236/pl/)\n"
@@ -36,17 +36,17 @@ msgid "Download"
 msgstr "Pobieranie"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:152
+#: nextcloudappstore/core/templates/app/detail.html:166
 msgid "Bad"
 msgstr "Zły"
 
 #: nextcloudappstore/core/forms.py:11
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:165
 msgid "Ok"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:150
+#: nextcloudappstore/core/templates/app/detail.html:164
 msgid "Good"
 msgstr "Dobry"
 
@@ -184,7 +184,7 @@ msgid "Issue tracker url"
 msgstr "Link do trackera błędów"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:316
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:89
 msgid "Homepage"
 msgstr "Strona domowa"
 
@@ -203,7 +203,7 @@ msgid "App owner"
 msgstr "Właściciel aplikacji"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:59
+#: nextcloudappstore/core/templates/app/detail.html:73
 msgid "Co-Maintainers"
 msgstr "Inni opiekunowie"
 
@@ -212,18 +212,18 @@ msgid "App authors"
 msgstr "Autorzy aplikacji"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:19
+#: nextcloudappstore/core/templates/app/detail.html:17
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "Funkcje"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:56
+#: nextcloudappstore/core/templates/app/detail.html:70
 msgid "Recent rating"
 msgstr "Ostatnie oceny"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:54
+#: nextcloudappstore/core/templates/app/detail.html:68
 msgid "Overall rating"
 msgstr "Ocena ogólna"
 
@@ -397,6 +397,7 @@ msgid "Ordering"
 msgstr "Kolejność"
 
 #: nextcloudappstore/core/models.py:421
+#: nextcloudappstore/core/templates/app/detail.html:44
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -752,86 +753,82 @@ msgstr "Administracja Nextcloud App Store"
 msgid "All apps"
 msgstr "Wszystkie aplikacje"
 
-#: nextcloudappstore/core/templates/app/detail.html:25
+#: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
 msgstr "Poprzedni"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:36
 msgid "Next"
 msgstr "Następny"
 
-#: nextcloudappstore/core/templates/app/detail.html:34
-msgid "Fullscreen"
-msgstr "Pełny ekran"
-
-#: nextcloudappstore/core/templates/app/detail.html:41
+#: nextcloudappstore/core/templates/app/detail.html:55
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Zaktualizowano"
 
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:59
 msgid "Publisher"
 msgstr "Wydawca"
 
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:86
 msgid "Resources"
 msgstr "Zasoby"
 
-#: nextcloudappstore/core/templates/app/detail.html:78
+#: nextcloudappstore/core/templates/app/detail.html:92
 msgid "User documentation"
 msgstr "Dokumentacja użytkownika"
 
-#: nextcloudappstore/core/templates/app/detail.html:81
+#: nextcloudappstore/core/templates/app/detail.html:95
 msgid "Admin documentation"
 msgstr "Dokumentacja administratora"
 
-#: nextcloudappstore/core/templates/app/detail.html:84
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Developer documentation"
 msgstr "Dokumentacja dewelopera"
 
-#: nextcloudappstore/core/templates/app/detail.html:93
+#: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Downloads"
 msgstr "Pliki do pobrania"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:114
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "nocne"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Unstable"
 msgstr "Niestabilny"
 
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:115
 msgid "All releases"
 msgstr "Wszystkie publikacje"
 
-#: nextcloudappstore/core/templates/app/detail.html:111
+#: nextcloudappstore/core/templates/app/detail.html:125
 msgid "Discussion"
 msgstr "Dyskusja"
 
-#: nextcloudappstore/core/templates/app/detail.html:113
+#: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Report problem"
 msgstr "Zgłoś problem"
 
-#: nextcloudappstore/core/templates/app/detail.html:114
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "Request feature"
 msgstr "Zgłoś propozycję"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:130
 msgid "Ask questions or discuss"
 msgstr "Zadaj pytanie lub weź udział w dyskusji"
 
-#: nextcloudappstore/core/templates/app/detail.html:118
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Rate app"
 msgstr "Oceń aplikację"
 
-#: nextcloudappstore/core/templates/app/detail.html:125
+#: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate"
 msgstr "Oceń"
 
-#: nextcloudappstore/core/templates/app/detail.html:130
+#: nextcloudappstore/core/templates/app/detail.html:144
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -841,23 +838,23 @@ msgstr ""
 "Nie używaj systemu ocen komentarzy do zgłaszania błędów lub próśb o nowe funkcje. Ani użytkownicy ani deweloperzy nie będą powiadomieni o twoim komentarzu.\n"
 "Ocena bez komentarza nadal się liczy, ale nie będzie widoczna poniżej."
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:149
 msgid "Update rating"
 msgstr "Zaktualizuj ocenę"
 
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Submit rating"
 msgstr "Wyślij ocenę"
 
-#: nextcloudappstore/core/templates/app/detail.html:164
+#: nextcloudappstore/core/templates/app/detail.html:178
 msgid "No comments found."
 msgstr "Brak komentarzy."
 
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Rating comments"
 msgstr "Komentarze ocen"
 
-#: nextcloudappstore/core/templates/app/detail.html:176
+#: nextcloudappstore/core/templates/app/detail.html:190
 msgid "Display ratings comments in:"
 msgstr "Wyświetl komentarze ocen w:"
 
