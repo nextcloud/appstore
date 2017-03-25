@@ -605,64 +605,6 @@ class AppReleaseDeleteLog(Model):
     def __str__(self) -> str:
         return str(self.last_modified)
 
-
-class AppOwnershipTransfer(Model):
-    """Represents a transfer of ownership of an app from one user to another.
-
-    This model fulfills two purposes:
-
-    - Be a proposal of an app ownership transfer that may or may not be
-    accepted by the user acquiring ownership (to_user).
-    - Execute (commit) the transfer.
-
-    When a transfer object is created, the field 'from_user' is automatically
-    set to the owner of the 'app'. Thus, to initiate a transfer, use the
-    following statement:
-
-        AppOwnershipTransfer.objects.create(app=app, to_user=user)
-
-    An instance of AppOwnershipTransfer is deleted when the transfer it
-    represents is committed.
-    """
-
-    app = OneToOneField(
-        'App', on_delete=CASCADE, related_name='ownership_transfer')
-    from_user = ForeignKey(
-        settings.AUTH_USER_MODEL,
-        related_name='app_ownership_transfers_outgoing',
-        on_delete=CASCADE)
-    to_user = ForeignKey(
-        settings.AUTH_USER_MODEL,
-        related_name='app_ownership_transfers_incoming',
-        on_delete=CASCADE)
-    proposed = DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = _('App ownership transfer')
-        verbose_name_plural = _('App ownership transfers')
-
-    def __str__(self) -> str:
-        return '%s: from %s to %s' % (self.app, self.from_user, self.to_user)
-
-    def commit(self):
-        """Execute the transfer. Does not check for acceptance by the user
-        acquiring ownership.
-        """
-
-        self.app.owner = self.to_user
-        self.app.save()
-        self.delete()
-
-    def save(self, *args, **kwargs):
-        if not self.id:  # a.k.a. "if object is being created"
-            self.from_user = self.app.owner
-            if self.from_user is self.to_user:
-                raise RuntimeError(
-                    'Could not initiate transfer of app ownership. '
-                    'The proposed new owner already owns the app.')
-        return super().save(*args, **kwargs)
-
-
 class NextcloudReleaseManager(Manager):
     def get_current(self):
         return self.get_queryset().filter(is_current=True)[:1]
