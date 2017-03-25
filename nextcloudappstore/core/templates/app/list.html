@@ -4,7 +4,7 @@
 
 {% block head-title %}{% if current_category %}{{ current_category.name }} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}
-    <script src="{% static 'public/app/list.js' %}"></script>
+    <script async src="{% static 'public/app/list.js' %}"></script>
 {% endblock %}
 
 {% block apps %}

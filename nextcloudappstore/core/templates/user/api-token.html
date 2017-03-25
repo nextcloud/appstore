@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block head %}
-    <script defer="defer" src="{% static 'public/user/token.js' %}"></script>
+    <script async src="{% static 'public/user/token.js' %}"></script>
 {% endblock %}
 
 {% block head-title %}{% trans 'API Token' %} - {% endblock %}
