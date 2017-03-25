@@ -1,8 +1,8 @@
 from django.contrib import admin
 from nextcloudappstore.core.models import DatabaseDependency, AppRelease, \
     ShellCommand, Screenshot, PhpExtensionDependency, License, PhpExtension, \
-    Database, AppRating, App, Category, AppAuthor, AppOwnershipTransfer, \
-    AppReleaseDeleteLog, NextcloudRelease
+    Database, AppRating, App, Category, AppAuthor, AppReleaseDeleteLog, \
+    NextcloudRelease
 
 from parler.admin import TranslatableAdmin
 
@@ -35,12 +35,6 @@ class AppReleaseAdmin(TranslatableAdmin):
 @admin.register(AppAuthor)
 class AppAuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'mail', 'homepage')
-
-
-@admin.register(AppOwnershipTransfer)
-class AppOwnershipTransferAdmin(admin.ModelAdmin):
-    list_display = ('app', 'from_user', 'to_user', 'proposed')
-    list_filter = ('app', 'from_user', 'to_user', 'proposed')
 
 
 @admin.register(Category)
