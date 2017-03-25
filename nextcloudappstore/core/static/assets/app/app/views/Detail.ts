@@ -3,6 +3,7 @@ import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
 } from '../../dom/Facades';
 import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
+import * as screenfull from 'screenfull';
 
 ready.then(() => {
     const ratingUrl = getMetaValueOrThrow('ratings-url');
@@ -39,4 +40,14 @@ ready.then(() => {
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);
     });
 
+
+    // fullscreen bindings
+    id<HTMLElement>('app-gallery-container').ifPresent((gallery) => {
+        const fullscreen = queryOrThrow<HTMLElement>('.fullscreen', gallery);
+        fullscreen.addEventListener('click', () => {
+            if (screenfull.enabled) {
+                screenfull.toggle(gallery);
+            }
+        });
+    })
 });

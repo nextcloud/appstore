@@ -38,12 +38,18 @@
                         </span>
                     </a>
                 </div>
-                <div class="carousel-inner" role="listbox">
-                    {% for screenshot in object.screenshots.all %}
-                        <div class="item {% if forloop.first %}active{% endif %}">
-                            <img src="{{ screenshot.url }}" alt="{% trans 'Screenshot' %}">
-                        </div>
-                    {% endfor %}
+                <div class="inner-container">
+                    <div class="carousel-inner" role="listbox">
+                        {% for screenshot in object.screenshots.all %}
+                            <div class="item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ screenshot.url }}" alt="{% trans 'Screenshot' %}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="fullscreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        {% trans 'Fullscreen' %}
+                    </button>
                 </div>
             </div>
 
