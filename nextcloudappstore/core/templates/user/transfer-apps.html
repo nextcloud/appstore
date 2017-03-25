@@ -30,9 +30,9 @@
                             <form action="{% url 'user:account-transfer-app' pk=app.id %}" method="post">
                                 {% csrf_token %}
                                 {% if app.ownership_transfer_enabled %}
-                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Lock owner transfer' %}</button>
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Lock ownership transfer' %}</button>
                                 {% else %}
-                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Unlock owner transfer' %}</button>
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Unlock ownership transfer' %}</button>
                                 {% endif %}
                             </form>
                         </td>
