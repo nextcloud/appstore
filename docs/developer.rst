@@ -133,7 +133,7 @@ Transferring Your App to a New Owner
 
 Transferring an app works similar to :ref:`registering an app <app-register>`: The new owner simply needs to register the app again using the public certificate and the signature.
 
-However by default this is restricted to the app's owner. To disable this restriction you first need to unlock your app for the owner transfer. You can do this by going to your **account** settings and choosing `Transfer apps <https://apps.nextcloud.com/account/transfer-apps>`_. On that page you can lock or unlock your apps for being transferred.
+However by default this is restricted to the app's owner. To disable this restriction you first need to unlock your app for the owner transfer. You can do this by going to your **account** settings and choosing `Transfer app ownership <https://apps.nextcloud.com/account/transfer-apps>`_. On that page you can lock or unlock your apps for being transferred.
 
 After you unlocked your app for transfer, the new owner can then proceed to register the app again. If everything went fine the app is now transferred to the new owner and the transfer setting for that app is locked again.
 
