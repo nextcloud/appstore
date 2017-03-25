@@ -1,8 +1,8 @@
+import * as screenfull from 'screenfull';
 import {fetchDescription} from '../../api/Api';
 import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
 } from '../../dom/Facades';
-import * as screenfull from 'screenfull';
 import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
 
 ready.then(() => {
