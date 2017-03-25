@@ -2,8 +2,8 @@ import {fetchDescription} from '../../api/Api';
 import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
 } from '../../dom/Facades';
-import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
 import * as screenfull from 'screenfull';
+import {loadUserRating, loadUserRatings, ratingConfig} from '../dom/Ratings';
 
 ready.then(() => {
     const ratingUrl = getMetaValueOrThrow('ratings-url');
@@ -40,7 +40,6 @@ ready.then(() => {
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);
     });
 
-
     // fullscreen bindings
     id<HTMLElement>('app-gallery-container').ifPresent((gallery) => {
         const fullscreen = queryOrThrow<HTMLElement>('.fullscreen', gallery);
@@ -49,5 +48,5 @@ ready.then(() => {
                 screenfull.toggle(gallery);
             }
         });
-    })
+    });
 });
