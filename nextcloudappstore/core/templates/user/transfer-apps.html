@@ -8,34 +8,39 @@
     <h1>{% trans "Transfer Apps" %}</h1>
     <section>
         <p>{% trans 'To transfer an app to a new owner you must first unlock the app. A user can then take control of the app by registering it again on the app register page in the app developer menu.' %}</p>
-        <table class="table table-striped">
-            <tr>
-                <th>{% trans 'App name' %}</th>
-                <th>{% trans 'Ownership transfer status' %}</th>
-                <th>{% trans 'Change ownership transfer status' %}</th>
-            </tr>
-            {% for app in apps %}
+
+        {% if apps %}
+            <table class="table table-striped">
                 <tr>
-                    <td>{{ app.name }}</td>
-                    <td class="{% if app.ownership_transfer_enabled %}bg-success{% else %}bg-danger{% endif %}">
-                        {% if app.ownership_transfer_enabled %}
-                            {% trans 'Unlocked for transfer' %}
-                        {% else %}
-                            {% trans 'Locked, no transfer possible' %}
-                        {% endif %}
-                    </td>
-                    <td>
-                        <form action="{% url 'user:account-transfer-app' pk=app.id %}" method="post">
-                            {% csrf_token %}
-                            {% if app.ownership_transfer_enabled %}
-                                <button class="btn btn-primary btn-block" type="submit">{% trans 'Lock owner transfer' %}</button>
-                            {% else %}
-                                <button class="btn btn-primary btn-block" type="submit">{% trans 'Unlock owner transfer' %}</button>
-                            {% endif %}
-                        </form>
-                    </td>
+                    <th>{% trans 'App name' %}</th>
+                    <th>{% trans 'Ownership transfer status' %}</th>
+                    <th>{% trans 'Change ownership transfer status' %}</th>
                 </tr>
-            {% endfor %}
-        </table>
+                {% for app in apps %}
+                    <tr>
+                        <td>{{ app.name }}</td>
+                        <td class="{% if app.ownership_transfer_enabled %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if app.ownership_transfer_enabled %}
+                                {% trans 'Unlocked for transfer' %}
+                            {% else %}
+                                {% trans 'Locked, no transfer possible' %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form action="{% url 'user:account-transfer-app' pk=app.id %}" method="post">
+                                {% csrf_token %}
+                                {% if app.ownership_transfer_enabled %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Lock owner transfer' %}</button>
+                                {% else %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Unlock owner transfer' %}</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="alert alert-info">{% trans 'You have not uploaded any apps yet!' %}</p>
+        {% endif %}
     </section>
 {% endblock %}
