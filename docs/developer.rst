@@ -268,6 +268,16 @@ A full blown example would look like this (needs to be utf-8 encoded):
                 <provider>OCA\Files\Activity\Provider</provider>
             </providers>
         </activity>
+        <navigations>
+            <navigation role="admin">
+                <id>files</id>
+                <name>Files</name>
+                <route>files.view.index</route>
+                <order>0</order>
+                <icon>app.svg</icon>
+                <type>link</type>
+            </navigation>
+        </navigations>
     </info>
 
 The following tags are validated and used in the following way:
@@ -451,6 +461,39 @@ settings/admin
 settings/admin-section
     * optional
     * must contain a php class which implements OCP\Settings\ISection and returns data to render navigation entries in the global settings area
+navigations
+    * optional
+    * must contain at least one navigation element
+navigations/navigation
+    * required
+    * must contain a name and route element
+    * denotes a navigation entry
+    * role denotes the visibility, all means everyone can see it, admin means only an admin can see the navigation entry, defaults to all
+navigations/navigation/id
+    * optional
+    * the app id
+    * you can also create entries for other apps by setting an id other than your app one's
+navigations/navigation/name
+    * optional
+    * will be displayed below the navigation entry icon
+    * will be translated by the default translation tools
+navigations/navigation/route
+    * optional
+    * name of the route that will be used to generate the link
+navigations/navigation/icon
+    * optional
+    * name of the icon which is looked up in the app's **img/** folder
+    * defaults to app.svg
+navigations/navigation/order
+    * optional
+    * used to sort the navigation entries
+    * a higher order number means that the entry will be ordered further to the bottom
+navigations/navigation/type
+    * optional
+    * can be either link or settings
+    * link means that the entry is added to the default app menu
+    * settings means that the entry is added to the right-side menu which also contains the personal, admin, users, help and logout entry
+
 
 The following character maximum lengths are enforced:
 
