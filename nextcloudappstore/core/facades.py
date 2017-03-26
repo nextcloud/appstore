@@ -1,6 +1,5 @@
 import os
 from itertools import chain
-from typing import List, Callable
 
 """
 Contains small utility and shortcut functions

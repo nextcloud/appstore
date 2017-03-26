@@ -3,11 +3,29 @@ from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse
 from django.views.generic import TemplateView
 from django.views.generic import UpdateView
 
+from nextcloudappstore.core.models import App
 from nextcloudappstore.core.user.forms import DeleteAccountForm, AccountForm
+
+
+class TransferAppsView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/transfer-apps.html'
+
+    def post(self, request, pk):
+        app = get_object_or_404(App, pk=pk, owner=self.request.user)
+        app.ownership_transfer_enabled = not app.ownership_transfer_enabled
+        app.save()
+        return redirect(reverse('user:account-transfer-apps'))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['apps'] = App.objects.filter(owner=self.request.user)
+        context['acc_page'] = 'account-transfer-apps'
+        return context
 
 
 class ChangeLanguageView(LoginRequiredMixin, TemplateView):

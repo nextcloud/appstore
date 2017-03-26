@@ -11,12 +11,16 @@ Nextcloud App Store
 .. image:: https://requires.io/github/nextcloud/appstore/requirements.svg?branch=master
      :target: https://requires.io/github/nextcloud/appstore/requirements/?branch=master
      :alt: Requirements Status
+.. image:: https://david-dm.org/nextcloud/appstore.svg
+     :target: https://github.com/nextcloud/appstore/blob/master/package.json
+     :alt: Package.json Status
 .. image:: https://img.shields.io/badge/license-AGPLv3+-blue.svg
      :target: https://www.gnu.org/licenses/agpl-3.0.en.html
      :alt: License
 .. image:: https://img.shields.io/badge/irc%20channel-%23nextcloud--dev%20on%20freenode-blue.svg
      :target: https://webchat.freenode.net/?channels=nextcloud-dev
      :alt: IRC
+
 
 A new app store for Nextcloud apps built with Django.
 

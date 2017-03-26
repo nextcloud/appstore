@@ -72,6 +72,9 @@ After we approved your certificate, we will post your signed public certificate 
 
 .. note:: Be sure to follow the directory and naming structure for certificates. All our documentation examples and tools will assert this structure.
 
+
+.. _app-register:
+
 Registering an App
 ~~~~~~~~~~~~~~~~~~
 After you've obtained your signed public certificate you can use it to register your app id on the App Store. To do that either use the :ref:`REST API <api-register-app>` or use the App Store's `register app web interface <https://apps.nextcloud.com/developer/apps/new>`_.
@@ -115,6 +118,8 @@ We then download the archive and verify the signature. In addition we try to ver
 
 If everything went well the release is then either created or updated. The downloaded archive will be deleted from our server.
 
+.. _app-revoke-cert:
+
 Revoking a Certificate
 ~~~~~~~~~~~~~~~~~~~~~~
 If you've lost or leaked your private certificate you want to revoke your certificate.
@@ -122,6 +127,16 @@ If you've lost or leaked your private certificate you want to revoke your certif
 You can revoke your previous certificate by either posting your public certificate and revocation request `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ or by requesting a new certificate for an already requested app id.
 
 After you've obtained a new certificate, simply use it to register your app id again (only owners are allowed to do this). This will delete all previous releases from our server since their signature has become invalid.
+
+Transferring Your App to a New Owner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Transferring an app works similar to :ref:`registering an app <app-register>`: The new owner simply needs to register the app again using the public certificate and the signature.
+
+However by default this is restricted to the app's owner. To disable this restriction you first need to unlock your app for the owner transfer. You can do this by going to your **account** settings and choosing `Transfer app ownership <https://apps.nextcloud.com/account/transfer-apps>`_. On that page you can lock or unlock your apps for being transferred.
+
+After you unlocked your app for transfer, the new owner can then proceed to register the app again. If everything went fine the app is now transferred to the new owner and the transfer setting for that app is locked again.
+
 
 .. _app-metadata:
 

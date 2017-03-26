@@ -17,6 +17,7 @@ Unreleased
 - Added support to switch between language comments
 - Added support to easily post ratings in multiple languages
 - Added support for running New Relic on servers
+- Added ability to transfer app ownership
 
 **Fixed**
 
