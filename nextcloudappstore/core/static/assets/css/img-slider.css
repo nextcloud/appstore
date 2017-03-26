@@ -1,17 +1,21 @@
 #app-gallery-container {
-    box-shadow: 0 0 4px #ccc;
-
-    /* center items in fullscreen mode */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow-y: auto;
+    min-width: 100%;
+    justify-content: space-between;
+}
+
+#app-gallery {
+    min-width: 100%;
+    box-shadow: 0 0 4px #ccc;
+    position: relative;
 }
 
 .carousel-controls {
     line-height: 40px;
     height: 40px;
     background: none;
-    opacity:1;
+    opacity: 1;
     position: relative;
     margin: 0 auto;
     background-color: var(--bg-color);
@@ -51,21 +55,14 @@
     border-radius: 0;
 }
 
-.fullscreen {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-    background-color: var(--bg-color);
-    border: 1px solid var(--bg-color);
-    color: #fff;
-    padding: 5px;
-    text-shadow: none;
-    font-size: 12pt;
-    font-weight: 400;
+.carousel-inner:not(.fullscreen) {
+    cursor: zoom-in;
 }
 
-.fullscreen:hover {
-    background-color: #fff;
-    color: var(--bg-color);
+.fullscreen  {
+    cursor: zoom-out;
+}
+
+.carousel-inner img {
+    min-width: 100%;
 }

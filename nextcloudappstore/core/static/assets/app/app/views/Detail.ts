@@ -42,9 +42,10 @@ ready.then(() => {
 
     // fullscreen bindings
     id<HTMLElement>('app-gallery-container').ifPresent((gallery) => {
-        const fullscreen = queryOrThrow<HTMLElement>('.fullscreen', gallery);
-        fullscreen.addEventListener('click', () => {
+        const item = queryOrThrow<HTMLElement>('.carousel-inner', gallery);
+        item.addEventListener('click', () => {
             if (screenfull.enabled) {
+                item.classList.toggle('fullscreen');
                 screenfull.toggle(gallery);
             }
         });
