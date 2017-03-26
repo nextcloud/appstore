@@ -40,6 +40,7 @@
             <xsl:copy-of select="ocsid"/>
             <xsl:apply-templates select="settings"/>
             <xsl:apply-templates select="activity"/>
+            <xsl:apply-templates select="navigations"/>
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>
@@ -65,6 +66,30 @@
             <xsl:copy-of select="filters"/>
             <xsl:copy-of select="providers"/>
         </settings>
+    </xsl:template>
+
+    <xsl:template match="navigations">
+        <navigations>
+            <xsl:apply-templates select="navigation"/>
+        </navigations>
+    </xsl:template>
+
+    <xsl:template match="navigation">
+        <navigation>
+            <!-- test if attribute exists, otherwise an empty value will be
+            used which leads to validation failure -->
+            <xsl:if test="@role">
+                <xsl:attribute name="role">
+                        <xsl:value-of select="@role"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:copy-of select="id"/>
+            <xsl:copy-of select="name"/>
+            <xsl:copy-of select="route"/>
+            <xsl:copy-of select="icon"/>
+            <xsl:copy-of select="order"/>
+            <xsl:copy-of select="type"/>
+        </navigation>
     </xsl:template>
 
     <xsl:template match="documentation">

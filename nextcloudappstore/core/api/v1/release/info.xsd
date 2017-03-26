@@ -51,6 +51,8 @@
                             maxOccurs="1"/>
                 <xs:element name="activity" type="activity" minOccurs="0"
                             maxOccurs="1"/>
+                <xs:element name="navigations" type="navigations" minOccurs="0"
+                            maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -378,6 +380,45 @@
                         maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="navigations">
+        <xs:sequence>
+            <xs:element name="navigation" type="navigation" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="navigation">
+        <xs:sequence>
+            <xs:element name="id" type="id" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="name" type="non-empty-string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="route" type="route" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="icon" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="order" type="xs:int" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="type" type="navigation-type" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="role" type="navigation-role" default="all" use="optional"/>
+    </xs:complexType>
+
+    <xs:simpleType name="navigation-role">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="all"/>
+            <xs:enumeration value="admin"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="navigation-type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="link"/>
+            <xs:enumeration value="settings"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="route">
+        <xs:restriction base="non-empty-string">
+            <xs:pattern value="[0-9a-zA-Z_]+(\.[0-9a-zA-Z_]+){2}"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <!-- dependencies -->
     <xs:complexType name="dependencies">

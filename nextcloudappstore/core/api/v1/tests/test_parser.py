@@ -66,8 +66,9 @@ class ParserTest(TestCase):
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
 
-    def test_parse_settings_and_activity(self):
-        xml = self._get_contents('data/infoxmls/settings-and-activity.xml')
+    def test_parse_settings_and_activity_and_nav(self):
+        xml = self._get_contents(
+            'data/infoxmls/settings-and-activity-and-nav.xml')
         parse_app_metadata(xml, self.config.info_schema,
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
