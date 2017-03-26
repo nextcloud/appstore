@@ -18,7 +18,7 @@
     </div>
     {% if object.screenshots.all %}
         <section id="app-gallery-container">
-            <div id="app-gallery" class="carousel slide" data-ride="carousel">
+            <div id="app-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div {% if object.screenshots.all|length < 2 %}hidden{% endif %} class="carousel-controls">
                     <a class="left carousel-control" href="#app-gallery" role="button" data-slide="prev">
                         <span>
