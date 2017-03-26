@@ -14,6 +14,7 @@ Authors
 * `Marius Blüm <mailto:marius@lineone.io>`_
 * `fossxplorer <mailto:fossxplorer@gmail.com>`_
 * `rakekniven <mailto:mark.ziegler@rakekniven.de>`_
+* `David Peach <mailto:mail@davidpeach.co.uk>`_
 * `Franz Dietrich <mailto:dietrich@teilgedanken.de>`_
 * `Jannick Hemelhof <mailto:jhemelho@vub.ac.be>`_
 * `Joas Schilling <mailto:coding@schilljs.com>`_
