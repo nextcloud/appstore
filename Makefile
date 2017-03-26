@@ -76,3 +76,8 @@ clean:
 .PHONE: test-data
 test-data:
 	$(python) $(CURDIR)/scripts/development/testdata.py
+
+.PHONE: l10n
+l10n:
+	$(manage) compilemessages --settings nextcloudappstore.settings.development
+	$(manage) importdbtranslations --settings nextcloudappstore.settings.development

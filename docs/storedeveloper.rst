@@ -27,6 +27,9 @@ make resetup
 make test-data
     downloads and sets up test apps, needs certificate validation to be disabled and a running server at http://127.0.0.1:8000
 
+make l10n
+    compiles and installs translations
+
 Frontend
 --------
 
