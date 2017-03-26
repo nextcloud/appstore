@@ -24,6 +24,9 @@ make update-dev-deps
 make resetup
     kills the current sqlite database and creates a new one
 
+make test-data
+    downloads and sets up test apps, needs certificate validation to be disabled and a running server at http://127.0.0.1:8000
+
 Frontend
 --------
 

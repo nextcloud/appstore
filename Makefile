@@ -73,3 +73,6 @@ clean:
 	rm -rf $(CURDIR)/node_modules
 	$(MAKE) -C $(CURDIR)/docs/ clean
 
+.PHONE: test-data
+test-data:
+	$(python) $(CURDIR)/scripts/development/testdata.py
