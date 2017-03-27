@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../release/info.xsd">
     <id>news</id>
-    <name>News</name>
+    <name lang="en">News</name>
     <summary>An RSS/Atom feed reader</summary>
     <description>An RSS/Atom feed reader</description>
     <version>8.8.2</version>
@@ -33,6 +33,16 @@
     <dependencies>
         <owncloud min-version="9.0" max-version="9.0"/>
     </dependencies>
+    <navigations>
+        <navigation role="admin">
+            <id>files</id>
+            <name>Files</name>
+            <route>files.view.index</route>
+            <order>0</order>
+            <icon>../app.svg</icon>
+            <type>settings</type>
+        </navigation>
+    </navigations>
     <settings>
         <admin-section>OCA\Theming\Settings\Section</admin-section>
         <admin>OCA\Theming\Settings\Admin</admin>
