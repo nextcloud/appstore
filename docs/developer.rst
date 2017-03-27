@@ -474,11 +474,11 @@ navigations/navigation/id
     * the app id
     * you can also create entries for other apps by setting an id other than your app one's
 navigations/navigation/name
-    * optional
+    * required
     * will be displayed below the navigation entry icon
     * will be translated by the default translation tools
 navigations/navigation/route
-    * optional
+    * required
     * name of the route that will be used to generate the link
 navigations/navigation/icon
     * optional
