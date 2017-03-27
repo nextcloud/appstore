@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-26 01:23+0000\n"
+"POT-Creation-Date: 2017-03-27 00:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Alessandro Polidori <alessandro.polidori@gmail.com>, 2016\n"
 "Language-Team: Italian (https://www.transifex.com/nextcloud/teams/64236/it/)\n"
@@ -36,17 +36,17 @@ msgid "Download"
 msgstr "Scarica"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Bad"
 msgstr "Cattiva"
 
 #: nextcloudappstore/core/forms.py:11
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:168
 msgid "Ok"
 msgstr "Ok"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:170
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Good"
 msgstr "Buona"
 
@@ -185,7 +185,7 @@ msgid "Issue tracker url"
 msgstr "Indirizzo url del sistema di tracciamento dei problemi"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
-#: nextcloudappstore/core/templates/app/detail.html:95
+#: nextcloudappstore/core/templates/app/detail.html:92
 msgid "Homepage"
 msgstr "Pagina principale"
 
@@ -204,7 +204,7 @@ msgid "App owner"
 msgstr "Proprietario dell'applicazione"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:79
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Co-Maintainers"
 msgstr "Corresponsabili"
 
@@ -213,18 +213,18 @@ msgid "App authors"
 msgstr "Autori dell'applicazione"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:18
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "Presentato da"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:76
+#: nextcloudappstore/core/templates/app/detail.html:73
 msgid "Recent rating"
 msgstr "Valutazione recente"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:74
+#: nextcloudappstore/core/templates/app/detail.html:71
 msgid "Overall rating"
 msgstr "Valutazione complessiva"
 
@@ -408,7 +408,7 @@ msgid "Ordering"
 msgstr "Ordinamento"
 
 #: nextcloudappstore/core/models.py:426
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:46
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -561,6 +561,7 @@ msgstr ""
 "MiaApplicazione"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
+#: nextcloudappstore/core/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Nome applicazione"
 
@@ -693,7 +694,7 @@ msgstr "Password dimenticata"
 #: nextcloudappstore/core/templates/account/signup.html:5
 #: nextcloudappstore/core/templates/account/signup.html:15
 #: nextcloudappstore/core/templates/account/signup.html:30
-#: nextcloudappstore/core/templates/app/register.html:27
+#: nextcloudappstore/core/templates/app/register.html:28
 #: nextcloudappstore/core/templates/nav.html:84
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
@@ -761,86 +762,82 @@ msgstr "Amministrazione negozio applicazioni Nextcloud"
 msgid "All apps"
 msgstr "Tutte le applicazioni"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:27
 msgid "Previous"
 msgstr "Precedente"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:37
 msgid "Next"
 msgstr "Successiva"
 
-#: nextcloudappstore/core/templates/app/detail.html:51
-msgid "Fullscreen"
-msgstr ""
-
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:58
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Aggiornata"
 
-#: nextcloudappstore/core/templates/app/detail.html:65
+#: nextcloudappstore/core/templates/app/detail.html:62
 msgid "Publisher"
 msgstr "Editore"
 
-#: nextcloudappstore/core/templates/app/detail.html:92
+#: nextcloudappstore/core/templates/app/detail.html:89
 msgid "Resources"
 msgstr "Risorse"
 
-#: nextcloudappstore/core/templates/app/detail.html:98
+#: nextcloudappstore/core/templates/app/detail.html:95
 msgid "User documentation"
 msgstr "Documentazione utente"
 
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Admin documentation"
 msgstr "Documentazione di amministrazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Developer documentation"
 msgstr "Documentazione dello sviluppatore"
 
-#: nextcloudappstore/core/templates/app/detail.html:113
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Downloads"
 msgstr "Scaricamenti"
 
-#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/app/detail.html:117
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "nightly"
 
-#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/app/detail.html:117
 msgid "Unstable"
 msgstr "Instabile"
 
-#: nextcloudappstore/core/templates/app/detail.html:121
+#: nextcloudappstore/core/templates/app/detail.html:118
 msgid "All releases"
 msgstr "Tutti i rilasci"
 
-#: nextcloudappstore/core/templates/app/detail.html:131
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "Discussion"
 msgstr "Discussione"
 
-#: nextcloudappstore/core/templates/app/detail.html:133
+#: nextcloudappstore/core/templates/app/detail.html:130
 msgid "Report problem"
 msgstr "Segnala un problema"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:131
 msgid "Request feature"
 msgstr "Richiedi funzionalità"
 
-#: nextcloudappstore/core/templates/app/detail.html:136
+#: nextcloudappstore/core/templates/app/detail.html:133
 msgid "Ask questions or discuss"
 msgstr "Domanda o discuti"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Rate app"
 msgstr "Valuta l'applicazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:145
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Rate"
 msgstr "Valuta"
 
-#: nextcloudappstore/core/templates/app/detail.html:150
+#: nextcloudappstore/core/templates/app/detail.html:147
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -850,23 +847,23 @@ msgstr ""
 "Non utilizzare i commenti di valutazione per segnalare bug o richiedere funzionalità. Né gli sviluppatori, né gli utenti riceveranno alcuna notifica del tuo commento.\n"
 "Una valutazione senza commento conta lo stesso, ma non sarà elencata sotto."
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:152
 msgid "Update rating"
 msgstr "Aggiorna la valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:157
+#: nextcloudappstore/core/templates/app/detail.html:154
 msgid "Submit rating"
 msgstr "Invia la valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:184
+#: nextcloudappstore/core/templates/app/detail.html:181
 msgid "No comments found."
 msgstr "Nessuna commento trovato"
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:189
 msgid "Rating comments"
 msgstr "Commenti alla valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Display ratings comments in:"
 msgstr "Visualizza i commenti alla valutazione in:"
 
@@ -901,12 +898,12 @@ msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Nessuna applicazione trovata per la ricerca \"<em>\"%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
-#: nextcloudappstore/core/templates/app/register.html:14
+#: nextcloudappstore/core/templates/app/register.html:15
 #: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr "Registra applicazione"
 
-#: nextcloudappstore/core/templates/app/register.html:16
+#: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
 "For more information on how to obtain the certificate and how to create the "
 "signature check out the <a "
@@ -918,7 +915,7 @@ msgstr ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\"> guida di sviluppo delle applicazioni</a>."
 
-#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
 "This form can also be used to update existing certificates, however only the"
 " app owner is allowed to do so. Updating an app certificate will delete all "
@@ -927,11 +924,11 @@ msgstr ""
 "Questo modulo può essere utilizzato anche per aggiornare i certificati esistenti, tuttavia solo il proprietario dell'applicazione è abilitato a farlo.\n"
 "L'aggiornamento del certificato di un'applicazione eliminerà tutti i rilasci già caricati."
 
-#: nextcloudappstore/core/templates/app/register.html:19
+#: nextcloudappstore/core/templates/app/register.html:20
 msgid "Not a public certificate"
 msgstr "Non è un certificato pubblico"
 
-#: nextcloudappstore/core/templates/app/register.html:20
+#: nextcloudappstore/core/templates/app/register.html:21
 msgid "App successfully registered."
 msgstr "Applicazione registrata correttamente."
 
@@ -971,17 +968,17 @@ msgid "Generate and download"
 msgstr "Genera e scarica"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
-#: nextcloudappstore/core/templates/app/upload.html:13
+#: nextcloudappstore/core/templates/app/upload.html:14
 #: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
 msgstr "Carica rilascio applicazione"
 
-#: nextcloudappstore/core/templates/app/upload.html:15
-#: nextcloudappstore/core/templates/app/upload.html:18
+#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:19
 msgid "App release successfully uploaded."
 msgstr "Rilascio applicazione caricato correttamente."
 
-#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:17
 msgid ""
 "For more information on how to create the SHA512 signature check out the <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
@@ -991,15 +988,15 @@ msgstr ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">guida di sviluppo delle applicazioni</a>."
 
-#: nextcloudappstore/core/templates/app/upload.html:25
+#: nextcloudappstore/core/templates/app/upload.html:26
 msgid "Upload"
 msgstr "Carica"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:42
 msgid "Fork me on GitHub"
 msgstr "Crea un fork su GitHub"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:45
 #: nextcloudappstore/core/templates/legal.html:4
 #: nextcloudappstore/core/templates/legal.html:12
 msgid "Legal Notice"
@@ -1160,12 +1157,12 @@ msgstr "Tutto il resto"
 msgid "Save"
 msgstr "Salva"
 
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
+#: nextcloudappstore/core/templates/user/api-token.html:10
+#: nextcloudappstore/core/templates/user/api-token.html:13
 msgid "API Token"
 msgstr "Token API"
 
-#: nextcloudappstore/core/templates/user/api-token.html:15
+#: nextcloudappstore/core/templates/user/api-token.html:16
 msgid ""
 "\n"
 "                The API token can be used for authentication when calling the app store\n"
@@ -1178,35 +1175,39 @@ msgstr ""
 "<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "Assicurati di mantenerlo segreto. Un nuovo token può essere generato sotto, mostrando il vecchio token come non valido."
 
-#: nextcloudappstore/core/templates/user/api-token.html:22
+#: nextcloudappstore/core/templates/user/api-token.html:23
 msgid "Your API token is:"
 msgstr "Il tuo token API è:"
 
-#: nextcloudappstore/core/templates/user/api-token.html:27
+#: nextcloudappstore/core/templates/user/api-token.html:28
 msgid "New API token generated."
 msgstr "Nuovo token API generato."
 
-#: nextcloudappstore/core/templates/user/api-token.html:32
+#: nextcloudappstore/core/templates/user/api-token.html:33
 msgid "Regenerate API token"
 msgstr "Rigenera token API"
 
 #: nextcloudappstore/core/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/base.html:18
 #: nextcloudappstore/core/templates/user/set-language.html:4
 #: nextcloudappstore/core/templates/user/set-language.html:7
 #: nextcloudappstore/core/templates/user/set-language.html:26
 msgid "Change language"
 msgstr "Cambia la lingua"
 
-#: nextcloudappstore/core/templates/user/base.html:19
+#: nextcloudappstore/core/templates/user/base.html:22
 #: nextcloudappstore/core/templates/user/password.html:5
 msgid "Password"
 msgstr "Password"
 
-#: nextcloudappstore/core/templates/user/base.html:23
+#: nextcloudappstore/core/templates/user/base.html:26
 msgid "API token"
 msgstr "Token API"
 
-#: nextcloudappstore/core/templates/user/base.html:26
+#: nextcloudappstore/core/templates/user/base.html:29
 #: nextcloudappstore/core/templates/user/delete-account.html:5
 #: nextcloudappstore/core/templates/user/delete-account.html:8
 #: nextcloudappstore/core/templates/user/delete-account.html:13
@@ -1232,6 +1233,46 @@ msgstr ""
 "Sembra che tu stia utilizzando un account registrato con un fornitore di "
 "terze parti. La tua password <strong>non</strong> può pertanto essere "
 "cambiata da questa pagina."
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:5
+#: nextcloudappstore/core/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr ""
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
