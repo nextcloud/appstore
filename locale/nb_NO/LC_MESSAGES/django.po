@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-26 01:23+0000\n"
+"POT-Creation-Date: 2017-03-27 00:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ole Jakob Brustad <ole.jakob@brustadbuss.no>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -36,17 +36,17 @@ msgid "Download"
 msgstr "Last ned"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Bad"
 msgstr "Dårlig"
 
 #: nextcloudappstore/core/forms.py:11
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:168
 msgid "Ok"
 msgstr "Ok"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:170
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Good"
 msgstr "God"
 
@@ -172,7 +172,7 @@ msgid "Issue tracker url"
 msgstr "Url til problemsporing"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
-#: nextcloudappstore/core/templates/app/detail.html:95
+#: nextcloudappstore/core/templates/app/detail.html:92
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -191,7 +191,7 @@ msgid "App owner"
 msgstr "App eier"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:79
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Co-Maintainers"
 msgstr "Med-vedlikeholdere"
 
@@ -200,18 +200,18 @@ msgid "App authors"
 msgstr "App forfattere"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:18
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "Anbefalt"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:76
+#: nextcloudappstore/core/templates/app/detail.html:73
 msgid "Recent rating"
 msgstr "Nylig vurdering"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:74
+#: nextcloudappstore/core/templates/app/detail.html:71
 msgid "Overall rating"
 msgstr "Totalvurdering"
 
@@ -395,7 +395,7 @@ msgid "Ordering"
 msgstr "Sortering"
 
 #: nextcloudappstore/core/models.py:426
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:46
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -542,6 +542,7 @@ msgid "The app name must be camel case e.g. MyApp"
 msgstr "Appens navn må være i kamelcase f.eks MinApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
+#: nextcloudappstore/core/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "App navn"
 
@@ -670,7 +671,7 @@ msgstr "Glemt passord"
 #: nextcloudappstore/core/templates/account/signup.html:5
 #: nextcloudappstore/core/templates/account/signup.html:15
 #: nextcloudappstore/core/templates/account/signup.html:30
-#: nextcloudappstore/core/templates/app/register.html:27
+#: nextcloudappstore/core/templates/app/register.html:28
 #: nextcloudappstore/core/templates/nav.html:84
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
@@ -739,109 +740,105 @@ msgstr "Nextcloud App butikk administrasjon"
 msgid "All apps"
 msgstr "Alle apper"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:27
 msgid "Previous"
 msgstr "Forrige"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:37
 msgid "Next"
 msgstr "Neste"
 
-#: nextcloudappstore/core/templates/app/detail.html:51
-msgid "Fullscreen"
-msgstr ""
-
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:58
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: nextcloudappstore/core/templates/app/detail.html:65
+#: nextcloudappstore/core/templates/app/detail.html:62
 msgid "Publisher"
 msgstr "Utgiver"
 
-#: nextcloudappstore/core/templates/app/detail.html:92
+#: nextcloudappstore/core/templates/app/detail.html:89
 msgid "Resources"
 msgstr "Ressurser"
 
-#: nextcloudappstore/core/templates/app/detail.html:98
+#: nextcloudappstore/core/templates/app/detail.html:95
 msgid "User documentation"
 msgstr "Brukerdokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Admin documentation"
 msgstr "Admindokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Developer documentation"
 msgstr "Utviklerdokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:113
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Downloads"
 msgstr "Nedlastinger"
 
-#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/app/detail.html:117
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "nattlig"
 
-#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/app/detail.html:117
 msgid "Unstable"
 msgstr "Ustabil"
 
-#: nextcloudappstore/core/templates/app/detail.html:121
+#: nextcloudappstore/core/templates/app/detail.html:118
 msgid "All releases"
 msgstr "Alle utgivelser"
 
-#: nextcloudappstore/core/templates/app/detail.html:131
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "Discussion"
 msgstr "Diskusjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:133
+#: nextcloudappstore/core/templates/app/detail.html:130
 msgid "Report problem"
 msgstr "Rapporter problem"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:131
 msgid "Request feature"
 msgstr "Ønsk en funksjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:136
+#: nextcloudappstore/core/templates/app/detail.html:133
 msgid "Ask questions or discuss"
 msgstr "Still spørsmål og diskuter"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Rate app"
 msgstr "Vurder app"
 
-#: nextcloudappstore/core/templates/app/detail.html:145
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Rate"
 msgstr "Vurder"
 
-#: nextcloudappstore/core/templates/app/detail.html:150
+#: nextcloudappstore/core/templates/app/detail.html:147
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:152
 msgid "Update rating"
 msgstr "Oppdater vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:157
+#: nextcloudappstore/core/templates/app/detail.html:154
 msgid "Submit rating"
 msgstr "Send vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:184
+#: nextcloudappstore/core/templates/app/detail.html:181
 msgid "No comments found."
 msgstr "Ingen kommentarer funnet."
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:189
 msgid "Rating comments"
 msgstr "Kommentarer til vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Display ratings comments in:"
 msgstr "Vis vurderingskommentarer i:"
 
@@ -875,12 +872,12 @@ msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Ingen apper ble funnet med søkebegrep \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
-#: nextcloudappstore/core/templates/app/register.html:14
+#: nextcloudappstore/core/templates/app/register.html:15
 #: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr "Registrer app"
 
-#: nextcloudappstore/core/templates/app/register.html:16
+#: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
 "For more information on how to obtain the certificate and how to create the "
 "signature check out the <a "
@@ -892,18 +889,18 @@ msgstr ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app utvikler veilledningen</a>."
 
-#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/app/register.html:18
 msgid ""
 "This form can also be used to update existing certificates, however only the"
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/register.html:19
+#: nextcloudappstore/core/templates/app/register.html:20
 msgid "Not a public certificate"
 msgstr "Ikke et offentlig sertifikat"
 
-#: nextcloudappstore/core/templates/app/register.html:20
+#: nextcloudappstore/core/templates/app/register.html:21
 msgid "App successfully registered."
 msgstr "Appen ble registrert korrekt"
 
@@ -943,17 +940,17 @@ msgid "Generate and download"
 msgstr "Generer og last ned"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
-#: nextcloudappstore/core/templates/app/upload.html:13
+#: nextcloudappstore/core/templates/app/upload.html:14
 #: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
 msgstr "Last opp app utgivelse"
 
-#: nextcloudappstore/core/templates/app/upload.html:15
-#: nextcloudappstore/core/templates/app/upload.html:18
+#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:19
 msgid "App release successfully uploaded."
 msgstr "Apputgivelsen ble lastet opp"
 
-#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:17
 msgid ""
 "For more information on how to create the SHA512 signature check out the <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
@@ -963,15 +960,15 @@ msgstr ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app utvikler guiden</a>."
 
-#: nextcloudappstore/core/templates/app/upload.html:25
+#: nextcloudappstore/core/templates/app/upload.html:26
 msgid "Upload"
 msgstr "Last opp"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:42
 msgid "Fork me on GitHub"
 msgstr "Fork meg på GitHub"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:45
 #: nextcloudappstore/core/templates/legal.html:4
 #: nextcloudappstore/core/templates/legal.html:12
 msgid "Legal Notice"
@@ -1128,12 +1125,12 @@ msgstr "Alt annet"
 msgid "Save"
 msgstr "Lagre"
 
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
+#: nextcloudappstore/core/templates/user/api-token.html:10
+#: nextcloudappstore/core/templates/user/api-token.html:13
 msgid "API Token"
 msgstr "API Token"
 
-#: nextcloudappstore/core/templates/user/api-token.html:15
+#: nextcloudappstore/core/templates/user/api-token.html:16
 msgid ""
 "\n"
 "                The API token can be used for authentication when calling the app store\n"
@@ -1146,35 +1143,39 @@ msgstr ""
 "<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "Pass på og hold den hemmelig. En ny nøkkel kan genereres under, og gjør den gamle nøkkelen ugyldig."
 
-#: nextcloudappstore/core/templates/user/api-token.html:22
+#: nextcloudappstore/core/templates/user/api-token.html:23
 msgid "Your API token is:"
 msgstr "Din API token er:"
 
-#: nextcloudappstore/core/templates/user/api-token.html:27
+#: nextcloudappstore/core/templates/user/api-token.html:28
 msgid "New API token generated."
 msgstr "Ny API token ble generert."
 
-#: nextcloudappstore/core/templates/user/api-token.html:32
+#: nextcloudappstore/core/templates/user/api-token.html:33
 msgid "Regenerate API token"
 msgstr "Regenerer API token"
 
 #: nextcloudappstore/core/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/base.html:18
 #: nextcloudappstore/core/templates/user/set-language.html:4
 #: nextcloudappstore/core/templates/user/set-language.html:7
 #: nextcloudappstore/core/templates/user/set-language.html:26
 msgid "Change language"
 msgstr "Endre språk"
 
-#: nextcloudappstore/core/templates/user/base.html:19
+#: nextcloudappstore/core/templates/user/base.html:22
 #: nextcloudappstore/core/templates/user/password.html:5
 msgid "Password"
 msgstr "Passord"
 
-#: nextcloudappstore/core/templates/user/base.html:23
+#: nextcloudappstore/core/templates/user/base.html:26
 msgid "API token"
 msgstr "API token"
 
-#: nextcloudappstore/core/templates/user/base.html:26
+#: nextcloudappstore/core/templates/user/base.html:29
 #: nextcloudappstore/core/templates/user/delete-account.html:5
 #: nextcloudappstore/core/templates/user/delete-account.html:8
 #: nextcloudappstore/core/templates/user/delete-account.html:13
@@ -1198,6 +1199,46 @@ msgid ""
 msgstr ""
 "Det ser ut til at du bruker en konto som er registrert hos en tredjepart. "
 "Ditt passord kan derfor <strong>ikke</strong> endres fra denne siden."
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:5
+#: nextcloudappstore/core/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr ""
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
