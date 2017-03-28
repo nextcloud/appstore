@@ -1,8 +1,8 @@
 import {ErrorMessages, parseJSONError} from '../api/ErrorParser';
 import {Translator} from '../l10n/Translator';
 import {FormField, HtmlForm} from './HtmlForm';
-import {NoValidatorBound} from './NoValidatorBound';
 import {Maybe} from '../Utils';
+import {NoValidatorBound} from './NoValidatorBound';
 import {Invalid} from './validators/Invalid';
 import {IValidator} from './validators/IValidator';
 

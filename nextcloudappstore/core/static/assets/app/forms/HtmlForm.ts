@@ -1,6 +1,5 @@
+import {DomElementDoesNotExist} from '../dom/DomElementDoesNotExist';
 import {queryOrThrow} from '../dom/Facades';
-import {Maybe} from '../Utils';
-import {DomElementDoesNotExist} from "../dom/DomElementDoesNotExist";
 export type FormField = HTMLInputElement | HTMLTextAreaElement |
     HTMLSelectElement;
 
@@ -73,5 +72,3 @@ export function scanForm(form: HTMLFormElement): HtmlForm {
         msgElements,
     );
 }
-
-
