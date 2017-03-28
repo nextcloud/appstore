@@ -2,6 +2,7 @@ import {ErrorMessages, parseJSONError} from '../api/ErrorParser';
 import {Translator} from '../l10n/Translator';
 import {FormField, HtmlForm} from './HtmlForm';
 import {NoValidatorBound} from './NoValidatorBound';
+import {Maybe} from '../Utils';
 import {Invalid} from './validators/Invalid';
 import {IValidator} from './validators/IValidator';
 
@@ -55,7 +56,7 @@ export abstract class AjaxForm<T> {
         if (this.form.form.checkValidity()) {
             // submit form with Ajax
             event.preventDefault();
-
+            this.clearFormFieldErrors();
             this.lockFields();
             this.clearMessages();
 
@@ -85,6 +86,13 @@ export abstract class AjaxForm<T> {
         }
     }
 
+    protected clearFormFieldErrors() {
+        this.form.formGroups
+            .forEach((elem) => {
+                elem.classList.remove('has-error', 'has-feedback');
+            });
+    }
+
     protected showErrorMessages(messages: ErrorMessages) {
         // FIXME: this will put all messages into one element
         // would be nicer if instead we just copied and inserted templated
@@ -95,6 +103,10 @@ export abstract class AjaxForm<T> {
                 msg.parentElement !== null) {
                 msg.parentElement.hidden = false;
                 msg.innerText = list.join('\n');
+                new Maybe(this.form.formGroups.get(name))
+                    .ifPresent((elem) => {
+                        elem.classList.add('has-feedback', 'has-error');
+                    });
             }
         });
         const globalErrorMessage = this.form.globalErrorMessage;

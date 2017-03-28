@@ -7,14 +7,20 @@ const validForm = `
     <p class="global-error-msg">error</p>
     <p class="global-success-msg">success</p>
     
-    <input name="test-input">
-    <p class="error-msg-test-input"></p>
+    <div class="form-group">
+        <input name="test-input">
+        <p class="error-msg-test-input"></p>
+    </div>
     
-    <select name="test-select"></select>
-    <p class="error-msg-test-select"></p>
+    <div class="form-group">
+        <select name="test-select"></select>
+        <p class="error-msg-test-select"></p>
+    </div>
     
-    <textarea name="test-textarea"></textarea>
-    <p class="error-msg-test-textarea"></p>
+    <div class="form-group">
+        <textarea name="test-textarea"></textarea>
+        <p class="error-msg-test-textarea"></p>
+    </div>
     
     <input type="hidden" name="hidden-input"/>
     <input type="submit" name="test-submit"/>

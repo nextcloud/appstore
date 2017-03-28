@@ -1,9 +1,12 @@
 import {queryOrThrow} from '../dom/Facades';
+import {Maybe} from '../Utils';
+import {DomElementDoesNotExist} from "../dom/DomElementDoesNotExist";
 export type FormField = HTMLInputElement | HTMLTextAreaElement |
     HTMLSelectElement;
 
 export class HtmlForm {
     constructor(public readonly form: HTMLFormElement,
+                public readonly formGroups: Map<string, Element>,
                 public readonly fields: Map<string, FormField>,
                 public readonly submit: HTMLInputElement,
                 public readonly globalSuccessMessage: HTMLElement,
@@ -50,14 +53,25 @@ export function scanForm(form: HTMLFormElement): HtmlForm {
         '.global-success-msg', form,
     );
     const msgElements = new Map<string, HTMLElement>();
+    const formGroups = new Map<string, Element>();
 
     fields.forEach((field, name) => {
         if (field.type !== 'hidden') {
+            const formGroup = field.closest('.form-group');
+            if (formGroup === null) {
+                const msg = `No form group found for field ${name}`;
+                throw new DomElementDoesNotExist(msg);
+            } else {
+                formGroups.set(name, formGroup);
+            }
             msgElements.set(name, queryOrThrow(`.error-msg-${name}`, form));
         }
     });
 
     return new HtmlForm(
-        form, fields, submit, globalSuccessMsg, globalErrorMsg, msgElements,
+        form, formGroups, fields, submit, globalSuccessMsg, globalErrorMsg,
+        msgElements,
     );
 }
+
+
