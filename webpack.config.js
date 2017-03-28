@@ -35,7 +35,10 @@ module.exports = {
         // node_modules to the vendor directory for each page load to include
         new CopyWebpackPlugin([
             {from: 'node_modules/bootstrap', to: `${base}vendor/bootstrap/`},
-            {from: 'node_modules/jquery', to: `${base}vendor/jquery/`},
+            {
+                from: 'node_modules/bootstrap.native/dist/bootstrap-native.min.js',
+                to: `${base}vendor/bootstrap.native.min.js`
+            },
             {
                 from: 'node_modules/highlight.js/styles/github.css',
                 to: `${base}vendor/github.css`

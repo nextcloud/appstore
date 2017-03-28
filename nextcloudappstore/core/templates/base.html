@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
     <link rel="alternate" type="application/atom+xml" title="News" href="{% url 'feeds-releases-atom' %}" />
     <link rel="alternate" type="application/rss+xml" title="News" href="{% url 'feeds-releases-rss' %}" />
-    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}" defer></script>
-    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'vendor/bootstrap.native.min.js' %}" async></script>
     {% block head %}{% endblock %}
 </head>
 
