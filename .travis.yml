@@ -26,7 +26,7 @@ before_install:
 install:
   - npm -g install yarn
   - make dev-setup db="$DB" pyvenv="pyvenv"
-  - yarn install tslint
+  - yarn add tslint
 
 script:
   - ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
