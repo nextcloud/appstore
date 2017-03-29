@@ -19,7 +19,7 @@ make docs
     regenerates up to html date docs in docs/_build/html
 
 make update-dev-deps
-    updates your python, bower and npm dependencies
+    updates your python, bower and yarn dependencies
 
 make resetup
     kills the current sqlite database and creates a new one
@@ -37,23 +37,23 @@ The frontend is written in TypeScript and compiles to ES6 using Webpack.
 
 To run the frontend build make sure that all your deps are up to date::
 
-    npm install --upgrade
+    yarn install --upgrade
 
 and then run::
 
-    npm run build
+    yarn run build
 
 If you are developing and wish to automatically compile on filechanges run::
 
-    npm run watch
+    yarn run watch
 
 Testing
 ~~~~~~~
 
 The unit and integration test suite is run by executing the following command::
 
-    npm test
+    yarn test
 
 If you are developing and wish to automatically re-run your test suite on filechanges run::
 
-    npm run watch-test
+    yarn run watch-test

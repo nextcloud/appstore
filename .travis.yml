@@ -21,12 +21,12 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - nvm install 7
-  - node -v
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
 
 install:
+  - npm -g install yarn
   - make dev-setup db="$DB" pyvenv="pyvenv"
-  - npm install tslint
+  - yarn add tslint
 
 script:
   - ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"

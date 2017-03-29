@@ -6,7 +6,7 @@ mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 db=sqlite
 pyvenv=python3 -m venv
-npm=npm
+yarn=yarn
 
 .PHONY: lint
 lint:
@@ -16,7 +16,7 @@ lint:
 
 .PHONY: test
 test: lint
-	$(npm) test
+	$(yarn) test
 	$(manage) test --settings nextcloudappstore.settings.development
 
 .PHONY: resetup
@@ -32,8 +32,8 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
-	$(npm) install
-	$(npm) run build
+	$(yarn) install
+	$(yarn) run build
 	$(pyvenv) venv
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
@@ -60,7 +60,7 @@ docs:
 update-dev-deps:
 	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
 	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
-	$(npm) install --upgrade
+	$(yarn) install --upgrade
 
 .PHONY: authors
 authors:
