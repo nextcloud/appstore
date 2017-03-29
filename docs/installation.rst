@@ -12,15 +12,19 @@ There are two ways to install the store, both are mutually exclusive (means: don
 
 Production Installation
 -----------------------
-First you want to switch your machine to an up to date Node.js version::
+First you want to switch your machine to an up to date Node.js version and yarn::
 
+    curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
     su -c "echo 'deb https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
     su -c "echo 'deb-src https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
+
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 Certain libraries and Python packages are required before setting up your development instance::
 
     sudo apt-get update
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs
+    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs yarn
 
 
 Database Setup
@@ -248,8 +252,8 @@ Building the Frontend
 
 To build the frontend run::
 
-    npm install
-    npm run build
+    yarn install
+    yarn run build
 
 Placing Static Content
 ~~~~~~~~~~~~~~~~~~~~~~
