@@ -4,7 +4,7 @@ Development Installation
 ------------------------
 First you want to switch your machine to an up to date Node.js version::
 
-curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+    curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
     su -c "echo 'deb https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
     su -c "echo 'deb-src https://deb.nodesource.com/node_7.x xenial main' > /etc/apt/sources.list.d/nodesource.list"
 
