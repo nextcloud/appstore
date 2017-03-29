@@ -11,32 +11,38 @@
 {% get_providers as socialaccount_providers %}
 
 <div class="central-form">
-    <h1 class="text-center">{% trans "Log in" %}</h1>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a role="tab"
+               data-toggle="tab"
+               aria-controls="home"
+               href="#home">{% trans 'Log in' %}</a>
+        </li>
+        {% get_providers as socialaccount_providers %}
+        {% for provider in socialaccount_providers %}
+            <li role="presentation">
+                <a title="{{ provider.name }}"
+                   class="socialaccount_provider {{ provider.id }}"
+                   href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">{% trans 'Log in with GitHub' %} </a>
+            </li>
+        {% endfor %}
+    </ul>
 
-    <hr>
-    {% if socialaccount_providers %}
-        <ul class="socialaccount-providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-        </ul>
-        {% include "socialaccount/snippets/login_extra.html" %}
+    <div class="auth-form">
+        <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {% include 'form-fields.html' %}
+            <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Log in' %}</button></p>
+            <p class="row text-center">
+                <a class="col-lg-6" href="{% url 'account_reset_password' %}">{% trans 'Forgot password' %}</a>
+                <a class="col-lg-6" href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
+            </p>
 
-    {% endif %}
-
-    <hr>
-
-    <form method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        {% include 'form-fields.html' %}
-        <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Log in' %}</button></p>
-        <p class="row text-center">
-            <a class="col-lg-6" href="{% url 'account_reset_password' %}">{% trans 'Forgot password' %}</a>
-            <a class="col-lg-6" href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
-        </p>
-
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-    </form>
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+        </form>
+    </div>
 </div>
 
 {% endblock %}
