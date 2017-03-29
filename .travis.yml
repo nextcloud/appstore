@@ -25,8 +25,8 @@ before_install:
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
 
 install:
-  - make dev-setup db="$DB" pyvenv="pyvenv"
   - npm -g install yarn
+  - make dev-setup db="$DB" pyvenv="pyvenv"
   - yarn install tslint
 
 script:
