@@ -9,7 +9,7 @@ export const HttpMethod = {
 export interface IRequestData {
     url: string;
     method?: keyof typeof HttpMethod;
-    data: Object;
+    data: object;
 }
 
 /**

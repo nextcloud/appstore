@@ -2,7 +2,7 @@ import {fetchRatings, findUserComment} from '../../api/Ratings';
 import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
 import {renderEmptyRatings, renderRating} from '../templates/Ratings';
 
-export interface RatingTemplateConfig {
+export interface IRatingTemplateConfig {
     languageChooser: HTMLSelectElement;
     target: HTMLElement;
     templates: {
@@ -11,7 +11,7 @@ export interface RatingTemplateConfig {
     };
 }
 
-export const ratingConfig: Promise<RatingTemplateConfig> = ready.then(() => {
+export const ratingConfig: Promise<IRatingTemplateConfig> = ready.then(() => {
     return Promise.resolve({
         languageChooser: idOrThrow<HTMLSelectElement>('comment_language'),
         target: queryOrThrow<HTMLDivElement>('.app-rating-list'),
@@ -30,7 +30,7 @@ export const ratingConfig: Promise<RatingTemplateConfig> = ready.then(() => {
  * @param config
  */
 export function loadUserRatings(url: string, lang: string, fallback: string,
-                                config: RatingTemplateConfig) {
+                                config: IRatingTemplateConfig) {
     fetchRatings(url, lang, fallback)
         .then((result) => {
             // update result page

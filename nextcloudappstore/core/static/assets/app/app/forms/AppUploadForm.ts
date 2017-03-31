@@ -4,7 +4,7 @@ import {FormField, HtmlForm} from '../../forms/HtmlForm';
 import {Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 
-export class AppUploadForm extends AjaxForm<Object> {
+export class AppUploadForm extends AjaxForm<object> {
     private readonly url: string;
 
     constructor(form: HtmlForm, translator: Translator) {
@@ -12,7 +12,7 @@ export class AppUploadForm extends AjaxForm<Object> {
         this.url = form.form.action;
     }
 
-    protected submit(values: Map<string, FormField>): Promise<Object> {
+    protected submit(values: Map<string, FormField>): Promise<object> {
         const download = new Maybe<FormField>(values.get('download'));
         const signature = new Maybe<FormField>(values.get('signature'));
         const nightly = new Maybe<FormField>(values.get('nightly'));

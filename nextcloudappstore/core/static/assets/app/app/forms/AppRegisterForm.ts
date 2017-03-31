@@ -5,7 +5,7 @@ import {IValidator} from '../../forms/validators/IValidator';
 import {Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 
-export class AppRegisterForm extends AjaxForm<Object> {
+export class AppRegisterForm extends AjaxForm<object> {
     private readonly url: string;
 
     constructor(form: HtmlForm,
@@ -15,7 +15,7 @@ export class AppRegisterForm extends AjaxForm<Object> {
         this.url = form.form.action;
     }
 
-    protected submit(values: Map<string, FormField>): Promise<Object> {
+    protected submit(values: Map<string, FormField>): Promise<object> {
         const certificate = new Maybe<FormField>(values.get('certificate'));
         const signature = new Maybe<FormField>(values.get('signature'));
         const data = {
