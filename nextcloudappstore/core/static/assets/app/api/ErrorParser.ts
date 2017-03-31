@@ -1,7 +1,7 @@
 export type FieldErrors = Map<string, string[]>;
 export type GlobalErrors = string[];
 
-export interface ErrorMessages {
+export interface IErrorMessages {
     global: string[];
     fields: FieldErrors;
 }
@@ -10,19 +10,19 @@ interface IDjangoFieldErrors {
     [index: string]: string[];
 }
 
-export interface DetailErrors {
+export interface IDetailErrors {
     detail: string;
 }
 
-export type DjangoErrors = IDjangoFieldErrors | GlobalErrors | DetailErrors;
+export type DjangoErrors = IDjangoFieldErrors | GlobalErrors | IDetailErrors;
 
 /**
  * Parses a JSON error from a Django Restframework API
  * @param errorJSON
- * @returns {ErrorMessages}
+ * @returns {IErrorMessages}
  */
-export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
-    const result: ErrorMessages = {
+export function parseJSONError(errorJSON: DjangoErrors): IErrorMessages {
+    const result: IErrorMessages = {
         fields: new Map<string, string[]>(),
         global: [],
     };
@@ -32,7 +32,7 @@ export function parseJSONError(errorJSON: DjangoErrors): ErrorMessages {
     } else if (typeof errorJSON === 'object') {
         // standard error messages
         if (errorJSON.hasOwnProperty('detail')) {
-            result.global = [(errorJSON as DetailErrors).detail];
+            result.global = [(errorJSON as IDetailErrors).detail];
         } else {
             Object.keys(errorJSON).forEach((name) => {
                 result.fields.set(

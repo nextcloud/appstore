@@ -18,7 +18,7 @@ export class Unescaped {
     constructor(public readonly value: string) {}
 }
 
-export interface Context {
+export interface IContext {
     [selector: string]: string | Unescaped;
 }
 
@@ -30,7 +30,7 @@ export interface Context {
  * to include raw HTML, otherwise everything is escaped
  */
 export function render(template: HTMLTemplateElement,
-                       context: Context): HTMLElement {
+                       context: IContext): HTMLElement {
     const result = document.importNode(template.content, true);
 
     // result is a WebFragment so we need to make an HTMLElement out of it

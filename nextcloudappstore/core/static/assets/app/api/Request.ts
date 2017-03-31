@@ -6,7 +6,7 @@ export const HttpMethod = {
     PUT: 'PUT' as 'PUT',
 };
 
-export interface RequestData {
+export interface IRequestData {
     url: string;
     method?: keyof typeof HttpMethod;
     data: Object;
@@ -16,7 +16,7 @@ export interface RequestData {
  * Similar to authApiRequest but does not hit the API (/api) and therefore
  * identifies itself using a session cookie instead of a request token
  */
-export function pageRequest<T>(request: RequestData,
+export function pageRequest<T>(request: IRequestData,
                                csrfToken?: string): Promise<T> {
     const method = request.method || 'GET';
 
@@ -49,7 +49,7 @@ export function pageRequest<T>(request: RequestData,
  * @param csrfToken
  * @returns
  */
-export function apiRequest<T>(request: RequestData,
+export function apiRequest<T>(request: IRequestData,
                               csrfToken: string): Promise<T> {
     return fetchToken(csrfToken).then((token) => {
         const req = new Request(request.url, {
@@ -64,7 +64,7 @@ export function apiRequest<T>(request: RequestData,
     });
 }
 
-export interface TokenData {
+export interface ITokenData {
     token: string;
 }
 
@@ -74,11 +74,11 @@ export interface TokenData {
  * @returns the API token
  */
 export function fetchToken(csrfToken: string): Promise<string> {
-    return pageRequest<TokenData>({
+    return pageRequest<ITokenData>({
         data: {},
         method: 'POST',
         url: '/api/v1/token',
-    }, csrfToken).then((response: TokenData) => response.token);
+    }, csrfToken).then((response: ITokenData) => response.token);
 }
 
 /**

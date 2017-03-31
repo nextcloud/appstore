@@ -1,10 +1,10 @@
 import * as moment from 'moment';
-import {Rating} from '../../api/Ratings';
+import {IRating} from '../../api/Ratings';
 import {renderMd} from '../../dom/Markdown';
 import {render, Unescaped} from '../../dom/Templating';
 
 export function renderRating(template: HTMLTemplateElement,
-                             rating: Rating, lang: string): HTMLElement {
+                             rating: IRating, lang: string): HTMLElement {
     const context = {
         '.author': rating.fullUserName,
         '.comment': new Unescaped(renderMd(rating.comment)),

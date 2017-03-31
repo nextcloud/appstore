@@ -1,4 +1,4 @@
-import {ErrorMessages, parseJSONError} from '../api/ErrorParser';
+import {IErrorMessages, parseJSONError} from '../api/ErrorParser';
 import {Translator} from '../l10n/Translator';
 import {Maybe} from '../Utils';
 import {FormField, HtmlForm} from './HtmlForm';
@@ -93,7 +93,7 @@ export abstract class AjaxForm<T> {
             });
     }
 
-    protected showErrorMessages(messages: ErrorMessages) {
+    protected showErrorMessages(messages: IErrorMessages) {
         // FIXME: this will put all messages into one element
         // would be nicer if instead we just copied and inserted templated
         // elements

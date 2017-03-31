@@ -1,4 +1,4 @@
-import {apiRequest, HttpMethod, TokenData} from '../../api/Request';
+import {apiRequest, HttpMethod, ITokenData} from '../../api/Request';
 import {AjaxForm} from '../../forms/AjaxForm';
 import {FormField, HtmlForm} from '../../forms/HtmlForm';
 import {Translator} from '../../l10n/Translator';
@@ -19,7 +19,7 @@ export class TokenRegenForm extends AjaxForm<Object> {
             url: this.url,
         };
         return apiRequest(data, this.findCsrfToken())
-            .then((response: TokenData) => {
+            .then((response: ITokenData) => {
                 this.tokenElement.innerText = response.token;
                 return Promise.resolve.bind(Promise);
             });
