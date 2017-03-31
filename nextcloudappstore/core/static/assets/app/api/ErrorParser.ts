@@ -1,18 +1,18 @@
 export type FieldErrors = Map<string, string[]>;
 export type GlobalErrors = string[];
 
-export type ErrorMessages = {
+export interface ErrorMessages {
     global: string[];
     fields: FieldErrors;
-};
+}
 
 interface IDjangoFieldErrors {
     [index: string]: string[];
 }
 
-type DetailErrors = {
+export interface DetailErrors {
     detail: string;
-};
+}
 
 export type DjangoErrors = IDjangoFieldErrors | GlobalErrors | DetailErrors;
 

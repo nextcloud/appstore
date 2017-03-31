@@ -2,14 +2,14 @@ import {fetchRatings, findUserComment} from '../../api/Ratings';
 import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
 import {renderEmptyRatings, renderRating} from '../templates/Ratings';
 
-export type RatingTemplateConfig = {
+export interface RatingTemplateConfig {
     languageChooser: HTMLSelectElement;
     target: HTMLElement;
     templates: {
         empty: HTMLTemplateElement;
         rating: HTMLTemplateElement;
     };
-};
+}
 
 export const ratingConfig: Promise<RatingTemplateConfig> = ready.then(() => {
     return Promise.resolve({

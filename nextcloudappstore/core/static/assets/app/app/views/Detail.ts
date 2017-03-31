@@ -16,7 +16,7 @@ ready.then(() => {
         .ifPresent((commentInput) => {
             const input = idOrThrow<HTMLSelectElement>('id_language_code');
             input.addEventListener('change', (event: Event) => {
-                const target = <HTMLSelectElement> event.target;
+                const target = event.target as HTMLSelectElement;
                 const lang = target.value;
                 const url = `${ratingUrl}?current_user=true&lang=${lang}`;
                 loadUserRating(url, lang, commentInput);
@@ -34,7 +34,7 @@ ready.then(() => {
     // load user ratings list
     ratingConfig.then((config) => {
         config.languageChooser.addEventListener('change', (event: Event) => {
-            const target = <HTMLSelectElement> event.target;
+            const target = event.target as HTMLSelectElement;
             loadUserRatings(ratingUrl, target.value, fallbackLang, config);
         });
         loadUserRatings(ratingUrl, currentLang, fallbackLang, config);

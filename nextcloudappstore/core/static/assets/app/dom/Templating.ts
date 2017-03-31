@@ -18,9 +18,9 @@ export class Unescaped {
     constructor(public readonly value: string) {}
 }
 
-export type Context = {
+export interface Context {
     [selector: string]: string | Unescaped;
-};
+}
 
 /**
  * Renders an HTML template

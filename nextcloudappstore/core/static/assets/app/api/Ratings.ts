@@ -1,12 +1,12 @@
 import {Maybe} from '../Utils';
 import {pageRequest} from './Request';
 
-export type Ratings = {
+export interface Ratings {
     lang: string;
     ratings: Rating[];
-};
+}
 
-export type Rating = {
+export interface Rating {
     comment: string;
     fullUserName: string;
     ratedAt: string;
@@ -14,9 +14,9 @@ export type Rating = {
         name: string;
         value: number;
     };
-};
+}
 
-type ApiRating = {
+interface ApiRating {
     ratedAt: string;
     rating: number;
     translations: {
@@ -28,7 +28,7 @@ type ApiRating = {
         firstName: string;
         lastName: string;
     };
-};
+}
 
 export function filterEmptyComments(ratings: ApiRating[],
                                     lang: string): ApiRating[] {

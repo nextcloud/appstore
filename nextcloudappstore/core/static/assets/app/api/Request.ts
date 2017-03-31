@@ -6,11 +6,11 @@ export const HttpMethod = {
     PUT: 'PUT' as 'PUT',
 };
 
-export type RequestData = {
+export interface RequestData {
     url: string;
     method?: keyof typeof HttpMethod;
     data: Object;
-};
+}
 
 /**
  * Similar to authApiRequest but does not hit the API (/api) and therefore
@@ -64,9 +64,9 @@ export function apiRequest<T>(request: RequestData,
     });
 }
 
-export type TokenData = {
+export interface TokenData {
     token: string;
-};
+}
 
 /**
  * Fetches the API token by providing the JSON token
