@@ -20,6 +20,7 @@
     "@types/jasmine": "^2.5.46",
     "@types/markdown-it": "0.0.2",
     "@types/screenfull": "^3.0.28",
+    "babili-webpack-plugin": "^0.0.11",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.27.3",
     "jasmine-core": "^2.5.2",
@@ -33,7 +34,7 @@
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run",
-    "build": "./node_modules/.bin/webpack --progress --colors",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors",
     "watch": "./node_modules/.bin/webpack --progress --colors --watch",
     "watch-test": "./node_modules/karma/bin/karma start"
   },

@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BabiliPlugin = require("babili-webpack-plugin");
 
 const base = './nextcloudappstore/core/static/';
 
@@ -47,6 +48,10 @@ module.exports = {
                 from: 'node_modules/element-closest/element-closest.js',
                 to: `${base}vendor/element-closest.js`
             },
-        ])
+        ]),
     ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.plugins.push(new BabiliPlugin);
+}
