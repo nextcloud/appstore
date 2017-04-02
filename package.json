@@ -1,60 +1,60 @@
 {
-  "name": "nextcloudappstore",
-  "version": "1.0.0",
-  "description": "Nextcloud App Store",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "bootstrap": "^3.3.7",
-    "bootstrap.native": "^2.0.8",
-    "element-closest": "^2.0.2",
-    "highlight.js": "^9.10.0",
-    "markdown-it": "^8.3.1",
-    "moment": "^2.17.1",
-    "screenfull": "^3.1.0"
-  },
-  "devDependencies": {
-    "@types/highlight.js": "^9.1.9",
-    "@types/jasmine": "^2.5.46",
-    "@types/markdown-it": "0.0.2",
-    "@types/screenfull": "^3.0.28",
-    "babili-webpack-plugin": "^0.0.11",
-    "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.27.3",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.5.0",
-    "karma-firefox-launcher": "^1.0.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-webpack": "^2.0.3",
-    "ts-loader": "^2.0.2",
-    "typescript": "^2.2.1",
-    "webpack": "^2.2.1"
-  },
-  "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors",
-    "watch": "./node_modules/.bin/webpack --progress --colors --watch",
-    "watch-test": "./node_modules/karma/bin/karma start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nextcloud/appstore.git"
-  },
-  "keywords": [
-    "app",
-    "store",
-    "nextcloud",
-    "cloud",
-    "django",
-    "python"
-  ],
-  "author": "Nextcloud Community",
-  "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/nextcloud/appstore/issues"
-  },
-  "homepage": "https://github.com/nextcloud/appstore#readme",
-  "private": true
+    "name": "nextcloudappstore",
+    "version": "1.0.0",
+    "description": "Nextcloud App Store",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "bootstrap.native": "^2.0.8",
+        "element-closest": "^2.0.2",
+        "highlight.js": "^9.10.0",
+        "markdown-it": "^8.3.1",
+        "moment": "^2.17.1",
+        "screenfull": "^3.1.0"
+    },
+    "devDependencies": {
+        "@types/highlight.js": "^9.1.9",
+        "@types/jasmine": "^2.5.46",
+        "@types/markdown-it": "0.0.2",
+        "@types/screenfull": "^3.0.28",
+        "babili-webpack-plugin": "^0.0.11",
+        "copy-webpack-plugin": "^4.0.1",
+        "css-loader": "^0.27.3",
+        "jasmine-core": "^2.5.2",
+        "karma": "^1.5.0",
+        "karma-firefox-launcher": "^1.0.1",
+        "karma-jasmine": "^1.1.0",
+        "karma-webpack": "^2.0.3",
+        "ts-loader": "^2.0.2",
+        "typescript": "^2.2.1",
+        "webpack": "^2.2.1"
+    },
+    "scripts": {
+        "test": "./node_modules/karma/bin/karma start --single-run",
+        "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors",
+        "watch": "./node_modules/.bin/webpack --progress --colors --watch",
+        "watch-test": "./node_modules/karma/bin/karma start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nextcloud/appstore.git"
+    },
+    "keywords": [
+        "app",
+        "store",
+        "nextcloud",
+        "cloud",
+        "django",
+        "python"
+    ],
+    "author": "Nextcloud Community",
+    "license": "AGPL-3.0",
+    "bugs": {
+        "url": "https://github.com/nextcloud/appstore/issues"
+    },
+    "homepage": "https://github.com/nextcloud/appstore#readme",
+    "private": true
 }
