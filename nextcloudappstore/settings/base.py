@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'csp.middleware.CSPMiddleware',
@@ -200,8 +200,6 @@ CSP_FORM_ACTION = ('\'self\'',)
 CSP_SIGNUP = {
     'SCRIPT_SRC': ['https://www.google.com/recaptcha/',
                    'https://www.gstatic.com/recaptcha/'],
-    'CHILD_SRC': ['https://www.google.com/recaptcha/'],
-    # FRAME_SRC is needed for Edge 14
     'FRAME_SRC': ['https://www.google.com/recaptcha/'],
     'STYLE_SRC': '\'unsafe-inline\'',
 }
