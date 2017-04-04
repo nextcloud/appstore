@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 00:23+0000\n"
+"POT-Creation-Date: 2017-04-04 00:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -65,10 +65,13 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
+"Puede ser generado ejecutando el siguiente comando: <b>openssl dgst -sha512 "
+"-sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:26 nextcloudappstore/core/models.py:377
 msgid "Nightly"
-msgstr ""
+msgstr "Nocturno"
 
 #: nextcloudappstore/core/forms.py:33
 msgid "Public certificate"
@@ -244,21 +247,24 @@ msgstr "Certificado"
 
 #: nextcloudappstore/core/models.py:107
 msgid "OCS id"
-msgstr ""
+msgstr "Id OCS"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store id. Deprecated"
-msgstr ""
+msgstr "store id anterior. Obsoleto"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
-msgstr ""
+msgstr "La transferencia de propiedad está habilitada"
 
 #: nextcloudappstore/core/models.py:111
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Si se habilita, un usuario podría intentar registrar de nuevo la misma "
+"aplicación usando el certificado público y la firma. Si lo hace, la "
+"aplicación será transferida a él. "
 
 #: nextcloudappstore/core/models.py:116 nextcloudappstore/core/models.py:262
 #: nextcloudappstore/core/models.py:339 nextcloudappstore/core/models.py:421
@@ -372,7 +378,7 @@ msgstr "Firma"
 
 #: nextcloudappstore/core/models.py:372
 msgid "A signature using SHA512 and the app's certificate"
-msgstr ""
+msgstr "Una firma usando SHA512 y el certificado de la aplicación"
 
 #: nextcloudappstore/core/models.py:374
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -640,6 +646,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Favor de confirmar que <a href=\"mailto:%(email)s\">%(email)s</a> sea el "
+"correo electrónico del usuario %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -992,7 +1000,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search %(category)s"
-msgstr ""
+msgstr "Buscar %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Search all apps"
@@ -1090,11 +1098,11 @@ msgstr "Aplicaciones de audio, video e imagenes"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
-msgstr ""
+msgstr "Oficina & texto"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
-msgstr ""
+msgstr "Aplicaciones de procesamiento de texto y oficina"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
@@ -1185,6 +1193,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Al borrar su cuenta, borrará todas sus aplicaciones y lanzamientos de igual "
+"modo. Para borrar su cuenta, inserte su dirección de correo electrónico en "
+"el campo correspondiente y haga click en el botón de \"Borrar cuenta\":"
 
 #: nextcloudappstore/core/templates/user/password.html:16
 msgid ""
@@ -1233,7 +1244,7 @@ msgstr "Desbloquear transferencia de propiedad"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "¡Usted no ha cargado ninguna aplicación todavia!"
+msgstr "¡AúN no ha cargado ninguna aplicación!"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
