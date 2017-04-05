@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-04 00:22+0000\n"
+"POT-Creation-Date: 2017-04-05 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -464,7 +464,7 @@ msgstr "Licencias"
 
 #: nextcloudappstore/core/models.py:513
 msgid "Key which is used to identify a database"
-msgstr ""
+msgstr "Llave que se usa para identificar la base de datos"
 
 #: nextcloudappstore/core/models.py:516
 msgid "Database name which will be presented to the user"
@@ -543,6 +543,9 @@ msgid ""
 "Only one version is allowed to be the current version. This field is used to"
 " pre-select drop downs for app generation etc."
 msgstr ""
+"Sólo se permite que una versión sea la versión actual. Este campo se usa "
+"para preseleccionar menús desplegables para la generación de la aplicación "
+"etc."
 
 #: nextcloudappstore/core/models.py:626
 msgid "Nextcloud release"
@@ -556,6 +559,8 @@ msgstr "Lanzamientos de Nextcloud"
 #: nextcloudappstore/core/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
 msgstr ""
+"Las palabras del nombre de la aplicación deben alternar mayúsculas y "
+"minusculas <camel case> ejem. MiApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
 #: nextcloudappstore/core/templates/user/transfer-apps.html:15
@@ -627,6 +632,12 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"¡Saludos desde %(site_name)s!\n"
+"Está recibiendo este correo electrónico porque el usuario %(user_display)s la vinculado esta cuenta de correo electrónico a su cuenta en %(site_domain)s\n"
+"\n"
+"Para confirmar que esto es correcto, vaya a %(activate_url)s\n"
+"\n"
+"Si no tiene una cuenta en %(site_domain)s, simplemente ignore este mensaje\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -634,6 +645,8 @@ msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
 msgstr ""
+"¡Le agradecemos desde %(site_name)s!\n"
+"%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
@@ -880,6 +893,8 @@ msgstr "Mis aplicaciones"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
+"No se encontraron aplicaciones para la búsqueda \"<em>%(query)s</em>\" en "
+"%(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
@@ -974,7 +989,7 @@ msgstr "Cargar"
 
 #: nextcloudappstore/core/templates/base.html:42
 msgid "Fork me on GitHub"
-msgstr ""
+msgstr "Hacerme un Fork en GitHub"
 
 #: nextcloudappstore/core/templates/base.html:45
 #: nextcloudappstore/core/templates/legal.html:4
@@ -996,6 +1011,9 @@ msgid ""
 "All product names and trademarks are the property of their respective "
 "owners, which might in no way be associated or affiliated with Nextcloud."
 msgstr ""
+"Todos los nombres de productos y macras registradas son propiedad de sus "
+"dueños correspondientes, que pueden no estar asociadas o afiliadas con "
+"Nextcloud de ninguna forma.  "
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -1062,7 +1080,7 @@ msgstr "Personalización"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Themes, layout and UX change apps"
-msgstr ""
+msgstr "Los temas, la disposición y UX cambian las aplicaciones"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1087,6 +1105,7 @@ msgstr "Monitoreo"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
+"Aplicaciones de estadística de datos, diagnóstico del sistema y actividad"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
@@ -1162,7 +1181,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Transferir la propiedad de la aplicación"
 
 #: nextcloudappstore/core/templates/user/base.html:18
 #: nextcloudappstore/core/templates/user/set-language.html:4
@@ -1217,6 +1236,10 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Para transferir una aplicación a un dueño nuevo, primero debe desbloquear la"
+" aplicación. Un usuario puede entonces tomar el control de la aplicación "
+"regristrandola de nuevo en la página de registro de aplicaciones del menu de"
+" desarrollo de la aplicación. "
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
