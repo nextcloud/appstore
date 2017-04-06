@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-05 00:23+0000\n"
+"POT-Creation-Date: 2017-04-06 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -206,7 +206,7 @@ msgstr "Dueño de la aplicación"
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Co-Maintainers"
-msgstr ""
+msgstr "Co-Mantenedores"
 
 #: nextcloudappstore/core/models.py:95 nextcloudappstore/core/models.py:333
 msgid "App authors"
@@ -216,7 +216,7 @@ msgstr "Autores de la aplicacion"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr ""
+msgstr "Destacado"
 
 #: nextcloudappstore/core/models.py:97
 #: nextcloudappstore/core/templates/app/detail.html:72
@@ -325,7 +325,7 @@ msgstr "Versión"
 
 #: nextcloudappstore/core/models.py:338
 msgid "Version follows Semantic Versioning"
-msgstr ""
+msgstr "La versión sigue el Versionamiento Semántico"
 
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:576
 msgid "PHP extension dependency"
@@ -341,7 +341,7 @@ msgstr "Licencia"
 
 #: nextcloudappstore/core/models.py:352
 msgid "Shell command dependency"
-msgstr ""
+msgstr "Dependencia de comando de la consola"
 
 #: nextcloudappstore/core/models.py:354
 msgid "PHP version requirement"
@@ -362,7 +362,7 @@ msgstr "Requerimiento de la versión de la plataforma (crudo)"
 #: nextcloudappstore/core/models.py:363
 #: nextcloudappstore/core/templates/app/releases.html:68
 msgid "Minimum Integer bits"
-msgstr ""
+msgstr "bits mínimos para Enteros "
 
 #: nextcloudappstore/core/models.py:364
 msgid "e.g. 32 for 32bit Integers"
@@ -423,16 +423,16 @@ msgstr "Capturas de pantalla"
 
 #: nextcloudappstore/core/models.py:443 nextcloudappstore/core/models.py:448
 msgid "Shell command"
-msgstr ""
+msgstr "comando de la consola"
 
 #: nextcloudappstore/core/models.py:445
 msgid "Name of a required shell command, e.g. grep"
-msgstr ""
+msgstr "Nombre de un comando de la consola requerido, ejem. grep"
 
 #: nextcloudappstore/core/models.py:449
 #: nextcloudappstore/core/templates/app/releases.html:60
 msgid "Shell commands"
-msgstr ""
+msgstr "Comandos de la consola"
 
 #: nextcloudappstore/core/models.py:460
 msgid ""
@@ -451,7 +451,7 @@ msgstr "Categoría"
 
 #: nextcloudappstore/core/models.py:496
 msgid "Key which is used to identify a license"
-msgstr ""
+msgstr "Llave que se usa para identificar una licencia"
 
 #: nextcloudappstore/core/models.py:499
 msgid "License name which will be presented to the user"
@@ -728,7 +728,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr ""
+msgstr "Ficha del API equivocada"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -1156,7 +1156,7 @@ msgstr "Guardar"
 #: nextcloudappstore/core/templates/user/api-token.html:9
 #: nextcloudappstore/core/templates/user/api-token.html:12
 msgid "API Token"
-msgstr ""
+msgstr "Ficha del API"
 
 #: nextcloudappstore/core/templates/user/api-token.html:15
 msgid ""
@@ -1166,18 +1166,22 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                   La ficha del API puede ser usara como autenticación al llamar a la tienda de la aplicación \n"
+" <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Asegúrese de mantenerla en secreto. Una nueva ficha puede ser generada a continuación, invalidando la ficha anterior."
 
 #: nextcloudappstore/core/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr ""
+msgstr "Su ficha del API es:"
 
 #: nextcloudappstore/core/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr ""
+msgstr "Se ha generado una nueva ficha del API. "
 
 #: nextcloudappstore/core/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr ""
+msgstr "Regenerar ficha del API"
 
 #: nextcloudappstore/core/templates/user/base.html:15
 msgid "Transfer app ownership"
@@ -1197,7 +1201,7 @@ msgstr "Contraseña"
 
 #: nextcloudappstore/core/templates/user/base.html:26
 msgid "API token"
-msgstr ""
+msgstr "Ficha del API"
 
 #: nextcloudappstore/core/templates/user/base.html:29
 #: nextcloudappstore/core/templates/user/delete-account.html:5

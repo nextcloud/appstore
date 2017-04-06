@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-05 00:23+0000\n"
+"POT-Creation-Date: 2017-04-06 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Flávio Veras <flaviove@gmail.com>, 2016\n"
+"Last-Translator: Paulo Schopf <pschopf@gmail.com>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,6 +120,8 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
+"<b>Importante</b>: Mudando a linguagem irá apagar seu comentário atual. "
+"Alterações não serão salvas!"
 
 #: nextcloudappstore/core/forms.py:76
 msgid "Comment"
@@ -252,13 +254,15 @@ msgstr "Id mais antigo. Depreciado"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
-msgstr ""
+msgstr "Transferêrencia de propriedade habilitada"
 
 #: nextcloudappstore/core/models.py:111
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Se habilitada, o usuário pode tentar registrar a mesma aplicação novamente "
+"usando um certificado e assinatura públicos."
 
 #: nextcloudappstore/core/models.py:116 nextcloudappstore/core/models.py:262
 #: nextcloudappstore/core/models.py:339 nextcloudappstore/core/models.py:421
@@ -680,7 +684,7 @@ msgstr "Login"
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/signup.html:25
 msgid "Log in with GitHub"
-msgstr ""
+msgstr "Entrar com GitHub"
 
 #: nextcloudappstore/core/templates/account/login.html:35
 msgid "Forgot password"
@@ -746,7 +750,7 @@ msgstr "Sua senha foi alterado"
 
 #: nextcloudappstore/core/templates/account/signup.html:18
 msgid "Create account"
-msgstr ""
+msgstr "Criar conta"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -1183,7 +1187,7 @@ msgstr "Regerando token API"
 
 #: nextcloudappstore/core/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Transferir propriedade da aplicação"
 
 #: nextcloudappstore/core/templates/user/base.html:18
 #: nextcloudappstore/core/templates/user/set-language.html:4
@@ -1229,7 +1233,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/user/transfer-apps.html:5
 #: nextcloudappstore/core/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "Transferir Aplicações"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:10
 msgid ""
@@ -1237,34 +1241,38 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Para transferir uma aplicação para outro proprietário você precisa "
+"desbloquear a aplicação primeiro. Um usuário pode então ter o controle da "
+"aplicação registrando-a novamente na página de registro de aplicações no "
+"menu de desenvolvedor. "
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Status da transferência de propridade"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Mudar o status de transferência de propriedade"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Desbloquear para transferir"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Bloqueado, não é possível transferir a propriedade"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Bloquear a transferência de propriedade"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Desbloquear a transferência de propriedade"
 
 #: nextcloudappstore/core/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Você não enviou nenhuma aplicação ainda!"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
