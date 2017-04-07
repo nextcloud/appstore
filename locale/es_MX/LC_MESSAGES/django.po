@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 00:23+0000\n"
+"POT-Creation-Date: 2017-04-07 00:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -148,7 +148,7 @@ msgstr "Nombre"
 
 #: nextcloudappstore/core/models.py:68
 msgid "Rendered app name for users"
-msgstr ""
+msgstr "Nombre de la aplicación interpretado para los usuarios"
 
 #: nextcloudappstore/core/models.py:69
 #: nextcloudappstore/core/scaffolding/forms.py:45
@@ -166,7 +166,7 @@ msgstr "Descripción"
 
 #: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:472
 msgid "Will be rendered as Markdown"
-msgstr ""
+msgstr "Será interpretado como Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation url"
@@ -297,7 +297,7 @@ msgstr "Comentario de la calificación"
 
 #: nextcloudappstore/core/models.py:271
 msgid "Rating comment in Markdown"
-msgstr ""
+msgstr "Comentario de calificación como Markdown"
 
 #: nextcloudappstore/core/models.py:277
 msgid "App rating"
@@ -387,7 +387,7 @@ msgstr "Bitácora de cambios"
 
 #: nextcloudappstore/core/models.py:375
 msgid "The release changelog. Can contain Markdown"
-msgstr ""
+msgstr "La bitácora de lanzamientos. Puede contener Markdown"
 
 #: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:529
 #: nextcloudappstore/core/models.py:564
@@ -404,7 +404,7 @@ msgstr "URL de la imagen"
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
-msgstr ""
+msgstr "Miniatura pequeña"
 
 #: nextcloudappstore/core/models.py:423
 msgid "Ordering"
@@ -439,6 +439,8 @@ msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
+"Id de la categoria que se usa para identificar una categoria. Es usado para "
+"identificar categorias al cargar una aplicación"
 
 #: nextcloudappstore/core/models.py:469
 msgid "Category name which will be presented to the user"
@@ -595,10 +597,13 @@ msgstr ""
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
+"Descripción corta de su aplicación que será interpretada como un corto "
+"preeliminar"
 
 #: nextcloudappstore/core/scaffolding/forms.py:48
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
+"Descripción completa de lo que su aplicación hace. Puede contener Markdown. "
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -758,11 +763,11 @@ msgstr "Crear cuenta"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr ""
+msgstr "Administrador de la aplicación Nextcloud en la tienda"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr ""
+msgstr "Administración de la aplicación Nextcloud en la tienda"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -784,7 +789,7 @@ msgstr "Actualizado"
 
 #: nextcloudappstore/core/templates/app/detail.html:61
 msgid "Publisher"
-msgstr ""
+msgstr "Quien publica"
 
 #: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
@@ -810,7 +815,7 @@ msgstr "Descargas"
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
-msgstr ""
+msgstr "nocturno"
 
 #: nextcloudappstore/core/templates/app/detail.html:116
 msgid "Unstable"
@@ -850,6 +855,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Los comentarios de calificación soportan<a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                              No use los comentarios de calificación para reportar fallas o solicitar funcionalidades. Ni los desarrolladores ni los  usuarios serán notificados de su comentario\n"
+"                               Una calificación sin comentarios aún cuenta, pero no se enlistará a continuación. "
 
 #: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Update rating"
@@ -914,6 +922,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Para más información de cómo obtener el certificado y cómo crear la firma "
+"consulte la <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">guía del desarrollador de aplicaciones</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -982,6 +994,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Para más información de cómo crear una firma SHA512 consulte la <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">guía de desarrollo de la aplicación</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1097,6 +1112,7 @@ msgstr "Integración"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr ""
+"Aplicaciones que conectan a Nextcloud con otros servicios y plataformas"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
