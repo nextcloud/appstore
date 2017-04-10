@@ -39,7 +39,7 @@ python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 python manage.py collectstatic
 python manage.py compilemessages
 python manage.py importdbtranslations
-yarn install --upgrade
+yarn install
 yarn run build
 
 deactivate
