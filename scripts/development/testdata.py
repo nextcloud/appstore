@@ -1,5 +1,32 @@
 import requests
 
+twofactor_cert = """
+-----BEGIN CERTIFICATE-----
+MIIECTCCAvECAhASMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD
+VQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI
+MTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB
+dXRob3JpdHkwHhcNMTYxMDEyMDkzNDMxWhcNMjcwMTE4MDkzNDMxWjAZMRcwFQYD
+VQQDDA50d29mYWN0b3JfdG90cDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoC
+ggIBALC1K94104L/nOtmTygx7QNjUcnHs3yrn71mw4pMxTlonXOnMTpwxsfL1Hhu
+/5GMSgupTbQPlevSl6J86UMs455/sPShd6ifmAuhb8VFaAsjpizjs0RMaUg1sjmF
+uV18PD9FXLourx51V/c4MG5kpavlV+bLUrVMAjbsJY2+k30tCC/XkP5u8jUWmM/T
+5REChn7/obPgaeddhuJoILYhKEW3VNrR8Fm9SYiviB3FLhM7URDZ97IBnXYqbvbT
+Znvq+E74Zc7HgYwQwrjU/AqQAInhNpAR4ZM6CkWWWWaL96O1q3lCfKJNaxqC0Kg/
+kGn/pxYkl9062jtMUz60s9OPDyuisfyl68UyM68Ozyz4SMRLmDVbewOqQAwmAbtz
+8p9AQrX3Pr9tXhARR4pDSsQz1z+8ExEd6EKbhMyiTtHtZQ1Vm9qfoR52snpznb5N
+e4TcT2qHAkOWV9+a9ESXmQz2bNjgThxEl5edTVY9m4t248lK5aBTGq5ZKGULNHSQ
+GGpr/ftMFpII45tSvadexUvzcR/BHt3QwBAlPmA4rWtjmOMuJGDGk+mKw4pUgtT8
+KvUMPQpnrbXSjKctxb3V5Ppg0UGntlSG71aVdxY1raLvKSmYeoMxUTnNeS6UYAF6
+I3FiuPnrjVFsZa2gwZfG8NmUPVPdv1O/IvLbToXvyieo8MbZAgMBAAEwDQYJKoZI
+hvcNAQELBQADggEBAEb6ajdng0bnNRuqL/GbmDC2hyy3exqPoZB/P5u0nZZzDZ18
+LFgiWr8DOYvS+9i6kdwWscMwNJsLEUQ2rdrAi+fGr6dlazn3sCCXrskLURKn5qCU
+fIFZbr2bGjSg93JGnvNorfsdJkwpFW2Z9gOwMwa9tAzSkR9CsSdOeYrmdtBdodAR
+dIu2MkhxAZk9FZfnFkjTaAXcBHafJce7H/IEjHDEoIkFp5KnAQLHsJb4n8JeXmi9
+VMgQ6yUWNuzOQMZpMIV7RMOUZHvxiX/ZWUFzXNYX0GYub6p4O2uh3LJE+xXyDf77
+RBO7PLY3m4TXCeKesxZlkoGke+lnq7B8tkADdPI=
+-----END CERTIFICATE-----
+"""
+
 open_id_cert = """
 -----BEGIN CERTIFICATE-----
 MIIEAjCCAuoCAhAzMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD
@@ -98,6 +125,12 @@ apps = [{
     'releases': [{
         'url': 'https://apps.owncloud.com/CONTENT/content-files/174436'
                '-spreedme.tar.gz'
+    }]
+}, {
+    'certificate': twofactor_cert,
+    'releases': [{
+        'url': 'https://github.com/nextcloud/twofactor_totp/releases'
+               '/download/1.2/twofactor_totp.tar.gz'
     }]
 }]
 

@@ -106,7 +106,7 @@ class AppRegisterView(APIView):
             settings.DISCOURSE_USER
         )
         data = {
-            'name': app_id,
+            'name': app_id.replace('_', '-'),
             'color': '3c3945',
             'text_color': 'ffffff'
         }
