@@ -50,7 +50,9 @@ endif
 initdb:
 	$(manage) migrate --settings nextcloudappstore.settings.development
 	$(manage) loaddata $(CURDIR)/nextcloudappstore/**/fixtures/*.json --settings nextcloudappstore.settings.development
-	$(manage) shell --settings nextcloudappstore.settings.development < $(CURDIR)/scripts/development/setup.py
+	$(manage) createsuperuser --username admin --email admin@admin.com --noinput --settings nextcloudappstore.settings.development
+	$(manage) verifyemail --username admin --email admin@admin.com --settings nextcloudappstore.settings.development
+	$(manage) setdefaultadminpassword --settings nextcloudappstore.settings.development
 
 .PHONY: docs
 docs:

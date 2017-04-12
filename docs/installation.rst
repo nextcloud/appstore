@@ -230,7 +230,7 @@ Creating an Admin User
 To create the initial admin user and verify his email, run the following command::
 
     python manage.py createsuperuser --username admin --email admin@admin.com
-    echo "from django.contrib.auth.models import User; from allauth.account.models import EmailAddress; EmailAddress.objects.create(user=User.objects.get(username='admin'), email='admin@example.com', verified=True, primary=True)" | python manage.py shell --settings nextcloudappstore.settings.production
+    python manage.py verifyemail --username admin --email admin@admin.com
 
 The first command will ask for the password.
 
