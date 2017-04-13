@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class UserConfig(AppConfig):
-    name = 'nextcloudappstore.core.user'
+    name = 'nextcloudappstore.user'
     verbose_name = 'App Store User'
 
     def __init__(self, *args, **kwargs):
