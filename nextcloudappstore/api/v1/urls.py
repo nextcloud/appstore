@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.views.decorators.http import etag
-from nextcloudappstore.core.api.v1.views import AppView, AppReleaseView, \
+from nextcloudappstore.api.v1.views import AppView, AppReleaseView, \
     CategoryView, SessionObtainAuthToken, RegenerateAuthToken, AppRatingView, \
     AppRegisterView
 from nextcloudappstore.core.caching import app_ratings_etag, categories_etag, \

@@ -14,9 +14,9 @@ from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError, PermissionDenied
 
-from nextcloudappstore.core.api.v1.release.importer import AppImporter
-from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
-from nextcloudappstore.core.api.v1.serializers import AppSerializer, \
+from nextcloudappstore.api.v1.release.importer import AppImporter
+from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
+from nextcloudappstore.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer, \
     AppRegisterSerializer
 from nextcloudappstore.core.certificate.validator import CertificateValidator

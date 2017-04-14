@@ -1,11 +1,11 @@
 from unittest.mock import MagicMock
 
 from django.test import TestCase
-from nextcloudappstore.core.api.v1.release.downloader import \
+from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
-from nextcloudappstore.core.api.v1.release.parser import \
+from nextcloudappstore.api.v1.release.parser import \
     GunZipAppMetadataExtractor
-from nextcloudappstore.core.api.v1.release.provider import \
+from nextcloudappstore.api.v1.release.provider import \
     AppReleaseProvider, \
     InvalidAppDirectoryException
 from nextcloudappstore.core.facades import read_relative_file, \

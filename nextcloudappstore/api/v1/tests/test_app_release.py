@@ -3,8 +3,8 @@ from unittest.mock import patch
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
-from nextcloudappstore.core.api.v1.release.provider import AppReleaseProvider
-from nextcloudappstore.core.api.v1.tests.api import ApiTest
+from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
+from nextcloudappstore.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.models import App, AppRelease
 
 
