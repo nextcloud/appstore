@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 
 from nextcloudappstore.core.models import App, Category
 
@@ -14,7 +14,7 @@ def transform_version(version: str) -> str:
 
 
 def categories(request):
-    return render_to_response('api/v0/categories.xml', {
+    return render(request, 'api/v0/categories.xml', {
         'categories': Category.objects.all()
     }, content_type='application/xml')
 
@@ -34,7 +34,7 @@ def apps(request):
     apps = filter(lambda a: a.ocsid is not None, compatible_apps)
     if category is not None:
         apps = filter(lambda app: in_category(app, category), apps)
-    return render_to_response('api/v0/apps.xml', {
+    return render(request, 'api/v0/apps.xml', {
         'apps': list(apps),
         'request': request,
         'version': version
@@ -44,7 +44,7 @@ def apps(request):
 def app(request, id):
     version = transform_version(request.GET.get('version'))
     app = get_object_or_404(App, ocsid=id)
-    return render_to_response('api/v0/app.xml', {
+    return render(request, 'api/v0/app.xml', {
         'app': app,
         'request': request,
         'version': version
@@ -57,6 +57,6 @@ def download(request, id):
     releases = app.compatible_releases(version)
     if len(releases) == 0:
         raise Http404('No release downloads found')
-    return render_to_response('api/v0/download.xml', {
+    return render(request, 'api/v0/download.xml', {
         'download': releases[0].download
     }, content_type='application/xml')
