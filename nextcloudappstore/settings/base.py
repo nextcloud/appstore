@@ -24,7 +24,7 @@ BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
 INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
-    'nextcloudappstore.core.user.apps.UserConfig',
+    'nextcloudappstore.user.apps.UserConfig',
     'parler',
     'rest_framework',
     'rest_framework.authtoken',
@@ -144,7 +144,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
-    'nextcloudappstore.core.user.forms.SignupFormRecaptcha'
+    'nextcloudappstore.user.forms.SignupFormRecaptcha'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

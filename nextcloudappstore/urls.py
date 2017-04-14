@@ -40,7 +40,7 @@ urlpatterns = [
     url(r'^api/', include('nextcloudappstore.core.api.urls',
                           namespace='api')),
     url(r'^account/',
-        include('nextcloudappstore.core.user.urls', namespace='user')),
+        include('nextcloudappstore.user.urls', namespace='user')),
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

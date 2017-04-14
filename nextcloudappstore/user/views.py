@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 from django.views.generic import UpdateView
 
 from nextcloudappstore.core.models import App
-from nextcloudappstore.core.user.forms import DeleteAccountForm, AccountForm
+from nextcloudappstore.user.forms import DeleteAccountForm, AccountForm
 
 
 class TransferAppsView(LoginRequiredMixin, TemplateView):

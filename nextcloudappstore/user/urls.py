@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from nextcloudappstore.core.user.views import PasswordView, AccountView, \
+from nextcloudappstore.user.views import PasswordView, AccountView, \
     APITokenView, DeleteAccountView, ChangeLanguageView, TransferAppsView
 
 urlpatterns = [
