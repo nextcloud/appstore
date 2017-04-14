@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from nextcloudappstore.core.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.facades import read_relative_file

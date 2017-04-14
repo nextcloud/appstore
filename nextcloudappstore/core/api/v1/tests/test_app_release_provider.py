@@ -1,4 +1,4 @@
-from unittest.mock import Mock, MagicMock
+from unittest.mock import MagicMock
 
 from django.test import TestCase
 from nextcloudappstore.core.api.v1.release.downloader import \
