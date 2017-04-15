@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-14 00:23+0000\n"
+"POT-Creation-Date: 2017-04-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
@@ -110,7 +110,7 @@ msgstr ""
 "-sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
 msgstr "Dil"
 
@@ -562,7 +562,7 @@ msgstr ""
 "yazılmalıdır. Örnek: BenimUygulamam"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
-#: nextcloudappstore/core/templates/user/transfer-apps.html:15
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Uygulama adı"
 
@@ -729,8 +729,8 @@ msgstr "API Kodu Hatalı"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/core/templates/user/password.html:8
-#: nextcloudappstore/core/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:8
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Change Password"
 msgstr "Parolayı Değiştir"
 
@@ -1007,7 +1007,7 @@ msgid "Legal Notice"
 msgstr "Yasal Bildirim"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "zorunlu alan"
 
@@ -1053,10 +1053,10 @@ msgid "Admin"
 msgstr "Yönetici"
 
 #: nextcloudappstore/core/templates/nav.html:74
-#: nextcloudappstore/core/templates/user/account.html:5
-#: nextcloudappstore/core/templates/user/account.html:8
-#: nextcloudappstore/core/templates/user/base.html:5
-#: nextcloudappstore/core/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/user/templates/user/account.html:8
+#: nextcloudappstore/user/templates/user/base.html:5
+#: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
 msgstr "Hesap"
 
@@ -1153,128 +1153,6 @@ msgstr "Araçlar"
 msgid "Everything else"
 msgstr "Diğer uygulamalar"
 
-#: nextcloudappstore/core/templates/user/account.html:12
-msgid "Save"
-msgstr "Kaydet"
-
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
-msgid "API Token"
-msgstr "API Kodu"
-
-#: nextcloudappstore/core/templates/user/api-token.html:15
-msgid ""
-"\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
-"            "
-msgstr ""
-"\n"
-"Uygulama mağazası çağrıldığında kimlik doğrulaması için kullanılabilecek API kodu\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"Bu kodu gizli tuttuğunuzdan emin olun. Aşağıdan yeni bir kod üretilebilir ve eski kod geçersiz olur."
-
-#: nextcloudappstore/core/templates/user/api-token.html:22
-msgid "Your API token is:"
-msgstr "API Kodunuz:"
-
-#: nextcloudappstore/core/templates/user/api-token.html:27
-msgid "New API token generated."
-msgstr "Yeni API kodu üretildi."
-
-#: nextcloudappstore/core/templates/user/api-token.html:32
-msgid "Regenerate API token"
-msgstr "API kodunu yeniden üret"
-
-#: nextcloudappstore/core/templates/user/base.html:15
-msgid "Transfer app ownership"
-msgstr "Uygulama sahipliğini aktar"
-
-#: nextcloudappstore/core/templates/user/base.html:18
-#: nextcloudappstore/core/templates/user/set-language.html:4
-#: nextcloudappstore/core/templates/user/set-language.html:7
-#: nextcloudappstore/core/templates/user/set-language.html:26
-msgid "Change language"
-msgstr "Dili Değiştir"
-
-#: nextcloudappstore/core/templates/user/base.html:22
-#: nextcloudappstore/core/templates/user/password.html:5
-msgid "Password"
-msgstr "Parola"
-
-#: nextcloudappstore/core/templates/user/base.html:26
-msgid "API token"
-msgstr "API Kodu"
-
-#: nextcloudappstore/core/templates/user/base.html:29
-#: nextcloudappstore/core/templates/user/delete-account.html:5
-#: nextcloudappstore/core/templates/user/delete-account.html:8
-#: nextcloudappstore/core/templates/user/delete-account.html:13
-msgid "Delete account"
-msgstr "Hesabı Sil"
-
-#: nextcloudappstore/core/templates/user/delete-account.html:10
-msgid ""
-"Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
-"click the \"Delete account\" button:"
-msgstr ""
-"Hesabınızı silerseniz uygulamalarınız ve sürümleriniz de silinir. Hesabınızı"
-" silmek için e-posta adresinizi yazın ve \"Hesabı Sil\" düğmesine tıklayın:"
-
-#: nextcloudappstore/core/templates/user/password.html:16
-msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr ""
-"Üçüncü taraf hizmet sağlayıcı üzerinde kayıtlı bir hesap kullanıyorsunuz "
-"gibi görünüyor. Bu nedenle parolanız bu sayfadan "
-"<strong>değiştirilemez</strong>."
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:5
-#: nextcloudappstore/core/templates/user/transfer-apps.html:8
-msgid "Transfer Apps"
-msgstr "Uygulamaları Aktar"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:10
-msgid ""
-"To transfer an app to a new owner you must first unlock the app. A user can "
-"then take control of the app by registering it again on the app register "
-"page in the app developer menu."
-msgstr ""
-"Bir uygulamayı yeni sahibine aktarmak için önce uygulamanın kilidini "
-"açmalısınız. Ardından başka bir kullanıcı uygulama geliştirici menüsündeki "
-"uygulama kaydetme sayfasından uygulamayı yeniden kaydederek devir alabilir."
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:16
-msgid "Ownership transfer status"
-msgstr "Sahip Aktarım Durumu"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:17
-msgid "Change ownership transfer status"
-msgstr "Sahip aktarım durumunu değiştir"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:24
-msgid "Unlocked for transfer"
-msgstr "Kilidi açık, aktarılabilir"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:26
-msgid "Locked, no transfer possible"
-msgstr "Kilitli, aktarılamaz"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:33
-msgid "Lock ownership transfer"
-msgstr "Sahip aktarımını kilitle"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:35
-msgid "Unlock ownership transfer"
-msgstr "Sahip aktarım kilidini aç"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:43
-msgid "You have not uploaded any apps yet!"
-msgstr "Henüz herhangi bir uygulama yüklememişsiniz!"
-
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
 msgstr "Çok Kötü"
@@ -1295,26 +1173,148 @@ msgstr "İyi"
 msgid "Very positive"
 msgstr "Çok İyi"
 
-#: nextcloudappstore/core/user/forms.py:13
-msgid "First name"
-msgstr "Ad"
-
-#: nextcloudappstore/core/user/forms.py:14
-msgid "Last name"
-msgstr "Soyad"
-
-#: nextcloudappstore/core/user/forms.py:23
-msgid "Your e-mail address"
-msgstr "E-posta adresiniz"
-
-#: nextcloudappstore/core/user/forms.py:35
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Yazdığınız e-posta adresi kayıtlı adresiniz ile aynı değil"
-
-#: nextcloudappstore/core/user/forms.py:48
-msgid "This e-mail address is already associated with another account."
-msgstr "Bu e-posta adresi zaten başka bir hesapla ilişkili."
-
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Geçerli bir HTTPS adresi yazın"
+
+#: nextcloudappstore/user/forms.py:13
+msgid "First name"
+msgstr "Ad"
+
+#: nextcloudappstore/user/forms.py:14
+msgid "Last name"
+msgstr "Soyad"
+
+#: nextcloudappstore/user/forms.py:23
+msgid "Your e-mail address"
+msgstr "E-posta adresiniz"
+
+#: nextcloudappstore/user/forms.py:35
+msgid "The given e-mail address does not match your e-mail address"
+msgstr "Yazdığınız e-posta adresi kayıtlı adresiniz ile aynı değil"
+
+#: nextcloudappstore/user/forms.py:48
+msgid "This e-mail address is already associated with another account."
+msgstr "Bu e-posta adresi zaten başka bir hesapla ilişkili."
+
+#: nextcloudappstore/user/templates/user/account.html:12
+msgid "Save"
+msgstr "Kaydet"
+
+#: nextcloudappstore/user/templates/user/api-token.html:9
+#: nextcloudappstore/user/templates/user/api-token.html:12
+msgid "API Token"
+msgstr "API Kodu"
+
+#: nextcloudappstore/user/templates/user/api-token.html:15
+msgid ""
+"\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"            "
+msgstr ""
+"\n"
+"Uygulama mağazası çağrıldığında kimlik doğrulaması için kullanılabilecek API kodu\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Bu kodu gizli tuttuğunuzdan emin olun. Aşağıdan yeni bir kod üretilebilir ve eski kod geçersiz olur."
+
+#: nextcloudappstore/user/templates/user/api-token.html:22
+msgid "Your API token is:"
+msgstr "API Kodunuz:"
+
+#: nextcloudappstore/user/templates/user/api-token.html:27
+msgid "New API token generated."
+msgstr "Yeni API kodu üretildi."
+
+#: nextcloudappstore/user/templates/user/api-token.html:32
+msgid "Regenerate API token"
+msgstr "API kodunu yeniden üret"
+
+#: nextcloudappstore/user/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr "Uygulama sahipliğini aktar"
+
+#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/set-language.html:7
+#: nextcloudappstore/user/templates/user/set-language.html:26
+msgid "Change language"
+msgstr "Dili Değiştir"
+
+#: nextcloudappstore/user/templates/user/base.html:22
+#: nextcloudappstore/user/templates/user/password.html:5
+msgid "Password"
+msgstr "Parola"
+
+#: nextcloudappstore/user/templates/user/base.html:26
+msgid "API token"
+msgstr "API Kodu"
+
+#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/delete-account.html:8
+#: nextcloudappstore/user/templates/user/delete-account.html:13
+msgid "Delete account"
+msgstr "Hesabı Sil"
+
+#: nextcloudappstore/user/templates/user/delete-account.html:10
+msgid ""
+"Deleting your account will delete all your apps and releases as well. To "
+"delete your account, insert your e-mail address into the input field and "
+"click the \"Delete account\" button:"
+msgstr ""
+"Hesabınızı silerseniz uygulamalarınız ve sürümleriniz de silinir. Hesabınızı"
+" silmek için e-posta adresinizi yazın ve \"Hesabı Sil\" düğmesine tıklayın:"
+
+#: nextcloudappstore/user/templates/user/password.html:16
+msgid ""
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
+msgstr ""
+"Üçüncü taraf hizmet sağlayıcı üzerinde kayıtlı bir hesap kullanıyorsunuz "
+"gibi görünüyor. Bu nedenle parolanız bu sayfadan "
+"<strong>değiştirilemez</strong>."
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:5
+#: nextcloudappstore/user/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr "Uygulamaları Aktar"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+"Bir uygulamayı yeni sahibine aktarmak için önce uygulamanın kilidini "
+"açmalısınız. Ardından başka bir kullanıcı uygulama geliştirici menüsündeki "
+"uygulama kaydetme sayfasından uygulamayı yeniden kaydederek devir alabilir."
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr "Sahip Aktarım Durumu"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr "Sahip aktarım durumunu değiştir"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr "Kilidi açık, aktarılabilir"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr "Kilitli, aktarılamaz"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr "Sahip aktarımını kilitle"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr "Sahip aktarım kilidini aç"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr "Henüz herhangi bir uygulama yüklememişsiniz!"

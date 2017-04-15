@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-14 00:23+0000\n"
+"POT-Creation-Date: 2017-04-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -112,7 +112,7 @@ msgstr ""
 "base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
 msgstr "Idioma"
 
@@ -565,7 +565,7 @@ msgstr ""
 "minusculas <camel case> ejem. MiApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
-#: nextcloudappstore/core/templates/user/transfer-apps.html:15
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Nombre de la aplicación"
 
@@ -737,8 +737,8 @@ msgstr "Ficha del API equivocada"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/core/templates/user/password.html:8
-#: nextcloudappstore/core/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:8
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Change Password"
 msgstr "Cambiar la contraseña"
 
@@ -1017,7 +1017,7 @@ msgid "Legal Notice"
 msgstr "Aviso legal"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "campo requerido"
 
@@ -1064,10 +1064,10 @@ msgid "Admin"
 msgstr "Administrador"
 
 #: nextcloudappstore/core/templates/nav.html:74
-#: nextcloudappstore/core/templates/user/account.html:5
-#: nextcloudappstore/core/templates/user/account.html:8
-#: nextcloudappstore/core/templates/user/base.html:5
-#: nextcloudappstore/core/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/user/templates/user/account.html:8
+#: nextcloudappstore/user/templates/user/base.html:5
+#: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
 msgstr "Cuenta"
 
@@ -1173,130 +1173,6 @@ msgstr "Herramientas"
 msgid "Everything else"
 msgstr "Todo lo demás"
 
-#: nextcloudappstore/core/templates/user/account.html:12
-msgid "Save"
-msgstr "Guardar"
-
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
-msgid "API Token"
-msgstr "Ficha del API"
-
-#: nextcloudappstore/core/templates/user/api-token.html:15
-msgid ""
-"\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
-"            "
-msgstr ""
-"\n"
-"                   La ficha del API puede ser usara como autenticación al llamar a la tienda de la aplicación \n"
-" <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"Asegúrese de mantenerla en secreto. Una nueva ficha puede ser generada a continuación, invalidando la ficha anterior."
-
-#: nextcloudappstore/core/templates/user/api-token.html:22
-msgid "Your API token is:"
-msgstr "Su ficha del API es:"
-
-#: nextcloudappstore/core/templates/user/api-token.html:27
-msgid "New API token generated."
-msgstr "Se ha generado una nueva ficha del API. "
-
-#: nextcloudappstore/core/templates/user/api-token.html:32
-msgid "Regenerate API token"
-msgstr "Regenerar ficha del API"
-
-#: nextcloudappstore/core/templates/user/base.html:15
-msgid "Transfer app ownership"
-msgstr "Transferir la propiedad de la aplicación"
-
-#: nextcloudappstore/core/templates/user/base.html:18
-#: nextcloudappstore/core/templates/user/set-language.html:4
-#: nextcloudappstore/core/templates/user/set-language.html:7
-#: nextcloudappstore/core/templates/user/set-language.html:26
-msgid "Change language"
-msgstr "Cambiar idioma"
-
-#: nextcloudappstore/core/templates/user/base.html:22
-#: nextcloudappstore/core/templates/user/password.html:5
-msgid "Password"
-msgstr "Contraseña"
-
-#: nextcloudappstore/core/templates/user/base.html:26
-msgid "API token"
-msgstr "Ficha del API"
-
-#: nextcloudappstore/core/templates/user/base.html:29
-#: nextcloudappstore/core/templates/user/delete-account.html:5
-#: nextcloudappstore/core/templates/user/delete-account.html:8
-#: nextcloudappstore/core/templates/user/delete-account.html:13
-msgid "Delete account"
-msgstr "Borrar cuenta"
-
-#: nextcloudappstore/core/templates/user/delete-account.html:10
-msgid ""
-"Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
-"click the \"Delete account\" button:"
-msgstr ""
-"Al borrar su cuenta, borrará todas sus aplicaciones y lanzamientos de igual "
-"modo. Para borrar su cuenta, inserte su dirección de correo electrónico en "
-"el campo correspondiente y haga click en el botón de \"Borrar cuenta\":"
-
-#: nextcloudappstore/core/templates/user/password.html:16
-msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr ""
-"Al parecer está usando una cuenta registrada con un proveedor tercero. Su "
-"contraseña entonces <strong>no</strong>  puede ser cambiada desde esta "
-"página. "
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:5
-#: nextcloudappstore/core/templates/user/transfer-apps.html:8
-msgid "Transfer Apps"
-msgstr "Aplicaciones de transferencia"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:10
-msgid ""
-"To transfer an app to a new owner you must first unlock the app. A user can "
-"then take control of the app by registering it again on the app register "
-"page in the app developer menu."
-msgstr ""
-"Para transferir una aplicación a un dueño nuevo, primero debe desbloquear la"
-" aplicación. Un usuario puede entonces tomar el control de la aplicación "
-"regristrandola de nuevo en la página de registro de aplicaciones del menu de"
-" desarrollo de la aplicación. "
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:16
-msgid "Ownership transfer status"
-msgstr "Estatus de transferencia de propiedad"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:17
-msgid "Change ownership transfer status"
-msgstr "Cambiar estatus de transferencia de propiedad"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:24
-msgid "Unlocked for transfer"
-msgstr "Desbloqueado para transferir"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:26
-msgid "Locked, no transfer possible"
-msgstr "Bloqueado, no es posible transferir"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:33
-msgid "Lock ownership transfer"
-msgstr "Bloquear transferencia de propiedad"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:35
-msgid "Unlock ownership transfer"
-msgstr "Desbloquear transferencia de propiedad"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:43
-msgid "You have not uploaded any apps yet!"
-msgstr "¡AúN no ha cargado ninguna aplicación!"
-
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
 msgstr "Muy negativo"
@@ -1317,29 +1193,153 @@ msgstr "Positivo"
 msgid "Very positive"
 msgstr "Muy positivo"
 
-#: nextcloudappstore/core/user/forms.py:13
+#: nextcloudappstore/core/validators.py:6
+msgid "Enter a valid HTTPS Url"
+msgstr "Ingrese un URL HTTPS válido"
+
+#: nextcloudappstore/user/forms.py:13
 msgid "First name"
 msgstr "Nombre"
 
-#: nextcloudappstore/core/user/forms.py:14
+#: nextcloudappstore/user/forms.py:14
 msgid "Last name"
 msgstr "Apellidos"
 
-#: nextcloudappstore/core/user/forms.py:23
+#: nextcloudappstore/user/forms.py:23
 msgid "Your e-mail address"
 msgstr "Su dirección de correo electrónico"
 
-#: nextcloudappstore/core/user/forms.py:35
+#: nextcloudappstore/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
 msgstr ""
 "La dirección de correo electrónico ingresada no corresponde con la suya"
 
-#: nextcloudappstore/core/user/forms.py:48
+#: nextcloudappstore/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
 msgstr ""
 "Esta dirección de correo electrónico ya se encuentra asociadoa con otra "
 "cuenta. "
 
-#: nextcloudappstore/core/validators.py:6
-msgid "Enter a valid HTTPS Url"
-msgstr "Ingrese un URL HTTPS válido"
+#: nextcloudappstore/user/templates/user/account.html:12
+msgid "Save"
+msgstr "Guardar"
+
+#: nextcloudappstore/user/templates/user/api-token.html:9
+#: nextcloudappstore/user/templates/user/api-token.html:12
+msgid "API Token"
+msgstr "Ficha del API"
+
+#: nextcloudappstore/user/templates/user/api-token.html:15
+msgid ""
+"\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"            "
+msgstr ""
+"\n"
+"                   La ficha del API puede ser usara como autenticación al llamar a la tienda de la aplicación \n"
+" <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Asegúrese de mantenerla en secreto. Una nueva ficha puede ser generada a continuación, invalidando la ficha anterior."
+
+#: nextcloudappstore/user/templates/user/api-token.html:22
+msgid "Your API token is:"
+msgstr "Su ficha del API es:"
+
+#: nextcloudappstore/user/templates/user/api-token.html:27
+msgid "New API token generated."
+msgstr "Se ha generado una nueva ficha del API. "
+
+#: nextcloudappstore/user/templates/user/api-token.html:32
+msgid "Regenerate API token"
+msgstr "Regenerar ficha del API"
+
+#: nextcloudappstore/user/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr "Transferir la propiedad de la aplicación"
+
+#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/set-language.html:7
+#: nextcloudappstore/user/templates/user/set-language.html:26
+msgid "Change language"
+msgstr "Cambiar idioma"
+
+#: nextcloudappstore/user/templates/user/base.html:22
+#: nextcloudappstore/user/templates/user/password.html:5
+msgid "Password"
+msgstr "Contraseña"
+
+#: nextcloudappstore/user/templates/user/base.html:26
+msgid "API token"
+msgstr "Ficha del API"
+
+#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/delete-account.html:8
+#: nextcloudappstore/user/templates/user/delete-account.html:13
+msgid "Delete account"
+msgstr "Borrar cuenta"
+
+#: nextcloudappstore/user/templates/user/delete-account.html:10
+msgid ""
+"Deleting your account will delete all your apps and releases as well. To "
+"delete your account, insert your e-mail address into the input field and "
+"click the \"Delete account\" button:"
+msgstr ""
+"Al borrar su cuenta, borrará todas sus aplicaciones y lanzamientos de igual "
+"modo. Para borrar su cuenta, inserte su dirección de correo electrónico en "
+"el campo correspondiente y haga click en el botón de \"Borrar cuenta\":"
+
+#: nextcloudappstore/user/templates/user/password.html:16
+msgid ""
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
+msgstr ""
+"Al parecer está usando una cuenta registrada con un proveedor tercero. Su "
+"contraseña entonces <strong>no</strong>  puede ser cambiada desde esta "
+"página. "
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:5
+#: nextcloudappstore/user/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr "Aplicaciones de transferencia"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+"Para transferir una aplicación a un dueño nuevo, primero debe desbloquear la"
+" aplicación. Un usuario puede entonces tomar el control de la aplicación "
+"regristrandola de nuevo en la página de registro de aplicaciones del menu de"
+" desarrollo de la aplicación. "
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr "Estatus de transferencia de propiedad"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr "Cambiar estatus de transferencia de propiedad"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr "Desbloqueado para transferir"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr "Bloqueado, no es posible transferir"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr "Bloquear transferencia de propiedad"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr "Desbloquear transferencia de propiedad"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr "¡AúN no ha cargado ninguna aplicación!"
