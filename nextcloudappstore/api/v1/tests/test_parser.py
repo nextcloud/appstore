@@ -2,8 +2,8 @@ import json
 from copy import deepcopy
 
 from django.test import TestCase
-from nextcloudappstore.core.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.api.v1.release.parser import \
+from nextcloudappstore.api.v1.release import ReleaseConfig
+from nextcloudappstore.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
     InvalidAppPackageStructureException, \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \

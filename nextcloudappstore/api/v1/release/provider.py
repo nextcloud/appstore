@@ -1,7 +1,7 @@
-from nextcloudappstore.core.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.api.v1.release.downloader import \
+from nextcloudappstore.api.v1.release import ReleaseConfig
+from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
-from nextcloudappstore.core.api.v1.release.parser import \
+from nextcloudappstore.api.v1.release.parser import \
     GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog
 from typing import Dict, Tuple
 

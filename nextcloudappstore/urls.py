@@ -37,7 +37,7 @@ urlpatterns = [
         name='app-description'),
     url(r'^apps/(?P<id>[\w_]+)/ratings.json$',
         etag(app_rating_etag)(AppRatingApi.as_view()), name='app-ratings'),
-    url(r'^api/', include('nextcloudappstore.core.api.urls',
+    url(r'^api/', include('nextcloudappstore.api.urls',
                           namespace='api')),
     url(r'^account/',
         include('nextcloudappstore.user.urls', namespace='user')),

@@ -24,6 +24,7 @@ BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
 INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
+    'nextcloudappstore.api.apps.ApiConfig',
     'nextcloudappstore.user.apps.UserConfig',
     'parler',
     'rest_framework',

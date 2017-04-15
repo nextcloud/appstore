@@ -33,10 +33,14 @@ Unreleased
 - Migrated frontend code to Typescript + Webpack
 - Require bug tracker to present in info.xml
 - Require max-version to be present for Nextcloud versions
+- Extracted api and account settings into a separate app
+- Moved app schema to a different path, make sure to adjust your webserver config
+- Migrated to yarn as package manager
 
 **Removed**
 
 - Dropped Python 3.4 support
+- Dropped app ownership table
 
 1.0.0 - 2016-13-12
 ++++++++++++++++++

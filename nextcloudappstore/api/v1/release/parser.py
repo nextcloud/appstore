@@ -7,7 +7,7 @@ from typing import Dict, Any, Tuple, List, Set
 
 from semantic_version import Version
 
-from nextcloudappstore.core.api.v1.release import ReleaseConfig
+from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, \
     pad_min_version, raw_version
 from rest_framework.exceptions import ParseError, \

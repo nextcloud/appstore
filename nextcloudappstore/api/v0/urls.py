@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from nextcloudappstore.core.api.v0.views import categories, apps, app, download
+from nextcloudappstore.api.v0.views import categories, apps, app, download
 
 urlpatterns = [
     url(r'^content/categories/?$', categories, name='categories'),
