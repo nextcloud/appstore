@@ -34,7 +34,7 @@ Unreleased
 - Require bug tracker to present in info.xml
 - Require max-version to be present for Nextcloud versions
 - Extracted api and account settings into a separate app
-- Moved app schema to a different path
+- Moved app schema to a different path, make sure to adjust your webserver config
 - Migrated to yarn as package manager
 
 **Removed**
