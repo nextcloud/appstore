@@ -16,7 +16,7 @@ First you want to switch your machine to an up to date Node.js version and insta
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-Certain libraries and Python packages are required before setting up your development instance::
+Then install the following libraries::
 
     sudo apt-get update
     sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs yarn
