@@ -13,7 +13,8 @@
 set -e
 
 if [[ "$1" == "apache" ]]; then
-    reload_cmd="systemctl reload apache2"
+    stop_cmd="systemctl stop apache2"
+    start_cmd="systemctl start apache2"
 else
     echo "No known web server configuration for argument '$1', aborting"
     exit 1
@@ -23,9 +24,12 @@ fi
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
-# get rid of old venv if present and create a new venv
+# get rid of old tmp venv if present and create a new tmp venv
 rm -rf venvtmp/
 python3 -m venv venvtmp
+
+# shut down for maintenance
+eval $stop_cmd
 source venvtmp/bin/activate
 
 export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
@@ -44,13 +48,12 @@ yarn run build
 
 deactivate
 
-# get rid of old venv if it exists
+# get rid of old venv if it exists and move the tmp venv into place
 if [[ -d "venv" ]]; then
     mv venv venvold
 fi
-
 mv venvtmp venv
 
-eval $reload_cmd
+eval $start_cmd
 
 rm -rf venvold

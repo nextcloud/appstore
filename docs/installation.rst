@@ -360,54 +360,16 @@ Afterwards your **client id** and **client secret** are displayed. These need to
 
 Keeping Up To Date
 ~~~~~~~~~~~~~~~~~~
+Updating an instance is scripted in **scripts/maintenance/update.sh**. Depending on your distribution you will have to adjust the scripts contents.
 
-To fetch the latest changes from the repository change into the directory that you've cloned and run::
-
-    git pull --rebase origin master
-
-If not active, activate the virtual environment::
-
-    source venv/bin/activate
-    export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
-
-Then adjust the database schema (if changed) by running the migrations::
-
-    python manage.py migrate
-
-load new fixtures::
-
-    python manage.py loaddata nextcloudappstore/**/fixtures/*.json
-
-and install any dependencies (if changed)::
-
-    pip install --upgrade wheel
-    pip install --upgrade pip
-    pip install --upgrade -r requirements/base.txt
-    pip install --upgrade -r requirements/production.txt
-
-update translations::
-
-    python manage.py compilemessages
-    python manage.py importdbtranslations
-
-Finally run the **collectstatic** command to copy updated assets into the web server's folder::
-
-    sudo chown -R $(whoami):users /var/www
-    python manage.py collectstatic
-    sudo chown -R www-data:www-data /var/www
-
-and reload apache::
-
-    sudo systemctl reload apache2
-
-.. note:: If you are running Ubuntu and Apache, there is a maintenance script available by running
-
-.. code-block:: bash
+For Ubuntu you can run the provided script::
 
     git pull --rebase origin master
     sudo chown -R $(whoami):users /var/www
     bash scripts/maintenance/update.sh apache
     sudo chown -R www-data:www-data /var/www
+
+.. note:: The above commands assume that your static content is located in **/var/www**
 
 Monitoring
 ~~~~~~~~~~
