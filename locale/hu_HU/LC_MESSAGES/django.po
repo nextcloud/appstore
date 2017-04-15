@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-14 00:23+0000\n"
+"POT-Creation-Date: 2017-04-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Falu <info@falu.me>, 2016\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
@@ -104,7 +104,7 @@ msgstr ""
 "base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
 msgstr "Nyelv"
 
@@ -547,7 +547,7 @@ msgid "The app name must be camel case e.g. MyApp"
 msgstr "Az alkalmazás nevét CamelCase stílusban kell megadni, pl: MyApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
-#: nextcloudappstore/core/templates/user/transfer-apps.html:15
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Alkalmazás neve"
 
@@ -712,8 +712,8 @@ msgstr "Hibás API token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/core/templates/user/password.html:8
-#: nextcloudappstore/core/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:8
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Change Password"
 msgstr "Jelszó módosítás"
 
@@ -981,7 +981,7 @@ msgid "Legal Notice"
 msgstr "Jogi nyilatkozat"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "szükséges mező"
 
@@ -1025,10 +1025,10 @@ msgid "Admin"
 msgstr "Adminisztrátor"
 
 #: nextcloudappstore/core/templates/nav.html:74
-#: nextcloudappstore/core/templates/user/account.html:5
-#: nextcloudappstore/core/templates/user/account.html:8
-#: nextcloudappstore/core/templates/user/base.html:5
-#: nextcloudappstore/core/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/user/templates/user/account.html:8
+#: nextcloudappstore/user/templates/user/base.html:5
+#: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
 msgstr "Fiók"
 
@@ -1123,116 +1123,6 @@ msgstr "Eszközök"
 msgid "Everything else"
 msgstr "Minden más"
 
-#: nextcloudappstore/core/templates/user/account.html:12
-msgid "Save"
-msgstr "Mentés"
-
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
-msgid "API Token"
-msgstr "API Token"
-
-#: nextcloudappstore/core/templates/user/api-token.html:15
-msgid ""
-"\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
-"            "
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/api-token.html:22
-msgid "Your API token is:"
-msgstr "Az API tokened:"
-
-#: nextcloudappstore/core/templates/user/api-token.html:27
-msgid "New API token generated."
-msgstr "Új API token generálva."
-
-#: nextcloudappstore/core/templates/user/api-token.html:32
-msgid "Regenerate API token"
-msgstr "API token regenerálás"
-
-#: nextcloudappstore/core/templates/user/base.html:15
-msgid "Transfer app ownership"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/base.html:18
-#: nextcloudappstore/core/templates/user/set-language.html:4
-#: nextcloudappstore/core/templates/user/set-language.html:7
-#: nextcloudappstore/core/templates/user/set-language.html:26
-msgid "Change language"
-msgstr "Nyelv módosítás"
-
-#: nextcloudappstore/core/templates/user/base.html:22
-#: nextcloudappstore/core/templates/user/password.html:5
-msgid "Password"
-msgstr "Jelszó"
-
-#: nextcloudappstore/core/templates/user/base.html:26
-msgid "API token"
-msgstr "API Token"
-
-#: nextcloudappstore/core/templates/user/base.html:29
-#: nextcloudappstore/core/templates/user/delete-account.html:5
-#: nextcloudappstore/core/templates/user/delete-account.html:8
-#: nextcloudappstore/core/templates/user/delete-account.html:13
-msgid "Delete account"
-msgstr "Fiók törlése"
-
-#: nextcloudappstore/core/templates/user/delete-account.html:10
-msgid ""
-"Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
-"click the \"Delete account\" button:"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/password.html:16
-msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:5
-#: nextcloudappstore/core/templates/user/transfer-apps.html:8
-msgid "Transfer Apps"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:10
-msgid ""
-"To transfer an app to a new owner you must first unlock the app. A user can "
-"then take control of the app by registering it again on the app register "
-"page in the app developer menu."
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:16
-msgid "Ownership transfer status"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:17
-msgid "Change ownership transfer status"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:24
-msgid "Unlocked for transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:26
-msgid "Locked, no transfer possible"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:33
-msgid "Lock ownership transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:35
-msgid "Unlock ownership transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:43
-msgid "You have not uploaded any apps yet!"
-msgstr ""
-
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
 msgstr "Nagyon negatív"
@@ -1253,26 +1143,136 @@ msgstr "Pozitív"
 msgid "Very positive"
 msgstr "Nagyon pozityv"
 
-#: nextcloudappstore/core/user/forms.py:13
-msgid "First name"
-msgstr "Keresztnév"
-
-#: nextcloudappstore/core/user/forms.py:14
-msgid "Last name"
-msgstr "Vezetéknév"
-
-#: nextcloudappstore/core/user/forms.py:23
-msgid "Your e-mail address"
-msgstr "Az e-mail címed"
-
-#: nextcloudappstore/core/user/forms.py:35
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "A megadott e-mail cím nem egyezik az e-mail címeddel"
-
-#: nextcloudappstore/core/user/forms.py:48
-msgid "This e-mail address is already associated with another account."
-msgstr "Ez az e-mail cím már egy másik fiókhoz lett hozzárendelve."
-
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Adj meg egy érvényes HTTPS URL-t"
+
+#: nextcloudappstore/user/forms.py:13
+msgid "First name"
+msgstr "Keresztnév"
+
+#: nextcloudappstore/user/forms.py:14
+msgid "Last name"
+msgstr "Vezetéknév"
+
+#: nextcloudappstore/user/forms.py:23
+msgid "Your e-mail address"
+msgstr "Az e-mail címed"
+
+#: nextcloudappstore/user/forms.py:35
+msgid "The given e-mail address does not match your e-mail address"
+msgstr "A megadott e-mail cím nem egyezik az e-mail címeddel"
+
+#: nextcloudappstore/user/forms.py:48
+msgid "This e-mail address is already associated with another account."
+msgstr "Ez az e-mail cím már egy másik fiókhoz lett hozzárendelve."
+
+#: nextcloudappstore/user/templates/user/account.html:12
+msgid "Save"
+msgstr "Mentés"
+
+#: nextcloudappstore/user/templates/user/api-token.html:9
+#: nextcloudappstore/user/templates/user/api-token.html:12
+msgid "API Token"
+msgstr "API Token"
+
+#: nextcloudappstore/user/templates/user/api-token.html:15
+msgid ""
+"\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"            "
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/api-token.html:22
+msgid "Your API token is:"
+msgstr "Az API tokened:"
+
+#: nextcloudappstore/user/templates/user/api-token.html:27
+msgid "New API token generated."
+msgstr "Új API token generálva."
+
+#: nextcloudappstore/user/templates/user/api-token.html:32
+msgid "Regenerate API token"
+msgstr "API token regenerálás"
+
+#: nextcloudappstore/user/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/set-language.html:7
+#: nextcloudappstore/user/templates/user/set-language.html:26
+msgid "Change language"
+msgstr "Nyelv módosítás"
+
+#: nextcloudappstore/user/templates/user/base.html:22
+#: nextcloudappstore/user/templates/user/password.html:5
+msgid "Password"
+msgstr "Jelszó"
+
+#: nextcloudappstore/user/templates/user/base.html:26
+msgid "API token"
+msgstr "API Token"
+
+#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/delete-account.html:8
+#: nextcloudappstore/user/templates/user/delete-account.html:13
+msgid "Delete account"
+msgstr "Fiók törlése"
+
+#: nextcloudappstore/user/templates/user/delete-account.html:10
+msgid ""
+"Deleting your account will delete all your apps and releases as well. To "
+"delete your account, insert your e-mail address into the input field and "
+"click the \"Delete account\" button:"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/password.html:16
+msgid ""
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:5
+#: nextcloudappstore/user/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-14 00:23+0000\n"
+"POT-Creation-Date: 2017-04-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Toon van Gerwen <translation@vgerwen.nl>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -112,7 +112,7 @@ msgstr ""
 "~/.nextcloud/certificates/APP_ID.key | openssl base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
 msgstr "Taal"
 
@@ -562,7 +562,7 @@ msgid "The app name must be camel case e.g. MyApp"
 msgstr "De app naam moet CamelCase zijn, bijvoorbeeld: MyApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
-#: nextcloudappstore/core/templates/user/transfer-apps.html:15
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "App naam"
 
@@ -732,8 +732,8 @@ msgstr "Foutief API Token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/core/templates/user/password.html:8
-#: nextcloudappstore/core/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:8
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Change Password"
 msgstr "Verander wachtwoord"
 
@@ -1010,7 +1010,7 @@ msgid "Legal Notice"
 msgstr "Juridische bepalingen"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "verplicht veld"
 
@@ -1056,10 +1056,10 @@ msgid "Admin"
 msgstr "Beheerder"
 
 #: nextcloudappstore/core/templates/nav.html:74
-#: nextcloudappstore/core/templates/user/account.html:5
-#: nextcloudappstore/core/templates/user/account.html:8
-#: nextcloudappstore/core/templates/user/base.html:5
-#: nextcloudappstore/core/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/user/templates/user/account.html:8
+#: nextcloudappstore/user/templates/user/base.html:5
+#: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
 msgstr "Account"
 
@@ -1156,129 +1156,6 @@ msgstr "Tools"
 msgid "Everything else"
 msgstr "De rest"
 
-#: nextcloudappstore/core/templates/user/account.html:12
-msgid "Save"
-msgstr "Opslaan"
-
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
-msgid "API Token"
-msgstr "API Token"
-
-#: nextcloudappstore/core/templates/user/api-token.html:15
-msgid ""
-"\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
-"            "
-msgstr ""
-"\n"
-"Het API token kan worden gebruikt voor authenticatie bij aanroepen van de app store\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"Zorg ervoor dat het geheim blijft. Een nieuw token kan hieronder worden gegenereerd, waardoor het oude token ongeldig wordt.\n"
-"            "
-
-#: nextcloudappstore/core/templates/user/api-token.html:22
-msgid "Your API token is:"
-msgstr "Je API token is:"
-
-#: nextcloudappstore/core/templates/user/api-token.html:27
-msgid "New API token generated."
-msgstr "Nieuw API token gegenereerd."
-
-#: nextcloudappstore/core/templates/user/api-token.html:32
-msgid "Regenerate API token"
-msgstr "Opnieuw genereren API token"
-
-#: nextcloudappstore/core/templates/user/base.html:15
-msgid "Transfer app ownership"
-msgstr "Overdragen app eigenaarschap"
-
-#: nextcloudappstore/core/templates/user/base.html:18
-#: nextcloudappstore/core/templates/user/set-language.html:4
-#: nextcloudappstore/core/templates/user/set-language.html:7
-#: nextcloudappstore/core/templates/user/set-language.html:26
-msgid "Change language"
-msgstr "Wijzig taal"
-
-#: nextcloudappstore/core/templates/user/base.html:22
-#: nextcloudappstore/core/templates/user/password.html:5
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: nextcloudappstore/core/templates/user/base.html:26
-msgid "API token"
-msgstr "API token"
-
-#: nextcloudappstore/core/templates/user/base.html:29
-#: nextcloudappstore/core/templates/user/delete-account.html:5
-#: nextcloudappstore/core/templates/user/delete-account.html:8
-#: nextcloudappstore/core/templates/user/delete-account.html:13
-msgid "Delete account"
-msgstr "Verwijder account"
-
-#: nextcloudappstore/core/templates/user/delete-account.html:10
-msgid ""
-"Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
-"click the \"Delete account\" button:"
-msgstr ""
-"Het verwijderen van je account verwijdert ook al je apps en releases. Om je "
-"account te verwijderen moet je je e-mailadres hier invoeren en drukken op de"
-" \"Verwijderen account\" knop:"
-
-#: nextcloudappstore/core/templates/user/password.html:16
-msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr ""
-"Je lijkt een account van een derde partij provider te gebruiken. Je "
-"wachtwoord kan dus <strong>niet</strong> op deze pagina worden gewijzigd."
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:5
-#: nextcloudappstore/core/templates/user/transfer-apps.html:8
-msgid "Transfer Apps"
-msgstr "Apps overdragen"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:10
-msgid ""
-"To transfer an app to a new owner you must first unlock the app. A user can "
-"then take control of the app by registering it again on the app register "
-"page in the app developer menu."
-msgstr ""
-"Om een app naar een nieuwe eigenaar over te dragen, moet je de app eerst "
-"deblokkeren. Een gebruiker kan dan de app overnemen door die opnieuw te "
-"registereren op de app registratiepagina in het app ontwikkelaarsmenu."
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:16
-msgid "Ownership transfer status"
-msgstr "Status eigenaarsoverdracht"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:17
-msgid "Change ownership transfer status"
-msgstr "Status overdracht eigenaarschap"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:24
-msgid "Unlocked for transfer"
-msgstr "Gedeblokkeerd voor overdracht"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:26
-msgid "Locked, no transfer possible"
-msgstr "Geblokkeerd, geen overdracht mogelijk"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:33
-msgid "Lock ownership transfer"
-msgstr "Blokkeer overdracht eigenaarschap"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:35
-msgid "Unlock ownership transfer"
-msgstr "Deblokkeer overdracht eigenaarschap"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:43
-msgid "You have not uploaded any apps yet!"
-msgstr "Je hebt nog geen apps geüploaded!"
-
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
 msgstr "Zeer negatief"
@@ -1299,26 +1176,149 @@ msgstr "Positief"
 msgid "Very positive"
 msgstr "Zeer positief"
 
-#: nextcloudappstore/core/user/forms.py:13
-msgid "First name"
-msgstr "Voornaam"
-
-#: nextcloudappstore/core/user/forms.py:14
-msgid "Last name"
-msgstr "Achternaam"
-
-#: nextcloudappstore/core/user/forms.py:23
-msgid "Your e-mail address"
-msgstr "Je e-mailadres"
-
-#: nextcloudappstore/core/user/forms.py:35
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Het opgegeven e-mailadres komt niet overeen met jouw e-mailadres"
-
-#: nextcloudappstore/core/user/forms.py:48
-msgid "This e-mail address is already associated with another account."
-msgstr "Dit e-mailadres is al gekoppeld aan een ander account."
-
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Geef een geldige HTTPS Url op"
+
+#: nextcloudappstore/user/forms.py:13
+msgid "First name"
+msgstr "Voornaam"
+
+#: nextcloudappstore/user/forms.py:14
+msgid "Last name"
+msgstr "Achternaam"
+
+#: nextcloudappstore/user/forms.py:23
+msgid "Your e-mail address"
+msgstr "Je e-mailadres"
+
+#: nextcloudappstore/user/forms.py:35
+msgid "The given e-mail address does not match your e-mail address"
+msgstr "Het opgegeven e-mailadres komt niet overeen met jouw e-mailadres"
+
+#: nextcloudappstore/user/forms.py:48
+msgid "This e-mail address is already associated with another account."
+msgstr "Dit e-mailadres is al gekoppeld aan een ander account."
+
+#: nextcloudappstore/user/templates/user/account.html:12
+msgid "Save"
+msgstr "Opslaan"
+
+#: nextcloudappstore/user/templates/user/api-token.html:9
+#: nextcloudappstore/user/templates/user/api-token.html:12
+msgid "API Token"
+msgstr "API Token"
+
+#: nextcloudappstore/user/templates/user/api-token.html:15
+msgid ""
+"\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"            "
+msgstr ""
+"\n"
+"Het API token kan worden gebruikt voor authenticatie bij aanroepen van de app store\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Zorg ervoor dat het geheim blijft. Een nieuw token kan hieronder worden gegenereerd, waardoor het oude token ongeldig wordt.\n"
+"            "
+
+#: nextcloudappstore/user/templates/user/api-token.html:22
+msgid "Your API token is:"
+msgstr "Je API token is:"
+
+#: nextcloudappstore/user/templates/user/api-token.html:27
+msgid "New API token generated."
+msgstr "Nieuw API token gegenereerd."
+
+#: nextcloudappstore/user/templates/user/api-token.html:32
+msgid "Regenerate API token"
+msgstr "Opnieuw genereren API token"
+
+#: nextcloudappstore/user/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr "Overdragen app eigenaarschap"
+
+#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/set-language.html:7
+#: nextcloudappstore/user/templates/user/set-language.html:26
+msgid "Change language"
+msgstr "Wijzig taal"
+
+#: nextcloudappstore/user/templates/user/base.html:22
+#: nextcloudappstore/user/templates/user/password.html:5
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: nextcloudappstore/user/templates/user/base.html:26
+msgid "API token"
+msgstr "API token"
+
+#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/delete-account.html:8
+#: nextcloudappstore/user/templates/user/delete-account.html:13
+msgid "Delete account"
+msgstr "Verwijder account"
+
+#: nextcloudappstore/user/templates/user/delete-account.html:10
+msgid ""
+"Deleting your account will delete all your apps and releases as well. To "
+"delete your account, insert your e-mail address into the input field and "
+"click the \"Delete account\" button:"
+msgstr ""
+"Het verwijderen van je account verwijdert ook al je apps en releases. Om je "
+"account te verwijderen moet je je e-mailadres hier invoeren en drukken op de"
+" \"Verwijderen account\" knop:"
+
+#: nextcloudappstore/user/templates/user/password.html:16
+msgid ""
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
+msgstr ""
+"Je lijkt een account van een derde partij provider te gebruiken. Je "
+"wachtwoord kan dus <strong>niet</strong> op deze pagina worden gewijzigd."
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:5
+#: nextcloudappstore/user/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr "Apps overdragen"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+"Om een app naar een nieuwe eigenaar over te dragen, moet je de app eerst "
+"deblokkeren. Een gebruiker kan dan de app overnemen door die opnieuw te "
+"registereren op de app registratiepagina in het app ontwikkelaarsmenu."
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr "Status eigenaarsoverdracht"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr "Status overdracht eigenaarschap"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr "Gedeblokkeerd voor overdracht"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr "Geblokkeerd, geen overdracht mogelijk"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr "Blokkeer overdracht eigenaarschap"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr "Deblokkeer overdracht eigenaarschap"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr "Je hebt nog geen apps geüploaded!"

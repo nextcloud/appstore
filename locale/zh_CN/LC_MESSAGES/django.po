@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-14 00:23+0000\n"
+"POT-Creation-Date: 2017-04-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hoilc <fyxyzhc@qq.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -106,7 +106,7 @@ msgid ""
 msgstr "可以执行以下命令来生成"
 
 #: nextcloudappstore/core/forms.py:69
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
 msgstr "语言"
 
@@ -547,7 +547,7 @@ msgid "The app name must be camel case e.g. MyApp"
 msgstr "应用程序的名字必须是驼峰写法：例如 MyApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:31
-#: nextcloudappstore/core/templates/user/transfer-apps.html:15
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "应用程序的名字"
 
@@ -706,8 +706,8 @@ msgstr "错误的 API 令牌"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/core/templates/user/password.html:8
-#: nextcloudappstore/core/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:8
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Change Password"
 msgstr "更改密码"
 
@@ -976,7 +976,7 @@ msgid "Legal Notice"
 msgstr "法律声明"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
-#: nextcloudappstore/core/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "必填字段"
 
@@ -1020,10 +1020,10 @@ msgid "Admin"
 msgstr "管理员"
 
 #: nextcloudappstore/core/templates/nav.html:74
-#: nextcloudappstore/core/templates/user/account.html:5
-#: nextcloudappstore/core/templates/user/account.html:8
-#: nextcloudappstore/core/templates/user/base.html:5
-#: nextcloudappstore/core/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/user/templates/user/account.html:8
+#: nextcloudappstore/user/templates/user/base.html:5
+#: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
 msgstr "账户"
 
@@ -1120,119 +1120,6 @@ msgstr "工具"
 msgid "Everything else"
 msgstr "其他"
 
-#: nextcloudappstore/core/templates/user/account.html:12
-msgid "Save"
-msgstr "保存"
-
-#: nextcloudappstore/core/templates/user/api-token.html:9
-#: nextcloudappstore/core/templates/user/api-token.html:12
-msgid "API Token"
-msgstr "API 令牌"
-
-#: nextcloudappstore/core/templates/user/api-token.html:15
-msgid ""
-"\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
-"            "
-msgstr ""
-"\n"
-"当调用应用程序商店时，API令牌可用于身份验证\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置API</a>.注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
-
-#: nextcloudappstore/core/templates/user/api-token.html:22
-msgid "Your API token is:"
-msgstr "您的 API 令牌是："
-
-#: nextcloudappstore/core/templates/user/api-token.html:27
-msgid "New API token generated."
-msgstr "生成新的 API 令牌"
-
-#: nextcloudappstore/core/templates/user/api-token.html:32
-msgid "Regenerate API token"
-msgstr "重新生成 API 令牌"
-
-#: nextcloudappstore/core/templates/user/base.html:15
-msgid "Transfer app ownership"
-msgstr "转移应用所有权"
-
-#: nextcloudappstore/core/templates/user/base.html:18
-#: nextcloudappstore/core/templates/user/set-language.html:4
-#: nextcloudappstore/core/templates/user/set-language.html:7
-#: nextcloudappstore/core/templates/user/set-language.html:26
-msgid "Change language"
-msgstr "更改语言"
-
-#: nextcloudappstore/core/templates/user/base.html:22
-#: nextcloudappstore/core/templates/user/password.html:5
-msgid "Password"
-msgstr "密码"
-
-#: nextcloudappstore/core/templates/user/base.html:26
-msgid "API token"
-msgstr "API 令牌"
-
-#: nextcloudappstore/core/templates/user/base.html:29
-#: nextcloudappstore/core/templates/user/delete-account.html:5
-#: nextcloudappstore/core/templates/user/delete-account.html:8
-#: nextcloudappstore/core/templates/user/delete-account.html:13
-msgid "Delete account"
-msgstr "删除账户"
-
-#: nextcloudappstore/core/templates/user/delete-account.html:10
-msgid ""
-"Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
-"click the \"Delete account\" button:"
-msgstr "删除您的帐户将删除您的所有应用程序和版本。要删除您的帐户，请将您的电子邮件地址填写到输入字段，然后单击“删除帐户”按钮： "
-
-#: nextcloudappstore/core/templates/user/password.html:16
-msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr "您似乎正在使用与第三方提供商注册的帐户。因此，您的密码<strong>不能</strong>从本页更改。 "
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:5
-#: nextcloudappstore/core/templates/user/transfer-apps.html:8
-msgid "Transfer Apps"
-msgstr "转移应用"
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:10
-msgid ""
-"To transfer an app to a new owner you must first unlock the app. A user can "
-"then take control of the app by registering it again on the app register "
-"page in the app developer menu."
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:16
-msgid "Ownership transfer status"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:17
-msgid "Change ownership transfer status"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:24
-msgid "Unlocked for transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:26
-msgid "Locked, no transfer possible"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:33
-msgid "Lock ownership transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:35
-msgid "Unlock ownership transfer"
-msgstr ""
-
-#: nextcloudappstore/core/templates/user/transfer-apps.html:43
-msgid "You have not uploaded any apps yet!"
-msgstr ""
-
 #: nextcloudappstore/core/templatetags/app_rating.py:12
 msgid "Very negative"
 msgstr "非常差"
@@ -1253,26 +1140,139 @@ msgstr "好"
 msgid "Very positive"
 msgstr "非常好"
 
-#: nextcloudappstore/core/user/forms.py:13
-msgid "First name"
-msgstr "名字"
-
-#: nextcloudappstore/core/user/forms.py:14
-msgid "Last name"
-msgstr "姓氏"
-
-#: nextcloudappstore/core/user/forms.py:23
-msgid "Your e-mail address"
-msgstr "您的电子邮件地址"
-
-#: nextcloudappstore/core/user/forms.py:35
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "给定的电子邮件地址与您的电子邮件地址不匹配."
-
-#: nextcloudappstore/core/user/forms.py:48
-msgid "This e-mail address is already associated with another account."
-msgstr "此电子邮件地址已与另一帐户关联.。"
-
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "请输入一个有效的HTTPS Url"
+
+#: nextcloudappstore/user/forms.py:13
+msgid "First name"
+msgstr "名字"
+
+#: nextcloudappstore/user/forms.py:14
+msgid "Last name"
+msgstr "姓氏"
+
+#: nextcloudappstore/user/forms.py:23
+msgid "Your e-mail address"
+msgstr "您的电子邮件地址"
+
+#: nextcloudappstore/user/forms.py:35
+msgid "The given e-mail address does not match your e-mail address"
+msgstr "给定的电子邮件地址与您的电子邮件地址不匹配."
+
+#: nextcloudappstore/user/forms.py:48
+msgid "This e-mail address is already associated with another account."
+msgstr "此电子邮件地址已与另一帐户关联.。"
+
+#: nextcloudappstore/user/templates/user/account.html:12
+msgid "Save"
+msgstr "保存"
+
+#: nextcloudappstore/user/templates/user/api-token.html:9
+#: nextcloudappstore/user/templates/user/api-token.html:12
+msgid "API Token"
+msgstr "API 令牌"
+
+#: nextcloudappstore/user/templates/user/api-token.html:15
+msgid ""
+"\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"            "
+msgstr ""
+"\n"
+"当调用应用程序商店时，API令牌可用于身份验证\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置API</a>.注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
+
+#: nextcloudappstore/user/templates/user/api-token.html:22
+msgid "Your API token is:"
+msgstr "您的 API 令牌是："
+
+#: nextcloudappstore/user/templates/user/api-token.html:27
+msgid "New API token generated."
+msgstr "生成新的 API 令牌"
+
+#: nextcloudappstore/user/templates/user/api-token.html:32
+msgid "Regenerate API token"
+msgstr "重新生成 API 令牌"
+
+#: nextcloudappstore/user/templates/user/base.html:15
+msgid "Transfer app ownership"
+msgstr "转移应用所有权"
+
+#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/set-language.html:7
+#: nextcloudappstore/user/templates/user/set-language.html:26
+msgid "Change language"
+msgstr "更改语言"
+
+#: nextcloudappstore/user/templates/user/base.html:22
+#: nextcloudappstore/user/templates/user/password.html:5
+msgid "Password"
+msgstr "密码"
+
+#: nextcloudappstore/user/templates/user/base.html:26
+msgid "API token"
+msgstr "API 令牌"
+
+#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/delete-account.html:8
+#: nextcloudappstore/user/templates/user/delete-account.html:13
+msgid "Delete account"
+msgstr "删除账户"
+
+#: nextcloudappstore/user/templates/user/delete-account.html:10
+msgid ""
+"Deleting your account will delete all your apps and releases as well. To "
+"delete your account, insert your e-mail address into the input field and "
+"click the \"Delete account\" button:"
+msgstr "删除您的帐户将删除您的所有应用程序和版本。要删除您的帐户，请将您的电子邮件地址填写到输入字段，然后单击“删除帐户”按钮： "
+
+#: nextcloudappstore/user/templates/user/password.html:16
+msgid ""
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
+msgstr "您似乎正在使用与第三方提供商注册的帐户。因此，您的密码<strong>不能</strong>从本页更改。 "
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:5
+#: nextcloudappstore/user/templates/user/transfer-apps.html:8
+msgid "Transfer Apps"
+msgstr "转移应用"
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+msgid ""
+"To transfer an app to a new owner you must first unlock the app. A user can "
+"then take control of the app by registering it again on the app register "
+"page in the app developer menu."
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+msgid "Ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+msgid "Change ownership transfer status"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:24
+msgid "Unlocked for transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:26
+msgid "Locked, no transfer possible"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:33
+msgid "Lock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:35
+msgid "Unlock ownership transfer"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+msgid "You have not uploaded any apps yet!"
+msgstr ""
