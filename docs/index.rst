@@ -45,7 +45,7 @@ Look here if you want to install the store on your server and keep it up to date
 .. toctree::
    :maxdepth: 2
 
-   installation
+   prodinstall
 
 App Store Developer Documentation
 ---------------------------------

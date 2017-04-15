@@ -1,17 +1,12 @@
-Installation
-============
-.. note:: This guide will use Ubuntu 16.04, Apache and PostgreSQL to set up the app store. You can of course also use different distributions and webservers, however we will not be able to support you.
-
-There are two ways to install the store, both are mutually exclusive (means: don't mix and match):
-
-* :ref:`development-install`: Choose this section if you want to set it up locally for development
-* :ref:`production-install`: Check this section for setting up the app store on your server
-
-
-.. _production-install:
-
 Production Installation
------------------------
+=======================
+
+There are two ways to install the store, both are mutually exclusive (means: don't mix and match). If you are looking for a development setup, proceed to :doc:`devinstall`, otherwise continue.
+
+.. note:: This guide will use Ubuntu 16.04, Apache and PostgreSQL to set up the app store. You can of course also use different distributions and web-servers, however we will not be able to support you.
+
+Installing Packages
+-------------------
 First you want to switch your machine to an up to date Node.js version and install Yarn::
 
     curl -sS https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
@@ -28,7 +23,7 @@ Certain libraries and Python packages are required before setting up your develo
 
 
 Database Setup
-~~~~~~~~~~~~~~
+--------------
 Then install the database::
 
     sudo apt-get install postgresql
@@ -52,7 +47,7 @@ and create a user and database::
 .. note:: Use your own password instead of the password example!
 
 App Store Setup
-~~~~~~~~~~~~~~~
+---------------
 Before you begin to set up the App Store, make sure that your locales are set up correctly. You can fix your locales by running::
 
     export LC_ALL="en_US.UTF-8"
@@ -80,7 +75,7 @@ Then activate it::
 .. note:: Keep in mind that you need to have the virtual environment activated for all the following commands
 
 Installing Required Libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 Next install the required libraries::
 
@@ -90,7 +85,7 @@ Next install the required libraries::
     pip install -r requirements/production.txt
 
 Adjusting Default Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 To get your instance running in production you need to create your production settings file in **nextcloudappstore/settings/production.py** which overwrites and enhances the settings defined in **nextcloudappstore/settings/base.py**. The production settings file is excluded from version control and should contain at least something like the following:
 
 .. code-block:: python
@@ -220,13 +215,13 @@ For more settings, check the `settings documentation <https://docs.djangoproject
 
 
 Creating the Database Schema
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 After all settings are adjusted, create the database schema by running the following command::
 
     python manage.py migrate
 
 Creating an Admin User
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 To create the initial admin user and verify his email, run the following command::
 
     python manage.py createsuperuser --username admin --email admin@admin.com
@@ -235,20 +230,20 @@ To create the initial admin user and verify his email, run the following command
 The first command will ask for the password.
 
 Loading Initial Data
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 To prepopulate the database with categories and other data run the following command::
 
     python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 
 Initializing Translations
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 To import all translations run::
 
     python manage.py compilemessages
     python manage.py importdbtranslations
 
 Building the Frontend
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 To build the frontend run::
 
@@ -256,7 +251,7 @@ To build the frontend run::
     yarn run build
 
 Placing Static Content
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 Django web apps usually ship static content such as JavaScript, CSS and images inside the project folder's apps. In order for them to be served by your web server they need to be gathered and placed inside a folder accessible by your server. To do that first create the appropriate folders::
 
     sudo mkdir -p /var/www/production-domain.com/static/
@@ -271,7 +266,7 @@ Then copy the files into the folders by executing the following commands::
 This will place the contents inside the folder configured under the key **STATIC_ROOT** and **MEDIA_ROOT** inside your **nextcloudappstore/settings/production.py**
 
 Configuring the Web-Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 First install Apache and mod_wsgi::
 
     sudo apt-get install apache2 libapache2-mod-wsgi-py3
@@ -320,7 +315,7 @@ Finally restart Apache::
     sudo systemctl restart apache2
 
 Logging
-~~~~~~~
+-------
 
 Depending on where you have configured the log file location, you need to give your web server access to it. By default the logfile is in the main directory which also contains the **manage.py** and **README.rst**.
 
@@ -339,7 +334,7 @@ Afterwards restart your web server::
     sudo systemctl restart apache2
 
 Configure Social Logins
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 Once the App Store is up and running social login needs to be configured. The App Store uses `django-allauth <https://django-allauth.readthedocs.io>`_ for local and social login. In order to configure these logins, most providers require you to register your app beforehand.
 
 **GitHub**
@@ -359,7 +354,7 @@ Afterwards your **client id** and **client secret** are displayed. These need to
 .. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
 
 Keeping Up To Date
-~~~~~~~~~~~~~~~~~~
+------------------
 Updating an instance is scripted in **scripts/maintenance/update.sh**. Depending on your distribution you will have to adjust the scripts contents.
 
 For Ubuntu you can run the provided script::
@@ -372,5 +367,5 @@ For Ubuntu you can run the provided script::
 .. note:: The above commands assume that your static content is located in **/var/www**
 
 Monitoring
-~~~~~~~~~~
+----------
 By default monitoring the application via New Relic is supported by simply placing a file called **newrelic.ini** into the base folder (the folder that also contains the **manage.py** file).

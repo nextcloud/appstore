@@ -4,7 +4,7 @@ The app store uses a Makefile for common tasks. The following useful Make comman
 
 
 make dev-setup
-    installs a local development setup (requires previous setup, see :ref:`development-install`)
+    installs a local development setup (requires previous setup, see :doc:`devinstall`)
 
 make test
     runs the frontend and backend test suite

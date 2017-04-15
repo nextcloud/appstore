@@ -16,7 +16,7 @@ The above command only needs to be run if you want to add a new language. To upd
 
     python manage.py makemessages -a -i venv
 
-.. note:: The above requirements require exported environment variables and installed libraries. To find out how to do that see :ref:`development-install`.
+.. note:: The above requirements require exported environment variables and installed libraries. To find out how to do that see :doc:`devinstall`.
 
 Generating Database Translations
 --------------------------------

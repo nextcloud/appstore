@@ -1,5 +1,3 @@
-.. _development-install:
-
 Development Installation
 ------------------------
 First you want to switch your machine to an up to date Node.js version and install Yarn::
