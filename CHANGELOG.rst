@@ -36,6 +36,7 @@ Unreleased
 - Extracted api and account settings into a separate app
 - Moved app schema to a different path, make sure to adjust your webserver config
 - Migrated to yarn as package manager
+- The update script now stops and restarts the apache server during the update
 
 **Removed**
 
