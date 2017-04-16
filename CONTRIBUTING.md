@@ -48,11 +48,15 @@ All test suites can be run with:
 
     make test
 
+### Linting/Coding-Style
+
 Your source code files can be linted with:
 
     make lint
 
 Travis-CI also runs TSLint. You will have to install and run TSLint locally since we do not trust the company that develops it: the lib is developed by Palantir, a large American NSA/CIA contractor. If you do not want to do that you can run the linting on Travis-CI when creating a pull request.
+
+If you are interested in adding a CSS lint tool, feel free to do so :)
 
 ### Sign your work
 
