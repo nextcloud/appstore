@@ -83,4 +83,4 @@ like `git config --global alias.ci 'commit -s'`. Now you can commit with
 ## Translations
 Please submit translations via [Transifex][transifex].
 
-[transifex]: https://www.transifex.com/nextcloud
+[transifex]: https://www.transifex.com/nextcloud/nextcloud/appstore/
