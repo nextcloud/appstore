@@ -1,4 +1,4 @@
-Please provide the following details for error reports. Ignore in case of a feature request.
+Please provide the following details for error reports from https://apps.nextcloud.com/. Ignore in case of a feature request.
 
 ## Details
 
