@@ -10,20 +10,11 @@
 
 A new app store for Nextcloud apps built with Django. Up and running at [https://apps.nextcloud.com](https://apps.nextcloud.com). We **do not handle Nextcloud integration**. Nextcloud integration is handled in the [Nextcloud Server repository](https://github.com/nextcloud/server).
 
+## Documentation
 Documentation including Setup and API Specification are [available on Read the Docs](https://nextcloudappstore.readthedocs.io/en/latest/)
 
-Translations are [handled on Transifex](https://www.transifex.com/nextcloud/nextcloud/appstore/)
-
-## Supported Browsers
-
-Supported browsers include the latest versions of:
-
-* Chrome
-* Firefox
-* Safari
-* Edge
-
-Older browser versions like Safari 9 or Edge 13 or different browsers such as Internet Explorer are unsupported and known to not work.
+## Contributing
+If you want to help in developing the App Store, translating or filing bugs and feature requests, please consult the [contributing guidelines](https://github.com/nextcloud/appstore/blob/master/CONTRIBUTING.md)
 
 ## Security
 If you find security issues or bugs please follow the [official security process](https://nextcloud.com/security/). The store does not offer any bug bounties but we hope that you still want to help us to fix its issues :)

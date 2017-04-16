@@ -12,6 +12,11 @@ If you have questions about how to install or use the App Store, please direct t
   - You can also filter by appending e. g. "state:open" to the search string.
   - More info on [search syntax within github](https://help.github.com/articles/searching-issues)
 * This repository ([appstore](https://github.com/nextcloud/appstore/issues)) is *only* for issues for the Nextcloud App Store at [https://apps.nextcloud.com](https://apps.nextcloud.com) and not for app store functionality in your Nextcloud server.
+* We only support and recommend the latest Browser versions of:
+  - Chrome
+  - Safari
+  - Edge
+  - Firefox
 * __SECURITY__: Report any potential security bug to us by following our [security policy](https://nextcloud.com/security/) instead of filing an issue in our bug tracker.
 
 * Report the issue using our [template][template], it includes all the information we need to track down the issue.
@@ -29,6 +34,8 @@ Thanks for wanting to contribute source code to Nextcloud. That's great!
 However before you start to work on an issue or new feature, make sure **that you file an issue first**. That way we can minimize the chance that your work is not accepted or lots of change requests are made. This will keep both parties happy and save time :)
 
 The backend is written in Django while the frontend uses custom TypeScript code. If you are interested in using a frontend JavaScript framework, please file an issue. We currently tend towards [Angular](https://angular.io/).
+
+If you need help in setting up a local App Store installation, consult the [documentation](http://nextcloudappstore.readthedocs.io/en/latest)
 
 ### Tests
 
