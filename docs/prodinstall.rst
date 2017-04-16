@@ -300,7 +300,7 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
         </Files>
     </Directory>
 
-    <Directory /path/to/appstore/nextcloudappstore/core/api/v1/release>
+    <Directory /path/to/appstore/nextcloudappstore/api/v1/release>
         <Files info.xsd>
             Require all granted
         </Files>
