@@ -26,6 +26,10 @@ Help us to maximize the effort we can spend fixing issues and adding new feature
 
 Thanks for wanting to contribute source code to Nextcloud. That's great!
 
+However before you start to work on an issue or new feature, make sure **that you file an issue first**. That way we can minimize the chance that your work is not accepted or lots of change requests are made. This will keep both parties happy and save time :)
+
+The backend is written in Django while the frontend uses custom TypeScript code. If you are interested in using a frontend JavaScript framework, please file an issue. We currently tend towards [Angular](https://angular.io/).
+
 ### Tests
 
 When submitting a pull request, you should ensure that the functionality is covered by an integration or unit test. We employ unit and integration testing for both frontend and backend code but we do not have a UX test suite yet (if you are interested in integrating one please open an issue!!!).
@@ -44,13 +48,19 @@ All test suites can be run with:
 
     make test
 
+Your source code files can be linted with:
+
+    make lint
+
+Travis-CI also runs TSLint. You will have to install and run TSLint locally since we do not trust the company that develops it: the lib is developed by Palantir, a large American NSA/CIA contractor. If you do not want to do that you can run the linting on Travis-CI when creating a pull request.
+
 ### Sign your work
 
 We use the Developer Certificate of Origin (DCO) as a additional safeguard
 for the Nextcloud project. This is a well established and widely used
 mechanism to assure contributors have confirmed their right to license
 their contribution under the project's license.
-Please read [contribute/developer-certificate-of-origin][dcofile].
+Please read [the relevant documentation][dcofile].
 If you can certify it, then just add a line to every git commit message:
 
 ````
@@ -63,13 +73,8 @@ commit automatically with `git commit -s`. You can also use git [aliases](https:
 like `git config --global alias.ci 'commit -s'`. Now you can commit with
 `git ci` and the commit will be signed.
 
-### Apply a license
-
-In case you are not sure how to add or update the license header correctly please have a look at [the documentation][applyalicense]
-
 [devmanual]: https://docs.nextcloud.org/server/12/developer_manual/
 [dcofile]: https://github.com/nextcloud/server/blob/master/contribute/developer-certificate-of-origin
-[applyalicense]: https://github.com/nextcloud/server/blob/master/contribute/HowToApplyALicense.md
 
 ## Translations
 Please submit translations via [Transifex][transifex].
