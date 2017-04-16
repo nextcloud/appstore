@@ -101,9 +101,11 @@ To get your instance running in production you need to create your production se
 
     ALLOWED_HOSTS = ['production-domain.com']
 
+    # E-Mail settings which are used to send mails (e.g. confirm account messages)
+    # for more configuration options consult the Django documentation
+    # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-EMAIL_HOST
     DEFAULT_FROM_EMAIL = 'admin@yourdomain.com'
     ADMINS = [('Your Name', 'your-mail@example.com')]
-    # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
     EMAIL_HOST = 'localhost'
 
     # postgres or other db if needed if anything other than sqlite is used
