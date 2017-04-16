@@ -13,4 +13,4 @@ def markdown(sentence):
     safe_text = clean(text,
                       attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES,
                       tags=settings.MARKDOWN_ALLOWED_TAGS)
-    return mark_safe(safe_text)
+    return mark_safe(safe_text)  # nosec

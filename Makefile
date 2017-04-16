@@ -2,6 +2,7 @@ python=venv/bin/python
 pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
+bandit=venv/bin/bandit
 mypy=venv/bin/mypy
 manage=$(python) $(CURDIR)/manage.py
 db=sqlite
@@ -13,6 +14,7 @@ lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
+	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/bandit.yaml
 
 .PHONY: test
 test: lint
