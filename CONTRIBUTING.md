@@ -12,7 +12,7 @@ If you have questions about how to install or use the App Store, please direct t
   - You can also filter by appending e. g. "state:open" to the search string.
   - More info on [search syntax within github](https://help.github.com/articles/searching-issues)
 * This repository ([appstore](https://github.com/nextcloud/appstore/issues)) is *only* for issues for the Nextcloud App Store at [https://apps.nextcloud.com](https://apps.nextcloud.com) and not for app store functionality in your Nextcloud server.
-* We only support and recommend the latest Browser versions of:
+* We only support and recommend the latest browser versions of:
   - Chrome
   - Safari
   - Edge
