@@ -56,7 +56,7 @@ Before you begin to set up the App Store, make sure that your locales are set up
 
 Afterwards change into your preferred target folder, clone the repository using git and change into it::
 
-    cd /path/to/co
+    cd /path/to/target
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
 
@@ -92,8 +92,8 @@ To get your instance running in production you need to create your production se
 
     from nextcloudappstore.settings.base import *
 
+    # DEBUG must be false to not leak sensitive content
     DEBUG = False
-    USE_SSL = True
 
     # generate the SECRET_KEY by yourself for instance by using the following command:
     # env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
@@ -103,6 +103,8 @@ To get your instance running in production you need to create your production se
 
     DEFAULT_FROM_EMAIL = 'admin@yourdomain.com'
     ADMINS = [('Your Name', 'your-mail@example.com')]
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
+    EMAIL_HOST = 'localhost'
 
     # postgres or other db if needed if anything other than sqlite is used
     # you need to create the database, user and password first
@@ -117,50 +119,56 @@ To get your instance running in production you need to create your production se
         }
     }
 
-    if USE_SSL:
-        CSRF_COOKIE_SECURE = True
-        SESSION_COOKIE_SECURE = True
-        SECURE_HSTS_SECONDS = 31536000
-        SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-        ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
-        CSP_IMG_SRC = ('https:',)
+    # The following lines are HTTPS only!
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+    CSP_IMG_SRC = ('https:',)
 
-    # Url for serving assets like CSS, JavaScript and images
-    STATIC_URL = '/static/'
+    # Path to where your static content lies (e.g. CSS, JavaScript and images)
+    # This should point to a directory served by your web-server
     STATIC_ROOT = '/var/www/production-domain.com/static/'
 
-    # Url for serving assets uploaded by users, ideally different domain
+    # Url for serving content uploaded by users, ideally different domain
     MEDIA_URL = 'https://separate-domain.com/'
+
+    # Path to where user uploaded content lies, should point to a directory
+    # served by your web-server
     MEDIA_ROOT = '/var/www/production-domain.com/media/'
 
     # Public and private keys for Googles recaptcha
     RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
     RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
 
-    # https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-EMAIL_HOST
-    EMAIL_HOST = 'localhost'
+    LOG_LEVEL = 'ERROR'
+    LOGGING['handlers']['file']['filename'] = LOG_FILE
+    LOGGING['handlers']['file']['level'] = LOG_LEVEL
+    LOGGING['loggers']['django']['level'] = LOG_LEVEL
+
+    # Discourse user that is allowed to create categories. This will be used
+    # to automatically create categories when registering apps
+    DISCOURSE_USER = 'tom'
+    DISCOURSE_TOKEN = 'a token'
+
+    #########################
+    # Overridable Defaults: #
+    #########################
+
+    # Url for serving non user uploaded files like CSS, JavaScript and images
+    # STATIC_URL = '/static/'
 
     # how many times a user is allowed to call the app upload route per day
-    REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '50/day'
+    # REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '100/day'
     # how many times a user is allowed to call the app register route per day
-    REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '50/day'
+    # REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '100/day'
 
     # Only set this parameter if you want to use a different tmp directory for app downloads
     # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
     # Only set if you want a different log location than the one in the main directory
     # LOG_FILE = '/path/to/appstore.log'
-
-    LOG_LEVEL = 'ERROR'
-
-    LOGGING['handlers']['file']['filename'] = LOG_FILE
-    LOGGING['handlers']['file']['level'] = LOG_LEVEL
-    LOGGING['loggers']['django']['level'] = LOG_LEVEL
-
-    DISCOURSE_USER = 'tom'
-    DISCOURSE_TOKEN = 'a token'
-
-    # Overwritable defaults:
 
     # minimum number of comments to calculate a rating
     # RATING_THRESHOLD = 5
@@ -191,14 +199,14 @@ To get your instance running in production you need to create your production se
     # DISCOURSE_PARENT_CATEGORY_ID = 26
 
     # Additional variables that are used for generating apps
-    #APP_SCAFFOLDING_PROFILES = {
-    #    10: {
-    #        'owncloud_version': '9.1'
-    #    },
-    #    11: {
-    #        'owncloud_version': '9.2'
-    #    }
-    #}
+    # APP_SCAFFOLDING_PROFILES = {
+    #     10: {
+    #         'owncloud_version': '9.1'
+    #     },
+    #     11: {
+    #         'owncloud_version': '9.2'
+    #     }
+    # }
 
 
 Then set the file as the active settings file::
