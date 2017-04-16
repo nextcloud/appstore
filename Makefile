@@ -14,7 +14,7 @@ lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/api/v1/release
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
-	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/bandit.yaml
+	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/.bandit.yaml
 
 .PHONY: test
 test: lint
