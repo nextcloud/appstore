@@ -1,16 +1,12 @@
-.. :changelog:
+# Changelog
 
-Changelog
----------
+## [Unreleased]
 
-Unreleased
-++++++++++
-
-**Security**
+### Security
 
 - Validate certificate signatures before letting people register public certificates. This would only allow developers to claim apps if they knew the public certificate. App uploads however were impossible without knowing the signature.
 
-**Added**
+### Added
 
 - Added new Nextcloud version fixtures
 - Added support for several new XML elements in schema
@@ -20,7 +16,7 @@ Unreleased
 - Added ability to transfer app ownership
 - Added commands to update tokens, set a default password for an admin user for development and verify an email address
 
-**Fixed**
+### Fixed
 
 - Replace _ with - in app ids to match Discourse links
 - Remove duplicate entries for languages in comments
@@ -28,7 +24,7 @@ Unreleased
 - Return proper 400 codes in case certificate validation fails
 - API: Do not return duplicate releases for apps
 
-**Changed**
+### Changed
 
 - Migrated frontend code to Typescript + Webpack
 - Require bug tracker to present in info.xml
@@ -38,15 +34,14 @@ Unreleased
 - Migrated to yarn as package manager
 - The update script now stops and restarts the apache server during the update
 
-**Removed**
+### Removed
 
 - Dropped Python 3.4 support
 - Dropped app ownership table
 
-1.0.0 - 2016-13-12
-++++++++++++++++++
+## [1.0.0] - 2016-13-12
 
-**Added**
+### Added
 
 - Add ability to add nightlies and pre-releases to app release feed by appending ?prerelease=true&nightly=true to feed url
 - Add changelog to app release feed
@@ -54,7 +49,7 @@ Unreleased
 - Add app development templates for Nextcloud 10
 - Add a way for developers to define a smaller thumbnail for a screenshot and expose it in the API
 
-**Changed**
+### Changed
 
 - Information related to the app and not the app release should only be updated when stable, new releases are uploaded
 - Manage Nextcloud releases in the admin interface instead of a Python file
@@ -62,11 +57,11 @@ Unreleased
 - Apps do not need to provide an owncloud tag anymore for Nextcloud 11
 - RSS and Atom feed links now redirect to the app store app detail page instead of the download link. The download link is now available at the bottom of the entry
 
-**Removed**
+### Removed
 
 - Remove nightlies and pre-releases from app release feed
 
-**Fixed**
+### Fixed
 
 - Apps depending on Nextcloud minor or patch versions are now rendered on the app detail and releases page
 - Fix styling bug that would sometimes hide the app resource links when in mobile mode
@@ -74,10 +69,9 @@ Unreleased
 - Do not expose incompatible app releases in REST API
 
 
-0.2.0 - 2016-10-23
-++++++++++++++++++
+## [0.2.0] - 2016-10-23
 
-**Added**
+### Added
 
 - Faster API E-Tag generation
 - Faster API and web interface due to reduced sql queries
@@ -88,7 +82,7 @@ Unreleased
 - Allow semver pre-releases, e.g. 1.0.0-alpha
 - Featured flags are now exposed in the API
 
-**Changed**
+### Changed
 
 - Improve admin interface
 - Change some urls to prevent clashes with app names
@@ -98,19 +92,18 @@ Unreleased
 - Boolean fields are now prefixed with **is** in the API
 - API route for deleting releases is now split up into two routes: one for normal and one for nightly releases
 
-**Fixed**
+### Fixed
 
 - Fixed syntax highlightning for Markdown
 - Fixed regex for commands
 - Fixed backlinks on app releases page
 
-**Removed**
+### Removed
 
 - Removed discussion info.xml tag, instead link to the discourse forum app category and create categories in the forum when registering apps
 
-0.1.0 - 2016-09-21
-++++++++++++++++++
+## [0.1.0] - 2016-09-21
 
-**Added**
+### Added
 
 - First release
