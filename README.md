@@ -24,3 +24,6 @@ Supported browsers include the latest versions of:
 * Edge
 
 Older browser versions like Safari 9 or Edge 13 or different browsers such as Internet Explorer are unsupported and known to not work.
+
+## Security
+If you find security issues or bugs please follow the [official security process](https://nextcloud.com/security/). The store does not offer any bug bounties but we hope that you still want to help us to fix its issues :)
