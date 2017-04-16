@@ -239,7 +239,7 @@ The first command will ask for the password.
 
 Loading Initial Data
 --------------------
-To prepopulate the database with categories and other data run the following command::
+To pre-populate the database with categories and other data run the following command::
 
     python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 
