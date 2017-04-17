@@ -38,13 +38,13 @@ pip install --upgrade wheel
 pip install --upgrade pip
 pip install -r requirements/base.txt
 pip install -r requirements/production.txt
+yarn install
+yarn run build
 python manage.py migrate
 python manage.py loaddata nextcloudappstore/**/fixtures/*.json
 python manage.py collectstatic
 python manage.py compilemessages
 python manage.py importdbtranslations
-yarn install
-yarn run build
 
 deactivate
 
