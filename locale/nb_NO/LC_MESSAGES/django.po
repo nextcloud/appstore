@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 00:22+0000\n"
+"POT-Creation-Date: 2017-04-21 00:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ole Jakob Brustad <ole.jakob@brustadbuss.no>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -99,6 +99,9 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
+"Kan genereres ved å kjøre følgende kommando: <b>echo -n \"APP_ID\" | openssl"
+" dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -120,11 +123,11 @@ msgstr "Kommentar"
 #: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:458
 #: nextcloudappstore/core/models.py:494 nextcloudappstore/core/models.py:512
 msgid "Id"
-msgstr "Id"
+msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app id, identical to folder name"
-msgstr "app id, identisk til mappenavn"
+msgstr "program-ID, identisk med mappenavn"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:476
 msgid "Category"
@@ -137,7 +140,7 @@ msgstr "Navn"
 
 #: nextcloudappstore/core/models.py:68
 msgid "Rendered app name for users"
-msgstr "Gjengitt app navn for brukere"
+msgstr "Gjengitt programnavn for brukere"
 
 #: nextcloudappstore/core/models.py:69
 #: nextcloudappstore/core/scaffolding/forms.py:45
@@ -146,7 +149,7 @@ msgstr "Oppsummering"
 
 #: nextcloudappstore/core/models.py:71
 msgid "Short text describing the app's purpose"
-msgstr "Kort tekst som beskriver appens mening"
+msgstr "Kort tekst som beskriver programmets hensikt"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:471
 #: nextcloudappstore/core/scaffolding/forms.py:47
@@ -159,19 +162,19 @@ msgstr "Vil bli gjengitt som Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation url"
-msgstr "Url til brukerdokumentasjonen"
+msgstr "URL til brukerdokumentasjonen"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation url"
-msgstr "Url til admin dokumentasjon"
+msgstr "URL til admin-dokumentasjon"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation url"
-msgstr "Url til utviklerdokumentasjon"
+msgstr "URL til utviklerdokumentasjon"
 
 #: nextcloudappstore/core/models.py:83
 msgid "Issue tracker url"
-msgstr "Url til problemsporing"
+msgstr "URL til problemsporing"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
 #: nextcloudappstore/core/templates/app/detail.html:91
@@ -190,7 +193,7 @@ msgstr "Oppdatert"
 
 #: nextcloudappstore/core/models.py:89
 msgid "App owner"
-msgstr "App eier"
+msgstr "Programeier"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:75
@@ -199,7 +202,7 @@ msgstr "Med-vedlikeholdere"
 
 #: nextcloudappstore/core/models.py:95 nextcloudappstore/core/models.py:333
 msgid "App authors"
-msgstr "App forfattere"
+msgstr "Programutviklere"
 
 #: nextcloudappstore/core/models.py:96
 #: nextcloudappstore/core/templates/app/detail.html:17
@@ -244,13 +247,16 @@ msgstr "Gammel butikkid. Utløpt"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
-msgstr ""
+msgstr "Eierskapsoverføring påskrudd"
 
 #: nextcloudappstore/core/models.py:111
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Hvis påskrudd kan brukeren prøve å registrere samme program igjen ved bruk "
+"av det offentlige sertifikatet og signaturen. Hvis det fungere, vil "
+"programmet bli overført til vedkommende."
 
 #: nextcloudappstore/core/models.py:116 nextcloudappstore/core/models.py:262
 #: nextcloudappstore/core/models.py:339 nextcloudappstore/core/models.py:421
