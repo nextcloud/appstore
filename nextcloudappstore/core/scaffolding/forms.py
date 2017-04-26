@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.forms import Textarea, Form, URLField, MultipleChoiceField
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField
-from django.conf import settings
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 from nextcloudappstore.core.models import Category
