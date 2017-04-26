@@ -97,8 +97,11 @@ function convertResponse<T>(response: Response): Promise<T> {
             // no content type, we don't care
             return Promise.resolve.bind(Promise);
         } else {
+            // sometimes a content type is set which is not expected to be
+            // parsed. In that case just log a warning
             const msg = `Can only deal with JSON but received: ${contentType}`;
-            console.error(msg);
+            console.warn(msg);
+            return Promise.resolve.bind(Promise);
         }
     }
     return response.json()
