@@ -459,8 +459,8 @@ Before you can upload release you first need to register its app id. To do that 
 
 * **Returns**:
 
-  * **HTTP 200**: If the app's certificate was updated successfully and all its releases have been deleted
-  * **HTTP 201**: If the app id was registered successfully
+  * **HTTP 201**: If the app was not previously present and was registered successfully
+  * **HTTP 204**: If the app has been updated (either owner or certificate change)
   * **HTTP 400**: If the app id contains invalid characters, the signature could not be validated or if the posted app certificate has been revoked
   * **HTTP 401**: If the user is not authenticated
   * **HTTP 403**: If the user is not authorized to update the app signature (only owners are allowed to do so)
