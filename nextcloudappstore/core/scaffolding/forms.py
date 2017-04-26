@@ -21,7 +21,7 @@ def get_versions():
     return sorted(((v, v) for v in tpls))
 
 
-def validate_id(input: str) -> str:
+def validate_id(input: str) -> None:
     regex = r'^([A-Z][a-z]*)+$'
     if not re.match(regex, input):
         raise ValidationError(_('The app name must be camel case e.g. MyApp'))
