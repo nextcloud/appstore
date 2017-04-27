@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-26 00:23+0000\n"
+"POT-Creation-Date: 2017-04-27 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ole Jakob Brustad <ole.jakob@brustadbuss.no>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -88,6 +88,14 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Vanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt der APP_ID er "
+"programmets ID. Hvis du ikke har et sertifikat må du opprette et i en "
+"sertifikatsigneringsprosess (CSR) hvilket burde postes på <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">sertifikatspakkebrønnen</a> (følg instruksjoner "
+"i README). Du kan generere CSR-en med følgende kommando: <b>openssl req "
+"-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's id"
@@ -243,7 +251,7 @@ msgstr "OCS id"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store id. Deprecated"
-msgstr "Gammel butikkid. Utløpt"
+msgstr "Gammel butikk-ID. Utløpt"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -431,6 +439,8 @@ msgid ""
 "Category id which is used to identify a category. Used to identify "
 "categories when uploading an app"
 msgstr ""
+"Kategori-ID som brukes til å identifisere en kategori. Brukt til å "
+"identifisere kategorier når et program lastes opp"
 
 #: nextcloudappstore/core/models.py:469
 msgid "Category name which will be presented to the user"
@@ -535,6 +545,8 @@ msgid ""
 "Only one version is allowed to be the current version. This field is used to"
 " pre-select drop downs for app generation etc."
 msgstr ""
+"Bare én versjon kan være den gjeldende. Dette feltet brukes til å "
+"forhåndsvelge rullegardinsmenyer for programopprettelse osv."
 
 #: nextcloudappstore/core/models.py:626
 msgid "Nextcloud release"
@@ -837,6 +849,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Vurderingskommentarer støtter bruk av <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Ikke bruk vurderingskommentarer til å innrapportering av feil eller funksjonsforespørsler. Hverken utviklere eller brukere vil få nyss om kommentaren din.\n"
+"                            En vurdering uten kommentar vil bli talt, men ikke listet opp nedenfor."
 
 #: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Update rating"
@@ -911,6 +926,9 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Dette skjemaet kan også brukes til å oppdatere eksisterende sertifikater, "
+"dog bare for eieren av programmet. Oppdatering av et program vil slette alle"
+" dets opplastede utgivelser!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -1271,14 +1289,17 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"For å overføre et program til en ny eier må du først låse det opp. En bruker"
+" kan ta kontrollen over programmet ved å registrere det igjen på "
+"programregistreringssiden i programutvikler-menyen."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Status for eierskapsoverføring"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Endre status for eierskapsoverføring"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
@@ -1290,11 +1311,11 @@ msgstr "Låst, ingen overføring mulig"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Lås eierskapsoverføring"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Lås opp eierskapsoverføring"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
