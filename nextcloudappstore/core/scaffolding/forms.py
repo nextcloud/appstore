@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.forms import Textarea, Form, URLField, MultipleChoiceField
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField
-from django.conf import settings
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 from nextcloudappstore.core.models import Category
@@ -18,10 +17,10 @@ def get_categories():
 
 def get_versions():
     tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
-    return [(v, v) for v in tpls]
+    return sorted(((v, v) for v in tpls))
 
 
-def validate_id(input: str) -> str:
+def validate_id(input: str) -> None:
     regex = r'^([A-Z][a-z]*)+$'
     if not re.match(regex, input):
         raise ValidationError(_('The app name must be camel case e.g. MyApp'))

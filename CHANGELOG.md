@@ -15,6 +15,7 @@
 - Added support for running New Relic on servers
 - Added ability to transfer app ownership
 - Added commands to update tokens, set a default password for an admin user for development and verify an email address
+- Added Nextcloud 12 app template
 
 ### Fixed
 
@@ -23,6 +24,7 @@
 - Fix layout issues in list view if app names were longer than expected
 - Return proper 400 codes in case certificate validation fails
 - API: Do not return duplicate releases for apps
+- Do not show an error message when an unexpected content type is being returned when registering or uploading an app
 
 ### Changed
 
