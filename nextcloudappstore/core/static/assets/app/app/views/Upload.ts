@@ -9,4 +9,5 @@ ready.then(() => {
     const translations = scanTranslations(formElement);
     const translator = new Translator(translations);
     const form = new AppUploadForm(formMeta, translator);
+    form.bindListeners();
 });

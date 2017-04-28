@@ -1,5 +1,4 @@
 import {queryAll} from './Facades';
-import {TemplateEmpty} from './TemplateEmpty';
 
 /**
  * Adds rel="nooopener noreferrer" to all <a> tags in an html string

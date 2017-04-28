@@ -12,6 +12,7 @@ ready.then(() => {
     const translator = new Translator(translations);
     const tokenElement = queryOrThrow<HTMLElement>('#token');
     const form = new TokenRegenForm(formMeta, translator, tokenElement);
+    form.bindListeners();
 
     // needs to be done in JS to prevent BREACH attack
     new Maybe(formMeta.fields.get('csrfmiddlewaretoken'))

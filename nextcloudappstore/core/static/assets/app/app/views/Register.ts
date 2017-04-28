@@ -13,4 +13,5 @@ ready.then(() => {
     const translations = scanTranslations(formElement);
     const translator = new Translator(translations);
     const form = new AppRegisterForm(formMeta, validators, translator);
+    form.bindListeners();
 });
