@@ -11,6 +11,9 @@ export abstract class AjaxForm<T> {
     constructor(private readonly form: HtmlForm,
                 private readonly validators: Map<string, IValidator[]>,
                 protected readonly translator: Translator) {
+    }
+
+    public bindListeners() {
         this.bindValidators();
         this.bindSubmit();
     }

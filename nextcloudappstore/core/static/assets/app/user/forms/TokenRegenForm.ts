@@ -12,7 +12,7 @@ export class TokenRegenForm extends AjaxForm<object> {
         this.url = form.form.action;
     }
 
-    protected submit(values: Map<string, FormField>): Promise<object> {
+    protected submit(_: Map<string, FormField>): Promise<object> {
         const data = {
             data: {},
             method: HttpMethod.POST,
