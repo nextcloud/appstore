@@ -12,9 +12,9 @@ ready.then(() => {
     const fallbackLang = getMetaValueOrThrow('fallback-language-code');
 
     // bind rating form language selection if user is logged in
-    id<HTMLTextAreaElement>('id_comment')
+    id('id_comment', HTMLTextAreaElement)
         .ifPresent((commentInput) => {
-            const input = idOrThrow<HTMLSelectElement>('id_language_code');
+            const input = idOrThrow('id_language_code', HTMLSelectElement);
             input.addEventListener('change', (event: Event) => {
                 const target = event.target as HTMLSelectElement;
                 const lang = target.value;
@@ -24,7 +24,7 @@ ready.then(() => {
         });
 
     // load app description
-    const descriptionTarget = queryOrThrow<HTMLDivElement>('.app-description');
+    const descriptionTarget = queryOrThrow('.app-description', HTMLElement);
     fetchDescription(descriptionUrl)
         .then((description) => {
             descriptionTarget.innerHTML = description;
@@ -41,8 +41,8 @@ ready.then(() => {
     });
 
     // fullscreen bindings
-    id<HTMLElement>('app-gallery-container').ifPresent((gallery) => {
-        const item = queryOrThrow<HTMLElement>('.carousel-inner', gallery);
+    id('app-gallery-container', HTMLElement).ifPresent((gallery) => {
+        const item = queryOrThrow('.carousel-inner', HTMLElement, gallery);
         item.addEventListener('click', () => {
             if (screenfull.enabled) {
                 item.classList.toggle('fullscreen');
