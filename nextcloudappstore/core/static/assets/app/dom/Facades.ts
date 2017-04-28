@@ -22,7 +22,7 @@ export function query<T extends Element>(selector: string,
                                          parent?: Element): Maybe<T> {
     const elem = parent || window.document;
     return new Maybe(elem.querySelector(selector) as T)
-        .filter((elem) => elem instanceof type);
+        .filter((result) => result instanceof type);
 }
 
 export function queryAll(selector: string, parent?: Element): Element[] {
