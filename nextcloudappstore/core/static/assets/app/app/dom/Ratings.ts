@@ -13,11 +13,11 @@ export interface IRatingTemplateConfig {
 
 export const ratingConfig: Promise<IRatingTemplateConfig> = ready.then(() => {
     return Promise.resolve({
-        languageChooser: idOrThrow<HTMLSelectElement>('comment_language'),
-        target: queryOrThrow<HTMLDivElement>('.app-rating-list'),
+        languageChooser: idOrThrow('comment_language', HTMLSelectElement),
+        target: queryOrThrow('.app-rating-list', HTMLDivElement),
         templates: {
-            empty: idOrThrow<HTMLTemplateElement>('no-ratings-template'),
-            rating: idOrThrow<HTMLTemplateElement>('rating-template'),
+            empty: idOrThrow('no-ratings-template', HTMLTemplateElement),
+            rating: idOrThrow('rating-template', HTMLTemplateElement),
         },
     });
 });

@@ -44,12 +44,12 @@ export function findFormFields(form: HTMLFormElement): Map<string, FormField> {
  */
 export function scanForm(form: HTMLFormElement): HtmlForm {
     const fields = findFormFields(form);
-    const submit = queryOrThrow<HTMLInputElement>('input[type="submit"]', form);
-    const globalErrorMsg = queryOrThrow<HTMLElement>(
-        '.global-error-msg', form,
+    const submit = queryOrThrow('input[type="submit"]', HTMLInputElement, form);
+    const globalErrorMsg = queryOrThrow(
+        '.global-error-msg', HTMLElement, form,
     );
-    const globalSuccessMsg = queryOrThrow<HTMLElement>(
-        '.global-success-msg', form,
+    const globalSuccessMsg = queryOrThrow(
+        '.global-success-msg', HTMLElement, form,
     );
     const msgElements = new Map<string, HTMLElement>();
     const formGroups = new Map<string, Element>();
@@ -63,7 +63,8 @@ export function scanForm(form: HTMLFormElement): HtmlForm {
             } else {
                 formGroups.set(name, formGroup);
             }
-            msgElements.set(name, queryOrThrow(`.error-msg-${name}`, form));
+            const eMsg = queryOrThrow(`.error-msg-${name}`, HTMLElement, form);
+            msgElements.set(name, eMsg);
         }
     });
 

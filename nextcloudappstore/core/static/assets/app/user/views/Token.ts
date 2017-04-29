@@ -6,11 +6,11 @@ import {Maybe} from '../../Utils';
 import {TokenRegenForm} from '../forms/TokenRegenForm';
 
 ready.then(() => {
-    const formElement = queryOrThrow<HTMLFormElement>('#api-token-regen-form');
+    const formElement = queryOrThrow('#api-token-regen-form', HTMLFormElement);
     const formMeta = scanForm(formElement);
     const translations = scanTranslations(formElement);
     const translator = new Translator(translations);
-    const tokenElement = queryOrThrow<HTMLElement>('#token');
+    const tokenElement = queryOrThrow('#token', HTMLElement);
     const form = new TokenRegenForm(formMeta, translator, tokenElement);
     form.bindListeners();
 

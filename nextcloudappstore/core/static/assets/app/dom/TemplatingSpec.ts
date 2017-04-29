@@ -13,13 +13,14 @@ describe('HTML templating utilities', () => {
     it('should evaluate a template', () => {
         const tpl = `<template><span><p></p></span></template>`;
         const expected = `<span class="test"><p>&lt;hi alt="as"&gt;</p></span>`;
-        testDom('body', tpl, (elem: HTMLTemplateElement) => {
-            const result = render(elem, {p: '<hi alt="as">'});
-            result.classList.add('test');
-            const tmp = document.createElement('div');
-            tmp.appendChild(result);
-            expect(tmp.innerHTML).toEqual(expected);
-        });
+        testDom('body', HTMLBodyElement, tpl,
+            (elem: HTMLTemplateElement) => {
+                const result = render(elem, {p: '<hi alt="as">'});
+                result.classList.add('test');
+                const tmp = document.createElement('div');
+                tmp.appendChild(result);
+                expect(tmp.innerHTML).toEqual(expected);
+            });
     });
 
 });
