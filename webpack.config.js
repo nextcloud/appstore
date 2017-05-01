@@ -44,10 +44,6 @@ module.exports = {
                 from: 'node_modules/highlight.js/styles/github.css',
                 to: `${base}vendor/github.css`
             },
-            {
-                from: 'node_modules/element-closest/element-closest.js',
-                to: `${base}vendor/element-closest.js`
-            },
         ]),
     ]
 };
