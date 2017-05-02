@@ -306,6 +306,12 @@ class ParserTest(TestCase):
             validate_database(xml, self.config.db_schema,
                               self.config.pre_db_xslt)
 
+    def test_validate_name_before_decl_database(self):
+        xml = self._get_contents('data/database/nameafterdecl.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
     def test_validate_invalid_field_elements_database(self):
         xml = self._get_contents('data/database/invalidfield.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):

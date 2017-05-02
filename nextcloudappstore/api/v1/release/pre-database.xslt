@@ -14,11 +14,13 @@
 
     <xsl:template match="table">
         <table>
-            <xsl:copy-of select="name"/>
+            <!-- name has to appear before declaration -->
+            <xsl:copy-of select="*[position() = 1 and self::name]"/>
             <xsl:copy-of select="create"/>
             <xsl:copy-of select="overwrite"/>
             <xsl:copy-of select="charset"/>
             <xsl:apply-templates select="declaration"/>
+            <xsl:copy-of select="*[position() != 1 and self::name]"/>
             <xsl:copy-of select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::declaration)]"/>
         </table>
     </xsl:template>
