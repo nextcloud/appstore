@@ -33,8 +33,8 @@ class ImporterTest(TestCase):
         downloader = self.container.resolve(AppReleaseDownloader)
         downloader.get_archive = MagicMock(return_value=FakeDownload())
         extractor = self.container.resolve(GunZipAppMetadataExtractor)
-        extractor.extract_app_metadata = MagicMock(return_value=(xml, 'new',
-                                                                 'change'))
+        extractor.extract_app_metadata = MagicMock(
+            return_value=(xml, '', 'new', 'change'))
         provider = self.container.resolve(AppReleaseProvider)
 
         with self.assertRaises(InvalidAppDirectoryException):
