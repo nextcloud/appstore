@@ -8,6 +8,7 @@
             <xsl:copy-of select="overwrite"/>
             <xsl:copy-of select="charset"/>
             <xsl:apply-templates select="table"/>
+            <xsl:copy-of select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::table)]"/>
         </database>
     </xsl:template>
 
@@ -18,6 +19,7 @@
             <xsl:copy-of select="overwrite"/>
             <xsl:copy-of select="charset"/>
             <xsl:apply-templates select="declaration"/>
+            <xsl:copy-of select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::declaration)]"/>
         </table>
     </xsl:template>
 
@@ -25,6 +27,7 @@
         <declaration>
             <xsl:apply-templates select="field"/>
             <xsl:apply-templates select="index"/>
+            <xsl:copy-of select="*[not(self::field) and not(self::index)]"/>
         </declaration>
     </xsl:template>
 
@@ -41,6 +44,7 @@
             <xsl:copy-of select="primary"/>
             <xsl:copy-of select="precision"/>
             <xsl:copy-of select="scale"/>
+            <xsl:copy-of select="*[not(self::name) and not(self::type) and not(self::length) and not(self::unsigned) and not(self::notnull) and not(self::autoincrement) and not(self::default) and not(self::comments) and not(self::primary) and not(self::precision) and not(self::scale)]"/>
         </field>
     </xsl:template>
 
@@ -50,6 +54,7 @@
             <xsl:copy-of select="primary"/>
             <xsl:copy-of select="unique"/>
             <xsl:apply-templates select="field" mode="index"/>
+            <xsl:copy-of select="*[not(self::name) and not(self::primary) and not(self::unique) and not(self::field)]"/>
         </index>
     </xsl:template>
 
@@ -57,6 +62,7 @@
         <field>
             <xsl:copy-of select="name"/>
             <xsl:copy-of select="sorting"/>
+            <xsl:copy-of select="*[not(self::name) and not(self::sorting)]"/>
         </field>
     </xsl:template>
 </xsl:stylesheet>

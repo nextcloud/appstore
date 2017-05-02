@@ -288,6 +288,42 @@ class ParserTest(TestCase):
             validate_database(xml, self.config.db_schema,
                               self.config.pre_db_xslt)
 
+    def test_validate_invalid_db_elements_database(self):
+        xml = self._get_contents('data/database/invaliddb.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_table_elements_database(self):
+        xml = self._get_contents('data/database/invalidtable.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_declaration_elements_database(self):
+        xml = self._get_contents('data/database/invaliddeclaration.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_field_elements_database(self):
+        xml = self._get_contents('data/database/invalidfield.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_index_elements_database(self):
+        xml = self._get_contents('data/database/invalidindex.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_indexfield_elements_database(self):
+        xml = self._get_contents('data/database/invalidindexfield.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
     def test_validate_news_database(self):
         xml = self._get_contents('data/database/news.xml')
         validate_database(xml, self.config.db_schema, self.config.pre_db_xslt)
