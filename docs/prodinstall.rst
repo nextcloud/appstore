@@ -293,6 +293,7 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
     WSGIPassAuthorization On
     Alias /static/ /var/www/production-domain.com/static/
     Alias /schema/apps/info.xsd /path/to/appstore/nextcloudappstore/api/v1/release/info.xsd
+    Alias /schema/apps/database.xsd /path/to/appstore/nextcloudappstore/api/v1/release/database.xsd
 
     <Directory /path/to/appstore/nextcloudappstore>
         <Files wsgi.py>
