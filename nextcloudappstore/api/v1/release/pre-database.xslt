@@ -8,20 +8,22 @@
             <xsl:copy-of select="overwrite"/>
             <xsl:copy-of select="charset"/>
             <xsl:apply-templates select="table"/>
-            <xsl:copy-of select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::table)]"/>
+            <xsl:copy-of
+                    select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::table)]"/>
         </database>
     </xsl:template>
 
     <xsl:template match="table">
         <table>
             <!-- name has to appear before declaration -->
-            <xsl:copy-of select="*[position() = 1 and self::name]"/>
+            <xsl:copy-of select="declaration/preceding-sibling::name"/>
             <xsl:copy-of select="create"/>
             <xsl:copy-of select="overwrite"/>
             <xsl:copy-of select="charset"/>
             <xsl:apply-templates select="declaration"/>
-            <xsl:copy-of select="*[position() != 1 and self::name]"/>
-            <xsl:copy-of select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::declaration)]"/>
+            <xsl:copy-of select="declaration/following-sibling::name"/>
+            <xsl:copy-of
+                    select="*[not(self::name) and not(self::create) and not(self::overwrite) and not(self::charset) and not(self::declaration)]"/>
         </table>
     </xsl:template>
 
@@ -46,7 +48,8 @@
             <xsl:copy-of select="primary"/>
             <xsl:copy-of select="precision"/>
             <xsl:copy-of select="scale"/>
-            <xsl:copy-of select="*[not(self::name) and not(self::type) and not(self::length) and not(self::unsigned) and not(self::notnull) and not(self::autoincrement) and not(self::default) and not(self::comments) and not(self::primary) and not(self::precision) and not(self::scale)]"/>
+            <xsl:copy-of
+                    select="*[not(self::name) and not(self::type) and not(self::length) and not(self::unsigned) and not(self::notnull) and not(self::autoincrement) and not(self::default) and not(self::comments) and not(self::primary) and not(self::precision) and not(self::scale)]"/>
         </field>
     </xsl:template>
 
@@ -56,7 +59,8 @@
             <xsl:copy-of select="primary"/>
             <xsl:copy-of select="unique"/>
             <xsl:apply-templates select="field" mode="index"/>
-            <xsl:copy-of select="*[not(self::name) and not(self::primary) and not(self::unique) and not(self::field)]"/>
+            <xsl:copy-of
+                    select="*[not(self::name) and not(self::primary) and not(self::unique) and not(self::field)]"/>
         </index>
     </xsl:template>
 
