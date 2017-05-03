@@ -511,6 +511,80 @@ The following elements are either deprecated or for internal use only and will f
 * **requiremax**
 
 
+database.xml
+~~~~~~~~~~~~
+The database.xml is validated using an XML Schema which can be accessed `through the App Store <https://apps.nextcloud.com/schema/apps/database.xsd>`_.
+
+A minimum valid **database.xml** would look like this:
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/database.xsd">
+        <table>
+            <name>*dbprefix*blog_articles</name>
+            <declaration>
+
+            </declaration>
+        </table>
+    </database>
+
+A full blown example would look like this (needs to be utf-8 encoded):
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/database.xsd">
+        <table>
+            <name>*dbprefix*blog_articles</name>
+            <declaration>
+                <field>
+                    <name>id</name>
+                    <type>integer</type>
+                    <length>8</length>
+                    <unsigned>true</unsigned>
+                    <notnull>true</notnull>
+                    <autoincrement>true</autoincrement>
+                </field>
+                <field>
+                    <name>user</name>
+                    <type>text</type>
+                    <length>255</length>
+                    <notnull>true</notnull>
+                    <default>anonymous</default>
+                </field>
+                <field>
+                    <name>donations_in_euros</name>
+                    <type>decimal</type>
+                    <default>0.00</default>
+                    <precision>12</precision>
+                    <scale>2</scale>
+                </field>
+                <index>
+                    <name>blog_articles_id_user_index</name>
+                    <primary>true</primary>
+                    <unique>true</unique>
+                    <field>
+                        <name>id</name>
+                    </field>
+                    <field>
+                        <name>user</name>
+                    </field>
+                </index>
+                <index>
+                    <name>blog_articles_user_index</name>
+                    <field>
+                        <name>user</name>
+                    </field>
+                </index>
+            </declaration>
+        </table>
+    </database>
+
+.. note:: While you might encounter valid elements like **create**, **overwrite**, **charset** or **sorting** they are not parsed by Nextcloud and can therefore be omitted safely
+
 Changelog
 ~~~~~~~~~
 
@@ -578,19 +652,32 @@ Changelogs can be translated as well. To add a changelog for a specific translat
 
 Schema Integration
 ------------------
-We provide an XML schema for the info.xml file which is available under `https://apps.nextcloud.com/schema/apps/info.xsd <https://apps.nextcloud.com/schema/apps/info.xsd>`_ and can be used to validate your info.xml or provide autocompletion in your IDE.
+We provide an XML schema which can be used to validate and get IDE autocompletion for the following files:
 
-You can validate your info.xml using `various online tools <http://www.utilities-online.info/xsdvalidation/>`_
+* **appinfo/info.xml**:
 
-Various IDEs automatically validate and auto complete XML elements and attributes if you add the schema in your info.xml like this:
+    .. code-block:: xml
 
-.. code-block:: xml
+        <?xml version="1.0"?>
+        <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 
-    <?xml version="1.0"?>
-    <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+              <!-- content here -->
 
-          <!-- content here -->
+        </info>
 
-    </info>
+* **appinfo/database.xml**:
+
+    .. code-block:: xml
+
+        <?xml version="1.0"?>
+        <database xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/database.xsd">
+
+              <!-- content here -->
+
+        </database>
+
+You can also validate your info.xml using `various online tools <http://www.utilities-online.info/xsdvalidation/>`_
+
 
