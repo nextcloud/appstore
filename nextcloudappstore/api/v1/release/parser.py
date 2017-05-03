@@ -38,7 +38,7 @@ class XMLSyntaxError(ParseError):
     pass
 
 
-Metadata = Tuple[str, str, Dict[str, str]]
+Metadata = Tuple[str, str, str, Dict[str, str]]
 
 
 class GunZipAppMetadataExtractor:
@@ -56,7 +56,8 @@ class GunZipAppMetadataExtractor:
         :raises InvalidAppPackageStructureException: if the first level folder
         does not equal the app_id or no info.xml file could be found in the
         appinfo folder
-        :return: the info.xml, the app id and the changelog as string
+        :return: the info.xml, database.xml, the app id and the changelog as
+        string
         """
         if not tarfile.is_tarfile(archive_path):  # type: ignore
             msg = '%s is not a valid tar.gz archive ' % archive_path
@@ -69,6 +70,8 @@ class GunZipAppMetadataExtractor:
     def _parse_archive(self, tar: Any) -> Metadata:
         app_id = self._find_app_id(tar)
         info = self._get_contents('%s/appinfo/info.xml' % app_id, tar)
+        database = self._get_contents('%s/appinfo/database.xml' % app_id, tar,
+                                      '')
         changelog = {}  # type: Dict[str, str]
         changelog['en'] = self._get_contents('%s/CHANGELOG.md' % app_id, tar,
                                              '')
@@ -79,7 +82,7 @@ class GunZipAppMetadataExtractor:
             if trans_changelog:
                 changelog[code] = trans_changelog
 
-        return info, app_id, changelog
+        return info, database, app_id, changelog
 
     def _get_contents(self, path: str, tar: Any, default: Any = None) -> str:
         """
@@ -99,7 +102,7 @@ class GunZipAppMetadataExtractor:
             else:
                 return default
         file = tar.extractfile(member)
-        return self._stream_read_file(file, self.config.max_info_size)
+        return self._stream_read_file(file, self.config.max_file_size)
 
     def _find_member(self, path: str, tar: Any) -> Any:
         """
@@ -173,12 +176,12 @@ class GunZipAppMetadataExtractor:
         folders = map(lambda m: m.split('/')[0], matching_members)
         return set(folders)
 
-    def _stream_read_file(self, info_file: Any, max_info_size: int) -> str:
+    def _stream_read_file(self, info_file: Any, max_size: int) -> str:
         """
         Instead of reading everything in one go which is vulnerable to
         zip bombs, stream and accumulate the bytes
         :argument info_file: buffered io reader
-        :argument max_info_size: maximum file size in bytes
+        :argument max_size: maximum file size in bytes
         :raises MaxSizeAppMetadataXmlException if the maximum size was reached
         :return: the parsed info.xml
         """
@@ -188,9 +191,9 @@ class GunZipAppMetadataExtractor:
         result = b''
         while True:
             size += 1024
-            if size > max_info_size:
+            if size > max_size:
                 msg = 'info.xml was bigger than allowed %i bytes' % \
-                      max_info_size
+                      max_size
                 raise MaxSizeAppMetadataXmlException(msg)
 
             chunk = info_file.read(1024)
@@ -227,6 +230,14 @@ def element_to_dict(element: Any) -> Dict:
         return {key: element.text}
 
 
+def create_safe_xml_parser() -> lxml.etree.XMLParser:
+    return lxml.etree.XMLParser(  # type: ignore
+        resolve_entities=False, no_network=True,  # type: ignore
+        remove_comments=True, load_dtd=False,  # type: ignore
+        remove_blank_text=True, dtd_validation=False  # type: ignore
+    )  # type: ignore
+
+
 def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
                        xslt: str) -> Dict:
     """
@@ -239,11 +250,7 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     :raises InvalidAppMetadataXmlException if the schema does not validate
     :return the parsed xml as dict
     """
-    parser = lxml.etree.XMLParser(  # type: ignore
-        resolve_entities=False, no_network=True,  # type: ignore
-        remove_comments=True, load_dtd=False,  # type: ignore
-        remove_blank_text=True, dtd_validation=False  # type: ignore
-    )  # type: ignore
+    parser = create_safe_xml_parser()
     try:
         doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
     except lxml.etree.XMLSyntaxError as e:
@@ -267,6 +274,34 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     validate_pre_11(mapped, doc)
     fix_partial_translations(mapped)
     return mapped
+
+
+def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
+    """
+    Validates a database.xml
+    :argument xml the database.xml string to parse
+    :argument schema the schema xml as string
+    :argument pre_xslt xslt which is run before validation to ensure that
+    everything is in the correct order and that unknown elements are excluded
+    :raises InvalidAppMetadataXmlException if the schema does not validate
+    """
+    parser = create_safe_xml_parser()
+    try:
+        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+    except lxml.etree.XMLSyntaxError as e:
+        msg = 'database.xml contains malformed xml: %s' % e
+        raise XMLSyntaxError(msg)
+    for _ in doc.iter(lxml.etree.Entity):  # type: ignore
+        raise InvalidAppMetadataXmlException('Must not contain entities')
+    pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
+    pre_transformed_doc = pre_transform(doc)
+    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
+    schema = lxml.etree.XMLSchema(schema_doc)  # type: ignore
+    try:
+        schema.assertValid(pre_transformed_doc)  # type: ignore
+    except lxml.etree.DocumentInvalid as e:
+        msg = 'info.xml did not validate: %s' % e
+        raise InvalidAppMetadataXmlException(msg)
 
 
 def validate_pre_11(info: Dict, doc: Any) -> None:

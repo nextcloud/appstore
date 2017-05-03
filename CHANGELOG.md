@@ -16,6 +16,7 @@
 - Added ability to transfer app ownership
 - Added commands to update tokens, set a default password for an admin user for development and verify an email address
 - Added Nextcloud 12 app template
+- Added validation for database.xml files
 
 ### Fixed
 
@@ -32,9 +33,11 @@
 - Require bug tracker to present in info.xml
 - Require max-version to be present for Nextcloud versions
 - Extracted api and account settings into a separate app
-- Moved app schema to a different path, make sure to adjust your webserver config
+- Moved app schema to a different path, make sure to adjust your web-server config
 - Migrated to yarn as package manager
 - The update script now stops and restarts the apache server during the update
+- MAX_DOWNLOAD_INFO_XML_SIZE setting has been renamed to MAX_DOWNLOAD_FILE_SIZE which defaults to 1Mb now instead of 512Kbs
+- Another schema (database.xsd) needs to be added to your web-server config
 
 ### Removed
 

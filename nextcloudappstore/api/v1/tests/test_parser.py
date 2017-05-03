@@ -7,7 +7,8 @@ from nextcloudappstore.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
     InvalidAppPackageStructureException, \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
-    fix_partial_translations, parse_changelog, ForbiddenLinkException
+    fix_partial_translations, parse_changelog, ForbiddenLinkException, \
+    validate_database
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
 from rest_framework.exceptions import ParseError
@@ -201,30 +202,36 @@ class ParserTest(TestCase):
     def test_extract_contacts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        info, db, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('contacts', app_id)
         self.assertEqual('', changes['en'])
 
     def test_extract_u2f(self):
         path = self.get_path('data/archives/twofactor_u2f.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        info, db, app_id, changes = extractor.extract_app_metadata(path)
         self.assertEqual('twofactor_u2f', app_id)
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id, changes = extractor.extract_app_metadata(path)
+        info, db, app_id, changes = extractor.extract_app_metadata(path)
         full = self._get_contents('data/infoxmls/full.xml')
-        self.assertEqual(full, full_extracted)
+        self.assertEqual(full, info)
         self.assertEqual('', changes['en'])
+        self.assertEqual('', db)
 
     def test_extract_changelog(self):
         path = self.get_path('data/archives/changelog.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        full_extracted, app_id, changes = extractor.extract_app_metadata(
-            path)
+        info, db, app_id, changes = extractor.extract_app_metadata(path)
         self.assertNotEqual('', changes)
+
+    def test_extract_database(self):
+        path = self.get_path('data/archives/database.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        info, db, app_id, changes = extractor.extract_app_metadata(path)
+        self.assertNotEqual('his', db)
 
     def test_extract_gunzip_no_appinfo(self):
         path = self.get_path('data/archives/invalid.tar.gz')
@@ -274,6 +281,62 @@ class ParserTest(TestCase):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
+
+    def test_validate_broken_database(self):
+        xml = self._get_contents('data/database/broken.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_db_elements_database(self):
+        xml = self._get_contents('data/database/invaliddb.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_table_elements_database(self):
+        xml = self._get_contents('data/database/invalidtable.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_declaration_elements_database(self):
+        xml = self._get_contents('data/database/invaliddeclaration.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_name_before_decl_database(self):
+        xml = self._get_contents('data/database/nameafterdecl.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_field_elements_database(self):
+        xml = self._get_contents('data/database/invalidfield.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_index_elements_database(self):
+        xml = self._get_contents('data/database/invalidindex.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_invalid_indexfield_elements_database(self):
+        xml = self._get_contents('data/database/invalidindexfield.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            validate_database(xml, self.config.db_schema,
+                              self.config.pre_db_xslt)
+
+    def test_validate_news_database(self):
+        xml = self._get_contents('data/database/news.xml')
+        validate_database(xml, self.config.db_schema, self.config.pre_db_xslt)
+
+    def test_validate_server_database(self):
+        xml = self._get_contents('data/database/server.xml')
+        validate_database(xml, self.config.db_schema, self.config.pre_db_xslt)
 
     def test_validate_english_summary(self):
         xml = self._get_contents('data/infoxmls/no_en_summary.xml')

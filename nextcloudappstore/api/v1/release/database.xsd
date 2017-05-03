@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="database">
+        <xs:annotation>
+            <xs:documentation>Database definition. These xml files were once
+                used for MDB2 which was a major source of bugs and
+                unmaintained. To keep compatibility the xml files definitions
+                are now parsed and used to create Doctrine schemas. To trigger
+                a database migration you need to increase your version number
+                in your info.xml file
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="non-empty-string" minOccurs="0"
+                            maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>Value is ignored</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="create" type="xs:boolean" minOccurs="0"
+                            maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>Value is ignored</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="overwrite" type="xs:boolean" minOccurs="0"
+                            maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>Value is ignored</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="charset" type="non-empty-string"
+                            minOccurs="0"
+                            maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>Value is ignored</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="table" type="table" minOccurs="1"
+                            maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Each table contains a full database
+                            table
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- basic types -->
+    <xs:simpleType name="non-empty-string">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="table">
+        <xs:sequence>
+            <xs:element name="name" type="non-empty-string" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Table name. You can and should use
+                        *dbprefix* before your table, e.g.
+                        *dbprefix*news_items. The value will be replaced with a
+                        configurable prefix and defaults to "oc_"
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="create" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Value is ignored</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="overwrite" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Value is ignored</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="charset" type="non-empty-string" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Value is ignored</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="declaration" type="declaration" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Contains the actual database columns and
+                        indices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="declaration">
+        <xs:sequence>
+            <xs:element name="field" type="field" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A list of columns</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="index" type="index" minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A list of indices on that table
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="field">
+        <xs:sequence>
+            <xs:element name="name" type="non-empty-string" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Column name</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="type" type="field-type" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Column types. Certain types like integer
+                        (aka smallint, integer, bigint), clob (aka text), text
+                        (aka string), timestamp (aka datetime) and numeric (aka
+                        decimal) are special to Nextcloud and will be
+                        translated to their doctrine equivalents. Everything
+                        else will be sent as is to doctrines type system. See
+                        http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/types.html
+                        for a list of all types
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="length" type="xs:int" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Length of the type. This will not only
+                        define how long your text columns aka VARCHARs will be
+                        set but also determine the size of the integer field:
+                        &lt; 4 will be transformed to smallint, 4 will be
+                        transformed to integer and &gt; 4 will be transformed
+                        to bigint
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unsigned" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Can only be set for numeric values like
+                        float, integer, etc. and will make them unsigned
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="notnull" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>If a value should never be null
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="autoincrement" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Can only be set for primary keys
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="default" type="xs:string" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Default value if given. Can also be empty
+                        in which case the default will be an empty string.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="comments" type="non-empty-string" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Doctrine comment, can be ignored
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="primary" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>True for the primary key. For composed
+                        primary keys use a unique index.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="precision" type="xs:int" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Total number of digits for a
+                        numerics/decimal type including decimal digits, e.g.
+                        precision 3 and scale 2 will only allow 3.21 but not
+                        23.21
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="scale" type="xs:int" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Scale for a numeric/decimal type, e.g. 2
+                        will save decimals with two decimal places: 3.21
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="field-type">
+        <xs:restriction base="xs:string">
+            <!-- smallint and bigint are set by setting a length smaller or bigger than 4 -->
+            <xs:enumeration value="integer"/>
+            <!-- clob equals text -->
+            <xs:enumeration value="clob"/>
+            <!-- text equals string -->
+            <xs:enumeration value="text"/>
+            <!-- timestamp equals datetime -->
+            <xs:enumeration value="timestamp"/>
+            <!-- numeric equals decimal -->
+            <xs:enumeration value="numeric"/>
+            <!-- doctrine types minus Nextcloud mappings-->
+            <xs:enumeration value="smallint"/>
+            <xs:enumeration value="bigint"/>
+            <xs:enumeration value="decimal"/>
+            <xs:enumeration value="float"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="guid"/>
+            <xs:enumeration value="binary"/>
+            <xs:enumeration value="blob"/>
+            <xs:enumeration value="boolean"/>
+            <xs:enumeration value="date"/>
+            <xs:enumeration value="datetime"/>
+            <xs:enumeration value="datetimetz"/>
+            <xs:enumeration value="time"/>
+            <xs:enumeration value="dateinterval"/>
+            <xs:enumeration value="json"/>
+            <!-- object and arrays are not covered since support is bad -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="index">
+        <xs:annotation>
+            <xs:documentation>Element for defining indices. Can also be used to
+                define composite primary keys: simply add more than one field
+                to an index and define it as unique
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="name" type="non-empty-string" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Index name. Should be unique
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="primary" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>True if the index is in fact a primary
+                        key. Will be ignored if the primary key is already set
+                        in the field section
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="unique" type="xs:boolean" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>If the index for the field or combination
+                        of fields should be unique
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="field" type="index-field" minOccurs="1"
+                        maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>List of index fields that are used to
+                        create the index
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="index-field">
+        <xs:sequence>
+            <xs:element name="name" type="non-empty-string" minOccurs="1"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Name of the column that should be
+                        indexed
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sorting" type="index-sorting" minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Value is ignored</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="index-sorting">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ascending"/>
+            <xs:enumeration value="descending"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

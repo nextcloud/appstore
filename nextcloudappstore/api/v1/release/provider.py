@@ -2,7 +2,8 @@ from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
 from nextcloudappstore.api.v1.release.parser import \
-    GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog
+    GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog, \
+    validate_database
 from typing import Dict, Tuple
 
 from rest_framework.exceptions import ValidationError
@@ -29,11 +30,14 @@ class AppReleaseProvider:
             url, self.config.download_root, self.config.download_max_timeout,
             self.config.download_max_redirects, self.config.download_max_size
         ) as download:
-            xml, app_id, changelog = self.extractor.extract_app_metadata(
-                download.filename)
+            xml, database, app_id, changelog = \
+                self.extractor.extract_app_metadata(download.filename)
             info = parse_app_metadata(xml, self.config.info_schema,
                                       self.config.pre_info_xslt,
                                       self.config.info_xslt)
+            if database:
+                validate_database(database, self.config.db_schema,
+                                  self.config.pre_db_xslt)
             info_app_id = info['app']['id']
             if app_id != info_app_id:
                 msg = 'Archive app folder is %s but info.xml reports id %s' \
