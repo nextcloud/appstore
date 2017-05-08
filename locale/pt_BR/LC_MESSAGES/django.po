@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-07 00:23+0000\n"
+"POT-Creation-Date: 2017-05-08 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Flávio Veras <flaviove@gmail.com>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
@@ -89,9 +89,9 @@ msgid ""
 "\"/CN=APP_ID\"</b>"
 msgstr ""
 "Normalmente armzenado em ˜/.nextcloud/certificates/APP_ID.crt onde APP_ID é "
-"o id do aplicativo. Se voce não tiver um certificado primeiro você precisará"
-" criar uma solicitação de certificado assinado (CSR) que deve ser postado em"
-" <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"o id do aplicativo. Se você não tiver um certificado primeiro precisará "
+"criar uma solicitação de certificado assinado (CSR) que deve ser postado em "
+"<a href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=noreffer noopener\">certificate repository</a> ( siga o README ). Você "
 "pode gerar um CSR executando o seguinte comando: <b>openssl reqnodes -newkey"
 " usa:4096 -keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
@@ -120,8 +120,8 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
-"<b>Importante</b>: Mudar a linguagem apagará seu comentário atual. "
-"Alterações não serão salvas!"
+"<b>Importante</b>: Mudar o idioma apagará seu comentário atual. Alterações "
+"não serão salvas!"
 
 #: nextcloudappstore/core/forms.py:76
 msgid "Comment"
@@ -312,7 +312,7 @@ msgstr "Nome completo"
 
 #: nextcloudappstore/core/models.py:322
 msgid "E-Mail"
-msgstr "Email"
+msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:332
 msgid "App author"
@@ -571,7 +571,7 @@ msgstr "Nome completo do autor"
 
 #: nextcloudappstore/core/scaffolding/forms.py:36
 msgid "Author's e-mail"
-msgstr "Email do autor"
+msgstr "E-mail do autor"
 
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
@@ -632,11 +632,11 @@ msgid ""
 msgstr ""
 "Bem vindo %(site_name)s!\n"
 "\n"
-"Voce esta recebendo este email porque o usuário %(user_display)s linkou esse endereço de email à conta em %(site_domain)s.\n"
+"Você esta recebendo este e-mail porque o usuário %(user_display)s linkou esse endereço de e-mail à conta em %(site_domain)s.\n"
 "\n"
 "Para confirmar se está correto, vá para %(activate_url)s\n"
 "\n"
-"Se voce não tem conta em %(site_domain)s, simplesmente ignore essa mensagem\n"
+"Se você não tem conta em %(site_domain)s, simplesmente ignore essa mensagem\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -650,7 +650,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
-msgstr "Confirmar endereço de email"
+msgstr "Confirmar endereço de e-mail"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -659,7 +659,7 @@ msgid ""
 "address for user %(user_display)s."
 msgstr ""
 "Favor confirme que <a href=\"mailto:%(email)s\">%(email)s</a> é um endereço "
-"de email do usuário %(user_display)s."
+"de e-mail do usuário %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -672,7 +672,7 @@ msgid ""
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Este link de confirmação expirou ou é inválido. Por favor <a "
-"href=\"%(email_url)s\">solicite um novo email de confirmação</a>."
+"href=\"%(email_url)s\">solicite um novo e-mail de confirmação</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -712,8 +712,8 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
-"Esqueceu a senha? entre com seu endereço de email abaixo, nós enviaremos a "
-"voce um email que permite que voce resete sua senha"
+"Esqueceu a senha? Entre abaixo com seu endereço de e-mail que nós enviaremos"
+" um e-mail que permite redefinir sua senha"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1075,7 +1075,7 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Voce esta prestes a usar o seu %(provider_name)s para logar em\n"
+"Você esta prestes a usar o seu %(provider_name)s para logar em\n"
 "%(site_name)s. Como um passo final, favor completar o formulário a seguir:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1195,15 +1195,15 @@ msgstr "Ultimo nome"
 
 #: nextcloudappstore/user/forms.py:23
 msgid "Your e-mail address"
-msgstr "Seu endereço de email"
+msgstr "Seu endereço de e-mail"
 
 #: nextcloudappstore/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
-msgstr "O endereço informado não confere com seu endereço de email"
+msgstr "O endereço informado não confere com seu endereço de e-mail"
 
 #: nextcloudappstore/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
-msgstr "Esse email já esta associado a uma outra conta"
+msgstr "Esse e-mail já esta associado a uma outra conta"
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1273,8 +1273,8 @@ msgid ""
 "click the \"Delete account\" button:"
 msgstr ""
 "Excluindo a conta você apagará todos os seus aplicativos e versões. Para "
-"confirmar isso, insira seu endereço de email no campo de entrada e clique em"
-" \"Excluir conta\":"
+"confirmar isso, insira seu endereço de e-mail no campo de entrada e clique "
+"em \"Excluir conta\":"
 
 #: nextcloudappstore/user/templates/user/password.html:16
 msgid ""
@@ -1315,7 +1315,7 @@ msgstr "Desbloquear para transferir"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr "Bloqueado. Não é possível transferir a propriedade"
+msgstr "Bloqueado. Não foi possível transferir a propriedade"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
