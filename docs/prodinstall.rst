@@ -305,6 +305,9 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
         <Files info.xsd>
             Require all granted
         </Files>
+        <Files database.xsd>
+            Require all granted
+        </Files>
     </Directory>
 
     <Directory /var/www/production-domain.com/static/>
