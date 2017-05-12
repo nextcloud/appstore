@@ -26,6 +26,7 @@ before_install:
 install:
   - npm -g install yarn
   - make dev-setup db="$DB" pyvenv="pyvenv"
+  - make l10n
   - yarn add tslint
 
 script:
