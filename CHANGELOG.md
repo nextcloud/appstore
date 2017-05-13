@@ -91,7 +91,7 @@
 
 - Improve admin interface
 - Change some urls to prevent clashes with app names
-- Combine app developer related tasks in one dropdown-menu
+- Combine app developer related tasks in one drop-down-menu
 - Hide app rating form from app owner
 - Naming and usability fixes for app rating form
 - Boolean fields are now prefixed with **is** in the API
@@ -99,9 +99,9 @@
 
 ### Fixed
 
-- Fixed syntax highlightning for Markdown
+- Fixed syntax highlighting for Markdown
 - Fixed regex for commands
-- Fixed backlinks on app releases page
+- Fixed back-links on app releases page
 
 ### Removed
 
