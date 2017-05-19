@@ -17,6 +17,7 @@
 - Added commands to update tokens, set a default password for an admin user for development and verify an email address
 - Added Nextcloud 12 app template
 - Added validation for database.xml files
+- Added support for Apache 2.0 and MPL 2.0 licenses
 
 ### Fixed
 
