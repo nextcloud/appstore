@@ -309,7 +309,7 @@ version
     * must be a `semantic version <http://semver.org/>`_ without build metadata, e.g. 9.0.1 or 9.1.0-alpha.1
 licence
     * required
-    * must contain **agpl** as the only valid value
+    * must contain **agpl**, **mpl*** and/or **apache** as the only valid values. These refer to the AGPLv3, MPL 2.0 and Apache License 2.0
 author
     * required
     * can occur multiple times with different authors
