@@ -60,8 +60,8 @@ class AppManager(TranslatableManager):
 class App(TranslatableModel):
     objects = AppManager()
     id = CharField(max_length=256, unique=True, primary_key=True,
-                   verbose_name=_('Id'),
-                   help_text=_('app id, identical to folder name'))
+                   verbose_name=_('ID'),
+                   help_text=_('app ID, identical to folder name'))
     categories = ManyToManyField('Category', verbose_name=_('Category'))
     translations = TranslatedFields(
         name=CharField(max_length=256, verbose_name=_('Name'),
@@ -74,13 +74,13 @@ class App(TranslatableModel):
     )
     # resources
     user_docs = URLField(max_length=256, blank=True,
-                         verbose_name=_('User documentation url'))
+                         verbose_name=_('User documentation URL'))
     admin_docs = URLField(max_length=256, blank=True,
-                          verbose_name=_('Admin documentation url'))
+                          verbose_name=_('Admin documentation URL'))
     developer_docs = URLField(max_length=256, blank=True,
-                              verbose_name=_('Developer documentation url'))
+                              verbose_name=_('Developer documentation URL'))
     issue_tracker = URLField(max_length=256, blank=True,
-                             verbose_name=_('Issue tracker url'))
+                             verbose_name=_('Issue tracker URL'))
     website = URLField(max_length=256, blank=True, verbose_name=_('Homepage'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
@@ -104,8 +104,8 @@ class App(TranslatableModel):
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
     certificate = TextField(verbose_name=_('Certificate'))
-    ocsid = IntegerField(verbose_name=_('OCS id'), null=True, blank=True,
-                         help_text=_('Old store id. Deprecated'), unique=True)
+    ocsid = IntegerField(verbose_name=_('OCS ID'), null=True, blank=True,
+                         help_text=_('Old store ID. Deprecated'), unique=True)
     ownership_transfer_enabled = BooleanField(
         verbose_name=_('Ownership transfer enabled'), default=False,
         help_text=_('If enabled, a user can try to register the same app '
@@ -363,7 +363,7 @@ class AppRelease(TranslatableModel):
                                 verbose_name=_('Minimum Integer bits'),
                                 help_text=_('e.g. 32 for 32bit Integers'))
     download = URLField(max_length=256, blank=True,
-                        verbose_name=_('Archive download Url'))
+                        verbose_name=_('Archive download URL'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
@@ -415,7 +415,7 @@ class AppRelease(TranslatableModel):
 
 
 class Screenshot(Model):
-    url = URLField(max_length=256, verbose_name=_('Image url'))
+    url = URLField(max_length=256, verbose_name=_('Image URL'))
     small_thumbnail = URLField(max_length=256,
                                verbose_name=_('Small thumbnail'), default='')
     app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
@@ -457,9 +457,8 @@ class Category(TranslatableModel):
     id = CharField(max_length=256, unique=True, primary_key=True,
                    verbose_name=_('Id'),
                    help_text=_(
-                       'Category id which is used to identify a '
-                       'category. Used to identify categories when '
-                       'uploading an app'))
+                       'Category ID used to identify the '
+                       'category an app is uploaded to'))
     created = DateTimeField(auto_now_add=True, editable=False,
                             verbose_name=_('Created at'))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
@@ -616,10 +615,10 @@ class NextcloudRelease(Model):
     version = CharField(max_length=100, verbose_name=_('Nextcloud version'),
                         help_text=_('e.g. 9.0.54'), primary_key=True)
     is_current = BooleanField(verbose_name=_('Is current version'),
-                              help_text=_('Only one version is allowed to be '
-                                          'the current version. This field is '
-                                          'used to pre-select drop downs for '
-                                          'app generation etc.'),
+                              help_text=_('Only one version can be '
+                                          'the current one. This field is '
+                                          'used to pre-select dropdowns for '
+                                          'app generation, etc.'),
                               default=False)
 
     class Meta:
