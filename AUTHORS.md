@@ -10,6 +10,7 @@
 * [Olivier Paroz](mailto:oparoz@users.noreply.github.com)
 * [Christoph Wurst](mailto:ChristophWurst@users.noreply.github.com)
 * [Joas Schilling](mailto:coding@schilljs.com)
+* [Jos Poortvliet](mailto:jos@opensuse.org)
 * [Julius Härtl](mailto:github@jus.li)
 * [Marius Blüm](mailto:marius@lineone.io)
 * [fossxplorer](mailto:fossxplorer@gmail.com)
