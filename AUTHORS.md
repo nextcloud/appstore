@@ -13,6 +13,7 @@
 * [Jos Poortvliet](mailto:jos@opensuse.org)
 * [Julius Härtl](mailto:github@jus.li)
 * [Marius Blüm](mailto:marius@lineone.io)
+* [comradekingu](mailto:epost@anotheragency.no)
 * [fossxplorer](mailto:fossxplorer@gmail.com)
 * [rakekniven](mailto:mark.ziegler@rakekniven.de)
 * [David Peach](mailto:mail@davidpeach.co.uk)
