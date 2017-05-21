@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 00:26+0000\n"
+"POT-Creation-Date: 2017-05-21 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luis Guzman <ark@switnet.org>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/nextcloud/teams/64236/es/)\n"
@@ -80,7 +80,7 @@ msgstr "Certificado Público"
 #: nextcloudappstore/core/forms.py:35
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
-"app's id. If you do not have a certificate you need to create a certificate "
+"app's ID. If you do not have a certificate you need to create a certificate "
 "sign request (CSR) first which should be posted on the <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
@@ -88,18 +88,10 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"Normalmente almacenado en ~/.nextcloud/certificates/APP_ID.crt donde APP_ID "
-"es tu id de app. Si no tienes un certificado, necesitas crear una petición "
-"de de firma de certificado (CSR) que primero debería ser publicada en el  <a"
-" href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">repositorio de certificados</a> (sigue el "
-"README). Puedes generar el CSR ejecutando el siguiente comando: <b>openssl "
-"req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
-"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
-msgid "SHA512 signature over your app's id"
-msgstr "Firma SHA512 esta por encima del id de la aplicación"
+msgid "SHA512 signature over your app's ID"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -128,21 +120,20 @@ msgstr ""
 msgid "Comment"
 msgstr "Comentario"
 
-#: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:458
-#: nextcloudappstore/core/models.py:494 nextcloudappstore/core/models.py:512
-msgid "Id"
-msgstr "Id"
+#: nextcloudappstore/core/models.py:63
+msgid "ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:64
-msgid "app id, identical to folder name"
-msgstr "id de aplicación, idéntica al nombre de carpeta"
+msgid "app ID, identical to folder name"
+msgstr ""
 
-#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
 msgstr "Categoría"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:470
-#: nextcloudappstore/core/models.py:497 nextcloudappstore/core/models.py:514
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
 msgid "Name"
 msgstr "Nombre"
 
@@ -159,29 +150,30 @@ msgstr "Resumen"
 msgid "Short text describing the app's purpose"
 msgstr "Descripción corta del propósito de la aplicación"
 
-#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:470
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Description"
 msgstr "Descripción"
 
-#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:472
+#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:471
 msgid "Will be rendered as Markdown"
 msgstr "Será renderizado como un Markdown"
 
 #: nextcloudappstore/core/models.py:77
-msgid "User documentation url"
-msgstr "URL de la documentación del usuario"
+msgid "User documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:79
-msgid "Admin documentation url"
-msgstr "URL de la documentación del administrador"
+msgid "Admin documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:81
-msgid "Developer documentation url"
-msgstr "URL de la documentación del desarrollador"
+msgid "Developer documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:83
-msgid "Issue tracker url"
+#: nextcloudappstore/core/scaffolding/forms.py:38
+msgid "Issue tracker URL"
 msgstr "URL del tracker de incidencias"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
@@ -190,12 +182,12 @@ msgid "Homepage"
 msgstr "Pagina de inicio"
 
 #: nextcloudappstore/core/models.py:86 nextcloudappstore/core/models.py:368
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:463
 msgid "Created at"
 msgstr "Creado a las"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:370
-#: nextcloudappstore/core/models.py:466
+#: nextcloudappstore/core/models.py:465
 msgid "Updated at"
 msgstr "Actualizado a las"
 
@@ -246,12 +238,12 @@ msgid "Certificate"
 msgstr "Certificado"
 
 #: nextcloudappstore/core/models.py:107
-msgid "OCS id"
-msgstr "id OCS"
+msgid "OCS ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:108
-msgid "Old store id. Deprecated"
-msgstr "Id viejo de la tienda.  En desuso"
+msgid "Old store ID. Deprecated"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -326,15 +318,15 @@ msgstr "Version"
 msgid "Version follows Semantic Versioning"
 msgstr "La versión sigue el Versionado Semántico"
 
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:575
 msgid "PHP extension dependency"
 msgstr "Dependencia de la extensión PHP"
 
-#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
 msgstr "Dependencia de la base de datos"
 
-#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:502
 msgid "License"
 msgstr "Licencia"
 
@@ -368,8 +360,8 @@ msgid "e.g. 32 for 32bit Integers"
 msgstr "ejem. 32 para enteros de 32 bits"
 
 #: nextcloudappstore/core/models.py:366
-msgid "Archive download Url"
-msgstr "Url de descarga del archivo"
+msgid "Archive download URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -388,8 +380,8 @@ msgstr "Historial de cambios"
 msgid "The release changelog. Can contain Markdown"
 msgstr "La lista de cambios de lanzamiento. Puede tener sintaxis Markdown"
 
-#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/models.py:564
+#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:528
+#: nextcloudappstore/core/models.py:563
 msgid "App release"
 msgstr "Versión de la app"
 
@@ -398,8 +390,8 @@ msgid "App releases"
 msgstr "Versiones de la app"
 
 #: nextcloudappstore/core/models.py:418
-msgid "Image url"
-msgstr "URL de la imagen"
+msgid "Image URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -433,125 +425,124 @@ msgstr "Se necesita el nombre del comando de la linea de comandos, p.ej. grep"
 msgid "Shell commands"
 msgstr "Comandos de terminal"
 
-#: nextcloudappstore/core/models.py:460
-msgid ""
-"Category id which is used to identify a category. Used to identify "
-"categories when uploading an app"
-msgstr ""
-"La id de categoría que se usa para identificar una categoría. Se usa para "
-"identificar categorías al subir una app"
+#: nextcloudappstore/core/models.py:458 nextcloudappstore/core/models.py:493
+#: nextcloudappstore/core/models.py:511
+msgid "Id"
+msgstr "Id"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:460
+msgid "Category ID used to identify the category an app is uploaded to"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
 msgstr "Nombre de la categoría que se mostrará al usuario"
 
-#: nextcloudappstore/core/models.py:477
+#: nextcloudappstore/core/models.py:476
 #: nextcloudappstore/core/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "Categorias"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:495
 msgid "Key which is used to identify a license"
 msgstr "Clave que se usa para identificar una licencia"
 
-#: nextcloudappstore/core/models.py:499
+#: nextcloudappstore/core/models.py:498
 msgid "License name which will be presented to the user"
 msgstr "Nombre de la licencia que se le presenta al usuario"
 
-#: nextcloudappstore/core/models.py:504
+#: nextcloudappstore/core/models.py:503
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licencias"
 
-#: nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
 msgstr "Palabra clave usada para identificar la base de datos"
 
-#: nextcloudappstore/core/models.py:516
+#: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
 msgstr "Nombre de la base de datos presentada al usuario"
 
-#: nextcloudappstore/core/models.py:519 nextcloudappstore/core/models.py:532
+#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
 msgid "Database"
 msgstr "Base de datos"
 
-#: nextcloudappstore/core/models.py:520
+#: nextcloudappstore/core/models.py:519
 #: nextcloudappstore/core/templates/app/releases.html:50
 msgid "Databases"
 msgstr "Bases de datos"
 
-#: nextcloudappstore/core/models.py:534
+#: nextcloudappstore/core/models.py:533
 msgid "Database version requirement"
 msgstr "Versión de BaseDatos requerida"
 
-#: nextcloudappstore/core/models.py:537
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement (raw)"
 msgstr "Versión de BaseDatos requerida (en bruto)"
 
-#: nextcloudappstore/core/models.py:541
+#: nextcloudappstore/core/models.py:540
 msgid "Database dependencies"
 msgstr "Dependencias de BaseDatos"
 
-#: nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:549
 msgid "e.g. libxml"
 msgstr "p.ej. libxml"
 
-#: nextcloudappstore/core/models.py:551 nextcloudappstore/core/models.py:554
-#: nextcloudappstore/core/models.py:567
+#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:566
 msgid "PHP extension"
 msgstr "extension PHP"
 
-#: nextcloudappstore/core/models.py:555
+#: nextcloudappstore/core/models.py:554
 #: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP extensions"
 msgstr "extensiones PHP"
 
-#: nextcloudappstore/core/models.py:570
+#: nextcloudappstore/core/models.py:569
 msgid "Extension version requirement"
 msgstr "Requerimiento de versión de la extensión"
 
-#: nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement (raw)"
 msgstr "Requerimiento de versión de la extensión (en bruto)"
 
-#: nextcloudappstore/core/models.py:577
+#: nextcloudappstore/core/models.py:576
 msgid "PHP extension dependencies"
 msgstr "Dependencias de la extensión PHP"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
 msgstr "Borrado de versión de la app"
 
-#: nextcloudappstore/core/models.py:603
+#: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
 msgstr "Borrados de versión de la app"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/core/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Versión del Nextcloud"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:616
 msgid "e.g. 9.0.54"
 msgstr "ejem. 9.0.54"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:617
 msgid "Is current version"
 msgstr "Es la versión actual"
 
-#: nextcloudappstore/core/models.py:619
+#: nextcloudappstore/core/models.py:618
 msgid ""
-"Only one version is allowed to be the current version. This field is used to"
-" pre-select drop downs for app generation etc."
+"Only one version can be the current one. This field is used to pre-select "
+"dropdowns for app generation, etc."
 msgstr ""
-"Solo se permite que una versión sea la versión actual. Este campo se usa "
-"para preseleccionar dropdowns para generación de app, etc."
 
-#: nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
 msgstr "Versión de Nextcloud"
 
-#: nextcloudappstore/core/models.py:627
+#: nextcloudappstore/core/models.py:626
 msgid "Nextcloud releases"
 msgstr "Versiones de Nextcloud"
 
@@ -578,10 +569,6 @@ msgstr "Correo electrónico del autor"
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
 msgstr "Página web del autor"
-
-#: nextcloudappstore/core/scaffolding/forms.py:38
-msgid "Issue tracker URL"
-msgstr "URL del tracker de incidencias"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"

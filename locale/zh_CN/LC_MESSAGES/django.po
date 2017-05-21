@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 00:26+0000\n"
+"POT-Creation-Date: 2017-05-21 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: kingqz <1757870574@qq.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -80,7 +80,7 @@ msgstr "公钥证书"
 #: nextcloudappstore/core/forms.py:35
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
-"app's id. If you do not have a certificate you need to create a certificate "
+"app's ID. If you do not have a certificate you need to create a certificate "
 "sign request (CSR) first which should be posted on the <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
@@ -88,15 +88,10 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"一般会存储在~/.nextcloud/certificates/APP_ID.crt，这里的APP_ID是你应用的ID。如果你没有证书你需要先创建一个证书签名申请。把它发送到"
-" <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate "
-"repository</a>（遵循README).你可以用以下命令生成CSR    <b>openssl req -nodes -newkey "
-"rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
-msgid "SHA512 signature over your app's id"
-msgstr "SHA512签名在你的APP的ID"
+msgid "SHA512 signature over your app's ID"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -120,21 +115,20 @@ msgstr "<b>重要</b>: 改变语言会清除你当前的评论.更改不会被�
 msgid "Comment"
 msgstr "注释"
 
-#: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:458
-#: nextcloudappstore/core/models.py:494 nextcloudappstore/core/models.py:512
-msgid "Id"
-msgstr "Id"
+#: nextcloudappstore/core/models.py:63
+msgid "ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:64
-msgid "app id, identical to folder name"
-msgstr "应用的ID，文件夹名称相同"
+msgid "app ID, identical to folder name"
+msgstr ""
 
-#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
 msgstr "分类"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:470
-#: nextcloudappstore/core/models.py:497 nextcloudappstore/core/models.py:514
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
 msgid "Name"
 msgstr "名字"
 
@@ -151,30 +145,31 @@ msgstr "概要"
 msgid "Short text describing the app's purpose"
 msgstr "简短的文字描述应用的用途"
 
-#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:470
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Description"
 msgstr "描述"
 
-#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:472
+#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:471
 msgid "Will be rendered as Markdown"
 msgstr "将呈现为降价"
 
 #: nextcloudappstore/core/models.py:77
-msgid "User documentation url"
-msgstr "用户文档链接"
+msgid "User documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:79
-msgid "Admin documentation url"
-msgstr "管理员文档链接"
+msgid "Admin documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:81
-msgid "Developer documentation url"
-msgstr "开发者文档链接"
+msgid "Developer documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:83
-msgid "Issue tracker url"
-msgstr "问题追踪URL"
+#: nextcloudappstore/core/scaffolding/forms.py:38
+msgid "Issue tracker URL"
+msgstr "问题跟踪地址"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
 #: nextcloudappstore/core/templates/app/detail.html:91
@@ -182,12 +177,12 @@ msgid "Homepage"
 msgstr "主页"
 
 #: nextcloudappstore/core/models.py:86 nextcloudappstore/core/models.py:368
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:463
 msgid "Created at"
 msgstr "生成在"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:370
-#: nextcloudappstore/core/models.py:466
+#: nextcloudappstore/core/models.py:465
 msgid "Updated at"
 msgstr "更新在"
 
@@ -238,12 +233,12 @@ msgid "Certificate"
 msgstr "证书"
 
 #: nextcloudappstore/core/models.py:107
-msgid "OCS id"
-msgstr "OCS Id"
+msgid "OCS ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:108
-msgid "Old store id. Deprecated"
-msgstr "旧的商店ID.不受支持"
+msgid "Old store ID. Deprecated"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -316,15 +311,15 @@ msgstr "版本"
 msgid "Version follows Semantic Versioning"
 msgstr "版本遵循语义的版本控制"
 
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:575
 msgid "PHP extension dependency"
 msgstr "PHP扩展依赖"
 
-#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
 msgstr "数据库依赖"
 
-#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:502
 msgid "License"
 msgstr "授权"
 
@@ -358,8 +353,8 @@ msgid "e.g. 32 for 32bit Integers"
 msgstr "比如32是指32位整数"
 
 #: nextcloudappstore/core/models.py:366
-msgid "Archive download Url"
-msgstr "得到下载连接"
+msgid "Archive download URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -378,8 +373,8 @@ msgstr "更改日志"
 msgid "The release changelog. Can contain Markdown"
 msgstr "公布的更改日志，可以包括Markdown"
 
-#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/models.py:564
+#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:528
+#: nextcloudappstore/core/models.py:563
 msgid "App release"
 msgstr "应用发布"
 
@@ -388,8 +383,8 @@ msgid "App releases"
 msgstr "应用发布"
 
 #: nextcloudappstore/core/models.py:418
-msgid "Image url"
-msgstr "照片连接"
+msgid "Image URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -423,121 +418,124 @@ msgstr "需要shell命令的名字，比如grep"
 msgid "Shell commands"
 msgstr "shell命令"
 
-#: nextcloudappstore/core/models.py:460
-msgid ""
-"Category id which is used to identify a category. Used to identify "
-"categories when uploading an app"
-msgstr "分类的ID是用于确定一个分类，当上传一个应用时确定分类"
+#: nextcloudappstore/core/models.py:458 nextcloudappstore/core/models.py:493
+#: nextcloudappstore/core/models.py:511
+msgid "Id"
+msgstr "Id"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:460
+msgid "Category ID used to identify the category an app is uploaded to"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
 msgstr "分类的名字将呈现给用户"
 
-#: nextcloudappstore/core/models.py:477
+#: nextcloudappstore/core/models.py:476
 #: nextcloudappstore/core/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "分类"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:495
 msgid "Key which is used to identify a license"
 msgstr "用于确定授权的关键字"
 
-#: nextcloudappstore/core/models.py:499
+#: nextcloudappstore/core/models.py:498
 msgid "License name which will be presented to the user"
 msgstr "授权名称将呈现给用户"
 
-#: nextcloudappstore/core/models.py:504
+#: nextcloudappstore/core/models.py:503
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "授权"
 
-#: nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
 msgstr "用于确定数据库的关键字"
 
-#: nextcloudappstore/core/models.py:516
+#: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
 msgstr "数据库名字将呈现给客户"
 
-#: nextcloudappstore/core/models.py:519 nextcloudappstore/core/models.py:532
+#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
 msgid "Database"
 msgstr "数据库"
 
-#: nextcloudappstore/core/models.py:520
+#: nextcloudappstore/core/models.py:519
 #: nextcloudappstore/core/templates/app/releases.html:50
 msgid "Databases"
 msgstr "数据库"
 
-#: nextcloudappstore/core/models.py:534
+#: nextcloudappstore/core/models.py:533
 msgid "Database version requirement"
 msgstr "数据库版本要求"
 
-#: nextcloudappstore/core/models.py:537
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement (raw)"
 msgstr "数据库版本要求(暂定)"
 
-#: nextcloudappstore/core/models.py:541
+#: nextcloudappstore/core/models.py:540
 msgid "Database dependencies"
 msgstr "数据库依赖性"
 
-#: nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:549
 msgid "e.g. libxml"
 msgstr "例如libxml"
 
-#: nextcloudappstore/core/models.py:551 nextcloudappstore/core/models.py:554
-#: nextcloudappstore/core/models.py:567
+#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:566
 msgid "PHP extension"
 msgstr "PHP扩展"
 
-#: nextcloudappstore/core/models.py:555
+#: nextcloudappstore/core/models.py:554
 #: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP extensions"
 msgstr "PHP扩展"
 
-#: nextcloudappstore/core/models.py:570
+#: nextcloudappstore/core/models.py:569
 msgid "Extension version requirement"
 msgstr "扩展版本要求"
 
-#: nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement (raw)"
 msgstr "扩展版本要求(暂定)"
 
-#: nextcloudappstore/core/models.py:577
+#: nextcloudappstore/core/models.py:576
 msgid "PHP extension dependencies"
 msgstr "PHP扩展依赖"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
 msgstr "删除应用程序释放"
 
-#: nextcloudappstore/core/models.py:603
+#: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
 msgstr "删除应用程序释放"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/core/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Nextcloud版本"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:616
 msgid "e.g. 9.0.54"
 msgstr "例如9.0.54"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:617
 msgid "Is current version"
 msgstr "这是现在的版本"
 
-#: nextcloudappstore/core/models.py:619
+#: nextcloudappstore/core/models.py:618
 msgid ""
-"Only one version is allowed to be the current version. This field is used to"
-" pre-select drop downs for app generation etc."
-msgstr "只有一个版本可以定义为现在的版本，这个地方是用来预先选择应用程序各版本及其它。"
+"Only one version can be the current one. This field is used to pre-select "
+"dropdowns for app generation, etc."
+msgstr ""
 
-#: nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
 msgstr "Nextcloud 发布"
 
-#: nextcloudappstore/core/models.py:627
+#: nextcloudappstore/core/models.py:626
 msgid "Nextcloud releases"
 msgstr "Nextcloud 发布"
 
@@ -562,10 +560,6 @@ msgstr "作者的电子邮件"
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
 msgstr "作者的主页"
-
-#: nextcloudappstore/core/scaffolding/forms.py:38
-msgid "Issue tracker URL"
-msgstr "问题跟踪地址"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"

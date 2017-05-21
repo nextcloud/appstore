@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 00:26+0000\n"
+"POT-Creation-Date: 2017-05-21 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lukas Reschke <lukas@statuscode.ch>, 2017\n"
 "Language-Team: Korean (https://www.transifex.com/nextcloud/teams/64236/ko/)\n"
@@ -80,7 +80,7 @@ msgstr "공개 인증서"
 #: nextcloudappstore/core/forms.py:35
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
-"app's id. If you do not have a certificate you need to create a certificate "
+"app's ID. If you do not have a certificate you need to create a certificate "
 "sign request (CSR) first which should be posted on the <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
@@ -88,15 +88,10 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"대개의 경우 앱 ID가 APP_ID이면 ~/.nextcloud/certificates/APP_ID.crt 파일로 저장됩니다. 인증서가 "
-"없으면 인증서 서명 요청(CSR)을 만들어서 <a href=\"https://github.com/nextcloud/app-"
-"certificate-requests\" rel=\"noreferrer noopener\">인증서 저장소</a>에 게시해야 "
-"합니다(README 참조). 다음 명령을 실행하여 CSR을 만들 수 있습니다: <b>openssl req -nodes -newkey "
-"rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
-msgid "SHA512 signature over your app's id"
-msgstr "내 앱 ID에 대한 SHA512 서명"
+msgid "SHA512 signature over your app's ID"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -122,21 +117,20 @@ msgstr "<b>중요</b>: 언어를 변경하면 현재 댓글을 삭제합니다. 
 msgid "Comment"
 msgstr "댓글"
 
-#: nextcloudappstore/core/models.py:63 nextcloudappstore/core/models.py:458
-#: nextcloudappstore/core/models.py:494 nextcloudappstore/core/models.py:512
-msgid "Id"
-msgstr "Id"
+#: nextcloudappstore/core/models.py:63
+msgid "ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:64
-msgid "app id, identical to folder name"
-msgstr "앱 ID, 폴더 이름과 같음"
+msgid "app ID, identical to folder name"
+msgstr ""
 
-#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
 msgstr "분류"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:470
-#: nextcloudappstore/core/models.py:497 nextcloudappstore/core/models.py:514
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
 msgid "Name"
 msgstr "이름"
 
@@ -153,29 +147,30 @@ msgstr "요약"
 msgid "Short text describing the app's purpose"
 msgstr "앱 기능을 설명하는 간단한 글"
 
-#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:470
 #: nextcloudappstore/core/scaffolding/forms.py:46
 msgid "Description"
 msgstr "설명"
 
-#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:472
+#: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:471
 msgid "Will be rendered as Markdown"
 msgstr "Markdown 문법을 사용할 수 있음"
 
 #: nextcloudappstore/core/models.py:77
-msgid "User documentation url"
-msgstr "사용자 문서 URL"
+msgid "User documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:79
-msgid "Admin documentation url"
-msgstr "관리 문서 URL"
+msgid "Admin documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:81
-msgid "Developer documentation url"
-msgstr "개발자 문서 URL"
+msgid "Developer documentation URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:83
-msgid "Issue tracker url"
+#: nextcloudappstore/core/scaffolding/forms.py:38
+msgid "Issue tracker URL"
 msgstr "이슈 트래커 URL"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:321
@@ -184,12 +179,12 @@ msgid "Homepage"
 msgstr "홈페이지"
 
 #: nextcloudappstore/core/models.py:86 nextcloudappstore/core/models.py:368
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:463
 msgid "Created at"
 msgstr "만든 날짜:"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:370
-#: nextcloudappstore/core/models.py:466
+#: nextcloudappstore/core/models.py:465
 msgid "Updated at"
 msgstr "업데이트한 날짜:"
 
@@ -240,12 +235,12 @@ msgid "Certificate"
 msgstr "인증서"
 
 #: nextcloudappstore/core/models.py:107
-msgid "OCS id"
-msgstr "OCS ID"
+msgid "OCS ID"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:108
-msgid "Old store id. Deprecated"
-msgstr "과거 스토어 ID입니다. 용도 폐기됨"
+msgid "Old store ID. Deprecated"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -320,15 +315,15 @@ msgstr "버전"
 msgid "Version follows Semantic Versioning"
 msgstr "시맨틱 버전 사용"
 
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:575
 msgid "PHP extension dependency"
 msgstr "PHP 확장 종속성"
 
-#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
 msgstr "데이터베이스 종속성"
 
-#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:349 nextcloudappstore/core/models.py:502
 msgid "License"
 msgstr "라이선스"
 
@@ -362,8 +357,8 @@ msgid "e.g. 32 for 32bit Integers"
 msgstr "예: 32비트 정수의 경우 32"
 
 #: nextcloudappstore/core/models.py:366
-msgid "Archive download Url"
-msgstr "압축 파일 다운로드 URL"
+msgid "Archive download URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -382,8 +377,8 @@ msgstr "변경 기록"
 msgid "The release changelog. Can contain Markdown"
 msgstr "릴리스 변경 기록입니다. Markdown을 사용할 수 있습니다"
 
-#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/models.py:564
+#: nextcloudappstore/core/models.py:380 nextcloudappstore/core/models.py:528
+#: nextcloudappstore/core/models.py:563
 msgid "App release"
 msgstr "앱 릴리스"
 
@@ -392,8 +387,8 @@ msgid "App releases"
 msgstr "앱 릴리스"
 
 #: nextcloudappstore/core/models.py:418
-msgid "Image url"
-msgstr "이미지 URL"
+msgid "Image URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -427,122 +422,124 @@ msgstr "필요한 셸 명령입니다. 예: grep"
 msgid "Shell commands"
 msgstr "셸 명령"
 
-#: nextcloudappstore/core/models.py:460
-msgid ""
-"Category id which is used to identify a category. Used to identify "
-"categories when uploading an app"
-msgstr "분류를 식별할 때 사용할 분류 ID입니다. 앱을 업로드할 때 분류를 지정하기 위해 사용합니다"
+#: nextcloudappstore/core/models.py:458 nextcloudappstore/core/models.py:493
+#: nextcloudappstore/core/models.py:511
+msgid "Id"
+msgstr "Id"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:460
+msgid "Category ID used to identify the category an app is uploaded to"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
 msgstr "사용자가 볼 분류 이름"
 
-#: nextcloudappstore/core/models.py:477
+#: nextcloudappstore/core/models.py:476
 #: nextcloudappstore/core/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "분류"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:495
 msgid "Key which is used to identify a license"
 msgstr "라이선스를 식별하는 데 사용할 키"
 
-#: nextcloudappstore/core/models.py:499
+#: nextcloudappstore/core/models.py:498
 msgid "License name which will be presented to the user"
 msgstr "사용자가 볼 라이선스 이름"
 
-#: nextcloudappstore/core/models.py:504
+#: nextcloudappstore/core/models.py:503
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "라이선스"
 
-#: nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
 msgstr "데이터베이스를 식별하는 데 사용할 키"
 
-#: nextcloudappstore/core/models.py:516
+#: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
 msgstr "사용자가 볼 데이터베이스 이름"
 
-#: nextcloudappstore/core/models.py:519 nextcloudappstore/core/models.py:532
+#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
 msgid "Database"
 msgstr "데이터베이스"
 
-#: nextcloudappstore/core/models.py:520
+#: nextcloudappstore/core/models.py:519
 #: nextcloudappstore/core/templates/app/releases.html:50
 msgid "Databases"
 msgstr "데이터베이스"
 
-#: nextcloudappstore/core/models.py:534
+#: nextcloudappstore/core/models.py:533
 msgid "Database version requirement"
 msgstr "데이터베이스 버전 요구 사항"
 
-#: nextcloudappstore/core/models.py:537
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement (raw)"
 msgstr "데이터베이스 버전 요구 사항 (raw)"
 
-#: nextcloudappstore/core/models.py:541
+#: nextcloudappstore/core/models.py:540
 msgid "Database dependencies"
 msgstr "데이터베이스 종속성"
 
-#: nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:549
 msgid "e.g. libxml"
 msgstr "예: libxml"
 
-#: nextcloudappstore/core/models.py:551 nextcloudappstore/core/models.py:554
-#: nextcloudappstore/core/models.py:567
+#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:566
 msgid "PHP extension"
 msgstr "PHP 확장"
 
-#: nextcloudappstore/core/models.py:555
+#: nextcloudappstore/core/models.py:554
 #: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP extensions"
 msgstr "PHP 확장"
 
-#: nextcloudappstore/core/models.py:570
+#: nextcloudappstore/core/models.py:569
 msgid "Extension version requirement"
 msgstr "확장 버전 요구 사항"
 
-#: nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement (raw)"
 msgstr "확장 버전 요구 사항 (raw)"
 
-#: nextcloudappstore/core/models.py:577
+#: nextcloudappstore/core/models.py:576
 msgid "PHP extension dependencies"
 msgstr "PHP 확장 종속성"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
 msgstr "앱 릴리스 삭제"
 
-#: nextcloudappstore/core/models.py:603
+#: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
 msgstr "앱 릴리스 삭제"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/core/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Nextcloud 버전"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:616
 msgid "e.g. 9.0.54"
 msgstr "예: 9.0.54"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:617
 msgid "Is current version"
 msgstr "현재 버전 여부"
 
-#: nextcloudappstore/core/models.py:619
+#: nextcloudappstore/core/models.py:618
 msgid ""
-"Only one version is allowed to be the current version. This field is used to"
-" pre-select drop downs for app generation etc."
+"Only one version can be the current one. This field is used to pre-select "
+"dropdowns for app generation, etc."
 msgstr ""
-"하나의 버전만 현재 버전으로 지정할 수 있습니다. 이 필드는 앱 생성 등에 사용할 드롭다운 목록에서 미리 선택하는 데 사용합니다."
 
-#: nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
 msgstr "Nextcloud 릴리스"
 
-#: nextcloudappstore/core/models.py:627
+#: nextcloudappstore/core/models.py:626
 msgid "Nextcloud releases"
 msgstr "Nextcloud 릴리스"
 
@@ -567,10 +564,6 @@ msgstr "개발자 이메일"
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
 msgstr "개발자 홈페이지"
-
-#: nextcloudappstore/core/scaffolding/forms.py:38
-msgid "Issue tracker URL"
-msgstr "이슈 트래커 URL"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"
