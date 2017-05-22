@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-21 00:27+0000\n"
+"POT-Creation-Date: 2017-05-22 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ramil Yafizov <ramil.yafizov@gmail.com>, 2017\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -88,10 +88,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Обычно сохраняется в ~/.nextcloud/certificates/APP_ID.crt, где  APP_ID i- "
+"идентификатор вашего приложения. Если у вас нет сертификата, вам необходимо "
+"сначала создать запрос на выпуск сертификата (CSR), которуй нужно будет "
+"отправить в  <a href=\"https://github.com/nextcloud/app-certificate-"
+"requests\" rel=\"noreferrer noopener\">хранилище сертификатов</a> (следуйте "
+"указаниям README). Создать CSR можно выполнением следующей команды: "
+"<b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr "
+"-subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "SHA512 подпись идентификатора вашего приложения"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -121,11 +129,11 @@ msgstr "Комментарий"
 
 #: nextcloudappstore/core/models.py:63
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "ID приложения, идентично имени папки"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
@@ -160,15 +168,15 @@ msgstr "Будет представлено как Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL документации пользователя"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL документации администратора"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL документации разработчика"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
@@ -238,11 +246,11 @@ msgstr "Сертификат"
 
 #: nextcloudappstore/core/models.py:107
 msgid "OCS ID"
-msgstr ""
+msgstr "OCS ID"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store ID. Deprecated"
-msgstr ""
+msgstr "Старый идентификатор магазина. Устаревшее."
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -361,7 +369,7 @@ msgstr "Н-р, 32 как 32-х битное целое"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "URL-адрес для скачивания архива"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -391,7 +399,7 @@ msgstr "Релизы приложения"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Image URL"
-msgstr ""
+msgstr "URL изображения"
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -433,6 +441,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:460
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"ID категории. Используется для идентификации категории при загрузке "
+"приложения"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
@@ -537,6 +547,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Только одна версия может быть текущей версией. Это поле используется для "
+"предварительного выбора раскрывающиеся меню для генерации приложений и т.д."
 
 #: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
