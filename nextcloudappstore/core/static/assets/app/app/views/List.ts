@@ -1,6 +1,6 @@
+import * as Blazy from 'blazy';
 import {queryAll, queryOrThrow, ready} from '../../dom/Facades';
 import {findFormFields, FormField} from '../../forms/HtmlForm';
-import * as Blazy from 'blazy';
 
 ready.then(() => {
     const form = queryOrThrow('#filter-form', HTMLFormElement);
@@ -10,6 +10,7 @@ ready.then(() => {
             form.submit();
         });
     });
+    // tslint:disable-next-lineno-unused-expression: false
     new Blazy({
         container: '#container',
         success: () => {
