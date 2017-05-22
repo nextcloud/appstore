@@ -10,7 +10,7 @@ ready.then(() => {
             form.submit();
         });
     });
-    // tslint:disable-next-lineno-unused-expression: false
+    // tslint:disable-next-line no-unused-expression
     new Blazy({
         container: '#container',
         success: () => {
