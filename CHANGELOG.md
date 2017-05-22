@@ -8,6 +8,7 @@
 
 ### Added
 
+- Lazy-load images in app list
 - Added new Nextcloud version fixtures
 - Added support for several new XML elements in schema
 - Added support to switch between language comments
