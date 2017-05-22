@@ -42,11 +42,11 @@
 {% for app in object_list %}
         <div class="col-md-6 app-list-container">
             <div class="well">
-                <div class="app-list-screenshot">
+                <div class="app-list-screenshot center">
                 {% if app.screenshots.all %}
-                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{{ app.screenshots.all.0.front_img_small }}" alt="{% trans 'Screenshot' %}"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img class="b-lazy" src="{% static 'assets/img/loading.gif' %}" data-src="{{ app.screenshots.all.0.front_img_small }}" alt="{% trans 'Screenshot' %}"></a>
                 {% else %}
-                    <a href="{% url 'app-detail' id=app.id %}" ><img src="{% static 'assets/img/no-screenshot.svg' %}" alt="{% trans 'Screenshot' %}" class="default-screenshot"></a>
+                    <a href="{% url 'app-detail' id=app.id %}" ><img class="b-lazy default-screenshot" src="{% static 'assets/img/loading.gif' %}" data-src="{% static 'assets/img/no-screenshot.svg' %}" alt="{% trans 'Screenshot' %}"></a>
                 {% endif %}
                 </div>
                 <h3><a title="{{ app.name }}" href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
