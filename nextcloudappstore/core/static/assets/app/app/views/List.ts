@@ -1,6 +1,7 @@
 import * as Blazy from 'blazy';
-import {queryAll, queryOrThrow, ready} from '../../dom/Facades';
+import {queryOrThrow, ready} from '../../dom/Facades';
 import {findFormFields, FormField} from '../../forms/HtmlForm';
+import {Maybe} from '../../Utils';
 
 ready.then(() => {
     const form = queryOrThrow('#filter-form', HTMLFormElement);
@@ -13,9 +14,9 @@ ready.then(() => {
     // tslint:disable-next-line no-unused-expression
     new Blazy({
         container: '#container',
-        success: () => {
-            queryAll('.app-list-screenshot')
-                .forEach((el) => el.classList.remove('center'));
+        success: (elem) => {
+            new Maybe(elem.closest('.app-list-screenshot'))
+                .ifPresent((el) => el.classList.remove('center'));
         },
     });
 });
