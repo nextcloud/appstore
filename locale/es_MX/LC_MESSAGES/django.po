@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 00:28+0000\n"
+"POT-Creation-Date: 2017-05-25 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2017\n"
 "Language-Team: Spanish (Mexico) (https://www.transifex.com/nextcloud/teams/64236/es_MX/)\n"
@@ -88,10 +88,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Generalmente almacendado en ~/.nextcloud/certificates/APP_ID.crt donde "
+"APP_ID es el ID de su aplicación. Si no cuenta con un certificado primero "
+"necesita generar una solicitud de firma de certificado (CSR) que deberá ser "
+"publicada en el <a href=\"https://github.com/nextcloud/app-certificate-"
+"requests\" rel=\"noreferrer noopener\">repositorio de certificados</a> (siga"
+" las indicaciones del archivo README). Puede crear el CSR ejecutando el "
+"siguiente comando: <b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key"
+" -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "Firma SHA512 en su ID de aplicación"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -239,11 +247,11 @@ msgstr "Certificado"
 
 #: nextcloudappstore/core/models.py:107
 msgid "OCS ID"
-msgstr ""
+msgstr "ID OCS"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store ID. Deprecated"
-msgstr ""
+msgstr "ID de almacenamiento antiguo. Obsoleto"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -362,7 +370,7 @@ msgstr "ejem. 32 para enteros de 32 bits"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "Archivar la URL de descarga"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -540,6 +548,9 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Sólo se permite que una versión sea la versión actual. Este campo se usa "
+"para preseleccionar menús desplegables para la generación de la aplicación, "
+"etc. "
 
 #: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"

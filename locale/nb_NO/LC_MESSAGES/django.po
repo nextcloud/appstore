@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 00:28+0000\n"
+"POT-Creation-Date: 2017-05-25 00:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ole Jakob Brustad <ole.jakob@brustadbuss.no>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -88,10 +88,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Vanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt der APP_ID er "
+"programmets ID. Hvis du ikke har et sertifikat må du opprette et i en "
+"sertifikatsigneringsprosess (CSR) hvilket burde postes på <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">sertifikatspakkebrønnen</a> (følg instruksjoner "
+"i README). Du kan generere CSR-en med følgende kommando: <b>openssl req "
+"-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "SHA512-signatur for ditt programs ID"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -161,15 +169,15 @@ msgstr "Vil bli gjengitt som Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "Brukerdokumentasjons-URL"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "Admindokumentasjons-URL"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "Utviklerdokumentasjons-URL"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
@@ -362,7 +370,7 @@ msgstr "f.eks 32 for 32bit integere"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "Arkivnedlastings-URL"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -567,7 +575,7 @@ msgstr "Forfatterens fulle navn"
 
 #: nextcloudappstore/core/scaffolding/forms.py:36
 msgid "Author's e-mail"
-msgstr "Forfatterens epostadresse"
+msgstr "Forfatterens e-postadresse"
 
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
