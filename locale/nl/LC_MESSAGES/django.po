@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-25 00:27+0000\n"
+"POT-Creation-Date: 2017-05-26 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Toon van Gerwen <translation@vgerwen.nl>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -88,10 +88,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Standaard opgeslagen in ~/.nextcloud/certificates/APP_ID.crt waarbij APP_ID "
+"jouw app's id is. Als je geen certificaat hebt, moet je eerst een "
+"certificate sign request (CSR) genereren, die moet worden geplaatst in de <a"
+" href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificaat repository</a> (volg de README). Je "
+"kunt een CSR genereren door het volgende commando uit te voeren: <b>openssl "
+"req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "SHA512 handtekening voor je app's id"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -122,11 +130,11 @@ msgstr "Reactie"
 
 #: nextcloudappstore/core/models.py:63
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "app id, identiek aan mapnaam"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
@@ -161,15 +169,15 @@ msgstr "Zal worden weergegeven als Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL gebruikersdocumentatie"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL beheerdersdocumentatie"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL ontwikkelaarsdocumentatie"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
@@ -243,7 +251,7 @@ msgstr "OCS ID"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store ID. Deprecated"
-msgstr ""
+msgstr "Oude winkel ID. verouderd"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -362,7 +370,7 @@ msgstr "bijv. 32 voor 32bit integere getallen"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "Archief download URL"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -392,7 +400,7 @@ msgstr "App releases"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Image URL"
-msgstr ""
+msgstr "Afbeelding URL"
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -434,6 +442,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:460
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"Categorie ID gebruikt voor identificeren categorie waarin een app wordt "
+"geüploaded"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
@@ -538,6 +548,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Er kan maar één versie de huidige zijn. Dit veld wordt gebruikt om de "
+"voorkeuze uitklaplijsten voor app generatie etc. te vullen."
 
 #: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"

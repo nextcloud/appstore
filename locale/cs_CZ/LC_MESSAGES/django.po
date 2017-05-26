@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-25 00:27+0000\n"
+"POT-Creation-Date: 2017-05-26 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jakub Kalousek <jkalousek@posteo.cz>, 2017\n"
+"Last-Translator: Disassembler . <disassembler@dasm.cz>, 2017\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,10 +88,17 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Obvykle uložen v ~/.nextcloud/certificates/APP_ID.crt, kde APP_ID je id vaší"
+" aplikace. Pokud nemáte certifikát, musíte nejprrve vytvořit žádost o "
+"podepsání certifikátu (CSR), kterou následně odešlete <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">do repozitáře certifikátů</a> (držte se README)."
+" CSR můžete vytvořit spuštěním následujícího příkazu <b>openssl req -nodes "
+"-newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "SHA512 podpis ID vaší aplikace"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -121,11 +128,11 @@ msgstr "Komentář"
 
 #: nextcloudappstore/core/models.py:63
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "app ID, stejné jako název adresáře"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
@@ -160,15 +167,15 @@ msgstr "Bude vykresleno jako Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL uživatelské dokumentace"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL administrátorské dokumentace"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL vývojářské dokumentace"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
@@ -238,11 +245,11 @@ msgstr "Certifikát"
 
 #: nextcloudappstore/core/models.py:107
 msgid "OCS ID"
-msgstr ""
+msgstr "OCS ID"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store ID. Deprecated"
-msgstr ""
+msgstr "Staré ID obchodu. Zastaralé"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -360,7 +367,7 @@ msgstr "např. 32 pro 32-bitová celá čísla"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "URL ke stažení archivu"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -390,7 +397,7 @@ msgstr "Vydání aplikace"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Image URL"
-msgstr ""
+msgstr "URL obrázku"
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -431,7 +438,7 @@ msgstr "Id"
 
 #: nextcloudappstore/core/models.py:460
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr ""
+msgstr "ID kategorie, identifikující kategorii při nahrávání aplikace"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
@@ -536,6 +543,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Aktuální verze může být pouze jedno vybrané vydání. Toto pole slouží k "
+"předvýběru položek menu atp."
 
 #: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
