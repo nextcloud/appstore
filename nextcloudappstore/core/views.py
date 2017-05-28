@@ -51,10 +51,6 @@ class AppRatingApi(ListAPIView):
             return queryset
 
 
-class LegalNoticeView(TemplateView):
-    template_name = 'legal.html'
-
-
 class AppDetailView(DetailView):
     queryset = App.objects.prefetch_related('releases', 'screenshots', 'owner',
                                             'co_maintainers')

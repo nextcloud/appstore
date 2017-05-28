@@ -10,8 +10,8 @@ from django.views.decorators.http import etag
 from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
-    app_description, AppReleasesView, AppUploadView, LegalNoticeView, \
-    AppRatingApi, AppRegisterView, AppScaffoldingView
+    app_description, AppReleasesView, AppUploadView, AppRatingApi, \
+    AppRegisterView, AppScaffoldingView
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
@@ -20,7 +20,6 @@ urlpatterns = [
     url(r"^social/signup/$", csp_update(**settings.CSP_SIGNUP)(social_signup),
         name="socialaccount_signup"),
     url(r'^', include('allauth.urls')),
-    url(r'^legal/?$', LegalNoticeView.as_view(), name='legal-notice'),
     url(r'^categories/(?P<id>[\w]*)/?$', CategoryAppListView.as_view(),
         name='category-app-list'),
     url(r'^developer/apps/generate/?$', AppScaffoldingView.as_view(),
