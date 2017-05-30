@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 00:30+0000\n"
+"POT-Creation-Date: 2017-05-30 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luis Guzman <ark@switnet.org>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/nextcloud/teams/64236/es/)\n"
@@ -88,10 +88,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Normalmente almacenaod en ~/.nextcloud/certificates/APP_ID.crt, donde APP_ID"
+" es la ID de tu app. Si no tienes un certificacado, necesitas crear una "
+"petición de firma de certificado (CSR) que debería publicarse en el <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">repositorio de certificados</a> (siguiendo el "
+"LEEME). Puedes generar el CSR ejecutando el siguiente comando: <b>openssl "
+"req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA512 signature over your app's ID"
-msgstr ""
+msgstr "Firma SHA512 sobre la ID de tu app"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -122,11 +130,11 @@ msgstr "Comentario"
 
 #: nextcloudappstore/core/models.py:63
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "ID de la app, idéntica al nombre de la carpeta"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:475
 msgid "Category"
@@ -161,15 +169,15 @@ msgstr "Será renderizado como un Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL de la documentación de usuario"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL de la documentación de administrador"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL de la documentación de desarrollador"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
@@ -239,11 +247,11 @@ msgstr "Certificado"
 
 #: nextcloudappstore/core/models.py:107
 msgid "OCS ID"
-msgstr ""
+msgstr "ID OCS"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Old store ID. Deprecated"
-msgstr ""
+msgstr "ID de la tienda antigua. A extinguir"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Ownership transfer enabled"
@@ -361,7 +369,7 @@ msgstr "ejem. 32 para enteros de 32 bits"
 
 #: nextcloudappstore/core/models.py:366
 msgid "Archive download URL"
-msgstr ""
+msgstr "URL de descarga del archivo"
 
 #: nextcloudappstore/core/models.py:371
 msgid "Signature"
@@ -391,7 +399,7 @@ msgstr "Versiones de la app"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Image URL"
-msgstr ""
+msgstr "URL de la imagen"
 
 #: nextcloudappstore/core/models.py:420
 msgid "Small thumbnail"
@@ -433,6 +441,7 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:460
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"ID de categoría usada para identificar la categoría a la que se sube una app"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
@@ -537,6 +546,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Solo una versión puede ser la actual. Este campo se usa para preseleccionar "
+"menús desplegables para generación de la app, etc."
 
 #: nextcloudappstore/core/models.py:625
 msgid "Nextcloud release"
@@ -999,7 +1010,7 @@ msgstr "Bifúrcame en GitHub"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Privacy and legal"
-msgstr ""
+msgstr "Privacidad y aviso legal"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Legal Notice"
