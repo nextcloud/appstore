@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased] 
+
+### Removed
+
+- Dropped Node.js 7 support and require Node.js 8+
+
 ## [2.0.0] - 2017-06-02
 
 ### Security
