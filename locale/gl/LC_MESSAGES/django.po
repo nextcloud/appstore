@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-03 00:27+0000\n"
+"POT-Creation-Date: 2017-06-04 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2017\n"
 "Language-Team: Galician (https://www.transifex.com/nextcloud/teams/64236/gl/)\n"
@@ -717,7 +717,7 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
-"Esqueceu o seu contrasinal? Introduza embaixo o seu enderezo de correo e "
+"Esqueceu o seu contrasinal? Insira embaixo o seu enderezo de correo e "
 "enviarémoslle un correo que lle permitirá restabelecela."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
@@ -920,7 +920,7 @@ msgid ""
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "Para ver máis información de como obter o certificado e como crear a "
-"comprobación sinatura consulte a <a "
+"comprobación  da sinatura consulte a <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">guía do desenvolvedor de aplicacións</a>."
 
@@ -995,6 +995,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Para ver máis información sobre como crear a comprobación de sinatura SHA512"
+" consulte a <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">guía do desenvolvedor de aplicacións</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1064,6 +1068,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Está a piques de usar a súa conta %(provider_name)s para acceder a\n"
+"%(site_name)s. Como paso final, complete o seguinte formulario:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
@@ -1175,7 +1181,7 @@ msgstr "Moi positivo"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
-msgstr "Introduza un URL HTTPS correcto"
+msgstr "Insira un URL HTTPS correcto"
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
@@ -1214,6 +1220,10 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"A marca API pode usarse para autenticarse ao chamar á tenda de aplicacións\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Asegúrese de mantela en segredo. Embaixo pode xerar unha nova marca, anulando a marca anterior."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1260,12 +1270,18 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Ao eliminar a súa conta, eliminará tamén todas as súas aplicacións e "
+"publicacións de versións. Para eliminar a súa conta, insira o seu enderezo "
+"de correo no campo correspondente e prema no botón de «Eliminar a conta»:"
 
 #: nextcloudappstore/user/templates/user/password.html:16
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Semella que está a usar unha conta rexistrada nun terceiro provedor. Polo "
+"tanto, o seu contrasinal <strong>non</strong> pode cambiarse desde esta "
+"páxina."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1278,6 +1294,10 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Para transferir unha aplicación cara outro propietario, primeiro ten que "
+"desbloquear a aplicación. Outro usuario pode entón tomar o control da "
+"aplicación rexistrándoa de novo na páxina de rexistro de aplicacións do menú"
+" de desenvolvedor da aplicación. "
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
