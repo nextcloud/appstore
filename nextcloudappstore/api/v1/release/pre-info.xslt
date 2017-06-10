@@ -23,11 +23,7 @@
             <xsl:copy-of select="namespace"/>
             <xsl:apply-templates select="types"/>
             <xsl:apply-templates select="documentation"/>
-            <xsl:apply-templates select="category"/>
-            <xsl:if test="not(category)">
-                <category>tools</category>
-            </xsl:if>
-
+            <xsl:copy-of select="category"/>
             <xsl:copy-of select="website"/>
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
@@ -37,7 +33,6 @@
             <xsl:apply-templates select="repair-steps"/>
             <xsl:copy-of select="two-factor-providers"/>
             <xsl:copy-of select="commands"/>
-            <xsl:copy-of select="ocsid"/>
             <xsl:apply-templates select="settings"/>
             <xsl:apply-templates select="activity"/>
             <xsl:apply-templates select="navigations"/>
@@ -101,20 +96,6 @@
         </documentation>
     </xsl:template>
 
-    <xsl:template match="category">
-        <xsl:choose>
-            <xsl:when test=". = 'tool' or . = 'other' or . = 'game'">
-                <category>tools</category>
-            </xsl:when>
-            <xsl:when test=". = 'productivity'">
-                <category>organization</category>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:copy-of select="."/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
     <xsl:template match="types">
         <types>
             <xsl:copy-of select="prelogin"/>
@@ -133,49 +114,6 @@
             <xsl:copy-of select="lib"/>
             <xsl:copy-of select="owncloud"/>
             <xsl:copy-of select="nextcloud"/>
-            <xsl:if test="not(nextcloud)">
-                <xsl:variable name="min" select="owncloud/@min-version[.='9.0' or '9.1' or '9.2']"/>
-                <xsl:variable name="max" select="owncloud/@max-version[.='9.0' or '9.1' or '9.2']"/>
-                <!-- if someone knows a better way to do this in xslt 1.0 feel free to patch it :) -->
-                <xsl:if test="$min or $max">
-                    <nextcloud>
-                        <xsl:choose>
-                            <xsl:when test="$min = '9.0'">
-                                <xsl:attribute name="min-version">
-                                    <xsl:value-of select="'9'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="$min = '9.1'">
-                                <xsl:attribute name="min-version">
-                                    <xsl:value-of select="'10'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="$min = '9.2'">
-                                <xsl:attribute name="min-version">
-                                    <xsl:value-of select="'11'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                        </xsl:choose>
-                        <xsl:choose>
-                            <xsl:when test="$max = '9.0'">
-                                <xsl:attribute name="max-version">
-                                    <xsl:value-of select="'9'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="$max = '9.1'">
-                                <xsl:attribute name="max-version">
-                                    <xsl:value-of select="'10'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="$max = '9.2'">
-                                <xsl:attribute name="max-version">
-                                    <xsl:value-of select="'11'"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                        </xsl:choose>
-                    </nextcloud>
-                </xsl:if>
-            </xsl:if>
         </dependencies>
     </xsl:template>
 

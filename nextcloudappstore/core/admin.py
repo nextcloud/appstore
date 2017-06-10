@@ -45,7 +45,7 @@ class CategoryAdmin(TranslatableAdmin):
 @admin.register(App)
 class AppAdmin(TranslatableAdmin):
     list_display = ('id', 'owner', 'name', 'last_release', 'rating_recent',
-                    'rating_overall', 'summary', 'ocsid', 'is_featured',
+                    'rating_overall', 'summary', 'is_featured',
                     'ownership_transfer_enabled')
     list_filter = ('owner', 'co_maintainers', 'categories', 'created',
                    'is_featured', 'last_release', 'ownership_transfer_enabled')
