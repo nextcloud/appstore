@@ -477,14 +477,6 @@ class Category(TranslatableModel):
     def __str__(self) -> str:
         return self.name
 
-    @property
-    def ocsid(self):
-        """Deprecated hack, assumes that the first two chars are unique"""
-        initials = self.id[:2]
-        ascii = map(ord, initials)
-        chars = map(str, ascii)
-        return ''.join(chars)
-
 
 class License(Model):
     id = CharField(max_length=256, unique=True, primary_key=True,
