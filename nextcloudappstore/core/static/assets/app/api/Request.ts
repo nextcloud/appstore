@@ -1,14 +1,14 @@
-export const HttpMethod = {
-    DELETE: 'DELETE' as 'DELETE',
-    GET: 'GET' as 'GET',
-    PATCH: 'PATCH' as 'PATCH',
-    POST: 'POST' as 'POST',
-    PUT: 'PUT' as 'PUT',
-};
+export enum HttpMethod {
+    DELETE = 'DELETE',
+    GET = 'GET',
+    PATCH = 'PATCH',
+    POST = 'POST',
+    PUT = 'PUT',
+}
 
 export interface IRequestData {
     url: string;
-    method?: keyof typeof HttpMethod;
+    method?: HttpMethod;
     data: object;
 }
 
@@ -76,7 +76,7 @@ export interface ITokenData {
 export function fetchToken(csrfToken: string): Promise<string> {
     return pageRequest<ITokenData>({
         data: {},
-        method: 'POST',
+        method: HttpMethod.POST,
         url: '/api/v1/token',
     }, csrfToken).then((response: ITokenData) => response.token);
 }
