@@ -202,9 +202,6 @@ To get your instance running in production you need to create your production se
 
     # Additional variables that are used for generating apps
     # APP_SCAFFOLDING_PROFILES = {
-    #     10: {
-    #         'owncloud_version': '9.1'
-    #     },
     #     11: {
     #         'owncloud_version': '9.2'
     #     }
