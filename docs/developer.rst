@@ -332,6 +332,7 @@ category
        * **auth**
        * **customization**
        * **files**
+       * **games**
        * **integration**
        * **monitoring**
        * **multimedia**
