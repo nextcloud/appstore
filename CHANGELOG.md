@@ -2,6 +2,10 @@
 
 ## [Unreleased] 
 
+### Added
+
+- Add games category
+
 ### Removed
 
 - Dropped Node.js 7 support and require Node.js 8+
