@@ -2,9 +2,21 @@
 
 ## [Unreleased] 
 
+### Added
+
+- Add games category
+
 ### Removed
 
 - Dropped Node.js 7 support and require Node.js 8+
+- Dropped support for Nextcloud 9 and 10:
+  - owncloud tag in info.xml will not be migrated to nextcloud tags anymore
+  - ocsid will not be parsed anymore and was removed from the info.xsd
+  - old categories will not be migrated anymore (tool, game, productivity, other)
+  - presence of owncloud tag will not be validated anymore for apps depending on 9 and 10
+  - v0 API was removed
+  - nextcloudrelease.json fixtures for 9 and 10 were removed
+  - Nextcloud 10 apps can not be generated anymore
 
 ## [2.0.0] - 2017-06-02
 

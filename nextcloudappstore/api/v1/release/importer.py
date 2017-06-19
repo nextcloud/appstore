@@ -241,8 +241,7 @@ class AppImporter(Importer):
             'summary': l10n_importer,
             'description': l10n_importer,
             'categories': category_importer,
-            'authors': author_importer,
-            'ocsid': default_attribute_importer,
+            'authors': author_importer
         }, {'id'})
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:

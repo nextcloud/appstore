@@ -104,8 +104,6 @@ class App(TranslatableModel):
                                  verbose_name=_('Last release at'),
                                  default=timezone.now)
     certificate = TextField(verbose_name=_('Certificate'))
-    ocsid = IntegerField(verbose_name=_('OCS ID'), null=True, blank=True,
-                         help_text=_('Old store ID. Deprecated'), unique=True)
     ownership_transfer_enabled = BooleanField(
         verbose_name=_('Ownership transfer enabled'), default=False,
         help_text=_('If enabled, a user can try to register the same app '
@@ -478,14 +476,6 @@ class Category(TranslatableModel):
 
     def __str__(self) -> str:
         return self.name
-
-    @property
-    def ocsid(self):
-        """Deprecated hack, assumes that the first two chars are unique"""
-        initials = self.id[:2]
-        ascii = map(ord, initials)
-        chars = map(str, ascii)
-        return ''.join(chars)
 
 
 class License(Model):

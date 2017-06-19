@@ -50,14 +50,13 @@ class ParserTest(TestCase):
                 'php_min_version': '*',
                 'raw_php_max_version': '*',
                 'raw_php_min_version': '*',
-                'platform_max_version': '10.0.0',
-                'platform_min_version': '9.0.0',
-                'raw_platform_max_version': '9',
-                'raw_platform_min_version': '9',
+                'platform_max_version': '13.0.0',
+                'platform_min_version': '11.0.0',
+                'raw_platform_max_version': '12',
+                'raw_platform_min_version': '11',
                 'shell_commands': [],
                 'version': '8.8.2',
-            },
-            'ocsid': None,
+            }
         }}
         self.assertDictEqual(expected, result)
 
@@ -96,16 +95,6 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
-    def test_parse_minimal_transform(self):
-        xml = self._get_contents('data/infoxmls/transform.xml')
-        result = parse_app_metadata(xml, self.config.info_schema,
-                                    self.config.pre_info_xslt,
-                                    self.config.info_xslt)
-        min_version = result['app']['release']['platform_min_version']
-        max_version = result['app']['release']['platform_max_version']
-        self.assertEqual('10.0.0', min_version)
-        self.assertEqual('12.0.0', max_version)
-
     def test_parse_minimal_nextcloud(self):
         xml = self._get_contents('data/infoxmls/nextcloud.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
@@ -116,57 +105,8 @@ class ParserTest(TestCase):
         self.assertEqual('10.0.0', min_version)
         self.assertEqual('12.0.0', max_version)
 
-    def test_parse_category_mapping(self):
-        xml = self._get_contents('data/infoxmls/category_mapping.xml')
-        result = parse_app_metadata(xml, self.config.info_schema,
-                                    self.config.pre_info_xslt,
-                                    self.config.info_xslt)
-        categories = result['app']['categories']
-        expected = [
-            {'category': {'id': 'organization'}},
-            {'category': {'id': 'tools'}},
-        ]
-        self.assertListEqual(expected, categories)
-
-    def test_parse_category_mapping_tool(self):
-        xml = self._get_contents('data/infoxmls/category_mapping_tool.xml')
-        result = parse_app_metadata(xml, self.config.info_schema,
-                                    self.config.pre_info_xslt,
-                                    self.config.info_xslt)
-        categories = result['app']['categories']
-        expected = [
-            {'category': {'id': 'tools'}},
-        ]
-        self.assertListEqual(expected, categories)
-
-    def test_parse_category_mapping_game(self):
-        xml = self._get_contents('data/infoxmls/category_mapping_game.xml')
-        result = parse_app_metadata(xml, self.config.info_schema,
-                                    self.config.pre_info_xslt,
-                                    self.config.info_xslt)
-        categories = result['app']['categories']
-        expected = [
-            {'category': {'id': 'tools'}},
-        ]
-        self.assertListEqual(expected, categories)
-
     def test_validate_schema(self):
         xml = self._get_contents('data/infoxmls/invalid.xml')
-        with (self.assertRaises(InvalidAppMetadataXmlException)):
-            parse_app_metadata(xml, self.config.info_schema,
-                               self.config.pre_info_xslt,
-                               self.config.info_xslt)
-
-    def test_validate_pre_11(self):
-        xml = self._get_contents('data/infoxmls/9and10.xml')
-        parse_app_metadata(xml, self.config.info_schema,
-                           self.config.pre_info_xslt,
-                           self.config.info_xslt)
-        xml = self._get_contents('data/infoxmls/11.xml')
-        parse_app_metadata(xml, self.config.info_schema,
-                           self.config.pre_info_xslt,
-                           self.config.info_xslt)
-        xml = self._get_contents('data/infoxmls/9and10invalid.xml')
         with (self.assertRaises(InvalidAppMetadataXmlException)):
             parse_app_metadata(xml, self.config.info_schema,
                                self.config.pre_info_xslt,
@@ -556,7 +496,6 @@ class ParserTest(TestCase):
                 {'screenshot': {'url': 'https://example.com/2.jpg',
                                 'small_thumbnail': None, 'ordering': 2}}
             ],
-            'ocsid': None,
         }}
         self.assertDictEqual(expected, result)
 

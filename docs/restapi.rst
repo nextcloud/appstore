@@ -30,15 +30,6 @@ You have to design your app with these things in mind:
 * Don't limit your app to the currently available attributes. New ones might be added. If you don't handle them, ignore them
 * Use a library to compare versions, ideally one that uses semantic versioning
 
-Legacy API
-----------
-
-Nextcloud 9 and 10 use the old App Store at https://apps.owncloud.com which exposes an XML API called OCS. This API is available under **https://apps.nextcloud.com/api/v0** and can be added to your Nextcloud installation by adding the following paramter to **config/config.php**::
-
-    'appstoreurl' => 'https://apps.nextcloud.com/api/v0',
-
-.. note:: The API is undocumented on purpose and can be removed at any time so do not rely on it
-
 Authentication
 --------------
 
