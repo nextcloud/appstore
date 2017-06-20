@@ -299,7 +299,7 @@ def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
     try:
         schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
-        msg = 'info.xml did not validate: %s' % e
+        msg = 'database.xml did not validate: %s' % e
         raise InvalidAppMetadataXmlException(msg)
 
 
