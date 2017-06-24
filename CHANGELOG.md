@@ -18,6 +18,10 @@
   - nextcloudrelease.json fixtures for 9 and 10 were removed
   - Nextcloud 10 apps can not be generated anymore
 
+## Fixed
+
+- Better error message when database.xml validation fails
+
 ## [2.0.0] - 2017-06-02
 
 ### Security
