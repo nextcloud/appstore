@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-09 00:29+0000\n"
+"POT-Creation-Date: 2017-07-10 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ole Jakob Brustad <ole.jakob@brustadbuss.no>, 2016\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
@@ -24,7 +24,7 @@ msgstr "Nyeste programutgivelser"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Få siste nytt om app utgivelser"
+msgstr "Få siste nytt om programutgivelser"
 
 #: nextcloudappstore/core/feeds.py:37
 msgid "Changes"
@@ -41,9 +41,8 @@ msgid "Bad"
 msgstr "Dårlig"
 
 #: nextcloudappstore/core/forms.py:11
-#: nextcloudappstore/core/templates/app/detail.html:167
-msgid "Ok"
-msgstr "Ok"
+msgid "OK"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:166
@@ -55,9 +54,8 @@ msgid "Download link (tar.gz)"
 msgstr "Nedlastingslenke (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
-#: nextcloudappstore/core/templates/app/releases.html:40
-msgid "SHA512 signature"
-msgstr "SHA512 signatur"
+msgid "SHA-512 signature"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -81,25 +79,17 @@ msgstr "Offentlig sertifikat"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first which should be posted on the <a "
+"sign request (CSR) first, which should be posted on the <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command: <b>openssl req "
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"Vanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt der APP_ID er "
-"programmets ID. Hvis du ikke har et sertifikat må du opprette et i en "
-"sertifikatsigneringsprosess (CSR) hvilket burde postes på <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">sertifikatspakkebrønnen</a> (følg instruksjoner "
-"i README). Du kan generere CSR-en med følgende kommando: <b>openssl req "
-"-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
-"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
-msgid "SHA512 signature over your app's ID"
-msgstr "SHA512-signatur for ditt programs ID"
+msgid "SHA-512 signature over your app's ID"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -261,14 +251,14 @@ msgstr ""
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:260
 #: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:419
 msgid "App"
-msgstr "App"
+msgstr "Program"
 
 #: nextcloudappstore/core/models.py:115
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/nav.html:42
 msgid "Apps"
-msgstr "Apper"
+msgstr "Programmer"
 
 #: nextcloudappstore/core/models.py:262
 msgid "User"
@@ -293,11 +283,11 @@ msgstr "Vurderingskommentar i Markdown"
 
 #: nextcloudappstore/core/models.py:275
 msgid "App rating"
-msgstr "App vurdering"
+msgstr "Programvurdering"
 
 #: nextcloudappstore/core/models.py:276
 msgid "App ratings"
-msgstr "App vurderinger"
+msgstr "Programvurderinger"
 
 #: nextcloudappstore/core/models.py:317
 msgid "Full name"
@@ -309,7 +299,7 @@ msgstr "E-post"
 
 #: nextcloudappstore/core/models.py:330
 msgid "App author"
-msgstr "App forfatter"
+msgstr "Programutvikler"
 
 #: nextcloudappstore/core/models.py:335
 msgid "Version"
@@ -370,7 +360,7 @@ msgstr "Signatur"
 
 #: nextcloudappstore/core/models.py:370
 msgid "A signature using SHA512 and the app's certificate"
-msgstr "En signatur som bruker SHA512 og appens sertifikat"
+msgstr "En signatur som bruker SHA-512 og programmets sertifikat"
 
 #: nextcloudappstore/core/models.py:372
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -384,11 +374,11 @@ msgstr "Endringlogg for utgivelse. Kan inneholde Markdown"
 #: nextcloudappstore/core/models.py:378 nextcloudappstore/core/models.py:518
 #: nextcloudappstore/core/models.py:553
 msgid "App release"
-msgstr "App utgivelse"
+msgstr "Programutgivelse"
 
 #: nextcloudappstore/core/models.py:379
 msgid "App releases"
-msgstr "App utgivelser"
+msgstr "Programutgivelser"
 
 #: nextcloudappstore/core/models.py:416
 msgid "Image URL"
@@ -516,11 +506,11 @@ msgstr "Avhengigheter for PHP utvidelser"
 
 #: nextcloudappstore/core/models.py:591
 msgid "App release deletion"
-msgstr "App utgivelse sletting"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:592
 msgid "App release deletions"
-msgstr "App utgivelse slettinger"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:605
 #: nextcloudappstore/core/scaffolding/forms.py:34
@@ -554,12 +544,12 @@ msgstr "Nexcloud versjoner"
 #: nextcloudappstore/core/scaffolding/forms.py:26
 #: nextcloudappstore/core/scaffolding/forms.py:32
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "Appens navn må være i kamelcase f.eks MinApp"
+msgstr "Programmets navn må være i kamelcase f.eks. MinApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:30
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
-msgstr "App navn"
+msgstr "Programnavn"
 
 #: nextcloudappstore/core/scaffolding/forms.py:35
 msgid "Author's full name"
@@ -587,7 +577,7 @@ msgstr "Kort beskrivelse av appen din som vil vises som en kort teaser"
 
 #: nextcloudappstore/core/scaffolding/forms.py:47
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Full beskrivelse av hva appen gjør. Kan inneholde Markdown"
+msgstr "Full beskrivelse av hva programmet gjør. Kan inneholde Markdown"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -717,7 +707,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "Feil API Token"
+msgstr "Feil API-symbol"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -747,16 +737,16 @@ msgstr "Opprett konto"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Nextcloud App butikk admin"
+msgstr "Administrator for Nextcloud programbutikk"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Nextcloud App butikk administrasjon"
+msgstr "Administrasjon av Nextcloud programbutikk"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "All apps"
-msgstr "Alle apper"
+msgstr "Alle programmer"
 
 #: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
@@ -827,7 +817,7 @@ msgstr "Still spørsmål og diskuter"
 
 #: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Rate app"
-msgstr "Vurder app"
+msgstr "Vurder program"
 
 #: nextcloudappstore/core/templates/app/detail.html:141
 msgid "Rate"
@@ -850,6 +840,10 @@ msgstr "Oppdater vurdering"
 #: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Submit rating"
 msgstr "Send vurdering"
+
+#: nextcloudappstore/core/templates/app/detail.html:167
+msgid "Ok"
+msgstr "Ok"
 
 #: nextcloudappstore/core/templates/app/detail.html:180
 msgid "No comments found."
@@ -879,13 +873,14 @@ msgstr "Alfabetisk"
 
 #: nextcloudappstore/core/templates/app/list.html:31
 msgid "My apps"
-msgstr "Mine apper"
+msgstr "Mine programmer"
 
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-"Ingen apper ble funnet med søkebegrep \"<em>%(query)s</em>\" i %(category)s."
+"Ingen programmer svarer til søkebegrepet \"<em>%(query)s</em>\" i "
+"%(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
@@ -896,7 +891,7 @@ msgstr "Ingen apper ble funnet med søkebegrep \"<em>%(query)s</em>\"."
 #: nextcloudappstore/core/templates/app/register.html:14
 #: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
-msgstr "Registrer app"
+msgstr "Registrer program"
 
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
@@ -908,7 +903,7 @@ msgstr ""
 "For mer informasjon om hvordan du henter sertifikat og hvordan du oppretter "
 "signaturkontrollen se i <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app utvikler veilledningen</a>."
+"rel=\"noopener norefferer\">programutvikler-veiledningen</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -926,7 +921,7 @@ msgstr "Ikke et offentlig sertifikat"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App successfully registered."
-msgstr "Appen ble registrert korrekt"
+msgstr "Programmet ble registrert rett."
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -935,11 +930,15 @@ msgstr "Utgivelser"
 
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
-msgstr "App detaljer"
+msgstr "Programdetaljer"
 
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "Utgivelsesdetaljer"
+
+#: nextcloudappstore/core/templates/app/releases.html:40
+msgid "SHA512 signature"
+msgstr "SHA512 signatur"
 
 #: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Dependencies"
@@ -957,7 +956,7 @@ msgstr "PHP"
 #: nextcloudappstore/core/templates/app/scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:53
 msgid "Generate app"
-msgstr "Generer app"
+msgstr "Generer program"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
@@ -967,12 +966,12 @@ msgstr "Generer og last ned"
 #: nextcloudappstore/core/templates/app/upload.html:13
 #: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
-msgstr "Last opp app utgivelse"
+msgstr "Last opp programutgivelse"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr "Apputgivelsen ble lastet opp"
+msgstr "Programutgivelsen ble lastet opp"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -982,7 +981,7 @@ msgid ""
 msgstr ""
 "For mer informasjon om hvordan du oppretter en SHA512 signatur sjekk ut <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app utvikler guiden</a>."
+"rel=\"noopener norefferer\">programutvikler-guiden</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1012,7 +1011,7 @@ msgstr "Søk i %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Search all apps"
-msgstr "Søk i alle apper"
+msgstr "Søk i alle programmer"
 
 #: nextcloudappstore/core/templates/nav.html:25
 msgid "Search"
@@ -1024,7 +1023,7 @@ msgstr "Håndter navigering"
 
 #: nextcloudappstore/core/templates/nav.html:46
 msgid "App developer"
-msgstr "App utvikler"
+msgstr "Programutvikler"
 
 #: nextcloudappstore/core/templates/nav.html:50
 msgid "Documentation"
@@ -1061,7 +1060,7 @@ msgstr "Pålogging og tilgangsstyring"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Apps that provide additional authentication or authorization services"
-msgstr "Apper for å tilby ekstra pålogging eller tilgangsstyring"
+msgstr "Programmer som tilbr ekstra pålogging eller tilgangsstyring"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1069,7 +1068,7 @@ msgstr "Tilpasning"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Themes, layout and UX change apps"
-msgstr "Apper for å endre Tema, utseende og brukeropplevelse"
+msgstr "Programmer for å endre drakt, utseende og brukeropplevelse"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1077,7 +1076,7 @@ msgstr "Filer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
-msgstr "Apper for filhåndtering og filer"
+msgstr "Programm for filhåndtering og programtillegg til Filer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
@@ -1093,7 +1092,7 @@ msgstr "Integrasjon"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "Apper som kobler Nextcloud med andre tjenester og plattformer"
+msgstr "PRogrammer som kobler Nextcloud med andre tjenester og plattformer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Monitoring"
@@ -1101,7 +1100,7 @@ msgstr "Overvåking"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr "Apper for statistikk, systemdiagnose og aktivitet"
+msgstr "Programmer for statistikk, systemdiagnose og aktivitet"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Multimedia"
@@ -1109,7 +1108,7 @@ msgstr "Multimedia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Audio, video and picture apps"
-msgstr "Apper for lyd, film og bilde"
+msgstr "Programmer for lyd, film og bilde"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Office & text"
@@ -1117,7 +1116,7 @@ msgstr "Kontorstøtte og tekst"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Office and text processing apps"
-msgstr "Apper for Kontorstøtte og tekstbehandling"
+msgstr "Programm for kontorstøtte og tekstbehandling"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Organization"
@@ -1125,7 +1124,7 @@ msgstr "Organisering"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, Todo list and calendar apps"
-msgstr "Apper for tidsstyring, oppgaveliste og kalender"
+msgstr "Programmer for tidsstyring, oppgaveliste og kalender"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
@@ -1133,7 +1132,7 @@ msgstr "Sosialt og kommunikasjon"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
-msgstr "Apper for meldinger, kontakthåndtering og sosiale medier"
+msgstr "Programmer for meldinger, kontakthåndtering og sosiale medier"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
@@ -1194,7 +1193,7 @@ msgstr "Lagre"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr "API Token"
+msgstr "API-symbol"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1211,15 +1210,15 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr "Din API token er:"
+msgstr "Ditt API-symbol er:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr "Ny API token ble generert."
+msgstr "Nytt API-symbol generert."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr "Regenerer API token"
+msgstr "Regenerer API-symbol"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
@@ -1239,7 +1238,7 @@ msgstr "Passord"
 
 #: nextcloudappstore/user/templates/user/base.html:26
 msgid "API token"
-msgstr "API token"
+msgstr "API-symbol"
 
 #: nextcloudappstore/user/templates/user/base.html:29
 #: nextcloudappstore/user/templates/user/delete-account.html:5
@@ -1254,9 +1253,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Ved å slette kontoen din vil du også slette alle apper og utgivelser. For å "
-"slette din konto, skrive inn din e-postadresse i feltet og klikk på knappen,"
-" Slett konto:"
+"Ved å slette kontoen din vil du også slette alle programmer og utgivelser. "
+"For å slette din konto, skrive inn din e-postadresse i feltet og klikk på "
+"knappen, Slett konto:"
 
 #: nextcloudappstore/user/templates/user/password.html:16
 msgid ""

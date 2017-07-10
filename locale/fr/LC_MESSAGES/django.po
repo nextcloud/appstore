@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-09 00:29+0000\n"
+"POT-Creation-Date: 2017-07-10 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: alracsol <alracsol@gmail.com>, 2016\n"
 "Language-Team: French (https://www.transifex.com/nextcloud/teams/64236/fr/)\n"
@@ -41,9 +41,8 @@ msgid "Bad"
 msgstr "Mauvais"
 
 #: nextcloudappstore/core/forms.py:11
-#: nextcloudappstore/core/templates/app/detail.html:167
-msgid "Ok"
-msgstr "Ok"
+msgid "OK"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:166
@@ -55,9 +54,8 @@ msgid "Download link (tar.gz)"
 msgstr "Lien de téléchargement (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
-#: nextcloudappstore/core/templates/app/releases.html:40
-msgid "SHA512 signature"
-msgstr "Signature SHA512"
+msgid "SHA-512 signature"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -81,25 +79,17 @@ msgstr "Certificat public"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first which should be posted on the <a "
+"sign request (CSR) first, which should be posted on the <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command: <b>openssl req "
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
-"Habituellement stockés dans ~/.nextcloud/certificates/APP_ID.crt où APP_ID "
-"est votre ID d'application. Si vous n'avez pas de certificat vous devez "
-"d'abord créer une Requête de signature de certificat (CSR) qui devra être "
-"postée sur le <a href=\"https://github.com/nextcloud/app-certificate-"
-"requests\" rel=\"noreferrer noopener\">dépôt des certificats</a> (lire les "
-"instructions dans le fichier README). Vous pouvez générer le CSR en "
-"exécutant la commande suivante : <b>openssl req -nodes -newkey rsa:4096 "
-"-keyout APP_ID.key -out APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
-msgid "SHA512 signature over your app's ID"
-msgstr "Signature SHA512 sur votre ID d'application"
+msgid "SHA-512 signature over your app's ID"
+msgstr ""
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -858,6 +848,10 @@ msgstr "Modifier l'évaluation"
 msgid "Submit rating"
 msgstr "Envoyer la note"
 
+#: nextcloudappstore/core/templates/app/detail.html:167
+msgid "Ok"
+msgstr "Ok"
+
 #: nextcloudappstore/core/templates/app/detail.html:180
 msgid "No comments found."
 msgstr "Aucun commentaire trouvé."
@@ -949,6 +943,10 @@ msgstr "Détails de l'application"
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "Détails d'une version"
+
+#: nextcloudappstore/core/templates/app/releases.html:40
+msgid "SHA512 signature"
+msgstr "Signature SHA512"
 
 #: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Dependencies"
