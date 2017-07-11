@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-10 00:29+0000\n"
+"POT-Creation-Date: 2017-07-11 00:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
@@ -42,7 +42,7 @@ msgstr "Kötü"
 
 #: nextcloudappstore/core/forms.py:11
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:166
@@ -55,7 +55,7 @@ msgstr "İndirme bağlantısı (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "SHA-512 imzası"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -86,10 +86,16 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Genellikle ~/.nextcloud/certificates/APP_ID.crt içinde bulunur. APP_ID "
+"uygulamanızın kodudur. Bir sertifikanız yoksa, önce </a>sertifika "
+"deposuna</a> eklenmiş olması gereken bir sertifika imzalama isteğinde (CSR) "
+"bulunmanız gerekir (README bilgilerini okuyun). CSR şu komut yürütülerek "
+"üretilebilir: </b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key "
+"-out APP_ID.csr -subj \"/CN=APP_ID</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
-msgstr ""
+msgstr "Uygulama kodunuzdaki SHA-512 imzası"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-10 00:29+0000\n"
+"POT-Creation-Date: 2017-07-11 00:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Benedikt Geißler <benedikt@g5r.eu>, 2017\n"
 "Language-Team: German (https://www.transifex.com/nextcloud/teams/64236/de/)\n"
@@ -42,7 +42,7 @@ msgstr "Schlecht"
 
 #: nextcloudappstore/core/forms.py:11
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:166
@@ -55,7 +55,7 @@ msgstr "Download-Link (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "SHA512-Signatur"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -86,10 +86,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Normalerweise gespeichert in ~/.nextcloud/certificates/APP_ID.crt wobei "
+"APP_ID die ID Deiner App ist. Wenn Du kein Zertifikat hast, musst Du "
+"zunächst eine Zertifikatserstellungansfrage (CSR) durchführen, die Du bitte "
+"an das <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">Zertifikats-Repository</a> richtest (Bitte "
+"README beachten). Du kannst die CSR erstellen, indem Du folgenden Befehl "
+"ausführst: <b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out "
+"APP_ID.csr -subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
-msgstr ""
+msgstr "SHA512-Signatur über die ID Deiner App"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
