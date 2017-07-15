@@ -5,6 +5,7 @@
 ### Added
 
 - Add games category
+- Add a newest release feed for each app on their detail page, #496
 
 ### Removed
 

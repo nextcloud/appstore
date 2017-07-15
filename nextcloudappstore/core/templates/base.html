@@ -14,8 +14,10 @@
           href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
-    <link rel="alternate" type="application/atom+xml" title="News" href="{% url 'feeds-releases-atom' %}" />
-    <link rel="alternate" type="application/rss+xml" title="News" href="{% url 'feeds-releases-rss' %}" />
+    {% block feeds %}
+        <link rel="alternate" type="application/atom+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-atom' %}" />
+        <link rel="alternate" type="application/rss+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-rss' %}" />
+    {% endblock %}
     <script src="{% static 'vendor/bootstrap.native.min.js' %}" async></script>
     <script src="{% static 'vendor/element-closest.js' %}" defer></script>
     {% block head %}{% endblock %}
