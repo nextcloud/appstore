@@ -26,6 +26,8 @@ class AppReleaseRssFeed(Feed):
             queryset = queryset.filter(is_nightly=False)
         if 'prerelease' not in self.request.GET:
             queryset = queryset.exclude(version__contains='-')
+        if 'app' in self.request.GET:
+            queryset = queryset.filter(app__id=self.request.GET.get('app'))
         return queryset[:10]
 
     def item_title(self, item):
