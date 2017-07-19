@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 00:28+0000\n"
+"POT-Creation-Date: 2017-07-19 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Richard de Boer <transifex@tubul.net>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -26,17 +26,17 @@ msgstr "Laatste app releases"
 msgid "Get the newest app release updates"
 msgstr "Bekijk de laatste app release updates"
 
-#: nextcloudappstore/core/feeds.py:37
+#: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
 msgstr "Wijzigingen"
 
-#: nextcloudappstore/core/feeds.py:43
+#: nextcloudappstore/core/feeds.py:45
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "Download"
 msgstr "Downloaden"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:173
 msgid "Bad"
 msgstr "Slecht"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:166
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Good"
 msgstr "Goed"
 
@@ -183,7 +183,7 @@ msgid "Issue tracker URL"
 msgstr "Issue tracker URL"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
-#: nextcloudappstore/core/templates/app/detail.html:91
+#: nextcloudappstore/core/templates/app/detail.html:96
 msgid "Homepage"
 msgstr "Homepage"
 
@@ -202,7 +202,7 @@ msgid "App owner"
 msgstr "App eigenaar"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
 msgstr "Mede-onderhouders"
 
@@ -211,18 +211,18 @@ msgid "App authors"
 msgstr "App auteurs"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "Aanbevolen"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
 msgstr "Recente beoordeling"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:70
+#: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Overall rating"
 msgstr "Gehele beoordeling"
 
@@ -401,7 +401,7 @@ msgid "Ordering"
 msgstr "Sortering"
 
 #: nextcloudappstore/core/models.py:424
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -758,82 +758,88 @@ msgstr "Nextcloud App Store beheer"
 msgid "All apps"
 msgstr "Alle apps"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:16
+#: nextcloudappstore/core/templates/app/detail.html:17
+#, python-format
+msgid "Latest %(app_name)s releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
 msgstr "Vorige"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:41
 msgid "Next"
 msgstr "Volgende"
 
-#: nextcloudappstore/core/templates/app/detail.html:57
+#: nextcloudappstore/core/templates/app/detail.html:62
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
 msgstr "Publicist"
 
-#: nextcloudappstore/core/templates/app/detail.html:88
+#: nextcloudappstore/core/templates/app/detail.html:93
 msgid "Resources"
 msgstr "Bronnen"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:99
 msgid "User documentation"
 msgstr "Gebruikersdocumentatie"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Admin documentation"
 msgstr "Beheerdersdocumentatie"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:105
 msgid "Developer documentation"
 msgstr "Ontwikkelaarsdocumentatie"
 
-#: nextcloudappstore/core/templates/app/detail.html:109
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Downloads"
 msgstr "Downloads"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "nachtelijk"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 msgid "Unstable"
 msgstr "Onstabiel"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
+#: nextcloudappstore/core/templates/app/detail.html:122
 msgid "All releases"
 msgstr "Alle releases"
 
-#: nextcloudappstore/core/templates/app/detail.html:127
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Discussion"
 msgstr "Discussie"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Report problem"
 msgstr "Meld een probleem"
 
-#: nextcloudappstore/core/templates/app/detail.html:130
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Request feature"
 msgstr "Vraag feature aan"
 
-#: nextcloudappstore/core/templates/app/detail.html:132
+#: nextcloudappstore/core/templates/app/detail.html:137
 msgid "Ask questions or discuss"
 msgstr "Stel vragen of discussieer"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate app"
 msgstr "Beoordeel app"
 
-#: nextcloudappstore/core/templates/app/detail.html:141
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Rate"
 msgstr "Beoordelen"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -843,27 +849,27 @@ msgstr ""
 "Gebruik reactiebeoordelingen niet om bugs te rapporteren of nieuwe mogelijkheden aan te vragen. Noch ontwikkelaars noch gebruikers worden op de hoogte gesteld van je reactie.\n"
 "Een beoordeling zonder reactie telt wel mee, maar zal hieronder niet worden weergegeven."
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:156
 msgid "Update rating"
 msgstr "Update beoordeling"
 
-#: nextcloudappstore/core/templates/app/detail.html:153
+#: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Submit rating"
 msgstr "Verstuur beoordeling"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
 msgstr "Ok"
 
-#: nextcloudappstore/core/templates/app/detail.html:180
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "No comments found."
 msgstr "Geen reacties gevonden."
 
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Rating comments"
 msgstr "Beoordeling reacties"
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:197
 msgid "Display ratings comments in:"
 msgstr "Vertoon reactiebeoordelingen in:"
 
@@ -992,15 +998,20 @@ msgstr ""
 msgid "Upload"
 msgstr "Uploaden"
 
-#: nextcloudappstore/core/templates/base.html:42
+#: nextcloudappstore/core/templates/base.html:18
+#: nextcloudappstore/core/templates/base.html:19
+msgid "Latest app releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
 msgstr "Fork me on GitHub"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
 msgstr "Privacy en juridisch"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
 msgstr "Juridische bepalingen"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 00:28+0000\n"
+"POT-Creation-Date: 2017-07-19 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marin Kaltani <mpkaltani@gmail.com>, 2017\n"
 "Language-Team: Albanian (https://www.transifex.com/nextcloud/teams/64236/sq/)\n"
@@ -26,17 +26,17 @@ msgstr "Daljet e aplikacioneve më të reja"
 msgid "Get the newest app release updates"
 msgstr "Merrni përditësimet nga aplikacionet e dala së fundmi"
 
-#: nextcloudappstore/core/feeds.py:37
+#: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
 msgstr "Ndryshimet"
 
-#: nextcloudappstore/core/feeds.py:43
+#: nextcloudappstore/core/feeds.py:45
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "Download"
 msgstr "Shkarko"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:173
 msgid "Bad"
 msgstr "Keq"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:166
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Good"
 msgstr "Mirë"
 
@@ -173,7 +173,7 @@ msgid "Issue tracker URL"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
-#: nextcloudappstore/core/templates/app/detail.html:91
+#: nextcloudappstore/core/templates/app/detail.html:96
 msgid "Homepage"
 msgstr "Kryefaqja"
 
@@ -192,7 +192,7 @@ msgid "App owner"
 msgstr "Zotëruesi i aplikacionit"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
 msgstr "Bashkë-mirëmbajtësit"
 
@@ -201,18 +201,18 @@ msgid "App authors"
 msgstr "Autorët e aplikacionit"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "I paraqitur"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
 msgstr "Rankimet e fundit"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:70
+#: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Overall rating"
 msgstr "Rankimi i përgjithshëm"
 
@@ -388,7 +388,7 @@ msgid "Ordering"
 msgstr "Duke porositur"
 
 #: nextcloudappstore/core/models.py:424
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -739,82 +739,88 @@ msgstr "Administrimi i Nextcloud App Store"
 msgid "All apps"
 msgstr "Të gjitha aplikacionet"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:16
+#: nextcloudappstore/core/templates/app/detail.html:17
+#, python-format
+msgid "Latest %(app_name)s releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
 msgstr "I mëparshëm"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:41
 msgid "Next"
 msgstr "I ardhshëm"
 
-#: nextcloudappstore/core/templates/app/detail.html:57
+#: nextcloudappstore/core/templates/app/detail.html:62
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "U përditësua"
 
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
 msgstr "Publikuesi"
 
-#: nextcloudappstore/core/templates/app/detail.html:88
+#: nextcloudappstore/core/templates/app/detail.html:93
 msgid "Resources"
 msgstr "Burimet"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:99
 msgid "User documentation"
 msgstr "Dokumentacioni i përdoruesit"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Admin documentation"
 msgstr "Dokumentacioni i administratorit"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:105
 msgid "Developer documentation"
 msgstr "Dokumentacioni e zhvilluesit"
 
-#: nextcloudappstore/core/templates/app/detail.html:109
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Downloads"
 msgstr "Shkarkimet"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "çdo natë"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 msgid "Unstable"
 msgstr "Jo i qëndrueshëm"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
+#: nextcloudappstore/core/templates/app/detail.html:122
 msgid "All releases"
 msgstr "Te gjitha lançimet"
 
-#: nextcloudappstore/core/templates/app/detail.html:127
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Discussion"
 msgstr "Diskutimi"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Report problem"
 msgstr "Raportoni një problem"
 
-#: nextcloudappstore/core/templates/app/detail.html:130
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Request feature"
 msgstr "Kërkoni një karakteristikë"
 
-#: nextcloudappstore/core/templates/app/detail.html:132
+#: nextcloudappstore/core/templates/app/detail.html:137
 msgid "Ask questions or discuss"
 msgstr "Pyesni ose diskutoni"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate app"
 msgstr "Vlerësoni aplikacionin"
 
-#: nextcloudappstore/core/templates/app/detail.html:141
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Rate"
 msgstr "Vlerësoj"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -824,27 +830,27 @@ msgstr ""
 "Mos përdorni komente me vleresim për të raportuar problemet ose për të kërkuar mjete shtesë. As zhvilluesit as përdoruesit nuk do të lajmerohen për komentin tuaj. \n"
 "Një vlerësim pa një koment është i vlefshem, por nuk do të listohet më poshtë"
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:156
 msgid "Update rating"
 msgstr "Përditeso vlerësimin"
 
-#: nextcloudappstore/core/templates/app/detail.html:153
+#: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Submit rating"
 msgstr "Dërgo vlerësimin"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
 msgstr "Ok"
 
-#: nextcloudappstore/core/templates/app/detail.html:180
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "No comments found."
 msgstr "Nuk jan gjetur komente."
 
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Rating comments"
 msgstr "Duke vlerësuar komentet"
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:197
 msgid "Display ratings comments in:"
 msgstr "Duke shfaqur vlerësimin e komenteve:"
 
@@ -975,15 +981,20 @@ msgstr ""
 msgid "Upload"
 msgstr "Ngarko"
 
-#: nextcloudappstore/core/templates/base.html:42
+#: nextcloudappstore/core/templates/base.html:18
+#: nextcloudappstore/core/templates/base.html:19
+msgid "Latest app releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
 msgstr "Më bëj fork në GitHub"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
 msgstr "Shënim i ligjshëm"
 

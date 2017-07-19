@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 00:28+0000\n"
+"POT-Creation-Date: 2017-07-19 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
@@ -26,17 +26,17 @@ msgstr "Yeni yayınlanan uygulamalar"
 msgid "Get the newest app release updates"
 msgstr "Yeni uygulama yayınlama bildirimleri alın"
 
-#: nextcloudappstore/core/feeds.py:37
+#: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
 msgstr "Değişiklikler"
 
-#: nextcloudappstore/core/feeds.py:43
+#: nextcloudappstore/core/feeds.py:45
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "Download"
 msgstr "İndir"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:173
 msgid "Bad"
 msgstr "Kötü"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "Tamam"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:166
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Good"
 msgstr "İyi"
 
@@ -180,7 +180,7 @@ msgid "Issue tracker URL"
 msgstr "Sorun izleme bağlantısı"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
-#: nextcloudappstore/core/templates/app/detail.html:91
+#: nextcloudappstore/core/templates/app/detail.html:96
 msgid "Homepage"
 msgstr "Ana sayfa"
 
@@ -199,7 +199,7 @@ msgid "App owner"
 msgstr "Uygulama sahibi"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
 msgstr "Yardımcılar"
 
@@ -208,18 +208,18 @@ msgid "App authors"
 msgstr "Uygulama geliştiriciler"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "Öne çıkarılmış"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
 msgstr "Son değerlendirme"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:70
+#: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Overall rating"
 msgstr "Genel değerlendirme"
 
@@ -398,7 +398,7 @@ msgid "Ordering"
 msgstr "Sıralama"
 
 #: nextcloudappstore/core/models.py:424
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -753,82 +753,88 @@ msgstr "Nextcloud Uygulama Mağazası Yönetimi"
 msgid "All apps"
 msgstr "Tüm Uygulamalar"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:16
+#: nextcloudappstore/core/templates/app/detail.html:17
+#, python-format
+msgid "Latest %(app_name)s releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
 msgstr "Önceki"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:41
 msgid "Next"
 msgstr "Sonraki"
 
-#: nextcloudappstore/core/templates/app/detail.html:57
+#: nextcloudappstore/core/templates/app/detail.html:62
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "Güncellenme"
 
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
 msgstr "Yayıncı"
 
-#: nextcloudappstore/core/templates/app/detail.html:88
+#: nextcloudappstore/core/templates/app/detail.html:93
 msgid "Resources"
 msgstr "Kaynaklar"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:99
 msgid "User documentation"
 msgstr "Kullanıcı Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Admin documentation"
 msgstr "Yönetici Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:105
 msgid "Developer documentation"
 msgstr "Geliştirici Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:109
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Downloads"
 msgstr "İndirmeler"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "Gecelik"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 msgid "Unstable"
 msgstr "Kararsız"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
+#: nextcloudappstore/core/templates/app/detail.html:122
 msgid "All releases"
 msgstr "Tüm Sürümler"
 
-#: nextcloudappstore/core/templates/app/detail.html:127
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Discussion"
 msgstr "Tartışma"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Report problem"
 msgstr "Sorun Bildirin"
 
-#: nextcloudappstore/core/templates/app/detail.html:130
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Request feature"
 msgstr "Özellik İsteyin"
 
-#: nextcloudappstore/core/templates/app/detail.html:132
+#: nextcloudappstore/core/templates/app/detail.html:137
 msgid "Ask questions or discuss"
 msgstr "Soru sorun ya da tartışın"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate app"
 msgstr "Uygulamayı Değerlendirin"
 
-#: nextcloudappstore/core/templates/app/detail.html:141
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Rate"
 msgstr "Değerlendirme"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -838,27 +844,27 @@ msgstr ""
 "Değerlendirme yorumlarında hata bildirimi ve özellik isteği yapmayın. Geliştirici ya da kullanıcılar yorumunuzu farketmez.\n"
 "Yorum bulunmayan değerlendirmeler de hesaba katılır ancak aşağıda görüntülenmez."
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:156
 msgid "Update rating"
 msgstr "Değerlendirmeyi Güncelle"
 
-#: nextcloudappstore/core/templates/app/detail.html:153
+#: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Submit rating"
 msgstr "Değerlendirmeyi Gönder"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
 msgstr "Orta"
 
-#: nextcloudappstore/core/templates/app/detail.html:180
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "No comments found."
 msgstr "Henüz bir yorum yok."
 
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Rating comments"
 msgstr "Değerlendirme Yorumları"
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:197
 msgid "Display ratings comments in:"
 msgstr "Görüntülenecek değerlendirme yorumları:"
 
@@ -991,15 +997,20 @@ msgstr ""
 msgid "Upload"
 msgstr "Yükle"
 
-#: nextcloudappstore/core/templates/base.html:42
+#: nextcloudappstore/core/templates/base.html:18
+#: nextcloudappstore/core/templates/base.html:19
+msgid "Latest app releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
 msgstr "GitHub üzerinde beni ayır"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
 msgstr "Gizlilik ve yasal hükümler"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
 msgstr "Yasal Bildirim"
 

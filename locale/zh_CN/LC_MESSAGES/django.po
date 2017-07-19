@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 00:28+0000\n"
+"POT-Creation-Date: 2017-07-19 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: 王亮亮 <i@yimis.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -26,17 +26,17 @@ msgstr "最新的应用程序版本"
 msgid "Get the newest app release updates"
 msgstr "获取应用程序的最新更新"
 
-#: nextcloudappstore/core/feeds.py:37
+#: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
 msgstr "变更"
 
-#: nextcloudappstore/core/feeds.py:43
+#: nextcloudappstore/core/feeds.py:45
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "Download"
 msgstr "下载"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:173
 msgid "Bad"
 msgstr "损坏"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:166
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Good"
 msgstr "好的"
 
@@ -170,7 +170,7 @@ msgid "Issue tracker URL"
 msgstr "问题跟踪地址"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
-#: nextcloudappstore/core/templates/app/detail.html:91
+#: nextcloudappstore/core/templates/app/detail.html:96
 msgid "Homepage"
 msgstr "主页"
 
@@ -189,7 +189,7 @@ msgid "App owner"
 msgstr "应用所有者"
 
 #: nextcloudappstore/core/models.py:92
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
 msgstr "共同维护者"
 
@@ -198,18 +198,18 @@ msgid "App authors"
 msgstr "应用作者"
 
 #: nextcloudappstore/core/models.py:96
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
 msgstr "精选"
 
 #: nextcloudappstore/core/models.py:97
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
 msgstr "最近的评价"
 
 #: nextcloudappstore/core/models.py:98
-#: nextcloudappstore/core/templates/app/detail.html:70
+#: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Overall rating"
 msgstr "全部的评价"
 
@@ -385,7 +385,7 @@ msgid "Ordering"
 msgstr "次序"
 
 #: nextcloudappstore/core/models.py:424
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
@@ -724,82 +724,88 @@ msgstr "Nextcloud 应用程序商店管理员"
 msgid "All apps"
 msgstr "所有的应用程序"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:16
+#: nextcloudappstore/core/templates/app/detail.html:17
+#, python-format
+msgid "Latest %(app_name)s releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
 msgstr "上一个"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:41
 msgid "Next"
 msgstr "下一项"
 
-#: nextcloudappstore/core/templates/app/detail.html:57
+#: nextcloudappstore/core/templates/app/detail.html:62
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
 msgstr "更新"
 
-#: nextcloudappstore/core/templates/app/detail.html:61
+#: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
 msgstr "发布者"
 
-#: nextcloudappstore/core/templates/app/detail.html:88
+#: nextcloudappstore/core/templates/app/detail.html:93
 msgid "Resources"
 msgstr "资源"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:99
 msgid "User documentation"
 msgstr "使用者文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:102
 msgid "Admin documentation"
 msgstr "管理员文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:105
 msgid "Developer documentation"
 msgstr "开发者文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:109
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "Downloads"
 msgstr "下载"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:85
 msgid "nightly"
 msgstr "日常更新"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:121
 msgid "Unstable"
 msgstr "不稳定的"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
+#: nextcloudappstore/core/templates/app/detail.html:122
 msgid "All releases"
 msgstr "所有版本"
 
-#: nextcloudappstore/core/templates/app/detail.html:127
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Discussion"
 msgstr "描述"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Report problem"
 msgstr "报告问题"
 
-#: nextcloudappstore/core/templates/app/detail.html:130
+#: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Request feature"
 msgstr "请求功能"
 
-#: nextcloudappstore/core/templates/app/detail.html:132
+#: nextcloudappstore/core/templates/app/detail.html:137
 msgid "Ask questions or discuss"
 msgstr "提问或讨论"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate app"
 msgstr "程序等级"
 
-#: nextcloudappstore/core/templates/app/detail.html:141
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Rate"
 msgstr "等级"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -809,27 +815,27 @@ msgstr ""
 "请不要使用评分评论反馈问题或请求功能. 开发者和用户都不会因为您的评论收到提醒.\n"
 "没有评论的评分会计数, 但不会在下方列表中显示."
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:156
 msgid "Update rating"
 msgstr "更新评级"
 
-#: nextcloudappstore/core/templates/app/detail.html:153
+#: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Submit rating"
 msgstr "提交评级"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
 msgstr "很好"
 
-#: nextcloudappstore/core/templates/app/detail.html:180
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "No comments found."
 msgstr "没有发现评论。"
 
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Rating comments"
 msgstr "等级评论"
 
-#: nextcloudappstore/core/templates/app/detail.html:192
+#: nextcloudappstore/core/templates/app/detail.html:197
 msgid "Display ratings comments in:"
 msgstr "显示等级评论"
 
@@ -954,15 +960,20 @@ msgstr ""
 msgid "Upload"
 msgstr "上传"
 
-#: nextcloudappstore/core/templates/base.html:42
+#: nextcloudappstore/core/templates/base.html:18
+#: nextcloudappstore/core/templates/base.html:19
+msgid "Latest app releases"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
 msgstr "在GitHub上关注我们"
 
-#: nextcloudappstore/core/templates/base.html:45
+#: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
 msgstr "隐私和法律 "
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
 msgstr "法律声明"
 
