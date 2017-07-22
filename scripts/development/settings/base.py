@@ -11,3 +11,7 @@ INSTALLED_APPS.append('debug_toolbar')
 MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
 INTERNAL_IPS = ('127.0.0.1',)
 VALIDATE_CERTIFICATES = False
+
+FIXTURE_DIRS = (
+    join(BASE_DIR, 'nextcloudappstore/core/tests/e2e/fixtures'),
+)

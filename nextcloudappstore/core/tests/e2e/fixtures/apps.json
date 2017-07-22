@@ -1,0 +1,646 @@
+[
+    {
+        "model": "core.apptranslation",
+        "pk": 2,
+        "fields": {
+            "language_code": "en",
+            "name": "OpenID Connect SSO by Gluu",
+            "summary": "Use OpenID Connect to login by leveraging the oxd client service demon.",
+            "description": "Gluu's OpenID Connect Single Sign-On (SSO) NextCloud app will enable you to authenticate users against any standard OpenID Provider (OP). If you don't already have an OP you can [deploy the free open source Gluu Server](https://gluu.org/docs/deployment). ",
+            "master": "gluusso"
+        }
+    },
+    {
+        "model": "core.apptranslation",
+        "pk": 4,
+        "fields": {
+            "language_code": "en",
+            "name": "News",
+            "summary": "An RSS/Atom feed reader",
+            "description": "The News app is an RSS/Atom feed reader for Nextcloud which can be synced with many mobile devices. A list of all clients and requirements can be found [in the README](https://github.com/nextcloud/news)\n\nBefore you update to a new version, [check the changelog](https://github.com/nextcloud/news/blob/master/CHANGELOG.md) to avoid surprises.\n\n**Important**: To enable feed updates you will need to enable either [Nextcloud system cron](https://docs.nextcloud.com/server/10/admin_manual/configuration_server/background_jobs_configuration.html#cron) or use [an updater](https://github.com/owncloud/news-updater) which uses the built in update API and disable cron updates. More information can be found [in the README](https://github.com/nextcloud/news).",
+            "master": "news"
+        }
+    },
+    {
+        "model": "core.apptranslation",
+        "pk": 6,
+        "fields": {
+            "language_code": "en",
+            "name": "Spreed.ME",
+            "summary": "Audio-, video- and text chat for your Nextcloud",
+            "description": "Securely communicate with your friends and family using rich audio-, video- and text chat, and much more right from your Nextcloud \u2013 in your browser",
+            "master": "spreedme"
+        }
+    },
+    {
+        "model": "core.apptranslation",
+        "pk": 8,
+        "fields": {
+            "language_code": "en",
+            "name": "Two Factor TOTP Provider",
+            "summary": "TOTP two-factor provider",
+            "description": "A Two-Factor-Auth Provider for TOTP (RFC 6238)",
+            "master": "twofactor_totp"
+        }
+    },
+    {
+        "model": "core.app",
+        "pk": "gluusso",
+        "fields": {
+            "user_docs": "https://gluu.org/docs/oxd/plugin/nextcloud/",
+            "admin_docs": "https://github.com/GluuFederation/nextcloud-oxd-plugin#readme",
+            "developer_docs": "https://github.com/GluuFederation/",
+            "issue_tracker": "https://github.com/GluuFederation/nextcloud-oxd-plugin/issues",
+            "website": "https://oxd.gluu.org",
+            "created": "2017-07-22T12:48:10.602Z",
+            "last_modified": "2017-07-22T12:48:12.269Z",
+            "owner": 1,
+            "is_featured": false,
+            "rating_recent": 0.5,
+            "rating_overall": 0.5,
+            "rating_num_recent": 0,
+            "rating_num_overall": 0,
+            "last_release": "2017-07-22T12:48:12.201Z",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIEAjCCAuoCAhAzMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD\nVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI\nMTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB\ndXRob3JpdHkwHhcNMTcwMjIwMDk1OTQwWhcNMjcwNTI5MDk1OTQwWjASMRAwDgYD\nVQQDDAdnbHV1c3NvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsvdA\nDj6b75rL66dn6ddRqnN15uSkr25p3pPBrcIaMyBEdPtpQ+jshfeZc0+zEcTmn+1H\nRgpTtE40iMTPFkJUNKPJk94vSzsKgNzLGx4e5aq84jLD3qDd4+g1HnAjZBuefJin\nHn/FCkI0VlR/ZVP8o5CQ30JQeGbpKcO2yKI5yxrcnKTdw8+/MteUfbwOZ35tgo5o\nkkDOfpS2E7/2+2WafWP8pUl6Rxx2N7lRHE7gn9tvcPRFgsbAASIbHSfw0e52JlGl\nBeRmJe1w2qv86/17YX27znZZzPc3jwT/s8mt2naxnrF6+DfR56JufnCaSkmRr/cq\nnfLX+P8Ub8/u2VbwLcVEn8h42ukBoMxfS+kuW9vn2xxmPw5lNqXcyiizUgghvyov\n93Q7/aVPxxUF7RAk2f8RTcoAVVLDgwL+Rqgl7x3PD4seX91gvHLJRZWDtUXjCVmj\negKf/M38gPUHXMtYkWVIsD4Ry55bv07Zvh1seCW+1PkUMaIbxQdMcI9VRRlJy7ql\ne0zUefIk3cvOxO+xNjgLbhDgsapX+FWx3F6ikxojeB+ZYG/TUsFnBhvNM0h7SDft\n/2D5gXgCpeKL2UTdHGgsrJhjE/ZyT9Mcaw4J4QkQlpvqlSKrysmqYwz+gYLzOdeZ\nFrqlyv/BKjIa4s1qP/k70UQ+xbQ4S9wyMPHFO7sCAwEAATANBgkqhkiG9w0BAQsF\nAAOCAQEAA6qlsLvbfWAH3W449lD5yAzk8IUG74EjFWyvG7e6F5gNUK161+Yp74GX\nnaLUcOCl9sixKnGcymMHhFLvNOmakjIRxBwPSEChcV2FDJCDAMac++WlwoQ0VPgb\nzJY9xEZnrKyy/qRnNz3v3SrdD06MZrvbgJgGspkGIS6rhNwD7c1xS+ZS0oVcqeTM\nEFhqpZKMWzn7TWvEft45FwPKZWBBBOTwjbzDaxrb/5CoelBJ+u0//8UKFT/G2Ejg\ndtj9d3/WFtiw1hKuJeg//jBKt0Pvcc6jprcm1b9FlhfH4xgMfPq3s57/IH0Fd/se\nRm+7ANiBh5VLx+2T6nNi6PKnoRoN7Q==\n-----END CERTIFICATE-----",
+            "ownership_transfer_enabled": false,
+            "categories": [
+                "auth",
+                "organization",
+                "social",
+                "tools"
+            ],
+            "co_maintainers": [],
+            "authors": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "core.app",
+        "pk": "news",
+        "fields": {
+            "user_docs": "",
+            "admin_docs": "https://github.com/nextcloud/news#readme",
+            "developer_docs": "https://github.com/nextcloud/news/tree/master/docs",
+            "issue_tracker": "https://github.com/nextcloud/news/issues",
+            "website": "https://github.com/nextcloud/news",
+            "created": "2017-07-22T12:48:12.399Z",
+            "last_modified": "2017-07-22T12:48:15.419Z",
+            "owner": 1,
+            "is_featured": false,
+            "rating_recent": 0.5,
+            "rating_overall": 0.5,
+            "rating_num_recent": 0,
+            "rating_num_overall": 0,
+            "last_release": "2017-07-22T12:48:15.383Z",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIID/zCCAucCAhACMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD\nVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI\nMTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB\ndXRob3JpdHkwHhcNMTYwOTEyMTI1MzI3WhcNMjYxMjE5MTI1MzI3WjAPMQ0wCwYD\nVQQDDARuZXdzMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAtBFqOIGn\nYAHIC4J+N5gB0NLv+frhFyjTIPww9TJGYZOhIyPYnN/ii36hRmyhD5znU4ZUxeXH\nsHpOfwd8bvonpymd9YQfzN2Rh/qGeayp7NwEqkFi6/lg7yChJviax+87oSeh4+QP\nhk9csnzRwXMLthEhIAsdaFvFzp08B5bG6++fxnSeh6lescxToefGm6p8YkLRxO4a\nlKj5IOrecKq1W+xyx/SRgqEfts67XVgOs4SMMoMB8/oZ/R9MZK0on4oyliPrrf+q\nD+rBIA617DcQ8Kn7O0QbVnEbijQIL5nrioFIxpGaQh8w/9WoxnXZc5oJD3R5xiKQ\ntUdzPFG24JSLj9fSxpAXd6IKe8xiiwsD47uOhftiUw5UrUPywmzTafUkb4lGzfE8\n47Z3Bcg862QNPgcDB2xxk2nHtqkPv1LHx47lNUuqSN0a1KfXmLXGA9U703YO6MAc\nR33gw7QW5QTRpeVxJ2Dpwl8b/1eQRxUTVtpMQbFbm8qpTZSXZ74/LIllR1iB1GYf\nSdzDKRkyGGUJh/CFOIxejFYyXO0wbKTorLqA2GUxlLjuFboQMeqF/6zcU3uwwiDp\natzK8kXbu7Rik6n4WvFJ/8LDtGU2vNNu0GYBO/yead5uKKYPsuVHyixQxvOcyULU\nneNtCKg51gjOgGzCVbHFLFMu3+9gde2hb0MCAwEAATANBgkqhkiG9w0BAQsFAAOC\nAQEAl4wNT0mJ1r+Hn1erYssEr4MdLwRGZ1UIxeI6fvZpE1NKR9RFJAqpqbcgFbWF\nacRcFsSmWseQpTP8AnoIyh/kNWrR7inl8tdEM9+alc1ItN8NQKDtf2CD3ufLoR64\nYFxjHbR3KQhAPei3MmCDiK5FMKdJBtKqFFoUkJPjAg/H4G5FsdNtkoNjw6Igr2+B\n9AR8pPz+LivqyvLY4xHyNrCKcezrtCinj/9J25kqoGdM6p5cUbuznplN46+gT/kx\nXIRiCDjmJr4YhdYjgByIgxVTiKAoTxuZ1wcj+nU4ve1MMjYEe/b30x2uLAA+cQmu\nJvshYmx3I5aXFXOf3l0zEMmIuw==\n-----END CERTIFICATE-----",
+            "ownership_transfer_enabled": false,
+            "categories": [
+                "multimedia"
+            ],
+            "co_maintainers": [],
+            "authors": [
+                5,
+                6,
+                7
+            ]
+        }
+    },
+    {
+        "model": "core.app",
+        "pk": "spreedme",
+        "fields": {
+            "user_docs": "https://github.com/strukturag/nextcloud-spreedme/blob/master/README.md",
+            "admin_docs": "https://github.com/strukturag/nextcloud-spreedme/blob/master/README.md",
+            "developer_docs": "",
+            "issue_tracker": "https://github.com/strukturag/nextcloud-spreedme/issues",
+            "website": "",
+            "created": "2017-07-22T12:48:15.516Z",
+            "last_modified": "2017-07-22T12:48:16.726Z",
+            "owner": 1,
+            "is_featured": false,
+            "rating_recent": 0.5,
+            "rating_overall": 0.5,
+            "rating_num_recent": 0,
+            "rating_num_overall": 0,
+            "last_release": "2017-07-22T12:48:16.663Z",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIEAzCCAusCAhANMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD\nVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI\nMTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB\ndXRob3JpdHkwHhcNMTYwOTI2MTYxNzMzWhcNMjcwMTAyMTYxNzMzWjATMREwDwYD\nVQQDEwhzcHJlZWRtZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKLx\n2dCPBLIgX948BnOdLij0YyI2+FKD6uZOvzxMaoi3rlxNf8MJgraNMzTBWEXtxT5b\n7ZISNp89WEXhaQ1dwwCocodd/xow4Ek63m5nUvTZXsm+YSbMgrFbxzsBhYU7KuIE\nT/jhKdzYgemzErwwN/gtwkLMfPo3jkgg6c8NPPohYv6k7V4VnsqtJ0JS0kX19FqM\nMiNz9XkcncBHy9x0BSxy4+YnwbFcgIx/MtYKlBL8NkPuuJaB/6C1O+IPYhdEdnpX\n+RaIue71nSStOYOqT4YDqHAIw7EmqgA1my09mmK+0Pn92GJVEAEN7JGBSQ+F32RI\ndB3ivGAOVtUtVvJlepWdbHxj1xqeP+LCjWzHMLQjm0TyH8VqU4Cg/wxwAEFnBATH\naOaWwrggzY2d9KBo1mp0k71NArLbBdlHykFU4bgiSDWrXXMz0fZzLQVwGI0Eqcxc\nouf6t0kvrK8oKjrnso+FjBoT7lHV/H6ny4ufxIEDAJ/FEBV/gMizt5fDZ+DvmMw4\nq+a088/lXoiI/vWPoGfOa77H5BQOt3y70Pmwv2uVYp46dtU8oat+ZvyW9iMmgP1h\nJSEHj1WGGGlp45d10l4OghwfTB0OSuPUYwWR+lZnV8sukGvQzC9iRV1DGl/rREMC\ncQ5ajRAtO5NPnThvN5/Zuh4n8JoDc0GK4jEZsIivAgMBAAEwDQYJKoZIhvcNAQEL\nBQADggEBAGHMRbPV0WTI9r1w6m2iJRrMbZtbBb+mQr8NtOoXQwvSXWT1lXMP2N8u\nLQ1a8U5UaUjeg7TnoUWTEOqU05HpwA8GZtdWZqPPQpe691kMNvfqF64g0le2kzOL\nhuMP9kpDGzSD8pEKf1ihxvEWNUBmwewrZTC3+b4gM+MJ3BBCfb5SCzMURLirfFST\naxCNzc7veb2M98hS73w5ZE6vO+C/wz0GTsxuK0AoLitApT5naQnjvxSvSsjFPEGD\nsUNUEU2Decyp0jxLVnrrpz6Y5UupfBR0V8yAv1t5Od/mCKLc5DxHsDWiKOpsob9U\nJN+bdzJil2NNftihD4Dm7Ha7OS3O8W0=\n-----END CERTIFICATE-----",
+            "ownership_transfer_enabled": false,
+            "categories": [
+                "tools"
+            ],
+            "co_maintainers": [],
+            "authors": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "core.app",
+        "pk": "twofactor_totp",
+        "fields": {
+            "user_docs": "",
+            "admin_docs": "",
+            "developer_docs": "",
+            "issue_tracker": "https://github.com/nextcloud/twofactor_totp/issues",
+            "website": "https://github.com/nextcloud/twofactor_totp#readme",
+            "created": "2017-07-22T12:48:16.854Z",
+            "last_modified": "2017-07-22T12:48:19.782Z",
+            "owner": 1,
+            "is_featured": false,
+            "rating_recent": 0.5,
+            "rating_overall": 0.5,
+            "rating_num_recent": 0,
+            "rating_num_overall": 0,
+            "last_release": "2017-07-22T12:48:19.753Z",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIECTCCAvECAhASMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD\nVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI\nMTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB\ndXRob3JpdHkwHhcNMTYxMDEyMDkzNDMxWhcNMjcwMTE4MDkzNDMxWjAZMRcwFQYD\nVQQDDA50d29mYWN0b3JfdG90cDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoC\nggIBALC1K94104L/nOtmTygx7QNjUcnHs3yrn71mw4pMxTlonXOnMTpwxsfL1Hhu\n/5GMSgupTbQPlevSl6J86UMs455/sPShd6ifmAuhb8VFaAsjpizjs0RMaUg1sjmF\nuV18PD9FXLourx51V/c4MG5kpavlV+bLUrVMAjbsJY2+k30tCC/XkP5u8jUWmM/T\n5REChn7/obPgaeddhuJoILYhKEW3VNrR8Fm9SYiviB3FLhM7URDZ97IBnXYqbvbT\nZnvq+E74Zc7HgYwQwrjU/AqQAInhNpAR4ZM6CkWWWWaL96O1q3lCfKJNaxqC0Kg/\nkGn/pxYkl9062jtMUz60s9OPDyuisfyl68UyM68Ozyz4SMRLmDVbewOqQAwmAbtz\n8p9AQrX3Pr9tXhARR4pDSsQz1z+8ExEd6EKbhMyiTtHtZQ1Vm9qfoR52snpznb5N\ne4TcT2qHAkOWV9+a9ESXmQz2bNjgThxEl5edTVY9m4t248lK5aBTGq5ZKGULNHSQ\nGGpr/ftMFpII45tSvadexUvzcR/BHt3QwBAlPmA4rWtjmOMuJGDGk+mKw4pUgtT8\nKvUMPQpnrbXSjKctxb3V5Ppg0UGntlSG71aVdxY1raLvKSmYeoMxUTnNeS6UYAF6\nI3FiuPnrjVFsZa2gwZfG8NmUPVPdv1O/IvLbToXvyieo8MbZAgMBAAEwDQYJKoZI\nhvcNAQELBQADggEBAEb6ajdng0bnNRuqL/GbmDC2hyy3exqPoZB/P5u0nZZzDZ18\nLFgiWr8DOYvS+9i6kdwWscMwNJsLEUQ2rdrAi+fGr6dlazn3sCCXrskLURKn5qCU\nfIFZbr2bGjSg93JGnvNorfsdJkwpFW2Z9gOwMwa9tAzSkR9CsSdOeYrmdtBdodAR\ndIu2MkhxAZk9FZfnFkjTaAXcBHafJce7H/IEjHDEoIkFp5KnAQLHsJb4n8JeXmi9\nVMgQ6yUWNuzOQMZpMIV7RMOUZHvxiX/ZWUFzXNYX0GYub6p4O2uh3LJE+xXyDf77\nRBO7PLY3m4TXCeKesxZlkoGke+lnq7B8tkADdPI=\n-----END CERTIFICATE-----",
+            "ownership_transfer_enabled": false,
+            "categories": [
+                "auth"
+            ],
+            "co_maintainers": [],
+            "authors": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 1,
+        "fields": {
+            "name": "Gluu Inc.",
+            "homepage": "https://gluu.org",
+            "mail": "support@gluu.org"
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 2,
+        "fields": {
+            "name": "Support",
+            "homepage": "https://support.gluu.org",
+            "mail": "support@gluu.org"
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 3,
+        "fields": {
+            "name": "Director: Mike Schwartz",
+            "homepage": "https://github.com/nynymike",
+            "mail": "mike@gluu.org"
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 4,
+        "fields": {
+            "name": "Developer: Volodya Karapetyan",
+            "homepage": "https://github.com/karapetyan88",
+            "mail": "mr.karapetyan88@gmail.com"
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 5,
+        "fields": {
+            "name": "Bernhard Posselt",
+            "homepage": "",
+            "mail": ""
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 6,
+        "fields": {
+            "name": "Alessandro Cosentino",
+            "homepage": "",
+            "mail": ""
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 7,
+        "fields": {
+            "name": "Jan-Christoph Borchardt",
+            "homepage": "",
+            "mail": ""
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 8,
+        "fields": {
+            "name": "struktur AG",
+            "homepage": "",
+            "mail": ""
+        }
+    },
+    {
+        "model": "core.appauthor",
+        "pk": 9,
+        "fields": {
+            "name": "Christoph Wurst",
+            "homepage": "",
+            "mail": ""
+        }
+    },
+    {
+        "model": "core.appreleasetranslation",
+        "pk": 1,
+        "fields": {
+            "language_code": "en",
+            "changelog": "",
+            "master": 1
+        }
+    },
+    {
+        "model": "core.appreleasetranslation",
+        "pk": 2,
+        "fields": {
+            "language_code": "en",
+            "changelog": "### Added\n- Show favicons in expanded mode's subtitle section if a folder is viewed\n\n### Changed\n- Updated PHP and JS libraries",
+            "master": 2
+        }
+    },
+    {
+        "model": "core.appreleasetranslation",
+        "pk": 3,
+        "fields": {
+            "language_code": "en",
+            "changelog": "",
+            "master": 3
+        }
+    },
+    {
+        "model": "core.appreleasetranslation",
+        "pk": 4,
+        "fields": {
+            "language_code": "en",
+            "changelog": "### Added\n- Settings icon (NC12 only)\n### Changed\n- Dedicated login button\n- Translations",
+            "master": 4
+        }
+    },
+    {
+        "model": "core.apprelease",
+        "pk": 1,
+        "fields": {
+            "version": "3.0.1",
+            "app": "gluusso",
+            "php_version_spec": "*",
+            "platform_version_spec": ">=11.0.0,<12.0.0",
+            "raw_php_version_spec": "*",
+            "raw_platform_version_spec": ">=11,<=11",
+            "min_int_size": 32,
+            "download": "https://github.com/GluuFederation/nextcloud-oxd-plugin/blob/master/gluusso.tar.gz?raw=true",
+            "created": "2017-07-22T12:48:12.196Z",
+            "last_modified": "2017-07-22T12:48:12.267Z",
+            "signature": "signature",
+            "is_nightly": false,
+            "licenses": [
+                "agpl"
+            ],
+            "shell_commands": []
+        }
+    },
+    {
+        "model": "core.apprelease",
+        "pk": 2,
+        "fields": {
+            "version": "10.1.0",
+            "app": "news",
+            "php_version_spec": ">=5.6.0",
+            "platform_version_spec": ">=11.0.0,<12.0.0",
+            "raw_php_version_spec": ">=5.6",
+            "raw_platform_version_spec": ">=11,<=11",
+            "min_int_size": 32,
+            "download": "https://github.com/nextcloud/news/releases/download/10.1.0/news.tar.gz",
+            "created": "2017-07-22T12:48:15.382Z",
+            "last_modified": "2017-07-22T12:48:15.418Z",
+            "signature": "signature",
+            "is_nightly": false,
+            "licenses": [
+                "agpl"
+            ],
+            "shell_commands": []
+        }
+    },
+    {
+        "model": "core.apprelease",
+        "pk": 3,
+        "fields": {
+            "version": "0.3.8",
+            "app": "spreedme",
+            "php_version_spec": "*",
+            "platform_version_spec": ">=9.0.0,<13.0.0",
+            "raw_php_version_spec": "*",
+            "raw_platform_version_spec": ">=9,<=12",
+            "min_int_size": 32,
+            "download": "https://apps.owncloud.com/CONTENT/content-files/174436-spreedme.tar.gz",
+            "created": "2017-07-22T12:48:16.660Z",
+            "last_modified": "2017-07-22T12:48:16.724Z",
+            "signature": "signature",
+            "is_nightly": false,
+            "licenses": [
+                "agpl"
+            ],
+            "shell_commands": []
+        }
+    },
+    {
+        "model": "core.apprelease",
+        "pk": 4,
+        "fields": {
+            "version": "1.2.0",
+            "app": "twofactor_totp",
+            "php_version_spec": ">=5.6.0,<7.2.0",
+            "platform_version_spec": ">=12.0.0,<13.0.0",
+            "raw_php_version_spec": ">=5.6,<=7.1",
+            "raw_platform_version_spec": ">=12,<=12",
+            "min_int_size": 32,
+            "download": "https://github.com/nextcloud/twofactor_totp/releases/download/1.2/twofactor_totp.tar.gz",
+            "created": "2017-07-22T12:48:19.752Z",
+            "last_modified": "2017-07-22T12:48:19.780Z",
+            "signature": "signature",
+            "is_nightly": false,
+            "licenses": [
+                "agpl"
+            ],
+            "shell_commands": []
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 1,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/screenshot.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 1
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 2,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/nextcloud.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 2
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 3,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/1.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 3
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 4,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/2.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 4
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 5,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/3.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 5
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 6,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/4.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 6
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 7,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/5.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 7
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 8,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/GluuFederation/nextcloud-oxd-plugin/master/docu/6.png",
+            "small_thumbnail": "",
+            "app": "gluusso",
+            "ordering": 8
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 9,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/nextcloud/news/master/screenshots/1.png",
+            "small_thumbnail": "https://raw.githubusercontent.com/nextcloud/news/master/screenshots/1-small.png",
+            "app": "news",
+            "ordering": 1
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 10,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/nextcloud/news/master/screenshots/2.png",
+            "small_thumbnail": "https://raw.githubusercontent.com/nextcloud/news/master/screenshots/2-small.png",
+            "app": "news",
+            "ordering": 2
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 11,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/strukturag/nextcloud-spreedme/master/screenshots/appstore/conference.gif",
+            "small_thumbnail": "",
+            "app": "spreedme",
+            "ordering": 1
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 12,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/strukturag/nextcloud-spreedme/master/screenshots/appstore/presentation.png",
+            "small_thumbnail": "",
+            "app": "spreedme",
+            "ordering": 2
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 13,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/strukturag/nextcloud-spreedme/master/screenshots/appstore/import.png",
+            "small_thumbnail": "",
+            "app": "spreedme",
+            "ordering": 3
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 14,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/strukturag/nextcloud-spreedme/master/screenshots/appstore/users.png",
+            "small_thumbnail": "",
+            "app": "spreedme",
+            "ordering": 4
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 15,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/nextcloud/twofactor_totp/dd1e48deec73a250886f35f3924186f5357f4c5f/screenshots/enter_challenge.png",
+            "small_thumbnail": "",
+            "app": "twofactor_totp",
+            "ordering": 1
+        }
+    },
+    {
+        "model": "core.screenshot",
+        "pk": 16,
+        "fields": {
+            "url": "https://raw.githubusercontent.com/nextcloud/twofactor_totp/dd1e48deec73a250886f35f3924186f5357f4c5f/screenshots/settings.png",
+            "small_thumbnail": "",
+            "app": "twofactor_totp",
+            "ordering": 2
+        }
+    },
+    {
+        "model": "core.database",
+        "pk": "mysql",
+        "fields": {
+            "name": "MySQL"
+        }
+    },
+    {
+        "model": "core.database",
+        "pk": "pgsql",
+        "fields": {
+            "name": "PostgreSQL"
+        }
+    },
+    {
+        "model": "core.database",
+        "pk": "sqlite",
+        "fields": {
+            "name": "SQLite"
+        }
+    },
+    {
+        "model": "core.databasedependency",
+        "pk": 1,
+        "fields": {
+            "app_release": 2,
+            "database": "pgsql",
+            "version_spec": ">=9.4.0",
+            "raw_version_spec": ">=9.4"
+        }
+    },
+    {
+        "model": "core.databasedependency",
+        "pk": 2,
+        "fields": {
+            "app_release": 2,
+            "database": "sqlite",
+            "version_spec": "*",
+            "raw_version_spec": "*"
+        }
+    },
+    {
+        "model": "core.databasedependency",
+        "pk": 3,
+        "fields": {
+            "app_release": 2,
+            "database": "mysql",
+            "version_spec": ">=5.5.0",
+            "raw_version_spec": ">=5.5"
+        }
+    },
+    {
+        "model": "core.phpextension",
+        "pk": "SimpleXML",
+        "fields": {}
+    },
+    {
+        "model": "core.phpextension",
+        "pk": "curl",
+        "fields": {}
+    },
+    {
+        "model": "core.phpextension",
+        "pk": "iconv",
+        "fields": {}
+    },
+    {
+        "model": "core.phpextension",
+        "pk": "libxml",
+        "fields": {}
+    },
+    {
+        "model": "core.phpextensiondependency",
+        "pk": 1,
+        "fields": {
+            "app_release": 2,
+            "php_extension": "libxml",
+            "version_spec": ">=2.7.8",
+            "raw_version_spec": ">=2.7.8"
+        }
+    },
+    {
+        "model": "core.phpextensiondependency",
+        "pk": 2,
+        "fields": {
+            "app_release": 2,
+            "php_extension": "curl",
+            "version_spec": "*",
+            "raw_version_spec": "*"
+        }
+    },
+    {
+        "model": "core.phpextensiondependency",
+        "pk": 3,
+        "fields": {
+            "app_release": 2,
+            "php_extension": "SimpleXML",
+            "version_spec": "*",
+            "raw_version_spec": "*"
+        }
+    },
+    {
+        "model": "core.phpextensiondependency",
+        "pk": 4,
+        "fields": {
+            "app_release": 2,
+            "php_extension": "iconv",
+            "version_spec": "*",
+            "raw_version_spec": "*"
+        }
+    }
+]
