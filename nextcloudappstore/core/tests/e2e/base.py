@@ -20,7 +20,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def setUpClass(cls):
         super(BaseStoreTest, cls).setUpClass()
         cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(10)
+        cls.selenium.implicitly_wait(20)
 
     @classmethod
     def tearDownClass(cls):
