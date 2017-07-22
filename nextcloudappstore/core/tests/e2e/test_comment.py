@@ -6,7 +6,14 @@ from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
 class CommentAppTest(BaseStoreTest):
-    fixtures = ['admin.json', 'apps.json']
+    fixtures = [
+        'categories.json',
+        'databases.json',
+        'licenses.json',
+        'nextcloudreleases.json',
+        'admin.json',
+        'apps.json',
+    ]
 
     def test_comment(self):
         self.login()
