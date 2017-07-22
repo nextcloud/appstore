@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 00:28+0000\n"
+"POT-Creation-Date: 2017-07-22 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: 王亮亮 <i@yimis.com>, 2017\n"
+"Last-Translator: ALEX Mikealson <wzwsad22@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "损坏"
 
 #: nextcloudappstore/core/forms.py:11
 msgid "OK"
-msgstr ""
+msgstr "好"
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:171
@@ -55,7 +55,7 @@ msgstr "下载链接(tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "SHA-512数字签名"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -86,10 +86,14 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"证书默认保存在 "
+"~/.nextcloud/certificates/APP_ID.crt，APP_ID即为你的应用ID。如果你没有证书需要先申请/创建一个证书（签名）并上传到证书存储库（参考README）。你可以通过如下命令生成签名：openssl"
+" req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
-msgstr ""
+msgstr "使用SHA-512签名，签名你的应用ID"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -415,7 +419,7 @@ msgstr "Id"
 
 #: nextcloudappstore/core/models.py:458
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr ""
+msgstr "当上传应用时分类ID有助于确定应用分类"
 
 #: nextcloudappstore/core/models.py:466
 msgid "Category name which will be presented to the user"
@@ -728,7 +732,7 @@ msgstr "所有的应用程序"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr ""
+msgstr "%(app_name)s最新版本"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -879,7 +883,7 @@ msgid ""
 "signature, check out the <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
-msgstr ""
+msgstr "有关如何获取证书和创建签名的更多信息请查阅应用开发指南"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -894,7 +898,7 @@ msgstr "不是一个公共证书"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr ""
+msgstr "应用已注册"
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -963,7 +967,7 @@ msgstr "上传"
 #: nextcloudappstore/core/templates/base.html:18
 #: nextcloudappstore/core/templates/base.html:19
 msgid "Latest app releases"
-msgstr ""
+msgstr "最新版本"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
