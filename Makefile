@@ -79,6 +79,9 @@ clean:
 
 .PHONE: test-data
 test-data:
+	$(manage) createtestuser --username user1 --password user1 --email user1@user.com --settings nextcloudappstore.settings.development
+	$(manage) createtestuser --username user2 --password user2 --email user2@user.com --settings nextcloudappstore.settings.development
+	$(manage) createtestuser --username user3 --password user3 --email user3@user.com --settings nextcloudappstore.settings.development
 	$(python) $(CURDIR)/scripts/development/testdata.py
 
 .PHONE: l10n

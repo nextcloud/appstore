@@ -6,7 +6,8 @@
 
 - Add games category
 - Add a newest release feed for each app on their detail page, #496
-
+- Add a createtestuser command for easily setting up users in development
+  
 ### Removed
 
 - Dropped Node.js 7 support and require Node.js 8+

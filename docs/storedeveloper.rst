@@ -47,6 +47,22 @@ If you are developing and wish to automatically compile on filechanges run::
 
     yarn run watch
 
+
+Users
+~~~~~
+
+By default the following users will be ready to use:
+
+* admin
+
+Running **make test-data** will additionally create the following users:
+
+* user1
+* user2
+* user3
+
+All users have the same password as their username
+
 Testing
 ~~~~~~~
 
