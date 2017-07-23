@@ -24,7 +24,8 @@
             {% csrf_token %}
             {% include 'form-fields.html' %}
 
-            <input type="submit" class="btn btn-primary btn-block" value="{% trans 'Register' %}">
+            <input type="submit" id="submit" class="btn btn-primary btn-block"
+                   value="{% trans 'Register' %}">
         </form>
     </div>
 {% endblock %}

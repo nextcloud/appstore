@@ -18,5 +18,16 @@ def create_user(username, password, email):
     return user
 
 
+def validate_email(username, email):
+    user = get_user_model().objects.get(username=username)
+    address, created = EmailAddress.objects.get_or_create(
+        user=user,
+        email=email,
+    )
+    address.verified = True
+    address.primary = True
+    address.save()
+
+
 def delete_user(username):
     get_user_model().objects.get(username=username).delete()
