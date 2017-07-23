@@ -34,7 +34,11 @@ class CommentAppTest(BaseStoreTest):
 
     def _rate(self, rating: Rating, comment: str) -> None:
         self.by_id('toggle-comment-button').click()
-        self.by_id(rating.value).click()
-        Select(self.by_id('id_language_code')).select_by_value('en')
-        self.by_id('id_comment').send_keys(comment)
-        self.by_css('#app-ratings form input[type="submit"]').click()
+
+        def rate_app(el):
+            self.by_id(rating.value).click()
+            Select(self.by_id('id_language_code')).select_by_value('en')
+            self.by_id('id_comment').send_keys(comment)
+            self.by_css('#app-ratings form input[type="submit"]').click()
+
+        self.wait_for('#id_language_code', rate_app)
