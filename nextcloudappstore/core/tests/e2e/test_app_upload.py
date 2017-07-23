@@ -1,8 +1,9 @@
 from enum import Enum
 
-from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, NEWS_SIGNATURE
+from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, \
+    NEWS_SIGNATURE, \
+    NEWS_CERT
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-from nextcloudappstore.core.tests.e2e.facades import validate_email
 
 
 class Rating(Enum):
@@ -17,8 +18,6 @@ class UploadAppReleaseTest(BaseStoreTest):
         'databases.json',
         'licenses.json',
         'nextcloudreleases.json',
-        'admin.json',
-        'apps.json',
     ]
 
     def test_upload_invalid_url(self):
@@ -28,9 +27,7 @@ class UploadAppReleaseTest(BaseStoreTest):
                       lambda el: self.assertTrue(el.is_displayed()))
 
     def test_upload(self):
-        validate_email('admin', 'admin@admin.com')
-        self.login('admin', 'admin')
-        self._upload_app(NEWS_ARCHIVE_URL, NEWS_SIGNATURE)
+        self.login()
 
         def check_app_version_page(el):
             self.go_to_app('news')
@@ -40,10 +37,21 @@ class UploadAppReleaseTest(BaseStoreTest):
             self.assertEqual('11.0.5', a.text)
             self.assertEqual(NEWS_ARCHIVE_URL, a.get_attribute('href'))
 
-        self.wait_for('.global-success-msg', check_app_version_page)
+        def upload_app(el):
+            self._upload_app(NEWS_ARCHIVE_URL, NEWS_SIGNATURE)
+            self.wait_for('.global-success-msg', check_app_version_page)
+
+        self._register_app(NEWS_CERT, NEWS_SIGNATURE)
+        self.wait_for('.global-success-msg', upload_app)
 
     def _upload_app(self, url, sig):
         self.go_to_app_upload()
         self.by_id('id_download').send_keys(url)
+        self.by_id('id_signature').send_keys(sig)
+        self.by_id('submit').click()
+
+    def _register_app(self, cert, sig):
+        self.go_to_app_register()
+        self.by_id('id_certificate').send_keys(cert)
         self.by_id('id_signature').send_keys(sig)
         self.by_id('submit').click()
