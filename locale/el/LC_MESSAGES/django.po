@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-25 00:29+0000\n"
+"POT-Creation-Date: 2017-07-26 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Marios Bibis <bibakos2003@yahoo.gr>, 2017\n"
+"Last-Translator: Salih Emin <cerebrux.gr@gmail.com>, 2017\n"
 "Language-Team: Greek (https://www.transifex.com/nextcloud/teams/64236/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "Κακό"
 
 #: nextcloudappstore/core/forms.py:11
 msgid "OK"
-msgstr ""
+msgstr "Εντάξει"
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:171
@@ -55,7 +55,7 @@ msgstr "Λήψη συνδέσμου (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "Υπογραφή SHA-512"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -63,9 +63,9 @@ msgid ""
 " -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
 "base64</b>"
 msgstr ""
-"Μπορεί να πραγματοποιηθεί εκτελώντας την εντολή που ακολουθεί:<openssl dgst "
-"-sha512 -sign~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | "
-"openssl base64</b>"
+"Μπορεί να παραχθεί εκτελώντας την ακόλουθη εντολή <b>openssl dgst -sha512 "
+"-sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:26 nextcloudappstore/core/models.py:375
 msgid "Nightly"
@@ -86,10 +86,19 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Συνήθως αποθηκεύεται στο ~/.nextcloud/certificates/APP_ID.crt όπου το APP_ID"
+" είναι το ID της εφαρμογής σας. Εάν δεν διαθέτετε ένα πιστοποιητικό "
+"χρειάζεται να δημιουργήσετε ένα πιστοποιητικό αιτήματος υπογραφής (CSR) "
+"πρώτα, το οποίο πρέπει να δημοσιευτεί στο <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">αποθετήριο πιστοποιητικών</a>(ακολουθήστε το "
+"README). Μπορείτε να παράγετε ένα CSR εκτελώντας την ακόλουθη εντολή: "
+"<b>openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr "
+"-subj \"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
-msgstr ""
+msgstr "Υπογραφή SHA-512 επάνω στο ID της εφαρμογής σας"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -97,9 +106,9 @@ msgid ""
 " openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
 "base64</b>"
 msgstr ""
-"Μπορεί να πραγματοποιηθεί εκτελώντας την εντολή που ακολουθεί: <b>echo -n "
-"\"APP_ID\" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key"
-" | openssl base64</b>"
+"Μπορεί να παραχθεί εκτελώντας την ακόλουθη εντολή: <b>echo -n \"APP_ID\" | "
+"openssl dgst -sha512 -sign ~/.nextcloud/certificates/APP_ID.key | openssl "
+"base64</b>"
 
 #: nextcloudappstore/core/forms.py:69
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -111,8 +120,8 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
-"<b>Προσοχή</b>: Αλλαγή στην γλώσσα θα διαγράψει το παρόν σχόλιο. Οι αλλαγές "
-"δεν θα αποθηκευτούν."
+"<b>Σημαντικό</b>: Αλλαγή στην γλώσσα θα διαγράψει το παρόν σχόλιο. Οι "
+"αλλαγές δεν θα αποθηκευτούν!"
 
 #: nextcloudappstore/core/forms.py:76
 msgid "Comment"
@@ -124,7 +133,7 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "Η app ID, ταυτίζεται με το όνομα του φακέλου"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:473
 msgid "Category"
@@ -137,7 +146,7 @@ msgstr "Όνομα"
 
 #: nextcloudappstore/core/models.py:68
 msgid "Rendered app name for users"
-msgstr "To  app όνομα που έχει οριστεί από τους χρήστες"
+msgstr "Καθορισμένο όνομα εφαρμογής για χρήστες"
 
 #: nextcloudappstore/core/models.py:69
 #: nextcloudappstore/core/scaffolding/forms.py:44
@@ -155,24 +164,24 @@ msgstr "Περιγραφή"
 
 #: nextcloudappstore/core/models.py:73 nextcloudappstore/core/models.py:469
 msgid "Will be rendered as Markdown"
-msgstr "Μπορεί να οριστεί ως  Markdown"
+msgstr "Θα αποδοθεί ως Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL τεκμηρίωσης χρήστη"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL τεκμηρίωσης διαχειριστή"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL τεκμηρίωσης προγραμματιστή"
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
 msgid "Issue tracker URL"
-msgstr "Παρακολούθηση προβλημάτων URL "
+msgstr "URL παρακολούθησης ζητημάτων"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
 #: nextcloudappstore/core/templates/app/detail.html:96
@@ -196,7 +205,7 @@ msgstr "Ο κάτοχος της εφαρμογής"
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
-msgstr "Συνυποστηρικτές"
+msgstr "Συν-Συντηρητές"
 
 #: nextcloudappstore/core/models.py:95 nextcloudappstore/core/models.py:331
 msgid "App authors"
@@ -211,25 +220,24 @@ msgstr "Προτεινόμενο"
 #: nextcloudappstore/core/models.py:97
 #: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
-msgstr "Πρόσφατη ταξινόμηση"
+msgstr "Πρόσφατη αξιολόγηση"
 
 #: nextcloudappstore/core/models.py:98
 #: nextcloudappstore/core/templates/app/detail.html:75
 msgid "Overall rating"
-msgstr "Ολοκληρωμένη ταξινόμηση"
+msgstr "Συνολική αξιολόγηση"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Number of recently submitted ratings"
-msgstr "Ο αριθμός των τελευταίων ταξινομήσεων που έχει υποβληθεί"
+msgstr "Ο αριθμός των πρόσφατων υποβεβλημένων αξιολογήσεων"
 
 #: nextcloudappstore/core/models.py:102
 msgid "Number of overall submitted ratings"
-msgstr ""
-"Ο αριθμός των τελευταίων ολοκληρωμένων ταξινομήσεων που έχει υποβληθεί"
+msgstr "Ο αριθμός των συνολικών υποβεβλημένων αξιολογήσεων"
 
 #: nextcloudappstore/core/models.py:104
 msgid "Last release at"
-msgstr "Τελευταία αποδέσμευση στις"
+msgstr "Τελευταία κυκλοφορία στις"
 
 #: nextcloudappstore/core/models.py:106
 #: nextcloudappstore/core/templates/app/releases.html:39
@@ -245,9 +253,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Έαν ενεργοποιημένη, ένας χρήστης μπορεί να δοκιμάσει να καταχωρίσει την ίδια"
-" εφαρμογή ξανά χρησιμοποιώντας το δημόσιο πιστοποιητικό και υπογραφή. Εάν το"
-" κάνει, η εφαρμογή θα μεταφερθεί σε αυτόν. "
+"Εάν είναι ενεργοποιημένη, ένας χρήστης μπορεί να δοκιμάσει να καταχωρίσει "
+"την ίδια εφαρμογή ξανά χρησιμοποιώντας το δημόσιο πιστοποιητικό και "
+"υπογραφή. Εάν το κάνει, η εφαρμογή θα μεταφερθεί σε αυτόν. "
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:260
 #: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:419
@@ -272,23 +280,23 @@ msgstr "Βαθμολογία"
 
 #: nextcloudappstore/core/models.py:265
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "Ταξινόμηση από 0.0 (χειρότερο) στο 1.0 (καλύτερο)"
+msgstr "Αξιολόγηση από 0.0 (χειρότερο) στο 1.0 (καλύτερο)"
 
 #: nextcloudappstore/core/models.py:268
 msgid "Rating comment"
-msgstr "Βαθμολογία σχολίου"
+msgstr "Αξιολόγηση σχολίου"
 
 #: nextcloudappstore/core/models.py:269
 msgid "Rating comment in Markdown"
-msgstr "Ταξινόμηση σχολείων στο Markdown"
+msgstr "Αξιολόγηση σχολίων σε Markdown"
 
 #: nextcloudappstore/core/models.py:275
 msgid "App rating"
-msgstr "Ταξινόμηση εφαρμογής"
+msgstr "Αξιολόγηση εφαρμογής"
 
 #: nextcloudappstore/core/models.py:276
 msgid "App ratings"
-msgstr "Ταξινομήσεις εφαρμογής"
+msgstr "Αξιολογήσεις εφαρμογής"
 
 #: nextcloudappstore/core/models.py:317
 msgid "Full name"
@@ -308,7 +316,7 @@ msgstr "Έκδοση"
 
 #: nextcloudappstore/core/models.py:336
 msgid "Version follows Semantic Versioning"
-msgstr "Η έκδοση ακολουθεί  Semantic Versioning"
+msgstr "Η έκδοση ακολουθεί Σημασιολογική Διαχείριση Εκδόσεων"
 
 #: nextcloudappstore/core/models.py:343 nextcloudappstore/core/models.py:565
 msgid "PHP extension dependency"
@@ -324,36 +332,36 @@ msgstr "Άδεια χρήσης"
 
 #: nextcloudappstore/core/models.py:350
 msgid "Shell command dependency"
-msgstr "Εξαρτήσεις εντολής κελιού"
+msgstr "Εξαρτήσεις εντολής κελύφους"
 
 #: nextcloudappstore/core/models.py:352
 msgid "PHP version requirement"
-msgstr "Απαιτείται έκδοση PHP"
+msgstr "Απαίτηση έκδοσης PHP"
 
 #: nextcloudappstore/core/models.py:354
 msgid "Platform version requirement"
-msgstr "Απαιτείται έκδοση πλατφόρμας"
+msgstr "Απαίτηση έκδοσης πλατφόρμας"
 
 #: nextcloudappstore/core/models.py:357
 msgid "PHP version requirement (raw)"
-msgstr "Απαιτείται έκδοση PHP (raw=ακατέργαστα αρχεία)"
+msgstr "Απαίτηση έκδοσης PHP (ανεπεξέργαστη)"
 
 #: nextcloudappstore/core/models.py:359
 msgid "Platform version requirement (raw)"
-msgstr "Απαιτείται έκδοση πλατφόρμας (raw=ακατέργαστα αρχεία)"
+msgstr "Απαίτηση έκδοσης πλατφόρμας (ανεπεξέργαστα)"
 
 #: nextcloudappstore/core/models.py:361
 #: nextcloudappstore/core/templates/app/releases.html:68
 msgid "Minimum Integer bits"
-msgstr "Ελάχιστο δεκαδικό ψηφίο"
+msgstr "Ελάχιστα ακέραια δυαδικά ψηφία"
 
 #: nextcloudappstore/core/models.py:362
 msgid "e.g. 32 for 32bit Integers"
-msgstr "Για παράδειγμα 32 για 32 δεκαδικά ψηφία"
+msgstr "πχ. 32 για 32bit ακέραιους"
 
 #: nextcloudappstore/core/models.py:364
 msgid "Archive download URL"
-msgstr ""
+msgstr "URL λήψης αρχείου"
 
 #: nextcloudappstore/core/models.py:369
 msgid "Signature"
@@ -361,16 +369,17 @@ msgstr "Υπογραφή"
 
 #: nextcloudappstore/core/models.py:370
 msgid "A signature using SHA512 and the app's certificate"
-msgstr "Υπογραφή χρήστη SHA512 και το πιστοποιητικό της εφαρμογής"
+msgstr ""
+"Μια υπογραφή που χρησιμοποιεί SHA512 και το πιστοποιητικό της εφαρμογής"
 
 #: nextcloudappstore/core/models.py:372
 #: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Changelog"
-msgstr "Αλλαγή λογότυπου"
+msgstr "Αρχείο καταγραφής αλλαγών"
 
 #: nextcloudappstore/core/models.py:373
 msgid "The release changelog. Can contain Markdown"
-msgstr "Το διαθέσιμο αλλαγμένο λογότυπο.Μπορεί να περιλαμβάνει Markdown"
+msgstr "Το αρχείο καταγραφής αλλαγών έκδοσης. Μπορεί να περιέχει Markdown"
 
 #: nextcloudappstore/core/models.py:378 nextcloudappstore/core/models.py:518
 #: nextcloudappstore/core/models.py:553
@@ -383,15 +392,15 @@ msgstr "Εκδόσεις εφαρμογής"
 
 #: nextcloudappstore/core/models.py:416
 msgid "Image URL"
-msgstr ""
+msgstr "URL εικόνας"
 
 #: nextcloudappstore/core/models.py:418
 msgid "Small thumbnail"
-msgstr "Ο μικρότερος δάκτυλος"
+msgstr "Μικρή μικρογραφία"
 
 #: nextcloudappstore/core/models.py:421
 msgid "Ordering"
-msgstr "Διάταξη"
+msgstr "Σειρά"
 
 #: nextcloudappstore/core/models.py:424
 #: nextcloudappstore/core/templates/app/detail.html:50
@@ -410,7 +419,7 @@ msgstr "Εντολή κελύφους"
 
 #: nextcloudappstore/core/models.py:443
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Το όνομα μίας εντολής κελιού που απαιτείται, για παράδειγμα grep"
+msgstr "Το όνομα μιας απαιτούμενης εντολής κελύφους, πχ. grep"
 
 #: nextcloudappstore/core/models.py:447
 #: nextcloudappstore/core/templates/app/releases.html:60
@@ -425,6 +434,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:458
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"ID κατηγορίας που χρησιμοποιείται για την αναγνώριση της κατηγορίας στην "
+"οποία έχει μεταφορτωθεί η εφαρμογή"
 
 #: nextcloudappstore/core/models.py:466
 msgid "Category name which will be presented to the user"
@@ -437,26 +448,24 @@ msgstr "Κατηγορίες"
 
 #: nextcloudappstore/core/models.py:485
 msgid "Key which is used to identify a license"
-msgstr ""
-"Η λέξη κλειδί που χρησιμοποιείται για την αναγνώριση μιας άδειας χρήσης"
+msgstr "Το κλειδί που χρησιμοποιείται για να αναγνωριστεί μιας άδειας χρήσης"
 
 #: nextcloudappstore/core/models.py:488
 msgid "License name which will be presented to the user"
-msgstr "Το όνομα της άδειας χρήσης που θα παρουσιάζεται στο χρήστη"
+msgstr "Το όνομα της άδειας χρήσης που θα παρουσιαστεί στο χρήστη"
 
 #: nextcloudappstore/core/models.py:493
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
-msgstr "Άδειες χρήσης"
+msgstr "Άδειες Χρήσης"
 
 #: nextcloudappstore/core/models.py:502
 msgid "Key which is used to identify a database"
-msgstr ""
-"Η λέξη κλειδί που χρησιμοποιείται για την αναγνώριση μιας βάσης δεδομένων"
+msgstr "Το κλειδί που χρησιμοποιείται για να αναγνωριστεί μια βάση δεδομένων"
 
 #: nextcloudappstore/core/models.py:505
 msgid "Database name which will be presented to the user"
-msgstr "Το όνομα της βάσης δεδομένων όπως θα παρουσιάζεται στο χρήστη"
+msgstr "Το όνομα της βάσης δεδομένων που θα παρουσιαστεί στο χρήστη"
 
 #: nextcloudappstore/core/models.py:508 nextcloudappstore/core/models.py:521
 msgid "Database"
@@ -469,11 +478,11 @@ msgstr "Βάσεις δεδομένων"
 
 #: nextcloudappstore/core/models.py:523
 msgid "Database version requirement"
-msgstr "Απαιτείται έκδοση βάσης δεδομένων"
+msgstr "Απαίτηση έκδοσης βάσης δεδομένων"
 
 #: nextcloudappstore/core/models.py:526
 msgid "Database version requirement (raw)"
-msgstr "Απαιτείται έκδοση βάσης δεδομένων(raw=ακατέργαστων αρχείων)"
+msgstr "Απαίτηση έκδοσης βάσης δεδομένων (ανεπεξέργαστη)"
 
 #: nextcloudappstore/core/models.py:530
 msgid "Database dependencies"
@@ -481,25 +490,25 @@ msgstr "Εξαρτήσεις βάσης δεδομένων"
 
 #: nextcloudappstore/core/models.py:539
 msgid "e.g. libxml"
-msgstr "πχ libxml"
+msgstr "πχ. libxml"
 
 #: nextcloudappstore/core/models.py:540 nextcloudappstore/core/models.py:543
 #: nextcloudappstore/core/models.py:556
 msgid "PHP extension"
-msgstr "Προέκταση PHP"
+msgstr "Επέκταση PHP"
 
 #: nextcloudappstore/core/models.py:544
 #: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP extensions"
-msgstr "Προεκτάσεις PHP"
+msgstr "Επεκτάσεις PHP"
 
 #: nextcloudappstore/core/models.py:559
 msgid "Extension version requirement"
-msgstr "Απαιτείται έκδοση επέκτασης"
+msgstr "Απαίτηση έκδοσης επέκτασης"
 
 #: nextcloudappstore/core/models.py:562
 msgid "Extension version requirement (raw)"
-msgstr "Απαιτείται έκδοση επέκτασης (raw-ακατέργαστων αρχείων)"
+msgstr "Απαίτηση έκδοσης επέκτασης (ανεπεξέργαστη)"
 
 #: nextcloudappstore/core/models.py:566
 msgid "PHP extension dependencies"
@@ -507,11 +516,11 @@ msgstr "Εξαρτήσεις επεκτάσεων PHP"
 
 #: nextcloudappstore/core/models.py:591
 msgid "App release deletion"
-msgstr "Διαγραφή της τρέχουσας εφαρμογής"
+msgstr "Διαγραφή κυκλοφορίας εφαρμογής"
 
 #: nextcloudappstore/core/models.py:592
 msgid "App release deletions"
-msgstr "Διαγραφές τρέχων εφαρμογών"
+msgstr "Διαγραφές κυκλοφορίας εφαρμογής"
 
 #: nextcloudappstore/core/models.py:605
 #: nextcloudappstore/core/scaffolding/forms.py:34
@@ -520,7 +529,7 @@ msgstr "Έκδοση Nextcloud"
 
 #: nextcloudappstore/core/models.py:606
 msgid "e.g. 9.0.54"
-msgstr "πχ 9.0.54"
+msgstr "πχ. 9.0.54"
 
 #: nextcloudappstore/core/models.py:607
 msgid "Is current version"
@@ -531,6 +540,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Μόνο μια έκδοση μπορεί να είναι η τρέχουσα. Αυτό το πεδίο χρησιμοποιείται "
+"για την προεπιλογή αναπτυσσόμενων μενού για τη δημιουργία εφαρμογής, κλπ. "
 
 #: nextcloudappstore/core/models.py:615
 msgid "Nextcloud release"
@@ -543,8 +554,7 @@ msgstr "Εκδόσεις Nextcloud"
 #: nextcloudappstore/core/scaffolding/forms.py:26
 #: nextcloudappstore/core/scaffolding/forms.py:32
 msgid "The app name must be camel case e.g. MyApp"
-msgstr ""
-"Το όνομα της εφαρμογής πρέπει να είναι κιβώτιο καμήλας για παράδειγμα MyApp"
+msgstr "Το όνομα της εφαρμογής πρέπει να είναι πεζοκεφαλαία πχ. MyApp"
 
 #: nextcloudappstore/core/scaffolding/forms.py:30
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
@@ -557,15 +567,15 @@ msgstr "Το πλήρες όνομα του δημιουργού"
 
 #: nextcloudappstore/core/scaffolding/forms.py:36
 msgid "Author's e-mail"
-msgstr "Ηλ. διεύθυνση συγγραφέα"
+msgstr "E-mail δημιουργού"
 
 #: nextcloudappstore/core/scaffolding/forms.py:37
 msgid "Author's homepage"
-msgstr "Ιστοσελίδα συγγραφέα"
+msgstr "Ιστοσελίδα δημιουργού"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"
-msgstr "Αναφορά προβλημάτων και αιτήματα χαρακτηριστικών "
+msgstr "Αναφορά σφαλμάτων και αιτήματα δυνατοτήτων"
 
 #: nextcloudappstore/core/scaffolding/forms.py:42
 msgid "Hold down CTRL and click to select multiple entries"
@@ -576,14 +586,12 @@ msgstr ""
 #: nextcloudappstore/core/scaffolding/forms.py:45
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
-"Μικρή περιγραφή της εφαρμογής σας όπου θα παρουσιάζεται σαν μικρή "
-"σπαζοκεφαλιά"
+"Μια μικρή περιγραφή της εφαρμογής σας που θα παρουσιαστεί ως μικρό απόσπασμα"
 
 #: nextcloudappstore/core/scaffolding/forms.py:47
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
-"Πλήρης περιγραφή του τι δύναται να κάνει η εφαρμογή σας.Μπορεί να "
-"περιλαμβάνει Markdown."
+"Πλήρης περιγραφή του τι κάνει η εφαρμογή σας. Μπορεί να περιέχει Markdown."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -592,7 +600,7 @@ msgstr "Δεν επιτρέπεται"
 
 #: nextcloudappstore/core/templates/403.html:10
 msgid "You are forbidden to access this page!"
-msgstr "Δεν επιτρέπεται πρόσβαση σε αυτή τη σελίδα!"
+msgstr "Δεν σας επιτρέπεται η πρόσβαση σε αυτή τη σελίδα!"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
@@ -621,7 +629,7 @@ msgstr ""
 "\n"
 "Λαμβάνετε αυτό το e-mail επειδή ο χρήστης %(user_display)s έχει συνδέσει αυτή την διεύθυνση e-mail με τον λογαριασμό του στο %(site_domain)s.\n"
 "\n"
-"Για να επιβεβαιώσετε ότι αυτό είναι σωστό, πατήστε στο %(activate_url)s\n"
+"Για να επιβεβαιώσετε ότι αυτό είναι σωστό, πηγαίνετε στο %(activate_url)s\n"
 "\n"
 "Αν δεν έχετε έναν λογαριασμό στο %(site_domain)s, απλά αγνοήστε αυτό το μήνυμα.\n"
 
@@ -631,13 +639,13 @@ msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
 msgstr ""
-"Σας ευχαριστούμε απο το %(site_name)s\n"
+"Σας ευχαριστούμε από το %(site_name)s\n"
 "%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
-msgstr "Επαλήθευση διεύθυνσης ηλ. ταχυδρομείου"
+msgstr "Επαλήθευση διεύθυνσης E-mail"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -646,7 +654,7 @@ msgid ""
 "address for user %(user_display)s."
 msgstr ""
 "Παρακαλώ επιβεβαιώστε ότι η <a href=\"mailto:%(email)s\">%(email)s</a> είναι"
-" ηλ. διεύθυνση για τον χρήστη %(user_display)s."
+" μια διεύθυνση e-mail για τον χρήστη %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -658,8 +666,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Αυτός ο σύνδεσμος επιβεβαίωσης έληξε ή δεν είναι έγκυρος. Παρακαλούμε <a "
-"href=\"%(email_url)s\">κάντε ένα νέο αίτημα επιβεβαίωσης με e-mail</a>."
+"Αυτός ο σύνδεσμος επιβεβαίωσης e-mail έληξε ή είναι άκυρος. Παρακαλούμε <a "
+"href=\"%(email_url)s\">αποστείλετε ένα νέο αίτημα επιβεβαίωσης e-mail</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -668,7 +676,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
 #: nextcloudappstore/core/templates/nav.html:81
 msgid "Log in"
-msgstr "Είσοδος"
+msgstr "Σύνδεση"
 
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/signup.html:25
@@ -692,16 +700,15 @@ msgstr "Εγγραφή"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
-msgstr "Ανάκτηση του κωδικού πρόσβασης"
+msgstr "Ανάκτηση κωδικού πρόσβασης"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
-"Έχεις ξεχάσει τον κωδικό πρόσβασης σου;Εισήγαγε την ηλεκτρονική σου "
-"διεύθυνση παρακάτω,και θα σου αποστείλουμε ένα επιβεβαιωτικό ηλεκτρονικό "
-"μήνυμα που θα σου επιτρέπει να το ανακτήσεις πάλι"
+"Έχετε ξεχάσει το συνθηματικό σας; Εισάγετε την διεύθυνση e-mail παρακάτω, "
+"και θα σας στείλουμε ένα e-mail που θα σας επιτρέψει να το επαναφέρετε."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -710,12 +717,12 @@ msgstr "Επαναφορά συνθηματικού"
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Παρακαλούμε όπως επικοινωνήσετε μαζί μας εφόσον έχετε πρόβλημα στην ανάκτηση"
-" του ιδίου σας κωδικού πρόσβασης"
+"Παρακαλούμε όπως επικοινωνήσετε μαζί μας αν έχετε πρόβλημα στην ανάκτηση του"
+" συνθηματικού σας"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr ""
+msgstr "Μη έγκυρο API Token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -745,11 +752,11 @@ msgstr "Δημιουργία λογαριασμού"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr ""
+msgstr "Διαχειριστής του Nextcloud App Store"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr ""
+msgstr "Διαχείριση Nextcloud App Store"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -760,7 +767,7 @@ msgstr "Όλες οι εφαρμογές"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr ""
+msgstr "Τελευταίες %(app_name)s εκδόσεις"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -773,11 +780,11 @@ msgstr "Επόμενο"
 #: nextcloudappstore/core/templates/app/detail.html:62
 #: nextcloudappstore/core/templates/app/releases.html:27
 msgid "Updated"
-msgstr "Ενημέρωση"
+msgstr "Ενημερωμένο"
 
 #: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
-msgstr "Δημοσιευτής "
+msgstr "Εκδότης"
 
 #: nextcloudappstore/core/templates/app/detail.html:93
 msgid "Resources"
@@ -823,7 +830,7 @@ msgstr "Αναφορά προβλήματος"
 
 #: nextcloudappstore/core/templates/app/detail.html:135
 msgid "Request feature"
-msgstr "Αίτημα χαρακτηριστικού "
+msgstr "Αίτημα δυνατότητας"
 
 #: nextcloudappstore/core/templates/app/detail.html:137
 msgid "Ask questions or discuss"
@@ -831,11 +838,11 @@ msgstr "Κάνε ερωτήσεις ή συζήτηση"
 
 #: nextcloudappstore/core/templates/app/detail.html:139
 msgid "Rate app"
-msgstr "Βαθμολογήστε την εφαρμογή"
+msgstr "Αξιολογήστε την εφαρμογή"
 
 #: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Rate"
-msgstr "Βαθμολογίστε"
+msgstr "Αξιολογήστε"
 
 #: nextcloudappstore/core/templates/app/detail.html:151
 msgid ""
@@ -843,18 +850,21 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Η αξιολόγηση των σχολίων υποστηρίζει <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Μην χρησιμοποιείτε την αξιολόγηση των σχολίων για αναφορά σφαλμάτων η για να ζητήσετε νέα χαρακτηριστικά. Ούτε οι προγραμματιστές, αλλά ούτε και οι χρήστες θα ειδοποιηθούν για το σχόλιό σας.\n"
+"                            Η αξιολόγηση χωρίς σχόλιο θα μετρήσει πάραυτα, χωρίς να προβληθεί από κάτω."
 
 #: nextcloudappstore/core/templates/app/detail.html:156
 msgid "Update rating"
-msgstr "Ενημέρωση βαθμολογίας"
+msgstr "Ενημέρωση αξιολόγησης"
 
 #: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Submit rating"
-msgstr "Καταχώριση βαθμολογίας"
+msgstr "Αποστολή αξιολόγησης"
 
 #: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
-msgstr "OΚ"
+msgstr "Εντάξει"
 
 #: nextcloudappstore/core/templates/app/detail.html:185
 msgid "No comments found."
@@ -862,19 +872,19 @@ msgstr "Δεν βρέθηκαν σχόλια."
 
 #: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Rating comments"
-msgstr "Βαθμολογία σχολίων"
+msgstr "Αξιολόγηση σχολίων"
 
 #: nextcloudappstore/core/templates/app/detail.html:197
 msgid "Display ratings comments in:"
-msgstr ""
+msgstr "Προβολή αξιολόγησης σχολίων"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr ""
+msgstr "Αξιολόγηση (πρόσφατη)"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
-msgstr "Τελευταία "
+msgstr "Τελευταία"
 
 #: nextcloudappstore/core/templates/app/list.html:19
 #: nextcloudappstore/core/templates/app/list.html:21
@@ -911,6 +921,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Για περισσότερες πληροφορίες πως να λάβετε το πιστοποιητικό και να "
+"δημιουργήσετε την υπογραφή, δείτε τον <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">οδηγό εφαρμογών για προγραμματιστές</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -918,6 +932,10 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Αυτή η φόρμα μπορεί επίσης να χρησιμοποιηθεί για την ανανέωση των υπαρχόντων"
+" πιστοποιητικών, ωστόσο μόνον ο ιδιοκτήτης της εφαρμογής επιτρέπεται να "
+"κάνει κάτι τέτοιο. Η ανανέωση ενός πιστοποιητικού εφαρμογής θα διαγράψει "
+"όλες τις ήδη μεταφορτωμένες εκδόσεις! "
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -925,7 +943,7 @@ msgstr "Όχι ένα δημόσιο πιστοποιητικό"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr ""
+msgstr "Η εφαρμογή καταχωρήθηκε."
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -950,7 +968,7 @@ msgstr "Εξαρτήσεις"
 
 #: nextcloudappstore/core/templates/app/releases.html:45
 msgid "Required Nextcloud versions"
-msgstr "Απαιτούμενες Nextcloud εκδόσεις. "
+msgstr "Απαιτούμενες εκδόσεις Nextcloud. "
 
 #: nextcloudappstore/core/templates/app/releases.html:70
 msgid "PHP"
@@ -970,12 +988,12 @@ msgstr "Δημιουργία και λήψη"
 #: nextcloudappstore/core/templates/app/upload.html:13
 #: nextcloudappstore/core/templates/nav.html:60
 msgid "Upload app release"
-msgstr ""
+msgstr "Μεταφόρτωση έκδοσης εφαρμογής"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr ""
+msgstr "Η έκδοση εφαρμογής μεταφορτώθηκε επιτυχώς."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -983,15 +1001,19 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Για περισσότερες πληροφορίες πως να δημιουργήσετε την υπογραφή SHA512 δείτε "
+"στον <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">οδηγό εφαρμογών για προγραμματιστές</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
-msgstr "Αποστολή"
+msgstr "Μεταφόρτωση"
 
 #: nextcloudappstore/core/templates/base.html:18
 #: nextcloudappstore/core/templates/base.html:19
 msgid "Latest app releases"
-msgstr ""
+msgstr "Τελευταίες εκδόσεις εφαρμογών"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
@@ -999,11 +1021,11 @@ msgstr "Fork me στο GitHub"
 
 #: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
-msgstr ""
+msgstr "Ιδιωτικό και νόμιμο"
 
 #: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
-msgstr ""
+msgstr "Νομική Ειδοποίηση"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -1025,7 +1047,7 @@ msgstr "Αναζήτηση"
 
 #: nextcloudappstore/core/templates/nav.html:33
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Εναλλαγή πλοήγησης"
 
 #: nextcloudappstore/core/templates/nav.html:46
 msgid "App developer"
@@ -1057,16 +1079,18 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Πρόκειται να χρησιμοποιήσετε τον λογαριασμό %(provider_name)s για να συνδεθείτε στο\n"
+"           %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την ακόλουθη φόρμα:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
-msgstr "Αυθεντικοποίηση και εξουσιοδότηση "
+msgstr "Έλεγχος ταυτότητας και εξουσιοδότηση "
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Apps that provide additional authentication or authorization services"
 msgstr ""
-"Εφαρμογές που παρέχουν περαιτέρω υπηρεσίες αυθεντικοποίησης η "
-"εξουσιοδότησης. "
+"Εφαρμογές που παρέχουν περαιτέρω υπηρεσίες ελέγχου ταυτότητας ή "
+"εξουσιοδότησης."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1074,7 +1098,7 @@ msgstr "Προσαρμογή"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Themes, layout and UX change apps"
-msgstr "Εφαρμογή αλλαγής θέματος, διάταξης και UX"
+msgstr "Εφαρμογές αλλαγής θέματος, διάταξης και UX"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1082,15 +1106,15 @@ msgstr "Αρχεία"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
-msgstr ""
+msgstr "Διαχείριση αρχείων και επέκταση εφαρμογής Αρχεία για εφαρμογές"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
-msgstr ""
+msgstr "Παιχνίδια"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Games run in your Nextcloud"
-msgstr ""
+msgstr "Παιχνίδια που τρέχουν στο Nextcloud σας"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Integration"
@@ -1107,6 +1131,7 @@ msgstr "Παρακολούθηση"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
+"Στατιστικά δεδομένων, διαγνωστικά συστήματος και δραστηριότητα εφαρμογών"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Multimedia"
@@ -1130,15 +1155,16 @@ msgstr "Οργανισμός"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, Todo list and calendar apps"
-msgstr "Εφαρμογές διαχείρισης χρόνου, Todo λίστες και ημερολόγια "
+msgstr "Εφαρμογές διαχείρισης χρόνου, λιστών εκκρεμοτήτων και ημερολόγια"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
-msgstr "Κοινωνικά και επικοινωνία "
+msgstr "Κοινωνικά και επικοινωνία"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
-msgstr "Επικοινωνία, διαχείρηση επαφών και κοινωνικά μέσα "
+msgstr ""
+"Εφαρμογές επικοινωνίας, διαχείρισης επαφών και μέσων κοινωνικής δικτύωσης"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
@@ -1158,7 +1184,7 @@ msgstr "Αρνητικό"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:14
 msgid "Neutral"
-msgstr "Ουδετερη"
+msgstr "Ουδέτερη"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:15
 msgid "Positive"
@@ -1170,7 +1196,7 @@ msgstr "Πολύ θετικό"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
-msgstr "Βάλτε έναν έγκυρο HTTPS σύνδεσμο"
+msgstr "Βάλτε έναν έγκυρο σύνδεσμο HTTPS"
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
@@ -1182,18 +1208,16 @@ msgstr "Επίθετο"
 
 #: nextcloudappstore/user/forms.py:23
 msgid "Your e-mail address"
-msgstr "Η διεύθυνση ηλ. ταχυδρομείου σας"
+msgstr "Η διεύθυνση e-mail σας"
 
 #: nextcloudappstore/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
 msgstr ""
-"Η δοθείσα ηλεκτρονική διεύθυνση δεν ταιριάζει με την ηλεκτρονική διεύθυνση"
+"Η διεύθυνση e-mail που δόθηκε δεν ταιριάζει με την δική σας διεύθυνση e-mail"
 
 #: nextcloudappstore/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
-msgstr ""
-"Αυτή η διεύθυνση ηλεκτρονικού ταχυδρομείου είναι ήδη συσχετισμένη με άλλο "
-"λογαριασμό."
+msgstr "Αυτή η διεύθυνση e-mail είναι ήδη συσχετισμένη με άλλο λογαριασμό."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1202,7 +1226,7 @@ msgstr "Αποθήκευση"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr ""
+msgstr "Αναγνωριστικό API"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1212,22 +1236,26 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"Το αναγνωριστικό API μπορεί να χρησιμοποιηθεί για πιστοποίηση όταν καλείτε το app store\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"Φροντίστε να το κρατήσετε μυστικό. Ένα νέο αναγνωριστικό μπορεί να παραχθεί παρακάτω, καθιστώντας το παλιό αναγνωριστικό άκυρο."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr ""
+msgstr "Το αναγνωριστικό API σας είναι:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr ""
+msgstr "Έχει παραχθεί νέο αναγνωριστικό API."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr ""
+msgstr "Αναδημιουργία αναγνωριστικού API"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr "Μεταφορά ιδιοκτησίας εφαρμογής "
+msgstr "Μεταφορά ιδιοκτησίας εφαρμογής"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1258,9 +1286,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Διαγράφοντας τον λογαριασμό σας θα διαγράψετε όλες τις εφαρμογές και τις "
-"εκδόσεις. Για να διαγράψετε τον λογαριασμό σας, εισάγετε την διεύθυνση "
-"ηλεκτρονικού ταχυδρομείου στο πεδίο και κάντε κλικ στο κουμπί \"Διαγραφή "
+"Διαγράφοντας τον λογαριασμό σας θα διαγράψετε όλες τις εφαρμογές καθώς και "
+"τις εκδόσεις αυτών. Για να διαγράψετε τον λογαριασμό σας, εισάγετε τη "
+"διεύθυνση e-mail στο πεδίο και κάντε κλικ στο κουμπί \"Διαγραφή "
 "λογαριασμού\":"
 
 #: nextcloudappstore/user/templates/user/password.html:16
@@ -1268,9 +1296,9 @@ msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Φαίνεται πως χρησιμοποιείτε έναν λογαριασμό ο οποίος είναι εγγεγραμμένος από"
-" τρίτο πάροχο. Γι αυτό ο κωδικός σας <strong>δεν</strong> μπορεί να αλλάξει "
-"από αυτή τη σελίδα."
+"Φαίνεται πως χρησιμοποιείτε έναν λογαριασμό ο οποίος είναι καταχωρημένος "
+"μέσω τρίτου παρόχου. Επομένως, ο κωδικός σας <strong>δεν</strong> μπορεί να "
+"αλλάξει από αυτή τη σελίδα."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1285,8 +1313,8 @@ msgid ""
 msgstr ""
 "Για να μεταφέρετε μία εφαρμογή σε έναν νέο ιδιοκτήτη πρέπει πρώτα να "
 "ξεκλειδώσετε την εφαρμογή. Μετά ένας χρήστης μπορεί να πάρει τον έλεγχο της "
-"εφαρμογής με το να κάνει εγγραφή της εφαρμογής ξανά στην σελίδα εγγραφής "
-"εφαρμογής στο μενού προγραμματιστών εφαρμογών."
+"εφαρμογής με το να την καταχωρήσει ξανά στην σελίδα καταχώρησης εφαρμογής "
+"στο μενού προγραμματιστών εφαρμογών."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
