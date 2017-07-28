@@ -27,7 +27,6 @@ Help us to maximize the effort we can spend fixing issues and adding new feature
 [forum]: https://help.nextcloud.com/
 [irc]: https://webchat.freenode.net/?channels=nextcloud-dev
 
-
 ## Contributing to Source Code
 
 Thanks for wanting to contribute source code to Nextcloud. That's great!
