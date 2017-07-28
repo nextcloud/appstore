@@ -27,6 +27,7 @@ Help us to maximize the effort we can spend fixing issues and adding new feature
 [forum]: https://help.nextcloud.com/
 [irc]: https://webchat.freenode.net/?channels=nextcloud-dev
 
+
 ## Contributing to Source Code
 
 Thanks for wanting to contribute source code to Nextcloud. That's great!
@@ -39,7 +40,12 @@ If you need help in setting up a local App Store installation, consult the [docu
 
 ### Tests
 
-When submitting a pull request, you should ensure that the functionality is covered by an integration or unit test. We employ unit and integration testing for both frontend and backend code but we do not have a UX test suite yet (if you are interested in integrating one please open an issue!!!).
+When submitting a pull request, you should ensure that the functionality is covered by an acceptance, integration or unit test. We employ unit and integration testing for both frontend and backend code but we do not have a UX test suite yet (if you are interested in integrating one please open an issue!!!).
+
+Use acceptance tests (selenium tests) when:
+
+* the functionality is a bigger chunk of a use case, e.g. registering an app or searching and downloading a compatible app for a specific Nextcloud version
+* the functionality is primarily exposed to a user
 
 Use unit tests when:
 
