@@ -131,12 +131,25 @@
         <ul class="col-md-12">
             <h4 class="section-heading">{% trans 'Discussion' %}</h4>
             {% if object.issue_tracker %}
-                <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Report problem' %}</a></li>
-                <li><a rel="noreferrer noopener" href="{{ object.issue_tracker }}" class="btn btn-secondary">{% trans 'Request feature' %}</a></li>
+                <li><a rel="noreferrer noopener"
+                       href="{{ object.issue_tracker }}"
+                       class="btn btn-primary">{% trans 'Report problem' %}</a>
+                </li>
+                <li><a rel="noreferrer noopener"
+                       href="{{ object.issue_tracker }}"
+                       class="btn btn-primary">{% trans 'Request feature' %}</a>
+                </li>
             {% endif %}
-            <li><a rel="noreferrer noopener" href="{{ DISCOURSE_URL }}/c/apps/{{ object.id|replace:'_,-' }}" class="btn btn-secondary">{% trans 'Ask questions or discuss' %}</a></li>
+            <li><a rel="noreferrer noopener"
+                   href="{{ DISCOURSE_URL }}/c/apps/{{ object.id|replace:'_,-' }}"
+                   class="btn btn-primary">{% trans 'Ask questions or discuss' %}</a>
+            </li>
             {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
-                <li><button id="toggle-comment-button" aria-expanded="true" data-toggle="collapse" data-target="#app-ratings" class="btn btn-secondary">{% trans 'Rate app' %}</button></li>
+                <li>
+                    <button id="toggle-comment-button" aria-expanded="true"
+                            data-toggle="collapse" data-target="#app-ratings"
+                            class="btn btn-primary">{% trans 'Rate app' %}</button>
+                </li>
             {% endif %}
         </ul>
     </div>

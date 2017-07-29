@@ -9,6 +9,10 @@
 - Add a createtestuser command for easily setting up users in development
 - Automatically log in user on successful email confirmation, #400
   
+### Changed
+
+- Use one unique button style for all buttons, #402
+  
 ### Removed
 
 - Dropped Node.js 7 support and require Node.js 8+
