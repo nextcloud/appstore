@@ -140,12 +140,14 @@ SITE_ID = 1
 # Allauth configuration
 # http://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_SIGNUP_FORM_CLASS = \
     'nextcloudappstore.user.forms.SignupFormRecaptcha'
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -283,7 +285,6 @@ DISCOURSE_URL = 'https://help.nextcloud.com'
 DISCOURSE_USER = None
 DISCOURSE_TOKEN = None
 DISCOURSE_PARENT_CATEGORY_ID = 26
-
 
 APP_SCAFFOLDING_PROFILES = {
     11: {

@@ -7,6 +7,7 @@
 - Add games category
 - Add a newest release feed for each app on their detail page, #496
 - Add a createtestuser command for easily setting up users in development
+- Automatically log in user on successful email confirmation, #400
   
 ### Removed
 
