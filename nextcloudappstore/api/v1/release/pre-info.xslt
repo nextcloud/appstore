@@ -23,7 +23,7 @@
             <xsl:copy-of select="namespace"/>
             <xsl:apply-templates select="types"/>
             <xsl:apply-templates select="documentation"/>
-            <xsl:copy-of select="category"/>
+            <xsl:apply-templates select="category"/>
             <xsl:copy-of select="website"/>
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
@@ -68,6 +68,19 @@
         <navigations>
             <xsl:apply-templates select="navigation"/>
         </navigations>
+    </xsl:template>
+
+    <xsl:template match="category">
+        <xsl:choose>
+            <xsl:when test="text() = 'auth'">
+                <category>security</category>
+            </xsl:when>
+            <xsl:otherwise>
+                <category>
+                    <xsl:value-of select="."/>
+                </category>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="navigation">

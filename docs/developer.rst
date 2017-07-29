@@ -329,7 +329,6 @@ category
     * if not provided the category **tools** will be used
     * must contain one of the following values:
 
-       * **auth**
        * **customization**
        * **files**
        * **games**
@@ -338,13 +337,13 @@ category
        * **multimedia**
        * **office**
        * **organization**
+       * **security**
        * **social**
        * **tools**
 
     * old categories are migrated:
 
-       * **tool**, **game** and **other** will be converted to **tools**
-       * **productivity** will be converted to **organization**
+       * **auth** will be converted to **security**
 
     * can occur more than once with different categories
 website
