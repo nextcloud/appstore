@@ -94,16 +94,6 @@
         "pk": 10,
         "fields": {
             "language_code": "en",
-            "name": "Security",
-            "description": "Apps that provide additional security mechanisms like authentication, authorization, encryption, etc.",
-            "master": "security"
-        }
-    },
-    {
-        "model": "core.categorytranslation",
-        "pk": 10,
-        "fields": {
-            "language_code": "en",
             "name": "Auth",
             "description": "Deprecated, do not use anymore",
             "master": "auth"
@@ -117,6 +107,16 @@
             "name": "Games",
             "description": "Games run in your Nextcloud",
             "master": "games"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
+        "pk": 12,
+        "fields": {
+            "language_code": "en",
+            "name": "Security",
+            "description": "Apps that provide additional security mechanisms like authentication, authorization, encryption, etc.",
+            "master": "security"
         }
     },
     {
