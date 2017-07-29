@@ -101,6 +101,16 @@
     },
     {
         "model": "core.categorytranslation",
+        "pk": 10,
+        "fields": {
+            "language_code": "en",
+            "name": "Auth",
+            "description": "Deprecated, do not use anymore",
+            "master": "auth"
+        }
+    },
+    {
+        "model": "core.categorytranslation",
         "pk": 11,
         "fields": {
             "language_code": "en",
@@ -184,6 +194,14 @@
     {
         "model": "core.category",
         "pk": "security",
+        "fields": {
+            "created": "2016-06-11T10:37:24Z",
+            "last_modified": "2016-07-02T10:01:45.369Z"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": "auth",
         "fields": {
             "created": "2016-06-11T10:37:24Z",
             "last_modified": "2016-07-02T10:01:45.369Z"
