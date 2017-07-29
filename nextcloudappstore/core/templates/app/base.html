@@ -13,8 +13,7 @@
             {% for cat in categories %}
                 {% if cat.id != 'auth' %}
                     <li class="{% if cat.id == current_category.id %}active{% endif %}">
-                        <a href="
-                            {% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
+                        <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
