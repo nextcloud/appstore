@@ -2,6 +2,8 @@ import json
 from copy import deepcopy
 
 from django.test import TestCase
+from rest_framework.exceptions import ParseError
+
 from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.api.v1.release.parser import \
     parse_app_metadata, GunZipAppMetadataExtractor, \
@@ -11,7 +13,6 @@ from nextcloudappstore.api.v1.release.parser import \
     validate_database
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
-from rest_framework.exceptions import ParseError
 
 
 class ParserTest(TestCase):
@@ -104,6 +105,14 @@ class ParserTest(TestCase):
         max_version = result['app']['release']['platform_max_version']
         self.assertEqual('10.0.0', min_version)
         self.assertEqual('12.0.0', max_version)
+
+    def test_changes_auth_to_security_category(self):
+        xml = self._get_contents('data/infoxmls/authmigration.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.assertEqual('security',
+                         result['app']['categories'][0]['category']['id'])
 
     def test_validate_schema(self):
         xml = self._get_contents('data/infoxmls/invalid.xml')
