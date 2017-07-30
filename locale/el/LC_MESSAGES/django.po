@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 00:30+0000\n"
+"POT-Creation-Date: 2017-07-30 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Salih Emin <cerebrux.gr@gmail.com>, 2017\n"
 "Language-Team: Greek (https://www.transifex.com/nextcloud/teams/64236/el/)\n"
@@ -36,7 +36,7 @@ msgid "Download"
 msgstr "Λήψη"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Bad"
 msgstr "Κακό"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "Εντάξει"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:184
 msgid "Good"
 msgstr "Καλό"
 
@@ -824,27 +824,27 @@ msgstr "Όλες οι εκδόσεις"
 msgid "Discussion"
 msgstr "Συζήτηση"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:136
 msgid "Report problem"
 msgstr "Αναφορά προβλήματος"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Request feature"
 msgstr "Αίτημα δυνατότητας"
 
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "Κάνε ερωτήσεις ή συζήτηση"
 
-#: nextcloudappstore/core/templates/app/detail.html:139
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Rate app"
 msgstr "Αξιολογήστε την εφαρμογή"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate"
 msgstr "Αξιολογήστε"
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:164
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -854,27 +854,27 @@ msgstr ""
 "                            Μην χρησιμοποιείτε την αξιολόγηση των σχολίων για αναφορά σφαλμάτων η για να ζητήσετε νέα χαρακτηριστικά. Ούτε οι προγραμματιστές, αλλά ούτε και οι χρήστες θα ειδοποιηθούν για το σχόλιό σας.\n"
 "                            Η αξιολόγηση χωρίς σχόλιο θα μετρήσει πάραυτα, χωρίς να προβληθεί από κάτω."
 
-#: nextcloudappstore/core/templates/app/detail.html:156
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Update rating"
 msgstr "Ενημέρωση αξιολόγησης"
 
-#: nextcloudappstore/core/templates/app/detail.html:158
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Submit rating"
 msgstr "Αποστολή αξιολόγησης"
 
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Ok"
 msgstr "Εντάξει"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:198
 msgid "No comments found."
 msgstr "Δεν βρέθηκαν σχόλια."
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rating comments"
 msgstr "Αξιολόγηση σχολίων"
 
-#: nextcloudappstore/core/templates/app/detail.html:197
+#: nextcloudappstore/core/templates/app/detail.html:210
 msgid "Display ratings comments in:"
 msgstr "Προβολή αξιολόγησης σχολίων"
 
@@ -1083,14 +1083,12 @@ msgstr ""
 "           %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την ακόλουθη φόρμα:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Έλεγχος ταυτότητας και εξουσιοδότηση "
+msgid "Auth"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Apps that provide additional authentication or authorization services"
+msgid "Deprecated, do not use anymore"
 msgstr ""
-"Εφαρμογές που παρέχουν περαιτέρω υπηρεσίες ελέγχου ταυτότητας ή "
-"εξουσιοδότησης."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1158,19 +1156,29 @@ msgid "Time management, Todo list and calendar apps"
 msgstr "Εφαρμογές διαχείρισης χρόνου, λιστών εκκρεμοτήτων και ημερολόγια"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
+msgid "Security"
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+msgid ""
+"Apps that provide additional security mechanisms like authentication, "
+"authorization, encryption, etc."
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
 msgstr "Κοινωνικά και επικοινωνία"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Εφαρμογές επικοινωνίας, διαχείρισης επαφών και μέσων κοινωνικής δικτύωσης"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
 msgstr "Εργαλεία"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Everything else"
 msgstr "Οτιδήποτε άλλο"
 

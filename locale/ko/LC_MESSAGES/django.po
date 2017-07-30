@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 00:30+0000\n"
+"POT-Creation-Date: 2017-07-30 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lukas Reschke <lukas@statuscode.ch>, 2017\n"
 "Language-Team: Korean (https://www.transifex.com/nextcloud/teams/64236/ko/)\n"
@@ -36,7 +36,7 @@ msgid "Download"
 msgstr "다운로드"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Bad"
 msgstr "나쁨"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:184
 msgid "Good"
 msgstr "좋음"
 
@@ -797,27 +797,27 @@ msgstr "모든 릴리스"
 msgid "Discussion"
 msgstr "토론"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:136
 msgid "Report problem"
 msgstr "문제 보고"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Request feature"
 msgstr "기능 요청"
 
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "질문 및 토론"
 
-#: nextcloudappstore/core/templates/app/detail.html:139
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Rate app"
 msgstr "앱 평가하기"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate"
 msgstr "평가"
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:164
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -827,27 +827,27 @@ msgstr ""
 "                            앱 평가 기능을 사용하여 버그를 보고하거나 기능을 요청하지 마십시오. 개발자나 다른 사용자에게 알림이 가지 않습니다.\n"
 "                            댓글을 달지 않은 평가도 집계되지만 아래에 표시되지 않습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:156
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Update rating"
 msgstr "평가 업데이트"
 
-#: nextcloudappstore/core/templates/app/detail.html:158
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Submit rating"
 msgstr "평가 제출"
 
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Ok"
 msgstr "확인"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:198
 msgid "No comments found."
 msgstr "댓글이 없습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rating comments"
 msgstr "평가 댓글"
 
-#: nextcloudappstore/core/templates/app/detail.html:197
+#: nextcloudappstore/core/templates/app/detail.html:210
 msgid "Display ratings comments in:"
 msgstr "평가 댓글 표시 방법:"
 
@@ -1047,12 +1047,12 @@ msgstr ""
 "            %(site_name)s에 로그인햅니다. 마지막 단계로 다음 항목을 입력해 주십시오:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "인증 및 로그인"
+msgid "Auth"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Apps that provide additional authentication or authorization services"
-msgstr "추가 인증 및 로그인 서비스를 제공하는 앱"
+msgid "Deprecated, do not use anymore"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1119,18 +1119,28 @@ msgid "Time management, Todo list and calendar apps"
 msgstr "시간 관리, 할 일, 캘린더 앱"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
+msgid "Security"
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+msgid ""
+"Apps that provide additional security mechanisms like authentication, "
+"authorization, encryption, etc."
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
 msgstr "소셜 및 통신"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
 msgstr "메시징, 연락처 관리, 소셜 미디어 앱"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
 msgstr "도구"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Everything else"
 msgstr "다른 모든 것"
 

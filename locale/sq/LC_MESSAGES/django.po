@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 00:30+0000\n"
+"POT-Creation-Date: 2017-07-30 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marin Kaltani <mpkaltani@gmail.com>, 2017\n"
 "Language-Team: Albanian (https://www.transifex.com/nextcloud/teams/64236/sq/)\n"
@@ -36,7 +36,7 @@ msgid "Download"
 msgstr "Shkarko"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Bad"
 msgstr "Keq"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:184
 msgid "Good"
 msgstr "Mirë"
 
@@ -55,7 +55,7 @@ msgstr "Linku i shkarkimit (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "Firma SHA-512"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -86,6 +86,14 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Zakonisht ruhet në ~/.nextcloud/certificates/APP_ID.crt ku APP_ID është ID-"
+"ja e aplikacionit tuaj. Nëse nuk keni një certifikatë, duhet të krijoni së "
+"pari një kërkesë për shenjën e certifikatës (CSR) e cila duhet të postohet "
+"në <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\"> deponentin e certifikatës </a> (ndiq README). "
+"Ju mund të krijoni CSR duke ekzekutuar komandën e mëposhtme: <b> openssl req"
+" -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\" </b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
@@ -111,6 +119,8 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
+"<b> I rëndësishëm </b>: Ndryshimi i gjuhës do ta fshijë komentin tuaj "
+"aktual. Ndryshimet nuk do të ruhen!"
 
 #: nextcloudappstore/core/forms.py:76
 msgid "Comment"
@@ -157,20 +167,20 @@ msgstr "Do të përkthehet si Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL-ja e dokumentacionit të përdoruesit"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
-msgstr ""
+msgstr "URL-ja e dokumentacionit të administruesit"
 
 #: nextcloudappstore/core/models.py:81
 msgid "Developer documentation URL"
-msgstr ""
+msgstr "URL e dokumentimit për zhvillues "
 
 #: nextcloudappstore/core/models.py:83
 #: nextcloudappstore/core/scaffolding/forms.py:38
 msgid "Issue tracker URL"
-msgstr ""
+msgstr "URL-ja e ndjekësit të problemit"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:319
 #: nextcloudappstore/core/templates/app/detail.html:96
@@ -235,13 +245,16 @@ msgstr "Çertifikata"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Ownership transfer enabled"
-msgstr ""
+msgstr "Transferimi i pronësisë u aktivizua"
 
 #: nextcloudappstore/core/models.py:109
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Nëse aktivizohet, një përdorues mund të përpiqet përsëri të regjistrojë të "
+"njëjtin aplikacion duke përdorur certifikatën publike dhe nënshkrimin. Nëse "
+"ai e bën, aplikacioni do t'i transferohet atij."
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:260
 #: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:419
@@ -347,7 +360,7 @@ msgstr "shmb 32 për numra të plotë 32 bit "
 
 #: nextcloudappstore/core/models.py:364
 msgid "Archive download URL"
-msgstr ""
+msgstr "Arkivoni URL-në e shkarkimit"
 
 #: nextcloudappstore/core/models.py:369
 msgid "Signature"
@@ -419,6 +432,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:458
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"Kategoria ID është përdorur për të identifikuar kategorinë në të cilën është"
+" ngarkuar një aplikacion"
 
 #: nextcloudappstore/core/models.py:466
 msgid "Category name which will be presented to the user"
@@ -523,6 +538,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Vetëm një version mund të jetë ai aktual. Kjo fushë përdoret për të para-"
+"zgjedhur dropdowns për gjenerimin e aplikacioneve, etj."
 
 #: nextcloudappstore/core/models.py:615
 msgid "Nextcloud release"
@@ -556,7 +573,7 @@ msgstr "Faqja kryesore e autorit"
 
 #: nextcloudappstore/core/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"
-msgstr ""
+msgstr "Raportet e gabimeve dhe kërkesat e funksioneve"
 
 #: nextcloudappstore/core/scaffolding/forms.py:42
 msgid "Hold down CTRL and click to select multiple entries"
@@ -800,27 +817,27 @@ msgstr "Te gjitha lançimet"
 msgid "Discussion"
 msgstr "Diskutimi"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:136
 msgid "Report problem"
 msgstr "Raportoni një problem"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Request feature"
 msgstr "Kërkoni një karakteristikë"
 
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "Pyesni ose diskutoni"
 
-#: nextcloudappstore/core/templates/app/detail.html:139
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Rate app"
 msgstr "Vlerësoni aplikacionin"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate"
 msgstr "Vlerësoj"
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:164
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -830,27 +847,27 @@ msgstr ""
 "Mos përdorni komente me vleresim për të raportuar problemet ose për të kërkuar mjete shtesë. As zhvilluesit as përdoruesit nuk do të lajmerohen për komentin tuaj. \n"
 "Një vlerësim pa një koment është i vlefshem, por nuk do të listohet më poshtë"
 
-#: nextcloudappstore/core/templates/app/detail.html:156
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Update rating"
 msgstr "Përditeso vlerësimin"
 
-#: nextcloudappstore/core/templates/app/detail.html:158
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Submit rating"
 msgstr "Dërgo vlerësimin"
 
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Ok"
 msgstr "Ok"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:198
 msgid "No comments found."
 msgstr "Nuk jan gjetur komente."
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rating comments"
 msgstr "Duke vlerësuar komentet"
 
-#: nextcloudappstore/core/templates/app/detail.html:197
+#: nextcloudappstore/core/templates/app/detail.html:210
 msgid "Display ratings comments in:"
 msgstr "Duke shfaqur vlerësimin e komenteve:"
 
@@ -897,6 +914,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Për më shumë informacion se si të pajiseni me certifikatë dhe se si të "
+"krijoni firmën, shikoni <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">guidën e zhvillimit të aplikacionit </a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -1054,12 +1075,12 @@ msgstr ""
 "%(site_name)s. Si një hap i fundit, ju lutem plotësoni formën e mëposhtme:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "autentifikim dhe autorizimi"
+msgid "Auth"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Apps that provide additional authentication or authorization services"
-msgstr "Aplikacione që sigurojnë verifikim shtesë ose shërbime të verifikuara"
+msgid "Deprecated, do not use anymore"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1134,19 +1155,29 @@ msgstr ""
 "kalendar"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
+msgid "Security"
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+msgid ""
+"Apps that provide additional security mechanisms like authentication, "
+"authorization, encryption, etc."
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
 msgstr "Social & komunikim"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Te shkruheni , kontaktoni menaxhimin dhe aplikacionet e mediave sociale"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
 msgstr "Mjete"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Everything else"
 msgstr "Çdo gjë tjetër"
 
@@ -1284,6 +1315,10 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Për të transferuar një aplikacion tek një pronar i ri, së pari duhet të "
+"çkyçni aplikacionin. Një përdorues pastaj mund të marrë kontrollin e "
+"aplikacionit duke e regjistruar sërish atë në faqen e regjistrit të "
+"aplikacionit në menunë e zhvilluesit të aplikacioneve."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1295,7 +1330,7 @@ msgstr "Ndrysho statusin e zotërimit të transfertave"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "I çkyçyr për transferta"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
@@ -1303,11 +1338,11 @@ msgstr "I kyçyr, jo transferta të mundura"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Kyç transferimin e pronësisë"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Çkyç transferimin e pronësisë"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
