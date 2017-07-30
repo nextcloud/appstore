@@ -571,7 +571,7 @@ Only app owners or co-maintainers are allowed to delete a nightly app release. T
 
 * **Example CURL request**::
 
-    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/9.0.0 -u "user:password"
+    curl -X DELETE https://apps.nextcloud.com/api/v1/apps/news/releases/nightly/9.0.0 -u "user:password"
 
 
 * **Returns**:
