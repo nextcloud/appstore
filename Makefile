@@ -13,7 +13,7 @@ yarn=yarn
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
 	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/api/v1/release
-	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/core/certificate
+	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/certificate
 	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/.bandit.yml
 
 .PHONY: test

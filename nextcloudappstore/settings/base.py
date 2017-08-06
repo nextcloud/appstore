@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
     'nextcloudappstore.api.apps.ApiConfig',
     'nextcloudappstore.user.apps.UserConfig',
+    'nextcloudappstore.certificate.apps.CertificateConfig',
+    'nextcloudappstore.scaffolding.apps.ScaffoldingConfig',
     'parler',
     'rest_framework',
     'rest_framework.authtoken',
@@ -259,9 +261,9 @@ MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
 
 # certificate location configuration
 NEXTCLOUD_CERTIFICATE_LOCATION = join(
-    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
+    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crt')
 NEXTCLOUD_CRL_LOCATION = join(
-    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')
+    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crl')
 
 # whitelist for serializing markdown
 MARKDOWN_ALLOWED_TAGS = [

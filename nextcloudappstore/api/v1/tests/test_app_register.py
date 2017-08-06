@@ -9,7 +9,8 @@ from nextcloudappstore.core.models import App, AppRelease
 class AppRegisterTest(ApiTest):
     create_url = reverse('api:v1:app-register')
     _cert = read_relative_file(__file__,
-                               'data/certificates/news-old.crt').strip()
+                               '../../../certificate/tests/data/certificates/'
+                               'news-old.crt').strip()
 
     def _create_app(self, owner, app_id):
         return App.objects.create(owner=owner, id=app_id)

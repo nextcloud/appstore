@@ -3,8 +3,7 @@ import tarfile
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
-from nextcloudappstore.core.scaffolding.archive import build_files, \
-    build_archive
+from nextcloudappstore.scaffolding.archive import build_files, build_archive
 
 
 class ArchiveTest(TestCase):
