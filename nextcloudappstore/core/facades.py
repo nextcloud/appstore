@@ -41,6 +41,21 @@ def read_relative_file(file_path: str, target_path: str) -> str:
     return read_file_contents(file)
 
 
+def write_relative_file(file_path: str, target_path: str,
+                        content: str) -> None:
+    """
+    Similar to read_relative_file but for writing
+    :param file_path: most of the time __file__, file path from which you
+    want to resolve the target_path
+    :param target_path: the path to the file
+    :param content: the text to write
+    :return:
+    """
+    file = resolve_file_relative_path(file_path, target_path)
+    with open(file, 'w') as f:
+        f.write(content)
+
+
 def flatmap(f, xs):
     return chain.from_iterable(map(f, xs))
 
