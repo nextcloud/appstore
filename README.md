@@ -1,7 +1,7 @@
 # Nextcloud App Store
 
 [![Build Status](https://travis-ci.org/nextcloud/appstore.svg?branch=master)](https://travis-ci.org/nextcloud/appstore)
-
+[![Coverage Status](https://coveralls.io/repos/github/nextcloud/appstore/badge.svg?branch=master)](https://coveralls.io/github/nextcloud/appstore?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/nextcloudappstore/badge/?version=latest)](http://nextcloudappstore.readthedocs.io/en/latest/?badge=latest)
 [![iRequirements Status](https://requires.io/github/nextcloud/appstore/requirements.svg?branch=master)](https://requires.io/github/nextcloud/appstore/requirements/?branch=master)
 [![Package.json Status](https://david-dm.org/nextcloud/appstore.svg)](https://github.com/nextcloud/appstore/blob/master/package.json)
