@@ -1,8 +1,7 @@
 from django.test import TestCase
 from pymple import Container
 
-from nextcloudappstore.core.certificate.validator import \
-    CertificateValidator, \
+from nextcloudappstore.certificate.validator import CertificateValidator, \
     InvalidCertificateException, CertificateConfiguration, \
     InvalidSignatureException, CertificateAppIdMismatchException
 from nextcloudappstore.core.facades import read_relative_file, \

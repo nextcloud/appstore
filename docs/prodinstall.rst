@@ -188,9 +188,9 @@ To get your instance running in production you need to create your production se
 
     # certificate location configuration
     # NEXTCLOUD_CERTIFICATE_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crt')
+    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crt')
     # NEXTCLOUD_CRL_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/core/certificate/nextcloud.crl')
+    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crl')
 
     # DISCOURSE_URL = 'https://help.nextcloud.com'
 

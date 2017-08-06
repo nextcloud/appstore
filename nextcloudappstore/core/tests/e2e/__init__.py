@@ -32,7 +32,7 @@ JvshYmx3I5aXFXOf3l0zEMmIuw==
 """
 NEWS_ARCHIVE_URL = 'https://github.com/nextcloud/news/releases/download/11.0' \
                    '.5/news.tar.gz'
-NEWS_SIGNATURE = """
+NEWS_ARCHIVE_SIGNATURE = """
 TY0nB4gH3LLWzfyeP+fut/m/j2VfjRAcI96DI0LQ6+QYpyy/j+6RDRI/LSqfxzhn
 lvtCdsFa/ieHbi/ZXcqhJABBq9WI+zSAXUoiOOHfC8t8Rf1yi1BJRiesIghKm7xj
 fnR8jUvHRpN1TLHbjkN9XVvSoCXON3NNnTdjkXSNryNW/RN+p8zzIZ0H6oFA9tsJ

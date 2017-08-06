@@ -1,25 +1,25 @@
 import requests
+from django.conf import settings
 from django.db import transaction
 from django.http import Http404
-from django.conf import settings
-from requests import HTTPError
 from pymple import Container
+from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.exceptions import ValidationError, PermissionDenied
 from rest_framework.generics import DestroyAPIView, \
     get_object_or_404, ListAPIView  # type: ignore
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
-from rest_framework.exceptions import ValidationError, PermissionDenied
 
 from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer, \
     AppRegisterSerializer
-from nextcloudappstore.core.certificate.validator import CertificateValidator
+from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
