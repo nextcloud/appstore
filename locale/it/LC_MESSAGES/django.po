@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 00:30+0000\n"
+"POT-Creation-Date: 2017-08-06 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alessandro Polidori <alessandro.polidori@gmail.com>, 2016\n"
+"Last-Translator: Claudio Driussi <claudio.driussi@gmail.com>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/nextcloud/teams/64236/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgid "Download"
 msgstr "Scarica"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Bad"
 msgstr "Cattiva"
 
@@ -45,7 +45,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:184
 msgid "Good"
 msgstr "Buona"
 
@@ -55,7 +55,7 @@ msgstr "Scaricamento (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:20
 msgid "SHA-512 signature"
-msgstr ""
+msgstr "Firma SHA-512"
 
 #: nextcloudappstore/core/forms.py:22
 msgid ""
@@ -86,10 +86,18 @@ msgid ""
 "-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
 "\"/CN=APP_ID\"</b>"
 msgstr ""
+"Di solito memorizzato in ~/.nextcloud/certificates/APP_ID.crt dove APP_ID è "
+"l'ID della tua app. Se non hai un certificato prima devi creare una "
+"richiesta di certificato (CSR) che deve essere depositato nel <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">repository dei certificati</a> (segui il "
+"README). Puoi generare il CSR eseguendo il seguente comando: <b>openssl req "
+"-nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "
+"\"/CN=APP_ID\"</b>"
 
 #: nextcloudappstore/core/forms.py:45
 msgid "SHA-512 signature over your app's ID"
-msgstr ""
+msgstr "Firma SHA-512 del ID della tua app"
 
 #: nextcloudappstore/core/forms.py:47
 msgid ""
@@ -124,7 +132,7 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:64
 msgid "app ID, identical to folder name"
-msgstr ""
+msgstr "app ID identica al nome della cartella"
 
 #: nextcloudappstore/core/models.py:65 nextcloudappstore/core/models.py:473
 msgid "Category"
@@ -159,7 +167,7 @@ msgstr "Sarà reso come Markdown"
 
 #: nextcloudappstore/core/models.py:77
 msgid "User documentation URL"
-msgstr ""
+msgstr "URL della documentazione utente"
 
 #: nextcloudappstore/core/models.py:79
 msgid "Admin documentation URL"
@@ -237,13 +245,16 @@ msgstr "Certificato"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Ownership transfer enabled"
-msgstr ""
+msgstr "Trasferimento di proprietà abilitato"
 
 #: nextcloudappstore/core/models.py:109
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Se abilitato, un utente può provare a registrare nuovamente la stessa app "
+"usando il certificato bubblico e la firma. Se lo fa l'app verrà trasferita a"
+" lui."
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:260
 #: nextcloudappstore/core/models.py:337 nextcloudappstore/core/models.py:419
@@ -349,7 +360,7 @@ msgstr "ad es. 32 per interi a 32 bit"
 
 #: nextcloudappstore/core/models.py:364
 msgid "Archive download URL"
-msgstr ""
+msgstr "URL archivio download"
 
 #: nextcloudappstore/core/models.py:369
 msgid "Signature"
@@ -421,6 +432,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:458
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"ID della categoria usata per identificare la categoria in cui una app è "
+"stata caricata"
 
 #: nextcloudappstore/core/models.py:466
 msgid "Category name which will be presented to the user"
@@ -525,6 +538,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Solo una versione può essere quella corrente. Questo campo viene usato per "
+"scegliere i dropdown per la generazione della app ecc."
 
 #: nextcloudappstore/core/models.py:615
 msgid "Nextcloud release"
@@ -751,7 +766,7 @@ msgstr "Tutte le applicazioni"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr ""
+msgstr "Ultime %(app_name)s versioni rilasciate"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -808,27 +823,27 @@ msgstr "Tutti i rilasci"
 msgid "Discussion"
 msgstr "Discussione"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:136
 msgid "Report problem"
 msgstr "Segnala un problema"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Request feature"
 msgstr "Richiedi funzionalità"
 
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "Domanda o discuti"
 
-#: nextcloudappstore/core/templates/app/detail.html:139
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Rate app"
 msgstr "Valuta l'applicazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate"
 msgstr "Valuta"
 
-#: nextcloudappstore/core/templates/app/detail.html:151
+#: nextcloudappstore/core/templates/app/detail.html:164
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -838,27 +853,27 @@ msgstr ""
 "Non utilizzare i commenti di valutazione per segnalare bug o richiedere funzionalità. Né gli sviluppatori, né gli utenti riceveranno alcuna notifica del tuo commento.\n"
 "Una valutazione senza commento conta lo stesso, ma non sarà elencata sotto."
 
-#: nextcloudappstore/core/templates/app/detail.html:156
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Update rating"
 msgstr "Aggiorna la valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:158
+#: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Submit rating"
 msgstr "Invia la valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:172
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Ok"
 msgstr "Ok"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:198
 msgid "No comments found."
 msgstr "Nessun commento trovato."
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rating comments"
 msgstr "Commenti alla valutazione"
 
-#: nextcloudappstore/core/templates/app/detail.html:197
+#: nextcloudappstore/core/templates/app/detail.html:210
 msgid "Display ratings comments in:"
 msgstr "Visualizza i commenti alla valutazione in:"
 
@@ -905,6 +920,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Per maggiori informazioni su come ottenere un certificato e creare una firma"
+" cerca sulla <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\"> app developer guide </a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -921,7 +940,7 @@ msgstr "Non è un certificato pubblico"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr ""
+msgstr "App registrata"
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -990,7 +1009,7 @@ msgstr "Carica"
 #: nextcloudappstore/core/templates/base.html:18
 #: nextcloudappstore/core/templates/base.html:19
 msgid "Latest app releases"
-msgstr ""
+msgstr "Ultime versioni rilasciate della app"
 
 #: nextcloudappstore/core/templates/base.html:44
 msgid "Fork me on GitHub"
@@ -1060,14 +1079,12 @@ msgstr ""
 "%(site_name)s. Come ultimo passo, completa il modulo seguente:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Autenticazione e autorizzazione"
+msgid "Auth"
+msgstr "Auth"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Apps that provide additional authentication or authorization services"
-msgstr ""
-"Applicazioni che forniscono servizi di autenticazione e autorizzazione "
-"aggiuntivi"
+msgid "Deprecated, do not use anymore"
+msgstr "Deprecata, non usare"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1088,11 +1105,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
-msgstr ""
+msgstr "Giochi"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Games run in your Nextcloud"
-msgstr ""
+msgstr "Giochi da far girare nel tuo Nextcloud"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Integration"
@@ -1136,18 +1153,30 @@ msgstr ""
 "Applicazioni di gestione del tempo, elenco delle cose da fare e calendario"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
+msgid "Security"
+msgstr "Sicurezza"
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+msgid ""
+"Apps that provide additional security mechanisms like authentication, "
+"authorization, encryption, etc."
+msgstr ""
+"Apps che forniscono meccanismi aggiuntivi di sicurezza come autenticazioni, "
+"autorizzazioni, crittografia, ecc."
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
 msgstr "Sociale e comunicazione"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
 msgstr "Applicazioni di messaggistica, gestione dei contatti e reti sociali"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
 msgstr "Strumenti"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Everything else"
 msgstr "Tutto il resto"
 
@@ -1231,7 +1260,7 @@ msgstr "Rigenera token API"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Trasferimento di proprietà della app"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1279,7 +1308,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "Trasferimento Apps"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1287,31 +1316,35 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Per trasferire una app ad un nuovo proprietario, prima la devi sbloccare. Un"
+" altro utente a questo punto ne può prendere il controllo registrandola "
+"nuovamente nella pagina di registrazione delle app nella voce menu per "
+"sviluppatori di app."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Stato del trasferimento di proprietà"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Modifica lo stato di trasferimento di proprietà"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Sblocca per trasferire"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Bloccata, non si può trasferire"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Blocca il trasferimento di proprietà"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Sblocca il trasferimento di proprietà"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Non hai ancora caricato nessuna app"

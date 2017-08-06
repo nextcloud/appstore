@@ -8,7 +8,8 @@
 - Add a newest release feed for each app on their detail page, #496
 - Add a createtestuser command for easily setting up users in development
 - Automatically log in user on successful email confirmation, #400
-  
+- Added security category
+
 ### Changed
 
 - Use one unique button style for all buttons, #402
@@ -17,6 +18,7 @@
   
 ### Removed
 
+- Removed **auth** category, use **security** instead 
 - Dropped Node.js 7 support and require Node.js 8+
 - Dropped support for Nextcloud 9 and 10:
   - owncloud tag in info.xml will not be migrated to nextcloud tags anymore

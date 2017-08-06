@@ -11,7 +11,7 @@ We want to avoid duplication and make it harder to ship broken releases by mista
 
 * You should use Git tags to create new releases on these services
 
-* Archives are typically created automatically for you. If you require compilation or other transformations like minification, you should upload a pre-built archive to the appropriate releases page
+* If you are using GitHub, the archives that it automatically creates for releases do not match the required folders structure: expected top level folder consisting of lower case ASCII characters and underscores (see below, under Uploading an App Release) while GitHub creates APP_ID-version folder at top level. You should upload the archive to the appropriate releases page in both cases: whether you just package it with `tar czf ...` command or compilation or other transformations like minification are done to create it.
 
 This keeps your repository up to date and satisfies the needs of developers and advanced users.
 
@@ -110,7 +110,7 @@ The interface will ask you for the following things:
 
 We then download the archive and verify the signature. In addition we try to verify and use as much information as possible form the archive, e.g.:
 
-* The archive most only contain one top level folder consisting of lower case ASCII characters and underscores
+* The archive must only contain one top level folder consisting of lower case ASCII characters and underscores
 
 * The archive must contain an **info.xml** file inside the **appinfo** directory which in turn is located in the top folder
 
@@ -329,7 +329,6 @@ category
     * if not provided the category **tools** will be used
     * must contain one of the following values:
 
-       * **auth**
        * **customization**
        * **files**
        * **games**
@@ -338,13 +337,13 @@ category
        * **multimedia**
        * **office**
        * **organization**
+       * **security**
        * **social**
        * **tools**
 
     * old categories are migrated:
 
-       * **tool**, **game** and **other** will be converted to **tools**
-       * **productivity** will be converted to **organization**
+       * **auth** will be converted to **security**
 
     * can occur more than once with different categories
 website
