@@ -2,9 +2,11 @@ python=venv/bin/python
 pip=venv/bin/pip
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
+coverage=venv/bin/coverage
 bandit=venv/bin/bandit
 mypy=venv/bin/mypy
-manage=$(python) $(CURDIR)/manage.py
+manage-script=$(CURDIR)/manage.py
+manage=$(python) $(manage-script)
 db=sqlite
 pyvenv=python3 -m venv
 yarn=yarn
@@ -19,7 +21,7 @@ lint:
 .PHONY: test
 test: lint
 	$(yarn) test
-	$(manage) test --settings nextcloudappstore.settings.development
+	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development
 
 .PHONY: resetup
 resetup:
