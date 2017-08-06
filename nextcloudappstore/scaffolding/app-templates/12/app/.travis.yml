@@ -54,8 +54,5 @@ script:
 after_failure:
     - cat ../../data/nextcloud.log
 
-after_success:
-    - coveralls
-
 addons:
     firefox: "latest"
