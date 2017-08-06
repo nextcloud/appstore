@@ -3,13 +3,14 @@ from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
 
 
-def create_user(username, password, email):
+def create_user(username: str, password: str, email: str, verify: bool = True):
     user = get_user_model().objects.create_user(
         username=username,
         password=password,
         email=email,
     )
-    verify_email(username, email)
+    if verify:
+        verify_email(username, email)
     return user
 
 
