@@ -12,6 +12,8 @@ ready.then(() => {
     const translator = new Translator(translations);
     const tokenElement = queryOrThrow('#token', HTMLElement);
     const form = new TokenRegenForm(formMeta, translator, tokenElement);
+    const button = queryOrThrow('#api-token-regen-form ' +
+        'input[type="submit"]', HTMLInputElement);
     form.bindListeners();
 
     // needs to be done in JS to prevent BREACH attack
@@ -19,6 +21,9 @@ ready.then(() => {
         .map((elem) => elem.value)
         .ifPresent((csrfToken) => {
             fetchToken(csrfToken)
-                .then((token) => tokenElement.innerText = token);
+                .then((token) => {
+                    tokenElement.innerText = token;
+                    button.disabled = false;
+                });
         });
 });

@@ -1,6 +1,6 @@
 import {apiRequest, HttpMethod, ITokenData} from '../../api/Request';
 import {AjaxForm} from '../../forms/AjaxForm';
-import {FormField, HtmlForm} from '../../forms/HtmlForm';
+import {HtmlForm} from '../../forms/HtmlForm';
 import {Translator} from '../../l10n/Translator';
 
 export class TokenRegenForm extends AjaxForm<object> {
@@ -12,7 +12,7 @@ export class TokenRegenForm extends AjaxForm<object> {
         this.url = form.form.action;
     }
 
-    protected submit(_: Map<string, FormField>): Promise<object> {
+    protected submit(_: HtmlForm): Promise<object> {
         const data = {
             data: {},
             method: HttpMethod.POST,

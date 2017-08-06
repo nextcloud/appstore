@@ -25,4 +25,3 @@ describe('HTML templating utilities', () => {
     });
 
 });
-

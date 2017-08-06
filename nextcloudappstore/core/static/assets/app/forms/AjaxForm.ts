@@ -53,7 +53,7 @@ export abstract class AjaxForm<T> {
         });
     }
 
-    protected abstract submit(values: Map<string, FormField>): Promise<T>;
+    protected abstract submit(form: HtmlForm): Promise<T>;
 
     protected onSubmit(event: Event) {
         if (this.form.form.checkValidity()) {
@@ -63,7 +63,7 @@ export abstract class AjaxForm<T> {
             this.lockFields();
             this.clearMessages();
 
-            this.submit(this.form.fields)
+            this.submit(this.form)
                 .then(() => {
                     const msg = this.translator.get('msg-form-success');
                     this.showSuccessMessage(msg);
@@ -146,11 +146,13 @@ export abstract class AjaxForm<T> {
     protected lockFields() {
         this.form.fields.forEach((field) => field.disabled = true);
         this.form.submit.classList.add('btn-loading');
+        this.form.submit.disabled = true;
     }
 
     protected unlockFields() {
         this.form.fields.forEach((field) => field.disabled = false);
         this.form.submit.classList.remove('btn-loading');
+        this.form.submit.disabled = false;
     }
 
     protected findCsrfToken(): string {

@@ -1,4 +1,4 @@
-from typing import Dict, Callable
+from typing import Dict, Callable, Any
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
@@ -55,7 +55,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
         self.selenium.find_element_by_xpath('//button[@type="submit"]').click()
 
     def wait_for(self, selector: str,
-                 then: Callable[[WebElement], None]) -> None:
+                 then: Callable[[WebElement], None]) -> Any:
         element = WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
-        then(element)
+        return then(element)

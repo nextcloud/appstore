@@ -15,7 +15,8 @@ export class AppRegisterForm extends AjaxForm<object> {
         this.url = form.form.action;
     }
 
-    protected submit(values: Map<string, FormField>): Promise<object> {
+    protected submit(form: HtmlForm): Promise<object> {
+        const values = form.fields;
         const certificate = new Maybe<FormField>(values.get('certificate'));
         const signature = new Maybe<FormField>(values.get('signature'));
         const data = {

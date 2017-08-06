@@ -12,7 +12,8 @@ export class AppUploadForm extends AjaxForm<object> {
         this.url = form.form.action;
     }
 
-    protected submit(values: Map<string, FormField>): Promise<object> {
+    protected submit(form: HtmlForm): Promise<object> {
+        const values = form.fields;
         const download = new Maybe<FormField>(values.get('download'));
         const signature = new Maybe<FormField>(values.get('signature'));
         const nightly = new Maybe<FormField>(values.get('nightly'));
