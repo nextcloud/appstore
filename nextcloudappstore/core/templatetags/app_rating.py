@@ -3,11 +3,6 @@ from django.utils.translation import ugettext_lazy as _  # type: ignore
 
 register = template.Library()
 
-
-def raise_value_error(msg):
-    raise ValueError(msg)
-
-
 to_rating = (
     (lambda r: r <= 0.2, _('Very negative')),
     (lambda r: r <= 0.4, _('Negative')),

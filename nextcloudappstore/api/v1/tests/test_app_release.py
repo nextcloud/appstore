@@ -55,7 +55,7 @@ class AppReleaseTest(ApiTest):
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(403, response.status_code)
 
-    def test_delete_not_found(self):
+    def test_delete_not_found_token(self):
         owner = get_user_model().objects.create_user(username='owner',
                                                      password='owner',
                                                      email='owner@owner.com')

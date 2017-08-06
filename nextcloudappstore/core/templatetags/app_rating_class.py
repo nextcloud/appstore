@@ -3,10 +3,6 @@ from django import template
 register = template.Library()
 
 
-def raise_value_error(msg):
-    raise ValueError(msg)
-
-
 to_rating_class = (
     (lambda r: r <= 0.2, 'very-negative-rating'),
     (lambda r: r <= 0.4, 'negative-rating'),

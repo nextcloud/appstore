@@ -1,4 +1,5 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
+
 from django.utils import timezone
 from semantic_version import Version  # type: ignore
 
@@ -117,16 +118,6 @@ class DefaultAttributeImporter(ScalarImporter):
 class StringAttributeImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         setattr(obj, key, none_to_empty_string(value))
-
-
-class MinVersionImporter(ScalarImporter):
-    def import_data(self, key: str, value: Any, obj: Any) -> None:
-        setattr(obj, key, value)
-
-
-class MaxVersionImporter(ScalarImporter):
-    def import_data(self, key: str, value: Any, obj: Any) -> None:
-        setattr(obj, key, value)
 
 
 class ScreenshotsImporter(ScalarImporter):

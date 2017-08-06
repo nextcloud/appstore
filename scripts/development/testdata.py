@@ -136,15 +136,29 @@ apps = [{
 
 admin = ('admin', 'admin')
 
+
+def handle_response(response):
+    if response.status_code > 299:
+        msg = 'Request to url %s failed with status code %d'
+        print(msg % (response.url, response.status_code))
+        print(response.text)
+
+
 for app in apps:
-    requests.post('http://127.0.0.1:8000/api/v1/apps', auth=admin, json={
-        'signature': 'signature',
-        'certificate': app['certificate']
-    })
+    response = requests.post('http://127.0.0.1:8000/api/v1/apps',
+                             auth=admin,
+                             json={
+                                 'signature': 'signature',
+                                 'certificate': app['certificate']
+                             })
+    handle_response(response)
     for release in app['releases']:
-        requests.post('http://127.0.0.1:8000/api/v1/apps/releases', auth=admin,
-                      json={
-                          'download': release['url'],
-                          'signature': 'signature',
-                          'nightly': False
-                      })
+        print('Downloading app from %s' % release['url'])
+        response = requests.post('http://127.0.0.1:8000/api/v1/apps/releases',
+                                 auth=admin,
+                                 json={
+                                     'download': release['url'],
+                                     'signature': 'signature',
+                                     'nightly': False
+                                 })
+        handle_response(response)
