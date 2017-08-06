@@ -11,11 +11,12 @@ describe('HTML templating utilities', () => {
     });
 
     it('should evaluate a template', () => {
-        const tpl = `<template><span><p></p></span></template>`;
-        const expected = `<span class="test"><p>&lt;hi alt="as"&gt;</p></span>`;
+        const tpl = `<template><p><span></span></p></template>`;
+        const expected = `<p class="test"><span>&lt;a href="as"&gt;&lt;/a` +
+            `&gt;</span></p>`;
         testDom('body', HTMLBodyElement, tpl,
             (elem: HTMLTemplateElement) => {
-                const result = render(elem, {p: '<hi alt="as">'});
+                const result = render(elem, {span: '<a href="as"></a>'});
                 result.classList.add('test');
                 const tmp = document.createElement('div');
                 tmp.appendChild(result);
@@ -24,3 +25,4 @@ describe('HTML templating utilities', () => {
     });
 
 });
+

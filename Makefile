@@ -90,3 +90,7 @@ test-data:
 l10n:
 	$(manage) compilemessages --settings nextcloudappstore.settings.development
 	$(manage) importdbtranslations --settings nextcloudappstore.settings.development
+
+.PHONE: coverage
+coverage:
+	$(coverage) html
