@@ -18,6 +18,7 @@ class TranslationsCommandTest(TestCase):
         self.assertEqual('', self.read_translations())
         call_command('loaddata', 'categories.json', stdout=StringIO())
         call_command('createdbtranslations', stdout=StringIO())
+        call_command('importdbtranslations', '-v=3', stdout=StringIO())
 
         self.assertEqual(self.translations, self.read_translations())
 
