@@ -20,9 +20,6 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def by_css(self, selector):
         return self.selenium.find_element_by_css_selector(selector)
 
-    def by_name(self, name: str):
-        return self.selenium.find_element_by_name(name)
-
     def setUp(self):
         self.selenium = WebDriver()
         self.selenium.implicitly_wait(SELENIUM_WAIT_SEC)
