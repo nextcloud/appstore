@@ -39,7 +39,7 @@ script:
   - make test
 
 after_success:
-  - coveralls
+  - venv/bin/coveralls
 
 services:
   - postgresql
