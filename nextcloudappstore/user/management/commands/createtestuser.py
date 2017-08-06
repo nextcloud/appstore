@@ -1,6 +1,7 @@
-from allauth.account.models import EmailAddress
 from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
+
+from nextcloudappstore.user.facades import create_user
 
 
 class Command(BaseCommand):
@@ -24,18 +25,7 @@ class Command(BaseCommand):
         username = options['username']
         password = options['password']
         email = options['email']
-        user = get_user_model().objects.create_user(
-            username=username,
-            password=password,
-            email=email,
-        )
-        address, created = EmailAddress.objects.get_or_create(
-            user=user,
-            email=email,
-        )
-        address.verified = True
-        address.primary = True
-        address.save()
+        user = create_user(username, password, email)
         msg = 'Created user %s with password %s and email %s' % (
             user, password, email
         )

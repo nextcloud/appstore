@@ -1,6 +1,6 @@
-from allauth.account.models import EmailAddress
-from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
+
+from nextcloudappstore.user.facades import verify_email
 
 
 class Command(BaseCommand):
@@ -13,13 +13,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         username = options['username']
         email = options['email']
-        user = get_user_model().objects.get(username=username)
-        address, created = EmailAddress.objects.get_or_create(
-            user=user,
-            email=email,
-        )
-        address.verified = True
-        address.primary = True
-        address.save()
+        verify_email(username, email)
         msg = 'Successfully verified email %s for user %s' % (email, username)
         self.stdout.write(self.style.SUCCESS(msg))

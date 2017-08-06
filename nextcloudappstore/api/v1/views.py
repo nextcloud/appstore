@@ -24,6 +24,7 @@ from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
+from nextcloudappstore.user.facades import update_token
 
 
 class CategoryView(ListAPIView):
@@ -244,9 +245,4 @@ class RegenerateAuthToken(APIView):
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
-        try:
-            Token.objects.get(user=request.user).delete()
-        except Exception:  # nosec
-            pass
-        new = Token.objects.create(user=request.user)
-        return Response({'token': new.key})
+        return Response({'token': update_token(request.user.username).key})

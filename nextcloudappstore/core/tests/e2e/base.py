@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from nextcloudappstore.core.tests.e2e import TEST_USER, TEST_EMAIL, \
     TEST_PASSWORD, SELENIUM_WAIT_SEC
-from nextcloudappstore.core.tests.e2e.facades import create_user, delete_user
+from nextcloudappstore.user.facades import create_user, delete_user
 
 
 class BaseStoreTest(StaticLiveServerTestCase):

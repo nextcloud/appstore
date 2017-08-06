@@ -1,6 +1,6 @@
-from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
-from rest_framework.authtoken.models import Token
+
+from nextcloudappstore.user.facades import update_token
 
 
 class Command(BaseCommand):
@@ -15,14 +15,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         username = options['username']
-        token = self._recreate_token(username, options.get('token', None))
+        token = update_token(username, options.get('token', None))
         msg = 'Successfully set token %s for user %s' % (token.key, username)
         self.stdout.write(self.style.SUCCESS(msg))
-
-    def _recreate_token(self, username: str, token: str = None) -> Token:
-        user = get_user_model().objects.get(username=username)
-        Token.objects.filter(user=user).delete()
-        if token:
-            return Token.objects.create(key=token, user=user)
-        else:
-            return Token.objects.create(user=user)
