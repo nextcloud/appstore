@@ -18,8 +18,11 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def by_id(self, id):
         return self.selenium.find_element_by_id(id)
 
-    def by_css(self, selector):
-        return self.selenium.find_element_by_css_selector(selector)
+    def by_css(self, selector: str, multiple: bool = False):
+        if multiple:
+            return self.selenium.find_elements_by_css_selector(selector)
+        else:
+            return self.selenium.find_element_by_css_selector(selector)
 
     def setUp(self):
         self.selenium = WebDriver()
