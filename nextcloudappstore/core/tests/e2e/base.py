@@ -1,4 +1,5 @@
 from typing import Dict, Callable, Any
+from urllib.parse import urlparse
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
@@ -43,8 +44,11 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def go_to_app_upload(self):
         self.go_to('app-upload')
 
-    def login(self, user: str = TEST_USER, password: str = TEST_PASSWORD):
+    def go_to_login(self):
         self.selenium.get('%s%s' % (self.live_server_url, '/login/'))
+
+    def login(self, user: str = TEST_USER, password: str = TEST_PASSWORD):
+        self.go_to_login()
         user_input = self.selenium.find_element_by_name("login")
         user_input.send_keys(user)
         pass_input = self.selenium.find_element_by_name("password")
@@ -56,3 +60,14 @@ class BaseStoreTest(StaticLiveServerTestCase):
         element = WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
         return then(element)
+
+    def assertOnPage(self, url_name: str,
+                     kwargs: Dict[str, str] = None) -> None:
+        parsed = urlparse(self.selenium.current_url)
+        url = reverse(url_name, kwargs=kwargs)
+        self.assertEqual(url, parsed.path)
+
+    def findNavigationLink(self, url_name: str,
+                           kwargs: Dict[str, str] = None):
+        route = reverse(url_name, kwargs=kwargs)
+        return self.by_css('#navbar a[href="%s"]' % route)

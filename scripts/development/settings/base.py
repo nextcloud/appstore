@@ -15,3 +15,9 @@ VALIDATE_CERTIFICATES = False
 FIXTURE_DIRS = (
     join(BASE_DIR, 'nextcloudappstore/core/tests/e2e/fixtures'),
 )
+
+LOGGING['handlers']['console'] = {
+    'level': LOG_LEVEL,
+    'class': 'logging.StreamHandler',
+}
+LOGGING['loggers']['django']['handlers'] += ['console']
