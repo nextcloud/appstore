@@ -35,7 +35,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def tearDown(self):
         try:
             delete_user(TEST_USER)
-        except:
+        except Exception:
             pass
         self.selenium.quit()
         super().tearDown()
