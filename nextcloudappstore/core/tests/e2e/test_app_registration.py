@@ -2,10 +2,11 @@ from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_relative_file
 from nextcloudappstore.core.models import App
 from nextcloudappstore.core.tests.e2e import TEST_APP_SIG
+from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
-class AppRegisterTest(BaseStoreTest):
+class AppRegistrationTest(BaseStoreTest, AppDevSteps):
     fixtures = [
         'categories.json',
         'databases.json',
@@ -27,7 +28,7 @@ class AppRegisterTest(BaseStoreTest):
             NEXTCLOUD_CERTIFICATE_LOCATION=self.cert_path('ca.crt'),
             NEXTCLOUD_CRL_LOCATION=self.cert_path('ca.crl')
         ):
-            self._register_app(self.read_cert('app.crt'), 'test')
+            self.register_app(self.read_cert('app.crt'), 'test')
             self.wait_for('.global-error-msg', validate_error_msg)
 
     def test_valid_cert(self):
@@ -43,14 +44,8 @@ class AppRegisterTest(BaseStoreTest):
             NEXTCLOUD_CERTIFICATE_LOCATION=self.cert_path('ca.crt'),
             NEXTCLOUD_CRL_LOCATION=self.cert_path('ca.crl')
         ):
-            self._register_app(self.read_cert('app.crt'), TEST_APP_SIG)
+            self.register_app(self.read_cert('app.crt'), TEST_APP_SIG)
             self.wait_for('.global-success-msg', validate_success_msg)
-
-    def _register_app(self, cert, sig):
-        self.go_to_app_register()
-        self.by_id('id_certificate').send_keys(cert)
-        self.by_id('id_signature').send_keys(sig)
-        self.by_id('submit').click()
 
     def read_cert(self, name: str) -> str:
         path = 'data/%s' % name

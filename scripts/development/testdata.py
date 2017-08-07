@@ -81,33 +81,6 @@ JvshYmx3I5aXFXOf3l0zEMmIuw==
 -----END CERTIFICATE-----
 """
 
-spreed_cert = """
------BEGIN CERTIFICATE-----
-MIIEAzCCAusCAhANMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNVBAYTAkRFMRswGQYD
-VQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxFzAVBgNVBAoMDk5leHRjbG91ZCBHbWJI
-MTYwNAYDVQQDDC1OZXh0Y2xvdWQgQ29kZSBTaWduaW5nIEludGVybWVkaWF0ZSBB
-dXRob3JpdHkwHhcNMTYwOTI2MTYxNzMzWhcNMjcwMTAyMTYxNzMzWjATMREwDwYD
-VQQDEwhzcHJlZWRtZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKLx
-2dCPBLIgX948BnOdLij0YyI2+FKD6uZOvzxMaoi3rlxNf8MJgraNMzTBWEXtxT5b
-7ZISNp89WEXhaQ1dwwCocodd/xow4Ek63m5nUvTZXsm+YSbMgrFbxzsBhYU7KuIE
-T/jhKdzYgemzErwwN/gtwkLMfPo3jkgg6c8NPPohYv6k7V4VnsqtJ0JS0kX19FqM
-MiNz9XkcncBHy9x0BSxy4+YnwbFcgIx/MtYKlBL8NkPuuJaB/6C1O+IPYhdEdnpX
-+RaIue71nSStOYOqT4YDqHAIw7EmqgA1my09mmK+0Pn92GJVEAEN7JGBSQ+F32RI
-dB3ivGAOVtUtVvJlepWdbHxj1xqeP+LCjWzHMLQjm0TyH8VqU4Cg/wxwAEFnBATH
-aOaWwrggzY2d9KBo1mp0k71NArLbBdlHykFU4bgiSDWrXXMz0fZzLQVwGI0Eqcxc
-ouf6t0kvrK8oKjrnso+FjBoT7lHV/H6ny4ufxIEDAJ/FEBV/gMizt5fDZ+DvmMw4
-q+a088/lXoiI/vWPoGfOa77H5BQOt3y70Pmwv2uVYp46dtU8oat+ZvyW9iMmgP1h
-JSEHj1WGGGlp45d10l4OghwfTB0OSuPUYwWR+lZnV8sukGvQzC9iRV1DGl/rREMC
-cQ5ajRAtO5NPnThvN5/Zuh4n8JoDc0GK4jEZsIivAgMBAAEwDQYJKoZIhvcNAQEL
-BQADggEBAGHMRbPV0WTI9r1w6m2iJRrMbZtbBb+mQr8NtOoXQwvSXWT1lXMP2N8u
-LQ1a8U5UaUjeg7TnoUWTEOqU05HpwA8GZtdWZqPPQpe691kMNvfqF64g0le2kzOL
-huMP9kpDGzSD8pEKf1ihxvEWNUBmwewrZTC3+b4gM+MJ3BBCfb5SCzMURLirfFST
-axCNzc7veb2M98hS73w5ZE6vO+C/wz0GTsxuK0AoLitApT5naQnjvxSvSsjFPEGD
-sUNUEU2Decyp0jxLVnrrpz6Y5UupfBR0V8yAv1t5Od/mCKLc5DxHsDWiKOpsob9U
-JN+bdzJil2NNftihD4Dm7Ha7OS3O8W0=
------END CERTIFICATE-----
-"""
-
 apps = [{
     'certificate': open_id_cert,
     'releases': [{
@@ -119,12 +92,6 @@ apps = [{
     'releases': [{
         'url': 'https://github.com/nextcloud/news/releases/download/10.1.0'
                '/news.tar.gz'
-    }]
-}, {
-    'certificate': spreed_cert,
-    'releases': [{
-        'url': 'https://apps.owncloud.com/CONTENT/content-files/174436'
-               '-spreedme.tar.gz'
     }]
 }, {
     'certificate': twofactor_cert,

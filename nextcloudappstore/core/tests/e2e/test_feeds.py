@@ -23,7 +23,7 @@ class FeedTest(BaseStoreTest):
         # and firefox has custom rss feed handling so comparing the page
         # source won't work
         self.assertTrue(len(result) > 0)
-        self.assertIn('Spreed.ME (0.3.8)', result)
+        self.assertIn('News (10.1.0)', result)
 
     def test_atom_all(self):
         self.go_to('home')
@@ -37,4 +37,4 @@ class FeedTest(BaseStoreTest):
         # and firefox has custom rss feed handling so comparing the page
         # source won't work
         self.assertTrue(len(result) > 0)
-        self.assertIn('Spreed.ME (0.3.8)', result)
+        self.assertIn('News (10.1.0)', result)

@@ -4,11 +4,11 @@ from rest_framework.authtoken.models import Token
 
 
 def create_user(username: str, password: str, email: str, verify: bool = True):
-    user = get_user_model().objects.create_user(
-        username=username,
-        password=password,
-        email=email,
-    )
+    user, created = get_user_model().objects.get_or_create(username=username)
+    if created:
+        user.set_password(password)
+        user.email = email
+        user.save()
     if verify:
         verify_email(username, email)
     return user

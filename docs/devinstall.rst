@@ -21,6 +21,12 @@ Then install the following libraries::
     sudo apt-get update
     sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs yarn
 
+Finally `download the latest geckodriver <https://github.com/mozilla/geckodriver/releases>`_ and install it (adjust URLs/package names if needed)::
+
+    wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+    sudo sh -c 'tar -x geckodriver -zf geckodriver-v0.18.0-linux64.tar.gz -O > /usr/bin/geckodriver'
+    sudo chmod +x /usr/bin/geckodriver
+    rm geckodriver-v0.18.0-linux64.tar.gz
 
 Download the Source
 -------------------
