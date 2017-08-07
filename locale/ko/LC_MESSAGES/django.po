@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-06 00:29+0000\n"
+"POT-Creation-Date: 2017-08-07 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lukas Reschke <lukas@statuscode.ch>, 2017\n"
 "Language-Team: Korean (https://www.transifex.com/nextcloud/teams/64236/ko/)\n"
@@ -137,7 +137,7 @@ msgid "Rendered app name for users"
 msgstr "사용자가 보는 앱 이름"
 
 #: nextcloudappstore/core/models.py:69
-#: nextcloudappstore/core/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Summary"
 msgstr "요약"
 
@@ -146,7 +146,7 @@ msgid "Short text describing the app's purpose"
 msgstr "앱 기능을 설명하는 간단한 글"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Description"
 msgstr "설명"
 
@@ -167,7 +167,7 @@ msgid "Developer documentation URL"
 msgstr "개발자 문서 URL"
 
 #: nextcloudappstore/core/models.py:83
-#: nextcloudappstore/core/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
 msgstr "이슈 트래커 URL"
 
@@ -426,7 +426,7 @@ msgid "Category name which will be presented to the user"
 msgstr "사용자가 볼 분류 이름"
 
 #: nextcloudappstore/core/models.py:474
-#: nextcloudappstore/core/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "분류"
 
@@ -507,7 +507,7 @@ msgid "App release deletions"
 msgstr "앱 릴리스 삭제"
 
 #: nextcloudappstore/core/models.py:605
-#: nextcloudappstore/core/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Nextcloud 버전"
 
@@ -532,44 +532,6 @@ msgstr "Nextcloud 릴리스"
 #: nextcloudappstore/core/models.py:616
 msgid "Nextcloud releases"
 msgstr "Nextcloud 릴리스"
-
-#: nextcloudappstore/core/scaffolding/forms.py:26
-#: nextcloudappstore/core/scaffolding/forms.py:32
-msgid "The app name must be camel case e.g. MyApp"
-msgstr "앱 이름은 CamelCase여야 합니다. 예: MyApp"
-
-#: nextcloudappstore/core/scaffolding/forms.py:30
-#: nextcloudappstore/user/templates/user/transfer-apps.html:15
-msgid "App name"
-msgstr "앱 이름"
-
-#: nextcloudappstore/core/scaffolding/forms.py:35
-msgid "Author's full name"
-msgstr "개발자 전체 이름"
-
-#: nextcloudappstore/core/scaffolding/forms.py:36
-msgid "Author's e-mail"
-msgstr "개발자 이메일"
-
-#: nextcloudappstore/core/scaffolding/forms.py:37
-msgid "Author's homepage"
-msgstr "개발자 홈페이지"
-
-#: nextcloudappstore/core/scaffolding/forms.py:39
-msgid "Bug reports and feature requests"
-msgstr "버그 보고 및 기능 요청"
-
-#: nextcloudappstore/core/scaffolding/forms.py:42
-msgid "Hold down CTRL and click to select multiple entries"
-msgstr "Ctrl 키를 누르면서 여러 항목을 선택할 수 있습니다"
-
-#: nextcloudappstore/core/scaffolding/forms.py:45
-msgid "Short description of your app that will be rendered as short teaser"
-msgstr "짧은 문구로 표시할 앱 설명"
-
-#: nextcloudappstore/core/scaffolding/forms.py:47
-msgid "Full description of what your app does. Can contain Markdown."
-msgstr "앱이 하는 일에 대한 전체 설명입니다. Markdown을 사용할 수 있습니다."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -1047,7 +1009,7 @@ msgstr ""
 "            %(site_name)s에 로그인햅니다. 마지막 단계로 다음 항목을 입력해 주십시오:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Auth"
+msgid "Authentication & authorization"
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
@@ -1144,29 +1106,67 @@ msgstr "도구"
 msgid "Everything else"
 msgstr "다른 모든 것"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:12
+#: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "매우 부정적"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:13
+#: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
 msgstr "부정적"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:14
+#: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
 msgstr "중간"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:15
+#: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
 msgstr "긍정적"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:16
+#: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
 msgstr "매우 긍정적"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "올바른 HTTPS URL을 입력하십시오"
+
+#: nextcloudappstore/scaffolding/forms.py:26
+#: nextcloudappstore/scaffolding/forms.py:32
+msgid "The app name must be camel case e.g. MyApp"
+msgstr "앱 이름은 CamelCase여야 합니다. 예: MyApp"
+
+#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
+msgid "App name"
+msgstr "앱 이름"
+
+#: nextcloudappstore/scaffolding/forms.py:35
+msgid "Author's full name"
+msgstr "개발자 전체 이름"
+
+#: nextcloudappstore/scaffolding/forms.py:36
+msgid "Author's e-mail"
+msgstr "개발자 이메일"
+
+#: nextcloudappstore/scaffolding/forms.py:37
+msgid "Author's homepage"
+msgstr "개발자 홈페이지"
+
+#: nextcloudappstore/scaffolding/forms.py:39
+msgid "Bug reports and feature requests"
+msgstr "버그 보고 및 기능 요청"
+
+#: nextcloudappstore/scaffolding/forms.py:42
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr "Ctrl 키를 누르면서 여러 항목을 선택할 수 있습니다"
+
+#: nextcloudappstore/scaffolding/forms.py:45
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr "짧은 문구로 표시할 앱 설명"
+
+#: nextcloudappstore/scaffolding/forms.py:47
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr "앱이 하는 일에 대한 전체 설명입니다. Markdown을 사용할 수 있습니다."
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"

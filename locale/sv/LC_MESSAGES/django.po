@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-06 00:29+0000\n"
+"POT-Creation-Date: 2017-08-07 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Garry Holmqvist Birkehorn <garry@stridig.se>, 2016\n"
 "Language-Team: Swedish (https://www.transifex.com/nextcloud/teams/64236/sv/)\n"
@@ -138,7 +138,7 @@ msgid "Rendered app name for users"
 msgstr "Renderat appnamn för användare"
 
 #: nextcloudappstore/core/models.py:69
-#: nextcloudappstore/core/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Summary"
 msgstr "Sammanfattning"
 
@@ -147,7 +147,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Kort text som beskriver appens syfte"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -168,7 +168,7 @@ msgid "Developer documentation URL"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:83
-#: nextcloudappstore/core/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Kategorinamn som kommer visas för användaren"
 
 #: nextcloudappstore/core/models.py:474
-#: nextcloudappstore/core/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -506,7 +506,7 @@ msgid "App release deletions"
 msgstr "App-versioner borttagningar"
 
 #: nextcloudappstore/core/models.py:605
-#: nextcloudappstore/core/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Nextcloud version"
 
@@ -531,44 +531,6 @@ msgstr "Nextcloud version"
 #: nextcloudappstore/core/models.py:616
 msgid "Nextcloud releases"
 msgstr "Nextcloud versioner"
-
-#: nextcloudappstore/core/scaffolding/forms.py:26
-#: nextcloudappstore/core/scaffolding/forms.py:32
-msgid "The app name must be camel case e.g. MyApp"
-msgstr "Appens namn måste vara i camel case, t ex MinApp"
-
-#: nextcloudappstore/core/scaffolding/forms.py:30
-#: nextcloudappstore/user/templates/user/transfer-apps.html:15
-msgid "App name"
-msgstr "Namn på app"
-
-#: nextcloudappstore/core/scaffolding/forms.py:35
-msgid "Author's full name"
-msgstr "Skaparens fullständiga namn"
-
-#: nextcloudappstore/core/scaffolding/forms.py:36
-msgid "Author's e-mail"
-msgstr "Skaparens e-post"
-
-#: nextcloudappstore/core/scaffolding/forms.py:37
-msgid "Author's homepage"
-msgstr "Skaparens hemsida"
-
-#: nextcloudappstore/core/scaffolding/forms.py:39
-msgid "Bug reports and feature requests"
-msgstr ""
-
-#: nextcloudappstore/core/scaffolding/forms.py:42
-msgid "Hold down CTRL and click to select multiple entries"
-msgstr "Håll in CTRL och markera flera poster"
-
-#: nextcloudappstore/core/scaffolding/forms.py:45
-msgid "Short description of your app that will be rendered as short teaser"
-msgstr "Kort beskrivning av appen som kommer att återges som en kort teaser"
-
-#: nextcloudappstore/core/scaffolding/forms.py:47
-msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Full beskrivning av vad din app gör. Kan innehålla Markdown"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -1057,7 +1019,7 @@ msgstr ""
 "            %(site_name)s. Som ett sista steg, vänligen fullfölj detta formulär:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Auth"
+msgid "Authentication & authorization"
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
@@ -1154,29 +1116,67 @@ msgstr "Verktyg"
 msgid "Everything else"
 msgstr "Allting annat"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:12
+#: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Väldigt negativ"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:13
+#: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
 msgstr "Negativ"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:14
+#: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
 msgstr "Neutral"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:15
+#: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
 msgstr "Positivt"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:16
+#: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
 msgstr "Väldigt positivt"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Ange en giltig URL"
+
+#: nextcloudappstore/scaffolding/forms.py:26
+#: nextcloudappstore/scaffolding/forms.py:32
+msgid "The app name must be camel case e.g. MyApp"
+msgstr "Appens namn måste vara i camel case, t ex MinApp"
+
+#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
+msgid "App name"
+msgstr "Namn på app"
+
+#: nextcloudappstore/scaffolding/forms.py:35
+msgid "Author's full name"
+msgstr "Skaparens fullständiga namn"
+
+#: nextcloudappstore/scaffolding/forms.py:36
+msgid "Author's e-mail"
+msgstr "Skaparens e-post"
+
+#: nextcloudappstore/scaffolding/forms.py:37
+msgid "Author's homepage"
+msgstr "Skaparens hemsida"
+
+#: nextcloudappstore/scaffolding/forms.py:39
+msgid "Bug reports and feature requests"
+msgstr ""
+
+#: nextcloudappstore/scaffolding/forms.py:42
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr "Håll in CTRL och markera flera poster"
+
+#: nextcloudappstore/scaffolding/forms.py:45
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr "Kort beskrivning av appen som kommer att återges som en kort teaser"
+
+#: nextcloudappstore/scaffolding/forms.py:47
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr "Full beskrivning av vad din app gör. Kan innehålla Markdown"
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"

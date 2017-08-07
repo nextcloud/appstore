@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-06 00:29+0000\n"
+"POT-Creation-Date: 2017-08-07 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Richard de Boer <transifex@tubul.net>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -148,7 +148,7 @@ msgid "Rendered app name for users"
 msgstr "Gegenereerde appnaam voor gebruikers"
 
 #: nextcloudappstore/core/models.py:69
-#: nextcloudappstore/core/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Summary"
 msgstr "Samenvatting"
 
@@ -157,7 +157,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Korte beschrijving van de app"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -178,7 +178,7 @@ msgid "Developer documentation URL"
 msgstr "URL ontwikkelaarsdocumentatie"
 
 #: nextcloudappstore/core/models.py:83
-#: nextcloudappstore/core/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
 msgstr "Issue tracker URL"
 
@@ -440,7 +440,7 @@ msgid "Category name which will be presented to the user"
 msgstr "categorienaam die wordt getoond aan de gebruiker"
 
 #: nextcloudappstore/core/models.py:474
-#: nextcloudappstore/core/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "Categorieën"
 
@@ -521,7 +521,7 @@ msgid "App release deletions"
 msgstr "App release verwijderingen"
 
 #: nextcloudappstore/core/models.py:605
-#: nextcloudappstore/core/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Nextcloud versie"
 
@@ -548,45 +548,6 @@ msgstr "Nextcloud release"
 #: nextcloudappstore/core/models.py:616
 msgid "Nextcloud releases"
 msgstr "Nextcloud releases"
-
-#: nextcloudappstore/core/scaffolding/forms.py:26
-#: nextcloudappstore/core/scaffolding/forms.py:32
-msgid "The app name must be camel case e.g. MyApp"
-msgstr "De app naam moet CamelCase zijn, bijvoorbeeld: MyApp"
-
-#: nextcloudappstore/core/scaffolding/forms.py:30
-#: nextcloudappstore/user/templates/user/transfer-apps.html:15
-msgid "App name"
-msgstr "App naam"
-
-#: nextcloudappstore/core/scaffolding/forms.py:35
-msgid "Author's full name"
-msgstr "Volledige naam van de auteur"
-
-#: nextcloudappstore/core/scaffolding/forms.py:36
-msgid "Author's e-mail"
-msgstr "Emailadres van de auteur"
-
-#: nextcloudappstore/core/scaffolding/forms.py:37
-msgid "Author's homepage"
-msgstr "Homepage van de auteur"
-
-#: nextcloudappstore/core/scaffolding/forms.py:39
-msgid "Bug reports and feature requests"
-msgstr "Bugmeldingen en aanvragen voor functionaliteit"
-
-#: nextcloudappstore/core/scaffolding/forms.py:42
-msgid "Hold down CTRL and click to select multiple entries"
-msgstr "Houd Ctrl ingedrukt en klik om meerdere items te selecteren"
-
-#: nextcloudappstore/core/scaffolding/forms.py:45
-msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
-"Korte beschrijving van je app die zal worden weergegeven als korte teaser"
-
-#: nextcloudappstore/core/scaffolding/forms.py:47
-msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Volledige beschrijving van wat je app doet. Kan Markdown bevatten."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -1075,8 +1036,8 @@ msgstr ""
 "%(site_name)s. Als laatste stap moet je het volgende formulier invullen:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Auth"
-msgstr "Auth"
+msgid "Authentication & authorization"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Deprecated, do not use anymore"
@@ -1172,29 +1133,68 @@ msgstr "Tools"
 msgid "Everything else"
 msgstr "De rest"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:12
+#: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Zeer negatief"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:13
+#: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
 msgstr "Negatief"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:14
+#: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
 msgstr "Neutraal"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:15
+#: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
 msgstr "Positief"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:16
+#: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
 msgstr "Zeer positief"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Geef een geldige HTTPS Url op"
+
+#: nextcloudappstore/scaffolding/forms.py:26
+#: nextcloudappstore/scaffolding/forms.py:32
+msgid "The app name must be camel case e.g. MyApp"
+msgstr "De app naam moet CamelCase zijn, bijvoorbeeld: MyApp"
+
+#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
+msgid "App name"
+msgstr "App naam"
+
+#: nextcloudappstore/scaffolding/forms.py:35
+msgid "Author's full name"
+msgstr "Volledige naam van de auteur"
+
+#: nextcloudappstore/scaffolding/forms.py:36
+msgid "Author's e-mail"
+msgstr "Emailadres van de auteur"
+
+#: nextcloudappstore/scaffolding/forms.py:37
+msgid "Author's homepage"
+msgstr "Homepage van de auteur"
+
+#: nextcloudappstore/scaffolding/forms.py:39
+msgid "Bug reports and feature requests"
+msgstr "Bugmeldingen en aanvragen voor functionaliteit"
+
+#: nextcloudappstore/scaffolding/forms.py:42
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr "Houd Ctrl ingedrukt en klik om meerdere items te selecteren"
+
+#: nextcloudappstore/scaffolding/forms.py:45
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr ""
+"Korte beschrijving van je app die zal worden weergegeven als korte teaser"
+
+#: nextcloudappstore/scaffolding/forms.py:47
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr "Volledige beschrijving van wat je app doet. Kan Markdown bevatten."
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-06 00:29+0000\n"
+"POT-Creation-Date: 2017-08-07 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2017\n"
 "Language-Team: Galician (https://www.transifex.com/nextcloud/teams/64236/"
@@ -160,7 +160,7 @@ msgid "Rendered app name for users"
 msgstr "Nome da aplicación interpretado para os usuarios"
 
 #: nextcloudappstore/core/models.py:69
-#: nextcloudappstore/core/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Summary"
 msgstr "Resumo"
 
@@ -169,7 +169,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Breve descrición do propósito da aplicación"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Description"
 msgstr "Descrición"
 
@@ -190,7 +190,7 @@ msgid "Developer documentation URL"
 msgstr "URL da documentación de desenvolvedor"
 
 #: nextcloudappstore/core/models.py:83
-#: nextcloudappstore/core/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
 msgstr "URL do seguimento de incidencias"
 
@@ -452,7 +452,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Nome da categoría que se lle presentará ao usuario"
 
 #: nextcloudappstore/core/models.py:474
-#: nextcloudappstore/core/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "Categorías"
 
@@ -533,7 +533,7 @@ msgid "App release deletions"
 msgstr "Borrados das publicacións de versión da aplicación"
 
 #: nextcloudappstore/core/models.py:605
-#: nextcloudappstore/core/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Versión do Nexcloud:"
 
@@ -560,50 +560,6 @@ msgstr "Publicación de versión do Nexcloud:"
 #: nextcloudappstore/core/models.py:616
 msgid "Nextcloud releases"
 msgstr "Publicacións de versións do Nexcloud:"
-
-#: nextcloudappstore/core/scaffolding/forms.py:26
-#: nextcloudappstore/core/scaffolding/forms.py:32
-msgid "The app name must be camel case e.g. MyApp"
-msgstr ""
-"O nome da aplicación debe ser en nomenclatura «camel case», p. ex. "
-"aMiñaAplicación"
-
-#: nextcloudappstore/core/scaffolding/forms.py:30
-#: nextcloudappstore/user/templates/user/transfer-apps.html:15
-msgid "App name"
-msgstr "Nome da aplicación"
-
-#: nextcloudappstore/core/scaffolding/forms.py:35
-msgid "Author's full name"
-msgstr "Nome completo do autor"
-
-#: nextcloudappstore/core/scaffolding/forms.py:36
-msgid "Author's e-mail"
-msgstr "Correo do autor"
-
-#: nextcloudappstore/core/scaffolding/forms.py:37
-msgid "Author's homepage"
-msgstr "Páxina principal do autor"
-
-#: nextcloudappstore/core/scaffolding/forms.py:39
-msgid "Bug reports and feature requests"
-msgstr "Informe de fallas e solicitudes de funcionalidades"
-
-#: nextcloudappstore/core/scaffolding/forms.py:42
-msgid "Hold down CTRL and click to select multiple entries"
-msgstr ""
-"Manteña premida a tecla Ctrl e prema co rato para seleccionar varias entradas"
-
-#: nextcloudappstore/core/scaffolding/forms.py:45
-msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
-"Breve descrición da súa aplicación que será interpretada como un preliminar "
-"curto"
-
-#: nextcloudappstore/core/scaffolding/forms.py:47
-msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
-"Descrición completa do que fai a súa aplicación. Pode conter Markdown. "
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -1116,8 +1072,8 @@ msgstr ""
 "%(site_name)s. Como paso final, complete o seguinte formulario:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Auth"
-msgstr ""
+msgid "Authentication & authorization"
+msgstr "Autenticación e autorización"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Deprecated, do not use anymore"
@@ -1222,29 +1178,73 @@ msgstr "Ferramentas"
 msgid "Everything else"
 msgstr "Todo o demais"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:12
+#: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Moi negativo"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:13
+#: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
 msgstr "Negativo"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:14
+#: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
 msgstr "Neutral"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:15
+#: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
 msgstr "Positivo"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:16
+#: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
 msgstr "Moi positivo"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Introduza un URL HTTPS correcto"
+
+#: nextcloudappstore/scaffolding/forms.py:26
+#: nextcloudappstore/scaffolding/forms.py:32
+msgid "The app name must be camel case e.g. MyApp"
+msgstr ""
+"O nome da aplicación debe ser en nomenclatura «camel case», p. ex. "
+"aMiñaAplicación"
+
+#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
+msgid "App name"
+msgstr "Nome da aplicación"
+
+#: nextcloudappstore/scaffolding/forms.py:35
+msgid "Author's full name"
+msgstr "Nome completo do autor"
+
+#: nextcloudappstore/scaffolding/forms.py:36
+msgid "Author's e-mail"
+msgstr "Correo do autor"
+
+#: nextcloudappstore/scaffolding/forms.py:37
+msgid "Author's homepage"
+msgstr "Páxina principal do autor"
+
+#: nextcloudappstore/scaffolding/forms.py:39
+msgid "Bug reports and feature requests"
+msgstr "Informe de fallas e solicitudes de funcionalidades"
+
+#: nextcloudappstore/scaffolding/forms.py:42
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr ""
+"Manteña premida a tecla Ctrl e prema co rato para seleccionar varias entradas"
+
+#: nextcloudappstore/scaffolding/forms.py:45
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr ""
+"Breve descrición da súa aplicación que será interpretada como un preliminar "
+"curto"
+
+#: nextcloudappstore/scaffolding/forms.py:47
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr ""
+"Descrición completa do que fai a súa aplicación. Pode conter Markdown. "
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
@@ -1394,9 +1394,6 @@ msgstr "Desbloquear a transferencia da propiedade"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Aínda non enviou ningunha aplicación!"
-
-#~ msgid "Authentication & authorization"
-#~ msgstr "Autenticación e autorización"
 
 #~ msgid "OCS ID"
 #~ msgstr "ID OCS"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-06 00:29+0000\n"
+"POT-Creation-Date: 2017-08-07 00:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Salih Emin <cerebrux.gr@gmail.com>, 2017\n"
 "Language-Team: Greek (https://www.transifex.com/nextcloud/teams/64236/el/)\n"
@@ -149,7 +149,7 @@ msgid "Rendered app name for users"
 msgstr "Καθορισμένο όνομα εφαρμογής για χρήστες"
 
 #: nextcloudappstore/core/models.py:69
-#: nextcloudappstore/core/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Summary"
 msgstr "Περίληψη"
 
@@ -158,7 +158,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Μικρό κείμενο το οποίο περιγράφει το σκοπό της εφαρμογής"
 
 #: nextcloudappstore/core/models.py:72 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -179,7 +179,7 @@ msgid "Developer documentation URL"
 msgstr "URL τεκμηρίωσης προγραμματιστή"
 
 #: nextcloudappstore/core/models.py:83
-#: nextcloudappstore/core/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
 msgstr "URL παρακολούθησης ζητημάτων"
 
@@ -442,7 +442,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Το όνομα της κατηγορίας που θα παρουσιάζεται στο χρήστη"
 
 #: nextcloudappstore/core/models.py:474
-#: nextcloudappstore/core/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Categories"
 msgstr "Κατηγορίες"
 
@@ -523,7 +523,7 @@ msgid "App release deletions"
 msgstr "Διαγραφές κυκλοφορίας εφαρμογής"
 
 #: nextcloudappstore/core/models.py:605
-#: nextcloudappstore/core/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:34
 msgid "Nextcloud version"
 msgstr "Έκδοση Nextcloud"
 
@@ -550,48 +550,6 @@ msgstr "Έκδοση Nextcloud"
 #: nextcloudappstore/core/models.py:616
 msgid "Nextcloud releases"
 msgstr "Εκδόσεις Nextcloud"
-
-#: nextcloudappstore/core/scaffolding/forms.py:26
-#: nextcloudappstore/core/scaffolding/forms.py:32
-msgid "The app name must be camel case e.g. MyApp"
-msgstr "Το όνομα της εφαρμογής πρέπει να είναι πεζοκεφαλαία πχ. MyApp"
-
-#: nextcloudappstore/core/scaffolding/forms.py:30
-#: nextcloudappstore/user/templates/user/transfer-apps.html:15
-msgid "App name"
-msgstr "Όνομα εφαρμογής"
-
-#: nextcloudappstore/core/scaffolding/forms.py:35
-msgid "Author's full name"
-msgstr "Το πλήρες όνομα του δημιουργού"
-
-#: nextcloudappstore/core/scaffolding/forms.py:36
-msgid "Author's e-mail"
-msgstr "E-mail δημιουργού"
-
-#: nextcloudappstore/core/scaffolding/forms.py:37
-msgid "Author's homepage"
-msgstr "Ιστοσελίδα δημιουργού"
-
-#: nextcloudappstore/core/scaffolding/forms.py:39
-msgid "Bug reports and feature requests"
-msgstr "Αναφορά σφαλμάτων και αιτήματα δυνατοτήτων"
-
-#: nextcloudappstore/core/scaffolding/forms.py:42
-msgid "Hold down CTRL and click to select multiple entries"
-msgstr ""
-"Κρατήστε πατημένο το CTRL και κάντε κλικ για να επιλέξετε πολλαπλές "
-"καταχωρήσεις"
-
-#: nextcloudappstore/core/scaffolding/forms.py:45
-msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
-"Μια μικρή περιγραφή της εφαρμογής σας που θα παρουσιαστεί ως μικρό απόσπασμα"
-
-#: nextcloudappstore/core/scaffolding/forms.py:47
-msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
-"Πλήρης περιγραφή του τι κάνει η εφαρμογή σας. Μπορεί να περιέχει Markdown."
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -1083,8 +1041,8 @@ msgstr ""
 "           %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την ακόλουθη φόρμα:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Auth"
-msgstr "Auth"
+msgid "Authentication & authorization"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Deprecated, do not use anymore"
@@ -1184,29 +1142,71 @@ msgstr "Εργαλεία"
 msgid "Everything else"
 msgstr "Οτιδήποτε άλλο"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:12
+#: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Πολύ αρνητικό"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:13
+#: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
 msgstr "Αρνητικό"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:14
+#: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
 msgstr "Ουδέτερη"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:15
+#: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
 msgstr "Θετικό"
 
-#: nextcloudappstore/core/templatetags/app_rating.py:16
+#: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
 msgstr "Πολύ θετικό"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
 msgstr "Βάλτε έναν έγκυρο σύνδεσμο HTTPS"
+
+#: nextcloudappstore/scaffolding/forms.py:26
+#: nextcloudappstore/scaffolding/forms.py:32
+msgid "The app name must be camel case e.g. MyApp"
+msgstr "Το όνομα της εφαρμογής πρέπει να είναι πεζοκεφαλαία πχ. MyApp"
+
+#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/user/templates/user/transfer-apps.html:15
+msgid "App name"
+msgstr "Όνομα εφαρμογής"
+
+#: nextcloudappstore/scaffolding/forms.py:35
+msgid "Author's full name"
+msgstr "Το πλήρες όνομα του δημιουργού"
+
+#: nextcloudappstore/scaffolding/forms.py:36
+msgid "Author's e-mail"
+msgstr "E-mail δημιουργού"
+
+#: nextcloudappstore/scaffolding/forms.py:37
+msgid "Author's homepage"
+msgstr "Ιστοσελίδα δημιουργού"
+
+#: nextcloudappstore/scaffolding/forms.py:39
+msgid "Bug reports and feature requests"
+msgstr "Αναφορά σφαλμάτων και αιτήματα δυνατοτήτων"
+
+#: nextcloudappstore/scaffolding/forms.py:42
+msgid "Hold down CTRL and click to select multiple entries"
+msgstr ""
+"Κρατήστε πατημένο το CTRL και κάντε κλικ για να επιλέξετε πολλαπλές "
+"καταχωρήσεις"
+
+#: nextcloudappstore/scaffolding/forms.py:45
+msgid "Short description of your app that will be rendered as short teaser"
+msgstr ""
+"Μια μικρή περιγραφή της εφαρμογής σας που θα παρουσιαστεί ως μικρό απόσπασμα"
+
+#: nextcloudappstore/scaffolding/forms.py:47
+msgid "Full description of what your app does. Can contain Markdown."
+msgstr ""
+"Πλήρης περιγραφή του τι κάνει η εφαρμογή σας. Μπορεί να περιέχει Markdown."
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
