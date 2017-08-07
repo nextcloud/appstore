@@ -27,10 +27,16 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def setUp(self):
         self.selenium = WebDriver()
         self.selenium.implicitly_wait(SELENIUM_WAIT_SEC)
-        create_user(TEST_USER, TEST_PASSWORD, TEST_EMAIL)
+        user = create_user(TEST_USER, TEST_PASSWORD, TEST_EMAIL)
+        user.firstname = 'live'
+        user.lastname = 'test'
+        user.save()
 
     def tearDown(self):
-        delete_user(TEST_USER)
+        try:
+            delete_user(TEST_USER)
+        except:
+            pass
         self.selenium.quit()
         super().tearDown()
 
@@ -57,6 +63,9 @@ class BaseStoreTest(StaticLiveServerTestCase):
         pass_input = self.selenium.find_element_by_name("password")
         pass_input.send_keys(password)
         self.selenium.find_element_by_xpath('//button[@type="submit"]').click()
+
+    def logout(self):
+        self.findNavigationLink('account_logout').click()
 
     def wait_for(self, selector: str,
                  then: Callable[[WebElement], None]) -> Any:
