@@ -25,4 +25,5 @@ class UpdatePasswordTest(BaseStoreTest):
         self.logout()
         self.login(TEST_USER, 'thisisatest')
 
-        self.assertOnPage('home')
+        self.assertTrue(
+            self.findNavigationLink('account_logout').is_displayed())

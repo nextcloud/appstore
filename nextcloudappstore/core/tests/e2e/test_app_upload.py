@@ -1,15 +1,7 @@
-from enum import Enum
-
 from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, \
     NEWS_ARCHIVE_SIGNATURE, \
     NEWS_CERT
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
-
-class Rating(Enum):
-    BAD = 'id_rating_0'
-    OK = 'id_rating_1'
-    GOOD = 'id_rating_2'
 
 
 class UploadAppReleaseTest(BaseStoreTest):
@@ -19,13 +11,6 @@ class UploadAppReleaseTest(BaseStoreTest):
         'licenses.json',
         'nextcloudreleases.json',
     ]
-
-    def test_upload_invalid_url(self):
-        self.login()
-        with self.settings(VALIDATE_CERTIFICATES=False):
-            self._upload_app('no url', 'sig')
-            self.wait_for('.error-msg-download',
-                          lambda el: self.assertTrue(el.is_displayed()))
 
     def test_upload(self):
         self.login()
