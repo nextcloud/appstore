@@ -37,8 +37,8 @@ class BaseStoreTest(StaticLiveServerTestCase):
             delete_user(TEST_USER)
         except Exception:
             pass
-        self.selenium.quit()
         super().tearDown()
+        self.selenium.quit()
 
     def go_to(self, url_name: str, kwargs: Dict[str, str] = None) -> None:
         app_url = reverse(url_name, kwargs=kwargs)

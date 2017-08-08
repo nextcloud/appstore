@@ -80,18 +80,21 @@ clean:
 	rm -rf $(CURDIR)/node_modules
 	$(MAKE) -C $(CURDIR)/docs/ clean
 
-.PHONE: test-data
-test-data:
-	$(manage) createtestuser --username user1 --password user1 --email user1@user.com --settings nextcloudappstore.settings.development
-	$(manage) createtestuser --username user2 --password user2 --email user2@user.com --settings nextcloudappstore.settings.development
-	$(manage) createtestuser --username user3 --password user3 --email user3@user.com --settings nextcloudappstore.settings.development
+.PHONY: test-data
+test-data: test-user
 	$(python) $(CURDIR)/scripts/development/testdata.py
 
-.PHONE: l10n
+.PHONY: l10n
 l10n:
 	$(manage) compilemessages --settings nextcloudappstore.settings.development
 	$(manage) importdbtranslations --settings nextcloudappstore.settings.development
 
-.PHONE: coverage
+.PHONY: coverage
 coverage:
 	$(coverage) html
+
+.PHONY: test-user
+test-user:
+	$(manage) createtestuser --username user1 --password user1 --email user1@user.com --settings nextcloudappstore.settings.development
+	$(manage) createtestuser --username user2 --password user2 --email user2@user.com --settings nextcloudappstore.settings.development
+	$(manage) createtestuser --username user3 --password user3 --email user3@user.com --settings nextcloudappstore.settings.development

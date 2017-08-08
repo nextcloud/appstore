@@ -14,7 +14,7 @@ def none_to_empty_string(value: str) -> str:
     if value is None:
         return ''
     else:
-        return value
+        return value.strip()
 
 
 class Importer:
@@ -145,7 +145,7 @@ class L10NImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         for lang, translation in value.items():
             obj.set_current_language(lang)
-            setattr(obj, key, translation)
+            setattr(obj, key, translation.strip())
             obj.save()
 
 

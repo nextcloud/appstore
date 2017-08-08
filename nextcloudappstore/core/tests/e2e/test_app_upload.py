@@ -1,15 +1,17 @@
 from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, \
     NEWS_ARCHIVE_SIGNATURE, \
     NEWS_CERT
+from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
-class UploadAppReleaseTest(BaseStoreTest):
+class UploadAppReleaseTest(BaseStoreTest, AppDevSteps):
     fixtures = [
         'categories.json',
         'databases.json',
         'licenses.json',
         'nextcloudreleases.json',
+        'admin.json',
     ]
 
     def test_upload(self):
@@ -34,7 +36,7 @@ class UploadAppReleaseTest(BaseStoreTest):
 
         # this signature is secret so ignore cert checks here
         with self.settings(VALIDATE_CERTIFICATES=False):
-            self._register_app(NEWS_CERT, 'test')
+            self.register_app(NEWS_CERT, 'test')
 
         # and run them for uploading the app archive
         with self.settings(VALIDATE_CERTIFICATES=True):
@@ -44,10 +46,4 @@ class UploadAppReleaseTest(BaseStoreTest):
         self.go_to_app_upload()
         self.by_id('id_download').send_keys(url)
         self.by_id('id_signature').send_keys(sig)
-        self.by_id('submit').click()
-
-    def _register_app(self, cert, sig):
-        self.go_to_app_register()
-        self.by_id('id_certificate').send_keys(cert)
-        self.by_id('id_signature').send_keys(sig)
-        self.by_id('submit').click()
+        self.by_id('id_signature').submit()

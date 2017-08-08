@@ -1,11 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
+from pymple import Container
+
 from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.parser import parse_app_metadata
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.models import App, Screenshot, Database
-from pymple import Container
 
 
 class ImporterTest(TestCase):
@@ -83,6 +84,10 @@ class ImporterTest(TestCase):
         app = App.objects.get(pk='news')
         # l10n
         app.set_current_language('en')
+        self.assertEqual('https://github.com/owncloud/news', app.website)
+        self.assertEqual(
+            'https://github.com/owncloud/news/wiki#user-documentation',
+            app.user_docs)
         self.assertEqual('News', app.name)
         self.assertEqual('An RSS/Atom feed reader', app.summary)
         self.assertEqual('#This is markdown', app.description)
