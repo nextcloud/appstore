@@ -15,6 +15,7 @@
 - Use one unique button style for all buttons, #402
 - Moved certificate and scaffolding to separate folders
 - Moved Nextcloud public certificate and CRL to new folder
+- Trim text of most info.xml elements
   
 ### Removed
 
