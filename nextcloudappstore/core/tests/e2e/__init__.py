@@ -1,4 +1,4 @@
-SELENIUM_WAIT_SEC = 60
+SELENIUM_WAIT_SEC = 120
 
 TEST_USER = 'livetest'
 TEST_PASSWORD = 'password'
