@@ -31,16 +31,16 @@ class UploadAppReleaseTest(BaseStoreTest, AppDevSteps):
             self.assertEqual(NEWS_ARCHIVE_URL, a.get_attribute('href'))
 
         def upload_app(el):
-            self._upload_app(NEWS_ARCHIVE_URL, NEWS_ARCHIVE_SIGNATURE)
-            self.wait_for('.global-success-msg', check_app_version_page)
+            with self.settings(VALIDATE_CERTIFICATES=True):
+                self._upload_app(NEWS_ARCHIVE_URL, NEWS_ARCHIVE_SIGNATURE)
+                self.wait_for('.global-success-msg', check_app_version_page)
 
         # this signature is secret so ignore cert checks here
         with self.settings(VALIDATE_CERTIFICATES=False):
             self.register_app(NEWS_CERT, 'test')
 
         # and run them for uploading the app archive
-        with self.settings(VALIDATE_CERTIFICATES=True):
-            self.wait_for('.global-success-msg', upload_app)
+        self.wait_for('.global-success-msg', upload_app)
 
     def _upload_app(self, url, sig):
         self.go_to_app_upload()
