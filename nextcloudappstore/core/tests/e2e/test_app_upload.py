@@ -23,6 +23,11 @@ class UploadAppReleaseTest(BaseStoreTest):
             self.assertEqual('11.0.5', a.text)
             self.assertEqual(NEWS_ARCHIVE_URL, a.get_attribute('href'))
 
+            self.by_css(
+                '#downloads + table tr:first-child td:last-child a').click()
+            a = self.by_css('.release-download')
+            self.assertEqual(NEWS_ARCHIVE_URL, a.get_attribute('href'))
+
         def upload_app(el):
             self._upload_app(NEWS_ARCHIVE_URL, NEWS_ARCHIVE_SIGNATURE)
             self.wait_for('.global-success-msg', check_app_version_page)
