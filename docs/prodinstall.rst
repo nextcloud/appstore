@@ -181,7 +181,7 @@ To get your instance running in production you need to create your production se
     # VALIDATE_CERTIFICATES = True
     # Algorithm which is used to sign and verify app releases. The digest is
     # persisted when saving a release so changing this parameter will only
-    # affect new releases
+    # affect new releases. Do not forget to update the app developer docs!
     # CERTIFICATE_DIGEST = 'sha512'
 
     # MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
