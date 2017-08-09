@@ -184,7 +184,7 @@ To get your instance running in production you need to create your production se
     # affect new releases
     # CERTIFICATE_DIGEST = 'sha512'
 
-    # MAX_DOWNLOAD_FILE_SIZE = 1024 * 1024  # bytes
+    # MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
     # MAX_DOWNLOAD_REDIRECTS = 10
     # MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
