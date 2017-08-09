@@ -170,7 +170,7 @@ To get your instance running in production you need to create your production se
     # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
     # Only set if you want a different log location than the one in the main directory
-    # LOG_FILE = '/path/to/appstore.log'
+    # LOG_FILE = '/path/to/appstore/appstore.log'
 
     # minimum number of comments to calculate a rating
     # RATING_THRESHOLD = 5
