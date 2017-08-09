@@ -16,6 +16,7 @@
 - Moved certificate and scaffolding to separate folders
 - Moved Nextcloud public certificate and CRL to new folder
 - Trim text of most info.xml elements
+- **API (v1)**: future proof signatures by adding a **signatureDigest** field to each app release filled with the hashing algorithm
   
 ### Removed
 

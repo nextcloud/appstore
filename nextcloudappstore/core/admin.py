@@ -1,10 +1,10 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
+
 from nextcloudappstore.core.models import DatabaseDependency, AppRelease, \
     ShellCommand, Screenshot, PhpExtensionDependency, License, PhpExtension, \
     Database, AppRating, App, Category, AppAuthor, AppReleaseDeleteLog, \
     NextcloudRelease
-
-from parler.admin import TranslatableAdmin
 
 
 class DatabaseDependencyInline(admin.TabularInline):
@@ -30,6 +30,7 @@ class AppReleaseAdmin(TranslatableAdmin):
     list_display = ('app', 'version', 'is_nightly', 'last_modified')
     list_filter = ('app__id', 'is_nightly', 'last_modified')
     ordering = ('-last_modified',)
+    readonly_fields = ('signature_digest',)
 
 
 @admin.register(AppAuthor)

@@ -7,6 +7,7 @@ from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.parser import parse_app_metadata
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.models import App, Screenshot, Database
+from nextcloudappstore.settings.base import CERTIFICATE_DIGEST
 
 
 class ImporterTest(TestCase):
@@ -59,6 +60,7 @@ class ImporterTest(TestCase):
         self.assertEqual(0, Screenshot.objects.count())
 
         release = app.releases.all()[0]
+        self.assertEqual(CERTIFICATE_DIGEST, release.signature_digest)
         self.assertEqual('8.8.2', release.version)
         self.assertEqual('>=11.0.0,<13.0.0', release.platform_version_spec)
         self.assertEqual('*', release.php_version_spec)

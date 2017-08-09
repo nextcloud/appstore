@@ -9,7 +9,9 @@ from django.db.models import Manager
 from django.db.models import ManyToManyField, ForeignKey, \
     URLField, IntegerField, CharField, CASCADE, TextField, \
     DateTimeField, Model, BooleanField, EmailField, Q, \
-    FloatField, OneToOneField  # type: ignore
+    FloatField  # type: ignore
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from parler.models import TranslatedFields, TranslatableModel, \
@@ -20,8 +22,6 @@ from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version, AppSemVer, group_by_main_version
-from django.db.models.signals import post_delete
-from django.dispatch import receiver
 
 
 class AppManager(TranslatableManager):
@@ -367,7 +367,9 @@ class AppRelease(TranslatableModel):
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     signature = TextField(verbose_name=_('Signature'), help_text=_(
-        'A signature using SHA512 and the app\'s certificate'))
+        'A signature using the app\'s certificate'))
+    signature_digest = CharField(max_length=256,
+                                 verbose_name=_('Signature hashing algorithm'))
     translations = TranslatedFields(
         changelog=TextField(verbose_name=_('Changelog'), help_text=_(
             'The release changelog. Can contain Markdown'), default='')

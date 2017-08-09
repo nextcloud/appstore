@@ -37,7 +37,8 @@
                                             </td>
                                         </tr>
                                         <tr><td>{% trans 'Certificate' %}</td><td class="certificate">{{ object.certificate|linebreaksbr }}</td></tr>
-                                        <tr><td>{% trans 'SHA512 signature' %}</td><td class="certificate">{{ release.signature|linebreaksbr }}</td></tr>
+                                        <tr><td>{% trans 'Signature' %}</td><td class="certificate">{{ release.signature|linebreaksbr }}</td></tr>
+                                        <tr><td>{% trans 'Signature digest' %}</td><td class="certificate">{{ release.signature_digest}}</td></tr>
                                     </table>
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>

@@ -39,7 +39,8 @@ class CertificateValidator:
     def validate_signature(self, certificate: str, signature: str,
                            data: bytes) -> None:
         """
-        Tests if a value is a valid certificate using SHA512
+        Tests if a value is a valid certificate using the provided hash
+        algorithm
         :param certificate: the certificate to use as string
         :param signature: the signature base64 encoded string to test
         :param data: the binary file content that was signed

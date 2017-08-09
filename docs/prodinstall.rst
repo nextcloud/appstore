@@ -141,8 +141,8 @@ To get your instance running in production you need to create your production se
     MEDIA_ROOT = '/var/www/production-domain.com/media/'
 
     # Public and private keys for Googles recaptcha
-    RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
-    RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
+    RECAPTCHA_PUBLIC_KEY = 'YOUR PUBLIC KEY'
+    RECAPTCHA_PRIVATE_KEY = 'YOUR PRIVATE KEY'
 
     LOG_LEVEL = 'ERROR'
     LOGGING['handlers']['file']['filename'] = LOG_FILE
@@ -170,7 +170,7 @@ To get your instance running in production you need to create your production se
     # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
     # Only set if you want a different log location than the one in the main directory
-    # LOG_FILE = '/path/to/appstore.log'
+    # LOG_FILE = '/path/to/appstore/appstore.log'
 
     # minimum number of comments to calculate a rating
     # RATING_THRESHOLD = 5
@@ -179,9 +179,12 @@ To get your instance running in production you need to create your production se
     # RATING_RECENT_DAY_RANGE = 90
 
     # VALIDATE_CERTIFICATES = True
+    # Algorithm which is used to sign and verify app releases. The digest is
+    # persisted when saving a release so changing this parameter will only
+    # affect new releases. Do not forget to update the app developer docs!
     # CERTIFICATE_DIGEST = 'sha512'
 
-    # MAX_DOWNLOAD_FILE_SIZE = 1024 * 1024  # bytes
+    # MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
     # MAX_DOWNLOAD_REDIRECTS = 10
     # MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
