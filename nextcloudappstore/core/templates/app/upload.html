@@ -13,7 +13,7 @@
         <h1>{% trans 'Upload app release' %}</h1>
         <hr>
         <div id="form-success" class="alert alert-success" hidden>{% trans 'App release successfully uploaded.' %}</div>
-        <p>{% blocktrans %}For more information on how to create the SHA512 signature check out the <a href="http://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener norefferer">app developer guide</a>.{% endblocktrans %}</p>
+        <p>{% blocktrans %}For more information on how to create the signature check out the <a href="http://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener norefferer">app developer guide</a>.{% endblocktrans %}</p>
         <form id="app-upload-form" method="post" action="{% url 'api:v1:app-release-create' %}">
             <span data-l10n-id="msg-form-success" hidden>{% trans 'App release successfully uploaded.' %}</span>
             <div><div class="alert alert-success global-success-msg" hidden></div></div>

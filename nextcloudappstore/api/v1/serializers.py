@@ -1,12 +1,13 @@
-from nextcloudappstore.core.models import PhpExtensionDependency, \
-    DatabaseDependency, Category, AppAuthor, AppRelease, Screenshot, \
-    AppRating, App
-from nextcloudappstore.core.validators import HttpsUrlValidator
+from django.contrib.auth import get_user_model
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField, DateTimeField
-from django.contrib.auth import get_user_model
+
+from nextcloudappstore.core.models import PhpExtensionDependency, \
+    DatabaseDependency, Category, AppAuthor, AppRelease, Screenshot, \
+    AppRating, App
+from nextcloudappstore.core.validators import HttpsUrlValidator
 
 
 class PhpExtensionDependencySerializer(serializers.ModelSerializer):
@@ -74,7 +75,7 @@ class AppReleaseSerializer(serializers.ModelSerializer):
             'php_version_spec', 'platform_version_spec', 'min_int_size',
             'download', 'created', 'licenses', 'last_modified', 'is_nightly',
             'raw_php_version_spec', 'raw_platform_version_spec', 'signature',
-            'translations',
+            'translations', 'signature_digest'
         )
 
     def get_platform_version_spec(self, obj):
