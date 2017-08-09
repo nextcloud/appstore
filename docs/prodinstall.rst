@@ -141,8 +141,8 @@ To get your instance running in production you need to create your production se
     MEDIA_ROOT = '/var/www/production-domain.com/media/'
 
     # Public and private keys for Googles recaptcha
-    RECAPTCHA_PUBLIC_KEY = '<YOUR PUBLIC KEY>'
-    RECAPTCHA_PRIVATE_KEY = '<YOUR PRIVATE KEY>'
+    RECAPTCHA_PUBLIC_KEY = 'YOUR PUBLIC KEY'
+    RECAPTCHA_PRIVATE_KEY = 'YOUR PRIVATE KEY'
 
     LOG_LEVEL = 'ERROR'
     LOGGING['handlers']['file']['filename'] = LOG_FILE
