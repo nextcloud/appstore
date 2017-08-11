@@ -87,6 +87,7 @@ class ImporterTest(TestCase):
         # l10n
         app.set_current_language('en')
         self.assertEqual('https://github.com/owncloud/news', app.website)
+        self.assertEqual('https://github.com/owncloud/disc', app.discussion)
         self.assertEqual(
             'https://github.com/owncloud/news/wiki#user-documentation',
             app.user_docs)

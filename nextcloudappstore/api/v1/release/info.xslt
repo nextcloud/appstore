@@ -113,6 +113,9 @@
             <website>
                 <xsl:value-of select="website"/>
             </website>
+            <discussion>
+                <xsl:value-of select="discussion"/>
+            </discussion>
             <issue-tracker>
                 <xsl:value-of select="bugs"/>
             </issue-tracker>

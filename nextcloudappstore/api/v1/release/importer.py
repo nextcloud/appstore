@@ -227,6 +227,7 @@ class AppImporter(Importer):
             'user_docs': attribute_importer,
             'admin_docs': attribute_importer,
             'website': attribute_importer,
+            'discussion': attribute_importer,
             'developer_docs': attribute_importer,
             'issue_tracker': attribute_importer,
             'certificate': attribute_importer,

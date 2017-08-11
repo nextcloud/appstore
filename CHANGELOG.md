@@ -12,6 +12,7 @@
 
 ### Changed
 
+- Bring back **discussion** tag in info.xml which allows you to define your own forum link. If absent, it will default to our forum at help.nextcloud.com
 - Use one unique button style for all buttons, #402
 - Moved certificate and scaffolding to separate folders
 - Moved Nextcloud public certificate and CRL to new folder

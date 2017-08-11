@@ -120,11 +120,14 @@ If everything went well the release is then either created or updated. The downl
 
 .. _app-revoke-cert:
 
-Revoking a Certificate
-~~~~~~~~~~~~~~~~~~~~~~
-If you've lost or leaked your private certificate you want to revoke your certificate.
+Updating and Revoking a Certificate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you've lost or leaked your private certificate you want to revoke and update your certificate:
 
-You can revoke your previous certificate by either posting your public certificate and revocation request `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ or by requesting a new certificate for an already requested app id.
+* Post a new CSR for an already existing app `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ (edit the same file)
+* We will revoke your old certificate and sign your new certificate request
+* Then re-register your app certificate on the `app register page <https://apps.nextcloud.com/developer/apps/new>`_. This will delete all existing releases.
+
 
 After you've obtained a new certificate, simply use it to register your app id again (only owners are allowed to do this). This will delete all previous releases from our server since their signature has become invalid.
 
@@ -196,6 +199,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <category>multimedia</category>
         <category>tools</category>
         <website>https://github.com/nextcloud/news</website>
+        <discussion>https://your.forum.com</discussion>
         <bugs>https://github.com/nextcloud/news/issues</bugs>
         <repository>https://github.com/nextcloud/news</repository>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
@@ -350,6 +354,11 @@ website
     * optional
     * must contain an URL to the project's homepage
     * will be rendered on the app detail page
+website
+    * optional
+    * must contain an URL to the project's discussion page/forum
+    * will be rendered on the app detail page as the "ask question or discuss" button
+    * if absent, it will default to our forum at https://help.nextcloud.com/ and create a new category in the apps category
 bugs
     * required
     * must contain an URL to the project's bug tracker
