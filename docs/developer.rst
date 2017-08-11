@@ -354,7 +354,7 @@ website
     * optional
     * must contain an URL to the project's homepage
     * will be rendered on the app detail page
-website
+discussion
     * optional
     * must contain an URL to the project's discussion page/forum
     * will be rendered on the app detail page as the "ask question or discuss" button
