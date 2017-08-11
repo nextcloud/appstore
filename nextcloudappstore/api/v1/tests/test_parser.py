@@ -38,6 +38,7 @@ class ParserTest(TestCase):
             'admin_docs': None,
             'developer_docs': None,
             'user_docs': None,
+            'discussion': None,
             'website': None,
             'issue_tracker': 'https://github.com/nextcloud/news/issues',
             'screenshots': [],
@@ -425,6 +426,7 @@ class ParserTest(TestCase):
             'user_docs': 'https://github.com/owncloud/news/wiki#user'
                          '-documentation',
             'website': 'https://github.com/owncloud/news',
+            'discussion': 'https://help.nextcloud.com/t/news/1',
             'issue_tracker': 'https://github.com/owncloud/news/issues',
             'name': {'de': 'Nachrichten', 'en': 'News'},
             'release': {

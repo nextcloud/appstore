@@ -25,6 +25,7 @@
             <xsl:apply-templates select="documentation"/>
             <xsl:apply-templates select="category"/>
             <xsl:copy-of select="website"/>
+            <xsl:copy-of select="discussion"/>
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
             <xsl:copy-of select="screenshot"/>
