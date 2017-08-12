@@ -10,6 +10,7 @@ manage=$(python) $(manage-script)
 db=sqlite
 pyvenv=python3 -m venv
 yarn=yarn
+prod_version=12.0.0
 
 .PHONY: lint
 lint:
@@ -82,7 +83,11 @@ clean:
 
 .PHONY: test-data
 test-data: test-user
-	$(python) $(CURDIR)/scripts/development/testdata.py
+	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" $(python) -m development.testdata
+
+.PHONY: prod-data
+prod-data:
+	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" $(python) -m development.proddata $(prod_version)
 
 .PHONY: l10n
 l10n:

@@ -1,4 +1,4 @@
-import requests
+from . import import_app, import_release, ADMIN
 
 twofactor_cert = """
 -----BEGIN CERTIFICATE-----
@@ -101,31 +101,13 @@ apps = [{
     }]
 }]
 
-admin = ('admin', 'admin')
+
+def main():
+    for app in apps:
+        import_app(app['certificate'], 'signature', ADMIN)
+        for release in app['releases']:
+            import_release(release['url'], 'signature', False, ADMIN)
 
 
-def handle_response(response):
-    if response.status_code > 299:
-        msg = 'Request to url %s failed with status code %d'
-        print(msg % (response.url, response.status_code))
-        print(response.text)
-
-
-for app in apps:
-    response = requests.post('http://127.0.0.1:8000/api/v1/apps',
-                             auth=admin,
-                             json={
-                                 'signature': 'signature',
-                                 'certificate': app['certificate']
-                             })
-    handle_response(response)
-    for release in app['releases']:
-        print('Downloading app from %s' % release['url'])
-        response = requests.post('http://127.0.0.1:8000/api/v1/apps/releases',
-                                 auth=admin,
-                                 json={
-                                     'download': release['url'],
-                                     'signature': 'signature',
-                                     'nightly': False
-                                 })
-        handle_response(response)
+if __name__ == '__main__':
+    main()

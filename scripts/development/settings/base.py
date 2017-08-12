@@ -21,3 +21,9 @@ LOGGING['handlers']['console'] = {
     'class': 'logging.StreamHandler',
 }
 LOGGING['loggers']['django']['handlers'] += ['console']
+
+# make it possible to run debug toolbar for api
+CSP_EXCLUDE_URL_PREFIXES = ('/api/v1',)
+
+REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '10000/day'
+REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '10000/day'

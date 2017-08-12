@@ -24,6 +24,7 @@ from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
+from nextcloudappstore.core.versioning import version_in_spec
 from nextcloudappstore.user.facades import update_token
 
 
@@ -46,10 +47,39 @@ class AppView(DestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         version = self.kwargs['version']
-        working_apps = App.objects.get_compatible(version)
-        serializer = self.get_serializer(working_apps, many=True,
-                                         version=version)
-        return Response(serializer.data)
+        prefetch = [
+            'authors',
+            'screenshots',
+            'categories',
+            'translations',
+            'releases__translations',
+            'releases__phpextensiondependencies__php_extension',
+            'releases__databasedependencies__database',
+            'releases__shell_commands',
+            'releases__licenses',
+        ]
+        working_apps = App.objects.get_compatible(version, prefetch=prefetch)
+        serializer = self.get_serializer(working_apps, many=True)
+        data = self._filter_releases(serializer.data, version)
+        return Response(data)
+
+    def _filter_releases(self, data, version):
+        """
+        Story time: this was once done in serializers but turned out to cause
+        an extreme amount of queries. So we fetch everything by default and
+        then filter out unneeded releases that dont match the version
+        :param data: the serialized data
+        :param version: the Nextcloud version that we filter
+        :return: a filtered result set to be serialized
+        """
+
+        def is_compatible(release) -> bool:
+            spec = release['platform_version_spec'].replace(' ', ',')
+            return version_in_spec(version, spec)
+
+        for app in data:
+            app['releases'] = list(filter(is_compatible, app['releases']))
+        return data
 
 
 class AppRegisterView(APIView):

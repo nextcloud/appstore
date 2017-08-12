@@ -36,18 +36,13 @@ class AppManager(TranslatableManager):
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
 
-    def get_compatible(self, platform_version, inclusive=False):
-        apps = App.objects.prefetch_related(
-            'releases',
-            'releases__translations',
-            'releases__databases',
-            'releases__licenses',
-            'releases__phpextensiondependencies__php_extension',
-            'releases__databasedependencies__database',
-            'releases__shell_commands',
-            'translations',
-            'screenshots'
-        ).all()
+    def get_compatible(self, platform_version, inclusive=False, prefetch=None,
+                       select=None):
+        qs = App.objects
+        if select is not None and len(select) > 0:
+            qs = qs.select_related(*select)
+        if prefetch is not None and len(prefetch) > 0:
+            qs = qs.prefetch_related(*prefetch)
 
         def app_filter(app):
             for release in app.releases.all():
@@ -55,7 +50,7 @@ class AppManager(TranslatableManager):
                     return True
             return False
 
-        return list(filter(app_filter, apps))
+        return list(filter(app_filter, qs.all()))
 
 
 class App(TranslatableModel):

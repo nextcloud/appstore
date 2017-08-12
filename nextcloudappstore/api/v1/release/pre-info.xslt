@@ -24,6 +24,9 @@
             <xsl:apply-templates select="types"/>
             <xsl:apply-templates select="documentation"/>
             <xsl:apply-templates select="category"/>
+            <xsl:if test="not(category)">
+                <category>tools</category>
+            </xsl:if>
             <xsl:copy-of select="website"/>
             <xsl:copy-of select="discussion"/>
             <xsl:copy-of select="bugs"/>
