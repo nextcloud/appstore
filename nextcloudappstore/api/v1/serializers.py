@@ -99,6 +99,7 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 
 class AppSerializer(serializers.ModelSerializer):
     releases = SerializerMethodField()
+    discussion = SerializerMethodField()
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
@@ -115,8 +116,11 @@ class AppSerializer(serializers.ModelSerializer):
             'issue_tracker', 'website', 'created', 'last_modified', 'releases',
             'screenshots', 'translations', 'is_featured', 'authors',
             'rating_recent', 'rating_overall', 'rating_num_recent',
-            'rating_num_overall', 'certificate',
+            'rating_num_overall', 'certificate', 'discussion'
         )
+
+    def get_discussion(self, obj):
+        return obj.discussion_url
 
     def get_releases(self, obj):
         releases = obj.releases.prefetch_related(
