@@ -48,8 +48,12 @@ class AppRatingApi(ListAPIView):
 
 
 class AppDetailView(DetailView):
-    queryset = App.objects.prefetch_related('releases', 'screenshots', 'owner',
-                                            'co_maintainers')
+    queryset = App.objects.prefetch_related(
+        'releases',
+        'screenshots',
+        'co_maintainers',
+        'translations',
+    ).select_related('owner')
     template_name = 'app/detail.html'
     slug_field = 'id'
     slug_url_kwarg = 'id'
@@ -123,12 +127,12 @@ class AppDetailView(DetailView):
 
 class AppReleasesView(DetailView):
     queryset = App.objects.prefetch_related(
-        'releases',
-        'releases__databases',
-        'releases__licenses',
+        'translations',
+        'releases__translations',
         'releases__phpextensiondependencies__php_extension',
         'releases__databasedependencies__database',
-        'releases__shell_commands'
+        'releases__shell_commands',
+        'releases__licenses',
     )
     template_name = 'app/releases.html'
     slug_field = 'id'

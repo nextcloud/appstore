@@ -27,6 +27,9 @@ make resetup
 make test-data
     downloads and sets up test apps, needs certificate validation to be disabled and a running server at http://127.0.0.1:8000
 
+make prod-data prod_version=12.0.0
+    similar to **make test-data** but installs all apps from production for a nextcloud version locally
+
 make l10n
     compiles and installs translations
 

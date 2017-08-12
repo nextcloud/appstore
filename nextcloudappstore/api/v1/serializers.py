@@ -98,16 +98,12 @@ class ScreenshotSerializer(serializers.ModelSerializer):
 
 
 class AppSerializer(serializers.ModelSerializer):
-    releases = SerializerMethodField()
+    releases = AppReleaseSerializer(many=True, read_only=True)
     discussion = SerializerMethodField()
     screenshots = ScreenshotSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
     last_modified = DateTimeField(source='last_release')
-
-    def __init__(self, *args, **kwargs):
-        self.version = kwargs.pop('version')
-        super().__init__(*args, **kwargs)
 
     class Meta:
         model = App
@@ -121,21 +117,6 @@ class AppSerializer(serializers.ModelSerializer):
 
     def get_discussion(self, obj):
         return obj.discussion_url
-
-    def get_releases(self, obj):
-        releases = obj.releases.prefetch_related(
-            'translations',
-            'databases',
-            'licenses',
-            'phpextensiondependencies__php_extension',
-            'databasedependencies__database',
-            'shell_commands',
-        ).all()
-        if self.version:
-            data = [r for r in releases if r.is_compatible(self.version)]
-        else:
-            data = releases
-        return AppReleaseSerializer(data, many=True, read_only=True).data
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -3,7 +3,7 @@ from functools import reduce
 from sys import maxsize
 from typing import Dict, Any, List
 
-from semantic_version import Version
+from semantic_version import Version, Spec
 
 SEMVER_REGEX = (r'(?:0|[1-9][0-9]*)'
                 r'\.(?:0|[1-9][0-9]*)'
@@ -148,3 +148,13 @@ def group_by_main_version(versions: GroupedVersions) -> GroupedVersions:
         return prev
 
     return reduce(reduction, versions.items(), {})
+
+
+def version_in_spec(version: str, spec: str) -> bool:
+    """
+    Checks if a string version is in a spec
+    :param version:
+    :param spec:
+    :return:
+    """
+    return Version(version) in Spec(spec)
