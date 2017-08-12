@@ -1,5 +1,5 @@
 {% extends 'app/base.html' %}
-{% load i18n sort_by_version staticfiles app_rating app_rating_class humanize replace %}
+{% load i18n sort_by_version staticfiles app_rating app_rating_class humanize %}
 
 {% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
@@ -142,15 +142,9 @@
             {% endif %}
 
             <li>
-                {% if object.discussion %}
-                    <a rel="noreferrer noopener"
-                       href="{{ object.discussion }}"
-                       class="btn btn-primary">{% trans 'Ask questions or discuss' %}</a>
-                {% else %}
-                    <a rel="noreferrer noopener"
-                       href="{{ DISCOURSE_URL }}/c/apps/{{ object.id|replace:'_,-' }}"
-                       class="btn btn-primary">{% trans 'Ask questions or discuss' %}</a>
-                {% endif %}
+                <a rel="noreferrer noopener"
+                   href="{{ object.discussion_url }}"
+                   class="btn btn-primary">{% trans 'Ask questions or discuss' %}</a>
             </li>
             {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
                 <li>

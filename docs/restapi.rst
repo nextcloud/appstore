@@ -260,6 +260,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
             "developerDocs": "https://github.com/owncloud/news/wiki#developer-documentation",
             "issueTracker": "https://github.com/owncloud/news/issues",
             "website": "https://github.com/owncloud/news",
+            "discussion": "https://help.nextcloud.com/c/apps/news",
             "created": "2016-06-25T16:08:56.794719Z",
             "lastModified": "2016-06-25T16:49:25.326855Z",
             "ratingOverall": 0.5,
