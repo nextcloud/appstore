@@ -150,9 +150,5 @@ export function testDom<T extends HTMLElement>(parentSelector: string,
  * @return a promise that resolves once the document has loaded
  */
 export const ready = new Promise((resolve) => {
-    if (document.readyState !== 'loading') {
-        resolve();
-    } else {
-        document.addEventListener('DOMContentLoaded', resolve);
-    }
+    document.addEventListener('DOMContentLoaded', resolve);
 });
