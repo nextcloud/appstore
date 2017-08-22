@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-21 00:30+0000\n"
+"POT-Creation-Date: 2017-08-22 00:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Garry Holmqvist Birkehorn <garry@stridig.se>, 2016\n"
 "Language-Team: Swedish (https://www.transifex.com/nextcloud/teams/64236/sv/)\n"
@@ -79,6 +79,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Vanligtvis lagrat i ~/.nextcloud/certificates/APP_ID.crt där APP_ID är din "
+"apps ID. Om du inte har ett certifikat behöver du skapa en "
+"certifikatsigneringsbegäran (CSR) först som ska postas på  <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certifikatrepositoriet</a> (följ README). Du kan"
+" skapa CSR'n genom att exekvera följande kommando:"
 
 #: nextcloudappstore/core/forms.py:51
 msgid "Signature over your app's ID"
@@ -231,6 +237,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Om aktiverat kan en användare försöka registrera samma app igen genom att "
+"använda de öppna certifikatet och signaturen. Om han gör det kommer appen "
+"överföras till honom."
 
 #: nextcloudappstore/core/models.py:111 nextcloudappstore/core/models.py:264
 #: nextcloudappstore/core/models.py:341 nextcloudappstore/core/models.py:425
@@ -855,6 +864,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"För mer information hur man får certifikatet och skapar signaturen, kolla <a"
+" href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">utvecklarguiden för appen</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -889,7 +901,7 @@ msgstr "Versionsdetaljer"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Hashsignatur"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -930,6 +942,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"För mer information hur signaturen skapas kolla <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">utvecklarguiden för appen</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -946,7 +961,7 @@ msgstr "Forka appstore på Github"
 
 #: nextcloudappstore/core/templates/base.html:46
 msgid "Privacy and legal"
-msgstr ""
+msgstr "Integritet och rättsligt"
 
 #: nextcloudappstore/core/templates/base.html:49
 msgid "Legal Notice"
@@ -1280,6 +1295,9 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"För att överföra en app till en ny ägare måste du först låsa upp appen. En "
+"användare kan då ta kontroll över appen genom att registrera den igen på "
+"appens registersida i appens utvecklarmeny."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
