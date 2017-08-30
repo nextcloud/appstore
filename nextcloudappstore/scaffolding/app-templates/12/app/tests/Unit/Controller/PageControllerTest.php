@@ -6,6 +6,8 @@ use PHPUnit_Framework_TestCase;
 
 use OCP\AppFramework\Http\TemplateResponse;
 
+use OCA\{{ app.namespace }}\Controller\PageController;
+
 
 class PageControllerTest extends PHPUnit_Framework_TestCase {
 	private $controller;
