@@ -36,6 +36,7 @@
 ## Fixed
 
 - Better error message when database.xml validation fails
+- Update travis configuration and fix test suite for generating Nextcloud 12 apps
 
 ## [2.0.0] - 2017-06-02
 
