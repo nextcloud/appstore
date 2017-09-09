@@ -1,19 +1,20 @@
+from typing import Dict, Tuple, Any
+
+from rest_framework.exceptions import ValidationError
+
 from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
 from nextcloudappstore.api.v1.release.parser import \
     GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog, \
     validate_database
-from typing import Dict, Tuple
-
-from rest_framework.exceptions import ValidationError
 
 
 class InvalidAppDirectoryException(ValidationError):
     pass
 
 
-Release = Tuple[Dict, str]
+Release = Tuple[Dict[Any, Any], bytes]
 
 
 class AppReleaseProvider:
