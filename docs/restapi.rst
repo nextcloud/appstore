@@ -505,7 +505,7 @@ The following request will create a new app release or update an existing releas
 
 * **Returns**:
 
-  * **HTTP 200**: If the app release was update successfully
+  * **HTTP 200**: If the app release was updated successfully
   * **HTTP 201**: If the app release was created successfully
   * **HTTP 400**: If the app release contains invalid data, is too large, is not registered yet, the signature could not be validated, the current app certificate has been revoked or could not be downloaded from the provided link
   * **HTTP 401**: If the user is not authenticated
