@@ -1,5 +1,5 @@
 python=venv/bin/python
-pip=venv/bin/pip
+pip=venv/bin/pip3
 pycodestyle=venv/bin/pycodestyle
 pyresttest=venv/bin/pyresttest
 coverage=venv/bin/coverage
