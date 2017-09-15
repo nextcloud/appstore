@@ -41,6 +41,7 @@ dev-setup:
 	$(yarn) install
 	$(yarn) run build
 	$(pyvenv) venv
+	source venv/bin/activate && python3 -m ensurepip
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt
