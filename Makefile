@@ -1,10 +1,11 @@
-python=venv/bin/python
-pip=venv/bin/pip3
-pycodestyle=venv/bin/pycodestyle
-pyresttest=venv/bin/pyresttest
-coverage=venv/bin/coverage
-bandit=venv/bin/bandit
-mypy=venv/bin/mypy
+venv_bin=venv/bin/
+python=$(venv_bin)python
+pip=$(venv_bin)pip3
+pycodestyle=$(venv_bin)pycodestyle
+pyresttest=$(venv_bin)pyresttest
+coverage=$(venv_bin)coverage
+bandit=$(venv_bin)bandit
+mypy=$(venv_bin)mypy
 manage-script=$(CURDIR)/manage.py
 manage=$(python) $(manage-script)
 db=sqlite
@@ -41,7 +42,6 @@ dev-setup:
 	$(yarn) install
 	$(yarn) run build
 	$(pyvenv) venv
-	source venv/bin/activate && python3 -m ensurepip
 	$(pip) install --upgrade pip
 	$(pip) install -r $(CURDIR)/requirements/development.txt
 	$(pip) install -r $(CURDIR)/requirements/base.txt

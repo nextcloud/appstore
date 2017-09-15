@@ -31,16 +31,16 @@ before_install:
 
 install:
   - npm -g install yarn
-  - make dev-setup db="$DB"
-  - make l10n
+  - make dev-setup db="$DB" venv_bin=""
+  - make l10n venv_bin=""
   - yarn add tslint
 
 script:
   - ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
-  - make test
+  - make test venv_bin=""
 
 after_success:
-  - venv/bin/coveralls
+  - coveralls
 
 services:
   - postgresql
