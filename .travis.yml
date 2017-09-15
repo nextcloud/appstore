@@ -30,6 +30,7 @@ before_install:
   - export PATH=$PATH:$PWD/geckodriver
 
 install:
+  - cat ~/.pydistutils.cfg
   - npm -g install yarn
   - make dev-setup db="$DB"
   - make l10n
