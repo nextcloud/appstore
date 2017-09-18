@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="../../../release/info.xsd">
+	<id>circles</id>
+	<name>Circles</name>
+	<summary>Bring cloud-users closer together.</summary>
+	<description><![CDATA[Circles allows your users to create their own groups of users/colleagues/friends.
+Those groups of users (or 'circles') can then be used by any other app for sharing purpose (files, social feed, status update, messaging, ...).
+		]]>
+	</description>
+	<version>0.12.5</version>
+	<licence>agpl</licence>
+	<author>Maxence Lange</author>
+	<documentation>
+		<admin>https://github.com/nextcloud/circles/wiki</admin>
+	</documentation>
+	<category>tools</category>
+	<category>social</category>
+	<website>https://github.com/nextcloud/circles</website>
+	<bugs>https://github.com/nextcloud/circles/issues</bugs>
+	<repository>https://github.com/nextcloud/circles.git</repository>
+	<screenshot>https://raw.githubusercontent.com/nextcloud/circles/master/screenshots/0.12.0.png
+	</screenshot>
+	<dependencies>
+		<nextcloud min-version="12" max-version="13"/>
+	</dependencies>
+
+	<repair-steps>
+		<post-migration>
+			<step>OCA\Circles\Migration\UpdateShareTimeToTimestamp</step>
+			<step>OCA\Circles\Migration\ImportOwncloudCustomGroups</step>
+			<step>OCA\Circles\Migration\GenerateUniqueIdOnCreatedCircle</step>
+			<step>OCA\Circles\Migration\UsingShortenUniqueIdInsteadOfCircleId</step>
+		</post-migration>
+	</repair-steps>
+
+	<commands>
+		<command>OCA\Circles\Command\Clean</command>
+	</commands>
+
+	<activity>
+		<settings>
+			<setting>OCA\Circles\Activity\SettingAsModerator</setting>
+			<setting>OCA\Circles\Activity\SettingAsMember</setting>
+		</settings>
+		<filters>
+			<filter>OCA\Circles\Activity\Filter</filter>
+		</filters>
+		<providers>
+			<provider>OCA\Circles\Activity\Provider</provider>
+		</providers>
+	</activity>
+
+	<collaboration>
+		<collaborators>
+			<searchPlugins>
+				<searchPlugin>
+					<class>OCA\Circles\Collaboration\v1\CollaboratorSearchPlugin</class>
+					<shareType>SHARE_TYPE_CIRCLE</shareType>
+				</searchPlugin>
+			</searchPlugins>
+		</collaborators>
+	</collaboration>
+</info>

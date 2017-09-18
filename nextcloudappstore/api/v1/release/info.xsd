@@ -55,6 +55,8 @@
                             maxOccurs="1"/>
                 <xs:element name="contactsmenu" type="contactsmenu" minOccurs="0"
                             maxOccurs="1"/>
+                <xs:element name="collaboration" type="collaboration" minOccurs="0"
+                            maxOccurs="1" />
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -429,6 +431,34 @@
         <xs:sequence>
             <xs:element name="provider" type="php-class" minOccurs="1"
                         maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="collaboration">
+        <xs:sequence>
+            <xs:element name="collaborators" type="collaboration-collaborators" minOccurs="0" maxOccurs="1">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="collaboration-collaborators">
+        <xs:sequence>
+            <xs:element name="searchPlugins" type="collaboration-collaborators-searchPlugins" minOccurs="0" maxOccurs="1">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="collaboration-collaborators-searchPlugins">
+        <xs:sequence>
+            <xs:element name="searchPlugin" type="collaboration-collaborators-searchPlugins-searchPlugin" minOccurs="1" maxOccurs="unbounded">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="collaboration-collaborators-searchPlugins-searchPlugin">
+        <xs:sequence>
+            <xs:element name="class" type="php-class" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="shareType" type="non-empty-string" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
