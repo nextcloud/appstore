@@ -3,7 +3,7 @@ from functools import reduce
 from django.conf import settings
 from django.core.management import BaseCommand
 from django.core.management import CommandError
-from django.utils.translation import activate, deactivate, ugettext
+from django.utils.translation import activate, ugettext
 from parler.models import TranslatableModel
 
 from nextcloudappstore.core.models import Category
@@ -18,51 +18,53 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         is_verbose = options['verbosity'] >= 2
-        langs = [lang[0] for lang in settings.LANGUAGES if
-                 lang[0] != self.source_lang]
-        for code in langs:
-            activate(code)
-            for model, attrs in self.translated_fields:
+        language_codes = [language[0] for language in settings.LANGUAGES if
+                          language[0] != self.source_lang]
+        for language_code in language_codes:
+            for model, fields in self.translated_fields:
                 if issubclass(model, TranslatableModel):
-                    self._import_translations(model, attrs, code, is_verbose)
+                    self._import_translations(model, fields, language_code,
+                                              is_verbose)
                 else:
                     msg = 'Model "%s" is not translatable' % model.__name__
                     raise CommandError(msg)
-            deactivate()
 
         msg = 'Imported db translations'
         self.stdout.write(self.style.SUCCESS(msg))
 
-    def _import_translations(self, model, attrs, code, is_verbose=False):
+    def _import_translations(self, model, fields, language_code, is_verbose):
         """
         Import translations for fields on a model for a language code
         :param model: the translated model
-        :param attrs: the attributes to translate
-        :param code: the language code
+        :param fields: the attributes to translate
+        :param language_code: the language code
         :return:
         """
         for obj in model.objects.all():
             obj.set_current_language(self.source_lang, True)
-            attrs_src = list(map(lambda f: getattr(obj, f), attrs))
-            attrs_trans = list(map(lambda f: ugettext(f), attrs_src))
-            obj.set_current_language(code, True)
+            english_values = [getattr(obj, field) for field in fields]
 
-            if self._has_translations(obj, attrs, attrs_trans):
-                for attr, src, trans in zip(attrs, attrs_src, attrs_trans):
-                    self._update_trans(obj, attr, code, src, trans, is_verbose)
+            activate(language_code)
+            translated_values = [ugettext(value) for value in english_values]
+            obj.set_current_language(language_code, True)
+            if self._has_translations(obj, fields, translated_values):
+                for field, english, translation in zip(fields, english_values,
+                                                       translated_values):
+                    self._update_trans(obj, field, language_code, english,
+                                       translation, is_verbose)
                 obj.save()
 
-    def _has_translations(self, obj, attrs, attrs_trans):
+    def _has_translations(self, obj, fields, translations):
         """
         Checks if any of the attributes has a translation
         :param obj: translatable model instance
-        :param attrs: model attributes to check
-        :param attrs_trans: translated fields for the current attribute values
+        :param fields: model attributes to check
+        :param translations: translated fields for the current attribute values
         :return: True if the model has translations for the current code
         """
-        translations_present = [self._has_translation(*(obj, attr, trans))
+        translations_present = [self._has_translation(obj, attr, trans)
                                 for attr, trans
-                                in zip(attrs, attrs_trans)]
+                                in zip(fields, translations)]
         return reduce(lambda a, b: a or b, translations_present, False)
 
     def _has_translation(self, obj, attr, trans):
