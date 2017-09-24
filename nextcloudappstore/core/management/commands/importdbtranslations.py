@@ -42,10 +42,10 @@ class Command(BaseCommand):
         :return:
         """
         for obj in model.objects.all():
-            obj.set_current_language(self.source_lang)
+            obj.set_current_language(self.source_lang, True)
             attrs_src = list(map(lambda f: getattr(obj, f), attrs))
             attrs_trans = list(map(lambda f: ugettext(f), attrs_src))
-            obj.set_current_language(code)
+            obj.set_current_language(code, True)
 
             if self._has_translations(obj, attrs, attrs_trans):
                 for attr, src, trans in zip(attrs, attrs_src, attrs_trans):
