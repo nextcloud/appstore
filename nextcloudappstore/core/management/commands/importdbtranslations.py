@@ -1,5 +1,3 @@
-from functools import reduce
-
 from django.conf import settings
 from django.core.management import BaseCommand
 from django.core.management import CommandError
@@ -62,10 +60,8 @@ class Command(BaseCommand):
         :param translations: translated fields for the current attribute values
         :return: True if the model has translations for the current code
         """
-        translations_present = [self._has_translation(obj, attr, trans)
-                                for attr, trans
-                                in zip(fields, translations)]
-        return reduce(lambda a, b: a or b, translations_present, False)
+        return any([self._has_translation(obj, attr, trans)
+                    for attr, trans in zip(fields, translations)])
 
     def _has_translation(self, obj, attr, trans):
         """
