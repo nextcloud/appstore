@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-23 00:29+0000\n"
+"POT-Creation-Date: 2017-09-24 00:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lynn jakc <bfwz123@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -79,10 +79,14 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"通常存储在〜/.nextcloud/certificates/APP_ID.crt中，其中APP_ID是您的应用程序的ID。 "
+"如果您没有证书，您需要首先创建一个证书签名请求（CSR），该申请应该发布在 <a href=\"https://github.com/nextcloud"
+"/app-certificate-requests\" rel=\"noreferrer noopener\"> certificate "
+"的repository </a>（遵循自述文件）。 您可以通过执行以下命令生成CSR："
 
 #: nextcloudappstore/core/forms.py:51
 msgid "Signature over your app's ID"
-msgstr ""
+msgstr "应用程序ID的签名"
 
 #: nextcloudappstore/core/forms.py:71
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -338,7 +342,7 @@ msgstr "存档下载链接"
 
 #: nextcloudappstore/core/models.py:374
 msgid "A signature using the app's certificate"
-msgstr ""
+msgstr "使用应用程序证书的签名"
 
 #: nextcloudappstore/core/models.py:376
 msgid "Signature hashing algorithm"
@@ -863,7 +867,7 @@ msgstr "更新详情"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "数字签名"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -904,6 +908,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"有关如何创建签名的更多信息，请查看<a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">应用开发人员指南</a>。"
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -983,11 +990,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
-msgstr ""
+msgstr "认证与授权"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Deprecated, do not use anymore"
-msgstr ""
+msgstr "已弃用，不再使用"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1055,13 +1062,13 @@ msgstr "时间管理、待办事项列表和日历应用程序"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Security"
-msgstr ""
+msgstr "安全"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
-msgstr ""
+msgstr "提供额外安全机制（如身份验证，授权，加密等）的应用程序"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
@@ -1256,7 +1263,7 @@ msgstr "更改所有权转让状态"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr "解锁转移"
+msgstr "解锁传输"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
