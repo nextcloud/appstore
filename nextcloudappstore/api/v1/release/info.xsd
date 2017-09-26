@@ -436,31 +436,45 @@
 
     <xs:complexType name="collaboration">
         <xs:sequence>
-            <xs:element name="collaborators" type="collaboration-collaborators" minOccurs="0" maxOccurs="1">
+            <xs:element name="plugins" type="collaboration-plugins" minOccurs="0" maxOccurs="1">
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="collaboration-collaborators">
+    <xs:complexType name="collaboration-plugins">
         <xs:sequence>
-            <xs:element name="searchPlugins" type="collaboration-collaborators-searchPlugins" minOccurs="0" maxOccurs="1">
+            <xs:element name="plugin" type="collaboration-plugins-plugin" minOccurs="1" maxOccurs="unbounded">
             </xs:element>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="collaboration-collaborators-searchPlugins">
-        <xs:sequence>
-            <xs:element name="searchPlugin" type="collaboration-collaborators-searchPlugins-searchPlugin" minOccurs="1" maxOccurs="unbounded">
-            </xs:element>
-        </xs:sequence>
+    <xs:complexType name="collaboration-plugins-plugin">
+        <xs:simpleContent>
+            <xs:extension base="php-class">
+                <xs:attribute name="type" type="collaboration-plugin-type" use="required"/>
+                <xs:attribute name="shareType" type="shareType" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
-    <xs:complexType name="collaboration-collaborators-searchPlugins-searchPlugin">
-        <xs:sequence>
-            <xs:element name="class" type="php-class" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="shareType" type="non-empty-string" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:simpleType name="collaboration-plugin-type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="collaborator-search"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="shareType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SHARE_TYPE_USER"/>
+            <xs:enumeration value="SHARE_TYPE_GROUP"/>
+            <xs:enumeration value="SHARE_TYPE_LINK"/>
+            <xs:enumeration value="SHARE_TYPE_EMAIL"/>
+            <xs:enumeration value="SHARE_TYPE_CONTACT"/>
+            <xs:enumeration value="SHARE_TYPE_REMOTE"/>
+            <xs:enumeration value="SHARE_TYPE_CIRCLE"/>
+            <xs:enumeration value="SHARE_TYPE_GUEST"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <!-- dependencies -->
     <xs:complexType name="dependencies">

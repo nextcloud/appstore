@@ -52,13 +52,8 @@ Those groups of users (or 'circles') can then be used by any other app for shari
 	</activity>
 
 	<collaboration>
-		<collaborators>
-			<searchPlugins>
-				<searchPlugin>
-					<class>OCA\Circles\Collaboration\v1\CollaboratorSearchPlugin</class>
-					<shareType>SHARE_TYPE_CIRCLE</shareType>
-				</searchPlugin>
-			</searchPlugins>
-		</collaborators>
+		<plugins>
+			<plugin type="collaborator-search" shareType="SHARE_TYPE_CIRCLE">OCA\Circles\Collaboration\v1\CollaboratorSearchPlugin</plugin>
+		</plugins>
 	</collaboration>
 </info>

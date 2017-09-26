@@ -277,6 +277,11 @@ A full blown example would look like this (needs to be utf-8 encoded):
                 <type>link</type>
             </navigation>
         </navigations>
+        <collaboration>
+            <plugins>
+                <plugin type="collaborator-search" shareType="SHARE_TYPE_CIRCLE">OCA\Circles\Collaboration\v1\CollaboratorSearchPlugin</plugin>
+            </plugins>
+        </collaboration>
     </info>
 
 The following tags are validated and used in the following way:
@@ -482,7 +487,17 @@ navigations/navigation/type
     * can be either link or settings
     * link means that the entry is added to the default app menu
     * settings means that the entry is added to the right-side menu which also contains the personal, admin, users, help and logout entry
-
+collaboration
+    * optional
+    * can contain plugins for collaboration search (e.g. supplying share dialog)
+collaboration/plugins
+    * optional
+    * must contain at least one plugin
+collaboration/plugins/plugin
+    * required
+    * the PHP class name of the plugin
+    * must contain **type** attribute (currently only *collaboration-search*). The class must implement OCP\Collaboration\Collaborators\ISearchPlugin.
+    * must contain **shareType** attribute, according to the specific \OCP\Share constants
 
 The following character maximum lengths are enforced:
 
