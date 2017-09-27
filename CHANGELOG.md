@@ -38,6 +38,7 @@
 
 - Better error message when database.xml validation fails
 - Update travis configuration and fix test suite for generating Nextcloud 12 apps
+- Treat and encode all scaffolding files as unicode and set the correct size, #522
 
 ## [2.0.0] - 2017-06-02
 
