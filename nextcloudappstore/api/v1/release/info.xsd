@@ -452,7 +452,7 @@
         <xs:simpleContent>
             <xs:extension base="php-class">
                 <xs:attribute name="type" type="collaboration-plugin-type" use="required"/>
-                <xs:attribute name="shareType" type="shareType" use="required" />
+                <xs:attribute name="share-type" type="share-type" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -463,7 +463,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="shareType">
+    <xs:simpleType name="share-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="SHARE_TYPE_USER"/>
             <xs:enumeration value="SHARE_TYPE_GROUP"/>
