@@ -1,9 +1,9 @@
 import re
 import tarfile
-from io import BytesIO, StringIO
-from typing import Dict
-from os.path import join, isdir, relpath
+from io import BytesIO
 from os import walk
+from os.path import join, isdir, relpath
+from typing import Dict
 
 from django.template import Context
 from django.template import Template
@@ -53,7 +53,8 @@ def build_archive(parameters: Dict[str, str]) -> BytesIO:
         files = build_files(parameters)
         for path, contents in files.items():
             info = tarfile.TarInfo(path)
-            info.size = len(contents)
-            f.addfile(info, BytesIO(contents.encode()))
+            encoded_content = contents.encode()
+            info.size = len(encoded_content)
+            f.addfile(info, BytesIO(encoded_content))
     buffer.seek(0)
     return buffer
