@@ -9,6 +9,7 @@
 - Add a createtestuser command for easily setting up users in development
 - Automatically log in user on successful email confirmation, #400
 - Added security category
+- Added collaboration tag for info.xml, #521
 - **API (v1)**: future proof signatures by adding a **signatureDigest** field to each app release filled with the hashing algorithm
 - **API (v1)**: add **discussion** field to each app that links to its forum
 
