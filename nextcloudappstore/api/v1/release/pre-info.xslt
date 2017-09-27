@@ -41,6 +41,7 @@
             <xsl:apply-templates select="activity"/>
             <xsl:apply-templates select="navigations"/>
             <xsl:copy-of select="contactsmenu"/>
+            <xsl:copy-of select="collaboration" />
 
             <!-- copy invalid elements to fail if they are present -->
             <xsl:copy-of select="standalone"/>
