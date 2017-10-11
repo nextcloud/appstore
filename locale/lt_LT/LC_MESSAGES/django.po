@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-10 00:33+0000\n"
+"POT-Creation-Date: 2017-10-11 00:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Antanas Lapinskas <antanas@lapinskas.lt>, 2017\n"
 "Language-Team: Lithuanian (Lithuania) (https://www.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
@@ -396,7 +396,7 @@ msgstr "Apvalkalo komanda"
 
 #: nextcloudappstore/core/models.py:449
 msgid "Name of a required shell command, e.g. grep"
-msgstr ""
+msgstr "Apvalkalo (Shell) komandos pavadinimas, pvz. grep."
 
 #: nextcloudappstore/core/models.py:453
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -517,6 +517,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Dabartinė versija yra vienintelė galima. Laukas yra naudojamas norint iš "
+"anksto pasirinkti išskleidžiamus sąrašus programų kūrimui ir pan."
 
 #: nextcloudappstore/core/models.py:621
 msgid "Nextcloud release"
@@ -558,6 +560,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Sveikinimai nuo %(site_name)s!\n"
+"\n"
+"Jūs gavote šį laišką, kadangi naudotojas %(user_display)s susiejo šį el pašto adresą su  jų paskyra, %(site_domain)s srityje.\n"
+"\n"
+"Norėdami patvirtinti, kad tai teisinga, paspauskite nuorodą%(activate_url)s\n"
+"\n"
+"Jei Jūs neturite paskyros %(site_domain)s srityje, šį pranešimą ignoruokite .\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -579,6 +588,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Prašome, patvirtinkite, kad <a href=\"mailto:%(email)s\">%(email)s</a> el. "
+"pašto adresas priklauso naudotojui  %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -621,7 +632,7 @@ msgstr "Pamiršau slaptažodį"
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
 msgid "Register"
-msgstr ""
+msgstr "Registras"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
@@ -675,11 +686,11 @@ msgstr "Sukurti paskyrą"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr ""
+msgstr "Nextcloud  mobiliųjų programų parduotuvės administratorius"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr ""
+msgstr "Nextcloud  mobiliųjų programų parduotuvės administravimas"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -879,7 +890,7 @@ msgstr "Leidimo išsami informacija"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Parašo maišos reikšmė"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -1166,7 +1177,7 @@ msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
+msgstr "Programos aprašymas. Gali būti Markdown."
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
@@ -1260,6 +1271,8 @@ msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Atrodo, kad naudojate trečiosios šalies teikėjo užregistruotą paskyrą. Todėl"
+" jūsų slaptažodis <strong>negali</strong> būti pakeistas šiame puslapyje."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
