@@ -452,7 +452,7 @@
         <xs:simpleContent>
             <xs:extension base="php-class">
                 <xs:attribute name="type" type="collaboration-plugin-type" use="required"/>
-                <xs:attribute name="share-type" type="share-type" use="required" />
+                <xs:attribute name="share-type" type="share-type" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -460,6 +460,7 @@
     <xs:simpleType name="collaboration-plugin-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="collaborator-search"/>
+            <xs:enumeration value="autocomplete-sort"/>
         </xs:restriction>
     </xs:simpleType>
 
