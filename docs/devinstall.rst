@@ -91,7 +91,7 @@ You can use any editor/IDE that you want to. However if you are already using `I
 
 .. note:: The configuration uses the **Django** Facet which is only included in the commercial IDE releases.
 
-In the project window click "Open" and select the cloned **appstore** folder:
+In the project window click **Open** and select the cloned **appstore** folder:
 
 .. image:: _static/img/idea1.png
   :alt: project window
