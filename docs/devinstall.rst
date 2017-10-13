@@ -115,8 +115,16 @@ Then you need to add a new SDK. To do that click on **New...** -> **Python SDK**
 In your project settings go to **SDKs** and select your recently added Python SDK. Rename it to **Python** and close the project window by clicking **OK**.
 
 .. image:: _static/img/idea6.png
-  :alt: add sdk
+  :alt: rename sdk
 
 You are now ready to start developing. You can start the server by choosing the run configuration **Server** and run all tests by selecting the run configuration **Tests**.
 
 .. note:: Should you have issues with unrecognized imports just invalidate your caches by going to your global menu and clicking **File** -> **Invalidate Caches / Restart** -> **Invalidate and Restart**
+
+IntelliJ IDEA Ultimate Specific Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To enable support for Django templates, open your IDE settings by clicking **File** -> **Settings**. Then go to **Languages and Frameworks** -> **Python Template Languages** and select **Django** in the drop down menu on the right. Confirm your changes by clicking **OK**
+
+.. image:: _static/img/idea7.png
+  :alt: set Python templates to Django
