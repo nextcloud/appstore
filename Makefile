@@ -51,6 +51,7 @@ endif
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
 	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(MAKE) initdb
+	$(MAKE) l10n
 
 
 .PHONY: initdb
