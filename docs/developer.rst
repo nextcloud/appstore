@@ -280,6 +280,7 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <collaboration>
             <plugins>
                 <plugin type="collaborator-search" share-type="SHARE_TYPE_CIRCLE">OCA\Circles\Collaboration\v1\CollaboratorSearchPlugin</plugin>
+                <plugin type="autocomplete-sort">OCA\Circles\Collaboration\v1\CircleSorter</plugin>
             </plugins>
         </collaboration>
     </info>
@@ -496,8 +497,10 @@ collaboration/plugins
 collaboration/plugins/plugin
     * required
     * the PHP class name of the plugin
-    * must contain **type** attribute (currently only *collaboration-search*). The class must implement OCP\Collaboration\Collaborators\ISearchPlugin.
-    * must contain **share-type** attribute, according to the specific \OCP\Share constants
+    * must contain **type** attribute which can be
+        * *collaboration-search* (The class must implement OCP\Collaboration\Collaborators\ISearchPlugin), requires **share-type** attribute
+        * *autocomplete-sort* (The class must implement OCP\Collaboration\AutoComplete\ISorter)
+    * optionally contain **share-type** attribute
 
 The following character maximum lengths are enforced:
 
