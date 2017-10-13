@@ -84,3 +84,47 @@ and build the latest frontend::
     yarn run build
 
 
+IntelliJ IDEA Ultimate/PyCharm Setup
+------------------------------------
+
+You can use any editor/IDE that you want to. However if you are already using `IntelliJ IDEA Ultimate <http://www.jetbrains.com/idea/buy>`_ with the Python plugin or `PyCharm <http://www.jetbrains.com/pycharm/buy>`_ you can import a fully installed project with the following steps:
+
+.. note:: The configuration uses the **Django** Facet which is only included in the commercial IDE releases.
+
+In the project window click "Open" and select the cloned **appstore** folder:
+
+.. image:: _static/img/idea1.png
+  :alt: project window
+
+.. image:: _static/img/idea2.png
+  :alt: open project window
+
+Afterwards you are presented with the main window. From here, click on the project settings icon:
+
+.. image:: _static/img/idea3.png
+  :alt: main window
+
+Then you need to add a new SDK. To do that click on **New...** -> **Python SDK** -> **Add Local** and select the Python executable **venv/bin/python** in your local **venv** folder:
+
+.. image:: _static/img/idea4.png
+  :alt: project settings
+
+.. image:: _static/img/idea5.png
+  :alt: add sdk
+
+In your project settings go to **SDKs** and select your recently added Python SDK. Rename it to **Python** and close the project window by clicking **OK**.
+
+.. image:: _static/img/idea6.png
+  :alt: rename sdk
+
+You are now ready to start developing. You can start the server by choosing the run configuration **Server** and run all tests by selecting the run configuration **Tests**.
+
+.. note:: Should you have issues with unrecognized imports just invalidate your caches by going to your global menu and clicking **File** -> **Invalidate Caches / Restart** -> **Invalidate and Restart**
+
+IntelliJ IDEA Ultimate Specific Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To enable support for Django templates, open your IDE settings by clicking **File** -> **Settings**. Then go to **Languages and Frameworks** -> **Python Template Languages** and select **Django** in the drop down menu on the right. Confirm your changes by clicking **OK**
+
+.. image:: _static/img/idea7.png
+  :alt: set Python templates to Django
