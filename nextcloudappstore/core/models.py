@@ -594,8 +594,8 @@ class AppReleaseDeleteLog(Model):
     last_modified = DateTimeField(auto_now=True, db_index=True)
 
     class Meta:
-        verbose_name = _('App release deletion')
-        verbose_name_plural = _('App release deletions')
+        verbose_name = _('Deletion of app release')
+        verbose_name_plural = _('Deletions of app releases')
 
     def __str__(self) -> str:
         return str(self.last_modified)
