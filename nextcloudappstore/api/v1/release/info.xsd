@@ -57,6 +57,8 @@
                             maxOccurs="1"/>
                 <xs:element name="collaboration" type="collaboration" minOccurs="0"
                             maxOccurs="1" />
+                <xs:element name="sabre" type="sabre" minOccurs="0"
+                            maxOccurs="1" />
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -302,6 +304,7 @@
             <xs:element name="filesystem" minOccurs="0" maxOccurs="1"/>
             <xs:element name="authentication" minOccurs="0" maxOccurs="1"/>
             <xs:element name="logging" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dav" minOccurs="0" maxOccurs="1"/>
             <xs:element name="prevent_group_restriction" minOccurs="0"
                         maxOccurs="1"/>
         </xs:sequence>
@@ -463,6 +466,25 @@
             <xs:enumeration value="autocomplete-sort"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="sabre">
+        <xs:sequence>
+            <xs:element name="collections" type="sabre-collections" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="plugins" type="sabre-plugins" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="sabre-collections">
+        <xs:sequence>
+            <xs:element name="collection" type="php-class" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="sabre-plugins">
+        <xs:sequence>
+            <xs:element name="plugin" type="php-class" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:simpleType name="share-type">
         <xs:restriction base="xs:string">
