@@ -82,6 +82,13 @@ class ParserTest(TestCase):
                            self.config.pre_info_xslt,
                            self.config.info_xslt)
 
+    def test_parse_sabre(self):
+        xml = self._get_contents(
+            'data/infoxmls/sabre.xml')
+        parse_app_metadata(xml, self.config.info_schema,
+                           self.config.pre_info_xslt,
+                           self.config.info_xslt)
+
     def test_parse_pre_release(self):
         xml = self._get_contents('data/infoxmls/prerelease.xml')
         result = parse_app_metadata(xml, self.config.info_schema,

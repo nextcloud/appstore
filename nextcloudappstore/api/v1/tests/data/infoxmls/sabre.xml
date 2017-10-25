@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>deck</id>
+    <name>Deck</name>
+    <summary>A kanban style project and personal management tool for Nextcloud</summary>
+    <description>Deck is a kanban style organization tool aimed at personal planning and project organization for teams integrated with Nextcloud.</description>
+    <version>0.3.0-dev4</version>
+    <licence>agpl</licence>
+    <author>Julius Härtl</author>
+    <namespace>Deck</namespace>
+    <types>
+        <dav />
+    </types>
+    <category>organization</category>
+    <category>office</category>
+    <bugs>https://github.com/nextcloud/deck/issues</bugs>
+    <repository type="git">https://github.com/nextcloud/deck.git</repository>
+    <screenshot>https://download.bitgrid.net/nextcloud/deck/screenshots/Deck_Board.png</screenshot>
+    <screenshot>https://download.bitgrid.net/nextcloud/deck/screenshots/Deck_Details.png</screenshot>
+    <dependencies>
+        <nextcloud min-version="11" max-version="13" />
+    </dependencies>
+    <background-jobs>
+        <job>OCA\Deck\Cron\DeleteCron</job>
+        <job>OCA\Deck\Cron\ScheduledNotifications</job>
+    </background-jobs>
+    <repair-steps>
+        <post-migration>
+            <step>OCA\Deck\Migration\UnknownUsers</step>
+        </post-migration>
+    </repair-steps>
+    <sabre>
+        <collections>
+            <collection>OCA\Deck\Dav\CalendarRoot</collection>
+        </collections>
+        <plugins>
+            <plugin>OCA\Deck\Dav\DeckDavPlugin</plugin>
+        </plugins>
+    </sabre>
+</info>

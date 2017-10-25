@@ -283,6 +283,14 @@ A full blown example would look like this (needs to be utf-8 encoded):
                 <plugin type="autocomplete-sort">OCA\Circles\Collaboration\v1\CircleSorter</plugin>
             </plugins>
         </collaboration>
+        <sabre>
+            <collections>
+                <collection>\OCA\Deck\Dav\RootCollection</collection>
+            </collections>
+            <plugins>
+                <plugin>\OCA\Deck\Dav\ServerPlugin</plugin>
+            </plugins>
+        </sabre>
     </info>
 
 The following tags are validated and used in the following way:
@@ -501,6 +509,24 @@ collaboration/plugins/plugin
         * *collaboration-search* (The class must implement OCP\Collaboration\Collaborators\ISearchPlugin), requires **share-type** attribute
         * *autocomplete-sort* (The class must implement OCP\Collaboration\AutoComplete\ISorter)
     * optionally contain **share-type** attribute
+sabre
+    * optional
+    * can contain plugins or collections to be loaded by the dav app
+sabre/plugins
+    * optional
+    * must contain at least one plugin
+    * A sabre plugin extend the dav system by adding additional event handlers. For mor details see http://sabre.io/dav/writing-plugins/
+sabre/plugins/plugin
+    * required
+    * the PHP class name of the plugin
+sabre/collections
+    * optional
+    * must contain at least one collection
+    * Collections allow apps to expose their own directory tree to the dav endpoint. They will be added to the root of the Nextcloud dav tree.
+sabre/collections/collection
+    * required
+    * the PHP class name of the plugin
+    * classes must implement the Sabre\DAV\ICollection interface
 
 The following character maximum lengths are enforced:
 
