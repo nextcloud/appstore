@@ -515,15 +515,18 @@ sabre
 sabre/plugins
     * optional
     * must contain at least one plugin
+    * A sabre plugin extend the dav system by adding additional event handlers. For mor details see http://sabre.io/dav/writing-plugins/
 sabre/plugins/plugin
     * required
     * the PHP class name of the plugin
 sabre/collections
     * optional
     * must contain at least one collection
+    * Collections allow apps to expose their own directory tree to the dav endpoint. They will be added to the root of the Nextcloud dav tree.
 sabre/collections/collection
     * required
     * the PHP class name of the plugin
+    * classes must implement the Sabre\DAV\ICollection interface
 
 The following character maximum lengths are enforced:
 
