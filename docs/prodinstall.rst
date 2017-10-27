@@ -326,6 +326,8 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
 
 .. note:: Your configuration will look different depending on where you place your static files and if you enable SSL. This is just a very minimal non HTTPS example.
 
+.. note:: It could be that you need to enable **mod_headers**. To do this simply run **sudo a2enmod headers**
+
 Finally restart Apache::
 
     sudo systemctl restart apache2
