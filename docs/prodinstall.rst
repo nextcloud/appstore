@@ -313,11 +313,13 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
     <Directory /var/www/production-domain.com/static/>
         Require all granted
         AllowOverride None
+        Header always set X-Content-Type-Options nosniff
     </Directory>
 
     <Directory /var/www/production-domain.com/media/>
         Require all granted
         AllowOverride None
+        Header always set X-Content-Type-Options nosniff
     </Directory>
 
     </VirtualHost>
