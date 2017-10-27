@@ -304,9 +304,11 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
     <Directory /path/to/appstore/nextcloudappstore/api/v1/release>
         <Files info.xsd>
             Require all granted
+            Header always set X-Content-Type-Options nosniff
         </Files>
         <Files database.xsd>
             Require all granted
+            Header always set X-Content-Type-Options nosniff
         </Files>
     </Directory>
 
