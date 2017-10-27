@@ -305,10 +305,12 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
         <Files info.xsd>
             Require all granted
             Header always set X-Content-Type-Options nosniff
+            Header always set X-XSS-Protection: 1; mode=block
         </Files>
         <Files database.xsd>
             Require all granted
             Header always set X-Content-Type-Options nosniff
+            Header always set X-XSS-Protection: 1; mode=block
         </Files>
     </Directory>
 
@@ -316,12 +318,14 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
         Require all granted
         AllowOverride None
         Header always set X-Content-Type-Options nosniff
+        Header always set X-XSS-Protection: 1; mode=block
     </Directory>
 
     <Directory /var/www/production-domain.com/media/>
         Require all granted
         AllowOverride None
         Header always set X-Content-Type-Options nosniff
+        Header always set X-XSS-Protection: 1; mode=block
     </Directory>
 
     </VirtualHost>
