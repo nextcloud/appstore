@@ -2,7 +2,7 @@
 {% load i18n %}
 <div class="banner">
     <div class="container">
-        <a class="brand" href="/"><img class="logo" alt="Logo" src="{% static 'assets/img/small-logo.png' %}" title="nextcloud.com" itemprop="logo"><div class="site-title"></div></a>
+        <a class="brand" href="/"><img class="logo" alt="Logo" src="{% static 'assets/img/small-logo.png' %}" title="nextcloud.com"><div class="site-title"></div></a>
         <form method="get"
               action="{% if current_category %}{{ request.path }}
                       {% else %}{% url 'home' %}
@@ -12,9 +12,7 @@
                    name="search"
                    role="search"
                    value="{{ search_query }}"
-                   placeholder="{% if current_category %}{% blocktrans with category=current_category.name %}Search {{ category }}{% endblocktrans %}
-                                {% else %}{% trans 'Search all apps' %}
-                                {% endif %}"
+                   placeholder="{% if current_category %}{% blocktrans with category=current_category.name %}Search {{ category }}{% endblocktrans %}{% else %}{% trans 'Search all apps' %}{% endif %}"
                    class="form-control search-box">
             <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 
