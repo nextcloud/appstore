@@ -11,6 +11,7 @@
 # * which
 # * curl: used if phpunit and composer are not installed to fetch them from the web
 # * tar: for building the archive
+# * rsync: for copying the needed files
 # * npm: for building and testing everything JS
 #
 # If no composer.json is in the app root directory, the Composer step
@@ -41,10 +42,12 @@
 
 app_name=$(notdir $(CURDIR))
 build_tools_directory=$(CURDIR)/build/tools
+build_source_directory=$(CURDIR)/build/source
 source_build_directory=$(CURDIR)/build/artifacts/source
 source_package_name=$(source_build_directory)/$(app_name)
 appstore_build_directory=$(CURDIR)/build/artifacts/appstore
 appstore_package_name=$(appstore_build_directory)/$(app_name)
+cert_directory=$(HOME)/.nextcloud/certificates
 npm=$(shell which npm 2> /dev/null)
 composer=$(shell which composer 2> /dev/null)
 
@@ -127,9 +130,10 @@ source:
 .PHONY: appstore
 appstore:
 	rm -rf $(appstore_build_directory)
+	rm -rf $(build_source_directory)
 	mkdir -p $(appstore_build_directory)
-	tar cvzf $(appstore_package_name).tar.gz ../$(app_name) \
-	--exclude-vcs \
+	mkdir -p $(build_source_directory)
+	rsync -a \
 	--exclude="../$(app_name)/build" \
 	--exclude="../$(app_name)/tests" \
 	--exclude="../$(app_name)/Makefile" \
@@ -150,6 +154,17 @@ appstore:
 	--exclude="../$(app_name)/protractor\.*" \
 	--exclude="../$(app_name)/.*" \
 	--exclude="../$(app_name)/js/.*" \
+	--exclude="../$(app_name)/l10n/.tx" \
+	../$(app_name) $(build_source_directory)/$(app_name)
+	@if [ -f $(cert_directory)/$(app_name).key ]; then \
+		echo "Creating integrity file..."; \
+		php ../../occ integrity:sign-app --privateKey="$(cert_directory)/$(app_name).key" --certificate="$(cert_directory)/$(app_name).crt" --path "$(build_source_directory)/$(app_name)"; \
+	fi
+	tar cvzf $(appstore_package_name).tar.gz --directory="$(build_source_directory)" $(app_name)
+	@if [ -f $(cert_directory)/$(app_name).key ]; then \
+		echo "Signing package..."; \
+		openssl dgst -sha512 -sign $(cert_directory)/$(app_name).key $(appstore_build_directory)/$(app_name).tar.gz | openssl base64; \
+	fi
 
 .PHONY: test
 test: composer
