@@ -1,4 +1,5 @@
 # {{ app.name }}
+
 Place this app in **nextcloud/apps/**
 
 ## Building the app
@@ -11,6 +12,7 @@ This requires the following things to be present:
 * make
 * which
 * tar: for building the archive
+* rsync: for copying the files
 * curl: used if phpunit and composer are not installed to fetch them from the web
 * npm: for building and testing everything JS, only required if a package.json is placed inside the **js/** folder
 
@@ -28,13 +30,14 @@ The make command will install or update Composer dependencies if a composer.json
 
 ## Publish to App Store
 
-First get an account for the [App Store](http://apps.nextcloud.com/) then run:
+First get an account for the [App Store](http://apps.nextcloud.com/) and [request a certificate](https://github.com/nextcloud/app-certificate-requests) then run:
 
     make && make appstore
 
-The archive is located in build/artifacts/appstore and can then be uploaded to the App Store.
+The archive is located in build/artifacts/appstore and can then be uploaded to the App Store. See [Publishing Apps on the App Store](http://nextcloudappstore.readthedocs.io/en/latest/developer.html#publishing-apps-on-the-app-store) for more information on how to publishh your app.
 
 ## Running tests
+
 You can use the provided Makefile to run all tests by using:
 
     make test

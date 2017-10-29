@@ -60,8 +60,6 @@ script:
     # check info.xml schema validity
     - wget https://apps.nextcloud.com/schema/apps/info.xsd
     - xmllint appinfo/info.xml --schema info.xsd --noout
-    # check PHP syntax errors
-    - find . -name \*.php -exec php -l "{}" \;
     # execute tests
     - make test
 
