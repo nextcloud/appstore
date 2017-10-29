@@ -1,12 +1,15 @@
 sudo: false
 dist: trusty
 language: php
+
 php:
     - 5.6
     - 7
     - 7.1
+
 env:
     global:
+        - APP_NAME={{ app.id }}
         - CORE_BRANCH=stable{{ app.nextcloud_version }}
     matrix:
         - DB=pgsql
@@ -23,6 +26,16 @@ matrix:
           env: DB=pgsql CORE_BRANCH=master
     fast_finish: true
 
+addons:
+    firefox: 'latest'
+    mariadb: '10.1'
+    apt:
+        packages:
+            - libxml2-utils
+
+services:
+    - postgresql
+    - mariadb
 
 before_install:
     # enable a display for running JavaScript tests
@@ -33,32 +46,22 @@ before_install:
     - make
     - make appstore
     # install core
-    - cd ../
-    - git clone https://github.com/nextcloud/server.git --recursive --depth 1 -b $CORE_BRANCH nextcloud
-    - mv "$TRAVIS_BUILD_DIR" nextcloud/apps/{{ app.id }}
+    - wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh
+    - bash ./before_install.sh $APP_NAME $CORE_BRANCH $DB
+    - cd ../server
+    - ./occ app:enable $APP_NAME
 
 before_script:
-    - if [[ "$DB" == 'pgsql' ]]; then createuser -U travis -s oc_autotest; fi
-    - if [[ "$DB" == 'mysql' ]]; then mysql -u root -e 'create database oc_autotest;'; fi
-    - if [[ "$DB" == 'mysql' ]]; then mysql -u root -e "CREATE USER 'oc_autotest'@'localhost' IDENTIFIED BY '';"; fi
-    - if [[ "$DB" == 'mysql' ]]; then mysql -u root -e "grant all on oc_autotest.* to 'oc_autotest'@'localhost';"; fi
-    - cd nextcloud
-    - mkdir data
-    - ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --admin-user admin --admin-pass admin --database $DB --database-pass=''
-    - ./occ app:enable {{ app.id }}
+    # start webserver
     - php -S localhost:8080 &
-    - cd apps/{{ app.id }}
+    - cd apps/$APP_NAME
 
 script:
+    # check info.xml schema validity
+    - wget https://apps.nextcloud.com/schema/apps/info.xsd
+    - xmllint appinfo/info.xml --schema info.xsd --noout
+    # execute tests
     - make test
 
 after_failure:
     - cat ../../data/nextcloud.log
-
-addons:
-    firefox: 'latest'
-    mariadb: '10.1'
-
-services:
-  - postgresql
-  - mariadb
