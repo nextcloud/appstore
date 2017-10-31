@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-30 01:31+0000\n"
+"POT-Creation-Date: 2017-10-31 01:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Branko Kokanovic <branko@kokanovic.org>, 2017\n"
 "Language-Team: Serbian (https://www.transifex.com/nextcloud/teams/64236/sr/)\n"
@@ -79,6 +79,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Обично ускладиштен у ~/.nextcloud/certificates/APP_ID.crt где је APP_ID "
+"идентификација Ваше апликације. Ако немате сертификат, морате прво креирати "
+"захтев за потписивањем сертификата (CSR), који треба објавити на <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">репозиторијуму сертификата</a> (пратите README)."
+" Можете генерисати CSR извршавањем следеће команде:"
 
 #: nextcloudappstore/core/forms.py:51
 msgid "Signature over your app's ID"
@@ -560,6 +566,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Поздрав од стране %(site_name)s!\n"
+"\n"
+"Добили сте овај мејл зато што је корисник %(user_display)s повезао ову адресу е-поште са њиховим налогом на %(site_domain)s.\n"
+"\n"
+"Да потврдите да је ово све како треба, идите на %(activate_url)s\n"
+"\n"
+"Ако немате налог на %(site_domain)s, игнориште ову поруку.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -635,6 +648,8 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
 msgstr ""
+"Заборавили сте лозинку? Унесите адресу е-поште испод и послаћемо Вам мејл "
+"који ће Вам омогућити да је ресетујете."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -663,6 +678,9 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
 msgstr ""
+"Веза за ресетовање лозинке је неисправна, вероватно зато што је већ "
+"искоришћена. Затражите <a href=\"%(passwd_reset_url)s\">ново ресетовање "
+"лозинке</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -772,6 +790,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Коментари на оцене подржавају <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> синтаксу.\n"
+"                            Не користите коментаре на оцене да пријављујете грешке или да тражите нове функционалности. Ни програмери ни корисници неће бити обавештени о Вашем коментару.\n"
+"                            Оцена без коментара се исто рачуна, али неће бити излистана испод."
 
 #: nextcloudappstore/core/templates/app/detail.html:171
 msgid "Update rating"
@@ -819,11 +840,13 @@ msgstr "Моје апликације"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
+"Ниједна апликација није нађена за претрагу \"<em>%(query)s</em>\" у "
+"категорији %(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr ""
+msgstr "Ниједна апликација није нађена за претрагу \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -838,6 +861,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"За више информација како да добавите сертификат и креирате потпис, "
+"погледајте <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -845,6 +872,9 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Овај формулар се може користити и да ажурирате постојеће сертификате, али то"
+" може само власник апликације. Ажурирање сертификата апликације ће избрисати"
+" сва већ постављена издања!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -869,7 +899,7 @@ msgstr "Детаљи издања"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Сажетак потписа"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -910,6 +940,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"За више информација како да направите потпис, погледајте <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -926,11 +959,11 @@ msgstr "Форкуј ме на GitHub-у"
 
 #: nextcloudappstore/core/templates/base.html:47
 msgid "Privacy and legal"
-msgstr ""
+msgstr "Приватност и легалност"
 
 #: nextcloudappstore/core/templates/base.html:50
 msgid "Legal Notice"
-msgstr ""
+msgstr "Правно обавештење"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -984,6 +1017,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Управо ћете искористити Ваш %(provider_name)s налог да приступите сајту\n"
+"            %(site_name)s. Као последњи корак, попуните следећи формулар:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Authentication & authorization"
@@ -991,7 +1026,7 @@ msgstr "Пријављивање & провера идентитета"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Deprecated, do not use anymore"
-msgstr ""
+msgstr "Застарело, не користити више"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
@@ -1009,6 +1044,7 @@ msgstr "Фајлови"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
 msgstr ""
+"Управљање фајловима и апликације које проширују основну апликацију Фајлова"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
@@ -1032,7 +1068,7 @@ msgstr "Надгледање"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr ""
+msgstr "Статистике о подацима, дијагностика система и апликације активности"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Multimedia"
@@ -1056,7 +1092,7 @@ msgstr "Организација"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, Todo list and calendar apps"
-msgstr ""
+msgstr "Управљање временом, TODO листе и апликације са календарима"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Security"
@@ -1067,6 +1103,8 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
+"Апликације које обезбеђују додатне безбедоносне механизме, као што су "
+"пријављивање, провера идентитета, шифровање итд."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
@@ -1074,7 +1112,7 @@ msgstr "Социјалне мреже & комуникација"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
-msgstr ""
+msgstr "Ћаскање, управљање контактима и апликације социјалних мрежа"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
@@ -1106,74 +1144,75 @@ msgstr "Веома позитивна"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS Url"
-msgstr ""
+msgstr "Унесите исправну HTTPS адресу"
 
 #: nextcloudappstore/scaffolding/forms.py:26
 #: nextcloudappstore/scaffolding/forms.py:32
 msgid "The app name must be camel case e.g. MyApp"
 msgstr ""
+"Име апликације мора бити са великим почетним словима, нпр. МојаАпликација"
 
 #: nextcloudappstore/scaffolding/forms.py:30
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
-msgstr ""
+msgstr "Име апликације"
 
 #: nextcloudappstore/scaffolding/forms.py:35
 msgid "Author's full name"
-msgstr ""
+msgstr "Пуно име аутора"
 
 #: nextcloudappstore/scaffolding/forms.py:36
 msgid "Author's e-mail"
-msgstr ""
+msgstr "Адреса е-поште аутора"
 
 #: nextcloudappstore/scaffolding/forms.py:37
 msgid "Author's homepage"
-msgstr ""
+msgstr "Веб сајт аутора"
 
 #: nextcloudappstore/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"
-msgstr ""
+msgstr "Пријава грешака и захтеви за нове функционалности"
 
 #: nextcloudappstore/scaffolding/forms.py:42
 msgid "Hold down CTRL and click to select multiple entries"
-msgstr ""
+msgstr "Држите CTRL и кликните да означите више ставки"
 
 #: nextcloudappstore/scaffolding/forms.py:45
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
+msgstr "Кратки опис Ваше апликације која ће се приказивати да заголица машту"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
+msgstr "Пун опис шта ради апликација. Може да садржи Markdown синтаксу."
 
 #: nextcloudappstore/user/forms.py:13
 msgid "First name"
-msgstr ""
+msgstr "Име"
 
 #: nextcloudappstore/user/forms.py:14
 msgid "Last name"
-msgstr ""
+msgstr "Презиме"
 
 #: nextcloudappstore/user/forms.py:23
 msgid "Your e-mail address"
-msgstr ""
+msgstr "Адреса е-поште"
 
 #: nextcloudappstore/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
-msgstr ""
+msgstr "Дата адреса е-поште се не слаже са Вашом адресом е-поште"
 
 #: nextcloudappstore/user/forms.py:48
 msgid "This e-mail address is already associated with another account."
-msgstr ""
+msgstr "Ова адреса е-поште је већ повезана са другим налогом."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
-msgstr ""
+msgstr "Сачувај"
 
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr ""
+msgstr "API токен"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1183,45 +1222,50 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                API токен се може користити за проверу идентитета када се за приступање продавници апликација користи\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Потрудите се да токен буде тајна. Нови токен се може генерисати испод, и тиме стари постаје неважећи.\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr ""
+msgstr "Ваш API токен је:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr ""
+msgstr "Изгенерисан нови API токен."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr ""
+msgstr "Генериши API токен поново"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Пренеси власништво над апликацијом"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
 #: nextcloudappstore/user/templates/user/set-language.html:26
 msgid "Change language"
-msgstr ""
+msgstr "Промени језик"
 
 #: nextcloudappstore/user/templates/user/base.html:22
 #: nextcloudappstore/user/templates/user/password.html:5
 msgid "Password"
-msgstr ""
+msgstr "Лозинка"
 
 #: nextcloudappstore/user/templates/user/base.html:26
 msgid "API token"
-msgstr ""
+msgstr "API токен"
 
 #: nextcloudappstore/user/templates/user/base.html:29
 #: nextcloudappstore/user/templates/user/delete-account.html:5
 #: nextcloudappstore/user/templates/user/delete-account.html:8
 #: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid "Delete account"
-msgstr ""
+msgstr "Обриши налог"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
@@ -1229,17 +1273,22 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Брисањем налога ћете избрисати и све Ваше апликација и њихова издања. Да "
+"избришете налог, унесите адресу Ваше е-поште у поље за унос података и "
+"кликните дугме \"Обриши налог\":"
 
 #: nextcloudappstore/user/templates/user/password.html:16
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Изгледа да користитите налог регистрован са другим провајдером. Ваша лозинка"
+" се због тога <strong>не</strong> може променити са ове стране."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "Пренос власништва апликација"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1247,31 +1296,34 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Да пренесете апликацију новом власнику, прво је морате откључати. Корисник "
+"онда може преузети власништво тако што је региструје опет на страни за "
+"регистрацију апликација, у програмерском менију."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Стање преноса власништва"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Промени стање преноса власништва"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Откључано за пренос"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Закључано, пренос није могућ"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Закључај пренос власништва"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Откључај пренос власништва"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Још није отпремили ниједну апликацију!"
