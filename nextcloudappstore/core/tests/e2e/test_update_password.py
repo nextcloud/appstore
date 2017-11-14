@@ -22,7 +22,6 @@ class UpdatePasswordTest(BaseStoreTest):
 
         self.assertTrue(self.by_css('.alert-success').is_displayed())
 
-        self.logout()
         self.login(TEST_USER, 'thisisatest')
 
         self.assertTrue(
