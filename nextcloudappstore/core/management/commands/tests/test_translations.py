@@ -1,6 +1,8 @@
+import time
 from django.core.management import call_command
 from django.test import TestCase
 from django.utils.six import StringIO
+from django.db import connection
 
 from nextcloudappstore.core.facades import read_relative_file, \
     write_relative_file
@@ -18,7 +20,7 @@ class TranslationsCommandTest(TestCase):
         self.assertEqual('', self.read_translations())
         call_command('loaddata', 'categories.json', stdout=StringIO())
         call_command('createdbtranslations', stdout=StringIO())
-        call_command('importdbtranslations', '-v=3', stdout=StringIO())
+        call_command('importdbtranslations', stdout=StringIO())
 
         self.assertEqual(self.translations, self.read_translations())
 
@@ -27,9 +29,8 @@ class TranslationsCommandTest(TestCase):
         call_command('createdbtranslations', stdout=StringIO())
         call_command('importdbtranslations', stdout=StringIO())
         category = Category.objects.get(id='organization')
-        category.set_current_language('de')
-
-        self.assertEqual('Organisation', category.name)
+        name = category.safe_translation_getter('name', language_code='de')
+        self.assertEqual('Organisation', name)
 
     def read_translations(self):
         return read_relative_file(__file__, self.trans_path).strip()

@@ -1,5 +1,6 @@
 import os
 from itertools import chain
+from typing import Iterable, TypeVar, Callable, Set
 
 """
 Contains small utility and shortcut functions
@@ -56,11 +57,15 @@ def write_relative_file(file_path: str, target_path: str,
         f.write(content)
 
 
-def flatmap(f, xs):
+T = TypeVar('T')
+U = TypeVar('U')
+
+
+def flatmap(f: Callable[[T], Iterable[U]], xs: Iterable[T]) -> Iterable[U]:
     return chain.from_iterable(map(f, xs))
 
 
-def any_match(predicate, iterable) -> bool:
+def any_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     """
     :param predicate: function to test items
     :param iterable: iterable
@@ -73,14 +78,15 @@ def any_match(predicate, iterable) -> bool:
     return False
 
 
-def distinct(iterable, criteria=id):
+def distinct(iterable: Iterable[T],
+             criteria: Callable[[T], U]) -> Iterable[T]:
     """
     :param iterable:
     :param criteria: by default the object in the list. Pass a lambda to choose
     a custom distinctness criteria
     :return: a distinct iterator of elements from an iterable
     """
-    occurred_values = set()
+    occurred_values = set()  # type: Set[U]
     for element in iterable:
         value = criteria(element)
         if value not in occurred_values:

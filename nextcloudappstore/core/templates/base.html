@@ -1,25 +1,26 @@
 {% load staticfiles %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ request.LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{% trans 'The Nextcloud App Store - Upload your apps and install new apps for your Nextcloud' %}">
+    <meta name="author" content="{% trans 'The Nextcloud Community' %}">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}"/>
     <link rel="apple-touch-icon" href="{% static 'assets/img/favicon-180.png' %}">
     <title>{% block head-title %}{% endblock %}App Store - Nextcloud</title>
-    <link rel="stylesheet" href="{% static 'assets/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fonts.css' %}" charset="utf-8">
     <link rel="stylesheet"
-          href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
+          href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}" charset="utf-8">
     {% block feeds %}
         <link rel="alternate" type="application/atom+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-atom' %}" />
         <link rel="alternate" type="application/rss+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-rss' %}" />
     {% endblock %}
-    <script src="{% static 'vendor/bootstrap.native.min.js' %}" async></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap.native.min.js' %}" async></script>
     {% block head %}{% endblock %}
 </head>
 

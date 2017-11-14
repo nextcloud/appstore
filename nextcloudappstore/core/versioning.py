@@ -141,7 +141,7 @@ def group_by_main_version(versions: GroupedVersions) -> GroupedVersions:
     :return: a grouped by main version dict, e.g. {'9': [r1, r2]}
     """
 
-    def reduction(prev, item):
+    def reduction(prev: Any, item: Any) -> Any:
         key, value = item
         main_version = str(Version(key).major)
         prev[main_version] = prev.get(main_version, []) + value

@@ -18,10 +18,11 @@ from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.api.v1.serializers import AppSerializer, \
     AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer, \
-    AppRegisterSerializer
+    AppRegisterSerializer, NextcloudReleaseSerializer
 from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
-from nextcloudappstore.core.models import App, AppRelease, Category, AppRating
+from nextcloudappstore.core.models import App, AppRelease, Category, \
+    AppRating, NextcloudRelease
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import version_in_spec
@@ -36,6 +37,11 @@ class CategoryView(ListAPIView):
 class AppRatingView(ListAPIView):
     queryset = AppRating.objects.all()
     serializer_class = AppRatingSerializer
+
+
+class NextcloudReleaseView(ListAPIView):
+    queryset = NextcloudRelease.objects.all()
+    serializer_class = NextcloudReleaseSerializer
 
 
 class AppView(DestroyAPIView):

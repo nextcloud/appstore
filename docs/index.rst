@@ -1,8 +1,3 @@
-.. nextcloudappstore documentation master file, created by
-   sphinx-quickstart on Sat Jun 18 23:44:17 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Nextcloud's App Store documentation
 ===================================
 
@@ -46,6 +41,7 @@ Look here if you want to install the store on your server and keep it up to date
    :maxdepth: 2
 
    prodinstall
+   upgrading
 
 App Store Developer Documentation
 ---------------------------------

@@ -1,7 +1,9 @@
 from typing import List, Tuple, Any
 from django.db.models import Max, QuerySet
+from semantic_version import Version
+
 from nextcloudappstore.core.models import App, AppReleaseDeleteLog, Category, \
-    AppRating
+    AppRating, NextcloudRelease
 
 
 def create_etag(pairs: List[Tuple[QuerySet, str]]) -> str:
@@ -37,3 +39,13 @@ def categories_etag(request: Any) -> str:
 
 def app_ratings_etag(request: Any) -> str:
     return create_etag([(AppRating.objects.all(), 'rated_at')])
+
+
+def nextcloud_release_etag(request: Any) -> str:
+    releases = [Version(rel.version) for rel in NextcloudRelease.objects.all()]
+    release_num = len(releases)
+    if release_num > 0:
+        latest_release = str(max(releases))
+    else:
+        latest_release = ''
+    return '%d-%s' % (release_num, latest_release)

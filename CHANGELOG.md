@@ -2,6 +2,13 @@
 
 ## [Unreleased] 
 
+## [3.0.0] - 2017-11-15
+
+### Security
+
+- Log out user on password change to prevent hackers from retaining a stolen user session even after a new password was set, #532
+- Reduce password reset link validity timespan from 3 to 1 day, #532
+
 ### Added
 
 - Add games category
@@ -10,9 +17,11 @@
 - Automatically log in user on successful email confirmation, #400
 - Added security category
 - Added collaboration tag for info.xml, #521 and #524
+- Added sabredav plugins for info.xml, #527
 - Added docs on how to configure IntelliJ/PyCharm and commit project configuration files
 - **API (v1)**: future proof signatures by adding a **signatureDigest** field to each app release filled with the hashing algorithm
 - **API (v1)**: add **discussion** field to each app that links to its forum
+- **API (v1)**: Add a new API route to fetch all Nextcloud releases
 
 ### Changed
 
@@ -37,6 +46,7 @@
 
 ## Fixed
 
+- Fixed an issue that would sometimes not import translated categories properly
 - Better error message when database.xml validation fails
 - Update travis configuration and fix test suite for generating Nextcloud 12 apps
 - Treat and encode all scaffolding files as unicode and set the correct size, #522

@@ -95,8 +95,8 @@ class ScreenshotAdmin(admin.ModelAdmin):
 
 @admin.register(NextcloudRelease)
 class NextcloudReleaseAdmin(admin.ModelAdmin):
-    list_display = ('version', 'is_current')
-    list_filter = ('is_current',)
+    list_display = ('version', 'is_current', 'has_release')
+    list_filter = ('is_current', 'has_release')
 
 
 @admin.register(ShellCommand)

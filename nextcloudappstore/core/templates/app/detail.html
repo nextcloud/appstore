@@ -3,9 +3,9 @@
 
 {% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{% static 'assets/css/img-slider.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/github.css' %}">
-    <script defer src="{% static 'public/app/detail.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/img-slider.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'vendor/github.css' %}" charset="utf-8">
+    <script defer src="{% static 'public/app/detail.js' %}" type="text/javascript"></script>
     <meta name="description-url" content="{% url 'app-description' object.id %}">
     <meta name="ratings-url" content="{% url 'app-ratings' object.id %}">
     <meta name="language-code" content="{{ request.LANGUAGE_CODE }}">

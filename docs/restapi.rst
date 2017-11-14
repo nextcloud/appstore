@@ -56,6 +56,8 @@ The following API routes are present:
 
 * :ref:`api-all-categories`
 
+* :ref:`api-all-platforms`
+
 * :ref:`api-all-releases`
 
 * :ref:`api-register-app`
@@ -207,6 +209,45 @@ This route will return all categories and their translations.
 
 translations
     Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
+
+
+.. _api-all-platforms:
+
+Get All Nextcloud Releases
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+This will return all the Nextcloud releases that the store knows about. To check if a release can actually be downloaded, use the **hasRelease** flag.
+
+.. note:: Unsupported Nextcloud releases will be removed from the response
+
+.. note:: To find the latest version that has a release you will need to use a semantic version library to sort the list. The result is unsorted.
+
+* **Url**: GET /api/v1/platforms.json
+
+* **Authentication**: None
+
+* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
+
+* **Example CURL request**::
+
+    curl https://apps.nextcloud.com/api/v1/platforms.json -H 'If-None-Match: "4-2016-06-11 10:37:24+00:00"'
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    [
+        {
+            "hasRelease": false,
+            "version": "12.0.1"
+        },
+        {
+            "hasRelease": true,
+            "version": "12.0.0"
+        }
+    ]
+
+hasRelease
+    boolean flag that indicates if the Nextcloud release is stable and has a release
 
 
 .. _api-all-releases:

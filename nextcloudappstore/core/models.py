@@ -298,7 +298,7 @@ class AppRating(TranslatableModel):
         app.save()
 
     def _compute_app_rating(self, days: int = -1,
-                            threshold: int = 5) -> Tuple[int, float]:
+                            threshold: int = 5) -> Tuple[float, int]:
         """
         Computes an app rating based on
         :param days: passing 30 will only consider ratings from the last
@@ -616,6 +616,15 @@ class NextcloudRelease(Model):
                                           'used to pre-select dropdowns for '
                                           'app generation, etc.'),
                               default=False)
+    has_release = BooleanField(verbose_name=_('Has a release'),
+                               help_text=_(
+                                   'If true, this is an actual released '
+                                   'Nextcloud version that can be '
+                                   'downloaded as an archive. If false '
+                                   'the release is either a pre-releases '
+                                   'or not available for download '
+                                   'anymore.'),
+                               default=False)
 
     class Meta:
         verbose_name = _('Nextcloud release')

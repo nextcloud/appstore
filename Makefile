@@ -16,8 +16,8 @@ prod_version=12.0.0
 .PHONY: lint
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations
-	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/api/v1/release
-	$(mypy) --silent-imports --disallow-untyped-defs $(CURDIR)/nextcloudappstore/certificate
+	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/api/v1/release
+	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/certificate
 	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/.bandit.yml
 
 .PHONY: test

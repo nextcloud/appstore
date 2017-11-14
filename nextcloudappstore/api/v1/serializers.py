@@ -6,7 +6,7 @@ from rest_framework.fields import SerializerMethodField, DateTimeField
 
 from nextcloudappstore.core.models import PhpExtensionDependency, \
     DatabaseDependency, Category, AppAuthor, AppRelease, Screenshot, \
-    AppRating, App
+    AppRating, App, NextcloudRelease
 from nextcloudappstore.core.validators import HttpsUrlValidator
 
 
@@ -48,6 +48,12 @@ class CategorySerializer(TranslatableModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'translations')
+
+
+class NextcloudReleaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NextcloudRelease
+        fields = ('has_release', 'version')
 
 
 class AuthorSerializer(serializers.ModelSerializer):

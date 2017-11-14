@@ -2,12 +2,15 @@ from django.conf.urls import url
 from django.views.decorators.http import etag
 from nextcloudappstore.api.v1.views import AppView, AppReleaseView, \
     CategoryView, SessionObtainAuthToken, RegenerateAuthToken, AppRatingView, \
-    AppRegisterView
+    AppRegisterView, NextcloudReleaseView
 from nextcloudappstore.core.caching import app_ratings_etag, categories_etag, \
-    apps_etag
+    apps_etag, nextcloud_release_etag
 from nextcloudappstore.core.versioning import SEMVER_REGEX
 
 urlpatterns = [
+    url(r'^platforms\.json$',
+        etag(nextcloud_release_etag)(NextcloudReleaseView.as_view()),
+        name='platforms'),
     url(r'^platform/(?P<version>\d+\.\d+\.\d+)/apps\.json$',
         etag(apps_etag)(AppView.as_view()), name='app'),
     url(r'^apps/releases/?$', AppReleaseView.as_view(),
