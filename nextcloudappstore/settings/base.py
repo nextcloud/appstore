@@ -296,3 +296,4 @@ APP_SCAFFOLDING_PROFILES = {
         'owncloud_version': '9.2'
     }
 }
+

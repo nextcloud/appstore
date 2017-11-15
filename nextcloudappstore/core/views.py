@@ -24,10 +24,8 @@ from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 
-
 def ratelimit(request, ex):
     return render(request, 'ratelimit.html')
-
 
 @etag(app_etag)
 def app_description(request, id):
