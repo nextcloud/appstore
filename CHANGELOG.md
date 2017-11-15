@@ -2,6 +2,12 @@
 
 ## [Unreleased] 
 
+## [3.0.1] - 2017-11-15
+
+### Security
+
+- Require admin users to log in over the rate limited default login form
+
 ## [3.0.0] - 2017-11-15
 
 ### Security
