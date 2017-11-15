@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'ratelimit.middleware.RatelimitMiddleware',
 ]
 
 ROOT_URLCONF = 'nextcloudappstore.urls'
@@ -130,14 +129,8 @@ REST_FRAMEWORK = {
 
 SITE_ID = 1
 
-# used for admin login and password change form
-PASSWORD_CHANGE_RATE_LIMIT = '5/1m'
-RATELIMIT_VIEW = 'nextcloudappstore.core.views.ratelimit'
-
 # Allauth configuration
 # http://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_LOGOUT_ON_GET = True
@@ -296,4 +289,3 @@ APP_SCAFFOLDING_PROFILES = {
         'owncloud_version': '9.2'
     }
 }
-

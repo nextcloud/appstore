@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% load i18n %}
-
-{% block head-title %}{% trans "Rate Limit Reached" %} - {% endblock %}
-
-{% block content %}
-    <h1>{% trans "Rate Limit Reached" %}</h1>
-    <p>{% trans "You have made too many calls to a protected route in a certain time frame, please wait a few minutes to try again." %}</p>
-{% endblock %}
