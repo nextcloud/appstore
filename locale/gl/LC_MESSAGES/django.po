@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2017\n"
 "Language-Team: Galician (https://www.transifex.com/nextcloud/teams/64236/"
@@ -543,11 +543,24 @@ msgstr ""
 "Só unha versión pode ser a actual. Este campo usase para preseleccionar "
 "menús despregábeis para a xeración da aplicación, etc."
 
+#: nextcloudappstore/core/models.py:619
+#, fuzzy
+#| msgid "Newest app releases"
+msgid "Has a release"
+msgstr "Versións máis recentes da aplicación"
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Publicación de versión do Nexcloud:"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Publicacións de versións do Nexcloud:"
 
@@ -993,22 +1006,34 @@ msgstr ""
 msgid "Upload"
 msgstr "Enviar"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+#, fuzzy
+#| msgid "Nextcloud version"
+msgid "The Nextcloud Community"
+msgstr "Versión do Nexcloud:"
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 #, fuzzy
 #| msgid "Newest app releases"
 msgid "Latest app releases"
 msgstr "Versións máis recentes da aplicación"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Bifúrcame en GitHub"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr "Intimidade e aviso legal"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Aviso legal"
 
@@ -1069,86 +1094,78 @@ msgstr ""
 "%(site_name)s. Como paso final, complete o seguinte formulario:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Autenticación e autorización"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr ""
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Personalización"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr "Aplicacións de temas, aparencia e cambio de interface"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Ficheiros"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr ""
 "Aplicacións de administración de ficheiros e extensión á aplicación de "
 "ficheiros"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Integración"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr "Aplicacións que conectan o Nextcloud con outros servizos e plataformas"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Supervisando"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
 "Aplicacións de estatística de datos, diagnóstico do sistema e actividade"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Aplicacións de son, vídeo e imaxes"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Oficina e texto"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Aplicacións de oficina e de procesamento de texto"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Organización"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr ""
 "Aplicacións de administración do tempo, listas de tarefas e calendarios"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 #, fuzzy
 #| msgid ""
 #| "Apps that provide additional authentication or authorization services"
@@ -1158,20 +1175,20 @@ msgid ""
 msgstr ""
 "Aplicacións que fornecen servizos adicionais de autenticación ou autorización"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Social e comunicación"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Aplicacións de mensaxería, administración de contactos e medios sociais"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Ferramentas"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "Todo o demais"
 
@@ -1391,6 +1408,9 @@ msgstr "Desbloquear a transferencia da propiedade"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Aínda non enviou ningunha aplicación!"
+
+#~ msgid "Authentication & authorization"
+#~ msgstr "Autenticación e autorización"
 
 #, fuzzy
 #~| msgid "SHA512 signature"

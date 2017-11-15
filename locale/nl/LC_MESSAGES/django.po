@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Edwin Koning <edwin@koninkrijk.net>, 2017\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
@@ -526,11 +526,22 @@ msgstr ""
 "Er kan maar één versie de huidige zijn. Dit veld wordt gebruikt om de "
 "voorkeuze uitklaplijsten voor app generatie etc. te vullen."
 
+#: nextcloudappstore/core/models.py:619
+msgid "Has a release"
+msgstr ""
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Nextcloud release"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Nextcloud releases"
 
@@ -948,20 +959,30 @@ msgstr ""
 msgid "Upload"
 msgstr "Uploaden"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+msgid "The Nextcloud Community"
+msgstr ""
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
 msgstr "Laatste app uitgaven"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Fork me on GitHub"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr "Privacy en juridisch"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Juridische bepalingen"
 
@@ -1021,82 +1042,74 @@ msgstr ""
 "%(site_name)s. Als laatste stap moet je het volgende formulier invullen:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Authenticatie & authorisatie"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr "Vervallen, niet meer gebruiken"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Maatwerk"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr "Thema's, layout en UX aanpassingsapps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Bestanden"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr "Bestandebeheer en uitbreidingen van bestand apps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr "Spelen"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr "Spelen draaiend in je Nextcloud"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Integratie"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr "Apps die Nextcloud verbinden met andere services en platformen"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Monitoren"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr "Gegevensstatistiek, systeem diagnose en activiteit apps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Audio, video en afbeelding apps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Office & tekst"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Office en tekstverwerkingsapps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Organisatie"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr "Tijdmanagement, takenlijsten en agenda apps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr "Beveiliging"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
@@ -1104,19 +1117,19 @@ msgstr ""
 "Apps die extra beveiligingsmechanismen bieden zoals authenticatie, "
 "autorisatie, encryptie, enz."
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Sociaal & communicatie"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr "Messaging, contactbeheer en social media apps"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Tools"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "De rest"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miko-Matias Grönvall <matias.gronvall@gmail.com>, 2017\n"
 "Language-Team: Finnish (Finland) (https://www.transifex.com/nextcloud/teams/64236/fi_FI/)\n"
@@ -516,11 +516,22 @@ msgid ""
 "dropdowns for app generation, etc."
 msgstr ""
 
+#: nextcloudappstore/core/models.py:619
+msgid "Has a release"
+msgstr ""
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Nextcloud-julkaisu"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Nextcloud-julkaisut"
 
@@ -925,20 +936,30 @@ msgstr ""
 msgid "Upload"
 msgstr "Lähetä"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+msgid "The Nextcloud Community"
+msgstr ""
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
 msgstr "Viimeisimmät sovellusjulkaisut"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Haarauta GitHubissa"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Oikeudellinen huomautus"
 
@@ -996,103 +1017,95 @@ msgid ""
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Tunnistautuminen ja valtuutus"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr "Vanhennettu, älä käytä enää"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Mukautus"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Tiedostot"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr "Tiedostojenhallintasovellukset ja Tiedostot-sovelluksen lisäosat"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr "Pelit"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Integraatio"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr ""
 "Sovellukset, jotka yhdistävät Nextcloudin muihin palveluihin ja "
 "sovellusalustoihin"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Monitorointi"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Ääni-, video- ja kuvasovellukset"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Toimisto & teksti"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Toimisto- ja tekstinkäsittelysovellukset"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Organisaatio"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr "Ajanhallinta-, todo-lista- ja kalenterisovellukset"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr "Tietoturva"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Sosiaaliset & kommunikaatio"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Viestittely-, yhteystietojenhallinta- ja sosiaalisen median sovellukset"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Työkalut"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "Kaikki muu"
 

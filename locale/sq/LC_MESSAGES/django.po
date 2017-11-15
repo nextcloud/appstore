@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marin Kaltani <mpkaltani@gmail.com>, 2017\n"
 "Language-Team: Albanian (https://www.transifex.com/nextcloud/teams/64236/sq/)\n"
@@ -520,11 +520,22 @@ msgstr ""
 "Vetëm një version mund të jetë ai aktual. Kjo fushë përdoret për të para-"
 "zgjedhur dropdowns për gjenerimin e aplikacioneve, etj."
 
+#: nextcloudappstore/core/models.py:619
+msgid "Has a release"
+msgstr ""
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Lançimi i Nextcloud"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Lançimet e Nextcloud"
 
@@ -938,20 +949,30 @@ msgstr ""
 msgid "Upload"
 msgstr "Ngarko"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+msgid "The Nextcloud Community"
+msgstr ""
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
 msgstr "Lirimet e fundit të aplikacioneve"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Më bëj fork në GitHub"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr "Privatësi dhe legalitet"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Shënim i ligjshëm"
 
@@ -1011,90 +1032,82 @@ msgstr ""
 "%(site_name)s. Si një hap i fundit, ju lutem plotësoni formën e mëposhtme:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr ""
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr "E kundërshtuar, mos e përdor më"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Përshtatje"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr "Temat, pamja dhe Ndërfaqja e Përdoruesit ndryshojnë aplikacionet"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Skedarë"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr ""
 "Aplikacion i menaxhimit të skedarit dhe skedarëve për zgjerim të "
 "aplikacioneve"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr "Lojëra"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr "Lojerët në Nextcloud-in tuaj"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Integrimi"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr ""
 "Aplikacionet që lidhen me Nextcloud me anën e  shërbimeve dhe platformave të"
 " tjera"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Vëzhgim"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
 "Statistikat e të dhënave, diagnostikimi i sistemit dhe aplikacionet e "
 "aktivitetit"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Aplikacione audio, video dhe fotosh"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Zyre dhe tekst"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Aplikacione për zyra dhe procesimin e teksteve"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Organizate"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr ""
 "Aplikacion per menaxhimin e kohes , listat per gjerat qe duhen bere dhe "
 "kalendar"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr "Siguria"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
@@ -1102,20 +1115,20 @@ msgstr ""
 "Aplikacione që ofrojnë mekanizma shtesë sigurie si autentikim, autorizim, "
 "enkriptim, etj."
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Social & komunikim"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Te shkruheni , kontaktoni menaxhimin dhe aplikacionet e mediave sociale"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Mjete"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "Çdo gjë tjetër"
 

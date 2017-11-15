@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: eleni lainidou <elainidou@hotmail.com>, 2017\n"
 "Language-Team: Greek (https://www.transifex.com/nextcloud/teams/64236/el/)\n"
@@ -520,11 +520,22 @@ msgstr ""
 "Μόνο μια έκδοση μπορεί να είναι η τρέχουσα. Αυτό το πεδίο χρησιμοποιείται "
 "για την προεπιλογή αναπτυσσόμενων μενού για τη δημιουργία εφαρμογής, κλπ. "
 
+#: nextcloudappstore/core/models.py:619
+msgid "Has a release"
+msgstr ""
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Έκδοση Nextcloud"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Εκδόσεις Nextcloud"
 
@@ -941,20 +952,30 @@ msgstr ""
 msgid "Upload"
 msgstr "Μεταφόρτωση"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+msgid "The Nextcloud Community"
+msgstr ""
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
 msgstr "Τελευταίες εκδόσεις εφαρμογών"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Fork me στο GitHub"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr "Ιδιωτικό και νόμιμο"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Νομική Ειδοποίηση"
 
@@ -1014,83 +1035,75 @@ msgstr ""
 "           %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την ακόλουθη φόρμα:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Πιστοποίηση & εξουσιοδότηση"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr "Παρωχημένο, πλέον μην το χρησιμοποιείτε"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Προσαρμογή"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr "Εφαρμογές αλλαγής θέματος, διάταξης και UX"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Αρχεία"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr "Διαχείριση αρχείων και επέκταση εφαρμογής Αρχεία για εφαρμογές"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr "Παιχνίδια"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr "Παιχνίδια που τρέχουν στο Nextcloud σας"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Ενσωμάτωση"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr "Εφαρμογές που συνδέουν το Nextcloud με άλλες υπηρεσίες και πλατφόρμες"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Παρακολούθηση"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr ""
 "Στατιστικά δεδομένων, διαγνωστικά συστήματος και δραστηριότητα εφαρμογών"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Πολυμέσα"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Εφαρμογές ήχου, βίντεο και εικόνας"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Γραφείο & κείμενο"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Εφαρμογές γραφείου και επεξεργασίας κειμένου "
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Οργανισμός"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr "Εφαρμογές διαχείρισης χρόνου, λιστών εκκρεμοτήτων και ημερολόγια"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr "Ασφάλεια"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
@@ -1098,20 +1111,20 @@ msgstr ""
 "Εφαρμογές που παρέχουν πρόσθετους μηχανισμούς ασφαλείας όπως πιστοποίηση, "
 "εξουσιοδότηση, κρυπτογράφηση κ.λπ."
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Κοινωνικά και επικοινωνία"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr ""
 "Εφαρμογές επικοινωνίας, διαχείρισης επαφών και μέσων κοινωνικής δικτύωσης"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Εργαλεία"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "Οτιδήποτε άλλο"
 

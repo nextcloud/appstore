@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 01:38+0000\n"
+"POT-Creation-Date: 2017-11-15 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Morris Jobke <hey@morrisjobke.de>, 2017\n"
 "Language-Team: Basque (https://www.transifex.com/nextcloud/teams/64236/eu/)\n"
@@ -524,11 +524,22 @@ msgstr ""
 "Oraingo bertsioa bakarra izan behar du. Eremu hau app-en "
 "sorkuntzarako,eremuak aurrehautatzeko erabil daiteke, adibidez"
 
+#: nextcloudappstore/core/models.py:619
+msgid "Has a release"
+msgstr ""
+
 #: nextcloudappstore/core/models.py:621
+msgid ""
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false the release is either a pre-releases or not "
+"available for download anymore."
+msgstr ""
+
+#: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
 msgstr "Nextcloud bertsioa"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
 msgstr "Nextcloud bertsioak"
 
@@ -565,16 +576,17 @@ msgid ""
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "%(site_name)ren izenean ongi etorri!\n"
-"Email hau jaso duzu %(user_display)s erabiltzaileak email hau bere %(site_domain)s kontura estekatu duelako\n"
-"Hau zuzena dela konfirmatzeko, %(activate_url)s-ra nabiga ezazu\n"
-"!%(site_domain)sen konturik ez baduzu, mezu hau ahaz dezakezu\n"
+"Email hau jaso duzu %(user_display) erabiltzaileak email hau bere %(site_domain) kontura estekatu duelako\n"
+"Hau zuzena dela konfirmatzeko, %(activate_url)-ra nabiga ezazu\n"
+"!%(site_domain)en konturik ez baduzu, mezu hau ahaz dezakezu"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
 msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "%(site_name)stik eskerrak eman nahi dizkizugu"
+msgstr ""
+"%(site_name)stik eskerrak eman nahi dizkizugu!\n"
 "%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
@@ -702,7 +714,7 @@ msgstr "App guztiak"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr "%(app_name)ren azken bertsioak"
+msgstr "%(app_name)s ren azken bertsioak"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -835,7 +847,7 @@ msgstr "Nire app-ak"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-" \"<em>%(query)s</em>\"bilatu ondoren  %(category)saren barrua ez da app-rik "
+" \"<em>%(query)s</em>\"bilatu ondoren %(category)saren barrua ez da app-rik "
 "topatu."
 
 #: nextcloudappstore/core/templates/app/list.html:61
@@ -942,20 +954,30 @@ msgstr ""
 msgid "Upload"
 msgstr "Igo"
 
-#: nextcloudappstore/core/templates/base.html:19
+#: nextcloudappstore/core/templates/base.html:8
+msgid ""
+"The Nextcloud App Store - Upload your apps and install new apps for your "
+"Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:9
+msgid "The Nextcloud Community"
+msgstr ""
+
 #: nextcloudappstore/core/templates/base.html:20
+#: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
 msgstr "Azkenengo app-en bertsioak"
 
-#: nextcloudappstore/core/templates/base.html:44
+#: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
 msgstr "Bikoiztu nazazu GitHuben"
 
-#: nextcloudappstore/core/templates/base.html:47
+#: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
 msgstr "Pribatutasuna eta legedia"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
 msgstr "Ohar legala"
 
@@ -1015,82 +1037,74 @@ msgstr ""
 ". Bukaera pausutzat, ondoko formularioa bete:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
-msgid "Authentication & authorization"
-msgstr "Autentikazioa eta autorizazioa"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:2
-msgid "Deprecated, do not use anymore"
-msgstr "Zaharkitua, ez erabili"
-
-#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Customization"
 msgstr "Kustomizazioa"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:4
+#: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
 msgstr "Gaiak, diseinua eta UX aldaketentzako app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:5
+#: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
 msgstr "Fitxategiak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:6
+#: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
 msgstr "Fitxategien kudeaketa eta Fitxategi app-aren luzapen app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:7
+#: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
 msgstr "Jokuak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:8
+#: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
 msgstr "Zure Nextcloudean exekuta daitezkeen jokuak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:9
+#: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
 msgstr "Integrazioa"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:10
+#: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
 msgstr "Nextcloud beste zerbitzu eta plataformekin konektatzeko app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:11
+#: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
 msgstr "Monitorizazioa"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:12
+#: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
 msgstr "Datu estatiktikak, sistema diagnostikoa eta jarduera app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:13
+#: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:14
+#: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
 msgstr "Audio, bideo eta argazki app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:15
+#: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
 msgstr "Bulegoa eta testua"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:16
+#: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
 msgstr "Bulegoak eta testu prozesatzaileen app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:17
+#: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
 msgstr "Antolakuntza"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:18
+#: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
 msgstr "Denbora kontrola, Egitekeen zerrenda eta egutegi app-a"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:19
+#: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Security"
 msgstr "Segurtasuna"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:20
+#: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
@@ -1098,19 +1112,19 @@ msgstr ""
 "Segurtasun gehiago emateko app-ak, adibidez autentikazioa, autorizazioa, "
 "enkriptazioa eta abar."
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:21
+#: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Social & communication"
 msgstr "Soziala eta komunikazioa"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:22
+#: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Messaging, contact management and social media apps"
 msgstr "Mezularitza, kontaktuen kudeaketa eta sare sozialen app-ak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:23
+#: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Tools"
 msgstr "Tresnak"
 
-#: nextcloudappstore/core/templates/translation/db_translations.txt:24
+#: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Everything else"
 msgstr "Beste guztia"
 
