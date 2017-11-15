@@ -5,8 +5,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import etag
-from django.views.generic import RedirectView
 
 from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
@@ -14,6 +14,8 @@ from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, AppRatingApi, \
     AppRegisterView
 from nextcloudappstore.scaffolding.views import AppScaffoldingView
+
+admin.site.login = login_required(admin.site.login)
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),

@@ -2,6 +2,13 @@
 
 ## [Unreleased] 
 
+## [3.0.1] - 2017-11-15
+
+### Security
+
+- Rate limit password change form in account settings to 5 per minute 
+- Disable admin login and require user to log in via the normal login form which is rate limited
+
 ## [3.0.0] - 2017-11-15
 
 ### Security

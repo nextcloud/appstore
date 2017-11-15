@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.decorators.http import etag
@@ -24,6 +24,8 @@ from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
 from nextcloudappstore.core.models import App, Category, AppRating
 from nextcloudappstore.core.versioning import pad_min_version
 
+def ratelimit(request, ex):
+    return render(request, 'ratelimit.html')
 
 @etag(app_etag)
 def app_description(request, id):

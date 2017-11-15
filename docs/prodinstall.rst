@@ -178,6 +178,9 @@ To get your instance running in production you need to create your production se
     # number of days to include from today in the recent ratings calculation
     # RATING_RECENT_DAY_RANGE = 90
 
+    # used for admin login and password change form
+    # PASSWORD_CHANGE_RATE_LIMIT = '5/1m'  # 5 calls per minute
+
     # VALIDATE_CERTIFICATES = True
     # Algorithm which is used to sign and verify app releases. The digest is
     # persisted when saving a release so changing this parameter will only
