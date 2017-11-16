@@ -1,8 +1,12 @@
 from django.conf import settings
-from django.db.models.signals import post_save
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 
 from rest_framework.authtoken.models import Token
+
+from nextcloudappstore.user.facades import update_token
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL,
@@ -11,3 +15,20 @@ def post_save_create_token(sender, **kwargs):
     if kwargs['created']:
         t = Token.objects.create(user=kwargs['instance'])
         t.save()
+
+
+@receiver(pre_save, sender=get_user_model())
+def password_changed_signal(sender, instance, **kwargs):
+    """
+    Regenerate token on password change
+    :param sender:
+    :param instance:
+    :param kwargs:
+    :return:
+    """
+    try:
+        user = get_user_model().objects.get(pk=instance.pk)
+        if user.password != instance.password:
+            update_token(user.username)
+    except User.DoesNotExist:
+        pass

@@ -2,6 +2,13 @@
 
 ## [Unreleased] 
 
+## [3.0.2] - 2017-11-16
+
+### Security
+
+- Require password when changing your account details
+- Regenerate API token on password change
+
 ## [3.0.1] - 2017-11-15
 
 ### Security
