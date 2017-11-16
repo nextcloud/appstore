@@ -1,3 +1,4 @@
+from nextcloudappstore.core.tests.e2e import TEST_PASSWORD
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
@@ -16,7 +17,12 @@ class UpdateAccountTest(BaseStoreTest):
         mail = self.by_id('id_email')
         mail.clear()
         mail.send_keys('change@me.com')
-        mail.submit()
+
+        passwd = self.by_id('id_passwd')
+        passwd.clear()
+        passwd.send_keys(TEST_PASSWORD)
+
+        passwd.submit()
 
         self.assertTrue(self.by_css('.alert-success').is_displayed())
 
