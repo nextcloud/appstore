@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-16 01:37+0000\n"
+"POT-Creation-Date: 2017-11-17 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Benedikt Geißler <benedikt@g5r.eu>, 2017\n"
 "Language-Team: German (https://www.transifex.com/nextcloud/teams/64236/de/)\n"
@@ -684,7 +684,7 @@ msgstr "Falscher API-Token"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
 msgstr "Passwort ändern"
 
@@ -1221,9 +1221,24 @@ msgstr "Deine E-Mail-Adresse"
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Die eingegebene E-Mail-Adresse entspricht nicht Deiner E-Mail-Adresse"
 
-#: nextcloudappstore/user/forms.py:48
+#: nextcloudappstore/user/forms.py:39
+msgid "Confirm password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:40
+msgid ""
+"Password is required to prevent unauthorized users from changing your email "
+"address and resetting your password. This field does not update your "
+"password!"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
 msgstr "Diese E-Mail-Adresse ist bereits mit einem anderen Konto verknüpft."
+
+#: nextcloudappstore/user/forms.py:65
+msgid "Invalid password"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1296,7 +1311,11 @@ msgstr ""
 " ebenfalls gelöscht werden. Um Dein Konto zu löschen, gib Deine E-Mail-"
 "Adresse in das Eingabefeld ein und klicken auf den \"Konto löschen\"-Knopf:"
 
-#: nextcloudappstore/user/templates/user/password.html:16
+#: nextcloudappstore/user/templates/user/password.html:10
+msgid "Changing your password will also regenerate your API token!"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."

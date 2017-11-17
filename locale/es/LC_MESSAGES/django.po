@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-16 01:37+0000\n"
+"POT-Creation-Date: 2017-11-17 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Javier O <nick.joss@posteo.net>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/nextcloud/teams/64236/es/)\n"
@@ -526,7 +526,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
-msgstr ""
+msgstr "Tiene una versión publicada"
 
 #: nextcloudappstore/core/models.py:621
 msgid ""
@@ -534,6 +534,9 @@ msgid ""
 " as an archive. If false the release is either a pre-releases or not "
 "available for download anymore."
 msgstr ""
+"Si es verdad, esta es una verdadera versión publicada de Nextcloud que puede"
+" ser descargada como un archivo comprimido. Si es falos, la versión es o una"
+" prepublicación o ya no está disponible para descarga."
 
 #: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
@@ -678,7 +681,7 @@ msgstr "Token API inválido"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
 msgstr "Cambiar Contraseña"
 
@@ -965,10 +968,12 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps for your "
 "Nextcloud"
 msgstr ""
+"La App Store de Nextcloud: Sube tus apps e instala nuevas apps para tu "
+"Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
-msgstr ""
+msgstr "La comunidad de Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
@@ -1217,9 +1222,24 @@ msgstr "Su dirección de correo"
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "La dirección de correo suministrada no coincide con tu dirección."
 
-#: nextcloudappstore/user/forms.py:48
+#: nextcloudappstore/user/forms.py:39
+msgid "Confirm password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:40
+msgid ""
+"Password is required to prevent unauthorized users from changing your email "
+"address and resetting your password. This field does not update your "
+"password!"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
 msgstr "Esta dirección de correo ya está asociada con otra cuenta."
+
+#: nextcloudappstore/user/forms.py:65
+msgid "Invalid password"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1293,7 +1313,11 @@ msgstr ""
 " tu cuente, inserta tu dirección de correo en el campo de entrada y pulsa el"
 " botón \"Borrar cuenta\":"
 
-#: nextcloudappstore/user/templates/user/password.html:16
+#: nextcloudappstore/user/templates/user/password.html:10
+msgid "Changing your password will also regenerate your API token!"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."

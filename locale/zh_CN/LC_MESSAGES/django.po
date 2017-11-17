@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-16 01:37+0000\n"
+"POT-Creation-Date: 2017-11-17 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lynn jakc <bfwz123@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -658,7 +658,7 @@ msgstr "错误的 API 令牌"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
 msgstr "更改密码"
 
@@ -1177,9 +1177,24 @@ msgstr "您的电子邮件地址"
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "给定的电子邮件地址与您的电子邮件地址不匹配."
 
-#: nextcloudappstore/user/forms.py:48
+#: nextcloudappstore/user/forms.py:39
+msgid "Confirm password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:40
+msgid ""
+"Password is required to prevent unauthorized users from changing your email "
+"address and resetting your password. This field does not update your "
+"password!"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
 msgstr "此电子邮件地址已与另一帐户关联.。"
+
+#: nextcloudappstore/user/forms.py:65
+msgid "Invalid password"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1248,7 +1263,11 @@ msgid ""
 "click the \"Delete account\" button:"
 msgstr "删除您的帐户将删除您的所有应用程序和版本。要删除您的帐户，请将您的电子邮件地址填写到输入字段，然后单击“删除帐户”按钮： "
 
-#: nextcloudappstore/user/templates/user/password.html:16
+#: nextcloudappstore/user/templates/user/password.html:10
+msgid "Changing your password will also regenerate your API token!"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."

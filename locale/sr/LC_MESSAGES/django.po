@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-16 01:37+0000\n"
+"POT-Creation-Date: 2017-11-17 01:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Branko Kokanovic <branko@kokanovic.org>, 2017\n"
 "Language-Team: Serbian (https://www.transifex.com/nextcloud/teams/64236/sr/)\n"
@@ -528,7 +528,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
-msgstr ""
+msgstr "Има издање"
 
 #: nextcloudappstore/core/models.py:621
 msgid ""
@@ -536,6 +536,9 @@ msgid ""
 " as an archive. If false the release is either a pre-releases or not "
 "available for download anymore."
 msgstr ""
+"Ако је тачно, ово је стварно издата Некстклауд верзија која може бити "
+"скинута као архива. Ако није тачно, издање је још у изради или више није "
+"доступно за скидање."
 
 #: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
@@ -678,7 +681,7 @@ msgstr "Лош API токен"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:13
+#: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
 msgstr "Промени лозинку"
 
@@ -964,10 +967,12 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps for your "
 "Nextcloud"
 msgstr ""
+"Некстклауд Андроид апликација - отпремите Ваше апликације и инсталирајте "
+"нове на Вашем Некстклауд серверу"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
-msgstr ""
+msgstr "Некстклауд заједница"
 
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
@@ -1214,9 +1219,24 @@ msgstr "Адреса е-поште"
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Дата адреса е-поште се не слаже са Вашом адресом е-поште"
 
-#: nextcloudappstore/user/forms.py:48
+#: nextcloudappstore/user/forms.py:39
+msgid "Confirm password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:40
+msgid ""
+"Password is required to prevent unauthorized users from changing your email "
+"address and resetting your password. This field does not update your "
+"password!"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
 msgstr "Ова адреса е-поште је већ повезана са другим налогом."
+
+#: nextcloudappstore/user/forms.py:65
+msgid "Invalid password"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1290,7 +1310,11 @@ msgstr ""
 "избришете налог, унесите адресу Ваше е-поште у поље за унос података и "
 "кликните дугме \"Обриши налог\":"
 
-#: nextcloudappstore/user/templates/user/password.html:16
+#: nextcloudappstore/user/templates/user/password.html:10
+msgid "Changing your password will also regenerate your API token!"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
