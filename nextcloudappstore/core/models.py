@@ -620,8 +620,8 @@ class NextcloudRelease(Model):
                                help_text=_(
                                    'If true, this is an actual released '
                                    'Nextcloud version that can be '
-                                   'downloaded as an archive. If false '
-                                   'the release is either a pre-releases '
+                                   'downloaded as an archive. If false, '
+                                   'the release is either a pre-release, '
                                    'or not available for download '
                                    'anymore.'),
                                default=False)
