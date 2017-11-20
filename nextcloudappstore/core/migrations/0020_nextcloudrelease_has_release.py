@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='nextcloudrelease',
             name='has_release',
-            field=models.BooleanField(default=False, help_text='If true, this is an actual released Nextcloud version that can be downloaded as an archive. If false the release is either a pre-releases or not available for download anymore.', verbose_name='Has a release'),
+            field=models.BooleanField(default=False, help_text='If true, this is an actual released Nextcloud version that can be downloaded as an archive. If false, the release is either a pre-release, or not available for download anymore.', verbose_name='Has a release'),
         ),
     ]
