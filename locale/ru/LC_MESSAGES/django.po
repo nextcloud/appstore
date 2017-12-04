@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-03 01:41+0000\n"
+"POT-Creation-Date: 2017-12-04 01:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ramil Yafizov <ramil.yafizov@gmail.com>, 2017\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
-msgstr "Последние релизы приложений"
+msgstr "Последние выпуски приложения"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Получить последние обновления приложений"
+msgstr "Получить последние обновления приложения"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -68,7 +68,7 @@ msgstr "Ночная сборка"
 
 #: nextcloudappstore/core/forms.py:40
 msgid "Public certificate"
-msgstr "Публичный сертификат"
+msgstr "Открытый сертификат"
 
 #: nextcloudappstore/core/forms.py:42
 msgid ""
@@ -524,11 +524,11 @@ msgid ""
 "dropdowns for app generation, etc."
 msgstr ""
 "Только одна версия может быть текущей версией. Это поле используется для "
-"предварительного выбора раскрывающиеся меню для генерации приложений и т.д."
+"предварительного выбора раскрывающиеся меню при создании приложения и т.д."
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
-msgstr ""
+msgstr "Имеется выпуск"
 
 #: nextcloudappstore/core/models.py:621
 msgid ""
@@ -536,14 +536,18 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"Если установлено значение «истина», то актуальный выпущенная версия "
+"приложения Nextcloud может быть загружена в виде архива, в противном случае,"
+" либо это предварительная версия. либо версия, более не доступная для "
+"загрузки."
 
 #: nextcloudappstore/core/models.py:630
 msgid "Nextcloud release"
-msgstr "Релиз Nextcloud"
+msgstr "Выпуск Nextcloud"
 
 #: nextcloudappstore/core/models.py:631
 msgid "Nextcloud releases"
-msgstr "Релизы Nextcloud"
+msgstr "Выпуски Nextcloud"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
@@ -665,7 +669,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
-msgstr "Сбросить мой пароль"
+msgstr "Сбросить пароль"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
@@ -888,7 +892,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
-msgstr "Не публичный сертификат"
+msgstr "Не открытый сертификат"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
@@ -956,17 +960,19 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
-msgstr "Загружено"
+msgstr "Выгрузить"
 
 #: nextcloudappstore/core/templates/base.html:8
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps for your "
 "Nextcloud"
 msgstr ""
+"Магазин приложений Nextcloud — Создавайте свои, а так же устанавливайте "
+"новые приложения на свой сервер Nextcloud "
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
-msgstr ""
+msgstr "Сообщество Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
@@ -1215,7 +1221,7 @@ msgstr "Представленный электронный адрес не со
 
 #: nextcloudappstore/user/forms.py:39
 msgid "Confirm password"
-msgstr ""
+msgstr "Подтвердить пароль"
 
 #: nextcloudappstore/user/forms.py:40
 msgid ""
@@ -1230,7 +1236,7 @@ msgstr "Этот email-адрес уже используется для дру�
 
 #: nextcloudappstore/user/forms.py:65
 msgid "Invalid password"
-msgstr ""
+msgstr "Неверный пароль"
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1304,7 +1310,7 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr ""
+msgstr "Смена пароля приведёт к изменению маркера API!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
