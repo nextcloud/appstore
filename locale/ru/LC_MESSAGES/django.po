@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 01:35+0000\n"
+"POT-Creation-Date: 2017-12-20 01:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ramil Yafizov <ramil.yafizov@gmail.com>, 2017\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -144,7 +144,7 @@ msgstr "Описание"
 
 #: nextcloudappstore/core/models.py:69 nextcloudappstore/core/models.py:475
 msgid "Will be rendered as Markdown"
-msgstr "Будет представлено как Markdown"
+msgstr "Будет отображено с использованием разметки markdown"
 
 #: nextcloudappstore/core/models.py:73
 msgid "User documentation URL"
@@ -204,7 +204,7 @@ msgstr "Рекомендуемые"
 #: nextcloudappstore/core/models.py:94
 #: nextcloudappstore/core/templates/app/detail.html:77
 msgid "Recent rating"
-msgstr "Недавно проставленный рейтинг"
+msgstr "Рейтинг за последнее время"
 
 #: nextcloudappstore/core/models.py:95
 #: nextcloudappstore/core/templates/app/detail.html:75
@@ -221,7 +221,7 @@ msgstr "Общее количество оценок"
 
 #: nextcloudappstore/core/models.py:101
 msgid "Last release at"
-msgstr "Послейдний релиз"
+msgstr "Последний выпуск"
 
 #: nextcloudappstore/core/models.py:103
 #: nextcloudappstore/core/templates/app/releases.html:39
@@ -362,7 +362,7 @@ msgstr "Журнал изменений"
 
 #: nextcloudappstore/core/models.py:379
 msgid "The release changelog. Can contain Markdown"
-msgstr "Журнал изменений релиза. Может содержать Markdown"
+msgstr "Журнал изменений выпуска, может использовать форматирование markdown"
 
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
@@ -379,7 +379,7 @@ msgstr "Ссылка на изображение"
 
 #: nextcloudappstore/core/models.py:424
 msgid "Small thumbnail"
-msgstr "Маленькая иконка"
+msgstr "Маленькая миниатюра"
 
 #: nextcloudappstore/core/models.py:427
 msgid "Ordering"
@@ -390,19 +390,19 @@ msgstr "Порядок"
 #: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
 msgid "Screenshot"
-msgstr "Скриншот"
+msgstr "Снимок экрана"
 
 #: nextcloudappstore/core/models.py:431
 msgid "Screenshots"
-msgstr "Скриншоты"
+msgstr "Снимки экрана"
 
 #: nextcloudappstore/core/models.py:447 nextcloudappstore/core/models.py:452
 msgid "Shell command"
-msgstr "Команда Shell"
+msgstr "Команда оболочки"
 
 #: nextcloudappstore/core/models.py:449
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Название требуемой Shell команды, например, grep"
+msgstr "Название требуемой команды оболочки, например: grep"
 
 #: nextcloudappstore/core/models.py:453
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -512,7 +512,7 @@ msgstr "Версия Nextcloud"
 
 #: nextcloudappstore/core/models.py:612
 msgid "e.g. 9.0.54"
-msgstr "например 9.0.54"
+msgstr "например: 9.0.54"
 
 #: nextcloudappstore/core/models.py:613
 msgid "Is current version"
@@ -601,7 +601,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
-msgstr "Подтвердите Ваш электронный адрес"
+msgstr "Подтвердите адрес эл. почты"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -700,11 +700,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
-msgstr "Ваш пароль был изменен."
+msgstr "Ваш пароль изменён."
 
 #: nextcloudappstore/core/templates/account/signup.html:18
 msgid "Create account"
-msgstr "Создать аккаунт"
+msgstr "Создать учётную запись"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -921,7 +921,7 @@ msgstr "Зависимости"
 
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Required Nextcloud versions"
-msgstr "Обязательные версии Nextcloud"
+msgstr "Требуемые версии Nextcloud"
 
 #: nextcloudappstore/core/templates/app/releases.html:71
 msgid "PHP"
@@ -931,7 +931,7 @@ msgstr "PHP"
 #: nextcloudappstore/core/templates/app/scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:51
 msgid "Generate app"
-msgstr "Создать приложени"
+msgstr "Создать приложение"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
@@ -989,12 +989,12 @@ msgstr "Конфиденциальность и юридическая инфо�
 
 #: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
-msgstr "Надлежащее уведомление"
+msgstr "Официальное уведомление"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
-msgstr "Требуемые поля"
+msgstr "обязательное поле"
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
