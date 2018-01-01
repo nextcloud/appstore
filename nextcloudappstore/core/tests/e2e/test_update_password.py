@@ -1,7 +1,10 @@
 from nextcloudappstore.core.tests.e2e import TEST_USER, TEST_PASSWORD
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
 
+
+@tag('e2e')
 class UpdatePasswordTest(BaseStoreTest):
     def test_update_pass(self):
         self.login()

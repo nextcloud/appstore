@@ -14,6 +14,7 @@ from os.path import dirname, abspath, join, pardir, realpath
 
 from django.conf.global_settings import LANGUAGES
 
+
 BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
 INSTALLED_APPS = [
@@ -250,6 +251,9 @@ MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
 MAX_DOWNLOAD_TIMEOUT = 60  # seconds
 MAX_DOWNLOAD_REDIRECTS = 10
 MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+ARCHIVE_FOLDER_BLACKLIST = {
+    'No .git directories': r'.git$'
+}
 
 # certificate location configuration
 NEXTCLOUD_CERTIFICATE_LOCATION = join(

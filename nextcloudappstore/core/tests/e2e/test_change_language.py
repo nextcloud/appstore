@@ -2,7 +2,10 @@ from selenium.webdriver.support.select import Select
 
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
 
+
+@tag('e2e')
 class ChangeLanguageTest(BaseStoreTest):
     def test_change_lang(self):
         self.login()

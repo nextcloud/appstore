@@ -4,7 +4,10 @@ from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, \
 from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
 
+
+@tag('e2e')
 class UploadAppReleaseTest(BaseStoreTest, AppDevSteps):
     fixtures = [
         'categories.json',

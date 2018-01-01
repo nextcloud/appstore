@@ -15,3 +15,4 @@ class ReleaseConfig:
         self.db_schema = read_relative_file(__file__, 'database.xsd')
         self.pre_db_xslt = read_relative_file(__file__, 'pre-database.xslt')
         self.languages = settings.LANGUAGES
+        self.member_blacklist = settings.ARCHIVE_FOLDER_BLACKLIST

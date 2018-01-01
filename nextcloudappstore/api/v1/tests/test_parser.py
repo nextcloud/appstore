@@ -10,7 +10,7 @@ from nextcloudappstore.api.v1.release.parser import \
     InvalidAppPackageStructureException, \
     UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
     fix_partial_translations, parse_changelog, ForbiddenLinkException, \
-    validate_database
+    validate_database, BlacklistedMemberException
 from nextcloudappstore.core.facades import resolve_file_relative_path, \
     read_file_contents
 
@@ -166,36 +166,42 @@ class ParserTest(TestCase):
     def test_extract_contacts(self):
         path = self.get_path('data/archives/contacts.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        info, db, app_id, changes = extractor.extract_app_metadata(path)
-        self.assertEqual('contacts', app_id)
-        self.assertEqual('', changes['en'])
+        meta = extractor.extract_app_metadata(path)
+        self.assertEqual('contacts', meta.app_id)
+        self.assertEqual('', meta.changelog['en'])
 
     def test_extract_u2f(self):
         path = self.get_path('data/archives/twofactor_u2f.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        info, db, app_id, changes = extractor.extract_app_metadata(path)
-        self.assertEqual('twofactor_u2f', app_id)
+        meta = extractor.extract_app_metadata(path)
+        self.assertEqual('twofactor_u2f', meta.app_id)
 
     def test_extract_gunzip_info(self):
         path = self.get_path('data/archives/full.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        info, db, app_id, changes = extractor.extract_app_metadata(path)
+        meta = extractor.extract_app_metadata(path)
         full = self._get_contents('data/infoxmls/full.xml')
-        self.assertEqual(full, info)
-        self.assertEqual('', changes['en'])
-        self.assertEqual('', db)
+        self.assertEqual(full, meta.info_xml)
+        self.assertEqual('', meta.changelog['en'])
+        self.assertEqual('', meta.database_xml)
 
     def test_extract_changelog(self):
         path = self.get_path('data/archives/changelog.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        info, db, app_id, changes = extractor.extract_app_metadata(path)
-        self.assertNotEqual('', changes)
+        meta = extractor.extract_app_metadata(path)
+        self.assertNotEqual('', meta.changelog)
 
     def test_extract_database(self):
         path = self.get_path('data/archives/database.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
-        info, db, app_id, changes = extractor.extract_app_metadata(path)
-        self.assertNotEqual('his', db)
+        meta = extractor.extract_app_metadata(path)
+        self.assertNotEqual('his', meta.changelog)
+
+    def test_invalid_directories(self):
+        path = self.get_path('data/archives/blacklisted_files.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        with (self.assertRaises(BlacklistedMemberException)):
+            extractor.extract_app_metadata(path)
 
     def test_extract_gunzip_no_appinfo(self):
         path = self.get_path('data/archives/invalid.tar.gz')

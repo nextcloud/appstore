@@ -1,17 +1,15 @@
 import re
 import tarfile  # type: ignore
 from functools import reduce
-
-import lxml.etree  # type: ignore
 from typing import Dict, Any, Tuple, List, Set
 
-from semantic_version import Version
+import lxml.etree  # type: ignore
+from rest_framework.exceptions import ParseError, \
+    ValidationError  # type: ignore
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import pad_max_version, \
     pad_min_version, raw_version
-from rest_framework.exceptions import ParseError, \
-    ValidationError  # type: ignore
 
 
 class MaxSizeAppMetadataXmlException(ValidationError):
@@ -38,7 +36,17 @@ class XMLSyntaxError(ParseError):
     pass
 
 
-Metadata = Tuple[str, str, str, Dict[str, str]]
+class BlacklistedMemberException(ValidationError):
+    pass
+
+
+class AppMetaData:
+    def __init__(self, info_xml: str, database_xml: str, app_id: str,
+                 changelog: Dict[str, str]) -> None:
+        self.changelog = changelog
+        self.app_id = app_id
+        self.database_xml = database_xml
+        self.info_xml = info_xml
 
 
 class GunZipAppMetadataExtractor:
@@ -49,7 +57,7 @@ class GunZipAppMetadataExtractor:
         self.config = config
         self.app_folder_regex = re.compile(r'^[a-z]+[a-z0-9_]*(?:/.*)*$')
 
-    def extract_app_metadata(self, archive_path: str) -> Metadata:
+    def extract_app_metadata(self, archive_path: str) -> AppMetaData:
         """
         Extracts the info.xml from an tar.gz archive
         :argument archive_path: the path to the tar.gz archive
@@ -67,7 +75,7 @@ class GunZipAppMetadataExtractor:
             result = self._parse_archive(tar)
         return result
 
-    def _parse_archive(self, tar: Any) -> Metadata:
+    def _parse_archive(self, tar: Any) -> AppMetaData:
         app_id = self._find_app_id(tar)
         info = self._get_contents('%s/appinfo/info.xml' % app_id, tar)
         database = self._get_contents('%s/appinfo/database.xml' % app_id, tar,
@@ -82,7 +90,11 @@ class GunZipAppMetadataExtractor:
             if trans_changelog:
                 changelog[code] = trans_changelog
 
-        return info, database, app_id, changelog
+        # validate invalid members here due to possible massive amount of
+        # files (e.g. .git directories)
+        self._test_blacklisted_members(tar)
+
+        return AppMetaData(info, database, app_id, changelog)
 
     def _get_contents(self, path: str, tar: Any, default: Any = None) -> str:
         """
@@ -109,7 +121,7 @@ class GunZipAppMetadataExtractor:
         Validates that the path to the target member and the member itself
         is not a symlink to prevent abitrary file inclusion, then returns
         the member in question
-        :param info_member: the target member to check
+        :param path: the target member to check
         :param tar: tge tar file
         :raises InvalidAppPackageStructureException: if links are found
         :return: the member if found, otherwise None
@@ -202,6 +214,21 @@ class GunZipAppMetadataExtractor:
             result += chunk
 
         return result.decode('utf-8')
+
+    def _test_blacklisted_members(self, tar):
+        """
+        :param tar: the tar file
+        :raises: BlacklistedMemberException
+        :return:
+        """
+        for name in (n for n in tar.getnames() if tar.getmember(n).isdir()):
+            for error, regex in self.config.member_blacklist.items():
+                regex = re.compile(regex)
+                if regex.search(name):
+                    msg = 'Blacklist rule "%s": Directory %s is not ' \
+                          'allowed to be present in the app ' \
+                          'archive' % (error, name)
+                    raise BlacklistedMemberException(msg)
 
 
 def element_to_dict(element: Any) -> Dict:

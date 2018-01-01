@@ -5,7 +5,10 @@ from nextcloudappstore.core.tests.e2e import TEST_APP_SIG
 from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
 
+
+@tag('e2e')
 class AppRegistrationTest(BaseStoreTest, AppDevSteps):
     fixtures = [
         'categories.json',

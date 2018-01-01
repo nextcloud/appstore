@@ -1,6 +1,9 @@
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
 
+
+@tag('e2e')
 class FeedTest(BaseStoreTest):
     fixtures = [
         'categories.json',

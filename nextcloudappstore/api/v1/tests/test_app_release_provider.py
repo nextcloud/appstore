@@ -4,7 +4,7 @@ from django.test import TestCase
 from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
 from nextcloudappstore.api.v1.release.parser import \
-    GunZipAppMetadataExtractor
+    GunZipAppMetadataExtractor, AppMetaData
 from nextcloudappstore.api.v1.release.provider import \
     AppReleaseProvider, \
     InvalidAppDirectoryException
@@ -34,7 +34,7 @@ class ImporterTest(TestCase):
         downloader.get_archive = MagicMock(return_value=FakeDownload())
         extractor = self.container.resolve(GunZipAppMetadataExtractor)
         extractor.extract_app_metadata = MagicMock(
-            return_value=(xml, '', 'new', 'change'))
+            return_value=AppMetaData(xml, '', 'new', 'change'))
         provider = self.container.resolve(AppReleaseProvider)
 
         with self.assertRaises(InvalidAppDirectoryException):

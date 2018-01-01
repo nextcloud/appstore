@@ -4,6 +4,8 @@ from selenium.webdriver.support.select import Select
 
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
+from django.test import tag
+
 
 class Rating(Enum):
     BAD = 'id_rating_0'
@@ -11,6 +13,7 @@ class Rating(Enum):
     GOOD = 'id_rating_1'
 
 
+@tag('e2e')
 class CommentAppTest(BaseStoreTest):
     fixtures = [
         'categories.json',

@@ -31,25 +31,24 @@ class AppReleaseProvider:
             url, self.config.download_root, self.config.download_max_timeout,
             self.config.download_max_redirects, self.config.download_max_size
         ) as download:
-            xml, database, app_id, changelog = \
-                self.extractor.extract_app_metadata(download.filename)
-            info = parse_app_metadata(xml, self.config.info_schema,
+            meta = self.extractor.extract_app_metadata(download.filename)
+            info = parse_app_metadata(meta.info_xml, self.config.info_schema,
                                       self.config.pre_info_xslt,
                                       self.config.info_xslt)
-            if database:
-                validate_database(database, self.config.db_schema,
+            if meta.database_xml:
+                validate_database(meta.database_xml, self.config.db_schema,
                                   self.config.pre_db_xslt)
             info_app_id = info['app']['id']
-            if app_id != info_app_id:
+            if meta.app_id != info_app_id:
                 msg = 'Archive app folder is %s but info.xml reports id %s' \
-                      % (app_id, info_app_id)
+                      % (meta.app_id, info_app_id)
                 raise InvalidAppDirectoryException(msg)
 
             release = info['app']['release']
             info['app']['release']['is_nightly'] = is_nightly
             version = release['version']
-            release['changelog'] = changelog
-            for code, value in changelog.items():
+            release['changelog'] = meta.changelog
+            for code, value in meta.changelog.items():
                 release['changelog'][code] = parse_changelog(value, version,
                                                              is_nightly)
 
