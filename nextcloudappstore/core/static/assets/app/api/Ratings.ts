@@ -10,6 +10,7 @@ export interface IRating {
     comment: string;
     fullUserName: string;
     ratedAt: string;
+    relativeRatedAt: string;
     rating: {
         name: string;
         value: number;
@@ -18,6 +19,7 @@ export interface IRating {
 
 interface IApiRating {
     ratedAt: string;
+    relativeRatedAt: string;
     rating: number;
     translations: {
         [index: string]: {
@@ -71,6 +73,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
         comment: rating.translations[lang].comment,
         fullUserName: fullName.trim(),
         ratedAt: rating.ratedAt,
+        relativeRatedAt: rating.relativeRatedAt,
         rating: {
             name: createRatingName(rating.rating),
             value: rating.rating,

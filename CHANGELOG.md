@@ -2,6 +2,12 @@
 
 ## [Unreleased] 
 
+### Changed
+
+- Get rid of moment.js and add functionality on the server in order to reduce file size
+- Only load subset of languages for highlight.js
+
+
 ## [3.1.0] - 2018-01-01
 
 ### Added
