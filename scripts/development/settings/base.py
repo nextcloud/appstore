@@ -3,8 +3,9 @@ from nextcloudappstore.settings.base import *
 DEBUG = True
 SECRET_KEY = 'secret'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-RECAPTCHA_PUBLIC_KEY = '<RECAPTCHA_PUBLIC_KEY>'
-RECAPTCHA_PRIVATE_KEY = '<RECAPTCHA_PRIVATE_KEY>'
+# this whitelists 127.0.0.1 and localhost
+RECAPTCHA_PUBLIC_KEY = '6LcCTyITAAAAABofGcLG2L4QVfXY3Ugs6MQ_UHSO'
+RECAPTCHA_PRIVATE_KEY = '6LcCTyITAAAAAB3OT3_HnnzZXOQW4WzNoaNSN-3i'
 EMAIL_HOST = 'localhost'
 DEFAULT_FROM_EMAIL = 'Nextcloud App Store <appstore@nextcloud.com>'
 INSTALLED_APPS.append('debug_toolbar')
