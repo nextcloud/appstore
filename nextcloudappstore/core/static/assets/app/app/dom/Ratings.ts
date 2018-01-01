@@ -39,8 +39,7 @@ export function loadUserRatings(url: string, lang: string, fallback: string,
             config.languageChooser.value = result.lang;
 
             result.ratings.forEach((rating) => {
-                const tpl = renderRating(config.templates.rating, rating,
-                    result.lang);
+                const tpl = renderRating(config.templates.rating, rating);
                 config.target.appendChild(tpl);
             });
 

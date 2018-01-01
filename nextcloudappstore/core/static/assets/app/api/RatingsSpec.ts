@@ -10,6 +10,7 @@ describe('Ratings and comments', () => {
         const data = [{
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
+            relativeRatedAt: '',
             translations: {
                 de: {
                     comment: 'blah',
@@ -19,6 +20,7 @@ describe('Ratings and comments', () => {
         }, {
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
+            relativeRatedAt: '',
             translations: {
                 de: {
                     comment: '',
@@ -28,6 +30,7 @@ describe('Ratings and comments', () => {
         }, {
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
+            relativeRatedAt: '',
             translations: {
                 en: {
                     comment: 'blah',
@@ -36,6 +39,7 @@ describe('Ratings and comments', () => {
             user,
         }, {
             ratedAt: '2017-03-22T16:54:37.168975Z',
+            relativeRatedAt: '',
             rating: 0.5,
             translations: {},
             user,
@@ -47,6 +51,7 @@ describe('Ratings and comments', () => {
     it('convert and parse ratings', () => {
         const data = {
             ratedAt: '2017-03-22T16:54:37.168975Z',
+            relativeRatedAt: '',
             rating: 0.5,
             translations: {
                 de: {
@@ -70,6 +75,7 @@ describe('Ratings and comments', () => {
     it('convert and parse ratings with empty user names', () => {
         const data = {
             ratedAt: '2017-03-22T16:54:32.168975Z',
+            relativeRatedAt: '',
             rating: 1.0,
             translations: {
                 de: {
@@ -92,6 +98,7 @@ describe('Ratings and comments', () => {
     it('convert and parse bad rating', () => {
         const data = {
             ratedAt: '2017-03-22T16:54:32.168975Z',
+            relativeRatedAt: '',
             rating: 0.0,
             translations: {
                 de: {
