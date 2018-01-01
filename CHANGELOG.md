@@ -4,7 +4,7 @@
 
 ### Added
 
-- Fail if non empty .git folders are shipped in the archive release, #537
+- Fail if .git folders are shipped in the archive release, #537
 
 ## [3.0.2] - 2017-11-16
 
