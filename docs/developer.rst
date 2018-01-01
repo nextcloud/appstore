@@ -681,6 +681,15 @@ The changelog for nightlies will be taken from the **## [Unreleased]** block
 
 Changelogs can be translated as well. To add a changelog for a specific translation, use **CHANGELOG.code.md**, e.g.: **CHANGELOG.fr.md**
 
+
+Blacklisted Files
+-----------------
+
+To prevent you from nuking your local app's version control directory all uploaded archives are validated to not contain the following folders:
+
+* **.git**
+
+
 .. _info-schema:
 
 Schema Integration
@@ -690,7 +699,7 @@ We provide an XML schema which can be used to validate and get IDE autocompletio
 * **appinfo/info.xml**:
 
     .. code-block:: xml
-
+contain
         <?xml version="1.0"?>
         <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
               xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
