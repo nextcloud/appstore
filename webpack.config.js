@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BabiliPlugin = require("babili-webpack-plugin");
-
+const BabiliPlugin = require('babili-webpack-plugin');
+const webpack = require('webpack')
 const base = './nextcloudappstore/core/static/';
 
 module.exports = {
@@ -45,7 +45,11 @@ module.exports = {
                 to: `${base}vendor/github.css`
             },
         ]),
-    ]
+        new webpack.NormalModuleReplacementPlugin(
+            /node_modules\/highlight\.js\/lib\/index\.js/,
+            '../../../nextcloudappstore/core/static/assets/patches/hl.js'
+        )
+]
 };
 
 if (process.env.NODE_ENV === 'production') {
