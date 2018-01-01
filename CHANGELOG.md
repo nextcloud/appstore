@@ -2,9 +2,15 @@
 
 ## [Unreleased] 
 
+## [3.1.0] - 2018-01-01
+
 ### Added
 
 - Fail if .git folders are shipped in the archive release, #537
+
+### Changed
+
+- Updated 3rdparty libraries
 
 ## [3.0.2] - 2017-11-16
 
