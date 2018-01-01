@@ -197,8 +197,14 @@ class ParserTest(TestCase):
         meta = extractor.extract_app_metadata(path)
         self.assertNotEqual('his', meta.changelog)
 
-    def test_invalid_directories(self):
+    def test_invalid_files(self):
         path = self.get_path('data/archives/blacklisted_files.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        with (self.assertRaises(BlacklistedMemberException)):
+            extractor.extract_app_metadata(path)
+
+    def test_invalid_directories(self):
+        path = self.get_path('data/archives/blacklisted_directories.tar.gz')
         extractor = GunZipAppMetadataExtractor(self.config)
         with (self.assertRaises(BlacklistedMemberException)):
             extractor.extract_app_metadata(path)
