@@ -252,7 +252,7 @@ MAX_DOWNLOAD_TIMEOUT = 60  # seconds
 MAX_DOWNLOAD_REDIRECTS = 10
 MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
 ARCHIVE_FOLDER_BLACKLIST = {
-    'No .git directories': r'.git$'
+    'No .git directories': r'\.git$'
 }
 
 # certificate location configuration
