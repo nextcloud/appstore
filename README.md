@@ -21,4 +21,3 @@ If you want to help in developing the App Store, translating or filing bugs and 
 ## Security
 If you find security issues or bugs please follow the [official security process](https://nextcloud.com/security/). The store does not offer any bug bounties but we hope that you still want to help us to fix its issues :)
 
-
