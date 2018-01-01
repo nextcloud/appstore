@@ -39,6 +39,7 @@ initmigrations:
 # Only for local setup, do not use in production
 .PHONY: dev-setup
 dev-setup:
+	rm -f db.sqlite3
 	$(yarn) install
 	$(yarn) run build
 	$(pyvenv) venv
