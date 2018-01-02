@@ -2,6 +2,8 @@
 
 ## [Unreleased] 
 
+## [3.1.1] - 2018-01-02
+
 ### Changed
 
 - Get rid of moment.js and add functionality on the server in order to reduce file size
