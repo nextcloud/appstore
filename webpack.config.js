@@ -35,7 +35,8 @@ module.exports = {
         // we dont care about bootstrap, jquery or polyfills, just copy it from
         // node_modules to the vendor directory for each page load to include
         new CopyWebpackPlugin([
-            {from: 'node_modules/bootstrap', to: `${base}vendor/bootstrap/`},
+            {from: 'node_modules/bootstrap/dist/fonts', to: `${base}vendor/bootstrap/dist/fonts`},
+            {from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: `${base}vendor/bootstrap/dist/css/bootstrap.min.css`},
             {
                 from: 'node_modules/bootstrap.native/dist/bootstrap-native.min.js',
                 to: `${base}vendor/bootstrap.native.min.js`
