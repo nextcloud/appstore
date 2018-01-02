@@ -73,11 +73,11 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
         comment: rating.translations[lang].comment,
         fullUserName: fullName.trim(),
         ratedAt: rating.ratedAt,
-        relativeRatedAt: rating.relativeRatedAt,
         rating: {
             name: createRatingName(rating.rating),
             value: rating.rating,
         },
+        relativeRatedAt: rating.relativeRatedAt,
     };
 }
 
