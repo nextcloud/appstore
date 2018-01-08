@@ -5,7 +5,6 @@ from django.utils.translation import get_language_info, \
     ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating
-from nextcloudappstore.settings.base import CERTIFICATE_DIGEST
 
 RATING_CHOICES = (
     (0.0, _('Bad')),
@@ -15,10 +14,10 @@ RATING_CHOICES = (
 
 REGISTER_SIGN_CMD = ' echo -n "APP_ID" | openssl dgst -%s -sign ' \
                     '~/.nextcloud/certificates/APP_ID.key | openssl base64' % \
-                    CERTIFICATE_DIGEST
+                    settings.CERTIFICATE_DIGEST
 RELEASE_SIGN_CMD = (' openssl dgst -%s -sign '
                     '~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz '
-                    '| openssl base64' % CERTIFICATE_DIGEST)
+                    '| openssl base64' % settings.CERTIFICATE_DIGEST)
 CREATE_CERT_CMD = ' openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key ' \
                   '-out APP_ID.csr -subj "/CN=APP_ID"'
 

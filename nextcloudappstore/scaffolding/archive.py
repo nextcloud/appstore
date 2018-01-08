@@ -5,11 +5,10 @@ from os import walk
 from os.path import join, isdir, relpath
 from typing import Dict
 
-from django.template import Context
-from django.template import Template
+from django.conf import settings
+from django.template import Context, Template
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
-from nextcloudappstore.settings.base import APP_SCAFFOLDING_PROFILES
 
 
 def build_files(args: Dict[str, str]) -> Dict[str, str]:
@@ -27,7 +26,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'categories': args['categories'],
         'nextcloud_version': platform
     }
-    vars.update(APP_SCAFFOLDING_PROFILES.get(platform, {}))
+    vars.update(settings.APP_SCAFFOLDING_PROFILES.get(platform, {}))
     relative_base = 'app-templates/%i/app/' % platform
     base = resolve_file_relative_path(__file__, relative_base)
 

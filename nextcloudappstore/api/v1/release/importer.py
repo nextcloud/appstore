@@ -1,6 +1,7 @@
 from typing import Dict, Any, Set, Tuple  # type: ignore
 
 from django.utils import timezone
+from django.conf import settings  # type: ignore
 from semantic_version import Version  # type: ignore
 
 from nextcloudappstore.core.facades import any_match
@@ -8,7 +9,6 @@ from nextcloudappstore.core.models import App, Screenshot, Category, \
     AppRelease, ShellCommand, License, Database, DatabaseDependency, \
     PhpExtensionDependency, PhpExtension, AppAuthor
 from nextcloudappstore.core.versioning import to_spec, to_raw_spec
-from nextcloudappstore.settings.base import CERTIFICATE_DIGEST
 
 
 def none_to_empty_string(value: str) -> str:
@@ -203,7 +203,7 @@ class AppReleaseImporter(Importer):
         obj.licenses.clear()
         obj.php_extensions.clear()
         obj.databases.clear()
-        obj.signature_digest = CERTIFICATE_DIGEST
+        obj.signature_digest = settings.CERTIFICATE_DIGEST
         return value, obj
 
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:

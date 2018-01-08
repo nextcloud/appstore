@@ -22,7 +22,6 @@ from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import pad_min_version, \
     pad_max_inc_version, AppSemVer, group_by_main_version
-from nextcloudappstore.settings.base import DISCOURSE_URL
 
 
 class AppManager(TranslatableManager):
@@ -125,7 +124,8 @@ class App(TranslatableModel):
         if self.discussion:
             return self.discussion
         else:
-            return '%s/c/apps/%s' % (DISCOURSE_URL, self.id.replace('_', '-'))
+            return '%s/c/apps/%s' % (settings.DISCOURSE_URL,
+                                     self.id.replace('_', '-'))
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
