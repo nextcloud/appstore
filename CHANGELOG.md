@@ -2,6 +2,14 @@
 
 ## [Unreleased] 
 
+### Fixed
+
+- Correctly import settings for:
+  - APP_SCAFFOLDING_PROFILES
+  - DISCOURSE_URL
+  - CERTIFICATE_DIGEST
+
+
 ## [3.1.1] - 2018-01-02
 
 ### Changed
