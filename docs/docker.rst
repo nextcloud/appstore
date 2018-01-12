@@ -85,6 +85,12 @@ Create the following empty files inside the config folder:
 
 Configuring uWSGI
 ~~~~~~~~~~~~~~~~~
+uWSGI is a multi language app server which will be used to run the App Store Python code inside the container. In addition to uWSGI you will need to configure an additional web-server. A web-server is required to:
+
+* serve static files to the client (e.g. CSS, JavaScript, images)
+* encrypt the traffic with TLS
+* redirect incoming requests to uWSGI
+
 The following config file represents a minimal `uwsgi config <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_
 
 .. code-block:: ini
@@ -106,7 +112,7 @@ You may also want to configure statistics and worker threads/processes. Consult 
 Configuring New Relic
 ~~~~~~~~~~~~~~~~~~~~~
 
-No idea
+TBD
 
 Configuring The App Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~
