@@ -109,7 +109,7 @@ No idea
 Configuring The App Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **production.py** contains all App Store specific settings that you may want to adjust::
+The **production.py** contains all App Store specific settings that you may want to adjust:
 
 .. code-block:: python
 
