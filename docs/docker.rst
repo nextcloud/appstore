@@ -66,15 +66,15 @@ and start the daemon::
     sudo systemctl enable docker
     sudo systemctl start docker
 
-and change into your target installation directory, e.g.::
+Then change into your target installation directory, e.g.::
 
     cd /srv
 
-create a **config/** folder which is going to hold your App Store configuration files::
+and create a **config/** folder which is going to hold your App Store configuration files::
 
     sudo mkdir config/
 
-Then create the following empty files inside the config folder:
+Create the following empty files inside the config folder:
 
 * __init__.py
 * newrelic.ini
