@@ -165,9 +165,12 @@ PARLER_LANGUAGES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 MEDIA_ROOT = join(BASE_DIR, 'media')
-RELEASE_DOWNLOAD_ROOT = None
+STATIC_ROOT = join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# if None will use the /tmp for downloading app release
+RELEASE_DOWNLOAD_ROOT = None
 
 # Default security settings
 SECURE_BROWSER_XSS_FILTER = True
