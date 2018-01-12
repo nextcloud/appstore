@@ -100,7 +100,7 @@ The following config file represents a minimal `uwsgi config <http://uwsgi-docs.
     chdir = /srv
     wsgi-file = /srv/nextcloudappstore/wsgi.py
 
-Depending on if you are using the uwsgi protocol or http you need to configure either::
+In addition depending on if you are using the uWSGI protocol (faster, supported by Nginx) or HTTP you need to configure either::
 
     socket = 0.0.0.0:8000
 
