@@ -74,7 +74,7 @@ create a **config/** folder which is going to hold your App Store configuration 
 
     sudo mkdir config/
 
-Then create the following empty files inside the config folder::
+Then create the following empty files inside the config folder:
 
 * __init__.py
 * newrelic.ini
@@ -254,7 +254,7 @@ then load your image and run it::
 
 The following directories will be created initially:
 
-* static: holds read only files which need to be served by your webserver
+* static: holds read only files which need to be served by your web-server
 * media: holds user uploaded files
 
 
