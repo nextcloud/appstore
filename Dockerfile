@@ -51,4 +51,8 @@ COPY --from=translations /srv/locale locale
 RUN pip install -r requirements/base.txt
 RUN pip install -r requirements/${platform}.txt
 
+RUN groupadd nextcloudappstore
+RUN useradd -g nextcloudappstore nextcloudappstore
+RUN chown -R nextcloudappstore:nextcloudappstore /srv
+
 ENTRYPOINT ["/srv/start.sh"]

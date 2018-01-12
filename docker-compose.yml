@@ -21,6 +21,7 @@ services:
         platform: production
     environment:
       - DJANGO_SETTINGS_MODULE=config.production
+      - NEWRELIC_PATH=/srv/config/newrelic.ini
     volumes:
       - ./config:/srv/config
       - ./static:/srv/static
