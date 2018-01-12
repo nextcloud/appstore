@@ -23,7 +23,7 @@ def find_in_root(path):
 
 
 # if a new relic config file is present enable it
-relic_conf = find_in_root('newrelic.ini')
+relic_conf = os.environ.get('NEWRELIC_PATH', find_in_root('newrelic.ini'))
 
 if isfile(relic_conf):
     import newrelic.agent

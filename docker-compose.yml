@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  development:
+    build:
+      context: .
+      args:
+        platform: development
+    environment:
+      - DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
+    volumes:
+      - ./nextcloudappstore:/srv/nextcloudappstore
+    ports:
+      - '127.0.0.1:8000:8000'
+    command: python manage.py runserver 0.0.0.0:8000
+
+  production:
+    build:
+      context: .
+      args:
+        platform: production
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.production
+      - NEWRELIC_PATH=/srv/config/newrelic.ini
+    volumes:
+      - ./config:/srv/config
+      - ./static:/srv/static
+      - ./media:/srv/media
+    ports:
+      - '127.0.0.1:8000:8000'
+    expose:
+      - '8000'
+    command: uwsgi /srv/config/uwsgi.ini
+    network_mode: bridge
