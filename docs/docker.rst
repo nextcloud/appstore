@@ -28,9 +28,9 @@ Choose whatever deployment mechanism fits you best
 Building the Image
 ==================
 
-To build the Docker image install Docker and docker-compose on your development machine, e.g.::
+To build the Docker image install Git, Docker and docker-compose on your development machine, e.g.::
 
-    sudo apt-get install docker docker-compose
+    sudo apt-get install docker docker-compose git
 
 and start the daemon::
 
@@ -41,6 +41,7 @@ Then clone the repository and build the image::
 
     git clone https://github.com/nextcloud/appstore
     cd appstore
+    git checkout tags/VERSION
     sudo docker-compose build production
 
 Export your container to be able to upload it to your production server::
