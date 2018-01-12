@@ -37,15 +37,17 @@ and start the daemon::
     sudo systemctl enable docker
     sudo systemctl start docker
 
-Then run::
+Then clone the repository and build the image::
 
+    git clone https://github.com/nextcloud/appstore
+    cd appstore
     sudo docker-compose build production
 
-Then export your container to be able to upload it to your production server::
+Export your container to be able to upload it to your production server::
 
     sudo docker save -o nextcloudappstore.tar.gz appstore_production
 
-.. note:: Docker hub integration would be nice
+.. note:: Docker Hub integration would be nice
 
 
 Deploying the Image
