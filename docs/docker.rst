@@ -79,9 +79,9 @@ and create a **config/** folder which is going to hold your App Store configurat
 Create the following empty files inside the config folder:
 
 * __init__.py
-* newrelic.ini
 * production.py
 * uwsgi.ini
+* newrelic.ini (optional)
 
 Configuring uWSGI
 ~~~~~~~~~~~~~~~~~
@@ -109,8 +109,8 @@ or::
 
 You may also want to configure statistics and worker threads/processes. Consult the `documentation <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_ for more information.
 
-Configuring New Relic
-~~~~~~~~~~~~~~~~~~~~~
+Configuring New Relic (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TBD
 
