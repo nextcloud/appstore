@@ -93,7 +93,7 @@ Next create empty files inside the config folder::
     sudo touch __init__.py
     sudo touch production.py
     sudo touch uwsgi.ini
-    sudo touch newrelic.ini  # optional
+    sudo touch newrelic.ini  # only needed if you run New Relic
 
 Configuring uWSGI
 ~~~~~~~~~~~~~~~~~
