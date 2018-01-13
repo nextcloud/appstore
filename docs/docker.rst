@@ -114,6 +114,8 @@ The following config file represents a minimal `uwsgi config <http://uwsgi-docs.
     master = true
     processes = 10
     vacuum = true
+    uid = nextcloudappstore
+    gid = nextcloudappstore
     socket = 0.0.0.0:8000
 
 If your server does not support the uWSGI protocol natively, replace **socket** with::
