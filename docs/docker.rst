@@ -33,7 +33,7 @@ This page will detail a setup with the following configuration
 * the host runs Ubuntu 16.04
 * PostgreSQL and Nginx are run on the host
 
-If you want to run a different setup you need to provide your own **docker-compose.yml** and adjust the stores setting accordingly.
+If you want to run a different setup you need to provide your own **docker-compose.yml** and adjust your settings accordingly.
 
 Building the Image
 ==================
