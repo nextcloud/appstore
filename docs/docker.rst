@@ -258,7 +258,7 @@ To allow the container to connect to it open **/var/lib/postgres/data/postgresql
 
     listen_addresses = '127.0.0.1,172.17.0.1'
 
-Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**:
+Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**::
 
     host    nextcloudappstore nextcloudappstore 172.17.0.2/32       md5
 
