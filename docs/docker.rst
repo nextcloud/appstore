@@ -246,10 +246,40 @@ The **production.py** contains all App Store specific settings that you may want
 
 
 
-Configuring Your Database
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Setting Up Your Database
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-TBD
+Install PostgreSQL on your host machine::
+
+    sudo apt-get install postgresql
+
+To allow the container to connect to it open **/var/lib/postgres/data/postgresql.conf** and modify/add the following section::
+
+    listen_addresses = '127.0.0.1,172.17.0.1'
+
+Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**:
+
+    host    nextcloudappstore nextcloudappstore 172.17.0.2/32       md5
+
+.. note:: This expects the database user and database to be named **nextcloudappstore** and your container IP to be **172.17.0.2**
+
+Then enable and start it::
+
+    sudo systemctl enable postgresql.service
+    sudo systemctl start postgresql.service
+
+and create a user and database::
+
+    sudo -s
+    su - postgres
+    psql
+    CREATE USER nextcloudappstore WITH PASSWORD 'password';
+    CREATE DATABASE nextcloudappstore OWNER nextcloudappstore;
+    \q
+    exit
+    exit
+
+.. note:: Use your own password instead of the password example!
 
 Configuring Your Web-Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
