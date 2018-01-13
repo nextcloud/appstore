@@ -268,7 +268,7 @@ First install nginx::
 
 Then create a new configuration for it in **/etc/nginx/sites-available/nextcloudappstore**:
 
-..code-block::
+..code-block:: nginx
 
     upstream nextcloudappstore {
         server 127.0.0.1:8000;
