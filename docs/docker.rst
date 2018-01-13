@@ -262,7 +262,7 @@ Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**::
 
     host    nextcloudappstore nextcloudappstore 172.17.0.2/32       md5
 
-.. note:: This expects the database user and database to be named **nextcloudappstore** and your container IP to be **172.17.0.2**
+.. note:: This expects the database user and database to be named **nextcloudappstore**, your container IP to be **172.17.0.2** and host to run on **172.17.0.1**
 
 Then enable and start it::
 
