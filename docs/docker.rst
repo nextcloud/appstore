@@ -174,6 +174,7 @@ The **production.py** contains all App Store specific settings that you may want
     RECAPTCHA_PUBLIC_KEY = 'YOUR PUBLIC KEY'
     RECAPTCHA_PRIVATE_KEY = 'YOUR PRIVATE KEY'
 
+    LOG_FILE = join(BASE_DIR, 'logs/appstore.log')
     LOG_LEVEL = 'ERROR'
     LOGGING['handlers']['file']['filename'] = LOG_FILE
     LOGGING['handlers']['file']['level'] = LOG_LEVEL
