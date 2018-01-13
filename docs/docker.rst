@@ -45,7 +45,7 @@ To build the Docker image install Git, Docker and docker-compose on your develop
 and start the daemon::
 
     sudo systemctl enable docker
-    sudo systemctl start docker
+    sudo systemctl restart docker
 
 Then clone the repository and build the image::
 
@@ -78,22 +78,23 @@ Install Docker and docker-compose on your production server, e.g.::
 and start the daemon::
 
     sudo systemctl enable docker
-    sudo systemctl start docker
+    sudo systemctl restart docker
 
-Then change into your target installation directory, e.g.::
+Then create and change into your target installation directory, e.g.::
 
+    sudo mkdir -p /srv
     cd /srv
 
 and create a **config/** folder which is going to hold your App Store configuration files::
 
-    sudo mkdir config/
+    sudo mkdir -p config/
 
 Next create empty files inside the config folder::
 
-    sudo touch __init__.py
-    sudo touch production.py
-    sudo touch uwsgi.ini
-    sudo touch newrelic.ini  # only needed if you run New Relic
+    sudo touch config/__init__.py
+    sudo touch config/production.py
+    sudo touch config/uwsgi.ini
+    sudo touch config/newrelic.ini  # only needed if you run New Relic
 
 Configuring uWSGI
 -----------------
@@ -228,11 +229,11 @@ Install PostgreSQL on your host machine::
 
     sudo apt-get install postgresql
 
-To allow the container to connect to it open **/var/lib/postgres/data/postgresql.conf** and modify/add the following section::
+To allow the container to connect to it open **/etc/postgresql/9.5/main/postgresql.conf** and modify/add the following section::
 
     listen_addresses = '127.0.0.1,172.17.0.1'
 
-Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**::
+Then whitelist your container IP in **/etc/postgresql/9.5/main/pg_hba.conf**::
 
     host    nextcloudappstore nextcloudappstore 172.17.0.2/32       md5
 
@@ -241,7 +242,7 @@ Then whitelist your container IP in **/var/lib/postgres/data/pg_hba.conf**::
 Then enable and start it::
 
     sudo systemctl enable postgresql.service
-    sudo systemctl start postgresql.service
+    sudo systemctl restart postgresql.service
 
 and create a user and database::
 
@@ -251,7 +252,6 @@ and create a user and database::
     CREATE USER nextcloudappstore WITH PASSWORD 'password';
     CREATE DATABASE nextcloudappstore OWNER nextcloudappstore;
     \q
-    exit
     exit
 
 .. note:: Use your own password instead of the password example!
@@ -263,10 +263,7 @@ First install nginx::
 
     sudo apt-get install nginx
 
-
-Then create a new configuration for it:
-
-**/etc/nginx/sites-available/nextcloudappstore**
+Then create a new configuration for it in **/etc/nginx/sites-available/nextcloudappstore**:
 
 ..code-block::
 
@@ -304,7 +301,7 @@ Then create a new configuration for it:
 
         add_header Strict-Transport-Security max-age=15768000;
         add_header X-Content-Type-Options nosniff;
-        add_header X-XSS-Protection: 1; mode=block;
+        add_header X-XSS-Protection "1; mode=block";
 
         client_max_body_size 75M;
         location /media  {
@@ -325,7 +322,7 @@ Then enable your configuration with
 
     sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled
     sudo systemctl enable nginx
-    sudo systemctl start nginx
+    sudo systemctl restart nginx
 
 Configuring New Relic (Optional)
 --------------------------------
