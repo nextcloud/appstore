@@ -342,7 +342,7 @@ Either create your own configuration or grab a copy of our `docker-compose.yml <
     sudo wget https://raw.githubusercontent.com/nextcloud/appstore/master/docker-compose.yml
 
 Starting the Image
-==================
+------------------
 First load the latest uploaded image::
 
     sudo docker load -i /path/to/nextcloudappstore.tar.gz
@@ -360,3 +360,31 @@ The following directories will be created initially:
 
 The **static** directory will be populated with static files when a container is started and all database migrations and fixtures will be imported.
 
+Creating an Admin User
+----------------------
+To create the initial admin user and verify his email, run the following command::
+
+    sudo docker-compose exec production python manage.py createsuperuser --username admin --email admin@admin.com
+    sudo docker-compose exec production python manage.py verifyemail --username admin --email admin@admin.com
+
+The first command will ask for the password.
+
+Configure Social Logins
+-----------------------
+Once the App Store is up and running social login needs to be configured. The App Store uses `django-allauth <https://django-allauth.readthedocs.io>`_ for local and social login. In order to configure these logins, most providers require you to register your app beforehand.
+
+**GitHub**
+
+GitHub is currently the only supported social login. In order to register the App Store, go to `your application settings page <https://github.com/settings/applications/new>`_ and enter the following details:
+
+* **Application name**: Nextcloud App Store
+* **Homepage URL**: https://apps.nextcloud.com
+* **Authorization callback URL**: https://apps.nextcloud.com/github/login/callback/
+
+Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, either log into the admin interface, change your site's domain and add GitHub as a new social application or run the following command::
+
+    sudo docker-compose exec python manage.py setupsocial --github-client-id "CLIENT_ID" --github-secret "SECRET" --domain apps.nextcloud.com
+
+.. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
+
+.. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
