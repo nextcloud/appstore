@@ -15,6 +15,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
 
   production:
+    image: appstore_production
     build:
       context: .
       args:
@@ -23,7 +24,7 @@ services:
       - DJANGO_SETTINGS_MODULE=config.production
       - NEWRELIC_PATH=/srv/config/newrelic.ini
     volumes:
-      - ./appstore.log:/srv/appstore.log
+      - ./logs:/srv/logs
       - ./config:/srv/config
       - ./static:/srv/static
       - ./media:/srv/media
