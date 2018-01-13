@@ -291,8 +291,4 @@ DISCOURSE_PARENT_CATEGORY_ID = 26
 
 # list of values that will override or add user defined values for usage in
 # templates; first key is the Nextcloud version for which the app is generated
-APP_SCAFFOLDING_PROFILES = {
-    11: {
-        'owncloud_version': '9.2'
-    }
-}
+APP_SCAFFOLDING_PROFILES = {}

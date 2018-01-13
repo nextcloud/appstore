@@ -161,6 +161,9 @@ To get your instance running in production you need to create your production se
     # Url for serving non user uploaded files like CSS, JavaScript and images
     # STATIC_URL = '/static/'
 
+    # Url or domain for serving user uploaded files
+    # MEDIA_URL = '/media/'
+
     # how many times a user is allowed to call the app upload route per day
     # REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '100/day'
     # how many times a user is allowed to call the app register route per day
@@ -170,6 +173,7 @@ To get your instance running in production you need to create your production se
     # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
 
     # Only set if you want a different log location than the one in the main directory
+    # Make sure that this appears above the first use
     # LOG_FILE = '/path/to/appstore/appstore.log'
 
     # minimum number of comments to calculate a rating
@@ -177,12 +181,6 @@ To get your instance running in production you need to create your production se
 
     # number of days to include from today in the recent ratings calculation
     # RATING_RECENT_DAY_RANGE = 90
-
-    # VALIDATE_CERTIFICATES = True
-    # Algorithm which is used to sign and verify app releases. The digest is
-    # persisted when saving a release so changing this parameter will only
-    # affect new releases. Do not forget to update the app developer docs!
-    # CERTIFICATE_DIGEST = 'sha512'
 
     # MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
@@ -192,12 +190,6 @@ To get your instance running in production you need to create your production se
     #     'No .git directories': r'\.git$'
     # }
 
-    # certificate location configuration
-    # NEXTCLOUD_CERTIFICATE_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crt')
-    # NEXTCLOUD_CRL_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crl')
-
     # DISCOURSE_URL = 'https://help.nextcloud.com'
 
     # If given a sub category will be created at this location
@@ -205,13 +197,6 @@ To get your instance running in production you need to create your production se
     # You can get the category id here at the /categories.json route, e.g.
     # https://help.nextcloud.com/categories.json
     # DISCOURSE_PARENT_CATEGORY_ID = 26
-
-    # Additional variables that are used for generating apps
-    # APP_SCAFFOLDING_PROFILES = {
-    #     11: {
-    #         'owncloud_version': '9.2'
-    #     }
-    # }
 
 
 Then set the file as the active settings file::

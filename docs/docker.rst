@@ -97,7 +97,7 @@ Next create empty files inside the config folder::
 
 Configuring uWSGI
 ~~~~~~~~~~~~~~~~~
-uWSGI is a multi language app server which will be used to run the App Store Python code inside the container. In addition to uWSGI you will need to configure an additional web-server. A web-server is required to:
+uWSGI is a multi language app server which will be used to run the App Store's Python code inside the container. In addition to uWSGI you will need to configure an additional web-server. A web-server is required to:
 
 * serve static files to the client (e.g. CSS, JavaScript, images)
 * encrypt the traffic with TLS
@@ -193,28 +193,22 @@ The **production.py** contains all App Store specific settings that you may want
     # Url for serving non user uploaded files like CSS, JavaScript and images
     # STATIC_URL = '/static/'
 
+    # Url or domain for serving user uploaded files
+    # MEDIA_URL = '/media/'
+
     # how many times a user is allowed to call the app upload route per day
     # REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '100/day'
     # how many times a user is allowed to call the app register route per day
     # REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '100/day'
 
     # Only set this parameter if you want to use a different tmp directory for app downloads
-    # RELEASE_DOWNLOAD_ROOT = '/other/tmp'
-
-    # Only set if you want a different log location than the one in the main directory
-    # LOG_FILE = '/path/to/appstore/appstore.log'
+    # RELEASE_DOWNLOAD_ROOT = '/tmp'
 
     # minimum number of comments to calculate a rating
     # RATING_THRESHOLD = 5
 
     # number of days to include from today in the recent ratings calculation
     # RATING_RECENT_DAY_RANGE = 90
-
-    # VALIDATE_CERTIFICATES = True
-    # Algorithm which is used to sign and verify app releases. The digest is
-    # persisted when saving a release so changing this parameter will only
-    # affect new releases. Do not forget to update the app developer docs!
-    # CERTIFICATE_DIGEST = 'sha512'
 
     # MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
     # MAX_DOWNLOAD_TIMEOUT = 60  # seconds
@@ -224,12 +218,6 @@ The **production.py** contains all App Store specific settings that you may want
     #     'No .git directories': r'\.git$'
     # }
 
-    # certificate location configuration
-    # NEXTCLOUD_CERTIFICATE_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crt')
-    # NEXTCLOUD_CRL_LOCATION = join(
-    #    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crl')
-
     # DISCOURSE_URL = 'https://help.nextcloud.com'
 
     # If given a sub category will be created at this location
@@ -238,12 +226,6 @@ The **production.py** contains all App Store specific settings that you may want
     # https://help.nextcloud.com/categories.json
     # DISCOURSE_PARENT_CATEGORY_ID = 26
 
-    # Additional variables that are used for generating apps
-    # APP_SCAFFOLDING_PROFILES = {
-    #     11: {
-    #         'owncloud_version': '9.2'
-    #     }
-    # }
 
 
 
@@ -304,10 +286,8 @@ then load your image and run it::
 
 The following directories will be created initially:
 
-* static: holds read only files which need to be served by your web-server
-* media: holds user uploaded files
+* **static**: holds read only files which need to be served by your web-server
+* **media**: holds user uploaded files
 
-
-.. note:: You can create whatever setup you like to by changing your **production.py** and **docker-compose.yml**.
 
 The **static** directory will be populated with static files when a container is started and all database migrations and fixtures will be imported.
