@@ -321,7 +321,7 @@ Then create a new configuration for it in **/etc/nginx/sites-available/nextcloud
         }
     }
 
-Then replace your default configuration::
+Finally replace your default configuration::
 
     sudo rm /etc/nginx/sites-enabled/default
     sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled/default
