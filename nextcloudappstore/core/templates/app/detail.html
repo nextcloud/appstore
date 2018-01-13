@@ -89,6 +89,7 @@
             </ul>
             {% endif %}
         </section>
+        {% if object.website or object.user_docs or object.admin_docs or object.developer_docs %}
         <section class="resources">
             <h5>{% trans "Resources" %}</h5>
             <ul>
@@ -106,6 +107,7 @@
                 {% endif %}
             </ul>
         </section>
+        {% endif %}
     </div>
     <section class="app-description markdown loading"></section>
     <div class="row app-download">
