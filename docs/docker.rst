@@ -6,8 +6,9 @@ The App Store can be installed using `Docker <https://www.docker.com/>`_. This i
 
 Benefits & Drawbacks
 ====================
+Docker is just another technology with its own upsides and downsides. Make an educated decision on whether you want to use it or go for an alternative.
 
-Benefits:
+**Benefits**:
 
 * No need to install development libraries on your server (e.g. C compiler, Node.js)
 * No need to install a specific Python version
@@ -16,14 +17,13 @@ Benefits:
 * Faster deployment because Python libraries, JavaScript libraries and translations come pre-built
 * Easier backups since code is completely split from production data and configuration
 
-Drawbacks:
+**Drawbacks**:
 
 * Knowledge of docker-compose required to change and optimize deployment
 * Docker daemon `must run as root <https://askubuntu.com/a/477554>`_
 * Python bugfixes and security updates are not available through your package manager; they require a container rebuild and deployment
-* More complex setup due to another layer of abstraction
+* Much more complex setup due to another layer of abstraction
 
-Choose whatever deployment mechanism fits you best
 
 General
 =======
