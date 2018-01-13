@@ -110,16 +110,16 @@ The following config file represents a minimal `uwsgi config <http://uwsgi-docs.
     [uwsgi]
     chdir = /srv
     wsgi-file = /srv/nextcloudappstore/wsgi.py
-
-In addition depending on if you are using the uWSGI protocol (faster, supported by Nginx) or HTTP you need to configure either::
-
+    master = true
+    processes = 10
+    vacuum = true
     socket = 0.0.0.0:8000
 
-or::
+If your server does not support the uWSGI protocol natively, replace **socket** with::
 
     http = 0.0.0.0:8000
 
-You may also want to configure statistics and worker threads/processes. Consult the `documentation <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_ for more information.
+You may also want to configure statistics and adjust threads/processes to whatever works best on your server. Consult the `documentation <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_ for more information.
 
 Configuring New Relic (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -267,7 +267,73 @@ and create a user and database::
 Configuring Your Web-Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TBD
+First install nginx::
+
+    sudo apt-get install nginx
+
+
+Then create a new configuration for it:
+
+**/etc/nginx/sites-available/nextcloudappstore**
+
+..code-block::
+
+    upstream nextcloudappstore {
+        server 127.0.0.1:8000;
+    }
+
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        # Redirect all HTTP requests to HTTPS with a 301 Moved Permanently response.
+        return 301 https://$host$request_uri;
+    }
+
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name apps.nextcloud.com;
+        charset     utf-8;
+
+        # replace this with your ssl certificates
+        ssl_certificate /etc/nginx/ssl/nextcloudappstore.crt;
+        ssl_certificate_key /etc/nginx/ssl/nextcloudappstore.key;
+        ssl_session_timeout 1d;
+        ssl_session_cache shared:SSL:50m;
+        ssl_session_tickets off;
+        ssl_protocols TLSv1.2;
+        ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256';
+        ssl_prefer_server_ciphers on;
+        ssl_prefer_server_ciphers on;
+        ssl_stapling on;
+        ssl_stapling_verify on;
+        ssl_trusted_certificate /etc/ssl/private/ca-certs.pem;
+
+        add_header Strict-Transport-Security max-age=15768000;
+        add_header X-Content-Type-Options nosniff;
+        add_header X-XSS-Protection: 1; mode=block;
+
+        client_max_body_size 75M;
+        location /media  {
+            alias /srv/media;
+        }
+
+        location /static {
+            alias /srv/static;
+        }
+
+        location / {
+            uwsgi_pass nextcloudappstore;
+            include uwsgi_params;
+        }
+    }
+
+Then enable your configuration with
+
+    sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled
+    sudo systemctl enable nginx
+    sudo systemctl start nginx
 
 Starting the Image
 ------------------
@@ -291,3 +357,4 @@ The following directories will be created initially:
 
 
 The **static** directory will be populated with static files when a container is started and all database migrations and fixtures will be imported.
+
