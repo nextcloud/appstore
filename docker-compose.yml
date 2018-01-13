@@ -23,6 +23,7 @@ services:
       - DJANGO_SETTINGS_MODULE=config.production
       - NEWRELIC_PATH=/srv/config/newrelic.ini
     volumes:
+      - ./appstore.log:/srv/appstore.log
       - ./config:/srv/config
       - ./static:/srv/static
       - ./media:/srv/media
