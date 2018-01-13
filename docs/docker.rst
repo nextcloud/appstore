@@ -68,7 +68,7 @@ Upload the **nextcloudappstore.tar.gz** archive onto your production server.
 
 
 Initial Setup
--------------
+=============
 These steps are only required for your initial setup.
 
 Install Docker and docker-compose on your production server, e.g.::
@@ -96,7 +96,7 @@ Next create empty files inside the config folder::
     sudo touch newrelic.ini  # only needed if you run New Relic
 
 Configuring uWSGI
-~~~~~~~~~~~~~~~~~
+-----------------
 uWSGI is a multi language app server which will be used to run the App Store's Python code inside the container. In addition to uWSGI you will need to configure an additional web-server. A web-server is required to:
 
 * serve static files to the client (e.g. CSS, JavaScript, images)
@@ -122,12 +122,12 @@ If your server does not support the uWSGI protocol natively, replace **socket** 
 You may also want to configure statistics and adjust threads/processes to whatever works best on your server. Consult the `documentation <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_ for more information.
 
 Configuring New Relic (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 TBD
 
 Configuring The App Store
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 The **production.py** contains all App Store specific settings that you may want to adjust:
 
@@ -226,11 +226,8 @@ The **production.py** contains all App Store specific settings that you may want
     # https://help.nextcloud.com/categories.json
     # DISCOURSE_PARENT_CATEGORY_ID = 26
 
-
-
-
 Setting Up Your Database
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Install PostgreSQL on your host machine::
 
@@ -265,7 +262,7 @@ and create a user and database::
 .. note:: Use your own password instead of the password example!
 
 Configuring Your Web-Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 First install nginx::
 
@@ -336,7 +333,7 @@ Then enable your configuration with
     sudo systemctl start nginx
 
 Starting the Image
-------------------
+==================
 
 To start the image grab a copy of our `docker-compose.yml <https://github.com/nextcloud/appstore/blob/master/docker-compose.yml>`_ or create your own. Place the file in your designated directory and run it::
 
