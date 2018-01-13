@@ -159,7 +159,7 @@ The **production.py** contains all App Store specific settings that you may want
             'NAME': 'nextcloudappstore',
             'USER': 'nextcloudappstore',
             'PASSWORD': 'password',
-            'HOST': '127.0.0.1',
+            'HOST': '172.17.0.1',
             'PORT': '5432',
         }
     }
