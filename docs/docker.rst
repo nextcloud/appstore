@@ -121,11 +121,6 @@ If your server does not support the uWSGI protocol natively, replace **socket** 
 
 You may also want to configure statistics and adjust threads/processes to whatever works best on your server. Consult the `documentation <http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`_ for more information.
 
-Configuring New Relic (Optional)
---------------------------------
-
-TBD
-
 Configuring The App Store
 -------------------------
 
@@ -331,6 +326,11 @@ Then enable your configuration with
     sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled
     sudo systemctl enable nginx
     sudo systemctl start nginx
+
+Configuring New Relic (Optional)
+--------------------------------
+
+TBD
 
 Starting the Image
 ==================
