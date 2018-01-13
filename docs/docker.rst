@@ -329,19 +329,23 @@ Configuring New Relic (Optional)
 
 TBD
 
-Starting the Image
-==================
+Creating Docker-Compose Configuration
+-------------------------------------
 
-To start the image grab a copy of our `docker-compose.yml <https://github.com/nextcloud/appstore/blob/master/docker-compose.yml>`_ or create your own. Place the file in your designated directory and run it::
+Either create your own configuration or grab a copy of our `docker-compose.yml <https://github.com/nextcloud/appstore/blob/master/docker-compose.yml>`_ and modify it if necessary. Place the file in your designated directory::
 
     cd /srv
-    wget https://github.com/nextcloud/appstore/blob/master/docker-compose.yml
-    docker-compose up production
+    sudo wget https://raw.githubusercontent.com/nextcloud/appstore/master/docker-compose.yml
 
-
-then load your image and run it::
+Starting the Image
+==================
+First load the latest uploaded image::
 
     sudo docker load -i /path/to/nextcloudappstore.tar.gz
+
+Then change into your server directory and start the container::
+
+    cd /srv
     sudo docker-compose up production
 
 The following directories will be created initially:
