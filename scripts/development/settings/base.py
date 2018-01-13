@@ -28,8 +28,3 @@ CSP_EXCLUDE_URL_PREFIXES = ('/api/v1',)
 
 REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '10000/day'
 REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '10000/day'
-
-# currently required for running the test suite successfully
-APP_SCAFFOLDING_PROFILES[11] = {
-    'owncloud_version': '9.2'
-}

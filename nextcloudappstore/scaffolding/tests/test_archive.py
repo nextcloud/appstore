@@ -21,10 +21,13 @@ class ArchiveTest(TestCase):
         }
 
     def test_build_files(self):
-        expected = read_relative_file(__file__, 'data/info.xml').strip()
-        result = build_files(self.args)
-        info = result['theapp/appinfo/info.xml'].strip()
-        self.assertEqual(expected, info)
+        with self.settings(APP_SCAFFOLDING_PROFILES={11: {
+            'owncloud_version': '9.2'
+        }}):
+            expected = read_relative_file(__file__, 'data/info.xml').strip()
+            result = build_files(self.args)
+            info = result['theapp/appinfo/info.xml'].strip()
+            self.assertEqual(expected, info)
 
     def test_no_int_version(self):
         with self.assertRaises(ValueError):
@@ -36,10 +39,13 @@ class ArchiveTest(TestCase):
         self.assertDictEqual({}, result)
 
     def test_build_archive(self):
-        result = build_archive(self.args)
-        expected = read_relative_file(__file__, 'data/info.xml').strip()
-        with tarfile.open(fileobj=result, mode='r:gz') as f:
-            member = f.getmember('theapp/appinfo/info.xml')
-            with f.extractfile(member) as info:
-                result = info.read().strip().decode('utf-8')
-                self.assertEqual(expected, result)
+        with self.settings(APP_SCAFFOLDING_PROFILES={11: {
+            'owncloud_version': '9.2'
+        }}):
+            result = build_archive(self.args)
+            expected = read_relative_file(__file__, 'data/info.xml').strip()
+            with tarfile.open(fileobj=result, mode='r:gz') as f:
+                member = f.getmember('theapp/appinfo/info.xml')
+                with f.extractfile(member) as info:
+                    result = info.read().strip().decode('utf-8')
+                    self.assertEqual(expected, result)
