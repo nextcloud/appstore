@@ -4,8 +4,8 @@ Production Install Using Docker (Experimental)
 
 The App Store can be installed using `Docker <https://www.docker.com/>`_. This is still work in progress and therefore not recommended for production.
 
-Benefits & Drawbacks
-====================
+Benefits and Drawbacks
+======================
 Docker is just another technology with its own upsides and downsides. Make an educated decision on whether you want to use it or go for an alternative.
 
 **Benefits**:
@@ -25,8 +25,8 @@ Docker is just another technology with its own upsides and downsides. Make an ed
 * Much more complex setup due to another layer of abstraction
 
 
-General
-=======
+General Information
+===================
 
 This page will detail a setup with the following configuration
 
