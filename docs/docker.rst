@@ -64,7 +64,8 @@ Export your container to be able to upload it to your production server::
 Deploying the Image
 ===================
 
-Copy your built image (nextcloudappstore.tar.gz) onto your production server.
+Upload the **nextcloudappstore.tar.gz** archive onto your production server.
+
 
 Initial Setup
 -------------
@@ -87,12 +88,12 @@ and create a **config/** folder which is going to hold your App Store configurat
 
     sudo mkdir config/
 
-Create the following empty files inside the config folder:
+Next create empty files inside the config folder::
 
-* __init__.py
-* production.py
-* uwsgi.ini
-* newrelic.ini (optional)
+    sudo touch __init__.py
+    sudo touch production.py
+    sudo touch uwsgi.ini
+    sudo touch newrelic.ini  # optional
 
 Configuring uWSGI
 ~~~~~~~~~~~~~~~~~
