@@ -321,9 +321,10 @@ Then create a new configuration for it in **/etc/nginx/sites-available/nextcloud
         }
     }
 
-Then enable your configuration with
+Then replace your default configuration::
 
-    sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled
+    sudo rm /etc/nginx/sites-enabled/default
+    sudo ln -s /etc/nginx/sites-available/nextcloudappstore /etc/nginx/sites-enabled/default
     sudo systemctl enable nginx
     sudo systemctl restart nginx
 
@@ -355,7 +356,7 @@ The following directories will be created initially:
 
 * **static**: holds read only files which need to be served by your web-server
 * **media**: holds user uploaded files
-
+* **logs**: contains your log file
 
 The **static** directory will be populated with static files when a container is started and all database migrations and fixtures will be imported.
 
