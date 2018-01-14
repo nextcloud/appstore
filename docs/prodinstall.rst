@@ -1,5 +1,5 @@
-Production Installation
-=======================
+Store Production Installation
+=============================
 
 There are two ways to install the store, both are mutually exclusive (means: don't mix and match). If you are looking for a development setup, proceed to :doc:`devinstall`, otherwise continue.
 

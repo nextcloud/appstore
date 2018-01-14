@@ -1,5 +1,5 @@
-REST API
-========
+Store REST API
+==============
 
 A REST API for publishing and deleting app releases has been built into the store from day one to help release automation.
 

@@ -1,6 +1,6 @@
-==============================================
-Production Install Using Docker (Experimental)
-==============================================
+=================================
+Store Production Install (Docker)
+=================================
 
 The App Store can be installed using `Docker <https://www.docker.com/>`_. This is still work in progress and therefore not recommended for production.
 

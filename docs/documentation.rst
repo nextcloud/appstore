@@ -1,5 +1,5 @@
-Documentation
-=============
+Store Documentation
+===================
 
 The documentation is built using `Sphinx <http://www.sphinx-doc.org/en/stable/>`_ and is located inside the **docs** folder.
 

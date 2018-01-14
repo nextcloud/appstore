@@ -1,5 +1,5 @@
-Development
-===========
+Store Development
+=================
 The app store uses a Makefile for common tasks. The following useful Make commands are available:
 
 

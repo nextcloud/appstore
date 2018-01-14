@@ -1,5 +1,5 @@
-Development Installation
-========================
+Store Development Installation
+==============================
 This setup details a local development installation in order to work and test App Store changes. The App Store is build using `Django <https://www.djangoproject.com/>`_. The frontend is written in TypeScript and does not yet use a JavaScript framework; this decision might change however depending on how JavaScript intensive things might become.
 
 .. note:: Only use this guide for your local development installation which is **not connected to the Internet** since your installation will be be initialized with insecure defaults!

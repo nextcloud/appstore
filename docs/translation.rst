@@ -1,5 +1,5 @@
-Translation
-===========
+Store Translation
+=================
 
 The App Store uses Django's translation system.
 
