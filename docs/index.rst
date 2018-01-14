@@ -41,8 +41,7 @@ Look here if you want to install the store on your server and keep it up to date
    :maxdepth: 2
 
    prodinstall
-   upgrading
-   docker
+   prodinstalldocker
 
 App Store Developer Documentation
 ---------------------------------
