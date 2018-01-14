@@ -699,7 +699,7 @@ We provide an XML schema which can be used to validate and get IDE autocompletio
 * **appinfo/info.xml**:
 
     .. code-block:: xml
-contain
+
         <?xml version="1.0"?>
         <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
               xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
