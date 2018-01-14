@@ -1,9 +1,9 @@
 App Developer Guide
 ===================
 
-Most of today's developers publish their source code on GitHub, BitBucket or on their own GitLab instance. These tools typically also provide a way to release new versions based on Git tags or by uploading custom archives.
+Most of today's developers publish their source code on GitHub, BitBucket, GitLab or on their own GitLab instance. These tools typically also provide a way to release new versions based on Git tags or by uploading custom archives.
 
-Advanced users and developers typically prefer to download the app directly from these services whereas administrators or novice users look for app releases on the App Store. This means that you have to take care of publishing two releases on two different platforms.
+Experienced users and package maintainers typically prefer to download the app directly from these services whereas administrators or novice users look for app releases on the App Store. This means that you have to take care of publishing two releases on two different platforms.
 
 We want to avoid duplication and make it harder to ship broken releases by mistake, therefore we went for the following solution:
 
@@ -11,9 +11,9 @@ We want to avoid duplication and make it harder to ship broken releases by mista
 
 * You should use Git tags to create new releases on these services
 
-* If you are using GitHub, the archives that it automatically creates for releases do not match the required folders structure: expected top level folder consisting of lower case ASCII characters and underscores (see below, under Uploading an App Release) while GitHub creates APP_ID-version folder at top level. You should upload the archive to the appropriate releases page in both cases: whether you just package it with `tar czf ...` command or compilation or other transformations like minification are done to create it.
+* GitHub release downloads do not match the required folders structure. This is because GitHub appends a version to the top folder name. Therefore you need to create a separate release which conforms to the expected structure.
 
-This keeps your repository up to date and satisfies the needs of developers and advanced users.
+This keeps your repository up to date and satisfies the needs of maintainers, developers and experienced users.
 
 Publishing Apps on the App Store
 --------------------------------
@@ -91,6 +91,8 @@ The interface will ask you for the following things:
     echo -n "news" | openssl dgst -sha512 -sign ~/.nextcloud/certificates/news.key | openssl base64
 
 We will then verify the certificate and signature and register you as the app's owner. You are now able to publish releases.
+
+.. _uploading_a_release:
 
 Uploading an App Release
 ~~~~~~~~~~~~~~~~~~~~~~~~
