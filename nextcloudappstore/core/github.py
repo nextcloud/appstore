@@ -11,7 +11,7 @@ def get_supported_releases(oldest_supported: str, url: str, api_token: str = Non
 
 
 def get_stable_releases(url: str, api_token: str = None) -> Iterable[str]:
-    json = chain.from_iterable([tags for tags in TagPages(api_token, url)])
+    json = chain.from_iterable(TagPages(api_token, url))
     return (tag for tag in (release['name'].lstrip('v')
                             for release in json
                             if 'name' in release)
