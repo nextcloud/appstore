@@ -2,6 +2,12 @@
 
 ## [Unreleased] 
 
+## [3.1.2] - 2018-02-02
+
+### Security
+
+- Update dependencies to latest Django security fix
+
 ### Fixed
 
 - Correctly import settings for:
