@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.management import BaseCommand
 from django.core.management import CommandError
 
-from nextcloudappstore.core.github import get_supported_releases
+from nextcloudappstore.core.github import get_supported_releases, GitHubClient
 
 
 class Command(BaseCommand):
@@ -20,11 +20,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         oldest_supported = options.get('oldest_supported')
         token = settings.GITHUB_API_TOKEN
-        base_url = settings.GITHUB_API_BASE_URL.rstrip('/')
-        url = '%s/repos/nextcloud/server/tags' % base_url
+        base_url = settings.GITHUB_API_BASE_URL
+
 
         try:
-            releases = get_supported_releases(oldest_supported, url, token)
+            client = GitHubClient(base_url, token)
+            releases = get_supported_releases(client, oldest_supported)
         except requests.HTTPError as e:
             raise CommandError('Could not get releases: ' + str(e))
 
