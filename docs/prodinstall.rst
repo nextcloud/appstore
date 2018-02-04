@@ -231,7 +231,7 @@ Loading Initial Data
 --------------------
 To pre-populate the database with categories and other data run the following command::
 
-    python manage.py loaddata nextcloudappstore/**/fixtures/*.json
+    python manage.py loaddata nextcloudappstore/core/fixtures/*.json
 
 Initializing Translations
 -------------------------

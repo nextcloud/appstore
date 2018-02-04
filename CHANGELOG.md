@@ -10,6 +10,10 @@
 
 - Nextcloud releases are not imported via fixtures anymore, use the **syncnextcloudreleases** command
 
+### Security
+
+- Narrow down fixtures to not accidentally import test data on production systems
+
 ## [3.1.2] - 2018-02-02
 
 ### Security
