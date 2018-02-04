@@ -4,7 +4,7 @@
 
 ### Added
 
-- **syncnextcloudreleases** to sync Nextcloud releases directly from GitHub
+- **syncnextcloudreleases** command to sync Nextcloud releases directly from GitHub
 
 ### Removed
 
