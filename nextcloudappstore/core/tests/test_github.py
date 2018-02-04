@@ -5,8 +5,8 @@ from unittest.mock import MagicMock
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
-from nextcloudappstore.core.github import GitHubClient, get_supported_releases, \
-    sync_releases
+from nextcloudappstore.core.github import GitHubClient, \
+    get_supported_releases, sync_releases
 from nextcloudappstore.core.models import NextcloudRelease
 
 
