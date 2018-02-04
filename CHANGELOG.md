@@ -12,7 +12,7 @@
 
 ### Security
 
-- Narrow down fixtures to not accidentally import test data on production systems
+- Narrow down fixtures to not accidentally import test data on production systems. Check if a user with the user name **admin** was created. If so delete that user from your system.  
 
 ## [3.1.2] - 2018-02-02
 
