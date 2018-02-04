@@ -35,6 +35,18 @@ def get_stable_releases(client: GitHubClient) -> Iterable[str]:
             if is_stable(tag))
 
 
+def is_supported(oldest_supported: str, version: str) -> bool:
+    return Version(oldest_supported) >= Version(version)
+
+
+def is_stable(release: str) -> bool:
+    try:
+        version = Version(release)
+        return not version.prerelease
+    except ValueError:
+        return False
+
+
 class TagPages:
     """
     The GitHub API is paginated which makes it a pain to fetch all results.
@@ -46,7 +58,7 @@ class TagPages:
     def __init__(self, client: GitHubClient, size: int = 100) -> None:
         self.client = client
         self.size = size
-        self.page = 0
+        self.page = 1  # pages are 1 indexed
 
     def __iter__(self) -> 'TagPages':
         return self
@@ -58,15 +70,3 @@ class TagPages:
             return json
         else:
             raise StopIteration
-
-
-def is_supported(oldest_supported: str, version: str) -> bool:
-    return Version(oldest_supported) >= Version(version)
-
-
-def is_stable(release: str) -> bool:
-    try:
-        version = Version(release)
-        return not version.prerelease
-    except ValueError:
-        return False

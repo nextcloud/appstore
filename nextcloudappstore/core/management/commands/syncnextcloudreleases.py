@@ -21,10 +21,9 @@ class Command(BaseCommand):
         oldest_supported = options.get('oldest_supported')
         token = settings.GITHUB_API_TOKEN
         base_url = settings.GITHUB_API_BASE_URL
-
+        client = GitHubClient(base_url, token)
 
         try:
-            client = GitHubClient(base_url, token)
             releases = get_supported_releases(client, oldest_supported)
         except requests.HTTPError as e:
             raise CommandError('Could not get releases: ' + str(e))
