@@ -41,7 +41,7 @@ pip install -r requirements/production.txt
 yarn install
 yarn run build
 python manage.py migrate
-python manage.py loaddata nextcloudappstore/**/fixtures/*.json
+python manage.py loaddata nextcloudappstore/core/fixtures/*.json
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 python manage.py importdbtranslations

@@ -231,7 +231,7 @@ Loading Initial Data
 --------------------
 To pre-populate the database with categories and other data run the following command::
 
-    python manage.py loaddata nextcloudappstore/**/fixtures/*.json
+    python manage.py loaddata nextcloudappstore/core/fixtures/*.json
 
 Initializing Translations
 -------------------------
@@ -364,6 +364,47 @@ Afterwards your **client id** and **client secret** are displayed. These need to
 .. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
 
 .. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
+
+
+.. _prod_install_release_sync:
+
+Sync Nextcloud Releases from GitHub
+-----------------------------------
+
+The App Store needs to know about Nextcloud versions because:
+
+* app releases are grouped by app version on the app detail page
+* you can :ref:`access a REST API to get all available versions <api-all-platforms>`
+
+Before **3.2.0** releases were imported either manually or via the a shipped JSON file. This process proved to be very tedious. In **3.2.0** a command was introduced to sync releases (git tags) directly from GitHub.
+
+You can run the command by giving it the oldest supported Nextcloud version::
+
+     python manage.py syncnextcloudreleases --oldest-supported="12.0.0"
+
+All existing versions prior to this release will be marked as not having a release, new versions will be imported and the latest version will be marked as current version.
+
+You can also do a test run and see what kind of versions would be imported::
+
+     python manage.py syncnextcloudreleases --oldest-supported="12.0.0" --print
+
+The GitHub API is rate limited to 60 requests per second. Depending on how far back your **oldest-supported** version goes a single command might fetch multiple pages of releases. If you want to run the command more than 10 times per hour it is recommended to `obtain and configure a GitHub OAuth2 token <https://help.github.com/articles/git-automation-with-oauth-tokens/>`_.
+
+After obtaining the token from GitHub, add it anywhere in your settings file (**nextcloudappstore/settings/production.py**), e.g.:
+
+.. code-block:: python
+
+    GITHUB_API_TOKEN = '4bab6b3dfeds8857371a48855d3e87d38d4b7e65'
+
+To automate syncing you might want to add the command as a cronjob and schedule it every hour.
+
+.. note:: Only one sync command should be run at a time, otherwise race conditions might cause unpredictable results. To ensure this use a proper cronjob daemon that supports running only one command at a time, for instance `SystemD timers <https://wiki.archlinux.org/index.php/Systemd/Timers>`_
+
+.. note:: If run the command outside of your virtual environment you need to prefix the full path to the desired Python executable, e.g.
+
+::
+
+    venv/bin/python manage.py syncnextcloudreleases --oldest-supported="12.0.0"
 
 Keeping Up To Date
 ------------------

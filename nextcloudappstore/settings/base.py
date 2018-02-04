@@ -292,3 +292,7 @@ DISCOURSE_PARENT_CATEGORY_ID = 26
 # list of values that will override or add user defined values for usage in
 # templates; first key is the Nextcloud version for which the app is generated
 APP_SCAFFOLDING_PROFILES = {}
+
+# GitHub api configuration
+GITHUB_API_BASE_URL = 'https://api.github.com'
+GITHUB_API_TOKEN = None

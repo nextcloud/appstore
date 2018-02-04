@@ -1,6 +1,18 @@
 # Changelog
 
-## [Unreleased] 
+## [3.2.0]  - 2018-02-04
+
+### Added
+
+- **syncnextcloudreleases** to sync Nextcloud releases directly from GitHub
+
+### Removed
+
+- Nextcloud releases are not imported via fixtures anymore, use the **syncnextcloudreleases** command
+
+### Security
+
+- Narrow down fixtures to not accidentally import test data on production systems. Check if a user with the user name **admin** was created. If so delete that user from your system.  
 
 ## [3.1.2] - 2018-02-02
 
