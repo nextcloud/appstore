@@ -10,7 +10,7 @@ from nextcloudappstore.core.github import GitHubClient, \
 from nextcloudappstore.core.models import NextcloudRelease
 
 
-class RatingTest(TestCase):
+class GitHubTest(TestCase):
 
     def test_parse_tags(self):
         client = MagicMock(spec=GitHubClient)
