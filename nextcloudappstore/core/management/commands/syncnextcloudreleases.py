@@ -3,7 +3,8 @@ from django.conf import settings
 from django.core.management import BaseCommand
 from django.core.management import CommandError
 
-from nextcloudappstore.core.github import get_supported_releases, GitHubClient
+from nextcloudappstore.core.github import get_supported_releases, GitHubClient, \
+    sync_releases
 
 
 class Command(BaseCommand):
@@ -31,3 +32,5 @@ class Command(BaseCommand):
         if options['print']:
             for release in releases:
                 self.stdout.write(release)
+        else:
+            sync_releases(releases)

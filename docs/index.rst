@@ -42,6 +42,7 @@ Look here if you want to install the store on your server and keep it up to date
 
    prodinstall
    prodinstalldocker
+   upgradenotices
 
 App Store Developer Documentation
 ---------------------------------

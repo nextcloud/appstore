@@ -2,6 +2,14 @@
 
 ## [Unreleased] 
 
+### Added
+
+- **syncnextcloudreleases** to sync Nextcloud releases directly from GitHub
+
+### Removed
+
+- Nextcloud releases are not imported via fixtures anymore, use the **syncnextcloudreleases** command
+
 ## [3.1.2] - 2018-02-02
 
 ### Security
