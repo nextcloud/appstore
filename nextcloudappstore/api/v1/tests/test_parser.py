@@ -35,9 +35,6 @@ class ParserTest(TestCase):
                 'name': 'Bernhard Posselt'
             }}],
             'name': {'en': 'News'},
-            'admin_docs': None,
-            'developer_docs': None,
-            'user_docs': None,
             'discussion': None,
             'website': None,
             'issue_tracker': 'https://github.com/nextcloud/news/issues',
@@ -127,8 +124,8 @@ class ParserTest(TestCase):
                                     self.config.pre_info_xslt,
                                     self.config.info_xslt)
         self.assertNotIn('admin_docs', result['app'])
-        self.assertEqual('developer_docs', result['app'])
-        self.assertEqual('user_docs', result['app'])
+        self.assertNotIn('developer_docs', result['app'])
+        self.assertNotIn('user_docs', result['app'])
 
     def test_changes_auth_to_security_category(self):
         xml = self._get_contents('data/infoxmls/authmigration.xml')
