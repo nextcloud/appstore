@@ -24,7 +24,7 @@ interface IApiRating {
     translations: {
         [index: string]: {
             comment: string;
-        },
+        } | undefined,
     };
     user: {
         firstName: string;
@@ -36,9 +36,10 @@ export function filterEmptyComments(ratings: IApiRating[],
                                     lang: string): IApiRating[] {
     return ratings.filter((rating) => {
         const translations = rating.translations;
-        return translations[lang] !== undefined &&
-            translations[lang].comment !== undefined &&
-            translations[lang].comment.trim() !== '';
+        const languages = translations[lang];
+        return languages !== undefined &&
+            languages.comment !== undefined &&
+            languages.comment.trim() !== '';
     });
 }
 
@@ -69,8 +70,9 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
     if (fullName.trim() === '') {
         fullName = 'Anonymous';
     }
+    let translation = rating.translations[lang] || {comment: ''};
     return {
-        comment: rating.translations[lang].comment,
+        comment: translation.comment,
         fullUserName: fullName.trim(),
         ratedAt: rating.ratedAt,
         rating: {
