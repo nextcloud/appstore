@@ -70,7 +70,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
     if (fullName.trim() === '') {
         fullName = 'Anonymous';
     }
-    let translation = rating.translations[lang] || {comment: ''};
+    const translation = rating.translations[lang] || {comment: ''};
     return {
         comment: translation.comment,
         fullUserName: fullName.trim(),
