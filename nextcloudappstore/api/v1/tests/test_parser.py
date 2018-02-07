@@ -121,6 +121,15 @@ class ParserTest(TestCase):
         self.assertEqual('10.0.0', min_version)
         self.assertEqual('12.0.0', max_version)
 
+    def test_parse_non_doc_urls(self):
+        xml = self._get_contents('data/infoxmls/nondocurls.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.assertNotIn('admin_docs', result['app'])
+        self.assertEqual('developer_docs', result['app'])
+        self.assertEqual('user_docs', result['app'])
+
     def test_changes_auth_to_security_category(self):
         xml = self._get_contents('data/infoxmls/authmigration.xml')
         result = parse_app_metadata(xml, self.config.info_schema,
