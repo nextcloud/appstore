@@ -242,6 +242,13 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="doc-url">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="(https://.+|(admin|user|developer)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="secure-url">
         <xs:restriction base="xs:anyURI">
             <xs:pattern value="https://.+"/>
@@ -344,9 +351,9 @@
 
     <xs:complexType name="documentation">
         <xs:sequence>
-            <xs:element name="user" type="url" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="admin" type="url" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="developer" type="url" minOccurs="0"
+            <xs:element name="user" type="doc-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="admin" type="doc-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="developer" type="doc-url" minOccurs="0"
                         maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
@@ -356,6 +363,10 @@
             <xs:element name="admin" type="php-class" minOccurs="0"
                         maxOccurs="unbounded"/>
             <xs:element name="admin-section" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="personal" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="personal-section" type="php-class" minOccurs="0"
                         maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
