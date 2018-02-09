@@ -127,6 +127,13 @@ class ParserTest(TestCase):
         self.assertNotIn('developer_docs', result['app'])
         self.assertNotIn('user_docs', result['app'])
 
+    def test_parse_switched_non_doc_urls(self):
+        xml = self._get_contents('data/infoxmls/switchednondocurls.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
+
     def test_changes_auth_to_security_category(self):
         xml = self._get_contents('data/infoxmls/authmigration.xml')
         result = parse_app_metadata(xml, self.config.info_schema,

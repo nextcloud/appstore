@@ -242,9 +242,23 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="doc-url">
-        <xs:restriction base="xs:anyURI">
-            <xs:pattern value="(https://.+|(admin|user|developer)-[a-z]+[\-a-z]*[a-z]+)"/>
+    <xs:simpleType name="doc-user-url">
+        <xs:restriction base="non-empty-string">
+            <xs:pattern value="(https://.+|(user)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="doc-admin-url">
+        <xs:restriction base="non-empty-string">
+            <xs:pattern value="(https://.+|(admin)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="doc-developer-url">
+        <xs:restriction base="non-empty-string">
+            <xs:pattern value="(https://.+|(developer)-[a-z]+[\-a-z]*[a-z]+)"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>
@@ -351,9 +365,9 @@
 
     <xs:complexType name="documentation">
         <xs:sequence>
-            <xs:element name="user" type="doc-url" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="admin" type="doc-url" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="developer" type="doc-url" minOccurs="0"
+            <xs:element name="user" type="doc-user-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="admin" type="doc-admin-url" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="developer" type="doc-developer-url" minOccurs="0"
                         maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
