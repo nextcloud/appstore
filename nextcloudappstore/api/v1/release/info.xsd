@@ -244,21 +244,21 @@
 
     <xs:simpleType name="doc-user-url">
         <xs:restriction base="non-empty-string">
-            <xs:pattern value="(https://.+|(user)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:pattern value="https://.+|user-[a-z]+[\-a-z]*[a-z]+"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="doc-admin-url">
         <xs:restriction base="non-empty-string">
-            <xs:pattern value="(https://.+|(admin)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:pattern value="https://.+|admin-[a-z]+[\-a-z]*[a-z]+"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="doc-developer-url">
         <xs:restriction base="non-empty-string">
-            <xs:pattern value="(https://.+|(developer)-[a-z]+[\-a-z]*[a-z]+)"/>
+            <xs:pattern value="https://.+|developer-[a-z]+[\-a-z]*[a-z]+"/>
             <xs:maxLength value="256"/>
         </xs:restriction>
     </xs:simpleType>
