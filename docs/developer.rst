@@ -248,6 +248,8 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <settings>
             <admin>OCA\Theming\Settings\Admin</admin>
             <admin-section>OCA\Theming\Settings\Section</admin-section>
+            <personal>OCA\Theming\Settings\Personal</personal>
+            <personal-section>OCA\Theming\Settings\PersonalSection</personal-section>
         </settings>
         <activity>
             <settings>
@@ -464,6 +466,12 @@ settings/admin
     * optional
     * must contain a php class which implements OCP\Settings\ISettings and returns the form to render for the global settings area
 settings/admin-section
+    * optional
+    * must contain a php class which implements OCP\Settings\ISection and returns data to render navigation entries in the global settings area
+settings/personal
+    * optional
+    * must contain a php class which implements OCP\Settings\ISettings and returns the form to render for the global settings area
+settings/personal-section
     * optional
     * must contain a php class which implements OCP\Settings\ISection and returns data to render navigation entries in the global settings area
 navigations
@@ -723,5 +731,3 @@ We provide an XML schema which can be used to validate and get IDE autocompletio
         </database>
 
 You can also validate your info.xml using `various online tools <http://www.utilities-online.info/xsdvalidation/>`_
-
-
