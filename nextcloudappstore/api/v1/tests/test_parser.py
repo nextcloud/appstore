@@ -35,9 +35,6 @@ class ParserTest(TestCase):
                 'name': 'Bernhard Posselt'
             }}],
             'name': {'en': 'News'},
-            'admin_docs': None,
-            'developer_docs': None,
-            'user_docs': None,
             'discussion': None,
             'website': None,
             'issue_tracker': 'https://github.com/nextcloud/news/issues',
@@ -120,6 +117,22 @@ class ParserTest(TestCase):
         max_version = result['app']['release']['platform_max_version']
         self.assertEqual('10.0.0', min_version)
         self.assertEqual('12.0.0', max_version)
+
+    def test_parse_non_doc_urls(self):
+        xml = self._get_contents('data/infoxmls/nondocurls.xml')
+        result = parse_app_metadata(xml, self.config.info_schema,
+                                    self.config.pre_info_xslt,
+                                    self.config.info_xslt)
+        self.assertNotIn('admin_docs', result['app'])
+        self.assertNotIn('developer_docs', result['app'])
+        self.assertNotIn('user_docs', result['app'])
+
+    def test_parse_switched_non_doc_urls(self):
+        xml = self._get_contents('data/infoxmls/switchednondocurls.xml')
+        with (self.assertRaises(InvalidAppMetadataXmlException)):
+            parse_app_metadata(xml, self.config.info_schema,
+                               self.config.pre_info_xslt,
+                               self.config.info_xslt)
 
     def test_changes_auth_to_security_category(self):
         xml = self._get_contents('data/infoxmls/authmigration.xml')

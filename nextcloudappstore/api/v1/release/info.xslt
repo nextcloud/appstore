@@ -100,15 +100,26 @@
             </screenshots>
 
             <!-- optional elements need defaults -->
-            <user-docs>
-                <xsl:value-of select="documentation/user"/>
-            </user-docs>
-            <admin-docs>
-                <xsl:value-of select="documentation/admin"/>
-            </admin-docs>
-            <developer-docs>
-                <xsl:value-of select="documentation/developer"/>
-            </developer-docs>
+
+            <xsl:if test="documentation/admin[starts-with(., 'https://')]">
+                <admin-docs>
+                    <xsl:value-of select="documentation/admin"/>
+                </admin-docs>
+            </xsl:if>
+
+
+            <xsl:if test="documentation/user[starts-with(., 'https://')]">
+                <user-docs>
+                    <xsl:value-of select="documentation/user"/>
+                </user-docs>
+            </xsl:if>
+
+
+            <xsl:if test="documentation/developer[starts-with(., 'https://')]">
+                <developer-docs>
+                    <xsl:value-of select="documentation/developer"/>
+                </developer-docs>
+            </xsl:if>
 
             <website>
                 <xsl:value-of select="website"/>
