@@ -215,7 +215,7 @@ translations
 
 Get All Nextcloud Releases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-This will return all the Nextcloud releases that the store knows about. To check if a release can actually be downloaded, use the **hasRelease** flag.
+This will return all the Nextcloud releases that the store knows about. To check if a release can actually be downloaded check the **hasRelease** flag.
 
 .. note:: Unsupported Nextcloud releases will be removed from the response
 
@@ -238,17 +238,20 @@ This will return all the Nextcloud releases that the store knows about. To check
     [
         {
             "hasRelease": false,
-            "version": "12.0.1"
+            "version": "99.0.0",
+            "isSupported": true
         },
         {
             "hasRelease": true,
-            "version": "12.0.0"
+            "version": "9.0.0",
+            "isSupported": false
         }
     ]
 
 hasRelease
-    boolean flag that indicates if the Nextcloud release is stable and has a release
-
+    boolean flag that indicates if the Nextcloud release is officially out yet
+isSupported
+    boolean flag that indicates if the Nextcloud is officially supported
 
 .. _api-all-releases:
 

@@ -39,10 +39,11 @@ def sync_releases(versions: Iterable[str]) -> None:
     if imported_releases:
         # all imported releases have a release, existing ones don't
         for release in imported_releases:
+            release.is_supported = True
             release.has_release = True
             release.save()
         for release in get_old_releases(current_releases, imported_releases):
-            release.has_release = False
+            release.is_supported = False
             release.save()
         # set latest release
         NextcloudRelease.objects.update(is_current=False)

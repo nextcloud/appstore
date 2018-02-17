@@ -53,7 +53,7 @@ class CategorySerializer(TranslatableModelSerializer):
 class NextcloudReleaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = NextcloudRelease
-        fields = ('has_release', 'version')
+        fields = ('has_release', 'version', 'is_supported')
 
 
 class AuthorSerializer(serializers.ModelSerializer):

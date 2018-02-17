@@ -625,6 +625,11 @@ class NextcloudRelease(Model):
                                    'or not available for download '
                                    'anymore.'),
                                default=False)
+    is_supported = BooleanField(verbose_name=_('Version is supported'),
+                                help_text=_('True if this version is still '
+                                            'officially supported (excluding '
+                                            'enterprise support)'),
+                                default=False)
 
     class Meta:
         verbose_name = _('Nextcloud release')

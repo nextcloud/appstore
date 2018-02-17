@@ -22,6 +22,7 @@ class SyncNextcloudReleasesTest(TestCase):
         latest = NextcloudRelease.objects.get(version='12.0.5')
         self.assertEquals(True, latest.is_current)
         self.assertEquals(True, latest.has_release)
+        self.assertEquals(True, latest.is_supported)
 
     @patch.object(GitHubClient, 'get_tags')
     def test_sync_print(self, get_tags):

@@ -6,6 +6,7 @@
 
 - Add support for generating apps for Nextcloud 13
 - Add support for personal setting tags in info.xml and ids instead of URLs for documentation
+- Add another flag to differentiate between supported and unreleased Nextcloud releases
 
 ## [3.2.0]  - 2018-02-04
 
