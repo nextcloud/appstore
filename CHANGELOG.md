@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [3.3.0]  - 2018-02-18
+
 ### Added
 
 - Add support for generating apps for Nextcloud 13
