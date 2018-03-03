@@ -22,8 +22,11 @@ module.exports = function (config) {
                 extensions: ['.js', '.ts', '.tsx']
             },
             module: {
-                loaders: [
-                    {test: /\.tsx?$/, loader: 'ts-loader'}
+                rules: [
+                    {
+                        test: /\.tsx?$/,
+                        loader: 'ts-loader'
+                    }
                 ]
             },
             stats: {
@@ -33,6 +36,7 @@ module.exports = function (config) {
                 errorDetails: true
             },
             devtool: 'inline-source-map',
+            mode: 'production'
         },
         reporters: ['progress'],
         port: 9876,
