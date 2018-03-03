@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
-const webpack = require('webpack')
+const webpack = require('webpack');
+
 const base = './nextcloudappstore/core/static/';
 
 module.exports = {
@@ -10,9 +10,10 @@ module.exports = {
         'app/register': `${base}assets/app/app/views/Register.ts`,
         'app/upload': `${base}assets/app/app/views/Upload.ts`,
         'app/releases': `${base}assets/app/app/views/Releases.ts`,
-        'user/token': `${base}assets/app/user/views/Token.ts`,
+        'user/token': `${base}assets/app/user/views/Token.ts`
     },
     output: {
+        path: __dirname,
         filename: `${base}public/[name].js`
     },
     resolve: {
@@ -24,10 +25,6 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -36,7 +33,10 @@ module.exports = {
         // node_modules to the vendor directory for each page load to include
         new CopyWebpackPlugin([
             {from: 'node_modules/bootstrap/dist/fonts', to: `${base}vendor/bootstrap/dist/fonts`},
-            {from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: `${base}vendor/bootstrap/dist/css/bootstrap.min.css`},
+            {
+                from: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                to: `${base}vendor/bootstrap/dist/css/bootstrap.min.css`
+            },
             {
                 from: 'node_modules/bootstrap.native/dist/bootstrap-native.min.js',
                 to: `${base}vendor/bootstrap.native.min.js`
@@ -50,9 +50,5 @@ module.exports = {
             /node_modules\/highlight\.js\/lib\/index\.js/,
             '../../../nextcloudappstore/core/static/assets/patches/hl.js'
         )
-]
+    ]
 };
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.plugins.push(new BabiliPlugin);
-}
