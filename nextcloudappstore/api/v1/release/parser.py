@@ -1,7 +1,7 @@
 import re
 import tarfile  # type: ignore
 from functools import reduce
-from typing import Dict, Any, Tuple, List, Set
+from typing import Dict, Any, List, Set, Pattern
 
 import lxml.etree  # type: ignore
 from rest_framework.exceptions import ParseError, \
@@ -106,7 +106,7 @@ class GunZipAppMetadataExtractor:
          and the default is None
         :return: the contents of the file if found or the default
         """
-        member = self._find_member(path, tar)
+        member = find_member(path, tar)
         if member is None:
             if default is None:
                 msg = 'Path %s does not exist in package' % path
@@ -114,50 +114,7 @@ class GunZipAppMetadataExtractor:
             else:
                 return default
         file = tar.extractfile(member)
-        return self._stream_read_file(file, self.config.max_file_size)
-
-    def _find_member(self, path: str, tar: Any) -> Any:
-        """
-        Validates that the path to the target member and the member itself
-        is not a symlink to prevent abitrary file inclusion, then returns
-        the member in question
-        :param path: the target member to check
-        :param tar: tge tar file
-        :raises InvalidAppPackageStructureException: if links are found
-        :return: the member if found, otherwise None
-        """
-
-        def build_paths(prev: List[str], curr: str) -> List[str]:
-            """Builds a List of paths to the target from a list of path
-            fragments, e.g.: ['a', 'a/path'], 'tofile' is being turned into
-            ['a', 'a/path', 'a/path/tofile']
-            :param prev: the previous result list
-            :param curr: the current result
-            :return: the previous list with the new result which was
-            constructed from the last element and the current element
-            """
-            if len(prev) > 0:
-                return prev + ['%s/%s' % (prev[-1], curr)]
-            else:
-                return [curr]
-
-        def check_member(path: str) -> Any:
-            """Tries to get a member for a path or None if not found"""
-            try:
-                return tar.getmember(path)
-            except KeyError:
-                return None
-
-        default = []  # type: List[str]
-        member_paths = reduce(build_paths, path.split('/'), default)
-        checked_members = [check_member(m) for m in member_paths]
-
-        for member in filter(lambda m: m is not None, checked_members):
-            if member.issym() or member.islnk():
-                msg = 'Symlinks and hard links can not be used for %s' % \
-                      member
-                raise ForbiddenLinkException(msg)
-        return check_member(path)
+        return stream_read_file(file, self.config.max_file_size)
 
     def _find_app_id(self, tar: Any) -> str:
         """
@@ -167,7 +124,7 @@ class GunZipAppMetadataExtractor:
         :param tar: the archive
         :return: the app id
         """
-        folders = self._find_app_folders(tar.getnames())
+        folders = find_app_folders(tar.getnames(), self.app_folder_regex)
         if len(folders) > 1:
             msg = 'More than one possible app folder found'
             raise InvalidAppPackageStructureException(msg)
@@ -176,44 +133,6 @@ class GunZipAppMetadataExtractor:
                   'only lowercase ASCII characters or underscores'
             raise InvalidAppPackageStructureException(msg)
         return folders.pop()
-
-    def _find_app_folders(self, members: List[str]) -> Set[str]:
-        """
-        Find a set of valid app folders
-        :param members: a list of tar members
-        :return: a set of valid app folders
-        """
-        regex = self.app_folder_regex
-        matching_members = filter(lambda f: re.match(regex, f), members)
-        folders = map(lambda m: m.split('/')[0], matching_members)
-        return set(folders)
-
-    def _stream_read_file(self, info_file: Any, max_size: int) -> str:
-        """
-        Instead of reading everything in one go which is vulnerable to
-        zip bombs, stream and accumulate the bytes
-        :argument info_file: buffered io reader
-        :argument max_size: maximum file size in bytes
-        :raises MaxSizeAppMetadataXmlException if the maximum size was reached
-        :return: the parsed info.xml
-        """
-        # FIXME: If someone finds a less ugly version, please feel free to
-        #        improve it
-        size = 0
-        result = b''
-        while True:
-            size += 1024
-            if size > max_size:
-                msg = 'info.xml was bigger than allowed %i bytes' % \
-                      max_size
-                raise MaxSizeAppMetadataXmlException(msg)
-
-            chunk = info_file.read(1024)
-            if not chunk:
-                break
-            result += chunk
-
-        return result.decode('utf-8')
 
     def _test_blacklisted_members(self, tar):
         """
@@ -392,3 +311,81 @@ def parse_changelog(changelog: str, version: str,
             result[curr_version] = result.get(curr_version, empty_list) + [
                 line]
     return '\n'.join(result.get(version, empty_list)).strip()
+
+
+def stream_read_file(info_file: Any, max_size: int) -> str:
+    """
+    Instead of reading everything in one go which is vulnerable to
+    zip bombs, stream and accumulate the bytes
+    :argument info_file: buffered io reader
+    :argument max_size: maximum file size in bytes
+    :raises MaxSizeAppMetadataXmlException if the maximum size was reached
+    :return: the parsed info.xml
+    """
+    size = 0
+    result = b''
+    while True:
+        size += 1024
+        if size > max_size:
+            msg = 'info.xml was bigger than allowed %i bytes' % max_size
+            raise MaxSizeAppMetadataXmlException(msg)
+        chunk = info_file.read(1024)
+        if not chunk:
+            break
+        result += chunk
+
+    return result.decode('utf-8')
+
+
+def find_member(path: str, tar: Any) -> Any:
+    """
+    Validates that the path to the target member and the member itself
+    is not a symlink to prevent arbitrary file inclusion, then returns
+    the member in question
+    :param path: the target member to check
+    :param tar: tge tar file
+    :raises InvalidAppPackageStructureException: if links are found
+    :return: the member if found, otherwise None
+    """
+
+    def build_paths(prev: List[str], curr: str) -> List[str]:
+        """Builds a List of paths to the target from a list of path
+        fragments, e.g.: ['a', 'a/path'], 'tofile' is being turned into
+        ['a', 'a/path', 'a/path/tofile']
+        :param prev: the previous result list
+        :param curr: the current result
+        :return: the previous list with the new result which was
+        constructed from the last element and the current element
+        """
+        if len(prev) > 0:
+            return prev + ['%s/%s' % (prev[-1], curr)]
+        else:
+            return [curr]
+
+    def check_member(path: str) -> Any:
+        """Tries to get a member for a path or None if not found"""
+        try:
+            return tar.getmember(path)
+        except KeyError:
+            return None
+
+    default = []  # type: List[str]
+    member_paths = reduce(build_paths, path.split('/'), default)
+    checked_members = [check_member(m) for m in member_paths]
+
+    for member in filter(lambda m: m is not None, checked_members):
+        if member.issym() or member.islnk():
+            msg = 'Symlinks and hard links can not be used for %s' % member
+            raise ForbiddenLinkException(msg)
+    return check_member(path)
+
+
+def find_app_folders(members: List[str], regex: Pattern) -> Set[str]:
+    """
+    Find a set of valid app folders
+    :param members: a list of tar members
+    :return: a set of valid app folders
+    """
+    matching_members = filter(lambda f: re.match(regex, f), members)
+    folders = map(lambda m: m.split('/')[0], matching_members)
+    return set(folders)
