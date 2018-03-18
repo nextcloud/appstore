@@ -39,7 +39,7 @@ class AppScaffoldingForm(Form):
                              help_text=_('Bug reports and feature requests'))
     categories = MultipleChoiceField(required=True, label=_('Categories'),
                                      choices=lazy(get_categories, list),
-                                     help_text=_('Hold down CTRL and click to '
+                                     help_text=_('Hold down Ctrl and click to '
                                                  'select multiple entries'))
     summary = CharField(max_length=256, label=_('Summary'), help_text=_(
         'Short description of your app that will be rendered as short teaser'))
