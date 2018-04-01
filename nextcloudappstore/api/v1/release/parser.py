@@ -12,7 +12,7 @@ from nextcloudappstore.core.versioning import pad_max_version, \
     pad_min_version, raw_version
 
 
-class MaxSizeAppMetadataXmlException(ValidationError):
+class MaxFileSizeExceeded(ValidationError):
     pass
 
 
@@ -117,8 +117,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
             raise InvalidAppPackageStructureException(msg)
         else:
             return default
-    file = tar.extractfile(member)
-    return stream_read_file(file, max_file_size)
+    return stream_read_file(tar, member, max_file_size)
 
 
 def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
@@ -327,23 +326,23 @@ def parse_changelog(changelog: str, version: str,
     return '\n'.join(result.get(version, empty_list)).strip()
 
 
-def stream_read_file(info_file: Any, max_size: int) -> str:
+def stream_read_file(tarfile: Any, path: str, max_size: int) -> str:
     """
     Instead of reading everything in one go which is vulnerable to
     zip bombs, stream and accumulate the bytes
-    :argument info_file: buffered io reader
-    :argument max_size: maximum file size in bytes
-    :raises MaxSizeAppMetadataXmlException if the maximum size was reached
-    :return: the parsed info.xml
+    :raises MaxFileSizeExceeded if the maximum size was reached
+    :return: the parsed text file
     """
+    file = tarfile.extractfile(path)
+
     size = 0
     result = b''
     while True:
         size += 1024
         if size > max_size:
-            msg = 'info.xml was bigger than allowed %i bytes' % max_size
-            raise MaxSizeAppMetadataXmlException(msg)
-        chunk = info_file.read(1024)
+            msg = 'file %s was bigger than allowed %i bytes' % (path, max_size)
+            raise MaxFileSizeExceeded(msg)
+        chunk = file.read(1024)
         if not chunk:
             break
         result += chunk
