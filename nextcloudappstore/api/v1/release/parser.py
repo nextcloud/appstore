@@ -110,7 +110,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
      and the default is None
     :return: the contents of the file if found or the default
     """
-    member = find_member(path, tar)
+    member = find_member(tar, path)
     if member is None:
         if default is None:
             msg = 'Path %s does not exist in package' % path
@@ -327,6 +327,14 @@ def parse_changelog(changelog: str, version: str,
 
 
 def stream_read_utf8(tarfile: Any, path: str, max_size: int) -> str:
+    """
+    Same as stream_read_file but converts the result to uft8
+    :param tarfile:
+    :param path: path to file to read in tar file
+    :param max_size: maximum allowed size
+    :raises MaxFileSizeExceeded: if the maximum size was reached
+    :return: the file as text
+    """
     return stream_read_file(tarfile, path, max_size).decode('utf-8')
 
 
@@ -334,8 +342,11 @@ def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
     """
     Instead of reading everything in one go which is vulnerable to
     zip bombs, stream and accumulate the bytes
-    :raises MaxFileSizeExceeded if the maximum size was reached
-    :return: the parsed text file
+    :param tarfile:
+    :param path: path to file to read in tar file
+    :param max_size: maximum allowed size
+    :raises MaxFileSizeExceeded: if the maximum size was reached
+    :return: the file as binary
     """
     file = tarfile.extractfile(path)
 
@@ -353,13 +364,13 @@ def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
     return result
 
 
-def find_member(path: str, tar: Any) -> Any:
+def find_member(tar: Any, path: str) -> Any:
     """
     Validates that the path to the target member and the member itself
     is not a symlink to prevent arbitrary file inclusion, then returns
     the member in question
+    :param tar: the tar file
     :param path: the target member to check
-    :param tar: tge tar file
     :raises InvalidAppPackageStructureException: if links are found
     :return: the member if found, otherwise None
     """

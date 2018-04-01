@@ -1,3 +1,4 @@
+import time
 from collections import OrderedDict
 from datetime import datetime
 from sys import maxsize
@@ -57,6 +58,7 @@ class VersioningTest(TestCase):
 
     def test_semver_two_nightlies(self):
         d1 = datetime.now()
+        time.sleep(.01)
         d2 = datetime.now()
         self.assertLess(AppSemVer('1.0.0', True, d1),
                         AppSemVer('1.0.0', True, d2))
