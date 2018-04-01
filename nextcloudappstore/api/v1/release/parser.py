@@ -76,78 +76,83 @@ class GunZipAppMetadataExtractor:
         return result
 
     def _parse_archive(self, tar: Any) -> AppMetaData:
-        app_id = self._find_app_id(tar)
-        info = self._get_contents('%s/appinfo/info.xml' % app_id, tar)
-        database = self._get_contents('%s/appinfo/database.xml' % app_id, tar,
-                                      '')
+        app_id = find_app_id(tar, self.app_folder_regex)
+        info = get_contents('%s/appinfo/info.xml' % app_id, tar,
+                            self.config.max_file_size)
+        database = get_contents('%s/appinfo/database.xml' % app_id, tar,
+                                self.config.max_file_size, '')
         changelog = {}  # type: Dict[str, str]
-        changelog['en'] = self._get_contents('%s/CHANGELOG.md' % app_id, tar,
-                                             '')
+        changelog['en'] = get_contents('%s/CHANGELOG.md' % app_id, tar,
+                                       self.config.max_file_size, '')
         for code, _ in self.config.languages:
-            trans_changelog = self._get_contents(
-                '%s/CHANGELOG.%s.md' % (app_id, code), tar, ''
-            )
+            trans_changelog = get_contents(
+                '%s/CHANGELOG.%s.md' % (app_id, code), tar,
+                self.config.max_file_size, '')
             if trans_changelog:
                 changelog[code] = trans_changelog
 
         # validate invalid members here due to possible massive amount of
         # files (e.g. .git directories)
-        self._test_blacklisted_members(tar)
+        test_blacklisted_members(tar, self.config.member_blacklist)
 
         return AppMetaData(info, database, app_id, changelog)
 
-    def _get_contents(self, path: str, tar: Any, default: Any = None) -> str:
-        """
-        Reads the contents of a file
-        :param path: the path to the target file
-        :param tar: the tar file
-        :param default: default if file is not found in the directory
-        :raises InvalidAppPackageStructureException: if the path does not exist
-         and the default is None
-        :return: the contents of the file if found or the default
-        """
-        member = find_member(path, tar)
-        if member is None:
-            if default is None:
-                msg = 'Path %s does not exist in package' % path
-                raise InvalidAppPackageStructureException(msg)
-            else:
-                return default
-        file = tar.extractfile(member)
-        return stream_read_file(file, self.config.max_file_size)
 
-    def _find_app_id(self, tar: Any) -> str:
-        """
-        Finds and returns the app id by looking at the first level folder
-        :raises InvalidAppPackageStructureException: if there is no valid or
-         to many app folders
-        :param tar: the archive
-        :return: the app id
-        """
-        folders = find_app_folders(tar.getnames(), self.app_folder_regex)
-        if len(folders) > 1:
-            msg = 'More than one possible app folder found'
+def get_contents(path: str, tar: Any, max_file_size: int,
+                 default: Any = None) -> str:
+    """
+    Reads the contents of a file
+    :param path: the path to the target file
+    :param tar: the tar file
+    :param default: default if file is not found in the directory
+    :raises InvalidAppPackageStructureException: if the path does not exist
+     and the default is None
+    :return: the contents of the file if found or the default
+    """
+    member = find_member(path, tar)
+    if member is None:
+        if default is None:
+            msg = 'Path %s does not exist in package' % path
             raise InvalidAppPackageStructureException(msg)
-        elif len(folders) == 0:
-            msg = 'No possible app folder found. App folder must contain ' \
-                  'only lowercase ASCII characters or underscores'
-            raise InvalidAppPackageStructureException(msg)
-        return folders.pop()
+        else:
+            return default
+    file = tar.extractfile(member)
+    return stream_read_file(file, max_file_size)
 
-    def _test_blacklisted_members(self, tar):
-        """
-        :param tar: the tar file
-        :raises: BlacklistedMemberException
-        :return:
-        """
-        for name in (n for n in tar.getnames() if tar.getmember(n).isdir()):
-            for error, regex in self.config.member_blacklist.items():
-                regex = re.compile(regex)
-                if regex.search(name):
-                    msg = 'Blacklist rule "%s": Directory %s is not ' \
-                          'allowed to be present in the app ' \
-                          'archive' % (error, name)
-                    raise BlacklistedMemberException(msg)
+
+def find_app_id(tar: Any, app_folder_regex: str) -> str:
+    """
+    Finds and returns the app id by looking at the first level folder
+    :raises InvalidAppPackageStructureException: if there is no valid or
+     to many app folders
+    :param tar: the archive
+    :return: the app id
+    """
+    folders = find_app_folders(tar.getnames(), app_folder_regex)
+    if len(folders) > 1:
+        msg = 'More than one possible app folder found'
+        raise InvalidAppPackageStructureException(msg)
+    elif len(folders) == 0:
+        msg = 'No possible app folder found. App folder must contain ' \
+              'only lowercase ASCII characters or underscores'
+        raise InvalidAppPackageStructureException(msg)
+    return folders.pop()
+
+
+def test_blacklisted_members(tar, blacklist):
+    """
+    :param tar: the tar file
+    :raises: BlacklistedMemberException
+    :return:
+    """
+    for name in (n for n in tar.getnames() if tar.getmember(n).isdir()):
+        for error, regex in blacklist.items():
+            regex = re.compile(regex)
+            if regex.search(name):
+                msg = 'Blacklist rule "%s": Directory %s is not ' \
+                      'allowed to be present in the app ' \
+                      'archive' % (error, name)
+                raise BlacklistedMemberException(msg)
 
 
 def element_to_dict(element: Any) -> Dict:
