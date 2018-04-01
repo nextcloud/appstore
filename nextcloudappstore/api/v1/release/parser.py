@@ -129,7 +129,7 @@ def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
     :param tar: the archive
     :return: the app id
     """
-    folders = find_app_folders(tar.getnames(), app_folder_regex)
+    folders = find_app_folders(tar, app_folder_regex)
     if len(folders) > 1:
         msg = 'More than one possible app folder found'
         raise InvalidAppPackageStructureException(msg)
@@ -138,6 +138,14 @@ def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
               'only lowercase ASCII characters or underscores'
         raise InvalidAppPackageStructureException(msg)
     return folders.pop()
+
+
+def find_app_folders(tar: Any, app_folder_regex: Pattern) -> Set[str]:
+    return {
+        folder.split('/')[0]
+        for folder in tar.getnames()
+        if re.match(app_folder_regex, folder)
+    }
 
 
 def test_blacklisted_members(tar, blacklist):
@@ -384,14 +392,3 @@ def find_member(path: str, tar: Any) -> Any:
             msg = 'Symlinks and hard links can not be used for %s' % member
             raise ForbiddenLinkException(msg)
     return check_member(path)
-
-
-def find_app_folders(members: List[str], regex: Pattern) -> Set[str]:
-    """
-    Find a set of valid app folders
-    :param members: a list of tar members
-    :return: a set of valid app folders
-    """
-    matching_members = filter(lambda f: re.match(regex, f), members)
-    folders = map(lambda m: m.split('/')[0], matching_members)
-    return set(folders)
