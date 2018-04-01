@@ -104,6 +104,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
     Reads the contents of a file
     :param path: the path to the target file
     :param tar: the tar file
+    :param max_file_size: maximum allowed file size in bytes
     :param default: default if file is not found in the directory
     :raises InvalidAppPackageStructureException: if the path does not exist
      and the default is None
@@ -120,7 +121,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
     return stream_read_file(file, max_file_size)
 
 
-def find_app_id(tar: Any, app_folder_regex: str) -> str:
+def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
     """
     Finds and returns the app id by looking at the first level folder
     :raises InvalidAppPackageStructureException: if there is no valid or
