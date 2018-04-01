@@ -117,7 +117,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
             raise InvalidAppPackageStructureException(msg)
         else:
             return default
-    return stream_read_file(tar, member, max_file_size)
+    return stream_read_utf8(tar, member, max_file_size)
 
 
 def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
@@ -326,7 +326,11 @@ def parse_changelog(changelog: str, version: str,
     return '\n'.join(result.get(version, empty_list)).strip()
 
 
-def stream_read_file(tarfile: Any, path: str, max_size: int) -> str:
+def stream_read_utf8(tarfile: Any, path: str, max_size: int) -> str:
+    return stream_read_file(tarfile, path, max_size).decode('utf-8')
+
+
+def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
     """
     Instead of reading everything in one go which is vulnerable to
     zip bombs, stream and accumulate the bytes
@@ -346,8 +350,7 @@ def stream_read_file(tarfile: Any, path: str, max_size: int) -> str:
         if not chunk:
             break
         result += chunk
-
-    return result.decode('utf-8')
+    return result
 
 
 def find_member(path: str, tar: Any) -> Any:
