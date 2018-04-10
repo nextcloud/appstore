@@ -354,6 +354,7 @@ category
        * **customization**
        * **files**
        * **games**
+       * **search**
        * **integration**
        * **monitoring**
        * **multimedia**
