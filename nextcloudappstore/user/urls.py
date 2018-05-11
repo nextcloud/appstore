@@ -3,6 +3,8 @@ from django.conf.urls import url
 from nextcloudappstore.user.views import PasswordView, AccountView, \
     APITokenView, DeleteAccountView, ChangeLanguageView, TransferAppsView
 
+app_name = 'user'
+
 urlpatterns = [
     url(r'^$', AccountView.as_view(), name='account'),
     url(r'^transfer-apps/?$', TransferAppsView.as_view(),

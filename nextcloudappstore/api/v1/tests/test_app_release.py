@@ -29,7 +29,7 @@ class AppReleaseTest(ApiTest):
 
     def create_release(self, owner, version='9.0.0', co_maintainers=[]):
         app = App.objects.create(id='news', owner=owner)
-        app.co_maintainers = co_maintainers
+        app.co_maintainers.set(co_maintainers)
         app.save()
         return AppRelease.objects.create(version=version, app=app)
 

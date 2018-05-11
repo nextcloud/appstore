@@ -2,7 +2,7 @@ from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from django.views.generic import TemplateView

@@ -42,7 +42,7 @@ class Command(BaseCommand):
                 source = [self._get_en(obj, field) for field in fields]
                 translations = [ugettext(value) for value in source]
                 for field, translation in zip(fields, translations):
-                    setattr(obj, field, translation.encode('utf-8'))
+                    setattr(obj, field, translation)
                     obj.save()
 
     def _get_en(self, obj, field):

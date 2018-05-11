@@ -1,4 +1,5 @@
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
 
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
@@ -19,3 +20,4 @@ class ChangeLanguageTest(BaseStoreTest):
         self.go_to('user:account-change-language')
         account_link = self.findNavigationLink('user:account')
         self.assertEqual('Konto', account_link.text)
+

@@ -7,6 +7,8 @@ from nextcloudappstore.core.caching import app_ratings_etag, categories_etag, \
     apps_etag, nextcloud_release_etag
 from nextcloudappstore.core.versioning import SEMVER_REGEX
 
+app_name = 'v1'
+
 urlpatterns = [
     url(r'^platforms\.json$',
         etag(nextcloud_release_etag)(NextcloudReleaseView.as_view()),
