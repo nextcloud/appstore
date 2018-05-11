@@ -25,7 +25,8 @@ class AppSemVer:
 
     def __lt__(self, other: 'AppSemVer') -> bool:
         if self.version == other.version:
-            if self.is_nightly and other.is_nightly:
+            if (self.is_nightly and other.is_nightly and self.released_at
+                    and other.released_at):
                 return self.released_at < other.released_at
             elif self.is_nightly:
                 return False
