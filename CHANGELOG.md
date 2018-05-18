@@ -2,8 +2,15 @@
 
 ## [Unreleased]
 
+## [3.4.0]  - 2018-05-18
+
+### Added
+
+- Added search category
+
 ### Changed
 
+- Add quicknotes to CRL
 - Updated libraries
 
 ## [3.3.0]  - 2018-02-18
