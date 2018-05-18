@@ -20,4 +20,3 @@ class ChangeLanguageTest(BaseStoreTest):
         self.go_to('user:account-change-language')
         account_link = self.findNavigationLink('user:account')
         self.assertEqual('Konto', account_link.text)
-
