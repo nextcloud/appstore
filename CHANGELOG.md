@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### Added 
+
+- Support for Nextcloud 14
+
+### Changed
+
+- Updated Python and JavaScript dependencies
+- Make test output more verbose
+- Pin down Travis-CI versions to match Ubuntu 16.04
+
+### Removed 
+
+- Removed Support for Nextcloud 11
+- Removed compiled JavaScript files from version control
+
 ## [3.4.0]  - 2018-05-18
 
 ### Added
