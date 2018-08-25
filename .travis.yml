@@ -44,7 +44,8 @@ after_success:
   - coveralls
 
 services:
-  - postgresql: "9.5"
+  - postgresql
 
 addons:
   firefox: "latest"
+  postgresql: "9.5"

@@ -5,14 +5,19 @@
     <name>The App</name>
     <summary>a summary</summary>
     <description><![CDATA[a description]]></description>
+    <version>0.0.1</version>
     <licence>agpl</licence>
     <author mail="author email" homepage="author homepage">author name</author>
-    <version>0.0.1</version>
     <namespace>TheApp</namespace>
     <category>tools</category>
     <bugs>https://test.com</bugs>
     <dependencies>
-        <owncloud min-version="9.2"/>
-        <nextcloud min-version="11" max-version="11"/>
+        <nextcloud min-version="14" max-version="14"/>
     </dependencies>
+    <navigations>
+        <navigation>
+            <name>The App</name>
+            <route>theapp.page.index</route>
+        </navigation>
+    </navigations>
 </info>
