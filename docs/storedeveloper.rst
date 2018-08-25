@@ -25,7 +25,7 @@ make resetup
     kills the current sqlite database and creates a new one
 
 make test-data
-    downloads and sets up test apps, needs certificate validation to be disabled and a running server at http://127.0.0.1:8000
+    downloads and sets up test apps, needs certificate validation to be disabled and a running server at http://127.0.0.1:8000 . Keep in mind that in order to display any app releases on the page you need to first sync :ref:`the available nextcloud releases <prod_install_release_sync>` with the oldest version being **11.0.0**
 
 make prod-data prod_version=12.0.0
     similar to **make test-data** but installs all apps from production for a nextcloud version locally
