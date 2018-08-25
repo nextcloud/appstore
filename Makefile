@@ -23,7 +23,7 @@ lint:
 .PHONY: test
 test: lint
 	$(yarn) test
-	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development
+	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development -v 2
 	$(coverage) report --fail-under 90
 
 .PHONY: resetup
