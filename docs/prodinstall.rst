@@ -384,7 +384,7 @@ After obtaining the token from GitHub, add it anywhere in your settings file (**
 
 .. code-block:: python
 
-    GITHUB_API_TOKEN = '4bab6b3dfeds8857371a48855d3e87d38d4b7e65'
+    GITHUB_API_TOKEN = '4bab6b3dfeds8857371a48855dse87d38d4b7e65'
 
 You can run the command by giving it the oldest supported Nextcloud version::
 
