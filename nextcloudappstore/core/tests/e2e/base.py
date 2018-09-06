@@ -64,6 +64,17 @@ class BaseStoreTest(StaticLiveServerTestCase):
         pass_input.send_keys(password)
         self.selenium.find_element_by_xpath('//button[@type="submit"]').click()
 
+    def assert_can_not_login(self):
+        self.go_to_login()
+        self.wait_for_url("/login/")
+        self.by_id('id_login').send_keys('livetest')
+        self.by_id('id_password').send_keys('livetest')
+        self.by_css('.auth-form button[type="submit"]').click()
+
+        error = self.by_css('.auth-form .text-danger')
+        self.assertTrue(error.is_displayed())
+        self.assertOnPage('account_login')
+
     def logout(self):
         self.findNavigationLink('account_logout').click()
 
@@ -72,6 +83,11 @@ class BaseStoreTest(StaticLiveServerTestCase):
         element = WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
         return then(element)
+
+    def wait_for_url(self, url: str) -> Any:
+        WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
+            EC.url_changes(url)
+        )
 
     def assertOnPage(self, url_name: str,
                      kwargs: Dict[str, str] = None) -> None:
