@@ -86,7 +86,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
 
     def wait_for_url(self, url: str) -> Any:
         WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
-            EC.url_changes(url)
+            EC.url_contains(url)
         )
 
     def assertOnPage(self, url_name: str,
