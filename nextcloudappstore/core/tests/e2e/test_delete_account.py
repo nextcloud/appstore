@@ -21,12 +21,4 @@ class DeleteAccountTest(BaseStoreTest):
         self.by_id('id_email').send_keys('livetest@localhost')
         self.by_id('id_email').submit()
 
-        # check if not able to login anymore
-        self.go_to_login()
-        self.by_id('id_login').send_keys('livetest')
-        self.by_id('id_password').send_keys('livetest')
-        self.by_css('.auth-form button[type="submit"]').click()
-
-        error = self.by_css('.auth-form .text-danger')
-        self.assertTrue(error.is_displayed())
-        self.assertOnPage('account_login')
+        self.assert_can_not_login()
