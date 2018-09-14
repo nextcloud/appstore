@@ -51,6 +51,8 @@
                             maxOccurs="1"/>
                 <xs:element name="activity" type="activity" minOccurs="0"
                             maxOccurs="1"/>
+                <xs:element name="dashboard" type="dashboard"
+                            minOccurs="0" maxOccurs="1"/>
                 <xs:element name="navigations" type="navigations" minOccurs="0"
                             maxOccurs="1"/>
                 <xs:element name="contactsmenu" type="contactsmenu" minOccurs="0"
@@ -339,6 +341,7 @@
             <xs:enumeration value="integration"/>
             <xs:enumeration value="monitoring"/>
             <xs:enumeration value="multimedia"/>
+            <xs:enumeration value="search"/>
             <xs:enumeration value="office"/>
             <xs:enumeration value="organization"/>
             <xs:enumeration value="social"/>
@@ -640,6 +643,13 @@
     <xs:complexType name="commands">
         <xs:sequence>
             <xs:element name="command" type="php-class" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dashboard">
+        <xs:sequence>
+            <xs:element name="widget" type="php-class" minOccurs="1"
                         maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
