@@ -196,6 +196,40 @@ def create_safe_xml_parser() -> lxml.etree.XMLParser:
         remove_blank_text=True, dtd_validation=False  # type: ignore
     )  # type: ignore
 
+def parse_app_xml_file(xml: str, schema: str, pre_xslt: str,
+                       xslt: str, filename: str) -> Dict:
+    """
+    Parses, validates and maps the xml onto a dict
+    :argument xml the xml string to parse
+    :argument schema the schema xml as string
+    :argument pre_xslt xslt which is run before validation to ensure that
+    everything is in the correct order and that unknown elements are excluded
+    :argument xslt the xslt to transform it to a matching structure
+    :argument filename the file that is parsed essentially for error output
+    :raises InvalidAppMetadataXmlException if the schema does not validate
+    :return the parsed xml as dict
+    """
+    parser = create_safe_xml_parser()
+    try:
+        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+    except lxml.etree.XMLSyntaxError as e:
+        msg = '%s contains malformed xml: %s' % (filename, e)
+        raise XMLSyntaxError(msg)
+    for _ in doc.iter(lxml.etree.Entity):  # type: ignore
+        raise InvalidAppMetadataXmlException('Must not contain entities')
+    pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
+    pre_transformed_doc = pre_transform(doc)
+    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
+    schema = lxml.etree.XMLSchema(schema_doc)  # type: ignore
+    try:
+        schema.assertValid(pre_transformed_doc)  # type: ignore
+    except lxml.etree.DocumentInvalid as e:
+        msg = '%s did not validate: %s' % (filename, e)
+        raise InvalidAppMetadataXmlException(msg)
+    transform = lxml.etree.XSLT(lxml.etree.XML(xslt))  # type: ignore
+    transformed_doc = transform(pre_transformed_doc)  # type: ignore
+    mapped = element_to_dict(transformed_doc.getroot())  # type: ignore
+    return mapped
 
 def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
                        xslt: str) -> Dict:
@@ -209,30 +243,17 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     :raises InvalidAppMetadataXmlException if the schema does not validate
     :return the parsed xml as dict
     """
-    parser = create_safe_xml_parser()
-    try:
-        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
-    except lxml.etree.XMLSyntaxError as e:
-        msg = 'info.xml contains malformed xml: %s' % e
-        raise XMLSyntaxError(msg)
-    for _ in doc.iter(lxml.etree.Entity):  # type: ignore
-        raise InvalidAppMetadataXmlException('Must not contain entities')
-    pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
-    pre_transformed_doc = pre_transform(doc)
-    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
-    schema = lxml.etree.XMLSchema(schema_doc)  # type: ignore
-    try:
-        schema.assertValid(pre_transformed_doc)  # type: ignore
-    except lxml.etree.DocumentInvalid as e:
-        msg = 'info.xml did not validate: %s' % e
-        raise InvalidAppMetadataXmlException(msg)
-    transform = lxml.etree.XSLT(lxml.etree.XML(xslt))  # type: ignore
-    transformed_doc = transform(pre_transformed_doc)  # type: ignore
-    mapped = element_to_dict(transformed_doc.getroot())  # type: ignore
+    mapped = parse_app_xml_file(xml, schema, pre_xslt, xslt, "info.xml")
     validate_english_present(mapped)
     fix_partial_translations(mapped)
     return mapped
 
+def parse_app_whats_new(xml: str, schema: str, pre_xslt: str,
+                       xslt: str) -> Dict:
+    mapped = parse_app_xml_file(xml, schema, pre_xslt, xslt, "changes.xml")
+    validate_english_present(mapped)
+    fix_partial_translations(mapped)
+    return mapped
 
 def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
     """
