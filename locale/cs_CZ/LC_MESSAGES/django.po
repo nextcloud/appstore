@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-24 00:52+0000\n"
+"POT-Creation-Date: 2018-09-25 00:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jakub Korbel <jkorbel@ra.rockwell.com>, 2018\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -84,11 +84,11 @@ msgstr ""
 "podepsání certifikátu (CSR), která by měla být umístěna v <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">uložišti certifikátů</a>(postupujte podle "
-"README). CSR můžete vygenerovat spuštěním následujícího příkazu:"
+"README). CSR můžete vytvořit spuštěním následujícího příkazu:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "Podpis pomocí ID vaší aplikace"
+msgstr "Podpis nad identifikátorem vaší aplikace"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -151,11 +151,11 @@ msgstr "URL uživatelské dokumentace"
 
 #: nextcloudappstore/core/models.py:74
 msgid "Admin documentation URL"
-msgstr "URL administrátorské dokumentace"
+msgstr "URL adresa dokumentace pro správce"
 
 #: nextcloudappstore/core/models.py:76
 msgid "Developer documentation URL"
-msgstr "URL vývojářské dokumentace"
+msgstr "URL adresa dokumentace pro vývojáře"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:38
@@ -629,8 +629,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Tento e-mailový potvrzující odkaz vypršel, nebo je neplatný. Vytvořte prosím"
-" <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
+"Platnost odkazu v tomto potvrzovacím e-mailovu skončila, nebo není platný. "
+"Vytvořte <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -700,7 +700,7 @@ msgid ""
 "reset</a>."
 msgstr ""
 "Odkaz na resetování hesla je neplatný, nejspíše protože byl již použit. "
-"Vyžádejte si prosím <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
+"Vyžádejte si <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -940,7 +940,7 @@ msgstr "Vytvořit aplikaci"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Generovat a stáhnout"
+msgstr "Vytvořit a stáhnout"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
@@ -999,7 +999,7 @@ msgstr "Právní upozornění"
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
-msgstr "vyžadované pole"
+msgstr "vyžadovaná kolonka"
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -1345,8 +1345,9 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"Pokud chcete přenést aplikaci na nového vlastníka, nejdříve musíte odemknout"
-" aplikaci. Uživatel pak může převzít kontrolu tak, že ji zaregistruje znovu."
+"Pokud chcete aplikaci převést na nového vlastníka, je třeba ji nejdříve "
+"odemknout. Uživatel pak může převzít kontrolu tak, že ji zaregistruje znovu "
+"(v nabídce pro vývojáře aplikace)."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1354,7 +1355,7 @@ msgstr "Stav přenosu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr "Změnit stav přenosu vlastnictví"
+msgstr "Změnit stav převodu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
@@ -1370,7 +1371,7 @@ msgstr "Uzamknout přenos vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr "Odemknout přenos vlastnictví"
+msgstr "Odemknout převod vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
