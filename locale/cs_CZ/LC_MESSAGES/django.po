@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-01 00:52+0000\n"
+"POT-Creation-Date: 2018-10-16 00:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jakub Korbel <jkorbel@ra.rockwell.com>, 2018\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -24,7 +24,7 @@ msgstr "Nejnovější vydání aplikace"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Získejte nejnovější aktualizace o nových vidáních aplikace"
+msgstr "Získejte nejnovější aktualizace o nových vydáních aplikace"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -84,11 +84,11 @@ msgstr ""
 "podepsání certifikátu (CSR), která by měla být umístěna v <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">uložišti certifikátů</a>(postupujte podle "
-"README). CSR můžete vygenerovat spuštěním následujícího příkazu:"
+"README). CSR můžete vytvořit spuštěním následujícího příkazu:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "Podpis pomocí ID vaší aplikace"
+msgstr "Podpis nad identifikátorem vaší aplikace"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -151,11 +151,11 @@ msgstr "URL uživatelské dokumentace"
 
 #: nextcloudappstore/core/models.py:74
 msgid "Admin documentation URL"
-msgstr "URL administrátorské dokumentace"
+msgstr "URL adresa dokumentace pro správce"
 
 #: nextcloudappstore/core/models.py:76
 msgid "Developer documentation URL"
-msgstr "URL vývojářské dokumentace"
+msgstr "URL adresa dokumentace pro vývojáře"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:38
@@ -360,7 +360,7 @@ msgstr "Souhrn změn"
 
 #: nextcloudappstore/core/models.py:379
 msgid "The release changelog. Can contain Markdown"
-msgstr "Souhrn změn vydání. Může obsahovat Markdown"
+msgstr "Souhrn změn vydání. Může obsahovat Markdown značky"
 
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
@@ -410,15 +410,15 @@ msgstr "Příkazy shellu"
 #: nextcloudappstore/core/models.py:462 nextcloudappstore/core/models.py:489
 #: nextcloudappstore/core/models.py:507
 msgid "Id"
-msgstr "Id"
+msgstr "Identif."
 
 #: nextcloudappstore/core/models.py:464
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr "ID kategorie, identifikující kategorii při nahrávání aplikace"
+msgstr "ID identifikující kategorii, do které je aplikace nahrávána"
 
 #: nextcloudappstore/core/models.py:472
 msgid "Category name which will be presented to the user"
-msgstr "Jméno kategorie zobrazené uživateli"
+msgstr "Název kategorie zobrazený uživateli"
 
 #: nextcloudappstore/core/models.py:480
 #: nextcloudappstore/scaffolding/forms.py:40
@@ -427,11 +427,11 @@ msgstr "Kategorie"
 
 #: nextcloudappstore/core/models.py:491
 msgid "Key which is used to identify a license"
-msgstr "Klíč, který je použit k identifikaci licence"
+msgstr "Klíč, který slouží k identifikaci licence"
 
 #: nextcloudappstore/core/models.py:494
 msgid "License name which will be presented to the user"
-msgstr "Jméno licence zobrazené uživateli"
+msgstr "Název licence zobrazený uživateli"
 
 #: nextcloudappstore/core/models.py:499
 #: nextcloudappstore/core/templates/app/releases.html:32
@@ -440,11 +440,11 @@ msgstr "Licence"
 
 #: nextcloudappstore/core/models.py:508
 msgid "Key which is used to identify a database"
-msgstr "Klíč, který je použit k identifikaci databáze"
+msgstr "Klíč, který slouží k identifikaci databáze"
 
 #: nextcloudappstore/core/models.py:511
 msgid "Database name which will be presented to the user"
-msgstr "Jméno databáze, které bude zobrazeno uživateli"
+msgstr "Název databáze zobrazovaný uživateli"
 
 #: nextcloudappstore/core/models.py:514 nextcloudappstore/core/models.py:527
 msgid "Database"
@@ -461,7 +461,7 @@ msgstr "Požadavek na verzi databáze"
 
 #: nextcloudappstore/core/models.py:532
 msgid "Database version requirement (raw)"
-msgstr "Požadavek na verzi databáze (surový)"
+msgstr "Požadavek na verzi databáze (nezpracované)"
 
 #: nextcloudappstore/core/models.py:536
 msgid "Database dependencies"
@@ -487,7 +487,7 @@ msgstr "Požadavek na verzi rozšíření"
 
 #: nextcloudappstore/core/models.py:568
 msgid "Extension version requirement (raw)"
-msgstr "Požadavek na verzi rozšíření (surový)"
+msgstr "Požadavek na verzi rozšíření (před zpracováním)"
 
 #: nextcloudappstore/core/models.py:572
 msgid "PHP extension dependencies"
@@ -616,8 +616,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Potvrďte prosím, že  <a href=\"mailto:%(email)s\">%(email)s</a> je e-mailová"
-" adresa uživatele %(user_display)s."
+"Potvrďte, že  <a href=\"mailto:%(email)s\">%(email)s</a> je e-mailová adresa"
+" uživatele %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -629,8 +629,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Tento e-mailový potvrzující odkaz vypršel, nebo je neplatný. Vytvořte prosím"
-" <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
+"Platnost odkazu v tomto potvrzovacím e-mailovu skončila, nebo není platný. "
+"Vytvořte <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -700,7 +700,7 @@ msgid ""
 "reset</a>."
 msgstr ""
 "Odkaz na resetování hesla je neplatný, nejspíše protože byl již použit. "
-"Vyžádejte si prosím <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
+"Vyžádejte si <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -860,13 +860,13 @@ msgstr "Moje aplikace"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-"Nebyly nalezeny žádné aplikace při hledání \"<em>%(query)s</em>\" v "
+"Nebyly nalezeny žádné aplikace při hledání „<em>%(query)s</em>“ v "
 "%(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "Nebyly nalezeny žádné aplikace při hledání \"<em>%(query)s</em>\"."
+msgstr "Nebyly nalezeny žádné aplikace při hledání „<em>%(query)s</em>“."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -940,7 +940,7 @@ msgstr "Vytvořit aplikaci"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Generovat a stáhnout"
+msgstr "Vytvořit a stáhnout"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
@@ -999,7 +999,7 @@ msgstr "Právní upozornění"
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
-msgstr "vyžadované pole"
+msgstr "vyžadovaná kolonka"
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
@@ -1029,7 +1029,7 @@ msgstr "Dokumentace"
 
 #: nextcloudappstore/core/templates/nav.html:67
 msgid "Admin"
-msgstr "Administrace"
+msgstr "Správa"
 
 #: nextcloudappstore/core/templates/nav.html:72
 #: nextcloudappstore/user/templates/user/account.html:5
@@ -1049,8 +1049,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Chystáte se váš účet na %(provider_name)s použít k přihlášení na\n"
-"            %(site_name)s. Jako poslední krok, prosím, vyplňte následující formulář:"
+"Chystáte se použít svůj účet na %(provider_name)s k přihlášení k\n"
+"            %(site_name)s. Jako poslední krok, vyplňte následující formulář:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1058,7 +1058,9 @@ msgstr "Přizpůsobení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "Motivy a aplikace měnící rozvržení a uživatelské rozhraní"
+msgstr ""
+"Motivy vzhledu, schémata rozvržení a aplikace měnící dojem z používání "
+"uživatelského rozhraní"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1066,7 +1068,7 @@ msgstr "Soubory"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
-msgstr "Aplikace rozšiřující správu souborů nebo aplikaci Soubory"
+msgstr "Aplikace rozšiřující správu souborů a aplikaci Soubory"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
@@ -1074,7 +1076,7 @@ msgstr "Hry"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
-msgstr "Hry běžící na vašem Nextcloud"
+msgstr "Hry spustitelné v rámci Nextcloud"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
@@ -1086,7 +1088,7 @@ msgstr "Aplikace propojující NextCloud s dalšími službami a platformami"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
-msgstr "Kontrola"
+msgstr "Dohled"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
@@ -1122,15 +1124,15 @@ msgstr "Najít související aplikace"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Security"
-msgstr "Bezpečnost"
+msgstr "Zabezpečení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
-"Aplikace, které poskytují další bezpečnostní mechanismy, jako je "
-"autentizace, autorizace a šifrování."
+"Aplikace, které poskytují další bezpečnostní mechanismy, jako je ověřování, "
+"pověřování, šifrování, atd."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
@@ -1175,7 +1177,7 @@ msgstr "Zadejte správné HTTPS URL"
 #: nextcloudappstore/scaffolding/forms.py:26
 #: nextcloudappstore/scaffolding/forms.py:32
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "Jméno musí být camel case, např. myApp"
+msgstr "Je třeba, aby název aplikace měl formu tzv. „camel case“, např. myApp"
 
 #: nextcloudappstore/scaffolding/forms.py:30
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
@@ -1196,7 +1198,7 @@ msgstr "Domovská stránka autora"
 
 #: nextcloudappstore/scaffolding/forms.py:39
 msgid "Bug reports and feature requests"
-msgstr "Hlášení chyb a žádostí o funkce"
+msgstr "Hlášení chyb a žádosti o funkce"
 
 #: nextcloudappstore/scaffolding/forms.py:42
 msgid "Hold down Ctrl and click to select multiple entries"
@@ -1205,7 +1207,7 @@ msgstr "Podržte stisknutou klávesu Ctrl a klikněte na více položek"
 #: nextcloudappstore/scaffolding/forms.py:45
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
-"Krátký popis vaší aplikace, který bude vykreslen jako krátká upoutávka."
+"Stručný popis vaší aplikace, který bude vykreslen jako krátká upoutávka"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 msgid "Full description of what your app does. Can contain Markdown."
@@ -1229,7 +1231,7 @@ msgstr "Zadaný e-mail neodpovídá vaší e-mailové adrese"
 
 #: nextcloudappstore/user/forms.py:39
 msgid "Confirm password"
-msgstr "Potvrdit heslo"
+msgstr "Potvrdit zadání hesla"
 
 #: nextcloudappstore/user/forms.py:40
 msgid ""
@@ -1318,7 +1320,7 @@ msgid ""
 msgstr ""
 "Smazání vašeho účtu vymaže všechny vaše aplikace a jejich vydání. Pro "
 "smazání účtu zadejte do pole níže svou e-mailovou adresu a klikněte na "
-"tlačítko \"Smazat účet\":"
+"tlačítko „Smazat účet“:"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
@@ -1343,8 +1345,9 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"Pokud chcete přenést aplikaci na nového vlastníka, nejdříve musíte odemknout"
-" aplikaci. Uživatel pak může převzít kontrolu tak, že ji zaregistruje znovu."
+"Pokud chcete aplikaci převést na nového vlastníka, je třeba ji nejdříve "
+"odemknout. Uživatel pak může převzít kontrolu tak, že ji zaregistruje znovu "
+"(v nabídce pro vývojáře aplikace)."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1352,7 +1355,7 @@ msgstr "Stav přenosu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr "Změnit stav přenosu vlastnictví"
+msgstr "Změnit stav převodu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
@@ -1368,7 +1371,7 @@ msgstr "Uzamknout přenos vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr "Odemknout přenos vlastnictví"
+msgstr "Odemknout převod vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
