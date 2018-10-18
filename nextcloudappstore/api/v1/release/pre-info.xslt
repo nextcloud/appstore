@@ -39,6 +39,7 @@
             <xsl:copy-of select="commands"/>
             <xsl:apply-templates select="settings"/>
             <xsl:apply-templates select="activity"/>
+            <xsl:copy-of select="dashboard"/>
             <xsl:apply-templates select="navigations"/>
             <xsl:copy-of select="contactsmenu"/>
             <xsl:copy-of select="collaboration" />
