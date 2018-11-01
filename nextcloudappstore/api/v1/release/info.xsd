@@ -653,6 +653,15 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="fulltextsearch">
+        <xs:sequence>
+            <xs:element name="platform" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="provider" type="php-class" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:simpleType name="php-class">
         <xs:restriction base="xs:string">
             <xs:pattern
