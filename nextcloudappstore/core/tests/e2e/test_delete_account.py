@@ -10,6 +10,7 @@ class DeleteAccountTest(BaseStoreTest):
         self.go_to('user:account-deletion')
 
         # test non matching address
+        self.by_id('id_email').clear()
         self.by_id('id_email').send_keys('livetest@localhos')
         self.by_id('id_email').submit()
 

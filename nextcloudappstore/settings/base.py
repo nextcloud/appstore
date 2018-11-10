@@ -14,7 +14,6 @@ from os.path import dirname, abspath, join, pardir, realpath
 
 from django.conf.global_settings import LANGUAGES
 
-
 BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
 INSTALLED_APPS = [
@@ -234,6 +233,9 @@ LOGGING = {
 LOCALE_PATHS = (
     join(BASE_DIR, 'locale/'),
 )
+
+# Disable in order for cooldown periods to work properly
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = False
 
 # App Store specific configs
 

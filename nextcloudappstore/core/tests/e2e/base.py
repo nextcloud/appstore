@@ -65,9 +65,11 @@ class BaseStoreTest(StaticLiveServerTestCase):
         self.selenium.find_element_by_xpath('//button[@type="submit"]').click()
 
     def assert_can_not_login(self):
+        self.go_to('home')
         self.go_to_login()
-        self.wait_for_url("/login/")
+        self.by_id('id_login').clear()
         self.by_id('id_login').send_keys('livetest')
+        self.by_id('id_password').clear()
         self.by_id('id_password').send_keys('livetest')
         self.by_css('.auth-form button[type="submit"]').click()
 

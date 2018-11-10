@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
+
+## [4.0.0]  - 2018-11-10
+
 ### Added 
 
 - Support for Nextcloud 14
+- Add info.xml validation for fulltextsearch and dashboard 
 
 ### Changed
 
@@ -16,6 +20,10 @@
 
 - Removed Support for Nextcloud 11
 - Removed compiled JavaScript files from version control
+
+### Security
+
+- Disable HMAC email validation so that an cooldown period is respected, #584
 
 ## [3.4.0]  - 2018-05-18
 
