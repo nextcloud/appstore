@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+
+## [3.5.0]  - 2018-11-10
+
 ### Added 
 
 - Support for Nextcloud 14
