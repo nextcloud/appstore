@@ -235,6 +235,9 @@ LOCALE_PATHS = (
     join(BASE_DIR, 'locale/'),
 )
 
+# Disable in order for cooldown periods to work properly
+ACCOUNT_EMAIL_CONFIRMATION_HMAC=False
+
 # App Store specific configs
 
 # minimum number of comments to calculate a rating
