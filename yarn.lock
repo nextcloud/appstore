@@ -17,10 +17,17 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.8.tgz#bf53a7d193ea8b03867a38bfdb4fbb0e0bf066c9"
   integrity sha512-OJSUxLaxXsjjhob2DBzqzgrkLmukM3+JMpRp0r0E4HTdT1nwDCWhaswjYxazPij6uOdzHCJfNbDjmQ1/rnNbCg==
 
-"@types/markdown-it@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-0.0.5.tgz#5cdcbe08e81075d5dbf15466b311359b02a30c2b"
-  integrity sha512-Bhc4jTJ3g+WU+dBvyhwwssHifjqapauyjV+0cTWVWRjwDAaK9PebZBFpLJmoOCp47qlkDeeT1Y9sV9LyyaG02w==
+"@types/linkify-it@*":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-2.0.4.tgz#80a7f9aec4c9283e8333debda5a88511d4a529a7"
+  integrity sha512-9o5piu3tP6DwqT+Cyf7S3BitsTc6Cl0pCPKUhIE5hzQbtueiBXdtBipTLLvaGfT11/8XHRmsagu4YfBesTaiCA==
+
+"@types/markdown-it@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-0.0.7.tgz#75070485a3d8ad11e7deb8287f4430be15bf4d39"
+  integrity sha512-WyL6pa76ollQFQNEaLVa41ZUUvDvPY+qAUmlsphnrpL6I9p1m868b26FyeoOmo7X3/Ta/S9WKXcEYXUSHnxoVQ==
+  dependencies:
+    "@types/linkify-it" "*"
 
 "@types/screenfull@^3.3.1":
   version "3.3.1"
