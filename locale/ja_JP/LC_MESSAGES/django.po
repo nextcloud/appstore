@@ -13,15 +13,16 @@
 # YANO Tetsu <tetuyano+transi@gmail.com>, 2018
 # 323484, 2018
 # Masato Misu <m-misu@begood-tech.com>, 2018
+# kajiwara Toshihisa <toshihisa.kajiwara@stylez.co.jp>, 2018
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 01:54+0000\n"
+"POT-Creation-Date: 2018-12-14 01:54+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Masato Misu <m-misu@begood-tech.com>, 2018\n"
+"Last-Translator: kajiwara Toshihisa <toshihisa.kajiwara@stylez.co.jp>, 2018\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/nextcloud/teams/64236/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,6 +538,8 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"trueの場合、これは実際にリリースされたNextcloudのバージョンで、アーカイブとしてダウンロードできます。 "
+"falseの場合、リリースはプレリリース版か、これ以上ダウンロードできません。"
 
 #: nextcloudappstore/core/models.py:628
 msgid "Version is supported"
@@ -546,7 +549,7 @@ msgstr "サポートされているバージョン"
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
-msgstr ""
+msgstr "このバージョンが正式にサポートされている場合はtrue（エンタープライズサポートを除く）"
 
 #: nextcloudappstore/core/models.py:635
 msgid "Nextcloud release"
@@ -954,6 +957,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"証明書を取得する方法と署名を作成する方法の詳細については<a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">アプリ開発者 ガイド</a>をご覧ください。"
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1227,6 +1233,8 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
+"権限のないユーザーが電子メールアドレスを変更してパスワードをリセットしないようにするには、パスワードが必要です。 "
+"このフィールドはあなたのパスワードを更新しません！"
 
 #: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
