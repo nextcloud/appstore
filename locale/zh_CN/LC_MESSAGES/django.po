@@ -6,11 +6,11 @@
 # Translators:
 # qyx901 <kbug596@outlook.com>, 2016
 # Michael X <sonireolxxx@gmail.com>, 2017
-# Mimi <stevenjoezhang@gmail.com>, 2017
 # fuchai li <lifuchai@139.com>, 2017
 # Libo Guo <9492037@qq.com>, 2017
-# fuchai li <13911872377@139.com>, 2017
 # 运永 汪 <mail@zhaohai.wang>, 2017
+# fuchai li <13911872377@139.com>, 2017
+# Mimi <stevenjoezhang@gmail.com>, 2017
 # Ari Arimaniac <arily@arily.moe>, 2017
 # kingqz <1757870574@qq.com>, 2017
 # bin zhao <my--web@163.com>, 2017
@@ -19,6 +19,7 @@
 # 王亮亮 <i@yimis.com>, 2017
 # maithew mai <wzwsad22@gmail.com>, 2017
 # lynn jakc <bfwz123@gmail.com>, 2017
+# Mark Li <2821341767@qq.com>, 2017
 # jianwei lu <lujw@workfile.cn>, 2017
 # Wu Xin <baalchina@gmail.com>, 2017
 # shaolin123 <shaonick@mail.com>, 2018
@@ -31,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 01:55+0000\n"
+"POT-Creation-Date: 2019-01-14 01:56+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: mays_wind <i@mayswind.net>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -74,7 +75,7 @@ msgstr "好的"
 
 #: nextcloudappstore/core/forms.py:26
 msgid "Download link (tar.gz)"
-msgstr "下载链接 (tar.gz)"
+msgstr "下载链接（tar.gz）"
 
 #: nextcloudappstore/core/forms.py:29 nextcloudappstore/core/models.py:373
 #: nextcloudappstore/core/templates/app/releases.html:40
@@ -102,10 +103,8 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"通常存储在〜/.nextcloud/certificates/APP_ID.crt中，其中APP_ID是您的应用程序的ID。 "
-"如果您没有证书，您需要首先创建一个证书签名请求（CSR），该申请应该发布在 <a href=\"https://github.com/nextcloud"
-"/app-certificate-requests\" rel=\"noreferrer noopener\"> certificate "
-"的repository </a>（遵循自述文件）。 您可以通过执行以下命令生成CSR："
+"通常存储在 ' ~/.nextcloud/certificates/APP_ID.crt' 中，其中APP_ID是您的应用程序的ID。 "
+"如果您没有证书，您首先需要创建一个证书签名请求（CSR），该申请应该发布在证书的库中（遵循自述文件）。 您可以通过执行以下命令生成CSR："
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -120,7 +119,7 @@ msgstr "语言"
 msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
-msgstr "<b>重要</b>: 改变语言会清除你当前的评论.更改不会被保存！"
+msgstr "<b>重要</b>：改变语言会清除你当前的评论。更改不会被保存！"
 
 #: nextcloudappstore/core/forms.py:77
 msgid "Comment"
@@ -280,7 +279,7 @@ msgstr "评价"
 
 #: nextcloudappstore/core/models.py:269
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "评价从0.0(最差)到1.0(最好)"
+msgstr "评价从0.0（最差）到1.0（最好）"
 
 #: nextcloudappstore/core/models.py:272
 msgid "Rating comment"
@@ -599,11 +598,11 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"来自 %(site_name)s的问候!\n"
+"来自 %(site_name)s的问候！\n"
 "\n"
 "您正在接收的此电子邮件，是因为用户%(user_display)s在 %(site_domain)s已将此电子邮件地址链接到其帐户。\n"
 "\n"
-"确认这是正确的, 请点击前往 %(activate_url)s\n"
+"确认这是正确的，请点击前往 %(activate_url)s\n"
 "\n"
 "如果您在 %(site_domain)s，没有账户，请忽略此信息。\n"
 
@@ -624,7 +623,7 @@ msgstr "确认E-mail地址"
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
-msgstr "请确认 <a href=\"mailto:%(email)s\">%(email)s</a>是用户的电子邮件地址%(user_display)s."
+msgstr "请确认 <a href=\"mailto:%(email)s\">%(email)s</a>是用户%(user_display)s的电子邮件地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -635,7 +634,7 @@ msgstr "确认"
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr "此电子邮件确认链接已过期或无效。请 <a href=\"%(email_url)s\">发出新的电子邮件确认请求</a>."
+msgstr "此电子邮件确认链接已过期或无效。请 <a href=\"%(email_url)s\">发出新的电子邮件确认请求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -674,7 +673,7 @@ msgstr "密码重置"
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
-msgstr "忘记了你的密码？请在下面输入您的电子邮件地址，我们将向您发送电子邮件，允许您重新设置它.。"
+msgstr "忘记了你的密码？请在下面输入您的电子邮件地址，我们将向您发送电子邮件，允许您重新设置它。"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -701,7 +700,7 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
-msgstr "密码重置链接无效，可能是因为它已经被使用了。请请求 <a href=\"%(passwd_reset_url)s\">新的密码重置链接</a>."
+msgstr "密码重置链接无效，可能是因为它已经被使用了。请请求 <a href=\"%(passwd_reset_url)s\">新的密码重置链接</a>。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -811,9 +810,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"评分评论支持 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"请不要使用评分评论反馈问题或请求功能. 开发者和用户都不会因为您的评论收到提醒.\n"
-"没有评论的评分会计数, 但不会在下方列表中显示."
+"评分评论支持 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
+"请不要使用评分评论反馈问题或请求功能。开发者和用户都不会因为您的评论收到提醒。\n"
+"没有评论的评分会计数，但不会在下方列表中显示。"
 
 #: nextcloudappstore/core/templates/app/detail.html:173
 msgid "Update rating"
@@ -841,7 +840,7 @@ msgstr "显示等级评论"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "评级 (最近)"
+msgstr "评级（最近）"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -860,12 +859,12 @@ msgstr "我的应用程序"
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr "在分类中没有找到搜索应用程序 \"<em>%(query)s</em>\" in %(category)s."
+msgstr "在%(category)s分类中没有找到搜索的应用程序 \"<em>%(query)s</em>\"。"
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "没有找到搜索应用程序 \"<em>%(query)s</em>\"."
+msgstr "没有找到搜索应用程序 \"<em>%(query)s</em>\"。"
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1041,7 +1040,7 @@ msgid ""
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "你即将使用你的 %(provider_name)s 账户登录到\n"
-"%(site_name)s. 最后一步，请填写以下表格： "
+"%(site_name)s。最后一步，请填写以下表单："
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1213,7 +1212,7 @@ msgstr "您的电子邮件地址"
 
 #: nextcloudappstore/user/forms.py:35
 msgid "The given e-mail address does not match your e-mail address"
-msgstr "给定的电子邮件地址与您的电子邮件地址不匹配."
+msgstr "给定的电子邮件地址与您的电子邮件地址不匹配。"
 
 #: nextcloudappstore/user/forms.py:39
 msgid "Confirm password"
@@ -1228,7 +1227,7 @@ msgstr "需要密码才能防止未经授权的用户更改您的电子邮件地
 
 #: nextcloudappstore/user/forms.py:55
 msgid "This e-mail address is already associated with another account."
-msgstr "此电子邮件地址已与另一帐户关联.。"
+msgstr "此电子邮件地址已与另一帐户关联。"
 
 #: nextcloudappstore/user/forms.py:65
 msgid "Invalid password"
@@ -1253,7 +1252,7 @@ msgid ""
 msgstr ""
 "\n"
 "当调用应用程序商店时，API令牌可用于身份验证\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置API</a>.注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置API</a>。注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
