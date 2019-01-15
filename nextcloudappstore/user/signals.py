@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.core.mail import send_mail
+from django.utils.translation import gettext as _
+
+from nextcloudappstore.settings.base import NEXTCLOUD_EMAIL
 
 from rest_framework.authtoken.models import Token
 
@@ -28,9 +31,9 @@ def password_changed_signal(sender, instance, **kwargs):
     :return:
     """
     from_mail = 'appstore@nextcloud.com'
-    mail_subect = 'Nextcloud Appstore password changed'
-    mail_message = "Your Appstore password has changed.  Contact\
-    support if this wasn't you."
+    mail_subect = _('Nextcloud Appstore password changed')
+    mail_message = _("Your Appstore password has changed.  Contact\
+    support if this wasn't you.")
 
     try:
         user = get_user_model().objects.get(pk=instance.pk)
@@ -39,7 +42,7 @@ def password_changed_signal(sender, instance, **kwargs):
             send_mail(
                     mail_subect,
                     mail_message,
-                    from_mail,
+                    NEXTCLOUD_EMAIL,
                     [user.email],
                     False)
     except User.DoesNotExist:
