@@ -300,4 +300,4 @@ GITHUB_API_BASE_URL = 'https://api.github.com'
 GITHUB_API_TOKEN = None
 
 # Nextcloud Email
-NEXTCLOUD_EMAIL = 'appstore@nextcloud.com'
+NEXTCLOUD_FROM_EMAIL = 'appstore@nextcloud.com'
