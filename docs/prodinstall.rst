@@ -92,14 +92,6 @@ Then set the file as the active settings file::
 
     export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.production
 
-.. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
-
-::
-
-    env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
-
-For more settings, check the `settings documentation <https://docs.djangoproject.com/en/1.9/ref/settings/>`_.
-
 
 Creating the Database Schema
 ----------------------------

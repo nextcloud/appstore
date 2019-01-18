@@ -9,6 +9,12 @@ Production Configuration
 ------------------------
 In order to get up a minimal production configuration you can extend the base production settings which expect your site to run on HTTPS and fill in the remaining bits:
 
+.. note:: Absolutely make sure to generate a new **SECRET_KEY** value! Use the following command for instance to generate a token:
+
+::
+
+    env LC_CTYPE=C tr -dc "a-zA-Z0-9-_\$\?" < /dev/urandom | head -c 64; echo
+
 .. code-block:: python
 
     from nextcloudappstore.settings.baseproduction import *
