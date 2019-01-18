@@ -39,7 +39,7 @@ def password_changed_signal(sender, instance, **kwargs):
             send_mail(
                     mail_subect,
                     mail_message,
-                    settings.NEXTCLOUD_FROM_EMAIL,
+                    settings.DEFAULT_FROM_EMAIL,
                     [user.email],
                     False)
     except User.DoesNotExist:
