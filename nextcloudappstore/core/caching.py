@@ -25,6 +25,13 @@ def apps_etag(request: Any, version: str) -> str:
     ])
 
 
+def apps_all_etag(request: Any) -> str:
+    return create_etag([
+        (App.objects.all(), 'last_release'),
+        (AppReleaseDeleteLog.objects.all(), 'last_modified'),
+    ])
+
+
 def app_etag(request: Any, id: str) -> str:
     return str(App.objects.get(id=id).last_modified)
 
