@@ -58,6 +58,8 @@ The following API routes are present:
 
 * :ref:`api-all-platforms`
 
+* :ref:`api-all-compatible-releases`
+
 * :ref:`api-all-releases`
 
 * :ref:`api-register-app`
@@ -253,11 +255,11 @@ hasRelease
 isSupported
     boolean flag that indicates if the Nextcloud is officially supported
 
-.. _api-all-releases:
+.. _api-all-compatible-releases:
 
-Get All Apps and Releases
-~~~~~~~~~~~~~~~~~~~~~~~~~
-This route will return all releases to display inside Nextcloud's apps admin area.
+Get All Apps and Releases Compatible with a Nextcloud Version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This route will return all releases to display inside Nextcloud's apps admin area filtered by the releases which are marked as compatible with the platforms version.
 
 * **Url**: GET /api/v1/platform/{**platform-version**}/apps.json
 * **Url parameters**:
@@ -271,6 +273,217 @@ This route will return all releases to display inside Nextcloud's apps admin are
 * **Example CURL request**::
 
     curl https://apps.nextcloud.com/api/v1/platform/9.0.0/apps.json -H 'If-None-Match: "1-1-2016-06-17 23:08:58.042321+00:00"'
+
+* **Returns**: application/json
+
+.. code-block:: json
+
+    [
+        {
+            "id": "news",
+            "categories": [
+                "multimedia"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Posselt",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Alessandro Cosentino",
+                    "mail": "",
+                    "homepage": ""
+                },
+                {
+                    "name": "Jan-Christoph Borchardt",
+                    "mail": "",
+                    "homepage": ""
+                }
+            ],
+            "userDocs": "https://github.com/owncloud/news/wiki#user-documentation",
+            "adminDocs": "https://github.com/owncloud/news#readme",
+            "developerDocs": "https://github.com/owncloud/news/wiki#developer-documentation",
+            "issueTracker": "https://github.com/owncloud/news/issues",
+            "website": "https://github.com/owncloud/news",
+            "discussion": "https://help.nextcloud.com/c/apps/news",
+            "created": "2016-06-25T16:08:56.794719Z",
+            "lastModified": "2016-06-25T16:49:25.326855Z",
+            "ratingOverall": 0.5,
+            "ratingNumOverall": 20,
+            "ratingRecent": 1.0,
+            "ratingNumRecent": 10,
+            "releases": [
+                {
+                    "version": "9.0.4-alpha.1",
+                    "phpExtensions": [
+                        {
+                            "id": "libxml",
+                            "versionSpec": ">=2.7.8",
+                            "rawVersionSpec": ">=2.7.8"
+                        },
+                        {
+                            "id": "curl",
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        },
+                        {
+                            "id": "SimpleXML",
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        },
+                        {
+                            "id": "iconv",
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        }
+                    ],
+                    "databases": [
+                        {
+                            "id": "pgsql",
+                            "versionSpec": ">=9.4.0",
+                            "rawVersionSpec": ">=9.4"
+                        },
+                        {
+                            "id": "sqlite",
+                            "versionSpec": "*",
+                            "rawVersionSpec": "*"
+                        },
+                        {
+                            "id": "mysql",
+                            "versionSpec": ">=5.5.0",
+                            "rawVersionSpec": ">=5.5"
+                        }
+                    ],
+                    "shellCommands": [
+                        "grep"
+                    ],
+                    "phpVersionSpec": ">=5.6.0",
+                    "platformVersionSpec": ">=9.0.0 <9.2.0",
+                    "rawPhpVersionSpec": ">=5.6",
+                    "rawPlatformVersionSpec": ">=10 <=10",
+                    "minIntSize": 64,
+                    "isNightly": false,
+                    "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
+                    "created": "2016-06-25T16:08:56.796646Z",
+                    "licenses": [
+                        "agpl"
+                    ],
+                    "lastModified": "2016-06-25T16:49:25.319425Z",
+                    "signature": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5",
+                    "translations": {
+                        "en": {
+                            "changelog": "* **Bugfix**: Pad API last modified timestamp to milliseconds in updated items API to return only new items. API users however need to re-sync their complete contents, #24\n* **Bugfix**: Do not pad milliseconds for non millisecond timestamps in API"
+                        }
+                    }
+                }
+            ],
+            "screenshots": [
+                {
+                    "url": "https://example.com/news.jpg",
+                    "smallThumbnail": ""
+                }
+            ],
+            "translations": {
+                "en": {
+                    "name": "News",
+                    "summary": "An RSS/Atom feed reader",
+                    "description": "# This is markdown\nnext line"
+                }
+            },
+            "isFeatured": false,
+            "certificate": "-----BEGIN CERTIFICATE-----\r\nMIIEojCCA4qgAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwezELMAkGA1UEBhMCREUx\r\nGzAZBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzEXMBUGA1UECgwOTmV4dGNsb3Vk\r\nIEdtYkgxNjA0BgNVBAMMLU5leHRjbG91ZCBDb2RlIFNpZ25pbmcgSW50ZXJtZWRp\r\nYXRlIEF1dGhvcml0eTAeFw0xNjA2MTIyMTA1MDZaFw00MTA2MDYyMTA1MDZaMGYx\r\nCzAJBgNVBAYTAkRFMRswGQYDVQQIDBJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNV\r\nBAcMCVN0dXR0Z2FydDEXMBUGA1UECgwOTmV4dGNsb3VkIEdtYkgxDTALBgNVBAMM\r\nBGNvcmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUxcrn2DC892IX\r\n8+dJjZVh9YeHF65n2ha886oeAizOuHBdWBfzqt+GoUYTOjqZF93HZMcwy0P+xyCf\r\nQqak5Ke9dybN06RXUuGP45k9UYBp03qzlUzCDalrkj+Jd30LqcSC1sjRTsfuhc+u\r\nvH1IBuBnf7SMUJUcoEffbmmpAPlEcLHxlUGlGnz0q1e8UFzjbEFj3JucMO4ys35F\r\nqZS4dhvCngQhRW3DaMlQLXEUL9k3kFV+BzlkPzVZEtSmk4HJujFCnZj1vMcjQBg\/\r\nBqq1HCmUB6tulnGcxUzt\/Z\/oSIgnuGyENeke077W3EyryINL7EIyD4Xp7sxLizTM\r\nFCFCjjH1AgMBAAGjggFDMIIBPzAJBgNVHRMEAjAAMBEGCWCGSAGG+EIBAQQEAwIG\r\nQDAzBglghkgBhvhCAQ0EJhYkT3BlblNTTCBHZW5lcmF0ZWQgU2VydmVyIENlcnRp\r\nZmljYXRlMB0GA1UdDgQWBBQwc1H9AL8pRlW2e5SLCfPPqtqc0DCBpQYDVR0jBIGd\r\nMIGagBRt6m6qqTcsPIktFz79Ru7DnnjtdKF+pHwwejELMAkGA1UEBhMCREUxGzAZ\r\nBgNVBAgMEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBwwJU3R1dHRnYXJ0MRcw\r\nFQYDVQQKDA5OZXh0Y2xvdWQgR21iSDEhMB8GA1UEAwwYTmV4dGNsb3VkIFJvb3Qg\r\nQXV0aG9yaXR5ggIQADAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUH\r\nAwEwDQYJKoZIhvcNAQELBQADggEBADZ6+HV\/+0NEH3nahTBFxO6nKyR\/VWigACH0\r\nnaV0ecTcoQwDjKDNNFr+4S1WlHdwITlnNabC7v9rZ\/6QvbkrOTuO9fOR6azp1EwW\r\n2pixWqj0Sb9\/dSIVRpSq+jpBE6JAiX44dSR7zoBxRB8DgVO2Afy0s80xEpr5JAzb\r\nNYuPS7M5UHdAv2dr16fDcDIvn+vk92KpNh1NTeZFjBbRVQ9DXrgkRGW34TK8uSLI\r\nYG6jnfJ6eJgTaO431ywWPXNg1mUMaT\/+QBOgB299QVCKQU+lcZWptQt+RdsJUm46\r\nNY\/nARy4Oi4uOe88SuWITj9KhrFmEvrUlgM8FvoXA1ldrR7KiEg=\r\n-----END CERTIFICATE-----",
+            "signatureDigest": "sha512"
+        }
+    ]
+
+
+translations
+    Translated fields are stored inside a translations object. They can have any size, depending on if there is a translation. If a required language is not found, you should fall back to English.
+
+isNightly
+    True if the release is a nightly version. New nightly releases are not required to have a higher version than the previous one to be considered greater. Instead look at the **lastModified** attribute to detect updates if both nightly versions are equal. Example: 1.0.0 is equal to 1.0.0, however if the second one has a nightly flag, then the second one is greater. If both versions have nightly flags and are equal, the **lastModified** is used to determine the precedence.
+
+screenshots
+    Guaranteed to be HTTPS
+
+smallThumbnail
+    Small thumbnail which can be used as preview image. Guaranteed to be HTTPS. Not required, so if not present or an empty string, use the screenshot url instead.
+
+download
+    Download archive location, guaranteed to be HTTPS
+
+versionSpec
+    Required versions (minimum and maximum versions) are transformed to semantic version specs. If a field is a \*, this means that there is no version requirement. The following permutations can occur:
+
+     * **All versions**: \*
+     * **Maximum version only**: <8.1.2
+     * **Minimum version only**: >=9.3.2
+     * **Maximum and minimum version**: >=9.3.2 <8.1.2
+
+rawVersionSpec
+    Non semantic versions as they occur in the info.xml. The following permutations can occur:
+
+     * **All versions**: \*
+     * **Maximum version only**: <=8.1.2
+     * **Minimum version only**: >=9.3.2
+     * **Maximum and minimum version**: >=9.3.2 <=8.1.2
+
+
+ratingRecent
+    Rating from 0.0 to 1.0 (0.0 being the worst, 1.0 being the best) in the past 90 days
+
+ratingNumRecent
+    Number of ratings for an app in the past 90 days, as in: how many votes were casted. 0 Means no ratings yet.
+
+ratingOverall
+    Rating from 0.0 to 1.0 (0.0 being the worst, 1.0 being the best) of all time
+
+ratingNumOverall
+    Number of ratings for an app overall, as in: how many votes were casted. 0 Means no ratings yet.
+
+signature
+    A signature using SHA512 and the app's certificate
+
+signatureDigest
+    The hashing algorithm that is used to verify the signature
+
+description
+    A full blown description containing Markdown
+
+summary
+    A brief explanation what the app tries to do
+
+isFeatured
+    Simple boolean flag which will be presented to the user as "hey take a look at this app". Does not imply that it has been reviewed or we recommend it officially
+
+categories
+    The string value is the category's id attribute, see :ref:`api-all-categories`
+
+changelog
+    The translated release changelog in Markdown. Can be empty for all languages
+
+version
+    A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
+
+
+
+.. _api-all-releases:
+
+Get All Apps and Releases
+~~~~~~~~~~~~~~~~~~~~~~~~~
+This route will return all releases to display inside Nextcloud's apps admin area.
+
+* **Url**: GET /api/v1/apps.json
+* **Url parameters**: None
+
+* **Authentication**: None
+
+* **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
+
+* **Example CURL request**::
+
+    curl https://apps.nextcloud.com/api/v1/apps.json -H 'If-None-Match: "1-1-2016-06-17 23:08:58.042321+00:00"'
 
 * **Returns**: application/json
 
