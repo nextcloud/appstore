@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 03:03+0000\n"
+"POT-Creation-Date: 2019-05-24 03:04+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>, 2019\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "Aláírás az appod ID-jával"
+msgstr "Az alkalmazása azonosítójának aláírása"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -118,11 +118,11 @@ msgstr "Hozzászólás"
 
 #: nextcloudappstore/core/models.py:58
 msgid "ID"
-msgstr "ID"
+msgstr "Azonosító"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "alkalmazás ID, azonos a mappa nevével"
+msgstr "Alkalmazásazonosító, megegyezik a mappa nevével"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
 msgid "Category"
@@ -135,7 +135,7 @@ msgstr "Név"
 
 #: nextcloudappstore/core/models.py:63
 msgid "Rendered app name for users"
-msgstr "Az alkalmazás felhasználóknak megjelenített neve"
+msgstr "Az alkalmazás a felhasználók számára megjelenített neve"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:44
@@ -153,7 +153,7 @@ msgstr "Leírás"
 
 #: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:475
 msgid "Will be rendered as Markdown"
-msgstr "Markdown szövegként lesz megjelenítve"
+msgstr "Markdownként lesz megjelenítve"
 
 #: nextcloudappstore/core/models.py:72
 msgid "User documentation URL"
@@ -170,7 +170,7 @@ msgstr "Fejlesztői dokumentáció URL"
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:38
 msgid "Issue tracker URL"
-msgstr "Esetkezelő URL"
+msgstr "Hibakövető URL"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
 #: nextcloudappstore/core/templates/app/detail.html:97
@@ -193,22 +193,22 @@ msgstr "Frissítve:"
 
 #: nextcloudappstore/core/models.py:85
 msgid "App owner"
-msgstr "Alkalmazás tulajdonos"
+msgstr "Alkalmazásgazda"
 
 #: nextcloudappstore/core/models.py:88
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Co-Maintainers"
-msgstr "Közreműködők"
+msgstr "Társkarbantartók"
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:335
 msgid "App authors"
-msgstr "Alkalmazás szerzői"
+msgstr "Alkalmazásszerzők"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:28
 msgid "Featured"
-msgstr "KIemelt"
+msgstr "Kiemelt"
 
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:77
@@ -239,15 +239,16 @@ msgstr "Tanúsítvány"
 
 #: nextcloudappstore/core/models.py:104
 msgid "Ownership transfer enabled"
-msgstr "Tulajdonjog átvitel engedélyezve"
+msgstr "Tulajdonjog-átadás engedélyezve"
 
 #: nextcloudappstore/core/models.py:105
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Ha be van kapcsolva,egy másik felhasználó regisztrálhat egy azonos app-ot a "
-"nyilvános tanúsítvánnyal és aláírással. Ha megteszi, az app átkerül hozzá."
+"Ha be van kapcsolva, akkor egy másik felhasználó regisztrálhatja ugyanazt az"
+" alkalmazást a nyilvános tanúsítvánnyal és aláírással. Ha megteszi, akkor az"
+" alkalmazás átkerül hozzá."
 
 #: nextcloudappstore/core/models.py:110 nextcloudappstore/core/models.py:264
 #: nextcloudappstore/core/models.py:341 nextcloudappstore/core/models.py:425
@@ -272,23 +273,23 @@ msgstr "Értékelés"
 
 #: nextcloudappstore/core/models.py:269
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "Értékelés 0.0-tól (legrosszabb) 1.0-ig (legjobb)"
+msgstr "Értékelés 0,0-tól (legrosszabb) 1,0-ig (legjobb)"
 
 #: nextcloudappstore/core/models.py:272
 msgid "Rating comment"
-msgstr "Hozzászólás értékelése"
+msgstr "Értékelő hozzászólás "
 
 #: nextcloudappstore/core/models.py:273
 msgid "Rating comment in Markdown"
-msgstr "Hozzászólás értékelése Markdownban"
+msgstr "Értékelő hozzászólás Markdownban"
 
 #: nextcloudappstore/core/models.py:279
 msgid "App rating"
-msgstr "Alkalmazás értékelés"
+msgstr "Alkalmazás-értékelés"
 
 #: nextcloudappstore/core/models.py:280
 msgid "App ratings"
-msgstr "Alkalmazás értékelések"
+msgstr "Alkalmazás-értékelések"
 
 #: nextcloudappstore/core/models.py:321
 msgid "Full name"
@@ -300,7 +301,7 @@ msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:334
 msgid "App author"
-msgstr "Alkalmazás szerzője"
+msgstr "Alkalmazásszerző"
 
 #: nextcloudappstore/core/models.py:339
 msgid "Version"
@@ -308,7 +309,7 @@ msgstr "Verzió"
 
 #: nextcloudappstore/core/models.py:340
 msgid "Version follows Semantic Versioning"
-msgstr "A verzió a szemantikus verziózás szerint"
+msgstr "A verzió szemantikus verziózást követ"
 
 #: nextcloudappstore/core/models.py:347 nextcloudappstore/core/models.py:571
 msgid "PHP extension dependency"
@@ -349,11 +350,11 @@ msgstr "Minimális egész bitek"
 
 #: nextcloudappstore/core/models.py:366
 msgid "e.g. 32 for 32bit Integers"
-msgstr "pl 32 a 32-bites egészekhez"
+msgstr "pl 32 a 32 bites egészekhez"
 
 #: nextcloudappstore/core/models.py:368
 msgid "Archive download URL"
-msgstr "Archívum letöltés URL"
+msgstr "Archívum letöltési URL"
 
 #: nextcloudappstore/core/models.py:374
 msgid "A signature using the app's certificate"
@@ -366,7 +367,7 @@ msgstr "Aláírás hash algoritmusa"
 #: nextcloudappstore/core/models.py:378
 #: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Changelog"
-msgstr "Változások"
+msgstr "Változásnapló"
 
 #: nextcloudappstore/core/models.py:379
 msgid "The release changelog. Can contain Markdown"
@@ -375,11 +376,11 @@ msgstr "Kiadási változásnapló. Markdownt tartalmazhat"
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
 msgid "App release"
-msgstr "Alkalmazás kiadás"
+msgstr "Alkalmazáskiadás"
 
 #: nextcloudappstore/core/models.py:385
 msgid "App releases"
-msgstr "Alkalmazás kiadások"
+msgstr "Alkalmazáskiadások"
 
 #: nextcloudappstore/core/models.py:422
 msgid "Image URL"
@@ -391,7 +392,7 @@ msgstr "Kis bélyegkép"
 
 #: nextcloudappstore/core/models.py:427
 msgid "Ordering"
-msgstr "Megrendelés"
+msgstr "Rendezés"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
@@ -410,7 +411,7 @@ msgstr "Rendszerhéj parancsok"
 
 #: nextcloudappstore/core/models.py:449
 msgid "Name of a required shell command, e.g. grep"
-msgstr "A szükséges rendszerhéj parancs neve, pl. grep"
+msgstr "A szükséges rendszerhéj parancs neve, például grep"
 
 #: nextcloudappstore/core/models.py:453
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -420,15 +421,15 @@ msgstr "Rendszerhéj parancsok"
 #: nextcloudappstore/core/models.py:462 nextcloudappstore/core/models.py:489
 #: nextcloudappstore/core/models.py:507
 msgid "Id"
-msgstr "ID"
+msgstr "Azonosító"
 
 #: nextcloudappstore/core/models.py:464
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr "Kategória ID az app feltöltési kategóriájának azonosítására"
+msgstr "Kategóriaazonosító az alkalmazás feltöltési kategóriájához"
 
 #: nextcloudappstore/core/models.py:472
 msgid "Category name which will be presented to the user"
-msgstr "A kategória neve, amit a felhasználók látnak majd"
+msgstr "Kategórianév, melyet a felhasználók látni fognak"
 
 #: nextcloudappstore/core/models.py:480
 #: nextcloudappstore/scaffolding/forms.py:40
@@ -441,7 +442,7 @@ msgstr "A licenc azonosításához használt kulcs"
 
 #: nextcloudappstore/core/models.py:494
 msgid "License name which will be presented to the user"
-msgstr "A licenc neve, amit a felhasználók látnak majd"
+msgstr "Licencnév, melyet a felhasználók látni fognak"
 
 #: nextcloudappstore/core/models.py:499
 #: nextcloudappstore/core/templates/app/releases.html:32
@@ -454,7 +455,7 @@ msgstr "Az adatbázis azonosításához használt kulcs"
 
 #: nextcloudappstore/core/models.py:511
 msgid "Database name which will be presented to the user"
-msgstr "Az adatbázis neve, amit a felhasználók látnak majd"
+msgstr "Adatbázisnév, melyet a felhasználók látni fognak"
 
 #: nextcloudappstore/core/models.py:514 nextcloudappstore/core/models.py:527
 msgid "Database"
@@ -547,7 +548,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:628
 msgid "Version is supported"
-msgstr "Verzió támogatva"
+msgstr "Támogatott verzió"
 
 #: nextcloudappstore/core/models.py:629
 msgid ""
@@ -652,7 +653,7 @@ msgstr "Bejelentkezés"
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/signup.html:25
 msgid "Log in with GitHub"
-msgstr "Belépés GitHub-bal"
+msgstr "Bejelentkezés GitHubbal"
 
 #: nextcloudappstore/core/templates/account/login.html:35
 msgid "Forgot password"
