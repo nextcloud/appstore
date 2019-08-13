@@ -5,6 +5,9 @@ from typing import Any
 import requests
 from rest_framework.exceptions import ValidationError  # type: ignore
 
+from nextcloudappstore.api.v1.release.parser import \
+    UnsupportedAppArchiveException
+
 
 class MaximumDownloadSizeExceededException(ValidationError):
     pass
@@ -58,7 +61,9 @@ class AppReleaseDownloader:
                 req.raise_for_status()
                 self._stream_to_file(file, max_size, req)
         except requests.exceptions.RequestException as e:
-            raise DownloadException(e)
+            filename = url[url.rfind("/") + 1:]
+            msg = '%s is not a valid tar.gz archive ' % filename
+            raise UnsupportedAppArchiveException(msg)
         return ReleaseDownload(file.name)
 
     def _stream_to_file(self, file: Any, max_size: int,

@@ -1,6 +1,7 @@
 import re
 import tarfile  # type: ignore
 from functools import reduce
+from pathlib import Path
 from typing import Dict, Any, List, Set, Pattern
 
 import lxml.etree  # type: ignore
@@ -69,7 +70,7 @@ class GunZipAppMetadataExtractor:
         string
         """
         if not tarfile.is_tarfile(archive_path):  # type: ignore
-            msg = '%s is not a valid tar.gz archive ' % archive_path
+            msg = '%s is not a valid tar.gz archive ' % Path(archive_path).name
             raise UnsupportedAppArchiveException(msg)
 
         try:
