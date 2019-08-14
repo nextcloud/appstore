@@ -66,11 +66,10 @@ class AppReleaseDownloader:
             is unwanted in case of a malicious client - the error message could
             be compared to a legitimate parser error message to query third
             parties' for availability/status.
-            
             To prevent this, in case any download issue happens we raise an
             error which states that the "file" is not a valid tar.gz archive.
             This is technically correct but might not be the best UX, however
-            it's definitely the best we can do now given security circumstances.
+            it's definitely the best we can do now given security circumstances
             """
             filename = url[url.rfind("/") + 1:]
             msg = '%s is not a valid tar.gz archive ' % filename
