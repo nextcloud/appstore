@@ -72,6 +72,10 @@
                 {% endif %}
             </p>
             {% endif %}
+            {% for category in object.categories.all %}
+                <h5>{% trans "Category" %}</h5>
+                <p>{{ category }}</p>
+            {% endfor %}
             <h5>{% trans 'Overall rating' %}</h5>
             <p class="{{ object.rating_overall|app_rating_class }}">{{ object.rating_overall|app_rating }}</p>
             <h5>{% trans 'Recent rating' %}</h5>
