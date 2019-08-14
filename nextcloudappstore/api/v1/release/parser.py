@@ -70,6 +70,11 @@ class GunZipAppMetadataExtractor:
         string
         """
         if not tarfile.is_tarfile(archive_path):  # type: ignore
+            """
+            Previously the message revealed full path to the archive which is
+            unwanted. To mitigate the issue we now get only the filename
+            and include that in the error message 
+            """
             msg = '%s is not a valid tar.gz archive ' % Path(archive_path).name
             raise UnsupportedAppArchiveException(msg)
 
