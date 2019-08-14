@@ -1,4 +1,5 @@
-from allauth.account.utils import filter_users_by_email
+from allauth.account.utils import filter_users_by_email, user_username, \
+    user_pk_to_url_str
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import EmailField, CharField, PasswordInput
@@ -63,3 +64,64 @@ class AccountForm(forms.ModelForm):
             return value
         else:
             raise forms.ValidationError(_('Invalid password'))
+
+
+class CustomResetPasswordForm(forms.Form):
+    email = forms.EmailField(
+        label=_("E-mail"),
+        required=True,
+        widget=forms.TextInput(attrs={
+            "type": "email",
+            "size": "30",
+            "placeholder": _("E-mail address"),
+        })
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        from allauth.account.adapter import get_adapter
+        email = get_adapter().clean_email(email)
+        self.users = filter_users_by_email(email)
+
+        return self.cleaned_data["email"]
+
+    def save(self, request, **kwargs):
+        from django.contrib.sites.shortcuts import get_current_site
+        current_site = get_current_site(request)
+        email = self.cleaned_data["email"]
+        from django.contrib.auth.tokens import default_token_generator
+        token_generator = kwargs.get("token_generator",
+                                     default_token_generator)
+
+        for user in self.users:
+            temp_key = token_generator.make_token(user)
+
+            # save it to the password reset model
+            # password_reset = PasswordReset(user=user, temp_key=temp_key)
+            # password_reset.save()
+
+            # send the password reset email
+            from django.urls import reverse
+            path = reverse("account_reset_password_from_key",
+                           kwargs=dict(uidb36=user_pk_to_url_str(user),
+                                       key=temp_key))
+            from allauth.utils import build_absolute_uri
+            url = build_absolute_uri(
+                request, path)
+
+            context = {"current_site": current_site,
+                       "user": user,
+                       "password_reset_url": url,
+                       "request": request}
+
+            from allauth.account import app_settings
+
+            if app_settings.AUTHENTICATION_METHOD \
+                    != app_settings.AuthenticationMethod.EMAIL:
+                context['username'] = user_username(user)
+            from allauth.account.adapter import get_adapter
+            get_adapter(request).send_mail(
+                'account/email/password_reset_key',
+                email,
+                context)
+        return self.cleaned_data["email"]
