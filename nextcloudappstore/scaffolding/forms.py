@@ -2,7 +2,8 @@ import re
 from os import listdir
 
 from django.core.exceptions import ValidationError
-from django.forms import Textarea, Form, URLField, MultipleChoiceField
+from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
+    TextInput
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField
 
@@ -29,7 +30,10 @@ def validate_id(input: str) -> None:
 class AppScaffoldingForm(Form):
     name = CharField(max_length=80, label=_('App name'),
                      validators=[validate_id],
-                     help_text=_('The app name must be camel case e.g. MyApp'))
+                     widget=TextInput(attrs={'placeholder': 'The app name '
+                                                            'must be camel '
+                                                            'case e.g. '
+                                                            'MyApp'}))
     platform = ChoiceField(choices=lazy(get_versions, list), required=True,
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
