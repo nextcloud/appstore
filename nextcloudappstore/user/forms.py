@@ -67,6 +67,7 @@ class AccountForm(forms.ModelForm):
 
 
 class CustomResetPasswordForm(forms.Form):
+    # remove this class once issue #1307 is resolved django-allauth
     email = forms.EmailField(
         label=_("E-mail"),
         required=True,
