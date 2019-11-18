@@ -366,6 +366,7 @@ category
        * **security**
        * **social**
        * **tools**
+       * **workflow**
 
     * old categories are migrated:
 
