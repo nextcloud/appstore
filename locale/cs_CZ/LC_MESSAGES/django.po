@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-19 03:16+0000\n"
+"POT-Creation-Date: 2019-11-20 03:17+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2019\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -340,11 +340,11 @@ msgstr "Požadavek na verzi platformy"
 
 #: nextcloudappstore/core/models.py:361
 msgid "PHP version requirement (raw)"
-msgstr "Požadavek na verzi PHP (surový)"
+msgstr "Požadavek na verzi PHP (nezpracováno)"
 
 #: nextcloudappstore/core/models.py:363
 msgid "Platform version requirement (raw)"
-msgstr "Požadavek na verzi platformy (surový)"
+msgstr "Požadavek na verzi platformy (nezpracováno)"
 
 #: nextcloudappstore/core/models.py:365
 #: nextcloudappstore/core/templates/app/releases.html:69
@@ -697,7 +697,7 @@ msgstr "Kontaktujte nás, pokud máte problém resetovat své heslo"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "Špatný API token"
+msgstr "Chybný token k aplikačnímu program. rozhraní"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -762,7 +762,7 @@ msgstr "Vydavatel"
 
 #: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
-msgstr "Zdroje"
+msgstr "Prostředky"
 
 #: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
@@ -1000,7 +1000,7 @@ msgstr "Nejnovější vydání aplikace"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr "Forkni mě na GitHubu"
+msgstr "Forkněte mne na portálu GitHub"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1114,7 +1114,7 @@ msgstr "Multimédia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
-msgstr "Aplikace audia, videa a obrázků"
+msgstr "Aplikace pro zvuk, video a obrázky"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
@@ -1166,15 +1166,15 @@ msgstr "Vše ostatní"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Workflow"
-msgstr ""
+msgstr "Pracovní postup"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:26
 msgid "Workflow related apps"
-msgstr ""
+msgstr "Aplikace související s pracovním postupem"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
-msgstr "Velmi negativní"
+msgstr "Velmi záporné"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
@@ -1186,11 +1186,11 @@ msgstr "Neutrální"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
-msgstr "Pozitivní"
+msgstr "Kladné"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
-msgstr "Velmi pozitivní"
+msgstr "Velmi kladné"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS URL"
@@ -1287,6 +1287,8 @@ msgstr "Heslo do katalogu aplikací pro Nextcloud bylo změněno"
 msgid ""
 "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
+"Vaše heslo do katalogu aplikací bylo změněno. Obraťte se na podporu, pokud "
+"jste ho neměnili vy."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
