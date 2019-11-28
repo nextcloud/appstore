@@ -6,7 +6,6 @@
 # Translators:
 # Pavel Kovář, 2016
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2016
-# Jakub Kalousek <jkalousek@posteo.cz>, 2017
 # Václav Černý <vaclav.vatoz.cerny@gmail.com>, 2017
 # Disassembler0 <disassembler@dasm.cz>, 2017
 # Lukáš Tyrychtr <lukastyrychtr@mail.muni.cz>, 2017
@@ -21,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-27 03:16+0000\n"
+"POT-Creation-Date: 2019-11-28 03:20+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2019\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -139,7 +138,7 @@ msgstr "Název"
 
 #: nextcloudappstore/core/models.py:63
 msgid "Rendered app name for users"
-msgstr "Uživateli viditelný název aplikace"
+msgstr "Název aplikace, který je zobrazován uživatelům"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:48
@@ -148,7 +147,7 @@ msgstr "Souhrn"
 
 #: nextcloudappstore/core/models.py:66
 msgid "Short text describing the app's purpose"
-msgstr "Krátký text popisující účel aplikace"
+msgstr "Stručný text popisující účel aplikace"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:474
 #: nextcloudappstore/scaffolding/forms.py:50
@@ -284,7 +283,7 @@ msgstr "Hodnotící komentář"
 
 #: nextcloudappstore/core/models.py:273
 msgid "Rating comment in Markdown"
-msgstr "Komentář hodnocení v Markdownu"
+msgstr "Hodnotící komentář (lze použít Markdown formátovací značky)"
 
 #: nextcloudappstore/core/models.py:279
 msgid "App rating"
@@ -365,7 +364,7 @@ msgstr "Podpis pomocí certifikátu aplikace"
 
 #: nextcloudappstore/core/models.py:376
 msgid "Signature hashing algorithm"
-msgstr "Hashovací algoritmus pro podpisy"
+msgstr "Algoritmus vytváření otisku (hash) pro podpis"
 
 #: nextcloudappstore/core/models.py:378
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -526,7 +525,7 @@ msgstr "např. 9.0.54"
 
 #: nextcloudappstore/core/models.py:613
 msgid "Is current version"
-msgstr "Aktuální verze"
+msgstr "Je aktuální verze"
 
 #: nextcloudappstore/core/models.py:614
 msgid ""
@@ -673,7 +672,7 @@ msgstr "Zapomenuté heslo"
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
 msgid "Register"
-msgstr "Registrovat"
+msgstr "Zaregistrovat"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
@@ -689,15 +688,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
-msgstr "Obnovit moje heslo"
+msgstr "Resetovat moje heslo"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
-msgstr "Kontaktujte nás, pokud máte problém resetovat své heslo"
+msgstr "Pokud máte problém resetovat své heslo, obraťte se na nás"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "Chybný token k aplikačnímu program. rozhraní"
+msgstr "Nesprávný token k aplikačnímu program. rozhraní (API)"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -730,7 +729,7 @@ msgstr "Správce katalogu aplikací pro Nextcloud"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Administrace obchodu aplikací Nextcloud"
+msgstr "Správa katalogu s aplikacemi pro Nextcloud"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -850,7 +849,7 @@ msgstr "Komentáře s hodnocením"
 
 #: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
-msgstr "Zobrazit hodnocení komentářů v:"
+msgstr "Zobrazit hodnotící komentáře v:"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
@@ -886,7 +885,7 @@ msgstr "Nebyly nalezeny žádné aplikace při hledání „<em>%(query)s</em>�
 #: nextcloudappstore/core/templates/app/register.html:14
 #: nextcloudappstore/core/templates/nav.html:55
 msgid "Register app"
-msgstr "Registrovat aplikaci"
+msgstr "Zaregistrovat aplikaci"
 
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
@@ -991,7 +990,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
-msgstr "Nextcloud komunita"
+msgstr "Komunita okolo Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
@@ -1031,7 +1030,7 @@ msgstr "Hledat"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
-msgstr "Přepnout navigaci"
+msgstr "Vyp/zap. navigaci"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
@@ -1098,7 +1097,7 @@ msgstr "Propojení"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "Aplikace propojující NextCloud s dalšími službami a platformami"
+msgstr "Aplikace které NextCloud propojují s dalšími službami a platformami"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
@@ -1106,7 +1105,7 @@ msgstr "Dohled"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr "Datové statistiky, diagnózy systému a aktivity aplikací"
+msgstr "Datové statistiky, diagnostiky systému a aktivity aplikací"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
@@ -1166,11 +1165,11 @@ msgstr "Vše ostatní"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Flow"
-msgstr ""
+msgstr "Flow (tok)"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:26
 msgid "Apps for Nextcloud Flow"
-msgstr ""
+msgstr "Aplikace pro Nextcloud Flow"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
@@ -1297,7 +1296,7 @@ msgstr "Uložit"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr "Token k API"
+msgstr "Token do aplikačního program. rozhraní (API)"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1308,22 +1307,22 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"                Klíč k API může být použit při volání\n"
+"                Klíč k aplikačnímu program. rozhraní (API) může být použit při volání\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a> obchodu s aplikacemi.\n"
-"                Ujistěte se, že zůstane utajen. Nový token může být vygenerován níže, což zneplatní starý token.\n"
+"                Ujistěte se, že zůstane utajen. Nový token může být vytvořen níže, což zneplatní ten stávající.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr "Váš token k API je:"
+msgstr "Váš token do aplikačního program. rozhraní (API) je:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr "Vytvořen nový API token."
+msgstr "Vytvořen nový token do aplikačního program. rozhraní (API)"
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr "Obnovit token k API"
+msgstr "Znovu vytvořit token do aplikačního program. rozhraní (API)"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
@@ -1343,7 +1342,7 @@ msgstr "Heslo"
 
 #: nextcloudappstore/user/templates/user/base.html:26
 msgid "API token"
-msgstr "Token k API"
+msgstr "Token do aplikačního program. rozhraní (API)"
 
 #: nextcloudappstore/user/templates/user/base.html:29
 #: nextcloudappstore/user/templates/user/delete-account.html:5
@@ -1364,7 +1363,9 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr "Změnou hesla dojde také k novému vygenerování vašeho tokenu pro API!"
+msgstr ""
+"Se změnou hesla vám bude vytvořen také nový token do aplikačního program. "
+"rozhraní (API)!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
@@ -1415,4 +1416,4 @@ msgstr "Odemknout převod vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "Zatím jste nenahrál(a) žádné aplikace!"
+msgstr "Doposud jste nenahráli žádné aplikace!"
