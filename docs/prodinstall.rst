@@ -118,7 +118,7 @@ Initializing Translations
 -------------------------
 To import all translations run::
 
-    python manage.py compilemessages --ignore venv/
+    python manage.py compilemessages
     python manage.py importdbtranslations
 
 Building the Frontend

@@ -28,7 +28,7 @@ COPY locale locale
 
 # provide a temporary secret key in order to be able to run the compile messages command
 RUN echo "SECRET_KEY = 'secret'" >> nextcloudappstore/settings/base.py
-RUN python manage.py compilemessages --ignore venv/ --settings=nextcloudappstore.settings.base
+RUN python manage.py compilemessages --settings=nextcloudappstore.settings.base
 
 
 FROM python:3.6 as main

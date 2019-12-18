@@ -27,7 +27,7 @@ Certain translated strings like categories are stored in the database. If you ch
 
 To import the translated messages back into the database run::
 
-    python manage.py compilemessages --ignore venv/
+    python manage.py compilemessages
     python manage.py importdbtranslations
 
 Deploying Translations
@@ -35,7 +35,7 @@ Deploying Translations
 
 Each time the **.po** files are changed, they need to be compiled into a specific binary format for **gettext** using::
 
-    python manage.py compilemessages --ignore venv/
+    python manage.py compilemessages
 
 Further details can be looked up in `Django's documentation online <https://docs.djangoproject.com/en/1.10/topics/i18n/translation/>`_
 
