@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-03 03:12+0000\n"
+"POT-Creation-Date: 2019-12-18 04:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>, 2019\n"
 "Language-Team: Icelandic (https://www.transifex.com/nextcloud/teams/64236/is/)\n"
@@ -39,7 +39,7 @@ msgid "Download"
 msgstr "Sækja"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:190
+#: nextcloudappstore/core/templates/app/detail.html:194
 msgid "Bad"
 msgstr "Vont"
 
@@ -48,7 +48,7 @@ msgid "OK"
 msgstr "Í lagi"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:192
 msgid "Good"
 msgstr "Gott"
 
@@ -120,6 +120,7 @@ msgid "app ID, identical to folder name"
 msgstr "forritsauðkenni, sama og möppuheiti"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Flokkur"
 
@@ -133,7 +134,7 @@ msgid "Rendered app name for users"
 msgstr "Nafn forritsins eins og það birtist notendum"
 
 #: nextcloudappstore/core/models.py:64
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Summary"
 msgstr "Samantekt"
 
@@ -142,7 +143,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Stutt lýsing á tilgangi forritsins"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:474
-#: nextcloudappstore/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:50
 msgid "Description"
 msgstr "Lýsing"
 
@@ -163,12 +164,12 @@ msgid "Developer documentation URL"
 msgstr "Slóð á hjálparskjöl þróunaraðila"
 
 #: nextcloudappstore/core/models.py:78
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Issue tracker URL"
 msgstr "Slóð á skrásetjara (tracker)"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
 msgstr "Heimasíða"
 
@@ -191,7 +192,7 @@ msgid "App owner"
 msgstr "Eigandi forrits"
 
 #: nextcloudappstore/core/models.py:88
-#: nextcloudappstore/core/templates/app/detail.html:80
+#: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Co-Maintainers"
 msgstr "Meðumsjónarmenn"
 
@@ -206,12 +207,12 @@ msgid "Featured"
 msgstr "Í sviðsljósinu"
 
 #: nextcloudappstore/core/models.py:93
-#: nextcloudappstore/core/templates/app/detail.html:77
+#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "Einkunn að undanförnu"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "Heildareinkunn"
 
@@ -426,7 +427,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Heiti flokks eins og það birtist notendum"
 
 #: nextcloudappstore/core/models.py:480
-#: nextcloudappstore/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Categories"
 msgstr "Flokkar"
 
@@ -507,7 +508,7 @@ msgid "App release deletions"
 msgstr "Eyðingar á útgáfu forrits"
 
 #: nextcloudappstore/core/models.py:611
-#: nextcloudappstore/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Nextcloud version"
 msgstr "Útgáfa Nextcloud"
 
@@ -751,92 +752,92 @@ msgstr "Uppfært"
 msgid "Publisher"
 msgstr "Útgefandi"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
 msgstr "Tilföng"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
 msgstr "Hjálparskjöl notenda"
 
-#: nextcloudappstore/core/templates/app/detail.html:103
+#: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Admin documentation"
 msgstr "Hjálparskjöl kerfisstjóra"
 
-#: nextcloudappstore/core/templates/app/detail.html:106
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Developer documentation"
 msgstr "Skjölun fyrir þróunaraðila"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Downloads"
 msgstr "Sóttar skrár"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "náttfari (e. nightly build)"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Unstable"
 msgstr "Óstöðugt"
 
-#: nextcloudappstore/core/templates/app/detail.html:124
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "All releases"
 msgstr "Alllar útgáfur"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Discussion"
 msgstr "Umræða"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Report problem"
 msgstr "Tilkynna vandamál"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Request feature"
 msgstr "Stinga upp á eiginleikum"
 
-#: nextcloudappstore/core/templates/app/detail.html:149
+#: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Ask questions or discuss"
 msgstr "Spyrja spurninga eða ræða málin"
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate app"
 msgstr "Gefa forritinu einkunn"
 
-#: nextcloudappstore/core/templates/app/detail.html:163
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Rate"
 msgstr "Gefa einkunn"
 
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
 msgstr "Uppfæra einkunn"
 
-#: nextcloudappstore/core/templates/app/detail.html:175
+#: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Submit rating"
 msgstr "Senda inn einkunn"
 
-#: nextcloudappstore/core/templates/app/detail.html:189
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Ok"
 msgstr "Í lagi"
 
-#: nextcloudappstore/core/templates/app/detail.html:202
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "No comments found."
 msgstr "Engar athugasemdir fundust."
 
-#: nextcloudappstore/core/templates/app/detail.html:210
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Rating comments"
 msgstr "Athugasemdir með einkunn"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
 msgstr "Birta athugasemdir einkunna í:"
 
@@ -1149,6 +1150,14 @@ msgstr "Verkfæri"
 msgid "Everything else"
 msgstr "Allt annað"
 
+#: nextcloudappstore/core/templates/translation/db_translations.txt:25
+msgid "Flow"
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:26
+msgid "Apps for Nextcloud Flow"
+msgstr ""
+
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Mjög neikvætt"
@@ -1173,79 +1182,86 @@ msgstr "Mjög jákvætt"
 msgid "Enter a valid HTTPS URL"
 msgstr "Skráðu inn gilda HTTPS-slóð"
 
-#: nextcloudappstore/scaffolding/forms.py:26
-#: nextcloudappstore/scaffolding/forms.py:32
+#: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
 msgstr "Heiti forritsins verður að víxla hástöfum, t.d. MittForrit"
 
-#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Heiti forrits"
 
-#: nextcloudappstore/scaffolding/forms.py:35
+#: nextcloudappstore/scaffolding/forms.py:39
 msgid "Author's full name"
 msgstr "Fullt nafn höfundar"
 
-#: nextcloudappstore/scaffolding/forms.py:36
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Author's e-mail"
 msgstr "Tölvupóstfang höfundar"
 
-#: nextcloudappstore/scaffolding/forms.py:37
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's homepage"
 msgstr "Vefsíða höfundar"
 
-#: nextcloudappstore/scaffolding/forms.py:39
+#: nextcloudappstore/scaffolding/forms.py:43
 msgid "Bug reports and feature requests"
 msgstr "Villutilkynningar og beiðnir um nýja eiginleika"
 
-#: nextcloudappstore/scaffolding/forms.py:42
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Haltu niðri CTRL og smelltu til að velja margar færslur"
 
-#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:49
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Stutt lýsing á forritinu sem birtist notendum til kynningar"
 
-#: nextcloudappstore/scaffolding/forms.py:47
+#: nextcloudappstore/scaffolding/forms.py:51
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
 "Fullkomin lýsing á því sem forritið þitt gerir. Má innihalda Markdown-kóða."
 
-#: nextcloudappstore/user/forms.py:13
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Eiginnafn"
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Kenninafn"
 
-#: nextcloudappstore/user/forms.py:23
+#: nextcloudappstore/user/forms.py:24
 msgid "Your e-mail address"
 msgstr "Tölvupóstfangið þitt"
 
-#: nextcloudappstore/user/forms.py:35
+#: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Uppgefið tölvupóstfang samsvarar ekki tölvupóstfanginu þínu"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Staðfestu lykilorðið"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:55
+#: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
 msgstr "Þetta tölvupóstfang er þegar tengt öðrum notandaaðgangi."
 
-#: nextcloudappstore/user/forms.py:65
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Ógilt lykilorð"
+
+#: nextcloudappstore/user/forms.py:72
+msgid "E-mail"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:77
+msgid "E-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1253,10 +1269,8 @@ msgstr "Aðgangsorði Nextcloud forritaverslunar var breytt"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
-"Your Appstore password has changed.  Contact    support if this wasn't you."
+"Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
-"Lykilorðinu þínu í Appstore-forritaverslunina hefur verið breytt. Hafðu "
-"samband við aðstoðarþjónustuna ef þþað varst ekki þú."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"

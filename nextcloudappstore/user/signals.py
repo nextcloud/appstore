@@ -29,8 +29,8 @@ def password_changed_signal(sender, instance, **kwargs):
     :return:
     """
     mail_subect = _('Nextcloud Appstore password changed')
-    mail_message = _("Your Appstore password has changed.  Contact\
-    support if this wasn't you.")
+    mail_message = _('Your Appstore password has changed. '
+                     'Contact support if this wasn\'t you.')
 
     try:
         user = get_user_model().objects.get(pk=instance.pk)
