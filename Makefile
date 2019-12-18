@@ -94,7 +94,7 @@ prod-data:
 
 .PHONY: l10n
 l10n:
-	$(manage) compilemessages --ignore venv/ --settings nextcloudappstore.settings.development
+	$(manage) compilemessages --settings nextcloudappstore.settings.development
 	$(manage) importdbtranslations --settings nextcloudappstore.settings.development
 
 .PHONY: coverage
