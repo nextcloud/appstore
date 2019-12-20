@@ -8,31 +8,33 @@
 # Michael X <sonireolxxx@gmail.com>, 2017
 # fuchai li <lifuchai@139.com>, 2017
 # Libo Guo <9492037@qq.com>, 2017
-# fuchai li <13911872377@139.com>, 2017
 # 运永 汪 <mail@zhaohai.wang>, 2017
-# Ari Arimaniac <arily@arily.moe>, 2017
+# fuchai li <13911872377@139.com>, 2017
 # kingqz <1757870574@qq.com>, 2017
 # bin zhao <my--web@163.com>, 2017
 # 黄轩, 2017
 # 刘奔 <ben@binnovations.ca>, 2017
-# 王亮亮 <i@yimis.com>, 2017
 # maithew mai <wzwsad22@gmail.com>, 2017
 # lynn jakc <bfwz123@gmail.com>, 2017
 # jianwei lu <lujw@workfile.cn>, 2017
 # Wu Xin <baalchina@gmail.com>, 2017
-# shaolin123 <shaonick@mail.com>, 2018
 # Hoilc <fyxyzhc@qq.com>, 2018
 # Herald Yu <yuhr123@gmail.com>, 2018
 # mays_wind <i@mayswind.net>, 2018
+# Mark Li <2821341767@qq.com>, 2019
+# ᴍɪᴍɪ <stevenjoezhang@gmail.com>, 2019
+# f3d6cad4977cd29678bf13b608e2d7a0, 2019
+# Jack Frost, 2019
+# Pascal Janus <pascal_janus@163.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 01:53+0000\n"
+"POT-Creation-Date: 2019-12-20 04:03+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: mays_wind <i@mayswind.net>, 2018\n"
+"Last-Translator: Pascal Janus <pascal_janus@163.com>, 2019\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +60,7 @@ msgid "Download"
 msgstr "下载"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:190
+#: nextcloudappstore/core/templates/app/detail.html:194
 msgid "Bad"
 msgstr "坏的"
 
@@ -67,13 +69,13 @@ msgid "OK"
 msgstr "好"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:192
 msgid "Good"
 msgstr "好的"
 
 #: nextcloudappstore/core/forms.py:26
 msgid "Download link (tar.gz)"
-msgstr "下载链接 (tar.gz)"
+msgstr "下载链接（tar.gz）"
 
 #: nextcloudappstore/core/forms.py:29 nextcloudappstore/core/models.py:373
 #: nextcloudappstore/core/templates/app/releases.html:40
@@ -101,14 +103,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"通常存储在〜/.nextcloud/certificates/APP_ID.crt中，其中APP_ID是您的应用程序的ID。 "
-"如果您没有证书，您需要首先创建一个证书签名请求（CSR），该申请应该发布在 <a href=\"https://github.com/nextcloud"
-"/app-certificate-requests\" rel=\"noreferrer noopener\"> certificate "
-"的repository </a>（遵循自述文件）。 您可以通过执行以下命令生成CSR："
+"通常存储在 ' ~/.nextcloud/certificates/APP_ID.crt' 中，其中APP_ID是您的应用程序的ID。 "
+"如果您没有证书，您首先需要创建一个证书签名请求（CSR），该申请应该发布在证书的库中（遵循自述文件）。 您可以通过执行以下命令生成CSR："
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "应用程序ID的签名"
+msgstr "应用程序 ID 的签名"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -119,7 +119,7 @@ msgstr "语言"
 msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
-msgstr "<b>重要</b>: 改变语言会清除你当前的评论.更改不会被保存！"
+msgstr "<b>重要</b>：改变语言会清除您当前的评论。更改不会被保存！"
 
 #: nextcloudappstore/core/forms.py:77
 msgid "Comment"
@@ -134,6 +134,7 @@ msgid "app ID, identical to folder name"
 msgstr "应用代码"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "分类"
 
@@ -147,7 +148,7 @@ msgid "Rendered app name for users"
 msgstr "为用户呈现应用程序名称"
 
 #: nextcloudappstore/core/models.py:64
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Summary"
 msgstr "概要"
 
@@ -156,7 +157,7 @@ msgid "Short text describing the app's purpose"
 msgstr "简短的文字描述应用的用途"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:474
-#: nextcloudappstore/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:50
 msgid "Description"
 msgstr "描述"
 
@@ -177,12 +178,12 @@ msgid "Developer documentation URL"
 msgstr "开发者文档链接"
 
 #: nextcloudappstore/core/models.py:78
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Issue tracker URL"
 msgstr "问题跟踪地址"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
 msgstr "主页"
 
@@ -205,7 +206,7 @@ msgid "App owner"
 msgstr "应用所有者"
 
 #: nextcloudappstore/core/models.py:88
-#: nextcloudappstore/core/templates/app/detail.html:80
+#: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Co-Maintainers"
 msgstr "共同维护者"
 
@@ -220,12 +221,12 @@ msgid "Featured"
 msgstr "精选"
 
 #: nextcloudappstore/core/models.py:93
-#: nextcloudappstore/core/templates/app/detail.html:77
+#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "最近的评价"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "全部的评价"
 
@@ -331,11 +332,11 @@ msgstr "授权"
 
 #: nextcloudappstore/core/models.py:354
 msgid "Shell command dependency"
-msgstr "Shell命令依赖"
+msgstr "Shell 命令依赖"
 
 #: nextcloudappstore/core/models.py:356
 msgid "PHP version requirement"
-msgstr "PHP版本要求"
+msgstr "PHP 版本要求"
 
 #: nextcloudappstore/core/models.py:358
 msgid "Platform version requirement"
@@ -343,11 +344,11 @@ msgstr "平台版本要求"
 
 #: nextcloudappstore/core/models.py:361
 msgid "PHP version requirement (raw)"
-msgstr "PHP版本要求(暂定)"
+msgstr "PHP 版本要求（暂定）"
 
 #: nextcloudappstore/core/models.py:363
 msgid "Platform version requirement (raw)"
-msgstr "平台版本要求(暂定)"
+msgstr "平台版本要求（暂定）"
 
 #: nextcloudappstore/core/models.py:365
 #: nextcloudappstore/core/templates/app/releases.html:69
@@ -356,7 +357,7 @@ msgstr "最小整型字节"
 
 #: nextcloudappstore/core/models.py:366
 msgid "e.g. 32 for 32bit Integers"
-msgstr "比如32是指32位整数"
+msgstr "比如 32 是指 32 位整数"
 
 #: nextcloudappstore/core/models.py:368
 msgid "Archive download URL"
@@ -377,7 +378,7 @@ msgstr "更改日志"
 
 #: nextcloudappstore/core/models.py:379
 msgid "The release changelog. Can contain Markdown"
-msgstr "公布的更改日志，可以包括Markdown"
+msgstr "公布的更改日志，可以包括 Markdown"
 
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
@@ -422,7 +423,7 @@ msgstr "必须提供 Shell 命令的名称，例如：grep"
 #: nextcloudappstore/core/models.py:453
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
-msgstr "shell 命令"
+msgstr "Shell 命令"
 
 #: nextcloudappstore/core/models.py:462 nextcloudappstore/core/models.py:489
 #: nextcloudappstore/core/models.py:507
@@ -438,7 +439,7 @@ msgid "Category name which will be presented to the user"
 msgstr "分类的名字将呈现给用户"
 
 #: nextcloudappstore/core/models.py:480
-#: nextcloudappstore/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Categories"
 msgstr "分类"
 
@@ -478,7 +479,7 @@ msgstr "数据库版本要求"
 
 #: nextcloudappstore/core/models.py:532
 msgid "Database version requirement (raw)"
-msgstr "数据库版本要求(暂定)"
+msgstr "数据库版本要求（暂定）"
 
 #: nextcloudappstore/core/models.py:536
 msgid "Database dependencies"
@@ -504,11 +505,11 @@ msgstr "扩展版本要求"
 
 #: nextcloudappstore/core/models.py:568
 msgid "Extension version requirement (raw)"
-msgstr "扩展版本要求(暂定)"
+msgstr "扩展版本要求（暂定）"
 
 #: nextcloudappstore/core/models.py:572
 msgid "PHP extension dependencies"
-msgstr "PHP扩展依赖"
+msgstr "PHP 扩展依赖"
 
 #: nextcloudappstore/core/models.py:597
 msgid "App release deletion"
@@ -519,13 +520,13 @@ msgid "App release deletions"
 msgstr "删除应用程序释放"
 
 #: nextcloudappstore/core/models.py:611
-#: nextcloudappstore/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Nextcloud version"
-msgstr "Nextcloud版本"
+msgstr "Nextcloud 版本"
 
 #: nextcloudappstore/core/models.py:612
 msgid "e.g. 9.0.54"
-msgstr "例如9.0.54"
+msgstr "例如 9.0.54"
 
 #: nextcloudappstore/core/models.py:613
 msgid "Is current version"
@@ -573,7 +574,7 @@ msgstr "禁止"
 
 #: nextcloudappstore/core/templates/403.html:10
 msgid "You are forbidden to access this page!"
-msgstr "你被禁止进入这个页面。"
+msgstr "您被禁止进入这个页面！"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
@@ -585,7 +586,7 @@ msgstr "页面没发现"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
-msgstr "你要查找的页面不存在！"
+msgstr "您要查找的页面不存在！"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -598,11 +599,11 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"来自 %(site_name)s的问候!\n"
+"来自 %(site_name)s 的问候！\n"
 "\n"
-"您正在接收的此电子邮件，是因为用户%(user_display)s在 %(site_domain)s已将此电子邮件地址链接到其帐户。\n"
+"您正在接收的此电子邮件，是因为用户 %(user_display)s 在 %(site_domain)s 已将此电子邮件地址链接到其帐户。\n"
 "\n"
-"确认这是正确的, 请点击前往 %(activate_url)s\n"
+"确认这是正确的，请点击前往 %(activate_url)s\n"
 "\n"
 "如果您在 %(site_domain)s，没有账户，请忽略此信息。\n"
 
@@ -611,19 +612,21 @@ msgstr ""
 msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "感谢你来自 %(site_name)s %(site_domain)s"
+msgstr ""
+"感谢您，来自 %(site_name)s！\n"
+"%(site_domain)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm E-mail Address"
-msgstr "确认E-mail地址"
+msgstr "确认电子邮件地址"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
-msgstr "请确认 <a href=\"mailto:%(email)s\">%(email)s</a>是用户的电子邮件地址%(user_display)s."
+msgstr "请确认 <a href=\"mailto:%(email)s\">%(email)s</a>是用户%(user_display)s的电子邮件地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -634,7 +637,7 @@ msgstr "确认"
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr "此电子邮件确认链接已过期或无效。请 <a href=\"%(email_url)s\">发出新的电子邮件确认请求</a>."
+msgstr "此电子邮件确认链接已过期或无效。请 <a href=\"%(email_url)s\">发出新的电子邮件确认请求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -673,7 +676,7 @@ msgstr "密码重置"
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
-msgstr "忘记了你的密码？请在下面输入您的电子邮件地址，我们将向您发送电子邮件，允许您重新设置它.。"
+msgstr "忘记了密码？请在下面输入您的电子邮件地址，我们将向您发送电子邮件，允许您重新设置它。"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -681,7 +684,7 @@ msgstr "重置我的密码"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
-msgstr "如果重置你的密码有任何问题，请联系我们。"
+msgstr "如果重置您的密码出现任何问题，请联系我们。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -700,7 +703,7 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
-msgstr "密码重置链接无效，可能是因为它已经被使用了。请请求 <a href=\"%(passwd_reset_url)s\">新的密码重置链接</a>."
+msgstr "密码重置链接无效，可能是因为它已经被使用了。请请求 <a href=\"%(passwd_reset_url)s\">新的密码重置链接</a>。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -746,101 +749,101 @@ msgstr "更新"
 msgid "Publisher"
 msgstr "发布者"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
 msgstr "资源"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
 msgstr "使用者文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:103
+#: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Admin documentation"
 msgstr "管理员文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:106
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Developer documentation"
 msgstr "开发者文档"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Downloads"
 msgstr "下载"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "日常更新"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Unstable"
 msgstr "不稳定的"
 
-#: nextcloudappstore/core/templates/app/detail.html:124
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "All releases"
 msgstr "所有版本"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Discussion"
 msgstr "描述"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Report problem"
 msgstr "报告问题"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Request feature"
 msgstr "请求功能"
 
-#: nextcloudappstore/core/templates/app/detail.html:149
+#: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Ask questions or discuss"
 msgstr "提问或讨论"
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate app"
 msgstr "程序等级"
 
-#: nextcloudappstore/core/templates/app/detail.html:163
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Rate"
 msgstr "等级"
 
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"评分评论支持 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"请不要使用评分评论反馈问题或请求功能. 开发者和用户都不会因为您的评论收到提醒.\n"
-"没有评论的评分会计数, 但不会在下方列表中显示."
+"评分评论支持 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
+"请不要使用评分评论反馈问题或请求功能。开发者和用户都不会因为您的评论收到提醒。\n"
+"没有评论的评分会计数，但不会在下方列表中显示。"
 
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
 msgstr "更新评级"
 
-#: nextcloudappstore/core/templates/app/detail.html:175
+#: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Submit rating"
 msgstr "提交评级"
 
-#: nextcloudappstore/core/templates/app/detail.html:189
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Ok"
 msgstr "很好"
 
-#: nextcloudappstore/core/templates/app/detail.html:202
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "No comments found."
 msgstr "没有发现评论。"
 
-#: nextcloudappstore/core/templates/app/detail.html:210
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Rating comments"
 msgstr "等级评论"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
 msgstr "显示等级评论"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "评级 (最近)"
+msgstr "评级（最近）"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -859,12 +862,12 @@ msgstr "我的应用程序"
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr "在分类中没有找到搜索应用程序 \"<em>%(query)s</em>\" in %(category)s."
+msgstr "在%(category)s分类中没有找到搜索的应用程序 \"<em>%(query)s</em>\"。"
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "没有找到搜索应用程序 \"<em>%(query)s</em>\"."
+msgstr "没有找到搜索应用程序 \"<em>%(query)s</em>\"。"
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -878,7 +881,10 @@ msgid ""
 "signature, check out the <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
-msgstr "有关如何获取证书和创建签名的更多信息请查阅应用开发指南"
+msgstr ""
+"有关如何获取证书和创建签名的更多信息请查阅<a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">应用开发指南</a>。"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -893,7 +899,7 @@ msgstr "不是一个公共证书"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr "应用已注册"
+msgstr "应用已注册。"
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -918,7 +924,7 @@ msgstr "附属"
 
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Required Nextcloud versions"
-msgstr "需要Nextcloud版本"
+msgstr "需要 Nextcloud 版本"
 
 #: nextcloudappstore/core/templates/app/releases.html:71
 msgid "PHP"
@@ -963,11 +969,11 @@ msgstr "上传"
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
-msgstr "Nextcloud 应用商店 - 上传你的应用并将新应用安装到你的 Nextcloud 上"
+msgstr "Nextcloud 应用商店 - 上传您的应用并将新应用安装到您的 Nextcloud 上"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
-msgstr "Nextcloud社区"
+msgstr "Nextcloud 社区"
 
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
@@ -976,7 +982,7 @@ msgstr "最新版本"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr "在GitHub上关注我们"
+msgstr "在 GitHub 上关注我们"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1027,7 +1033,7 @@ msgstr "管理员"
 #: nextcloudappstore/user/templates/user/base.html:5
 #: nextcloudappstore/user/templates/user/base.html:12
 msgid "Account"
-msgstr "账户"
+msgstr "账号"
 
 #: nextcloudappstore/core/templates/nav.html:75
 msgid "Log out"
@@ -1039,8 +1045,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"你即将使用你的 %(provider_name)s 账户登录到\n"
-"%(site_name)s. 最后一步，请填写以下表格： "
+"您即将使用您的 %(provider_name)s 账户登录到\n"
+"%(site_name)s。最后一步，请填写以下表单："
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1048,7 +1054,7 @@ msgstr "定制"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "主题、布局和UX更改应用程序"
+msgstr "主题、布局和 UX 更改应用程序"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1064,7 +1070,7 @@ msgstr "游戏"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
-msgstr "在Nextcloud中运行您的游戏"
+msgstr "在 Nextcloud 中运行您的游戏"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
@@ -1072,7 +1078,7 @@ msgstr "集成"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "应用程序连接nextcloud与其他服务和平台"
+msgstr "应用程序连接 Nextcloud 与其他服务和平台"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
@@ -1092,7 +1098,7 @@ msgstr "音频，视频和图片应用"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
-msgstr "办公&文本"
+msgstr "办公 & 文本"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
@@ -1136,6 +1142,14 @@ msgstr "工具"
 msgid "Everything else"
 msgstr "其他"
 
+#: nextcloudappstore/core/templates/translation/db_translations.txt:25
+msgid "Flow"
+msgstr "流"
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:26
+msgid "Apps for Nextcloud Flow"
+msgstr "适用于 Nextcloud 流的应用"
+
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "非常差"
@@ -1160,78 +1174,94 @@ msgstr "非常好"
 msgid "Enter a valid HTTPS URL"
 msgstr "请输入有效的 HTTPS 超链接"
 
-#: nextcloudappstore/scaffolding/forms.py:26
-#: nextcloudappstore/scaffolding/forms.py:32
+#: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
 msgstr "应用程序的名字必须是驼峰写法：例如 MyApp"
 
-#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "应用程序的名字"
 
-#: nextcloudappstore/scaffolding/forms.py:35
+#: nextcloudappstore/scaffolding/forms.py:39
 msgid "Author's full name"
 msgstr "作者的全名"
 
-#: nextcloudappstore/scaffolding/forms.py:36
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Author's e-mail"
 msgstr "作者的电子邮件"
 
-#: nextcloudappstore/scaffolding/forms.py:37
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's homepage"
 msgstr "作者的主页"
 
-#: nextcloudappstore/scaffolding/forms.py:39
+#: nextcloudappstore/scaffolding/forms.py:43
 msgid "Bug reports and feature requests"
 msgstr "问题报告和特性请求"
 
-#: nextcloudappstore/scaffolding/forms.py:42
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "按住 Ctrl 键选择多个项目"
 
-#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:49
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr "对你应用程序简单的描述将做为预告呈现出来。"
+msgstr "对您的应用程序简单的描述将做为预告呈现出来"
 
-#: nextcloudappstore/scaffolding/forms.py:47
+#: nextcloudappstore/scaffolding/forms.py:51
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "你应用程序完全的描述，可以包括Markdown"
+msgstr "您的应用程序完全的描述，可以包括 Markdown 语法。"
 
-#: nextcloudappstore/user/forms.py:13
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "名字"
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "姓氏"
 
-#: nextcloudappstore/user/forms.py:23
+#: nextcloudappstore/user/forms.py:24
 msgid "Your e-mail address"
 msgstr "您的电子邮件地址"
 
-#: nextcloudappstore/user/forms.py:35
+#: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
-msgstr "给定的电子邮件地址与您的电子邮件地址不匹配."
+msgstr "给定的电子邮件地址与您的电子邮件地址不匹配。"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "确认密码"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
-msgstr "需要密码才能防止未经授权的用户更改您的电子邮件地址并重置您的密码。 此字段不会更新您的密码！"
+msgstr "需要密码才能防止未经授权的用户更改您的电子邮件地址并重置您的密码。此字段不会更新您的密码！"
 
-#: nextcloudappstore/user/forms.py:55
+#: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
-msgstr "此电子邮件地址已与另一帐户关联.。"
+msgstr "此电子邮件地址已与另一帐户关联。"
 
-#: nextcloudappstore/user/forms.py:65
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "无效的密码"
+
+#: nextcloudappstore/user/forms.py:72
+msgid "E-mail"
+msgstr "电子邮件"
+
+#: nextcloudappstore/user/forms.py:77
+msgid "E-mail address"
+msgstr "电子邮件地址"
+
+#: nextcloudappstore/user/signals.py:31
+msgid "Nextcloud Appstore password changed"
+msgstr "Nextcloud 应用程序商店密码已更改"
+
+#: nextcloudappstore/user/signals.py:32
+msgid ""
+"Your Appstore password has changed. Contact support if this wasn't you."
+msgstr "您的 Appstore 密码已更改。 如果不是您本人，请与支持人员联系。"
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1251,8 +1281,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"当调用应用程序商店时，API令牌可用于身份验证\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置API</a>.注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
+"当调用应用程序商店时，API 令牌可用于身份验证\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">重置 API</a>。注意确保其安全，可以在下面生成新的令牌，旧令牌将无效。"
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1291,24 +1321,24 @@ msgstr "API 令牌"
 #: nextcloudappstore/user/templates/user/delete-account.html:8
 #: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid "Delete account"
-msgstr "删除账户"
+msgstr "删除账号"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
-msgstr "删除您的帐户将删除您的所有应用程序和版本。要删除您的帐户，请将您的电子邮件地址填写到输入字段，然后单击“删除帐户”按钮： "
+msgstr "删除您的账号将删除您的所有应用程序和版本。要删除您的账号，请将您的电子邮件地址填写到输入字段，然后单击“删除账号”按钮： "
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr "修改您的密码同时会重新生成API秘钥！"
+msgstr "修改您的密码同时会重新生成 API 秘钥！"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
-msgstr "您似乎正在使用与第三方提供商注册的帐户。因此，您的密码<strong>不能</strong>从本页更改。 "
+msgstr "您似乎正在使用与第三方提供商注册的账号。因此，您的密码<strong>不能</strong>从本页更改。 "
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1324,28 +1354,28 @@ msgstr "要将应用转移到新的拥有者，您必须首先解锁该应用。
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr "所有权转让状况"
+msgstr "所有权转移状态"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr "更改所有权转让状态"
+msgstr "更改所有权转移状态"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr "解锁传输"
+msgstr "解锁转移"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr "锁定，不可转让"
+msgstr "锁定，不可转移"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr "锁定所有权转让"
+msgstr "锁定所有权转移"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr "解锁所有权转让"
+msgstr "解锁所有权转移"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "你还没上传任何程序！"
+msgstr "您还没上传任何程序！"

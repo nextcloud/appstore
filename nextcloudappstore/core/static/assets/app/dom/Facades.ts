@@ -5,6 +5,8 @@
 import {Maybe} from '../Utils';
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
 
+type Class<T> = new() => T;
+
 /**
  * Typed shortcut for getElementById
  * @param selector the id
@@ -12,13 +14,13 @@ import {DomElementDoesNotExist} from './DomElementDoesNotExist';
  * @returns {Maybe<T>}
  */
 export function id<T extends HTMLElement>(selector: string,
-                                          type: { new(): T }): Maybe<T> {
+                                          type: Class<T>): Maybe<T> {
     return new Maybe(document.getElementById(selector) as T)
         .filter((elem) => elem instanceof type);
 }
 
 export function query<T extends Element>(selector: string,
-                                         type: { new(): T },
+                                         type: Class<T>,
                                          parent?: Element): Maybe<T> {
     const elem = parent || window.document;
     return new Maybe(elem.querySelector(selector) as T)
@@ -39,7 +41,7 @@ export function queryAll(selector: string, parent?: Element): Element[] {
  * @throws DomElementDoesNotExist if the query returns no element
  */
 export function idOrThrow<T extends HTMLElement>(selector: string,
-                                                 type: { new(): T }): T {
+                                                 type: Class<T>): T {
     return id<T>(selector, type)
         .orThrow(() => {
             const msg = `No element found for id ${selector}`;
@@ -57,7 +59,7 @@ export function idOrThrow<T extends HTMLElement>(selector: string,
  * @throws DomElementDoesNotExist if the query returns no element
  */
 export function queryOrThrow<T extends Element>(selector: string,
-                                                type: { new(): T },
+                                                type: Class<T>,
                                                 parent?: Element): T {
     return query<T>(selector, type, parent)
         .orThrow(() => {
@@ -117,7 +119,7 @@ export function toHtml<T extends Element>(html: string): Maybe<T> {
  * @returns {Element}
  */
 export function appendHtml<T extends HTMLElement>(parentSelector: string,
-                                                  type: { new(): T },
+                                                  type: Class<T>,
                                                   html: string): Element {
     const parent = queryOrThrow(parentSelector, type);
     const child = toHtml(html)
@@ -137,7 +139,7 @@ export function appendHtml<T extends HTMLElement>(parentSelector: string,
 type ElemCallback = (elem: Element) => void;
 
 export function testDom<T extends HTMLElement>(parentSelector: string,
-                                               type: { new(): T },
+                                               type: Class<T>,
                                                html: string,
                                                callback: ElemCallback): void {
     const elem = appendHtml(parentSelector, type, html);

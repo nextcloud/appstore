@@ -1,6 +1,7 @@
 import re
 import tarfile  # type: ignore
 from functools import reduce
+from pathlib import Path
 from typing import Dict, Any, List, Set, Pattern
 
 import lxml.etree  # type: ignore
@@ -64,16 +65,27 @@ class GunZipAppMetadataExtractor:
         :raises InvalidAppPackageStructureException: if the first level folder
         does not equal the app_id or no info.xml file could be found in the
         appinfo folder
+        :raises: UnsupportedAppArchiveException if it's not an archive
         :return: the info.xml, database.xml, the app id and the changelog as
         string
         """
         if not tarfile.is_tarfile(archive_path):  # type: ignore
-            msg = '%s is not a valid tar.gz archive ' % archive_path
+            """
+            Previously the message revealed full path to the archive which is
+            unwanted. To mitigate the issue we now get only the filename
+            and include that in the error message
+            """
+            msg = '%s is not a valid tar.gz archive ' % Path(archive_path).name
             raise UnsupportedAppArchiveException(msg)
 
-        with tarfile.open(archive_path, 'r:gz') as tar:  # type: ignore
-            result = self._parse_archive(tar)
-        return result
+        try:
+            with tarfile.open(archive_path, 'r:gz') as tar:  # type: ignore
+                result = self._parse_archive(tar)
+            return result
+        # for some reason there are still various errors possible although we
+        # checked for issues with tarfile.is_tarfile
+        except tarfile.ReadError as e:
+            raise UnsupportedAppArchiveException(str(e))
 
     def _parse_archive(self, tar: Any) -> AppMetaData:
         app_id = find_app_id(tar, self.app_folder_regex)

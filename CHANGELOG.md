@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+
+- Notify users on password change
 
 ## [4.0.0]  - 2018-11-10
 

@@ -8,16 +8,17 @@
 # Anders <anders@aasemartinsen.net>, 2017
 # Eivind Skaaheim <eivind@skaaheim.com>, 2018
 # Allan Nordhøy <epost@anotheragency.no>, 2018
-# Gudbrand H. <gudbrand.hegge@gmail.com>, 2018
+# Gu. He. <gudbrand.hegge@gmail.com>, 2018
+# Ari Selseng <ari@selseng.net>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 01:53+0000\n"
+"POT-Creation-Date: 2019-12-20 04:03+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Gudbrand H. <gudbrand.hegge@gmail.com>, 2018\n"
+"Last-Translator: Ari Selseng <ari@selseng.net>, 2019\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,11 +28,11 @@ msgstr ""
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
-msgstr "Nyeste programutgivelser"
+msgstr "Nyeste app-utgivelser"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Få siste nytt om programutgivelser"
+msgstr "Få de nyeste app-utgivelser"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -43,7 +44,7 @@ msgid "Download"
 msgstr "Last ned"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:190
+#: nextcloudappstore/core/templates/app/detail.html:194
 msgid "Bad"
 msgstr "Dårlig"
 
@@ -52,7 +53,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:192
 msgid "Good"
 msgstr "God"
 
@@ -86,8 +87,8 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"Vanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt der APP_ID er "
-"programmets ID. Hvis du ikke har et sertifikat må du opprette et i en "
+"Vanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt der APP_ID er appens"
+" ID. Hvis du ikke har et sertifikat må du opprette et i en "
 "sertifikatsigneringsprosess (CSR) hvilket burde postes i <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">sertifikatspakkebrønnen</a> (følg instruksjoner "
@@ -120,9 +121,10 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "program-ID, identisk med mappenavn"
+msgstr "app-ID, identisk med mappenavn"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategori"
 
@@ -133,19 +135,19 @@ msgstr "Navn"
 
 #: nextcloudappstore/core/models.py:63
 msgid "Rendered app name for users"
-msgstr "Gjengitt programnavn for brukere"
+msgstr "Gjengitt app-navn for brukere"
 
 #: nextcloudappstore/core/models.py:64
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Summary"
 msgstr "Oppsummering"
 
 #: nextcloudappstore/core/models.py:66
 msgid "Short text describing the app's purpose"
-msgstr "Kort tekst som beskriver programmets hensikt"
+msgstr "Kort tekst som beskriver appens hensikt"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:474
-#: nextcloudappstore/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:50
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -166,12 +168,12 @@ msgid "Developer documentation URL"
 msgstr "Utviklerdokumentasjons-URL"
 
 #: nextcloudappstore/core/models.py:78
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Issue tracker URL"
 msgstr "URL til problemsporing"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -191,16 +193,16 @@ msgstr "Oppdatert"
 
 #: nextcloudappstore/core/models.py:85
 msgid "App owner"
-msgstr "Programeier"
+msgstr "App-eier"
 
 #: nextcloudappstore/core/models.py:88
-#: nextcloudappstore/core/templates/app/detail.html:80
+#: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Co-Maintainers"
 msgstr "Med-vedlikeholdere"
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:335
 msgid "App authors"
-msgstr "Programutviklere"
+msgstr "App-utviklere"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
@@ -209,12 +211,12 @@ msgid "Featured"
 msgstr "Anbefalt"
 
 #: nextcloudappstore/core/models.py:93
-#: nextcloudappstore/core/templates/app/detail.html:77
+#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "Nylig vurdering"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "Totalvurdering"
 
@@ -244,21 +246,21 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Hvis påskrudd kan brukeren prøve å registrere samme program igjen ved bruk "
-"av det offentlige sertifikatet og signaturen. Hvis det fungere, vil "
-"programmet bli overført til vedkommende."
+"Hvis påskrudd kan brukeren prøve å registrere samme app igjen ved bruk av "
+"det offentlige sertifikatet og signaturen. Hvis det fungerer, vil appen bli "
+"overført til vedkommende."
 
 #: nextcloudappstore/core/models.py:110 nextcloudappstore/core/models.py:264
 #: nextcloudappstore/core/models.py:341 nextcloudappstore/core/models.py:425
 msgid "App"
-msgstr "Program"
+msgstr "App"
 
 #: nextcloudappstore/core/models.py:111
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/nav.html:40
 msgid "Apps"
-msgstr "Programmer"
+msgstr "Apper"
 
 #: nextcloudappstore/core/models.py:266
 msgid "User"
@@ -283,11 +285,11 @@ msgstr "Vurderingskommentar i Markdown"
 
 #: nextcloudappstore/core/models.py:279
 msgid "App rating"
-msgstr "Programvurdering"
+msgstr "App-vurdering"
 
 #: nextcloudappstore/core/models.py:280
 msgid "App ratings"
-msgstr "Programvurderinger"
+msgstr "App-vurderinger"
 
 #: nextcloudappstore/core/models.py:321
 msgid "Full name"
@@ -299,7 +301,7 @@ msgstr "E-post"
 
 #: nextcloudappstore/core/models.py:334
 msgid "App author"
-msgstr "Programutvikler"
+msgstr "App-utvikler"
 
 #: nextcloudappstore/core/models.py:339
 msgid "Version"
@@ -356,7 +358,7 @@ msgstr "Arkivnedlastings-URL"
 
 #: nextcloudappstore/core/models.py:374
 msgid "A signature using the app's certificate"
-msgstr "En signatur som bruker programmets sertifikat"
+msgstr "En signatur som bruker appens sertifikat"
 
 #: nextcloudappstore/core/models.py:376
 msgid "Signature hashing algorithm"
@@ -374,11 +376,11 @@ msgstr "Endringlogg for utgivelse. Kan inneholde Markdown"
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
 msgid "App release"
-msgstr "Programutgivelse"
+msgstr "App-utgivelse"
 
 #: nextcloudappstore/core/models.py:385
 msgid "App releases"
-msgstr "Programutgivelser"
+msgstr "App-utgivelser"
 
 #: nextcloudappstore/core/models.py:422
 msgid "Image URL"
@@ -424,15 +426,14 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:464
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
-"Kategori-ID som brukes til å identifisere kategorien et program lastes opp "
-"til"
+"Kategori-ID som brukes til å identifisere kategorien en app lastes opp til"
 
 #: nextcloudappstore/core/models.py:472
 msgid "Category name which will be presented to the user"
 msgstr "Kategorinavn som vil bli presentert brukeren"
 
 #: nextcloudappstore/core/models.py:480
-#: nextcloudappstore/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Categories"
 msgstr "Kategorier"
 
@@ -506,14 +507,14 @@ msgstr "Avhengigheter for PHP-utvidelser"
 
 #: nextcloudappstore/core/models.py:597
 msgid "App release deletion"
-msgstr "Programutgivelsesletting"
+msgstr "App-utgivelsesletting"
 
 #: nextcloudappstore/core/models.py:598
 msgid "App release deletions"
-msgstr "Programutgivelsesslettinger"
+msgstr "App-utgivelsesslettinger"
 
 #: nextcloudappstore/core/models.py:611
-#: nextcloudappstore/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Nextcloud version"
 msgstr "Nextcloud versjon"
 
@@ -531,7 +532,7 @@ msgid ""
 "dropdowns for app generation, etc."
 msgstr ""
 "Bare én versjon kan være den gjeldende. Dette feltet brukes til å "
-"forhåndsvelge rullegardinsmenyer for programopprettelse osv."
+"forhåndsvelge rullegardinsmenyer for app-opprettelse osv."
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
@@ -725,16 +726,16 @@ msgstr "Opprett konto"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Administrator for Nextcloud programbutikk"
+msgstr "Administrator for Nextcloud app-butikk"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Administrasjon av Nextcloud programbutikk"
+msgstr "Administrasjon av Nextcloud app-butikk"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "All apps"
-msgstr "Alle programmer"
+msgstr "Alle apper"
 
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
@@ -759,65 +760,65 @@ msgstr "Oppdatert"
 msgid "Publisher"
 msgstr "Utgiver"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
 msgstr "Ressurser"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
 msgstr "Brukerdokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:103
+#: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Admin documentation"
 msgstr "Admindokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:106
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Developer documentation"
 msgstr "Utviklerdokumentasjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Downloads"
 msgstr "Nedlastinger"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "nattlig"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Unstable"
 msgstr "Ustabil"
 
-#: nextcloudappstore/core/templates/app/detail.html:124
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "All releases"
 msgstr "Alle utgivelser"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Discussion"
 msgstr "Diskusjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Report problem"
 msgstr "Rapporter problem"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Request feature"
 msgstr "Ønsk en funksjon"
 
-#: nextcloudappstore/core/templates/app/detail.html:149
+#: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Ask questions or discuss"
 msgstr "Still spørsmål og diskuter"
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate app"
-msgstr "Vurder program"
+msgstr "Vurder app"
 
-#: nextcloudappstore/core/templates/app/detail.html:163
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Rate"
 msgstr "Vurder"
 
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -827,27 +828,27 @@ msgstr ""
 "                            Ikke bruk vurderingskommentarer til å innrapportering av feil eller funksjonsforespørsler. Hverken utviklere eller brukere vil få nyss om kommentaren din.\n"
 "                            En vurdering uten kommentar vil bli talt, men ikke listet opp nedenfor."
 
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
 msgstr "Oppdater vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:175
+#: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Submit rating"
 msgstr "Send vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:189
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Ok"
 msgstr "Ok"
 
-#: nextcloudappstore/core/templates/app/detail.html:202
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "No comments found."
 msgstr "Ingen kommentarer funnet."
 
-#: nextcloudappstore/core/templates/app/detail.html:210
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Rating comments"
 msgstr "Kommentarer til vurdering"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
 msgstr "Vis vurderingskommentarer på:"
 
@@ -867,14 +868,13 @@ msgstr "Alfabetisk"
 
 #: nextcloudappstore/core/templates/app/list.html:31
 msgid "My apps"
-msgstr "Mine programmer"
+msgstr "Mine apper"
 
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-"Ingen programmer svarer til søkebegrepet \"<em>%(query)s</em>\" i "
-"%(category)s."
+"Ingen apper funnet med søkebegrepet \"<em>%(query)s</em>\" i %(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
@@ -885,7 +885,7 @@ msgstr "Ingen apper ble funnet med søkebegrep \"<em>%(query)s</em>\"."
 #: nextcloudappstore/core/templates/app/register.html:14
 #: nextcloudappstore/core/templates/nav.html:55
 msgid "Register app"
-msgstr "Registrer program"
+msgstr "Registrer app"
 
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
@@ -897,7 +897,7 @@ msgstr ""
 "For mer informasjon om hvordan man skaffer sertifikatet og oppretter "
 "signaturen, se  <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">programutviklingsguiden</a>."
+"rel=\"noopener norefferer\">app-utviklerguiden</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -906,8 +906,8 @@ msgid ""
 "of its already uploaded releases!"
 msgstr ""
 "Dette skjemaet kan også brukes til å oppdatere eksisterende sertifikater, "
-"dog bare for eieren av programmet. Oppdatering av et program vil slette alle"
-" dets opplastede utgivelser!"
+"dog bare for eieren av appen. Oppdatering av en app vil slette alle dets "
+"opplastede utgivelser!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -915,7 +915,7 @@ msgstr "Ikke et offentlig sertifikat"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr "Program registrert."
+msgstr "App registrert."
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -924,7 +924,7 @@ msgstr "Utgivelser"
 
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
-msgstr "Programdetaljer"
+msgstr "App-detaljer"
 
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
@@ -950,7 +950,7 @@ msgstr "PHP"
 #: nextcloudappstore/core/templates/app/scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:51
 msgid "Generate app"
-msgstr "Generer program"
+msgstr "Generer app"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
@@ -960,12 +960,12 @@ msgstr "Generer og last ned"
 #: nextcloudappstore/core/templates/app/upload.html:13
 #: nextcloudappstore/core/templates/nav.html:58
 msgid "Upload app release"
-msgstr "Last opp programutgivelse"
+msgstr "Last opp app-utgivelse"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr "Programutgivelsen ble lastet opp"
+msgstr "App-utgivelsen ble lastet opp"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -975,7 +975,7 @@ msgid ""
 msgstr ""
 "For mer informasjon om hvordan lage signaturen, undersøk <a "
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">programutvikler- guiden</a>."
+"rel=\"noopener norefferer\">app-utvikler-guiden</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -996,7 +996,7 @@ msgstr "Nextcloud-gemenskapen"
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
-msgstr "Nyeste programutgivelser"
+msgstr "Nyeste app-utgivelser"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
@@ -1022,7 +1022,7 @@ msgstr "Søk i %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"
-msgstr "Søk i alle programmer"
+msgstr "Søk i alle apper"
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
@@ -1035,7 +1035,7 @@ msgstr "Håndter navigering"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
-msgstr "Programutvikler"
+msgstr "App-utvikler"
 
 #: nextcloudappstore/core/templates/nav.html:48
 msgid "Documentation"
@@ -1072,7 +1072,7 @@ msgstr "Tilpasning"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "Programmer for å endre drakt, utseende og brukeropplevelse"
+msgstr "Apper for å endre tema, utseende og brukeropplevelse"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1080,7 +1080,7 @@ msgstr "Filer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
-msgstr "Program for filhåndtering og utvidelser til Filer"
+msgstr "App for filhåndtering og utvidelser til Filer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
@@ -1096,7 +1096,7 @@ msgstr "Integrasjon"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "PRogrammer som kobler Nextcloud med andre tjenester og plattformer"
+msgstr "Apper som kobler Nextcloud med andre tjenester og plattformer"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Monitoring"
@@ -1104,7 +1104,7 @@ msgstr "Overvåking"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr "Programmer for statistikk, systemdiagnose og aktivitet"
+msgstr "Apper for statistikk, systemdiagnose og aktivitet"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
@@ -1112,7 +1112,7 @@ msgstr "Multimedia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
-msgstr "Programmer for lyd, film og bilde"
+msgstr "Apper for lyd, film og bilde"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
@@ -1120,7 +1120,7 @@ msgstr "Kontorstøtte og tekst"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
-msgstr "Programm for kontorstøtte og tekstbehandling"
+msgstr "Apper for kontorstøtte og tekstbehandling"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
@@ -1128,11 +1128,11 @@ msgstr "Organisering"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
-msgstr "Programmer for tidsstyring, oppgaveliste og kalender"
+msgstr "Apper for tidsstyring, oppgaveliste og kalender"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Search related apps"
-msgstr "Søk etter relaterte program"
+msgstr "Søk etter relaterte apper"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Security"
@@ -1143,7 +1143,7 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
-"Programmer som tilbyr ekstra sikkerhetsmekanismer som autentisering, "
+"Apper som tilbyr ekstra sikkerhetsmekanismer som autentisering, "
 "identitetsbekreftelse, kryptering, osv."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
@@ -1152,7 +1152,7 @@ msgstr "Sosialt og kommunikasjon"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
-msgstr "Programmer for meldinger, kontakthåndtering og sosiale medier"
+msgstr "Apper for meldinger, kontakthåndtering og sosiale medier"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
@@ -1161,6 +1161,14 @@ msgstr "Verktøy"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Everything else"
 msgstr "Alt annet"
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:25
+msgid "Flow"
+msgstr ""
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:26
+msgid "Apps for Nextcloud Flow"
+msgstr ""
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
@@ -1186,65 +1194,64 @@ msgstr "Veldig positiv"
 msgid "Enter a valid HTTPS URL"
 msgstr "Skriv inn en gyldig HTTPS URL"
 
-#: nextcloudappstore/scaffolding/forms.py:26
-#: nextcloudappstore/scaffolding/forms.py:32
+#: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "Programmets navn må være i kamelcase f.eks. MinApp"
+msgstr "Appens navn må være i kamelcase f.eks. MinApp"
 
-#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
-msgstr "Programnavn"
+msgstr "App-navn"
 
-#: nextcloudappstore/scaffolding/forms.py:35
+#: nextcloudappstore/scaffolding/forms.py:39
 msgid "Author's full name"
 msgstr "Forfatterens fulle navn"
 
-#: nextcloudappstore/scaffolding/forms.py:36
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Author's e-mail"
 msgstr "Forfatterens e-postadresse"
 
-#: nextcloudappstore/scaffolding/forms.py:37
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's homepage"
 msgstr "Forfatterens hjemmeside"
 
-#: nextcloudappstore/scaffolding/forms.py:39
+#: nextcloudappstore/scaffolding/forms.py:43
 msgid "Bug reports and feature requests"
 msgstr "Feilrapporter og utvidelsesforespørsler"
 
-#: nextcloudappstore/scaffolding/forms.py:42
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Hold nede Ctrl og klikk for å velge flere"
 
-#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:49
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Kort beskrivelse av appen din som vil vises som en kort teaser"
 
-#: nextcloudappstore/scaffolding/forms.py:47
+#: nextcloudappstore/scaffolding/forms.py:51
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Full beskrivelse av hva programmet gjør. Kan inneholde Markdown"
+msgstr "Full beskrivelse av hva appen gjør. Kan inneholde Markdown."
 
-#: nextcloudappstore/user/forms.py:13
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Fornavn"
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Etternavn"
 
-#: nextcloudappstore/user/forms.py:23
+#: nextcloudappstore/user/forms.py:24
 msgid "Your e-mail address"
 msgstr "Din e-postadresse"
 
-#: nextcloudappstore/user/forms.py:35
+#: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Den oppgitte e-postadressen passer ikke din e-postadresse"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Bekreft passord"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1254,13 +1261,30 @@ msgstr ""
 "og tilbakestille passordet ditt. Dette feltet oppdaterer ikke passordet "
 "ditt!"
 
-#: nextcloudappstore/user/forms.py:55
+#: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
 msgstr "Den oppgitte e-postadressen er allerede tilknyttet en annen konto."
 
-#: nextcloudappstore/user/forms.py:65
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Ugyldig passord"
+
+#: nextcloudappstore/user/forms.py:72
+msgid "E-mail"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:77
+msgid "E-mail address"
+msgstr ""
+
+#: nextcloudappstore/user/signals.py:31
+msgid "Nextcloud Appstore password changed"
+msgstr "Passord for Nextcloud app-butikk er endret"
+
+#: nextcloudappstore/user/signals.py:32
+msgid ""
+"Your Appstore password has changed. Contact support if this wasn't you."
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1298,7 +1322,7 @@ msgstr "Regenerer API-symbol"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr "Overfør program-eierskap"
+msgstr "Overfør app-eierskap"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1329,7 +1353,7 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Ved å slette kontoen din vil du også slette alle programmer og utgivelser. "
+"Ved å slette kontoen din vil du også slette alle dine apper og utgivelser. "
 "For å slette din konto, skrive inn din e-postadresse i feltet og klikk på "
 "knappen, Slett konto:"
 
@@ -1348,7 +1372,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr "Overfør programmer"
+msgstr "Overfør apper"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1356,9 +1380,9 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"For å overføre et program til en ny eier må du først låse det opp. En bruker"
-" kan ta kontrollen over programmet ved å registrere det igjen på "
-"programregistreringssiden i programutvikler-menyen."
+"For å overføre en app til en ny eier må du først låse det opp. En bruker kan"
+" ta kontrollen over appen ved å registrere det igjen på app-"
+"registreringssiden i app-utvikler-menyen."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1386,4 +1410,4 @@ msgstr "Lås opp eierskapsoverføring"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "Du har ikke lastet opp noen programmer enda!"
+msgstr "Du har ikke lastet opp noen apper enda!"

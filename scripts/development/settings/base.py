@@ -1,7 +1,7 @@
 from nextcloudappstore.settings.base import *
 
 DEBUG = True
-SECRET_KEY = 'secret'
+SECRET_KEY = 'secret' #nosec
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # this whitelists 127.0.0.1 and localhost
 RECAPTCHA_PUBLIC_KEY = '6LcCTyITAAAAABofGcLG2L4QVfXY3Ugs6MQ_UHSO'

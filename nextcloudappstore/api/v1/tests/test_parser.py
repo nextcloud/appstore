@@ -108,6 +108,12 @@ class ParserTest(TestCase):
                                self.config.pre_info_xslt,
                                self.config.info_xslt)
 
+    def test_parse_invalid_archive(self):
+        path = self.get_path('data/archives/notgzipped.tar.gz')
+        extractor = GunZipAppMetadataExtractor(self.config)
+        with (self.assertRaises(UnsupportedAppArchiveException)):
+            extractor.extract_app_metadata(path)
+
     def test_parse_minimal_nextcloud(self):
         xml = self._get_contents('data/infoxmls/nextcloud.xml')
         result = parse_app_metadata(xml, self.config.info_schema,

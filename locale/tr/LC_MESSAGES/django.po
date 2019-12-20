@@ -5,19 +5,19 @@
 # 
 # Translators:
 # Semih Karakaya <karakayasemi@itu.edu.tr>, 2016
-# Furkan Fidan <public.f@posteo.de>, 2017
+# cf637e70ab1504e039715321019ea0be, 2017
 # Emre Saracoglu <hello@emresaracoglu.com>, 2017
 # Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017
-# Kaya Zeren <kayazeren@gmail.com>, 2018
+# Kaya Zeren <kayazeren@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 01:53+0000\n"
+"POT-Creation-Date: 2019-12-20 04:03+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2018\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgid "Download"
 msgstr "İndir"
 
 #: nextcloudappstore/core/forms.py:10
-#: nextcloudappstore/core/templates/app/detail.html:190
+#: nextcloudappstore/core/templates/app/detail.html:194
 msgid "Bad"
 msgstr "Kötü"
 
@@ -52,7 +52,7 @@ msgid "OK"
 msgstr "Tamam"
 
 #: nextcloudappstore/core/forms.py:12
-#: nextcloudappstore/core/templates/app/detail.html:188
+#: nextcloudappstore/core/templates/app/detail.html:192
 msgid "Good"
 msgstr "İyi"
 
@@ -123,6 +123,7 @@ msgid "app ID, identical to folder name"
 msgstr "Uygulama kodu, klasör adı ile aynı"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategori"
 
@@ -136,7 +137,7 @@ msgid "Rendered app name for users"
 msgstr "Kullanıcılara görüntülenecek uygulama"
 
 #: nextcloudappstore/core/models.py:64
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Summary"
 msgstr "Özet"
 
@@ -145,7 +146,7 @@ msgid "Short text describing the app's purpose"
 msgstr "Uygulamanın amacını açıklayan kısa bir metin"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:474
-#: nextcloudappstore/scaffolding/forms.py:46
+#: nextcloudappstore/scaffolding/forms.py:50
 msgid "Description"
 msgstr "Açıklama"
 
@@ -166,12 +167,12 @@ msgid "Developer documentation URL"
 msgstr "Geliştirici belgeleri adresi"
 
 #: nextcloudappstore/core/models.py:78
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Issue tracker URL"
 msgstr "Sorun izleme bağlantısı"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
 msgstr "Ana sayfa"
 
@@ -194,7 +195,7 @@ msgid "App owner"
 msgstr "Uygulama sahibi"
 
 #: nextcloudappstore/core/models.py:88
-#: nextcloudappstore/core/templates/app/detail.html:80
+#: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Co-Maintainers"
 msgstr "Yardımcılar"
 
@@ -209,12 +210,12 @@ msgid "Featured"
 msgstr "Öne çıkarılmış"
 
 #: nextcloudappstore/core/models.py:93
-#: nextcloudappstore/core/templates/app/detail.html:77
+#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "Son değerlendirme"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "Genel değerlendirme"
 
@@ -431,7 +432,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Kullanıcıya görüntülenecek kategori adı"
 
 #: nextcloudappstore/core/models.py:480
-#: nextcloudappstore/scaffolding/forms.py:40
+#: nextcloudappstore/scaffolding/forms.py:44
 msgid "Categories"
 msgstr "Kategoriler"
 
@@ -512,9 +513,9 @@ msgid "App release deletions"
 msgstr "Uygulama sürümlerini silme"
 
 #: nextcloudappstore/core/models.py:611
-#: nextcloudappstore/scaffolding/forms.py:34
+#: nextcloudappstore/scaffolding/forms.py:38
 msgid "Nextcloud version"
-msgstr "Nextcloud Sürümü"
+msgstr "Nextcloud sürümü"
 
 #: nextcloudappstore/core/models.py:612
 msgid "e.g. 9.0.54"
@@ -756,65 +757,65 @@ msgstr "Güncellenme"
 msgid "Publisher"
 msgstr "Yayıncı"
 
-#: nextcloudappstore/core/templates/app/detail.html:94
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
 msgstr "Kaynaklar"
 
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
 msgstr "Kullanıcı Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:103
+#: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Admin documentation"
 msgstr "Yönetici Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:106
+#: nextcloudappstore/core/templates/app/detail.html:110
 msgid "Developer documentation"
 msgstr "Geliştirici Belgeleri"
 
-#: nextcloudappstore/core/templates/app/detail.html:116
+#: nextcloudappstore/core/templates/app/detail.html:120
 msgid "Downloads"
 msgstr "İndirmeler"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "Gecelik"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Unstable"
 msgstr "Kararsız"
 
-#: nextcloudappstore/core/templates/app/detail.html:124
+#: nextcloudappstore/core/templates/app/detail.html:128
 msgid "All releases"
 msgstr "Tüm Sürümler"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Discussion"
 msgstr "Tartışma"
 
-#: nextcloudappstore/core/templates/app/detail.html:138
+#: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Report problem"
 msgstr "Sorun Bildirin"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Request feature"
 msgstr "Özellik İsteyin"
 
-#: nextcloudappstore/core/templates/app/detail.html:149
+#: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Ask questions or discuss"
 msgstr "Soru sorun ya da tartışın"
 
-#: nextcloudappstore/core/templates/app/detail.html:155
+#: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate app"
 msgstr "Uygulamayı Değerlendirin"
 
-#: nextcloudappstore/core/templates/app/detail.html:163
+#: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Rate"
 msgstr "Değerlendirme"
 
-#: nextcloudappstore/core/templates/app/detail.html:168
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
@@ -824,27 +825,27 @@ msgstr ""
 "Değerlendirme yorumlarında hata bildirimi ve özellik isteği yapmayın. Geliştirici ya da kullanıcılar yorumunuzu farketmez.\n"
 "Yorum bulunmayan değerlendirmeler de hesaba katılır ancak aşağıda görüntülenmez."
 
-#: nextcloudappstore/core/templates/app/detail.html:173
+#: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
 msgstr "Değerlendirmeyi Güncelle"
 
-#: nextcloudappstore/core/templates/app/detail.html:175
+#: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Submit rating"
 msgstr "Değerlendirmeyi Gönder"
 
-#: nextcloudappstore/core/templates/app/detail.html:189
+#: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Ok"
 msgstr "Orta"
 
-#: nextcloudappstore/core/templates/app/detail.html:202
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "No comments found."
 msgstr "Henüz bir yorum yok."
 
-#: nextcloudappstore/core/templates/app/detail.html:210
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Rating comments"
 msgstr "Değerlendirme Yorumları"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
 msgstr "Görüntülenecek değerlendirme yorumları:"
 
@@ -902,7 +903,7 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Bu form aynı zamanda varolan sertifikaları güncellemek için kullanılır. "
+"Bu form aynı zamanda var olan sertifikaları güncellemek için kullanılır. "
 "Bununla birlikte yalnız uygulama sahibi bu işlemi yapabilir. Bir uygulama "
 "sertifikasının güncellenmesi yüklenmiş tüm sürümlerin silinmesine yol açar!"
 
@@ -1078,7 +1079,7 @@ msgstr "Dosyalar"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
-msgstr "Dosya yönetimi ve dosya uzantıları uygulamaları"
+msgstr "Dosya yönetimi ve Dosya uygulaması eklentileri"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
@@ -1160,6 +1161,14 @@ msgstr "Araçlar"
 msgid "Everything else"
 msgstr "Diğer uygulamalar"
 
+#: nextcloudappstore/core/templates/translation/db_translations.txt:25
+msgid "Flow"
+msgstr "Akış"
+
+#: nextcloudappstore/core/templates/translation/db_translations.txt:26
+msgid "Apps for Nextcloud Flow"
+msgstr "Nextcloud Akış Uygulamaları"
+
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
 msgstr "Çok Kötü"
@@ -1184,67 +1193,66 @@ msgstr "Çok İyi"
 msgid "Enter a valid HTTPS URL"
 msgstr "Geçerli bir HTTPS adresi yazın"
 
-#: nextcloudappstore/scaffolding/forms.py:26
-#: nextcloudappstore/scaffolding/forms.py:32
+#: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
 msgstr ""
 "Uygulama adı camel case biçiminde illk harfleri büyük ve boşluksuz biçimde "
 "yazılmalıdır. Örnek: BenimUygulamam"
 
-#: nextcloudappstore/scaffolding/forms.py:30
+#: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Uygulama adı"
 
-#: nextcloudappstore/scaffolding/forms.py:35
+#: nextcloudappstore/scaffolding/forms.py:39
 msgid "Author's full name"
 msgstr "Yazarın tam adı"
 
-#: nextcloudappstore/scaffolding/forms.py:36
+#: nextcloudappstore/scaffolding/forms.py:40
 msgid "Author's e-mail"
 msgstr "Yazarın e-posta adresi"
 
-#: nextcloudappstore/scaffolding/forms.py:37
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's homepage"
 msgstr "Yazarın web sitesi"
 
-#: nextcloudappstore/scaffolding/forms.py:39
+#: nextcloudappstore/scaffolding/forms.py:43
 msgid "Bug reports and feature requests"
 msgstr "Hata bildirimi ve özellik istekleri"
 
-#: nextcloudappstore/scaffolding/forms.py:42
+#: nextcloudappstore/scaffolding/forms.py:46
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Birden fazla ögeyi seçmek için CTRL tuşuna basılı tutarak tıklayın"
 
-#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:49
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Uygulamanızın kısa açıklaması olarak görüntülenecek metin"
 
-#: nextcloudappstore/scaffolding/forms.py:47
+#: nextcloudappstore/scaffolding/forms.py:51
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr "Uygulamanızın tam olarak ne yaptığı. Markdown içerebilir."
 
-#: nextcloudappstore/user/forms.py:13
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Ad"
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Soyad"
 
-#: nextcloudappstore/user/forms.py:23
+#: nextcloudappstore/user/forms.py:24
 msgid "Your e-mail address"
 msgstr "E-posta adresiniz"
 
-#: nextcloudappstore/user/forms.py:35
+#: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Yazdığınız e-posta adresi kayıtlı adresiniz ile aynı değil"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Parola onayı"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1253,13 +1261,32 @@ msgstr ""
 "Parola yetkisiz kullanıcıların e-posta adresinizi değiştirmesini ve "
 "parolanızı sıfırlamasını engeller. Bu alan parolanızı güncellemez!"
 
-#: nextcloudappstore/user/forms.py:55
+#: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
 msgstr "Bu e-posta adresi zaten başka bir hesapla ilişkili."
 
-#: nextcloudappstore/user/forms.py:65
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Parola geçersiz"
+
+#: nextcloudappstore/user/forms.py:72
+msgid "E-mail"
+msgstr "E-posta"
+
+#: nextcloudappstore/user/forms.py:77
+msgid "E-mail address"
+msgstr "E-posta adresi"
+
+#: nextcloudappstore/user/signals.py:31
+msgid "Nextcloud Appstore password changed"
+msgstr "Nextcloud uygulama mağazası parolası değiştirildi"
+
+#: nextcloudappstore/user/signals.py:32
+msgid ""
+"Your Appstore password has changed. Contact support if this wasn't you."
+msgstr ""
+"Uygulama mağazası parolanız değiştirildi. Bu işlemi siz yapmadıysanız destek"
+" ekibimiz ile görüşün."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"

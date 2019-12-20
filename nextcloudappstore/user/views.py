@@ -70,8 +70,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         email = EmailAddress.objects.get_primary(user=self.request.user)
-        email.email = form.cleaned_data['email']
-        email.save()
+        email.change(None, form.cleaned_data['email'])
         messages.success(self.request, 'Account details saved.')
         return super().form_valid(form)
 

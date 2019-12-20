@@ -28,6 +28,18 @@ from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import version_in_spec
 from nextcloudappstore.user.facades import update_token
 
+APP_PREFETCH_LIST = [
+    'authors',
+    'screenshots',
+    'categories',
+    'translations',
+    'releases__translations',
+    'releases__phpextensiondependencies__php_extension',
+    'releases__databasedependencies__database',
+    'releases__shell_commands',
+    'releases__licenses',
+]
+
 
 class CategoryView(ListAPIView):
     queryset = Category.objects.prefetch_related('translations').all()
@@ -44,6 +56,11 @@ class NextcloudReleaseView(ListAPIView):
     serializer_class = NextcloudReleaseSerializer
 
 
+class AppsView(ListAPIView):
+    queryset = App.objects.prefetch_related(*APP_PREFETCH_LIST).all()
+    serializer_class = AppSerializer
+
+
 class AppView(DestroyAPIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)
@@ -53,18 +70,8 @@ class AppView(DestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         version = self.kwargs['version']
-        prefetch = [
-            'authors',
-            'screenshots',
-            'categories',
-            'translations',
-            'releases__translations',
-            'releases__phpextensiondependencies__php_extension',
-            'releases__databasedependencies__database',
-            'releases__shell_commands',
-            'releases__licenses',
-        ]
-        working_apps = App.objects.get_compatible(version, prefetch=prefetch)
+        working_apps = App.objects.get_compatible(version,
+                                                  prefetch=APP_PREFETCH_LIST)
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
         return Response(data)

@@ -142,6 +142,15 @@ ACCOUNT_SIGNUP_FORM_CLASS = \
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 PASSWORD_RESET_TIMEOUT_DAYS = 1
+ACCOUNT_FORMS = {
+    'login': 'allauth.account.forms.LoginForm',
+    'add_email': 'allauth.account.forms.AddEmailForm',
+    'change_password': 'allauth.account.forms.ChangePasswordForm',
+    'set_password': 'allauth.account.forms.SetPasswordForm',
+    'reset_password': 'nextcloudappstore.user.forms.CustomResetPasswordForm',
+    'reset_password_from_key': 'allauth.account.forms.ResetPasswordKeyForm',
+    'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -198,7 +207,7 @@ CSP_STYLE_SRC = ('\'self\'',)
 CSP_FORM_ACTION = ('\'self\'',)
 
 CSP_SIGNUP = {
-    'SCRIPT_SRC': ['https://www.google.com/recaptcha/',
+    'SCRIPT_SRC': ['https://google.com/recaptcha/',
                    'https://www.gstatic.com/recaptcha/'],
     'FRAME_SRC': ['https://www.google.com/recaptcha/'],
     'STYLE_SRC': '\'unsafe-inline\'',
@@ -298,3 +307,6 @@ APP_SCAFFOLDING_PROFILES = {}
 # GitHub api configuration
 GITHUB_API_BASE_URL = 'https://api.github.com'
 GITHUB_API_TOKEN = None
+
+# Nextcloud Email
+NEXTCLOUD_FROM_EMAIL = 'appstore@nextcloud.com'
