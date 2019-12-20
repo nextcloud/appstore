@@ -4,7 +4,7 @@ language: python
 python:
   - "3.5"
   - "3.6"
-  #- "3.7"
+  - "3.7"
 
 env:
   matrix:
@@ -20,8 +20,7 @@ branches:
     - master
 
 before_install:
-  - export DISPLAY=:99.0
-  - nvm install 8
+  - nvm install 12
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
   # install geckodriver for frontend tests
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz -O geckodriver.tar.gz
