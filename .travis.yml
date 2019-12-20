@@ -21,7 +21,6 @@ branches:
 
 before_install:
   - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
   - nvm install 8
   - if [[ "$DB" == "postgres" ]]; then psql -c 'create database nextcloudappstore;' -U postgres; fi
   # install geckodriver for frontend tests
@@ -45,6 +44,7 @@ after_success:
 
 services:
   - postgresql
+  - xvfb
 
 addons:
   firefox: "latest"
