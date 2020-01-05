@@ -44,7 +44,7 @@ ready.then(() => {
     id('app-gallery-container', HTMLElement).ifPresent((gallery) => {
         const item = queryOrThrow('.carousel-inner', HTMLElement, gallery);
         item.addEventListener('click', () => {
-            if (screenfull && screenfull.enabled) {
+            if (screenfull && screenfull.isEnabled) {
                 item.classList.toggle('fullscreen');
                 screenfull.toggle(gallery);
             }
