@@ -1,7 +1,7 @@
 from allauth.account.models import EmailAddress
 from django.core.management import call_command
 from django.test import TestCase
-from django.utils.six import StringIO
+from io import StringIO
 
 from nextcloudappstore.user.facades import create_user
 
