@@ -1,10 +1,10 @@
 import json
+from io import StringIO
 from typing import Any, Dict
 from unittest.mock import patch
 
 from django.core.management import call_command
 from django.test import TestCase
-from django.utils.six import StringIO
 
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.github import GitHubClient

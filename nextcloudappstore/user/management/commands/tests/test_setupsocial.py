@@ -2,7 +2,7 @@ from allauth.socialaccount.models import SocialApp
 from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.test import TestCase
-from django.utils.six import StringIO
+from io import StringIO
 
 
 class SetupSocialCommandTest(TestCase):
