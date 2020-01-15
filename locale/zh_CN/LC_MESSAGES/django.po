@@ -21,7 +21,6 @@
 # Hoilc <fyxyzhc@qq.com>, 2018
 # Herald Yu <yuhr123@gmail.com>, 2018
 # mays_wind <i@mayswind.net>, 2018
-# Mark Li <2821341767@qq.com>, 2019
 # ᴍɪᴍɪ <stevenjoezhang@gmail.com>, 2019
 # f3d6cad4977cd29678bf13b608e2d7a0, 2019
 # Pascal Janus <pascal_janus@163.com>, 2019
@@ -32,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 03:35+0000\n"
+"POT-Creation-Date: 2020-01-15 03:34+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Jack Frost, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -48,7 +47,7 @@ msgstr "最新的应用程序版本"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "获取应用程序的最新更新"
+msgstr "获取最新的应用程序更新"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -103,12 +102,14 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"通常存储在 ' ~/.nextcloud/certificates/APP_ID.crt' 中，其中APP_ID是您的应用程序的ID。 "
-"如果您没有证书，您首先需要创建一个证书签名请求（CSR），该申请应该发布在证书的库中（遵循自述文件）。 您可以通过执行以下命令生成CSR："
+"通常存储在 ~/.nextcloud/certificates/APP_ID.crt 中，其中 APP_ID 是您的应用程序 ID。 "
+"如果您没有证书，则需要先创建一个证书签名请求（CSR），然后将其发布在<a href=\"https://github.com/nextcloud"
+"/app-certificate-requests\" rel=\"noreferrer noopener\">证书存储库</a>中（遵循自述文件）。 "
+"您可以通过执行以下命令来生成 CSR："
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "应用程序 ID 的签名"
+msgstr "在您的应用程序的 ID 上签名"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -119,7 +120,7 @@ msgstr "语言"
 msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
-msgstr "<b>重要</b>：改变语言会清除您当前的评论。更改不会被保存！"
+msgstr "<b>重要</b>：改变语言会清除您当前的注释。更改不会被保存！"
 
 #: nextcloudappstore/core/forms.py:77
 msgid "Comment"
@@ -131,7 +132,7 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "应用代码"
+msgstr "应用程序 ID，与文件夹名称相同"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:479
 #: nextcloudappstore/core/templates/app/detail.html:76
@@ -141,11 +142,11 @@ msgstr "分类"
 #: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:473
 #: nextcloudappstore/core/models.py:492 nextcloudappstore/core/models.py:509
 msgid "Name"
-msgstr "名字"
+msgstr "名称"
 
 #: nextcloudappstore/core/models.py:63
 msgid "Rendered app name for users"
-msgstr "为用户呈现应用程序名称"
+msgstr "为用户呈现的应用名称"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:48
@@ -163,19 +164,19 @@ msgstr "描述"
 
 #: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:475
 msgid "Will be rendered as Markdown"
-msgstr "将呈现为降价"
+msgstr "将呈现为 Markdown"
 
 #: nextcloudappstore/core/models.py:72
 msgid "User documentation URL"
-msgstr "用户文档链接"
+msgstr "用户文档地址"
 
 #: nextcloudappstore/core/models.py:74
 msgid "Admin documentation URL"
-msgstr "管理员文档链接"
+msgstr "管理员文档地址"
 
 #: nextcloudappstore/core/models.py:76
 msgid "Developer documentation URL"
-msgstr "开发者文档链接"
+msgstr "开发者文档地址"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:42
@@ -223,20 +224,20 @@ msgstr "精选"
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
-msgstr "最近的评价"
+msgstr "最近的评分"
 
 #: nextcloudappstore/core/models.py:94
 #: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
-msgstr "全部的评价"
+msgstr "全部的评分"
 
 #: nextcloudappstore/core/models.py:96
 msgid "Number of recently submitted ratings"
-msgstr "最近提交的评价数量"
+msgstr "最近提交的评分数"
 
 #: nextcloudappstore/core/models.py:98
 msgid "Number of overall submitted ratings"
-msgstr "全部提交的评价数量"
+msgstr "提交的总体评分数"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Last release at"
@@ -276,27 +277,27 @@ msgstr "用户"
 #: nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/templates/app/list.html:15
 msgid "Rating"
-msgstr "评价"
+msgstr "评分"
 
 #: nextcloudappstore/core/models.py:269
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "评价从0.0（最差）到1.0（最好）"
+msgstr "评分从 0.0（最差）到 1.0（最好）"
 
 #: nextcloudappstore/core/models.py:272
 msgid "Rating comment"
-msgstr "评级的评论"
+msgstr "评分的评论"
 
 #: nextcloudappstore/core/models.py:273
 msgid "Rating comment in Markdown"
-msgstr "历史版本的评级评论"
+msgstr "历史版本的评分评论"
 
 #: nextcloudappstore/core/models.py:279
 msgid "App rating"
-msgstr "应用评价"
+msgstr "应用评分"
 
 #: nextcloudappstore/core/models.py:280
 msgid "App ratings"
-msgstr "应用评价"
+msgstr "应用评分"
 
 #: nextcloudappstore/core/models.py:321
 msgid "Full name"
@@ -391,15 +392,15 @@ msgstr "应用发布"
 
 #: nextcloudappstore/core/models.py:422
 msgid "Image URL"
-msgstr "图片链接"
+msgstr "图片地址"
 
 #: nextcloudappstore/core/models.py:424
 msgid "Small thumbnail"
-msgstr "小的预览图"
+msgstr "小缩略图"
 
 #: nextcloudappstore/core/models.py:427
 msgid "Ordering"
-msgstr "次序"
+msgstr "排序"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
@@ -436,7 +437,7 @@ msgstr "当上传应用时分类ID有助于确定应用分类"
 
 #: nextcloudappstore/core/models.py:472
 msgid "Category name which will be presented to the user"
-msgstr "分类的名字将呈现给用户"
+msgstr "分类的名称将呈现给用户"
 
 #: nextcloudappstore/core/models.py:480
 #: nextcloudappstore/scaffolding/forms.py:44
@@ -462,7 +463,7 @@ msgstr "用于确定数据库的关键字"
 
 #: nextcloudappstore/core/models.py:511
 msgid "Database name which will be presented to the user"
-msgstr "数据库名字将呈现给客户"
+msgstr "数据库名称将呈现给客户"
 
 #: nextcloudappstore/core/models.py:514 nextcloudappstore/core/models.py:527
 msgid "Database"
@@ -578,11 +579,11 @@ msgstr "您被禁止进入这个页面！"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
-msgstr "没发现"
+msgstr "没有找到"
 
 #: nextcloudappstore/core/templates/404.html:8
 msgid "Page not found"
-msgstr "页面没发现"
+msgstr "没有找到页面"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
@@ -773,11 +774,11 @@ msgstr "下载"
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
-msgstr "日常更新"
+msgstr "每夜更新"
 
 #: nextcloudappstore/core/templates/app/detail.html:127
 msgid "Unstable"
-msgstr "不稳定的"
+msgstr "不稳定"
 
 #: nextcloudappstore/core/templates/app/detail.html:128
 msgid "All releases"
@@ -801,11 +802,11 @@ msgstr "提问或讨论"
 
 #: nextcloudappstore/core/templates/app/detail.html:159
 msgid "Rate app"
-msgstr "程序等级"
+msgstr "评价应用"
 
 #: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Rate"
-msgstr "等级"
+msgstr "评价"
 
 #: nextcloudappstore/core/templates/app/detail.html:172
 msgid ""
@@ -814,20 +815,20 @@ msgid ""
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
 "评分评论支持 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
-"请不要使用评分评论反馈问题或请求功能。开发者和用户都不会因为您的评论收到提醒。\n"
-"没有评论的评分会计数，但不会在下方列表中显示。"
+"                            请不要使用评分评论反馈问题或请求功能。开发者和用户都不会因为您的评论收到提醒。\n"
+"                            没有评论的评分会计数，但不会在下方列表中显示。"
 
 #: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
-msgstr "更新评级"
+msgstr "更新评分"
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Submit rating"
-msgstr "提交评级"
+msgstr "提交评分"
 
 #: nextcloudappstore/core/templates/app/detail.html:193
 msgid "Ok"
-msgstr "很好"
+msgstr "好"
 
 #: nextcloudappstore/core/templates/app/detail.html:206
 msgid "No comments found."
@@ -835,15 +836,15 @@ msgstr "没有发现评论。"
 
 #: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Rating comments"
-msgstr "等级评论"
+msgstr "评分评论"
 
 #: nextcloudappstore/core/templates/app/detail.html:218
 msgid "Display ratings comments in:"
-msgstr "显示等级评论"
+msgstr "显示评分评论"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "评级（最近）"
+msgstr "评分（最近的）"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -853,11 +854,11 @@ msgstr "最新的"
 #: nextcloudappstore/core/templates/app/list.html:21
 #: nextcloudappstore/core/templates/app/list.html:23
 msgid "Alphabetical"
-msgstr "按字母顺序排列"
+msgstr "按字母顺序"
 
 #: nextcloudappstore/core/templates/app/list.html:31
 msgid "My apps"
-msgstr "我的应用程序"
+msgstr "我的应用"
 
 #: nextcloudappstore/core/templates/app/list.html:59
 #, python-format
@@ -924,7 +925,7 @@ msgstr "附属"
 
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Required Nextcloud versions"
-msgstr "需要 Nextcloud 版本"
+msgstr "需要的 Nextcloud 版本"
 
 #: nextcloudappstore/core/templates/app/releases.html:71
 msgid "PHP"
@@ -938,7 +939,7 @@ msgstr "生成应用程序"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "生成下载"
+msgstr "生成并下载"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
@@ -982,7 +983,7 @@ msgstr "最新版本"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr "在 GitHub 上关注我们"
+msgstr "在 GitHub 上 Fork 我"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1054,7 +1055,7 @@ msgstr "定制"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "主题、布局和 UX 更改应用程序"
+msgstr "主题、布局和用户体验修改应用"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1160,7 +1161,7 @@ msgstr "差"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
-msgstr "中性"
+msgstr "一般"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
@@ -1176,12 +1177,12 @@ msgstr "请输入有效的 HTTPS 超链接"
 
 #: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "应用程序的名字必须是驼峰写法：例如 MyApp"
+msgstr "应用名称必须为驼峰式，例如 MyApp"
 
 #: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
-msgstr "应用程序的名字"
+msgstr "应用的名称"
 
 #: nextcloudappstore/scaffolding/forms.py:39
 msgid "Author's full name"
