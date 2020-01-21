@@ -16,6 +16,8 @@ from django.conf.global_settings import LANGUAGES
 
 BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
 
+SILENCED_SYSTEM_CHECKS = ["cachalot.E003"]
+
 INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
     'nextcloudappstore.api.apps.ApiConfig',
