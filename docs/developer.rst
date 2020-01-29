@@ -354,6 +354,7 @@ category
     * if not provided the category **tools** will be used
     * must contain one of the following values:
 
+       * **featured**
        * **customization**
        * **files**
        * **games**
