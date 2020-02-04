@@ -264,7 +264,7 @@ CERTIFICATE_DIGEST = 'sha512'
 MAX_DOWNLOAD_FILE_SIZE = 1024 ** 2  # bytes
 MAX_DOWNLOAD_TIMEOUT = 60  # seconds
 MAX_DOWNLOAD_REDIRECTS = 10
-MAX_DOWNLOAD_SIZE = 20 * (1024 ** 2)  # bytes
+MAX_DOWNLOAD_SIZE = 30 * (1024 ** 2)  # bytes
 ARCHIVE_FOLDER_BLACKLIST = {
     'No .git directories': r'\.git$'
 }
