@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block head-title %}{% if current_category %}{{ current_category.name }} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
+{% block head-title %}{% if current_category %}{{ current_category.name }} - {% elif is_featured_category %}{% trans 'Featured apps - ' %}{% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}
     <script defer src="{% static 'public/app/list.js' %}" type="text/javascript"></script>
 {% endblock %}
@@ -24,8 +24,10 @@
         {% endif %}
         <li role="presentation" class="filters">
             <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
+                {% if not is_featured_category %}
                 <input type="checkbox" class="auto-submit" id="featured-checkbox" name="is_featured" value="true" {% if request.GET.is_featured == 'true' %}checked{% endif %}>
                 <label for="featured-checkbox">{% trans 'Featured' %}</label>
+                {% endif %}
                 {% if request.user.is_authenticated %}
                     <input type="checkbox" class="auto-submit" id="myapps-checkbox" name="maintainer" value="{{ request.user.username }}" {% if request.GET.maintainer == request.user.username %}checked{% endif %}>
                     <label for="myapps-checkbox">{% trans 'My apps' %}</label>

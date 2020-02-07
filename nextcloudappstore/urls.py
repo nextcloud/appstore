@@ -19,6 +19,10 @@ admin.site.login = login_required(admin.site.login)
 
 urlpatterns = [
     url(r'^$', CategoryAppListView.as_view(), {'id': None}, name='home'),
+    url(r"^featured$", CategoryAppListView.as_view(), {'id': None,
+                                                       'is_featured_category':
+                                                           True},
+        name='featured'),
     url(r"^signup/$", csp_update(**settings.CSP_SIGNUP)(signup),
         name="account_signup"),
     url(r"^social/signup/$", csp_update(**settings.CSP_SIGNUP)(social_signup),

@@ -7,9 +7,13 @@
     <div class="col-sm-3">
         {% if categories %}
         <ul id="sidebar" class="nav nav-pills nav-stacked">
-            <li class="{% if cat.id == current_category.id and not object %}active{% endif %}">
+            <li class="{% if cat.id == current_category.id and not object and not is_featured_category %}active{% endif %}">
                 <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'All apps' %}</a>
             </li>
+            <li class="{% if cat.id == current_category.id and not object and is_featured_category %}active{% endif %}">
+                <a href="{% url 'featured' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'Featured apps' %}</a>
+            </li>
+
             {% for cat in categories %}
                 <li class="{% if cat.id == current_category.id %}active{% endif %}">
                     <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
