@@ -174,10 +174,12 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         order_by = self.request.GET.get('order_by', 'rating_overall')
         ordering = self.request.GET.get('ordering', 'desc')
-        is_featured = self.request.GET.get('is_featured', self.kwargs
-                                           .get('is_featured_category', False))
+        is_featured = self.request.GET.get('is_featured', False)
         maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
+
+        if self.kwargs.get('is_featured_category', False):
+            is_featured = "true"
 
         allowed_order_by = {'name', 'last_release', 'rating_overall',
                             'rating_recent'}
