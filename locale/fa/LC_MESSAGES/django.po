@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-09 03:36+0000\n"
+"POT-Creation-Date: 2020-02-10 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Faza Majazi, 2020\n"
 "Language-Team: Persian (https://www.transifex.com/nextcloud/teams/64236/fa/)\n"
@@ -87,10 +87,16 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"معمولاً در ~ / .nextcloud / Certificates / APP_ID.crt که APP_ID شناسه برنامه"
+" شما است ، ذخیره می شود. اگر گواهینامه ندارید ، ابتدا باید یک درخواست علامت "
+"گواهی (CSR) ایجاد کنید ، که باید روی آن ارسال شود <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">مخزن گواهی</a> (دنبال README باشید). شما می "
+"توانید CSR را با اجرای دستور زیر تولید کنید:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr ""
+msgstr " امضا روی شناسه برنامه ها"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -102,6 +108,8 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
+"<b>مهم</b>: با تغییر زبان ، نظر فعلی شما پاک خواهد شد. تغییرات ذخیره نمی "
+"شوند!"
 
 #: nextcloudappstore/core/forms.py:77
 msgid "Comment"
@@ -162,7 +170,7 @@ msgstr "URL اسناد توسعه دهنده"
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:42
 msgid "Issue tracker URL"
-msgstr ""
+msgstr " نشانی اینترنتی صدور  tracker  "
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:323
 #: nextcloudappstore/core/templates/app/detail.html:101
@@ -301,7 +309,7 @@ msgstr "نسخه"
 
 #: nextcloudappstore/core/models.py:340
 msgid "Version follows Semantic Versioning"
-msgstr ""
+msgstr " نسخه  از  versioning  معنایی  پیروی می‌کند"
 
 #: nextcloudappstore/core/models.py:347 nextcloudappstore/core/models.py:571
 msgid "PHP extension dependency"
@@ -354,7 +362,7 @@ msgstr "امضایی با استفاده از گواهی برنامه"
 
 #: nextcloudappstore/core/models.py:376
 msgid "Signature hashing algorithm"
-msgstr ""
+msgstr " الگوریتم  درهم  سازی"
 
 #: nextcloudappstore/core/models.py:378
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -363,7 +371,7 @@ msgstr "تغییر"
 
 #: nextcloudappstore/core/models.py:379
 msgid "The release changelog. Can contain Markdown"
-msgstr ""
+msgstr "آزد شدن تغیر تاریخچه. می تواند حاوی پایین اوردن قیمت باشد"
 
 #: nextcloudappstore/core/models.py:384 nextcloudappstore/core/models.py:524
 #: nextcloudappstore/core/models.py:559
@@ -403,7 +411,7 @@ msgstr "فرمان پوسته"
 
 #: nextcloudappstore/core/models.py:449
 msgid "Name of a required shell command, e.g. grep"
-msgstr ""
+msgstr " نام  فرمان  پوسته  لازم  ,  به عنوان مثال  grep"
 
 #: nextcloudappstore/core/models.py:453
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -474,7 +482,7 @@ msgstr "وابستگی به پایگاه داده"
 
 #: nextcloudappstore/core/models.py:545
 msgid "e.g. libxml"
-msgstr ""
+msgstr "e.g. libxml"
 
 #: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:549
 #: nextcloudappstore/core/models.py:562
@@ -593,6 +601,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"  خوش‌آمد گویی از …  %(site_name)s!\n"
+"\n"
+"  شما این ایمیل را دریافت می‌کنید چون %(user_display)s این آدرس ایمیل را به حساب   %(site_domain)s.\n"
+"\n"
+"  برای تایید این حرف صحیح است ,  %(activate_url)s\n"
+"\n"
+"  اگر شما حساب کاربری خود را نداشته باشید , در %(site_domain)s,  به سادگی این پیغام را نادیده بگیرید . \n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -614,6 +629,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"  لطفا تایید کنید که <a href=\"mailto:%(email)s\">%(email)s</a>  یک آدرس "
+"ایمیل برای  %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -680,7 +697,7 @@ msgstr "اگر در تنظیم مجدد رمز عبور خود مشکلی دار
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr ""
+msgstr "توکن  رینگ  نامناسب"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -807,6 +824,8 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"  پشتیبانی نظرات درجه‌بندی  <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                          از نظرات درجه‌بندی برای گزارش اشکالات و یا مشخصه‌های درخواست استفاده نکنید . نه برنامه نویسان و نه کاربران از نظر شما مطلع نخواهند شد . رتبه بدون نظر دادن هنوز شمارش است , اما در زیر لیست نشده است ."
 
 #: nextcloudappstore/core/templates/app/detail.html:177
 msgid "Update rating"
@@ -854,11 +873,12 @@ msgstr "برنامه های من"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
+"  هیچ برنامه‌ای برای جستجو پیدا نشد  \"<em>%(query)s</em>\" in %(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr ""
+msgstr "  هیچ برنامه‌ای برای جستجو پیدا نشد  \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -873,6 +893,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"  برای اطلاعات بیشتر در مورد چگونگی به دست آوردن گواهی و ایجاد امضای , بررسی"
+" کنید   <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">  راهنمای توسعه دهنده برنامه</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -907,7 +931,7 @@ msgstr "جزئیات انتشار"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr " چکیده امضا "
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -948,6 +972,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"   برای اطلاعات بیشتر در مورد نحوه ایجاد امضا   بررسی کنید <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">راهنمای توسعه دهنده برنامه</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -958,6 +985,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
+" برنامه  کاربردی نکست کلود   -  بارگذاری  برنامه‌های  خود  را بارگذاری  کرده"
+" و  برنامه‌های  جدید  را بر  روی نکست کلودنصب کنید  ."
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -970,7 +999,7 @@ msgstr "آخرین نسخه های برنامه"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr ""
+msgstr " منو  به  \" GitHub  \" سوت بزن"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1033,6 +1062,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"شما در مورد استفاده از خود هستید %(provider_name)s حساب کاربری برای ورود به سیستم\n"
+"            %(site_name)sبه عنوان مرحله آخر ، لطفا فرم زیر را تکمیل کنید:."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1165,7 +1196,7 @@ msgstr "یک URL معتبر HTTPS وارد کنید"
 
 #: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
-msgstr ""
+msgstr " نام  برنامه  باید  حاوی حروف بزرگ باشد  به عنوان مثال  : MyApp"
 
 #: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
