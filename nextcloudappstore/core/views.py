@@ -178,7 +178,7 @@ class CategoryAppListView(ListView):
         maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
-        if self.kwargs.get("is_featured_category", False):
+        if self.kwargs.get('is_featured_category', False):
             is_featured = "true"
 
         allowed_order_by = {'name', 'last_release', 'rating_overall',
