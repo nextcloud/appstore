@@ -174,7 +174,8 @@ class CategoryAppListView(ListView):
     def get_queryset(self):
         order_by = self.request.GET.get('order_by', 'rating_overall')
         ordering = self.request.GET.get('ordering', 'desc')
-        is_featured = self.request.GET.get('is_featured', False)
+        is_featured = self.request.GET.get('is_featured', self.kwargs
+                                           .get('is_featured_category', False))
         maintainer = self.request.GET.get('maintainer', False)
         sort_columns = []
 
@@ -210,6 +211,8 @@ class CategoryAppListView(ListView):
         context['categories'] = Category.objects.prefetch_related(
             'translations').all()
         category_id = self.kwargs['id']
+        context['is_featured_category'] = self.kwargs\
+            .get('is_featured_category', False)
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)
         if self.search_terms:
