@@ -23,17 +23,17 @@
 # mays_wind <i@mayswind.net>, 2018
 # ᴍɪᴍɪ <stevenjoezhang@gmail.com>, 2019
 # f3d6cad4977cd29678bf13b608e2d7a0, 2019
-# Pascal Janus <pascal_janus@163.com>, 2019
 # Jack Frost, 2020
+# Pascal Janus <pascal_janus@163.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Jack Frost, 2020\n"
+"Last-Translator: Pascal Janus <pascal_janus@163.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,7 +217,7 @@ msgstr "应用作者"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "精选"
 
@@ -404,8 +404,8 @@ msgstr "排序"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "截图"
 
@@ -727,6 +727,10 @@ msgstr "Nextcloud 应用程序商店管理员"
 msgid "All apps"
 msgstr "所有的应用程序"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr "精选应用"
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -842,6 +846,10 @@ msgstr "评分评论"
 msgid "Display ratings comments in:"
 msgstr "显示评分评论"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "评分（最近的）"
@@ -856,16 +864,16 @@ msgstr "最新的"
 msgid "Alphabetical"
 msgstr "按字母顺序"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "我的应用"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "在%(category)s分类中没有找到搜索的应用程序 \"<em>%(query)s</em>\"。"
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "没有找到搜索应用程序 \"<em>%(query)s</em>\"。"
@@ -1002,6 +1010,10 @@ msgstr "必填字段"
 #, python-format
 msgid "Search %(category)s"
 msgstr "搜索分类 '%(category)s' "
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

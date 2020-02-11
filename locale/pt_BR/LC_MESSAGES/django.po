@@ -9,16 +9,16 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2017
 # Rodrigues Santana <rodrigues@blupixel.com.br>, 2017
 # Javier Llamas <s_llamasj@globalhitss.com>, 2017
-# Paulo Schopf, 2019
+# Paulo Schopf, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Paulo Schopf, 2019\n"
+"Last-Translator: Paulo Schopf, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -206,7 +206,7 @@ msgstr "Autores do aplicativo"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "Destaques"
 
@@ -396,8 +396,8 @@ msgstr "Solicitando"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Captura de tela"
 
@@ -739,6 +739,10 @@ msgstr "Administração da loja de aplicativos Nextcloud"
 msgid "All apps"
 msgstr "Todos os aplicativos"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr "Aplicativos em destaque"
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -854,6 +858,10 @@ msgstr "Comentários de avaliação"
 msgid "Display ratings comments in:"
 msgstr "Exibir comentários de avaliações em:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "Avaliação (recente)"
@@ -868,18 +876,18 @@ msgstr "Último"
 msgid "Alphabetical"
 msgstr "Alfabético"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "Meus aplicativos"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "Nenhum aplicativo encontrado para busca\"<em?%(query)s</em>\" em "
 "%(category)s."
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Nenhum aplicativo encontrado para a busca \"<em>%(query)s</em>"
@@ -1023,6 +1031,10 @@ msgstr "Campo requerido"
 #, python-format
 msgid "Search %(category)s"
 msgstr "Busca %(category)s"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

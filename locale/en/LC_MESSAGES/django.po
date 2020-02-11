@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr ""
 
@@ -376,8 +376,8 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr ""
 
@@ -692,6 +692,10 @@ msgstr ""
 msgid "All apps"
 msgstr ""
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -808,6 +812,10 @@ msgstr ""
 msgid "Display ratings comments in:"
 msgstr ""
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr ""
@@ -822,16 +830,16 @@ msgstr ""
 msgid "Alphabetical"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr ""
@@ -961,6 +969,10 @@ msgstr ""
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search %(category)s"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
 msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15

@@ -8,16 +8,16 @@
 # cf637e70ab1504e039715321019ea0be, 2017
 # Emre Saracoglu <hello@emresaracoglu.com>, 2017
 # Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017
-# Kaya Zeren <kayazeren@gmail.com>, 2019
+# Kaya Zeren <kayazeren@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2019\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,7 +205,7 @@ msgstr "Uygulama geliştiriciler"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "Öne çıkarılmış"
 
@@ -395,8 +395,8 @@ msgstr "Sıralama"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Ekran görüntüsü"
 
@@ -734,6 +734,10 @@ msgstr "Nextcloud Uygulama Mağazası Yönetimi"
 msgid "All apps"
 msgstr "Tüm Uygulamalar"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr "Öne çıkarılmış uygulamalar"
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -849,6 +853,10 @@ msgstr "Değerlendirme Yorumları"
 msgid "Display ratings comments in:"
 msgstr "Görüntülenecek değerlendirme yorumları:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "Değerlendirme (Son)"
@@ -863,18 +871,18 @@ msgstr "Son"
 msgid "Alphabetical"
 msgstr "Alfabetik"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "Uygulamlarım"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "%(category)s içinde \"<em>%(query)s</em>\" sorgusuna uyan bir uygulama "
 "bulunamadı."
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "\"<em>%(query)s</em>\" aramasına uyan bir uygulama bulunamadı"
@@ -1018,6 +1026,10 @@ msgstr "zorunlu alan"
 #, python-format
 msgid "Search %(category)s"
 msgstr "%(category)s arama"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

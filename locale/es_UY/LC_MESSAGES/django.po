@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Javier Llamas <s_llamasj@globalhitss.com>, 2019\n"
 "Language-Team: Spanish (Uruguay) (https://www.transifex.com/nextcloud/teams/64236/es_UY/)\n"
@@ -201,7 +201,7 @@ msgstr "Autores de la aplicación"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "Destacado"
 
@@ -391,8 +391,8 @@ msgstr "Ordenamiento"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Captura de pantalla"
 
@@ -732,6 +732,10 @@ msgstr "Administración de la aplicación Nextcloud en la tienda"
 msgid "All apps"
 msgstr "Todas las aplicaciones"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -847,6 +851,10 @@ msgstr "Comentarios de calificaciones"
 msgid "Display ratings comments in:"
 msgstr "Mostrar los comentarios de calificaciones en:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "Calificación (reciente)"
@@ -861,18 +869,18 @@ msgstr "Más reciente"
 msgid "Alphabetical"
 msgstr "Alfabético"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "Mis aplicaciones"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "No se encontraron aplicaciones para la búsqueda \"<em>%(query)s</em>\" en "
 "%(category)s."
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "No se encontraron aplicaciones para la búsqueda \"<em>%(query)s</em>\"."
@@ -1011,6 +1019,10 @@ msgstr "campo requerido"
 #, python-format
 msgid "Search %(category)s"
 msgstr "Buscar %(category)s"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

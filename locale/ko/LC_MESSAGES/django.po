@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Kua_ <wp1ghk2wp@naver.com>, 2019\n"
 "Language-Team: Korean (https://www.transifex.com/nextcloud/teams/64236/ko/)\n"
@@ -201,7 +201,7 @@ msgstr "앱 제작자"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "추천"
 
@@ -390,8 +390,8 @@ msgstr "주문"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "스크린샷"
 
@@ -722,6 +722,10 @@ msgstr "Nextcloud 앱 스토어 관리"
 msgid "All apps"
 msgstr "모든 앱"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -837,6 +841,10 @@ msgstr "평가 댓글"
 msgid "Display ratings comments in:"
 msgstr "평가 댓글 표시 방법:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "평가(최근)"
@@ -851,16 +859,16 @@ msgstr "최근"
 msgid "Alphabetical"
 msgstr "가나다순"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "내 앱"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "%(category)s 분류에서 \"<em>%(query)s</em>\" 앱을 찾을 수 없습니다."
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "\"<em>%(query)s</em>\" 앱을 찾을 수 없습니다."
@@ -999,6 +1007,10 @@ msgstr "필요한 필드"
 #, python-format
 msgid "Search %(category)s"
 msgstr "%(category)s에서 검색"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

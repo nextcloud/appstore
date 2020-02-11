@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Рамиль Хайров <hairamrus96@gmail.com>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
@@ -211,7 +211,7 @@ msgstr "Авторы приложения"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "Рекомендуемые"
 
@@ -401,8 +401,8 @@ msgstr "Порядок"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Снимок экрана"
 
@@ -745,6 +745,10 @@ msgstr "Администрация Nextcloud App Store"
 msgid "All apps"
 msgstr "Все приложения"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -860,6 +864,10 @@ msgstr "Комментарии к оценке"
 msgid "Display ratings comments in:"
 msgstr "Показать комментарии к оценке в:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "Рейтинг (недавний)"
@@ -874,16 +882,16 @@ msgstr "Последний"
 msgid "Alphabetical"
 msgstr "По алфавиту"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "Мои приложения"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "В %(category)s для \"<em>%(query)s</em>\" приложения не найдены."
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Приложения не найдены для \"<em>%(query)s</em>\"."
@@ -1026,6 +1034,10 @@ msgstr "обязательное поле"
 #, python-format
 msgid "Search %(category)s"
 msgstr "Поиск %(category)s"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"

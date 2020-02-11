@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 03:38+0000\n"
+"POT-Creation-Date: 2020-02-11 03:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: hdmr14 <hidemaru@chikit.co.jp>, 2020\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/nextcloud/teams/64236/ja_JP/)\n"
@@ -208,7 +208,7 @@ msgstr "アプリの作者"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:28
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
 msgstr "注目"
 
@@ -396,8 +396,8 @@ msgstr "並べ替え"
 
 #: nextcloudappstore/core/models.py:430
 #: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:47
 #: nextcloudappstore/core/templates/app/list.html:49
+#: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "スクリーンショット"
 
@@ -727,6 +727,10 @@ msgstr "NextCloud App Storeの管理"
 msgid "All apps"
 msgstr "すべてのアプリ"
 
+#: nextcloudappstore/core/templates/app/base.html:14
+msgid "Featured apps"
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
@@ -842,6 +846,10 @@ msgstr "評価コメント"
 msgid "Display ratings comments in:"
 msgstr "評価コメントを表示:"
 
+#: nextcloudappstore/core/templates/app/list.html:5
+msgid "Featured apps - "
+msgstr ""
+
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
 msgstr "評価 （最近）"
@@ -856,16 +864,16 @@ msgstr "最近"
 msgid "Alphabetical"
 msgstr "アルファベット順"
 
-#: nextcloudappstore/core/templates/app/list.html:31
+#: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
 msgstr "私のアプリ"
 
-#: nextcloudappstore/core/templates/app/list.html:59
+#: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "%(category)sの検索で \"<em>%(query)s</em>\" のアプリが見つかりませんでした。"
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "\"<em>%(query)s</em>\".の検索でアプリが見つかりませんでした。"
@@ -1004,6 +1012,10 @@ msgstr "必須フィールド"
 #, python-format
 msgid "Search %(category)s"
 msgstr "%(category)sを検索"
+
+#: nextcloudappstore/core/templates/nav.html:15
+msgid "Search featured apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"
