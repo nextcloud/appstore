@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-23 03:37+0000\n"
+"POT-Creation-Date: 2020-03-24 03:39+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Anton Kuchár <tonokuc@pobox.sk>, 2020\n"
 "Language-Team: Slovak (Slovakia) (https://www.transifex.com/nextcloud/teams/64236/sk_SK/)\n"
@@ -910,10 +910,13 @@ msgid ""
 " app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
+"Tento formulár sa dá použiť aj na aktualizáciu existujúcich certifikátov, "
+"môže to však urobiť iba vlastník aplikácie. Aktualizáciou certifikátu "
+"aplikácie sa odstránia všetky predchádzajúce vydania!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
-msgstr ""
+msgstr "Nie je to verejný certifikát"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
@@ -934,7 +937,7 @@ msgstr "Podrobnosti vydania"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Prehľad podpisov"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -942,7 +945,7 @@ msgstr "Závislosti"
 
 #: nextcloudappstore/core/templates/app/releases.html:46
 msgid "Required Nextcloud versions"
-msgstr ""
+msgstr "Požadované verzie Nextcloud"
 
 #: nextcloudappstore/core/templates/app/releases.html:71
 msgid "PHP"
@@ -952,22 +955,22 @@ msgstr "PHP"
 #: nextcloudappstore/core/templates/app/scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:51
 msgid "Generate app"
-msgstr ""
+msgstr "Vygenerovať aplikáciu"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr ""
+msgstr "Generovať a stiahnuť"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
 #: nextcloudappstore/core/templates/nav.html:58
 msgid "Upload app release"
-msgstr ""
+msgstr "Nahrať vydanie aplikácie"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr ""
+msgstr "Vydanie aplikácie bolo úspešne nahrané."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -975,6 +978,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Ďalšie informácie o tom, ako vytvoriť podpis, nájdete v <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">príručke vývojára aplikácií</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -985,6 +991,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
+"Obchod s aplikáciami Nextcloud - nahrajte svoje aplikácie a inštalujte nové "
+"aplikácie do svojho Nextcloudu"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -993,11 +1001,11 @@ msgstr "Nextcloud komunita"
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
-msgstr ""
+msgstr "Najnovšie vydania aplikácií"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr ""
+msgstr "Vidíte ma na GitHube"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1005,25 +1013,25 @@ msgstr "Ochrana osobných údajov"
 
 #: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
-msgstr ""
+msgstr "Právne upozornenie"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
-msgstr ""
+msgstr "požadované pole"
 
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search %(category)s"
-msgstr ""
+msgstr "Hľadať %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search featured apps"
-msgstr ""
+msgstr "Hľadať odporúčané aplikácie"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search all apps"
-msgstr ""
+msgstr "Hľadať všetky aplikácie"
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
@@ -1032,11 +1040,11 @@ msgstr "Hľadať"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Prepnúť navigáciu"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
-msgstr ""
+msgstr "Vývojár aplikácií"
 
 #: nextcloudappstore/core/templates/nav.html:48
 msgid "Documentation"
@@ -1064,6 +1072,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Chystáte sa použiť svoj účet %(provider_name)s na prihlásenie\n"
+"            %(site_name)s. Na záver vyplňte nasledujúci formulár:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1071,7 +1081,7 @@ msgstr "Prispôsobenie"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr ""
+msgstr "Témy, rozloženia a zmeny UX aplikácií"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1079,7 +1089,7 @@ msgstr "Súbory"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "File management and Files app extension apps"
-msgstr ""
+msgstr "Správa súborov a aplikácia Súbory na rozšírenie aplikácií"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Games"
@@ -1087,7 +1097,7 @@ msgstr "Hry"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "Games run in your Nextcloud"
-msgstr ""
+msgstr "Hry bežia vo vašom Nextcloude"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Integration"
@@ -1103,7 +1113,7 @@ msgstr "Monitoring"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr ""
+msgstr "Štatistika dát, diagnostika systému a aktivity aplikácií"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Multimedia"
@@ -1111,7 +1121,7 @@ msgstr "Multimédiá"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Audio, video and picture apps"
-msgstr ""
+msgstr "Aplikácie pre audio, video a obrázky"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Office & text"
@@ -1119,7 +1129,7 @@ msgstr "Kancelária & text"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Office and text processing apps"
-msgstr ""
+msgstr "Kancelárske a textové aplikácie"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Organization"
@@ -1127,11 +1137,11 @@ msgstr "Organizácia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Time management, Todo list and calendar apps"
-msgstr ""
+msgstr "Aplikácie na organizáciu času, správu úloh a kalendárov"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Search related apps"
-msgstr ""
+msgstr "Vyhľadať súvisiace aplikácie"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Security"
@@ -1142,14 +1152,16 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
+"Aplikácie, ktoré poskytujú ďalšie bezpečnostné mechanizmy, ako je "
+"autentifikácia, autorizácia, šifrovanie atď."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Social & communication"
-msgstr ""
+msgstr "Sociálne siete a komunikácia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:22
 msgid "Messaging, contact management and social media apps"
-msgstr ""
+msgstr "Aplikácie pre výmenu správ, správu kontaktov a sociálne siete"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Tools"
@@ -1161,19 +1173,19 @@ msgstr "Všetko ostatné"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Flow"
-msgstr ""
+msgstr "Flow (tok)"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:26
 msgid "Apps for Nextcloud Flow"
-msgstr ""
+msgstr "Aplikácie pre Nextcloud Flow (tok)"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
-msgstr ""
+msgstr "Veľmi záporné"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:8
 msgid "Negative"
-msgstr ""
+msgstr "Záporné"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:9
 msgid "Neutral"
@@ -1181,19 +1193,21 @@ msgstr "Neutrálne"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:10
 msgid "Positive"
-msgstr ""
+msgstr "Pozitívne"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:11
 msgid "Very positive"
-msgstr ""
+msgstr "Veľmi pozitívne"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS URL"
-msgstr ""
+msgstr "Zadajte platnú HTTPS URL"
 
 #: nextcloudappstore/scaffolding/forms.py:27
 msgid "The app name must be camel case e.g. MyApp"
 msgstr ""
+" \n"
+"Aplikácia musí mať tzv. „camel case“ formu, napr. MyApp"
 
 #: nextcloudappstore/scaffolding/forms.py:31
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
@@ -1214,19 +1228,19 @@ msgstr "Domáca stránka autora"
 
 #: nextcloudappstore/scaffolding/forms.py:43
 msgid "Bug reports and feature requests"
-msgstr ""
+msgstr "Hlásenie chýb a požiadavky na funkcie"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Hold down Ctrl and click to select multiple entries"
-msgstr ""
+msgstr "Podržte stlačený kláves Ctrl a kliknutím vyberte viac položiek"
 
 #: nextcloudappstore/scaffolding/forms.py:49
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr ""
+msgstr "Stručný popis vašej aplikácie, ktorý sa zobrazí ako krátka upútavka"
 
 #: nextcloudappstore/scaffolding/forms.py:51
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr ""
+msgstr "Úplný popis činnosti vašej aplikácie. Môže obsahovať Markdown."
 
 #: nextcloudappstore/user/forms.py:14
 msgid "First name"
@@ -1242,7 +1256,7 @@ msgstr "Vaša e-mailová adresa"
 
 #: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
-msgstr ""
+msgstr "Zadaná e-mailová adresa sa nezhoduje s vašou e-mailovou adresou"
 
 #: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
@@ -1254,10 +1268,12 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
+"Heslo je vyžadované na zabránenie zmeny e-mailovej adresy a obnovenia hesla "
+"neoprávneným používateľom. Toto pole neaktualizuje vaše heslo!"
 
 #: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
-msgstr ""
+msgstr "Táto e-mailová adresa je už priradená k inému účtu."
 
 #: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
@@ -1269,16 +1285,17 @@ msgstr "E-mail"
 
 #: nextcloudappstore/user/forms.py:77
 msgid "E-mail address"
-msgstr ""
+msgstr "E-mailová adresa"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
-msgstr ""
+msgstr "Heslo Nextcloud Appstore bolo zmenené"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
+"Heslo vášho Appstore sa zmenilo. Ak ste to neboli vy, kontaktujte podporu."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1287,7 +1304,7 @@ msgstr "Uložiť"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr ""
+msgstr "API token"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1297,6 +1314,11 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                API token sa môže použiť na overenie pri volaní\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>obchodu s aplikáciami.\n"
+"                Zabezpečte aby zostal utajený. Nižšie je možné vytvoriť nový token, čím starý prestane platiť.\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1304,15 +1326,15 @@ msgstr "Váš API token je:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr ""
+msgstr "Bol generovaný nový API token."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr ""
+msgstr "Vytvoriť API token"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Preniesť vlastníctvo aplikácie"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1328,7 +1350,7 @@ msgstr "Heslo"
 
 #: nextcloudappstore/user/templates/user/base.html:26
 msgid "API token"
-msgstr ""
+msgstr "API token"
 
 #: nextcloudappstore/user/templates/user/base.html:29
 #: nextcloudappstore/user/templates/user/delete-account.html:5
@@ -1343,21 +1365,27 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Odstránením účtu sa odstránia aj všetky vaše aplikácie a vydania. Ak chcete "
+"účet odstrániť, vložte do vstupného poľa svoju e-mailovú adresu a kliknite "
+"na tlačidlo „Odstrániť účet“:"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr ""
+msgstr "Zmenou hesla sa zmení aj API token!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Zdá sa, že používate účet zaregistrovaný u poskytovateľa tretej strany. Z "
+"tohto dôvodu <strong>nie</strong> je možné zmeniť vaše heslo z tejto "
+"stránky."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "Preniesť aplikácie"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1365,31 +1393,34 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Ak chcete preniesť aplikáciu na nového vlastníka, musíte ju najprv odomknúť."
+" Používateľ potom môže ovládať aplikáciu tak, že ju znova zaregistruje na "
+"stránke registrácie aplikácií v ponuke vývojára aplikácií."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Stav prevodu vlastníctva"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Zmena stavu prevodu vlastníctva"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Odomknuté na prevod"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Uzamknuté, prevod nie je možný"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Uzamknúť prevod vlastníctva"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Odomknúť prevod vlastníctva"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Zatiaľ ste nenahrali žiadne aplikácie!"
