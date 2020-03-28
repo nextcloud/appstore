@@ -1,0 +1,32 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head-title %}{% trans 'Integrations' %} - {% endblock %}
+
+{% block account-content %}
+    <h1>{% trans "Integrations" %}</h1>
+    <section>
+        {% if apps %}
+            <table class="table table-striped">
+                <tr>
+                    <th>{% trans 'Integration name' %}</th>
+                    <th>{% trans 'Actions' %}</th>
+                </tr>
+                {% for app in apps %}
+                    <tr>
+                        <td>{{ app.name }}</td>
+                        <td>
+                            <form action="{% url 'user:account-integration' pk=app.id %}" method="get">
+                                {% csrf_token %}
+                                <button class="btn btn-primary btn-block" type="submit">{% trans 'Edit' %}</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="alert alert-info">{% trans 'You have not submitted any integration yet!' %}</p>
+        {% endif %}
+    </section>
+{% endblock %}

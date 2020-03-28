@@ -12,6 +12,17 @@ from nextcloudappstore.core.models import App
 from nextcloudappstore.user.forms import DeleteAccountForm, AccountForm
 
 
+class IntegrationsView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/integrations.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['apps'] = App.objects.filter(owner=self.request.user).filter(
+            is_integration=True)
+        context['acc_page'] = 'account-integrations'
+        return context
+
+
 class TransferAppsView(LoginRequiredMixin, TemplateView):
     template_name = 'user/transfer-apps.html'
 
