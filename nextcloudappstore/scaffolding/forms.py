@@ -1,14 +1,17 @@
 import re
 from os import listdir
+import uuid
 
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
     TextInput
 from django.utils.translation import ugettext_lazy as _  # type: ignore
-from django.forms.fields import EmailField, CharField, ChoiceField
+from django.forms.fields import EmailField, CharField, ChoiceField,\
+    HiddenInput
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
-from nextcloudappstore.core.models import Category
+from nextcloudappstore.core.models import App, Category, Screenshot
 from django.utils.functional import lazy
 
 
@@ -50,3 +53,82 @@ class AppScaffoldingForm(Form):
     description = CharField(widget=Textarea, label=_('Description'),
                             help_text=_('Full description of what your app '
                                         'does. Can contain Markdown.'))
+
+
+class IntegrationScaffoldingForm(Form):
+    name = CharField(max_length=80, label=_('Integration name'),
+                     widget=TextInput())
+    author_name = CharField(max_length=80, label=_('Author\'s full name'))
+    author_email = EmailField(label=_('Author\'s e-mail'))
+    author_homepage = URLField(label=_('Author\'s homepage'), required=False)
+    issue_tracker = URLField(label=_('Issue tracker URL'), required=False,
+                             help_text=_('Bug reports and feature requests'))
+    categories = MultipleChoiceField(widget=HiddenInput(), disabled=True,
+                                     required=True, label=_('Categories'),
+                                     choices=lazy(get_categories, list),
+                                     help_text=_('Hold down Ctrl and click to '
+                                                 'select multiple entries'))
+    summary = CharField(max_length=256, label=_('Summary'), help_text=_(
+        'Short description of your app that will be rendered as short teaser'))
+    screenshot = URLField(max_length=256, label=_('Screenshot URL'),
+                          required=False,
+                          help_text=_('URL for integration screenshot'))
+    screenshot_thumbnail = URLField(max_length=256, label=_('Screenshot '
+                                                            'thumbnail URL'),
+                                    required=False,
+                                    help_text=_('URL for integration '
+                                                'screenshot in '
+                                                'smaller dimensions. '
+                                                'Must be used in combination '
+                                                'with a larger screenshot.'))
+    description = CharField(widget=Textarea, label=_('Description'),
+                            help_text=_('Full description of what your'
+                                        ' integration '
+                                        'does. Can contain Markdown.'))
+
+    def save(self, user, app_id):
+        if app_id is None:
+            app_id = self.cleaned_data['name'].lower().replace(" ", "_")
+        try:
+            app = App.objects.get(id=app_id)
+            if app.can_update(user):
+                '''Not optimal but works'''
+                Screenshot.objects.filter(app=app).delete()
+                if self.data['screenshot']:
+                    screenshot = Screenshot.objects.create(
+                        url=self.cleaned_data['screenshot'],
+                        small_thumbnail=self.cleaned_data[
+                            'screenshot_thumbnail'],
+                        ordering=1, app=app)
+                    screenshot.save()
+
+                app.description = self.cleaned_data['description']
+                app.name = self.cleaned_data['name']
+                app.summary = self.cleaned_data['summary']
+                app.website = self.cleaned_data['author_homepage']
+                app.issue_tracker = self.cleaned_data['issue_tracker']
+                app.save()
+                return app_id
+        except App.DoesNotExist:
+            app = App.objects.create(id=app_id, owner=user,
+                                     certificate=uuid.uuid1().urn)
+            app.set_current_language('en')
+            app.categories.set(self.cleaned_data['categories'])
+            app.description = self.cleaned_data['description']
+            app.name = self.cleaned_data['name']
+            app.summary = self.cleaned_data['summary']
+            app.website = self.cleaned_data['author_homepage']
+            app.issue_tracker = self.cleaned_data['issue_tracker']
+            app.save()
+            p = App.objects.get(id=app_id)
+            p.is_integration = True
+            p.save()
+            if self.data['screenshot']:
+                screenshot = Screenshot.objects.create(
+                    url=self.cleaned_data['screenshot'],
+                    small_thumbnail=self.cleaned_data['screenshot_thumbnail'],
+                    ordering=1, app=p)
+                screenshot.save()
+            if settings.DISCOURSE_TOKEN:
+                self._create_discourse_category(app_id)
+            return app_id

@@ -7,7 +7,7 @@
         <p class="text-danger">{{ error }}</p>
     {% endfor %}
 {% endif %}
-{% for field in form %}
+{% for field in form.visible_fields %}
     <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
 
         {% if field|field_type == 'CheckboxInput' %}

@@ -11,6 +11,9 @@
             <li class="{% if acc_page == 'account' %}active{% endif %}">
                 <a href="{% url 'user:account' %}">{% trans 'Account' %}</a>
             </li>
+            <li class="{% if acc_page == 'account-integrations' %}active{% endif %}">
+                <a href="{% url 'user:account-integrations' %}">{% trans 'Integrations' %}</a>
+            </li>
             <li class="{% if acc_page == 'account-transfer-apps' %}active{% endif %}">
                 <a href="{% url 'user:account-transfer-apps' %}">{% trans 'Transfer app ownership' %}</a>
             </li>

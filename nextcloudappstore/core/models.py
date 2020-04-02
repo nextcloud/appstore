@@ -105,6 +105,8 @@ class App(TranslatableModel):
         help_text=_('If enabled, a user can try to register the same app '
                     'again using the public certificate and signature. If he '
                     'does, the app will be transferred to him.'))
+    is_integration = BooleanField(verbose_name=_('Integration (i.e. Outlook '
+                                                 'plugin)'), default=False)
 
     class Meta:
         verbose_name = _('App')

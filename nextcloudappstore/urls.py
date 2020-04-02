@@ -13,7 +13,8 @@ from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
     app_description, AppReleasesView, AppUploadView, AppRatingApi, \
     AppRegisterView
-from nextcloudappstore.scaffolding.views import AppScaffoldingView
+from nextcloudappstore.scaffolding.views import AppScaffoldingView, \
+    IntegrationScaffoldingView
 
 admin.site.login = login_required(admin.site.login)
 
@@ -32,6 +33,8 @@ urlpatterns = [
         name='category-app-list'),
     url(r'^developer/apps/generate/?$', AppScaffoldingView.as_view(),
         name='app-scaffold'),
+    url(r'^developer/integration/new/?$', IntegrationScaffoldingView.as_view(),
+        name='integration-scaffold'),
     url(r'^developer/apps/releases/new/?$', AppUploadView.as_view(),
         name='app-upload'),
     url(r'^developer/apps/new/?$', AppRegisterView.as_view(),

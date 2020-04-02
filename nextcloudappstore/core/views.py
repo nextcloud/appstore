@@ -122,6 +122,7 @@ class AppDetailView(DetailView):
             'translations').all()
         context['latest_releases_by_platform_v'] = \
             self.object.latest_releases_by_platform_v()
+        context['is_integration'] = self.object.is_integration
         return context
 
 
@@ -194,7 +195,7 @@ class CategoryAppListView(ListView):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
-            *sort_columns).filter(releases__gt=0)
+            *sort_columns).filter(Q(releases__gt=0) | Q(is_integration=True))
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)
