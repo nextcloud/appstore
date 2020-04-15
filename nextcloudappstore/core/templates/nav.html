@@ -60,7 +60,7 @@
                         {% endif %}
                     </ul>
                 </li>
-                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
                     <li role="presentation" class="dropdown">
                         <a class="dropdown-toggle nav-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             {% trans 'Integration developer' %} <span class="caret"></span>
