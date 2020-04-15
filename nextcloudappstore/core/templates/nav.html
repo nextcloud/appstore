@@ -60,18 +60,6 @@
                         {% endif %}
                     </ul>
                 </li>
-                {% if request.user.is_superuser %}
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle nav-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            {% trans 'Integration developer' %} <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                                <li class="nav-link">
-                                    <a href="{% url 'integration-scaffold' %}">{% trans 'Register integration' %}</a>
-                                </li>
-                        </ul>
-                    </li>
-                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_superuser %}
