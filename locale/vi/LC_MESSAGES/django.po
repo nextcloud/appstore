@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-16 03:35+0000\n"
+"POT-Creation-Date: 2020-04-17 03:31+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Vu Bui <bui4vu@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/nextcloud/teams/64236/vi/)\n"
@@ -72,7 +72,7 @@ msgstr "Có thể được tạo lập bằng cách thực thi dòng lệnh sau 
 
 #: nextcloudappstore/core/forms.py:33 nextcloudappstore/core/models.py:383
 msgid "Nightly"
-msgstr ""
+msgstr "Ban đêm"
 
 #: nextcloudappstore/core/forms.py:39
 msgid "Public certificate"
@@ -87,6 +87,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Thường được lưu trữ trong ~/.nextcloud/certificates/APP_ID.crt trong đó "
+"APP_ID là ID ứng dụng của bạn. Nếu bạn không có một chứng chỉ, bạn cần phải "
+"tạo một chứng chỉ yêu cầu ký (CSR) trước, nó sẽ được đăng tải trong <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\"> kho chứ chứng chỉ </a> (theo dõi tệp README). "
+"Bạn có thẻ tạo một chứng chỉ CSR bằng cách chạy dòng lệnh sau: "
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -560,8 +566,8 @@ msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
-"Đúng nếu phiên bản này vẫn còn được hỗ trợ chính thức (trừ hỗ trợ dành cho "
-"tổ chức)"
+"Đúng nếu phiên bản này vẫn còn được hỗ trợ chính thức (ngoại trừ hỗ trợ dành"
+" cho tổ chức)"
 
 #: nextcloudappstore/core/models.py:637
 msgid "Nextcloud release"
@@ -590,7 +596,7 @@ msgstr "Trang không tìm thấy"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
-msgstr "Trang mà bạn đang tìm không tông tại!"
+msgstr "Trang mà bạn đang tìm không tồn tại!"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -605,7 +611,7 @@ msgid ""
 msgstr ""
 "Một lời chào đến từ %(site_name)s!\n"
 "\n"
-"Bạn nhận được thư điện tử này là bởi vì người dùng %(user_display)s vừa mới liên kết địa chỉ thư điện tử này vào tài khoản của họ ở %(site_domain)s.\n"
+"Bạn nhận được thư điện tử này bởi vì người dùng %(user_display)s vừa mới liên kết địa chỉ thư điện tử này vào tài khoản của họ ở %(site_domain)s.\n"
 "\n"
 "Để xác nhận điều này là chính xác, đi đến %(activate_url)s\n"
 "\n"
@@ -840,7 +846,7 @@ msgid ""
 msgstr ""
 "Các bình luận đánh giá hỗ trợ <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
 "                             Không sử dụng các bình luận đánh giá để báo cáo lỗi hoặc yêu cầu các tính năng. Không có nhà phát triển hoặc người dùng nào sẽ được thông báo về đánh giá của bạn.\n"
-"                             Một đánh giá mà không có bình luận nào vẫn được tính, nhưng sẽ không được lên danh sách phía dưới."
+"                             Một đánh giá mà không có bình luận nào vẫn được tính, nhưng sẽ không được đưa vào danh sách phía dưới."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -939,8 +945,8 @@ msgid ""
 "of its already uploaded releases!"
 msgstr ""
 "Biểu mẫu này cũng có thể được sử dụng đẻ cập nhập các chứng chỉ đã tồn tại, "
-"tuy nhiên chỉ có chủ sở hữu ứng dụng được phép làm vậy. Cập nhận một chứng "
-"chỉ ứng dụng sẽ xóa tất cả những phiên bản trước đó của nó!"
+"tuy nhiên chỉ có chủ sở hữu ứng dụng mới được phép làm vậy. Cập nhận một "
+"chứng chỉ ứng dụng sẽ xóa tất cả những phiên bản trước đó của nó!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -965,7 +971,7 @@ msgstr "Chi tiết phiên bản"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Phân loại chữ ký"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -1034,7 +1040,7 @@ msgstr "Các phiên bản ứng dụng mới nhất"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr ""
+msgstr "Cùng hợp tác trên Github"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1101,6 +1107,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+"Bạn sắp sử dụng tài khoản %(provider_name)s của bạn để đăng nhập vào "
+"%(site_name)s. Đây là bước cuối cùng, vui lòng hoàn tất biểu mẫu sau đây:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1108,7 +1116,7 @@ msgstr "Cá nhân hóa"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr ""
+msgstr "Các ứng dụng Chủ đề, bố cục và thay đổi trải nghiệm người dùng"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Files"
@@ -1298,10 +1306,14 @@ msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"Đường dẫn URL cho ảnh chụp màn hình bộ tích hợp của bạn với kích nhỏ. Buộc "
+"phải được kèm them 1 bản kích lớn. "
 
 #: nextcloudappstore/scaffolding/forms.py:85
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
+"Bản mô tả đầy đủ những gì bộ tích hợp của bạn có thể làm. Có thẻ chứa "
+"Markdown"
 
 #: nextcloudappstore/user/forms.py:14
 msgid "First name"
@@ -1313,15 +1325,15 @@ msgstr "Họ"
 
 #: nextcloudappstore/user/forms.py:24
 msgid "Your e-mail address"
-msgstr ""
+msgstr "Địa chỉ email của bạn"
 
 #: nextcloudappstore/user/forms.py:36
 msgid "The given e-mail address does not match your e-mail address"
-msgstr ""
+msgstr "Email bạn cung cấp không khớp với địa chỉ email của bạn"
 
 #: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 #: nextcloudappstore/user/forms.py:41
 msgid ""
@@ -1329,10 +1341,13 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
+"Mật khẩu được yêu cầu để ngăn chặn những người dùng không đủ thẩm quyền khỏi"
+" thay đổi địa chỉ email và đặt lại mật khẩu của bạn. Vùng này không cập nhập"
+" mật khẩu của bạn!"
 
 #: nextcloudappstore/user/forms.py:56
 msgid "This e-mail address is already associated with another account."
-msgstr ""
+msgstr "Địa chỉ email này đã đồng hành cùng với một tài khoản khác."
 
 #: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
@@ -1340,20 +1355,22 @@ msgstr "Invalid Password"
 
 #: nextcloudappstore/user/forms.py:72
 msgid "E-mail"
-msgstr ""
+msgstr "Email"
 
 #: nextcloudappstore/user/forms.py:77
 msgid "E-mail address"
-msgstr ""
+msgstr "Địa chỉ email"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
-msgstr ""
+msgstr "Mật khẩu kho ứng dụng Nextcloud đã thay đổi"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
+"Mật khẩu Kho Ứng Dụng của bạn đã thay đổi. Vui lòng liên hệ với bộ phận hỗ "
+"trợ nếu điều này không phải do bạn làm. "
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1362,7 +1379,7 @@ msgstr "Lưu"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr ""
+msgstr "Tín chỉ API "
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1372,35 +1389,39 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"Tín chỉ API có thể được sử dụng cho quá trình xác nhận khi kết nối với kho ứng dụng\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>\n"
+"                Hãy đảm bảo ràng bạn giữ nó bí mật. Một tín chỉ mới có thể được tạo bên dưới, điều này khiến tín chỉ cũ bất khả dụng."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
-msgstr ""
+msgstr "Tín chỉ API của bạn là:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr ""
+msgstr "Tín chỉ API mới đã được tạo."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
-msgstr ""
+msgstr "Tạo lại tín chỉ API"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 #: nextcloudappstore/user/templates/user/integrations.html:8
 msgid "Integrations"
-msgstr ""
+msgstr "Các bộ tích hợp"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Chuyển đổi quyền sở hữu ứng dụng"
 
 #: nextcloudappstore/user/templates/user/base.html:21
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
 #: nextcloudappstore/user/templates/user/set-language.html:26
 msgid "Change language"
-msgstr ""
+msgstr "Thay đổi ngôn ngữ"
 
 #: nextcloudappstore/user/templates/user/base.html:25
 #: nextcloudappstore/user/templates/user/password.html:5
@@ -1409,14 +1430,14 @@ msgstr "Mật khẩu"
 
 #: nextcloudappstore/user/templates/user/base.html:29
 msgid "API token"
-msgstr ""
+msgstr "Tín chỉ API"
 
 #: nextcloudappstore/user/templates/user/base.html:32
 #: nextcloudappstore/user/templates/user/delete-account.html:5
 #: nextcloudappstore/user/templates/user/delete-account.html:8
 #: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid "Delete account"
-msgstr "Delete account"
+msgstr "Xóa tài khoản"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
@@ -1424,6 +1445,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Việc xóa tài khoản của bạn sẽ xóa hết tất cả các ứng dụng cũng như các phiên"
+" bản của chúng. Để xóa tài khoản của bạn, nhập vào địa chỉ email của bạn vào"
+" vùng nhập liệu và bấm nút \"Xóa tài khoản\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:14
 msgid "Actions"
@@ -1435,22 +1459,25 @@ msgstr "Chỉnh sửa"
 
 #: nextcloudappstore/user/templates/user/integrations.html:29
 msgid "You have not submitted any integration yet!"
-msgstr ""
+msgstr "Bạn chưa nạp vào bất cứ bộ tích hợp nào!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr ""
+msgstr "Thay đổi mật khẩu của bạn cũng sẽ tạo lại tín chỉ API của bạn"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
+"Bạn dường như đang sử dụng một tài khoản được đăng ký với một nhà cung cấp "
+"thứ ba. Mật khẩu của bạn cũng vì vậy mà <strong> không </strong> được thay "
+"đổi từ trang này. "
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "Chuyển đổi ứng dụng"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1458,31 +1485,35 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Để chuyển đổi một ứng dụng tới một chủ sở hữu mới, trước hết bạn phải mở "
+"khóa ứng dụng. Và sau đó một người dùng có thể nắm quyền điều khiển ứng dụng"
+" đó bằng cách đăng ký nó lại một lần nữa trên trang đăng ký ứng dụng trong "
+"bảng chọn nhà phát triển ứng dụng."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Trạng thái chuyển đổi quyền sở hữu"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Thay đổi trạng thái chuyển đổi quyền sở hữu"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Đã được mở khóa để chuyển đổi"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Đã khóa, chuyển đổi không khả dụng"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Khóa chuyển đổi sở hữu"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Mở khóa chuyển đổi quyền sở hữu"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Bạn chưa đăng tải bất kỳ ứng dụng nào cả!"
