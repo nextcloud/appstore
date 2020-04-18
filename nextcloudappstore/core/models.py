@@ -107,6 +107,8 @@ class App(TranslatableModel):
                     'does, the app will be transferred to him.'))
     is_integration = BooleanField(verbose_name=_('Integration (i.e. Outlook '
                                                  'plugin)'), default=False)
+    approved = BooleanField(verbose_name=_('Used to approve integrations'),
+                            default=False)
 
     class Meta:
         verbose_name = _('App')

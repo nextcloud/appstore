@@ -58,8 +58,6 @@ class AppScaffoldingForm(Form):
 class IntegrationScaffoldingForm(Form):
     name = CharField(max_length=80, label=_('Integration name'),
                      widget=TextInput())
-    author_name = CharField(max_length=80, label=_('Author\'s full name'))
-    author_email = EmailField(label=_('Author\'s e-mail'))
     author_homepage = URLField(label=_('Author\'s homepage'), required=False)
     issue_tracker = URLField(label=_('Issue tracker URL'), required=False,
                              help_text=_('Bug reports and feature requests'))
@@ -86,29 +84,37 @@ class IntegrationScaffoldingForm(Form):
                                         ' integration '
                                         'does. Can contain Markdown.'))
 
-    def save(self, user, app_id):
+    def save(self, user, app_id, action):
         if app_id is None:
             app_id = self.cleaned_data['name'].lower().replace(" ", "_")
         try:
             app = App.objects.get(id=app_id)
-            if app.can_update(user):
+            if app.can_update(user) or user.is_superuser:
                 '''Not optimal but works'''
                 Screenshot.objects.filter(app=app).delete()
-                if self.data['screenshot']:
-                    screenshot = Screenshot.objects.create(
-                        url=self.cleaned_data['screenshot'],
-                        small_thumbnail=self.cleaned_data[
-                            'screenshot_thumbnail'],
-                        ordering=1, app=app)
-                    screenshot.save()
+                if action == "reject":
+                    app.delete()
+                elif action == "approve":
+                    app.approved = True
+                    if settings.DISCOURSE_TOKEN:
+                        self._create_discourse_category(app_id)
+                    app.save()
+                else:
+                    if self.data['screenshot']:
+                        screenshot = Screenshot.objects.create(
+                            url=self.cleaned_data['screenshot'],
+                            small_thumbnail=self.cleaned_data[
+                                'screenshot_thumbnail'],
+                            ordering=1, app=app)
+                        screenshot.save()
 
-                app.description = self.cleaned_data['description']
-                app.name = self.cleaned_data['name']
-                app.summary = self.cleaned_data['summary']
-                app.website = self.cleaned_data['author_homepage']
-                app.issue_tracker = self.cleaned_data['issue_tracker']
-                app.save()
-                return app_id
+                    app.description = self.cleaned_data['description']
+                    app.name = self.cleaned_data['name']
+                    app.summary = self.cleaned_data['summary']
+                    app.website = self.cleaned_data['author_homepage']
+                    app.issue_tracker = self.cleaned_data['issue_tracker']
+                    app.save()
+                    return app_id
         except App.DoesNotExist:
             app = App.objects.create(id=app_id, owner=user,
                                      certificate=uuid.uuid1().urn)
@@ -122,6 +128,10 @@ class IntegrationScaffoldingForm(Form):
             app.save()
             p = App.objects.get(id=app_id)
             p.is_integration = True
+            if user.is_superuser:
+                p.approved = True
+                if settings.DISCOURSE_TOKEN:
+                    self._create_discourse_category(app_id)
             p.save()
             if self.data['screenshot']:
                 screenshot = Screenshot.objects.create(
@@ -129,6 +139,4 @@ class IntegrationScaffoldingForm(Form):
                     small_thumbnail=self.cleaned_data['screenshot_thumbnail'],
                     ordering=1, app=p)
                 screenshot.save()
-            if settings.DISCOURSE_TOKEN:
-                self._create_discourse_category(app_id)
             return app_id

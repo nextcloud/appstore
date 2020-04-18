@@ -47,10 +47,10 @@ class CategoryAdmin(TranslatableAdmin):
 class AppAdmin(TranslatableAdmin):
     list_display = ('id', 'owner', 'name', 'last_release', 'rating_recent',
                     'rating_overall', 'summary', 'is_featured',
-                    'ownership_transfer_enabled', 'is_integration')
+                    'ownership_transfer_enabled', 'is_integration', 'approved')
     list_filter = ('owner', 'co_maintainers', 'categories', 'created',
                    'is_featured', 'last_release', 'ownership_transfer_enabled',
-                   'is_integration')
+                   'is_integration', 'approved')
     ordering = ('id',)
 
 

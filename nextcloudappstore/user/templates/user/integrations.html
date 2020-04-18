@@ -5,7 +5,30 @@
 {% block head-title %}{% trans 'Integrations' %} - {% endblock %}
 
 {% block account-content %}
-    <h1>{% trans "Integrations" %}</h1>
+    {% if pending and user.is_superuser %}
+        <h1>{% trans "Pending approval" %}</h1>
+        <section>
+            <table class="table table-striped">
+                <tr>
+                    <th>{% trans 'Integration name' %}</th>
+                    <th>{% trans 'Actions' %}</th>
+                </tr>
+                {% for app in pending %}
+                    <tr>
+                        <td>{{ app.name }}</td>
+                        <td>
+                            <form action="{% url 'user:account-integration-moderate' pk=app.id %}" method="get">
+                                {% csrf_token %}
+                                <button class="btn btn-primary btn-block" type="submit">{% trans 'View' %}</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+    {% endif %}
+
+    <h1>{% trans "Your integrations" %}</h1>
     <section>
         {% if apps %}
             <table class="table table-striped">
@@ -26,7 +49,7 @@
                 {% endfor %}
             </table>
         {% else %}
-            <p class="alert alert-info">{% trans 'You have not submitted any integration yet!' %}</p>
+            <p class="alert alert-info">{% trans 'You have not submitted any integration yet or they are pending approval!' %}</p>
         {% endif %}
     </section>
 {% endblock %}
