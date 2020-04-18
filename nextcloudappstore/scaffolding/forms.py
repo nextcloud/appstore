@@ -91,9 +91,8 @@ class IntegrationScaffoldingForm(Form):
         try:
             app = App.objects.get(id=app_id)
             if app.can_update(user) or user.is_superuser:
-                '''Not optimal but works'''
-                Screenshot.objects.filter(app=app).delete()
                 if action == "reject":
+                    Screenshot.objects.filter(app=app).delete()
                     app.delete()
                 elif action == "approve":
                     app.approved = True
@@ -102,6 +101,8 @@ class IntegrationScaffoldingForm(Form):
                     app.save()
                     return app_id
                 else:
+                    '''Not optimal but works'''
+                    Screenshot.objects.filter(app=app).delete()
                     if self.data['screenshot']:
                         screenshot = Screenshot.objects.create(
                             url=self.cleaned_data['screenshot'],
