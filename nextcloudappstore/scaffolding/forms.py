@@ -4,6 +4,7 @@ import uuid
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
     TextInput
 from django.utils.translation import ugettext_lazy as _  # type: ignore
@@ -99,6 +100,7 @@ class IntegrationScaffoldingForm(Form):
                     if settings.DISCOURSE_TOKEN:
                         self._create_discourse_category(app_id)
                     app.save()
+                    return app_id
                 else:
                     if self.data['screenshot']:
                         screenshot = Screenshot.objects.create(
@@ -132,6 +134,13 @@ class IntegrationScaffoldingForm(Form):
                 p.approved = True
                 if settings.DISCOURSE_TOKEN:
                     self._create_discourse_category(app_id)
+            else:
+                send_mail("New integration submitted", "Please review the "
+                                                       "integration to make "
+                                                       "sure it fits the "
+                                                       "guidelines.",
+                          settings.NEXTCLOUD_FROM_EMAIL,
+                          settings.NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS)
             p.save()
             if self.data['screenshot']:
                 screenshot = Screenshot.objects.create(
@@ -139,4 +148,6 @@ class IntegrationScaffoldingForm(Form):
                     small_thumbnail=self.cleaned_data['screenshot_thumbnail'],
                     ordering=1, app=p)
                 screenshot.save()
-            return app_id
+            if (p.is_integration and p.approved or user.is_superuser) or \
+                not p.is_integration:
+                return app_id

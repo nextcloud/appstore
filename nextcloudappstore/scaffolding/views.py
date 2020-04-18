@@ -44,8 +44,10 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
         self.app_id = self.kwargs.get('pk', None)
         if self.app_id is not None:
             app = App.objects.get(id=self.app_id)
-            if not app.approved or not request.user.is_superuser:
+            if not app.approved and not request.user.is_superuser:
                 raise Http404('Not found')
+
+        return self.render_to_response(self.get_context_data())
 
     def get_initial(self):
         init = {
@@ -87,12 +89,12 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
         elif self.request.method == "POST" and "approve" in self.request.POST:
             action = "approve"
 
-        self.success_url = "/apps/{}".format(form.save(self.request.user,
-                                                       self.app_id, action))
+        return_value = form.save(self.request.user, self.app_id, action)
+        self.success_url = "/apps/{}".format(return_value)
 
         if action != "save":
             self.success_url = reverse('user:account-integrations')
-        elif not self.request.user.is_superuser:
+        elif return_value is None:
             self.success_url = "/"
 
         return super().form_valid(form)
