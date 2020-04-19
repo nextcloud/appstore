@@ -72,7 +72,6 @@ class AppDetailView(DetailView):
         context['rating_form'] = AppRatingForm(
             initial={'language_code': get_language()})
 
-
         ratings = AppRating.objects.filter(app=context['app'])
         rating_languages = flatmap(
             lambda r: r.get_available_languages(), ratings)

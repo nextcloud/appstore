@@ -149,6 +149,5 @@ class IntegrationScaffoldingForm(Form):
                     small_thumbnail=self.cleaned_data['screenshot_thumbnail'],
                     ordering=1, app=p)
                 screenshot.save()
-            if (p.is_integration and p.approved or user.is_superuser) or \
-                not p.is_integration:
+            if not p.is_integration or p.approved or user.is_superuser:
                 return app_id
