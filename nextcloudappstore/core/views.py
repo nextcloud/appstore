@@ -67,6 +67,7 @@ class AppDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         context['DISCOURSE_URL'] = settings.DISCOURSE_URL.rstrip('/')
         context['rating_form'] = AppRatingForm(
             initial={'language_code': get_language()})
@@ -89,7 +90,7 @@ class AppDetailView(DetailView):
                 app_rating = AppRating.objects.get(user=self.request.user,
                                                    app=context['app'])
 
-                # if parler fallsback to a fallback language
+                # if parler falls back to a fallback language
                 # it doesn't set the language as current language
                 # and we can't select the correct language in the
                 # frontend. So we try and find a languge that is
@@ -195,7 +196,8 @@ class CategoryAppListView(ListView):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
-            *sort_columns).filter(Q(releases__gt=0) | Q(is_integration=True))
+            *sort_columns).filter(Q(releases__gt=0) | (Q(is_integration=True) &
+                                                       Q(approved=True)))
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)
@@ -214,7 +216,7 @@ class CategoryAppListView(ListView):
         context['categories'] = Category.objects.prefetch_related(
             'translations').all()
         category_id = self.kwargs['id']
-        context['is_featured_category'] = self.kwargs\
+        context['is_featured_category'] = self.kwargs \
             .get('is_featured_category', False)
         if category_id:
             context['current_category'] = Category.objects.get(id=category_id)

@@ -2,6 +2,7 @@ from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
@@ -17,8 +18,11 @@ class IntegrationsView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['apps'] = App.objects.filter(owner=self.request.user).filter(
-            is_integration=True)
+        context['apps'] = App.objects.filter(owner=self.request.user)\
+            .filter(Q(is_integration=True) & Q(approved=True))
+        if self.request.user.is_superuser:
+            context['pending'] = App.objects.filter(is_integration=True)\
+                .filter(approved=False)
         context['acc_page'] = 'account-integrations'
         return context
 

@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 {% load i18n staticfiles %}
 
-{% block head-title %}{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% else %}{% trans 'Edit integration' %}{% endif %} - {% endblock %}
+{% block head-title %}{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% elif integration_page == 'account-integration-moderate' %}{% trans 'Moderate integration' %}{% else %}{% trans 'Edit integration' %}{% endif %} - {% endblock %}
 
 {% block content %}
     <div class="app-form">
-        <h1>{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% else %}{% trans 'Edit integration' %}{% endif %}</h1>
+        <h1>{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% elif integration_page == 'account-integration-moderate' %}{% trans 'Moderate integration' %}{% else %}{% trans 'Edit integration' %}{% endif %}</h1>
         <hr>
-        <form id="integration-register-form" method="post" action="{{ request.get_full_path }}">
-            {% csrf_token %}
-            {% include 'form-fields.html' %}
-            <button id="submit" class="btn btn-primary btn-block">{% if integration_page == 'developer-integration' %}{% trans 'Register' %}{% else %}{% trans 'Update' %}{% endif %}</button>
-        </form>
+        {% if integration_page != 'account-integration-moderate' %}
+            <form id="integration-register-form" method="post" action="{% if integration_page == 'developer-integration' %}{% url 'integration-scaffold' %}{% else %}{{ request.get_full_path }}{% endif %}">
+                {% csrf_token %}
+                {% include 'form-fields.html' %}
+                <button id="submit" class="btn btn-primary btn-block">{% if integration_page == 'developer-integration' %}{% trans 'Register' %}{% else %}{% trans 'Update' %}{% endif %}</button>
+            </form>
+        {% else %}
+            <form id="integration-moderate-form" method="post" action="">
+                {% csrf_token %}
+                {% include 'form-fields.html' %}
+                <input class="btn btn-primary btn-block" name="approve" type="submit" value="{% trans 'Approve' %}"/>
+                <input class="btn btn-primary btn-block" name="reject" type="submit" value="{% trans 'Reject' %}"/>
+            </form>
+        {% endif %}
     </div>
 {% endblock %}

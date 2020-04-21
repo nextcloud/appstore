@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.views.generic import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 
 from nextcloudappstore.core.models import App, Screenshot, NextcloudRelease
 from nextcloudappstore.scaffolding.archive import build_archive
@@ -39,9 +40,16 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
     success_url = '/'
     app_id = None
 
-    def get_initial(self):
+    def get(self, request, *args, **kwargs):
         self.app_id = self.kwargs.get('pk', None)
+        if self.app_id is not None:
+            app = App.objects.get(id=self.app_id)
+            if not app.approved and not request.user.is_superuser:
+                raise Http404('Not found')
 
+        return self.render_to_response(self.get_context_data())
+
+    def get_initial(self):
         init = {
             'categories': ('integration',)
         }
@@ -59,10 +67,6 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
             init['author_homepage'] = app.website
             init['issue_tracker'] = app.issue_tracker
 
-        user = self.request.user
-        init['author_name'] = '%s %s' % (user.first_name, user.last_name)
-        init['author_email'] = user.email
-
         return init
 
     def get_context_data(self, **kwargs):
@@ -70,13 +74,27 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
         if self.app_id is None:
             context['integration_page'] = 'developer-integration'
         else:
-            context['integration_page'] = 'account-integration'
+            app = App.objects.get(id=self.app_id)
+            if not app.approved:
+                context['integration_page'] = 'account-integration-moderate'
+            else:
+                context['integration_page'] = 'account-integration'
 
         return context
 
     def form_valid(self, form):
-        self.success_url = form.save(self.request.user, self.app_id)
-        return super().form_valid(form)
+        action = "save"
+        if self.request.method == "POST" and "reject" in self.request.POST:
+            action = "reject"
+        elif self.request.method == "POST" and "approve" in self.request.POST:
+            action = "approve"
 
-    def get_success_url(self):
-        return "/apps/{}".format(self.success_url)
+        return_value = form.save(self.request.user, self.app_id, action)
+        self.success_url = "/apps/{}".format(return_value)
+
+        if action != "save":
+            self.success_url = reverse('user:account-integrations')
+        elif return_value is None:
+            self.success_url = "/"
+
+        return super().form_valid(form)
