@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.views.generic import View, FormView
+from django.views.generic import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 

@@ -91,10 +91,11 @@ class IntegrationScaffoldingForm(Form):
         try:
             app = App.objects.get(id=app_id)
             if app.can_update(user) or user.is_superuser:
-                if action == "reject":
+                if action == "reject" and user.is_superuser:
+                    '''Not optimal but works'''
                     Screenshot.objects.filter(app=app).delete()
                     app.delete()
-                elif action == "approve":
+                elif action == "approve" and user.is_superuser:
                     app.approved = True
                     if settings.DISCOURSE_TOKEN:
                         self._create_discourse_category(app_id)
