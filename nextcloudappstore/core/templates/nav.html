@@ -12,7 +12,7 @@
                    name="search"
                    role="search"
                    value="{{ search_query }}"
-                   placeholder="{% if current_category %}{% blocktrans with category=current_category.name %}Search {{ category }}{% endblocktrans %}{% elif is_featured_category %}{% trans 'Search featured apps' %}{% else %}{% trans 'Search all apps' %}{% endif %}"
+                   placeholder="{% if current_category %}{% blocktrans with category=current_category.name %}Search in {{ category }}{% endblocktrans %}{% elif is_featured_category %}{% trans 'Search in recommended applications' %}{% else %}{% trans 'Search in all applications' %}{% endif %}"
                    class="form-control search-box">
             <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 
