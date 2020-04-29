@@ -1,3 +1,4 @@
+from allauth.account.forms import EmailAwarePasswordResetTokenGenerator
 from allauth.account.utils import filter_users_by_email, user_username, \
     user_pk_to_url_str
 from django import forms
@@ -82,7 +83,7 @@ class CustomResetPasswordForm(forms.Form):
         email = self.cleaned_data["email"]
         from allauth.account.adapter import get_adapter
         email = get_adapter().clean_email(email)
-        self.users = filter_users_by_email(email)
+        self.users = filter_users_by_email(email, is_active=True)
 
         return self.cleaned_data["email"]
 
@@ -90,9 +91,7 @@ class CustomResetPasswordForm(forms.Form):
         from django.contrib.sites.shortcuts import get_current_site
         current_site = get_current_site(request)
         email = self.cleaned_data["email"]
-        from django.contrib.auth.tokens import default_token_generator
-        token_generator = kwargs.get("token_generator",
-                                     default_token_generator)
+        token_generator = EmailAwarePasswordResetTokenGenerator()
 
         for user in self.users:
             temp_key = token_generator.make_token(user)
@@ -118,7 +117,7 @@ class CustomResetPasswordForm(forms.Form):
             from allauth.account import app_settings
 
             if app_settings.AUTHENTICATION_METHOD \
-                    != app_settings.AuthenticationMethod.EMAIL:
+                != app_settings.AuthenticationMethod.EMAIL:
                 context['username'] = user_username(user)
             from allauth.account.adapter import get_adapter
             get_adapter(request).send_mail(
