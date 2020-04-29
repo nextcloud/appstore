@@ -117,7 +117,7 @@ class CustomResetPasswordForm(forms.Form):
             from allauth.account import app_settings
 
             if app_settings.AUTHENTICATION_METHOD \
-                != app_settings.AuthenticationMethod.EMAIL:
+                    != app_settings.AuthenticationMethod.EMAIL:
                 context['username'] = user_username(user)
             from allauth.account.adapter import get_adapter
             get_adapter(request).send_mail(
