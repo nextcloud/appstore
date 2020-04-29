@@ -2,27 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Goran Kavrecic <goran.kavrecic@indea.si>, 2017
 # Aljoša Čavlovič (ĐoKc) <aljosa.cavlovic@gmail.com>, 2017
 # Jurij Podgoršek <jurij.podgorsek@radiostudent.si>, 2020
 # Matej Urbančič <>, 2020
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 03:31+0000\n"
+"POT-Creation-Date: 2020-04-29 22:15+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Matej Urbančič <>, 2020\n"
-"Language-Team: Slovenian (https://www.transifex.com/nextcloud/teams/64236/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/nextcloud/teams/64236/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
@@ -80,10 +82,10 @@ msgstr "Javno potrdilo"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
@@ -542,8 +544,8 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
@@ -591,11 +593,13 @@ msgstr "Iskana stran ne bostaja!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this e-mail because user %(user_display)s has linked this e-"
+"mail address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
@@ -628,8 +632,8 @@ msgstr "Potrdi"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/login.html:5
@@ -668,8 +672,8 @@ msgstr "Ponastavitev gesla"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
 msgstr ""
 "Ali ste pozabili geslo? Vpišite elektronski naslov in prejeli boste "
 "sporočilo z navodili za ponastavitev."
@@ -697,8 +701,8 @@ msgstr "Spremeni geslo"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Povezava  za obnovitev gesla ni veljavna. Najverjetneje je bila že "
 "uporabljena. Ponovite postopek <a href=\"%(passwd_reset_url)s\">obnovitve "
@@ -816,9 +820,13 @@ msgstr "Oceni"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:179
@@ -916,19 +924,18 @@ msgstr "Vpis programa"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"Za več podrobnosti o pridobivanju potrdila in ustvarjanju podpisa si oglejte"
-" <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"Za več podrobnosti o pridobivanju potrdila in ustvarjanju podpisa si oglejte "
+"<a href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">razvijalsko dokumentacijo programa</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Obrazec je mogoče uporabiti tudi za posodobitev obstoječih potrdil, vendar "
@@ -995,13 +1002,13 @@ msgstr "Izdaja programa je uspešno poslana."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Več podrobnosti o ustvarjanju podpisa je zabeleženih v <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">vodniku za razvijalce</a>."
+"Več podrobnosti o ustvarjanju podpisa je zabeleženih v <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">vodniku za razvijalce</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1093,10 +1100,12 @@ msgstr "Odjava"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Uporabili boste račun ponudnika %(provider_name)s za prijavo v \n"
-"            %(site_name)s. Kot končni korak morate izpolniti še podatke obrazca:"
+"            %(site_name)s. Kot končni korak morate izpolniti še podatke "
+"obrazca:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1299,47 +1308,46 @@ msgstr ""
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "First name"
 msgstr "Ime"
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:16
 msgid "Last name"
 msgstr "Priimek"
 
-#: nextcloudappstore/user/forms.py:24
+#: nextcloudappstore/user/forms.py:25
 msgid "Your e-mail address"
 msgstr "Elektronski naslov"
 
-#: nextcloudappstore/user/forms.py:36
+#: nextcloudappstore/user/forms.py:37
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Podan elektronski naslov se ne sklada z vašim naslovom"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
 msgstr "Potrditev gesla"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:42
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:56
+#: nextcloudappstore/user/forms.py:57
 msgid "This e-mail address is already associated with another account."
-msgstr ""
-"Uporabljen elektronski naslov je že povezan z drugim vpisanim računom."
+msgstr "Uporabljen elektronski naslov je že povezan z drugim vpisanim računom."
 
-#: nextcloudappstore/user/forms.py:66
+#: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Neveljavno geslo"
 
-#: nextcloudappstore/user/forms.py:72
+#: nextcloudappstore/user/forms.py:73
 msgid "E-mail"
 msgstr "Elektronski naslov"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
 msgstr "Naslov elektronske pošte"
 
@@ -1348,8 +1356,7 @@ msgid "Nextcloud Appstore password changed"
 msgstr "Geslo Trgovine Nextcloud je spremenjeno."
 
 #: nextcloudappstore/user/signals.py:32
-msgid ""
-"Your Appstore password has changed. Contact support if this wasn't you."
+msgid "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
 "Geslo Trgovine Nextcloud je bilo spremenjeno. Če ga niste spremenili, "
 "stopite v stik s podporno službo."
@@ -1366,9 +1373,12 @@ msgstr "Žeton API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1423,8 +1433,8 @@ msgid ""
 "click the \"Delete account\" button:"
 msgstr ""
 "Z izbrisom računa se izbrišejo tudi vsi povezani programi in objavljene "
-"izdaje. Če kljub temu želite nadaljevati, vpišite v polje elektronski naslov"
-" in nato kliknite na gumb »Izbriši račun«."
+"izdaje. Če kljub temu želite nadaljevati, vpišite v polje elektronski naslov "
+"in nato kliknite na gumb »Izbriši račun«."
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
@@ -1458,8 +1468,8 @@ msgstr "S spreminjanjem gesla se ponovno ustvari tudi žeton API!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Kaže, da uporabljate račun, vpisan pri tretjem ponudniku. Gesla zato "
 "<strong>ni mogoče</strong> spremeniti prek te strani."

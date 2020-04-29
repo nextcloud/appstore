@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roeland Jago Douma <roeland@famdouma.nl>, 2016
 # JSE, 2016
@@ -19,20 +19,20 @@
 # Koen <glotzbach+foss@mailbox.org>, 2020
 # Joost van Kempen, 2020
 # André Koot <meneer@tken.net>, 2020
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 03:31+0000\n"
+"POT-Creation-Date: 2020-04-29 22:15+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:15
@@ -91,17 +91,17 @@ msgstr "Openbaar certificaat"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Normaal is je APP_ID opgeslagen in ~/.nextcloud/certificates/APP_ID.crt. "
 "Wanneer je geen certificaat hebt start dan eerst met een certificaat sign "
-"request (CSR) die geplaatst dient te worden op de <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\"> certificaat repository</a>(volg de README). Je "
-"kan een CSR genereren door het uitvoeren van de volgende opdracht:"
+"request (CSR) die geplaatst dient te worden op de <a href=\"https://github."
+"com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener\"> "
+"certificaat repository</a>(volg de README). Je kan een CSR genereren door "
+"het uitvoeren van de volgende opdracht:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -259,8 +259,8 @@ msgid ""
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
 "Als dit is ingeschakeld, kan een gebruiker proberen om dezelfde app opnieuw "
-"te registreren met een openbaar certificaat en handtekening. Als hij/zij dat"
-" doet, wordt de app naar die gebruiker omgezet."
+"te registreren met een openbaar certificaat en handtekening. Als hij/zij dat "
+"doet, wordt de app naar die gebruiker omgezet."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -562,8 +562,8 @@ msgstr "Heeft een release"
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Indien waar is dit een werkelijke Nextcloud release die als archief kan "
@@ -616,15 +616,18 @@ msgstr "De pagina die je wilt bekijken, bestaat niet!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this e-mail because user %(user_display)s has linked this e-"
+"mail address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "groetjes, van de %(site_name)s!\n"
 "\n"
-"Je krijgt deze email omdat gebruiker %(user_display)s dit emailadres heeft gebruikt voor een account op %(site_domain)s.\n"
+"Je krijgt deze email omdat gebruiker %(user_display)s dit emailadres heeft "
+"gebruikt voor een account op %(site_domain)s.\n"
 "\n"
 "Om dit gebruik te bevstigen, ga naar %(activate_url)s\n"
 "\n"
@@ -660,11 +663,11 @@ msgstr "Bevestig"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Deze email bevestigingslink is vervallen of ongeldig. <a "
-"href=\"%(email_url)s\">Doe een nieuwe aanvraag</a>."
+"Deze email bevestigingslink is vervallen of ongeldig. <a href=\"%(email_url)s"
+"\">Doe een nieuwe aanvraag</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -702,8 +705,8 @@ msgstr "Reset wachtwoord"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
 msgstr ""
 "Wachtwoord vergeten? Voer je e-mailadres hieronder in en we sturen je een "
 "bericht waarmee je het opnieuw kunt instellen."
@@ -733,8 +736,8 @@ msgstr "Verander wachtwoord"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "De wachtwoordherstel link was ongeldig, vermoedelijk omdat die al eerder is "
 "gebruikt. Vraag een <a href=\"%(passwd_reset_url)s\">nieuw "
@@ -852,13 +855,21 @@ msgstr "Beoordelen"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
-"Reactiebeoordelingen support <a rel=\"noopener no referrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"Gebruik reactiebeoordelingen niet om bugs te rapporteren of nieuwe mogelijkheden aan te vragen. Noch ontwikkelaars noch gebruikers worden op de hoogte gesteld van je reactie.\n"
-"Een beoordeling zonder reactie telt wel mee, maar zal hieronder niet worden weergegeven."
+"Reactiebeoordelingen support <a rel=\"noopener no referrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"Gebruik reactiebeoordelingen niet om bugs te rapporteren of nieuwe "
+"mogelijkheden aan te vragen. Noch ontwikkelaars noch gebruikers worden op de "
+"hoogte gesteld van je reactie.\n"
+"Een beoordeling zonder reactie telt wel mee, maar zal hieronder niet worden "
+"weergegeven."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -954,19 +965,19 @@ msgstr "Registreren app"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "Kijk voor meer informatie over het verkrijgen van het certificaat en het "
-"maken van een handtekening naar de <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app ontwikkelaarshandleiding</a>."
+"maken van een handtekening naar de <a href=\"http://nextcloudappstore."
+"readthedocs.io/en/latest/developer.html\" rel=\"noopener norefferer\">app "
+"ontwikkelaarshandleiding</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Dit formulier kan ook worden gebruikt om de bestaande certficaten te "
@@ -1033,13 +1044,13 @@ msgstr "App release succesvol geüploaded."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Voor meer informatie over hoe een ondertekening te maken zie de<a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\"> app developer guide"
+"Voor meer informatie over hoe een ondertekening te maken zie de<a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\"> app developer guide"
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1133,7 +1144,8 @@ msgstr "Afmelden"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Je gaat je %(provider_name)s account gebruiken om in te loggen op\n"
 "%(site_name)s. Als laatste stap moet je het volgende formulier invullen:"
@@ -1331,57 +1343,57 @@ msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
-"URL voor schermafbeelding van integratie in kleinere afmetingen. Moet worden"
-" gebruikt in combinatie met een grotere schermafbeelding."
+"URL voor schermafbeelding van integratie in kleinere afmetingen. Moet worden "
+"gebruikt in combinatie met een grotere schermafbeelding."
 
 #: nextcloudappstore/scaffolding/forms.py:84
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Volledige beschrijving van wat je integratie doet. Kan Markdown bevatten."
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "First name"
 msgstr "Voornaam"
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:16
 msgid "Last name"
 msgstr "Achternaam"
 
-#: nextcloudappstore/user/forms.py:24
+#: nextcloudappstore/user/forms.py:25
 msgid "Your e-mail address"
 msgstr "Je e-mailadres"
 
-#: nextcloudappstore/user/forms.py:36
+#: nextcloudappstore/user/forms.py:37
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Het opgegeven e-mailadres komt niet overeen met jouw adres"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
 msgstr "Bevestig wachtwoord"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:42
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Wachtwoord is vereist om te voorkomen dat ongeautoriseerde gebruikers je "
-"e-mailadres wijzigen en je wachtwoord resetten. Dit veld past je wachtwoord "
+"Wachtwoord is vereist om te voorkomen dat ongeautoriseerde gebruikers je e-"
+"mailadres wijzigen en je wachtwoord resetten. Dit veld past je wachtwoord "
 "niet aan!"
 
-#: nextcloudappstore/user/forms.py:56
+#: nextcloudappstore/user/forms.py:57
 msgid "This e-mail address is already associated with another account."
 msgstr "Dit emailadres is al gekoppeld aan een ander account."
 
-#: nextcloudappstore/user/forms.py:66
+#: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Ongeldig wachtwoord"
 
-#: nextcloudappstore/user/forms.py:72
+#: nextcloudappstore/user/forms.py:73
 msgid "E-mail"
 msgstr "E-mailadres"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
 msgstr "E-mailadres"
 
@@ -1390,8 +1402,7 @@ msgid "Nextcloud Appstore password changed"
 msgstr "Nextcloud Appstore wachtwoord gewijzigd"
 
 #: nextcloudappstore/user/signals.py:32
-msgid ""
-"Your Appstore password has changed. Contact support if this wasn't you."
+msgid "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
 "Je Appstore wachtwoord is gewijzigd. Neem contact op met beheer als jij dat "
 "niet deed."
@@ -1408,15 +1419,21 @@ msgstr "API Token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"Het API token kan worden gebruikt voor authenticatie bij aanroepen van de app store\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"Zorg ervoor dat het geheim blijft. Een nieuw token kan hieronder worden gegenereerd, waardoor het oude token ongeldig wordt.\n"
+"Het API token kan worden gebruikt voor authenticatie bij aanroepen van de "
+"app store\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html"
+"\">REST API</a>.\n"
+"Zorg ervoor dat het geheim blijft. Een nieuw token kan hieronder worden "
+"gegenereerd, waardoor het oude token ongeldig wordt.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1506,8 +1523,8 @@ msgstr "Wijzigen van je wachtwoord zal tevens je API token opnieuw genereren"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Je lijkt een account van een derde partij provider te gebruiken. Je "
 "wachtwoord kan dus <strong>niet</strong> op deze pagina worden gewijzigd."
@@ -1524,8 +1541,8 @@ msgid ""
 "page in the app developer menu."
 msgstr ""
 "Om een app naar een nieuwe eigenaar over te dragen, moet je de app eerst "
-"deblokkeren. Een gebruiker kan dan de app overnemen door die opnieuw te "
-"registereren op de app registratiepagina in het app ontwikkelaarsmenu."
+"deblokkeren. Een gebruiker kan dan de app overnemen door die opnieuw "
+"te registereren op de app registratiepagina in het app ontwikkelaarsmenu."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"

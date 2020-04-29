@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Fabien Li <fabien.lisiecki@gmail.com>, 2016
 # Bruno Million <bruno@timelord.fr>, 2016
@@ -34,20 +34,20 @@
 # ButterflyOfFire, 2020
 # Ldm Public <ldmpub@gmail.com>, 2020
 # Arnaud Wallon <arnaud@netbeat.be>, 2020
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 03:31+0000\n"
+"POT-Creation-Date: 2020-04-29 22:15+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Arnaud Wallon <arnaud@netbeat.be>, 2020\n"
 "Language-Team: French (https://www.transifex.com/nextcloud/teams/64236/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: nextcloudappstore/core/feeds.py:15
@@ -106,17 +106,17 @@ msgstr "Certificat public"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Habituellement stockés dans ~/.nextcloud/certificates/APP_ID.crt où APP_ID "
 "est votre ID d'application. Si vous n'avez pas de certificat vous devez "
 "d'abord créer une requête de signature de certificat (CSR) qui devra être "
-"postée sur le <a href=\"https://github.com/nextcloud/app-certificate-"
-"requests\" rel=\"noreferrer noopener\">dépôt des certificats</a> (suivre les"
-" instructions dans le fichier README). Vous pouvez générer le CSR en "
+"postée sur le <a href=\"https://github.com/nextcloud/app-certificate-requests"
+"\" rel=\"noreferrer noopener\">dépôt des certificats</a> (suivre les "
+"instructions dans le fichier README). Vous pouvez générer le CSR en "
 "exécutant la commande suivante : "
 
 #: nextcloudappstore/core/forms.py:50
@@ -275,8 +275,8 @@ msgid ""
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
 "Si activé, un utilisateur peut essayer d'enregistrer encore la même "
-"application en utilisant le certificat public et la signature. S'il le fait,"
-" l'application lui sera transférée."
+"application en utilisant le certificat public et la signature. S'il le fait, "
+"l'application lui sera transférée."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -570,8 +570,7 @@ msgid ""
 "dropdowns for app generation, etc."
 msgstr ""
 "Seule une version peut être la version courante. Ce champ est utilisé pour "
-"pré-sélectionner les menus déroulants pour la génération d'applications, "
-"etc."
+"pré-sélectionner les menus déroulants pour la génération d'applications, etc."
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
@@ -579,8 +578,8 @@ msgstr "Nouvelle version disponible"
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Si vrai, il s'agit d'une version de Nextcloud qui peut être téléchargée en "
@@ -633,19 +632,23 @@ msgstr "La page que vous tentez de regardé n'existe pas!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this e-mail because user %(user_display)s has linked this e-"
+"mail address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Salutations de %(site_name)s !\n"
 "\n"
-"Vous recevez ce courriel car l'utilisateur %(user_display)s a lié cette adresse mail à son compte sur %(site_domain)s.\n"
+"Vous recevez ce courriel car l'utilisateur %(user_display)s a lié cette "
+"adresse mail à son compte sur %(site_domain)s.\n"
 "\n"
 "Pour confirmer que ceci est correct, allez sur %(activate_url)s\n"
 "\n"
-"Sur vous n'avez pas de compte sur %(site_domain)s, ignorez simplement ce message.\n"
+"Sur vous n'avez pas de compte sur %(site_domain)s, ignorez simplement ce "
+"message.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -677,11 +680,11 @@ msgstr "Confirmer"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Ce lien de confirmation par mail a expiré ou est invalide. Merci <a "
-"href=\"%(email_url)s\">de demander un nouveau mail de confirmation</a>."
+"Ce lien de confirmation par mail a expiré ou est invalide. Merci <a href="
+"\"%(email_url)s\">de demander un nouveau mail de confirmation</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -719,8 +722,8 @@ msgstr "Réinitialiser le mot de passe"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
 msgstr ""
 "Mot de passe oublié? Entrez votre adresse mail ci-dessous, et nous vous "
 "enverrons un mail permettant de le réinitialiser."
@@ -750,13 +753,12 @@ msgstr "Changer de mot de passe"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
-"Le lien de réinitialisation du mot de passe est invalide, probablement qu'il"
-" a déjà été utilisé. Merci de demander une <a "
-"href=\"%(passwd_reset_url)s\">nouvelle réinitialisation de mode de "
-"passe</a>."
+"Le lien de réinitialisation du mot de passe est invalide, probablement qu'il "
+"a déjà été utilisé. Merci de demander une <a href=\"%(passwd_reset_url)s"
+"\">nouvelle réinitialisation de mode de passe</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -870,13 +872,21 @@ msgstr "Note"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
-"Les commentaires d'évaluation supportent <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            N'utilisez pas les commentaires d'évaluation pour reporter des bugs ou des requêtes de nouvelles fonctionnalités. Ni les développeurs ni les utilisateurs ne seront notifiés de votre commentaire.\n"
-"                            Une évaluation sans commentaire sera pris en compte mais ne sera pas listé ci-dessous."
+"Les commentaires d'évaluation supportent <a rel=\"noopener noreferrer\" href="
+"\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            N'utilisez pas les commentaires d'évaluation "
+"pour reporter des bugs ou des requêtes de nouvelles fonctionnalités. Ni les "
+"développeurs ni les utilisateurs ne seront notifiés de votre commentaire.\n"
+"                            Une évaluation sans commentaire sera pris en "
+"compte mais ne sera pas listé ci-dessous."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -973,25 +983,25 @@ msgstr "Inscrire une application"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "Pour plus d'informations sur l'obtention du certificat et la création d'une "
-"signature, consultez le <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">guide du développeur d'applications</a>."
+"signature, consultez le <a href=\"http://nextcloudappstore.readthedocs.io/en/"
+"latest/developer.html\" rel=\"noopener norefferer\">guide du développeur "
+"d'applications</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Ce formulaire peut également être utilisé pour mettre à jour les certificats"
-" existants, cependant seul le propriétaire de l'application y est autorisé. "
-"Mettre à jour le certificat d'une application supprimera toutes les versions"
-" de celle-ci déjà téléversées !"
+"Ce formulaire peut également être utilisé pour mettre à jour les certificats "
+"existants, cependant seul le propriétaire de l'application y est autorisé. "
+"Mettre à jour le certificat d'une application supprimera toutes les versions "
+"de celle-ci déjà téléversées !"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -1053,14 +1063,13 @@ msgstr "Version d'application téléversée avec succès."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Pour plus d'informations sur la création d'une signature, veuillez consulter"
-" le <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">guide du développeur d'application</a>."
+"Pour plus d'informations sur la création d'une signature, veuillez consulter "
+"le <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer."
+"html\" rel=\"noopener norefferer\">guide du développeur d'application</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1154,7 +1163,8 @@ msgstr "Se déconnecter"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Vous allez utiliser votre compte %(provider_name)s pour vous connecter sur\n"
 "%(site_name)s. À l'étape finale, merci de compléter le formulaire suivant:"
@@ -1323,8 +1333,8 @@ msgstr "Rapports de bugs et demandes de fonctionnalités"
 #: nextcloudappstore/scaffolding/forms.py:68
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr ""
-"Cliquez en maintenant la touche Ctrl enfoncée pour sélectionner de multiples"
-" entrées"
+"Cliquez en maintenant la touche Ctrl enfoncée pour sélectionner de multiples "
+"entrées"
 
 #: nextcloudappstore/scaffolding/forms.py:53
 #: nextcloudappstore/scaffolding/forms.py:71
@@ -1336,8 +1346,8 @@ msgstr ""
 #: nextcloudappstore/scaffolding/forms.py:55
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
-"Description complète des fonctionnalités de votre application. Peut contenir"
-" du Markdown"
+"Description complète des fonctionnalités de votre application. Peut contenir "
+"du Markdown"
 
 #: nextcloudappstore/scaffolding/forms.py:60
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1368,30 +1378,30 @@ msgstr ""
 #: nextcloudappstore/scaffolding/forms.py:84
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
-"Description complète des fonctionnalités de votre intégration. Peut contenir"
-" du Markdown."
+"Description complète des fonctionnalités de votre intégration. Peut contenir "
+"du Markdown."
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "First name"
 msgstr "Prénom"
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:16
 msgid "Last name"
 msgstr "Nom de famille"
 
-#: nextcloudappstore/user/forms.py:24
+#: nextcloudappstore/user/forms.py:25
 msgid "Your e-mail address"
 msgstr "Votre adresse mail"
 
-#: nextcloudappstore/user/forms.py:36
+#: nextcloudappstore/user/forms.py:37
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "L'adresse mail donnée ne correspond pas à votre adresse mail"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
 msgstr "Confirmer le mot de passe"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:42
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1401,19 +1411,19 @@ msgstr ""
 "modifier votre adresse mél et de réinitialiser votre mot de passe. Ce champ "
 "ne met pas à jour votre mot de passe !"
 
-#: nextcloudappstore/user/forms.py:56
+#: nextcloudappstore/user/forms.py:57
 msgid "This e-mail address is already associated with another account."
 msgstr "Cette adresse mail est déjà associée avec un autre compte."
 
-#: nextcloudappstore/user/forms.py:66
+#: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Mot de passe incorrect"
 
-#: nextcloudappstore/user/forms.py:72
+#: nextcloudappstore/user/forms.py:73
 msgid "E-mail"
 msgstr "E-Mail"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
 msgstr "Adresse courriel"
 
@@ -1422,8 +1432,7 @@ msgid "Nextcloud Appstore password changed"
 msgstr "Mot de passe Nextcloud Appstore modifié"
 
 #: nextcloudappstore/user/signals.py:32
-msgid ""
-"Your Appstore password has changed. Contact support if this wasn't you."
+msgid "Your Appstore password has changed. Contact support if this wasn't you."
 msgstr ""
 "Votre mot de passe du magasin d'applications (Appstore) a été modifié. Si "
 "vous n'êtes pas à l'origine de cette modification, contactez le support."
@@ -1440,15 +1449,21 @@ msgstr "Jeton API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"Le jeton d'API peut être utilisé pour l'authentification lors de l'appel à l'app store\n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">API REST</a>.\n"
-"Assurez-vous de le garder secret. Un nouveau jeton peut être généré ci-dessous, rendant l'ancien non valable."
+"Le jeton d'API peut être utilisé pour l'authentification lors de l'appel à "
+"l'app store\n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html"
+"\">API REST</a>.\n"
+"Assurez-vous de le garder secret. Un nouveau jeton peut être généré ci-"
+"dessous, rendant l'ancien non valable."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1501,8 +1516,8 @@ msgid ""
 "click the \"Delete account\" button:"
 msgstr ""
 "Supprimer votre compte va supprimer aussi toutes vos applications et "
-"publications. Pour supprimer votre compte, insérez votre adresse e-mail dans"
-" le champ de saisie puis cliquez sur le bouton \"Supprimer le compte\" :"
+"publications. Pour supprimer votre compte, insérez votre adresse e-mail dans "
+"le champ de saisie puis cliquez sur le bouton \"Supprimer le compte\" :"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
@@ -1538,8 +1553,8 @@ msgstr "Changer votre mot de passe régénérera également votre jeton d'API!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Vous semblez utiliser un compte enregistré via une tierce partie. Votre mot "
 "de passe <strong>ne</strong> peux pas être changé depuis cette page."
