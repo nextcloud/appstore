@@ -9,17 +9,17 @@
 # Emre Saracoglu <hello@emresaracoglu.com>, 2017
 # Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017
 # Kemal Oktay Aktoğan <oktayaktogan@gmail.com>, 2020
-# Kaya Zeren <kayazeren@gmail.com>, 2020
 # Hüseyin Fahri Uzun <mail@fahriuzun.com>, 2020
+# Kaya Zeren <kayazeren@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 03:31+0000\n"
+"POT-Creation-Date: 2020-04-30 03:35+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Hüseyin Fahri Uzun <mail@fahriuzun.com>, 2020\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -260,7 +260,7 @@ msgstr "Bütünleştirme (Örnek: Outlook uygulama eki)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr "Entegrasyon onayları için kullanıldı"
+msgstr "Bütünleştirmeleri onaylamak için kullanıldı"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -881,7 +881,7 @@ msgstr "Bütünleştirmeyi kaydet"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr "Entegrasyonları Yönet"
+msgstr "Bütünleştirme Yönetimi"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -1072,11 +1072,11 @@ msgstr "zorunlu alan"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr "Şurada ara %(category)s"
+msgstr "%(category)s içinde ara"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
-msgstr "Öne çıkan uygulamalarda ara"
+msgstr "Öne çıkarılmış uygulamalarda ara"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in all apps"
@@ -1101,7 +1101,7 @@ msgstr "Belgeler"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr "Bütünleştirme geliştirici"
+msgstr "Bütünleştirme geliştiricisi"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1330,27 +1330,27 @@ msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Bütünleştirme hakkında ayrıntılı bilgi. Markdown kodları kullanılabilir."
 
-#: nextcloudappstore/user/forms.py:14
+#: nextcloudappstore/user/forms.py:15
 msgid "First name"
 msgstr "Ad"
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:16
 msgid "Last name"
 msgstr "Soyad"
 
-#: nextcloudappstore/user/forms.py:24
+#: nextcloudappstore/user/forms.py:25
 msgid "Your e-mail address"
 msgstr "E-posta adresiniz"
 
-#: nextcloudappstore/user/forms.py:36
+#: nextcloudappstore/user/forms.py:37
 msgid "The given e-mail address does not match your e-mail address"
 msgstr "Yazdığınız e-posta adresi kayıtlı adresiniz ile aynı değil"
 
-#: nextcloudappstore/user/forms.py:40
+#: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
 msgstr "Parola onayı"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:42
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1359,19 +1359,19 @@ msgstr ""
 "Parola yetkisiz kullanıcıların e-posta adresinizi değiştirmesini ve "
 "parolanızı sıfırlamasını engeller. Bu alan parolanızı güncellemez!"
 
-#: nextcloudappstore/user/forms.py:56
+#: nextcloudappstore/user/forms.py:57
 msgid "This e-mail address is already associated with another account."
 msgstr "Bu e-posta adresi zaten başka bir hesapla ilişkili."
 
-#: nextcloudappstore/user/forms.py:66
+#: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Parola geçersiz"
 
-#: nextcloudappstore/user/forms.py:72
+#: nextcloudappstore/user/forms.py:73
 msgid "E-mail"
 msgstr "E-posta"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
 msgstr "E-posta adresi"
 
@@ -1476,7 +1476,7 @@ msgstr "Görüntüle"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr "Sizin entegrasyonlarınız"
+msgstr "Bütünleştirmeleriniz"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1485,7 +1485,9 @@ msgstr "Düzenle"
 #: nextcloudappstore/user/templates/user/integrations.html:52
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
-msgstr "Henüz bir entegrasyon göndermediniz veya onay için bekleniyor!"
+msgstr ""
+"Henüz bir bütünleştirme göndermemişsiniz ya da bütünleştirmeler onay "
+"bekliyor!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
