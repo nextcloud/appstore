@@ -273,6 +273,16 @@ class AppImporter(Importer):
         if len(releases) == 0:
             return True
 
+        # if the app has no stable releases update everything
+        has_stable_release = False
+        for release in releases:
+            if '-' not in release.version and not release.is_nightly:
+                has_stable_release = True
+                break
+
+        if not has_stable_release:
+            return True
+
         current_version = value['release']['version']
 
         # we do not care about nightlies here so it's fine to just use a
@@ -282,10 +292,14 @@ class AppImporter(Importer):
         is_nightly = value['release']['is_nightly']
         is_stable = not is_prerelease and not is_nightly
 
+        # let's go out quickly
+        if not is_stable:
+            return False
+
         def is_newer_version(release: Any) -> bool:
             return uploaded_version >= Version(release.version)
 
         # the main page should only be updated when stable and new releases
         # are uploaded
         is_latest_version = any_match(is_newer_version, releases)
-        return is_latest_version and is_stable
+        return is_latest_version
