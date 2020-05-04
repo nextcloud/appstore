@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
     TextInput
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField,\
     HiddenInput
@@ -87,7 +88,7 @@ class IntegrationScaffoldingForm(Form):
 
     def save(self, user, app_id, action):
         if app_id is None:
-            app_id = self.cleaned_data['name'].lower().replace(" ", "_")
+            app_id = slugify(self.cleaned_data['name']).replace('-', '_')[:80]
         try:
             app = App.objects.get(id=app_id)
             if app.can_update(user) or user.is_superuser:
