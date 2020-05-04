@@ -310,4 +310,5 @@ GITHUB_API_TOKEN = None
 
 # Nextcloud Email
 NEXTCLOUD_FROM_EMAIL = 'appstore@nextcloud.com'
-NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ['marketing-team@nextcloud.com']
+NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ['marketing-team@nextcloud.com',
+                                          'mario@nextcloud.com']
