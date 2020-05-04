@@ -2,6 +2,7 @@ import re
 from os import listdir
 import uuid
 
+import requests
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
@@ -85,6 +86,28 @@ class IntegrationScaffoldingForm(Form):
                             help_text=_('Full description of what your'
                                         ' integration '
                                         'does. Can contain Markdown.'))
+
+    def _create_discourse_category(self, app_id: str) -> None:
+        url = '%s/categories?api_key=%s&api_username=%s' % (
+            settings.DISCOURSE_URL.rstrip('/'),
+            settings.DISCOURSE_TOKEN,
+            settings.DISCOURSE_USER
+        )
+        data = {
+            'name': app_id.replace('_', '-'),
+            'color': '3c3945',
+            'text_color': 'ffffff'
+        }
+        if settings.DISCOURSE_PARENT_CATEGORY_ID:
+            data['parent_category_id'] = settings.DISCOURSE_PARENT_CATEGORY_ID
+
+        # ignore requests errors because there can be many issues and we do not
+        # want to abort app registration just because the forum is down or
+        # leak sensitive data like tokens or users
+        try:
+            requests.post(url, data=data)
+        except requests.HTTPError:
+            pass
 
     def save(self, user, app_id, action):
         if app_id is None:
