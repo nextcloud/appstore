@@ -219,7 +219,8 @@ class CategoryAppListView(ListView):
         context['is_featured_category'] = self.kwargs \
             .get('is_featured_category', False)
         if category_id:
-            context['current_category'] = Category.objects.get(id=category_id)
+            context['current_category'] = get_object_or_404(Category,
+                                                            id=category_id)
         if self.search_terms:
             context['search_query'] = ' '.join(self.search_terms)
         context['url_params'] = self.url_params
