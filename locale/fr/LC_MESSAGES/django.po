@@ -14,7 +14,6 @@
 # Thomas Citharel <thomas.citharet@gmail.com>, 2016
 # Fr Lang, 2016
 # guillaume lewalle <guillaume@lewalle.fr>, 2016
-# alracsol <alracsol@gmail.com>, 2016
 # Sylvain RAGER <sylvain@regar42.fr>, 2017
 # Alaric <alarictabaries@gmail.com>, 2017
 # Luclu7 <theluc7andcompagnie@gmail.com>, 2017
@@ -34,15 +33,16 @@
 # ButterflyOfFire, 2020
 # Ldm Public <ldmpub@gmail.com>, 2020
 # Arnaud Wallon <arnaud@netbeat.be>, 2020
+# Julien Veyssier, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-04 03:38+0000\n"
+"POT-Creation-Date: 2020-08-05 03:39+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Arnaud Wallon <arnaud@netbeat.be>, 2020\n"
+"Last-Translator: Julien Veyssier, 2020\n"
 "Language-Team: French (https://www.transifex.com/nextcloud/teams/64236/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
-msgstr "Applications les plus récentes"
+msgstr "Publications d'applications les plus récentes"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
@@ -112,8 +112,8 @@ msgid ""
 "You can generate the CSR by executing the following command:"
 msgstr ""
 "Habituellement stockés dans ~/.nextcloud/certificates/APP_ID.crt où APP_ID "
-"est votre ID d'application. Si vous n'avez pas de certificat vous devez "
-"d'abord créer une requête de signature de certificat (CSR) qui devra être "
+"est l'ID de votre d'application. Si vous n'avez pas de certificat vous devez"
+" d'abord créer une requête de signature de certificat (CSR) qui devra être "
 "postée sur le <a href=\"https://github.com/nextcloud/app-certificate-"
 "requests\" rel=\"noreferrer noopener\">dépôt des certificats</a> (suivre les"
 " instructions dans le fichier README). Vous pouvez générer le CSR en "
@@ -121,7 +121,7 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "Signature sur votre ID d'application"
+msgstr "Signature sur l'ID de votre d'application"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -170,7 +170,7 @@ msgstr "Sommaire"
 
 #: nextcloudappstore/core/models.py:66
 msgid "Short text describing the app's purpose"
-msgstr "Court texte décrivant l'application"
+msgstr "Court texte décrivant l'objet de l'application"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
 #: nextcloudappstore/scaffolding/forms.py:56
@@ -203,7 +203,7 @@ msgstr "Adresse du système de suivi des problèmes"
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:327
 #: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
-msgstr "Accueil"
+msgstr "Page d'accueil"
 
 #: nextcloudappstore/core/models.py:80
 msgid "Forum"
@@ -236,7 +236,7 @@ msgstr "Auteurs de l'application"
 #: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
-msgstr "En vedette"
+msgstr "Mise en avant"
 
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:81
@@ -254,7 +254,7 @@ msgstr "Nombre de votes récemment soumis"
 
 #: nextcloudappstore/core/models.py:98
 msgid "Number of overall submitted ratings"
-msgstr "Nombre global de votes envoyés"
+msgstr "Nombre global de votes soumis"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Last release at"
@@ -267,16 +267,16 @@ msgstr "Certificat"
 
 #: nextcloudappstore/core/models.py:104
 msgid "Ownership transfer enabled"
-msgstr "Transfert des droits activé"
+msgstr "Transfert de propriétaire activé"
 
 #: nextcloudappstore/core/models.py:105
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Si activé, un utilisateur peut essayer d'enregistrer encore la même "
-"application en utilisant le certificat public et la signature. S'il le fait,"
-" l'application lui sera transférée."
+"Si activé, un utilisateur peut essayer d'enregistrer la même application à "
+"nouveau en utilisant le certificat public et la signature. S'il le fait, "
+"l'application lui sera transférée."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -349,7 +349,7 @@ msgstr "La version suit les règles de gestion sémantiques de version"
 
 #: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
 msgid "PHP extension dependency"
-msgstr "Dépendance d'extension PHP"
+msgstr "Dépendance aux extensions PHP"
 
 #: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
@@ -361,7 +361,7 @@ msgstr "Licence"
 
 #: nextcloudappstore/core/models.py:358
 msgid "Shell command dependency"
-msgstr "Dépendance de commande shell"
+msgstr "Dépendance à des commandes shell"
 
 #: nextcloudappstore/core/models.py:360
 msgid "PHP version requirement"
@@ -373,11 +373,11 @@ msgstr "Version de la plateforme requise"
 
 #: nextcloudappstore/core/models.py:365
 msgid "PHP version requirement (raw)"
-msgstr "Version de PHP requise (raw)"
+msgstr "Version de PHP requise (brut)"
 
 #: nextcloudappstore/core/models.py:367
 msgid "Platform version requirement (raw)"
-msgstr "Version de la plateforme requise (raw)"
+msgstr "Version de la plateforme requise (brut)"
 
 #: nextcloudappstore/core/models.py:369
 #: nextcloudappstore/core/templates/app/releases.html:69
@@ -386,7 +386,7 @@ msgstr "Version d'architecture minimum requise en bits"
 
 #: nextcloudappstore/core/models.py:370
 msgid "e.g. 32 for 32bit Integers"
-msgstr "ex: 32 pour un entier 32 bits"
+msgstr "ex: 32 pour les entiers 32 bits"
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
@@ -447,7 +447,7 @@ msgstr "Commande shell"
 
 #: nextcloudappstore/core/models.py:453
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Nom de la commande shell requise, ex. grep"
+msgstr "Nom de la commande shell requise, par ex. grep"
 
 #: nextcloudappstore/core/models.py:457
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -462,12 +462,12 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:468
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
-"ID de la catégorie utilisé pour identifier la catégorie dans laquelle une "
-"application va être téléversée"
+"ID de catégorie utilisé pour identifier la catégorie dans laquelle une "
+"application est téléversée"
 
 #: nextcloudappstore/core/models.py:476
 msgid "Category name which will be presented to the user"
-msgstr "Nom de la catégorie qui sera présenté à l'utilisateur"
+msgstr "Nom de catégorie qui sera affiché à l'utilisateur"
 
 #: nextcloudappstore/core/models.py:484
 #: nextcloudappstore/scaffolding/forms.py:50
@@ -477,11 +477,11 @@ msgstr "Catégories"
 
 #: nextcloudappstore/core/models.py:495
 msgid "Key which is used to identify a license"
-msgstr "La clé est utilisé pour identifier une licence"
+msgstr "Clé utilisée pour identifier une licence"
 
 #: nextcloudappstore/core/models.py:498
 msgid "License name which will be presented to the user"
-msgstr "Nom de la licence affiché à l'utilisateur"
+msgstr "Nom de licence qui sera affiché à l'utilisateur"
 
 #: nextcloudappstore/core/models.py:503
 #: nextcloudappstore/core/templates/app/releases.html:32
@@ -490,11 +490,11 @@ msgstr "Licences"
 
 #: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
-msgstr "Clé utilisée pour identifier la base de données"
+msgstr "Clé utilisée pour identifier une base de données"
 
 #: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
-msgstr "Nom de la base de données affiché à l'utilisateur"
+msgstr "Nom de base de données qui sera affiché à l'utilisateur"
 
 #: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
 msgid "Database"
