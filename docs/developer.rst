@@ -355,6 +355,7 @@ category
     * must contain one of the following values:
 
        * **customization**
+       * **dashboard**
        * **files**
        * **games**
        * **search**
