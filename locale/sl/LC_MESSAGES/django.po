@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-13 03:51+0000\n"
+"POT-Creation-Date: 2020-11-14 03:52+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Matej Urbančič <>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/nextcloud/teams/64236/sl/)\n"
@@ -85,6 +85,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Potrdila so običajno shranjena v mapi ~/.nextcloud/certificates/APP_ID.crt, "
+"kjer je APP_ID ID programa. Če nimate potrdila, morate najprej ustvariti "
+"zahtevo za podpis (CSR), ki mora biti objavljen v <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">skladišču potrdil</a> (sledite navodilom v "
+"datoteki README). Datoteko CSR je mogoče ustvariti z izvedbo ukaza:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -250,7 +256,7 @@ msgstr "Podpora (na primer vstavek Outlook)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr ""
+msgstr "Uporabljeno za odobritev združljivosti"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -538,7 +544,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
-msgstr ""
+msgstr "Objava ‧"
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
@@ -546,6 +552,9 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"Določilo pove, ali je aktualna različica programa Nrxtcloud, ki jo je mogoče"
+" prejeti kot paket, sicer pa je to preizkusna različica ali pa paket, ki ni "
+"več na voljo."
 
 #: nextcloudappstore/core/models.py:632
 msgid "Version is supported"
@@ -603,7 +612,7 @@ msgstr ""
 "\n"
 "Sporočilo ste prejeli, ker je uporabnik %(user_display)s povezal ta elektronski naslov z računom pri %(site_domain)s.\n"
 "\n"
-"Za potrditev, da so podatki pravilni, obiščite naslov %(activate_url)s\n"
+"Za potrditev, da so podatki točni, obiščite naslov %(activate_url)s\n"
 "\n"
 "Če računa pri %(site_domain)s nimate, enostavno prezrite to sporočilo.\n"
 
@@ -820,7 +829,7 @@ msgstr "Oceni program"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "Oceni združljivost"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -861,7 +870,7 @@ msgstr "Izpiši opombe za jezik:"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
 msgid "Register integration"
-msgstr ""
+msgstr "Vpiši združljivostni program"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -871,7 +880,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr ""
+msgstr "Uredi združljivostni program"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -1067,7 +1076,7 @@ msgstr "Poišči med vsemi programi"
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
-msgstr "Poišči"
+msgstr "Iskanje"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
@@ -1075,7 +1084,7 @@ msgstr "Preklopi iskalnik"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
-msgstr "Razvijalec  programa"
+msgstr "Razvoj programov"
 
 #: nextcloudappstore/core/templates/nav.html:48
 msgid "Documentation"
@@ -1083,7 +1092,7 @@ msgstr "Dokumentacija"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr ""
+msgstr "Razvoj združljivosti"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1295,7 +1304,7 @@ msgstr "Podroben opis zmožnosti programa v zapisu Markdown."
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "Ime združljivostnega programa"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
@@ -1303,7 +1312,7 @@ msgstr "Naslov URL zaslonske slike"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "Naslov URL združljivostnega programa"
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
