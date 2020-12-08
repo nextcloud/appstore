@@ -2,33 +2,38 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Vincent Chan, 2017
 # miyorineko <miyorineko@protonmail.ch>, 2017
 # Winston Yin <winstonyin@gmail.com>, 2018
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2018
-# Xiao Bo-Wen (Brad) <brad.821228@gmail.com>, 2019
-# chiyi4488 <chiyi4869@gmail.com>, 2019
+# BoWen Xiao <brad.821228@gmail.com>, 2019
 # Yu-Ming Tseng <trueasa@gmail.com>, 2019
 # UitHub <loserfer1104@gmail.com>, 2019
 # neo yang <kingwap.tw@gmail.com>, 2019
 # Jim Tsai <poormusic2001@gmail.com>, 2020
-#
+# Natashia Maxins <railroad1987@gmail.com>, 2020
+# 子豪 劉 <oxygen5307@gmail.com>, 2020
+# Jimmy Chen <jimmy5670@gmail.com>, 2020
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2020
+# Kerwin Che, 2020
+# 宗原 李 <leo19940803@gmail.com>, 2020
+# chiyi4488 <chiyi4869@gmail.com>, 2020
+# 范承豪 <marchfun@smhs.hlc.edu.tw>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-07 03:56+0000\n"
+"POT-Creation-Date: 2020-12-08 03:56+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Jim Tsai <poormusic2001@gmail.com>, 2020\n"
-"Language-Team: Chinese (Taiwan) (https://www.transifex.com/nextcloud/"
-"teams/64236/zh_TW/)\n"
-"Language: zh_TW\n"
+"Last-Translator: 范承豪 <marchfun@smhs.hlc.edu.tw>, 2020\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/nextcloud/teams/64236/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: nextcloudappstore/core/feeds.py:15
@@ -87,10 +92,10 @@ msgstr "公開憑證"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
@@ -245,19 +250,15 @@ msgstr "已啟用所有權移交"
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
-msgstr ""
-"當啟動的時候，其他使用者可以使用該公開憑證和簽章再次註冊這個應用程式，完成註"
-"冊後，此應用程式的所有權將會移交給他。"
+msgstr "當啟動的時候，其他使用者可以使用該公開憑證和簽章再次註冊這個應用程式，完成註冊後，此應用程式的所有權將會移交給他。"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr ""
+msgstr "整合 (如 Outlook 外掛)"
 
 #: nextcloudappstore/core/models.py:110
-#, fuzzy
-#| msgid "Integration"
 msgid "Used to approve integrations"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -547,8 +548,8 @@ msgstr "有一份最新發行"
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
@@ -596,18 +597,15 @@ msgstr "您所要的頁面不存在！"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-"
-"mail address to their account at %(site_domain)s.\n"
+"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "%(site_name)s 向您問好！\n"
 "\n"
-"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 "
-"%(site_domain)s 上的帳戶。\n"
+"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 %(site_domain)s 上的帳戶。\n"
 "\n"
 "如果準確無誤，請至 %(activate_url)s 進行確認。\n"
 "\n"
@@ -633,8 +631,7 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的"
-"郵件地址。"
+"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的郵件地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -643,11 +640,9 @@ msgstr "確認"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr ""
-"這條郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出郵件確認請"
-"求</a>。"
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr "這條郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出郵件確認請求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -664,10 +659,8 @@ msgid "Log in with GitHub"
 msgstr "使用 GitHub 登入"
 
 #: nextcloudappstore/core/templates/account/login.html:35
-#, fuzzy
-#| msgid "Forgot password"
 msgid "Forgot password?"
-msgstr "忘記密碼"
+msgstr "忘記密碼？"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
@@ -687,10 +680,9 @@ msgstr "密碼重設"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you "
-"an e-mail allowing you to reset it."
-msgstr ""
-"忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
+"Forgotten your password? Enter your e-mail address below, and we'll send you"
+" an e-mail allowing you to reset it."
+msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -702,7 +694,7 @@ msgstr "若在重置密碼過程中遇到困難，請向我們聯繫。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr ""
+msgstr "無效的API Token"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
@@ -715,11 +707,9 @@ msgstr "改變密碼"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
-msgstr ""
-"密碼重置連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重置密"
-"碼</a>。"
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
+msgstr "密碼重置連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重置密碼</a>。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -824,10 +814,8 @@ msgid "Rate app"
 msgstr "應用程式評價"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
-#, fuzzy
-#| msgid "Integration"
 msgid "Rate integration"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -835,16 +823,11 @@ msgstr "評價"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or "
-"request features. Neither developers nor users will be notified of your "
-"comment.\n"
-"                            A rating without a comment still counts, but "
-"will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
+"                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball."
-"net/projects/markdown/syntax\">Markdown</a>。\n"
+"評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
 "不要在此處報告錯誤或請求功能，因為開發者和用戶都不會因您的評論而收到通知。\n"
 "不含評論的評分也會計算在內，但不會在下方列出。"
 
@@ -875,38 +858,30 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
-#, fuzzy
-#| msgid "Integration"
 msgid "Register integration"
-msgstr "整合"
+msgstr "註冊整合"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#, fuzzy
-#| msgid "Integration"
 msgid "Moderate integration"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#, fuzzy
-#| msgid "Integration"
 msgid "Edit integration"
-msgstr "整合"
+msgstr "編輯整合"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "已更新"
+msgstr "更新"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:20
 msgid "Approve"
-msgstr ""
+msgstr "核准"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:21
 msgid "Reject"
-msgstr ""
+msgstr "拒絕"
 
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps - "
@@ -914,7 +889,7 @@ msgstr "特色的apps"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr ""
+msgstr "評分 (最近)"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -923,8 +898,6 @@ msgstr "最新"
 #: nextcloudappstore/core/templates/app/list.html:19
 #: nextcloudappstore/core/templates/app/list.html:21
 #: nextcloudappstore/core/templates/app/list.html:23
-#, fuzzy
-#| msgid "Alphabetical"
 msgid "Alphabetically"
 msgstr "字母"
 
@@ -951,15 +924,15 @@ msgstr "註冊應用程式"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 
@@ -1023,9 +996,9 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/upload.html:25
@@ -1065,22 +1038,17 @@ msgid "required field"
 msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
-#, fuzzy, python-format
-#| msgid "Search %(category)s"
+#, python-format
 msgid "Search in %(category)s"
-msgstr "搜尋 %(category)s"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
-#, fuzzy
-#| msgid "Search featured apps"
 msgid "Search in featured apps"
-msgstr "搜尋特色apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:15
-#, fuzzy
-#| msgid "Search all apps"
 msgid "Search in all apps"
-msgstr "搜尋所有應用程式"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
@@ -1100,10 +1068,8 @@ msgid "Documentation"
 msgstr "說明文件"
 
 #: nextcloudappstore/core/templates/nav.html:66
-#, fuzzy
-#| msgid "Integration"
 msgid "Integration developer"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1125,8 +1091,7 @@ msgstr "登出"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1139,7 +1104,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
-msgstr ""
+msgstr "儀表板"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
@@ -1217,7 +1182,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
-msgstr ""
+msgstr "社群及通訊"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Messaging, contact management and social media apps"
@@ -1307,16 +1272,12 @@ msgstr "完整描述您應用的功能。支援 Markdown 格式。"
 #: nextcloudappstore/scaffolding/forms.py:62
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
-#, fuzzy
-#| msgid "Integration"
 msgid "Integration name"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:74
-#, fuzzy
-#| msgid "Screenshot"
 msgid "Screenshot URL"
-msgstr "螢幕截圖"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
@@ -1333,10 +1294,8 @@ msgid ""
 msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:86
-#, fuzzy
-#| msgid "Full description of what your app does. Can contain Markdown."
 msgid "Full description of what your integration does. Can contain Markdown."
-msgstr "完整描述您應用的功能。支援 Markdown 格式。"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:15
 msgid "First name"
@@ -1379,15 +1338,16 @@ msgstr "E-mail"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
-msgstr ""
+msgstr "電子郵件地址"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
-msgstr ""
+msgstr "NextCloud Appstore 密碼變更完成"
 
 #: nextcloudappstore/user/signals.py:32
-msgid "Your Appstore password has changed. Contact support if this wasn't you."
-msgstr ""
+msgid ""
+"Your Appstore password has changed. Contact support if this wasn't you."
+msgstr "您的 Appstore 密碼已經變更完成,如果非您操作變更請連絡相關單位"
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1401,12 +1361,9 @@ msgstr "API Token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1424,10 +1381,8 @@ msgstr "重新產生 API token"
 
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
-#, fuzzy
-#| msgid "Integration"
 msgid "Integrations"
-msgstr "整合"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
@@ -1470,28 +1425,24 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/integrations.html:14
 #: nextcloudappstore/user/templates/user/integrations.html:37
 msgid "Actions"
-msgstr ""
+msgstr "動作"
 
 #: nextcloudappstore/user/templates/user/integrations.html:22
 msgid "View"
-msgstr ""
+msgstr "檢視"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
-#, fuzzy
-#| msgid "Integration"
 msgid "Your integrations"
-msgstr "整合"
+msgstr "你的整合"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: nextcloudappstore/user/templates/user/integrations.html:52
-#, fuzzy
-#| msgid "You have not uploaded any apps yet!"
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
-msgstr "您尚未上傳任何應用程式!"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
@@ -1499,8 +1450,8 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
