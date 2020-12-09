@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 03:56+0000\n"
+"POT-Creation-Date: 2020-12-09 03:51+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Matej Urbančič <>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/nextcloud/teams/64236/sl/)\n"
@@ -256,7 +256,7 @@ msgstr "Podpora (na primer vstavek Outlook)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr "Uporabljeno za odobritev združljivosti"
+msgstr "Uporabljeno za odobritev združevalnikov"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -829,7 +829,7 @@ msgstr "Oceni program"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr "Oceni združljivost"
+msgstr "Oceni delovanje združevalnika"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -870,7 +870,7 @@ msgstr "Izpiši opombe za jezik:"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
 msgid "Register integration"
-msgstr "Vpiši združljivostni program"
+msgstr "Vpiši združevalnik"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -880,7 +880,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr "Uredi združljivostni program"
+msgstr "Uredi združevalnik"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -1092,7 +1092,7 @@ msgstr "Dokumentacija"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr "Razvoj združljivosti"
+msgstr "Razvojnik združevalnikov"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1304,7 +1304,7 @@ msgstr "Podroben opis zmožnosti programa v zapisu Markdown."
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr "Ime združljivostnega programa"
+msgstr "Ime združevalnika"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
@@ -1312,7 +1312,7 @@ msgstr "Naslov URL zaslonske slike"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr "Naslov URL združljivostnega programa"
+msgstr "Naslov URL do zaslonskega posnetka programa."
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
@@ -1323,10 +1323,14 @@ msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"Naslov URL do manjšega zaslonskega posnetka programa. Uporabljen mora biti "
+"skupaj z večjim."
 
 #: nextcloudappstore/scaffolding/forms.py:86
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
+"Podroben opis, kaj združevalnik omogoča, lahko z uporabo oblikovalnega "
+"jezika Markdown."
 
 #: nextcloudappstore/user/forms.py:15
 msgid "First name"
@@ -1419,7 +1423,7 @@ msgstr "Ponovno ustvari žeton API"
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
-msgstr ""
+msgstr "Združevalniki"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
@@ -1473,7 +1477,7 @@ msgstr "Poglej"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr ""
+msgstr "Načrtovani združevalniki"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1483,6 +1487,7 @@ msgstr "Uredi"
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
 msgstr ""
+"Ali niste poslali še nobenega združevalnika ali pa še v postopku odobritve!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
