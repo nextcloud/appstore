@@ -18,9 +18,9 @@
 # Pellaeon Lin <nfsmwlin@gmail.com>, 2020
 # Kerwin Che, 2020
 # 宗原 李 <leo19940803@gmail.com>, 2020
+# chiyi4488 <chiyi4869@gmail.com>, 2020
 # 范承豪 <marchfun@smhs.hlc.edu.tw>, 2020
 # 黃彥儒 <r1235613@gmail.com>, 2021
-# chiyi4488 <chiyi4869@gmail.com>, 2021
 # 黃柏諺 <s8321414@gmail.com>, 2021
 # 
 #, fuzzy
@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-28 04:10+0000\n"
+"POT-Creation-Date: 2021-01-29 03:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/nextcloud/teams/64236/zh_TW/)\n"
@@ -260,7 +260,7 @@ msgstr "當啟動的時候，其他使用者可以使用該公開憑證和簽章
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr "整合 (如 Outlook 外掛)"
+msgstr "整合（如 Outlook 外掛程式）"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
@@ -289,7 +289,7 @@ msgstr "評價"
 
 #: nextcloudappstore/core/models.py:273
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "評價從 0.0 （最差）到 1.0 （最佳）"
+msgstr "評價從 0.0（最差）到 1.0（最佳）"
 
 #: nextcloudappstore/core/models.py:276
 msgid "Rating comment"
@@ -441,11 +441,11 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr ""
+msgstr "分類 ID，用於識別應用程式上傳到的分類"
 
 #: nextcloudappstore/core/models.py:476
 msgid "Category name which will be presented to the user"
-msgstr ""
+msgstr "將顯示給使用者的分類名稱"
 
 #: nextcloudappstore/core/models.py:484
 #: nextcloudappstore/scaffolding/forms.py:50
@@ -455,7 +455,7 @@ msgstr "分類"
 
 #: nextcloudappstore/core/models.py:495
 msgid "Key which is used to identify a license"
-msgstr "用來分辨軟體授權的關鍵字"
+msgstr "用來識別軟體授權的關鍵字"
 
 #: nextcloudappstore/core/models.py:498
 msgid "License name which will be presented to the user"
@@ -468,7 +468,7 @@ msgstr "授權"
 
 #: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
-msgstr "用來分辨資料庫的關鍵字"
+msgstr "用來識別資料庫的關鍵字"
 
 #: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
@@ -523,11 +523,11 @@ msgstr "需要的 PHP 擴充元件"
 
 #: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
-msgstr ""
+msgstr "應用程式版本刪除"
 
 #: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
-msgstr ""
+msgstr "應用程式版本刪除"
 
 #: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/scaffolding/forms.py:44
@@ -546,7 +546,7 @@ msgstr "是目前版本"
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
-msgstr ""
+msgstr "僅有一個版本可以為目前版本。此欄位會用於預先選取下拉式選單以供生成應用程式等。"
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
@@ -558,6 +558,7 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"若設定為 true，則為實際已釋出的 Nextcloud 版本，可以使用壓縮檔的形式下載。若設定為 false，則此版本為釋出前版本，或不再提供下載。"
 
 #: nextcloudappstore/core/models.py:632
 msgid "Version is supported"
@@ -567,7 +568,7 @@ msgstr "版本不支援"
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
-msgstr ""
+msgstr "若為 true，則此版本仍為正式支援（排除企業支援）"
 
 #: nextcloudappstore/core/models.py:639
 msgid "Nextcloud release"
@@ -611,11 +612,11 @@ msgid ""
 msgstr ""
 "%(site_name)s 向您問好！\n"
 "\n"
-"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 %(site_domain)s 上的帳戶。\n"
+"您收到這封郵件，是因為使用者 %(user_display)s 將此電子郵件地址連到了其在 %(site_domain)s 上的帳戶。\n"
 "\n"
 "如果準確無誤，請至 %(activate_url)s 進行確認。\n"
 "\n"
-"如果您在 %(site_domain)s 上並沒有帳戶，請不要理會此封郵件。\n"
+"如果您在 %(site_domain)s 上並沒有帳號，請不要理會此封郵件。\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -637,7 +638,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的郵件地址。"
+"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是使用者 %(user_display)s "
+"的電子郵件地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -688,7 +690,7 @@ msgstr "密碼重設"
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you"
 " an e-mail allowing you to reset it."
-msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
+msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重設密碼。"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -696,18 +698,18 @@ msgstr "重設我的密碼"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
-msgstr "若在重置密碼過程中遇到困難，請向我們聯繫。"
+msgstr "若在重設密碼過程中遇到困難，請聯絡我們"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
-msgstr "無效的API Token"
+msgstr "無效的 API 權杖"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
 #: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
-msgstr "改變密碼"
+msgstr "變更密碼"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
 #, python-format
@@ -715,7 +717,7 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
 "reset</a>."
-msgstr "密碼重置連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重置密碼</a>。"
+msgstr "密碼重設連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重設密碼</a>。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -740,13 +742,13 @@ msgstr "所有應用程式"
 
 #: nextcloudappstore/core/templates/app/base.html:14
 msgid "Featured apps"
-msgstr ""
+msgstr "精選應用程式"
 
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr ""
+msgstr "最新的 %(app_name)s 版本"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -771,7 +773,7 @@ msgstr "資源"
 
 #: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
-msgstr "用戶說明文件"
+msgstr "使用者說明文件"
 
 #: nextcloudappstore/core/templates/app/detail.html:107
 msgid "Admin documentation"
@@ -821,7 +823,7 @@ msgstr "應用程式評價"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "評價整合"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -859,7 +861,7 @@ msgstr "評價留言"
 
 #: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Display ratings comments in:"
-msgstr ""
+msgstr "在以下位置顯示評價與評論："
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -870,7 +872,7 @@ msgstr "註冊整合"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr ""
+msgstr "管理整合"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -891,11 +893,11 @@ msgstr "拒絕"
 
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps - "
-msgstr "特色的Apps"
+msgstr "精選應用程式"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
-msgstr "評分 (最近)"
+msgstr "評價（最新）"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
@@ -914,12 +916,12 @@ msgstr "我的應用程式"
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr "在%(category)s查無\"<em>%(query)s</em>\"的搜尋結果。"
+msgstr "在%(category)s查無「<em>%(query)s</em>」的搜尋結果。"
 
 #: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "查無 \"<em>%(query)s</em>\" 的搜尋結果。"
+msgstr "查無「<em>%(query)s</em>」的搜尋結果。"
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
