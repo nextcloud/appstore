@@ -6,17 +6,17 @@
 # Translators:
 # Goran Kavrecic <goran.kavrecic@indea.si>, 2017
 # Jurij Podgoršek <jurij.podgorsek@radiostudent.si>, 2020
-# Matej Urbančič <>, 2020
 # Aljoša Čavlovič (ĐoKc) <aljosa.cavlovic@gmail.com>, 2020
+# Matej Urbančič <>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-06 03:44+0000\n"
+"POT-Creation-Date: 2021-02-16 03:56+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Aljoša Čavlovič (ĐoKc) <aljosa.cavlovic@gmail.com>, 2020\n"
+"Last-Translator: Matej Urbančič <>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/nextcloud/teams/64236/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,6 +85,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Potrdila so običajno shranjena v mapi ~/.nextcloud/certificates/APP_ID.crt, "
+"kjer je APP_ID ID programa. Če nimate potrdila, morate najprej ustvariti "
+"zahtevo za podpis (CSR), ki mora biti objavljen v <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">skladišču potrdil</a> (sledite navodilom v "
+"datoteki README). Datoteko CSR je mogoče ustvariti z izvedbo ukaza:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -246,11 +252,11 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr ""
+msgstr "Podpora (na primer vstavek Outlook)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr ""
+msgstr "Uporabljeno za odobritev združevalnikov"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -538,7 +544,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
-msgstr ""
+msgstr "Objava ‧"
 
 #: nextcloudappstore/core/models.py:625
 msgid ""
@@ -546,6 +552,9 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"Določilo pove, ali je aktualna različica programa Nrxtcloud, ki jo je mogoče"
+" prejeti kot paket, sicer pa je to preizkusna različica ali pa paket, ki ni "
+"več na voljo."
 
 #: nextcloudappstore/core/models.py:632
 msgid "Version is supported"
@@ -556,6 +565,8 @@ msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
+"Izbrana možnost določa, da je različica tudi uradno podprta (podpora za "
+"Podjetniško naročnino je izključena)"
 
 #: nextcloudappstore/core/models.py:639
 msgid "Nextcloud release"
@@ -597,6 +608,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Pozdravljeni prek spletišča %(site_name)s!\n"
+"\n"
+"Sporočilo ste prejeli, ker je uporabnik %(user_display)s povezal ta elektronski naslov z računom pri %(site_domain)s.\n"
+"\n"
+"Za potrditev, da so podatki točni, obiščite naslov %(activate_url)s\n"
+"\n"
+"Če računa pri %(site_domain)s nimate, enostavno prezrite to sporočilo.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -631,6 +649,9 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
+"Potrditvena povezava za elektronski naslov je pretekla, ali pa je "
+"neveljavna. Objaviti je treba novo <a href=\"%(email_url)s\">zahtevo za "
+"potrditev</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -808,7 +829,7 @@ msgstr "Oceni program"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "Oceni delovanje združevalnika"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -849,7 +870,7 @@ msgstr "Izpiši opombe za jezik:"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
 msgid "Register integration"
-msgstr ""
+msgstr "Vpiši združevalnik"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -859,7 +880,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr ""
+msgstr "Uredi združevalnik"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -1012,6 +1033,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
+"Programska trgovina Nextcloud – pošiljanje programov in nameščanje novih v "
+"okolje Nextcloud."
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1042,20 +1065,20 @@ msgstr "zahtevano polje"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr ""
+msgstr "Poišči v kategoriji %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
-msgstr ""
+msgstr "Poišči med predlaganimi programi"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in all apps"
-msgstr ""
+msgstr "Poišči med vsemi programi"
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
-msgstr "Poišči"
+msgstr "Iskanje"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
@@ -1063,7 +1086,7 @@ msgstr "Preklopi iskalnik"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
-msgstr "Razvijalec  programa"
+msgstr "Razvoj programov"
 
 #: nextcloudappstore/core/templates/nav.html:48
 msgid "Documentation"
@@ -1071,7 +1094,7 @@ msgstr "Dokumentacija"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr ""
+msgstr "Razvojnik združevalnikov"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1112,7 +1135,7 @@ msgstr "Nadzorna plošča"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
-msgstr ""
+msgstr "Programi, vključno z gradniki Nadzorne plošče"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1283,7 +1306,7 @@ msgstr "Podroben opis zmožnosti programa v zapisu Markdown."
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "Ime združevalnika"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
@@ -1291,21 +1314,25 @@ msgstr "Naslov URL zaslonske slike"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "Naslov URL do zaslonskega posnetka programa."
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
-msgstr ""
+msgstr "Sličica za naslov URL zaslonske slike"
 
 #: nextcloudappstore/scaffolding/forms.py:80
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"Naslov URL do manjšega zaslonskega posnetka programa. Uporabljen mora biti "
+"skupaj z večjim."
 
 #: nextcloudappstore/scaffolding/forms.py:86
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
+"Podroben opis, kaj združevalnik omogoča, lahko z uporabo oblikovalnega "
+"jezika Markdown."
 
 #: nextcloudappstore/user/forms.py:15
 msgid "First name"
@@ -1333,6 +1360,9 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
+"Geslo je zahtevano za preprečevanje neodobrenega dostopa z spreminjanjem "
+"elektronskega naslova ali ponastavljanja gesla. To polje ni namenjeno "
+"spreminjanju gesla!"
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This e-mail address is already associated with another account."
@@ -1395,7 +1425,7 @@ msgstr "Ponovno ustvari žeton API"
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
-msgstr ""
+msgstr "Združevalniki"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
@@ -1449,7 +1479,7 @@ msgstr "Poglej"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr ""
+msgstr "Načrtovani združevalniki"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1459,6 +1489,7 @@ msgstr "Uredi"
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
 msgstr ""
+"Ali niste poslali še nobenega združevalnika ali pa še v postopku odobritve!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
