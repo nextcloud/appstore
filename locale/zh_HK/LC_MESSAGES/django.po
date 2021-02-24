@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-19 04:02+0000\n"
+"POT-Creation-Date: 2021-02-24 04:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2021\n"
 "Language-Team: Chinese (Hong Kong) (https://www.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
@@ -423,11 +423,11 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr ""
+msgstr "類別ID，用於標識應用上傳到的類別"
 
 #: nextcloudappstore/core/models.py:476
 msgid "Category name which will be presented to the user"
-msgstr ""
+msgstr "顯示給使用者的分類名稱"
 
 #: nextcloudappstore/core/models.py:484
 #: nextcloudappstore/scaffolding/forms.py:50
@@ -505,11 +505,11 @@ msgstr "需要的 PHP 擴充元件"
 
 #: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
-msgstr ""
+msgstr "應用程式版本刪除"
 
 #: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
-msgstr ""
+msgstr "應用程式版本刪除"
 
 #: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/scaffolding/forms.py:44
@@ -528,7 +528,7 @@ msgstr "是目前版本"
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
-msgstr ""
+msgstr "只有一個版本可以是當前一個。此字段用於預選擇下拉菜單以生成應用程式等等。"
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
@@ -803,7 +803,7 @@ msgstr "應用程式評價"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "評價整合"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -833,7 +833,7 @@ msgstr "尚可"
 
 #: nextcloudappstore/core/templates/app/detail.html:208
 msgid "No comments found."
-msgstr "無評論"
+msgstr "無評價。"
 
 #: nextcloudappstore/core/templates/app/detail.html:216
 msgid "Rating comments"
@@ -841,7 +841,7 @@ msgstr "評價留言"
 
 #: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Display ratings comments in:"
-msgstr ""
+msgstr "在以下位置顯示評價留言："
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -873,7 +873,7 @@ msgstr "拒絕"
 
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps - "
-msgstr "特色的Apps"
+msgstr "精選應用程式 - "
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
@@ -887,7 +887,7 @@ msgstr "最新"
 #: nextcloudappstore/core/templates/app/list.html:21
 #: nextcloudappstore/core/templates/app/list.html:23
 msgid "Alphabetically"
-msgstr "字母"
+msgstr "按字母順序"
 
 #: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
@@ -916,6 +916,9 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"有關如何獲得證書和建立簽名的更多信息，請查看 <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">應用程式開發人員指南</a>。"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -935,7 +938,7 @@ msgstr "App 已註冊。"
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
 msgid "Releases"
-msgstr "釋出版本"
+msgstr "發行版本"
 
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
@@ -943,7 +946,7 @@ msgstr "應用程式詳細資訊"
 
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
-msgstr "釋出版本細節"
+msgstr "發行版本細節"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
@@ -988,6 +991,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"有關如何創建簽名的更多信息，請查看 <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">應用程式開發人員指南</a>。"
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -997,7 +1003,7 @@ msgstr "上傳"
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
-msgstr ""
+msgstr "The Nextcloud App Store - 上傳您的應用程式並將新應用程式安裝到您的Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1010,7 +1016,7 @@ msgstr "最新應用程式版本"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
-msgstr "Fork me on GitHub"
+msgstr ""
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
@@ -1057,7 +1063,7 @@ msgstr "說明文件"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr ""
+msgstr "整合開發者"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1088,7 +1094,7 @@ msgstr "客制化"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr ""
+msgstr "主題，佈局和UX更改應用程式"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
@@ -1140,7 +1146,7 @@ msgstr "多媒體影音"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Office & text"
-msgstr ""
+msgstr "辦公室 & 文字處理"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Office and text processing apps"
@@ -1148,15 +1154,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Organization"
-msgstr "組織"
+msgstr "生產力"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, Todo list and calendar apps"
-msgstr ""
+msgstr "時間管理，待辦事項列表和日曆應用程式"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
-msgstr ""
+msgstr "搜索相關應用程式"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Security"
@@ -1166,7 +1172,7 @@ msgstr "安全性"
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
-msgstr ""
+msgstr "提供其他安全機制（例如身份驗證，授權，加密等）的應用程式。"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
@@ -1186,11 +1192,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:27
 msgid "Flow"
-msgstr ""
+msgstr "流程"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:28
 msgid "Apps for Nextcloud Flow"
-msgstr ""
+msgstr "Nextcloud Flow 的應用程式"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
@@ -1214,7 +1220,7 @@ msgstr ""
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS URL"
-msgstr ""
+msgstr "輸入有效的 HTTPS URL"
 
 #: nextcloudappstore/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
@@ -1246,7 +1252,7 @@ msgstr "錯誤回報及功能請求"
 #: nextcloudappstore/scaffolding/forms.py:52
 #: nextcloudappstore/scaffolding/forms.py:70
 msgid "Hold down Ctrl and click to select multiple entries"
-msgstr ""
+msgstr "按住 Ctrl 並單擊以選擇多個條目"
 
 #: nextcloudappstore/scaffolding/forms.py:55
 #: nextcloudappstore/scaffolding/forms.py:73
@@ -1261,19 +1267,19 @@ msgstr "完整描述您應用的功能。支援 Markdown 格式。"
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "整合名稱"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
-msgstr ""
+msgstr "螢幕截圖 URL"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "集成截圖的URL"
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
-msgstr ""
+msgstr "屏幕截圖縮略圖 URL"
 
 #: nextcloudappstore/scaffolding/forms.py:80
 msgid ""
@@ -1322,7 +1328,7 @@ msgstr "無效的密碼"
 
 #: nextcloudappstore/user/forms.py:73
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "電郵地址"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "E-mail address"
@@ -1344,7 +1350,7 @@ msgstr "儲存"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr "API Token"
+msgstr "API 權杖"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
@@ -1374,14 +1380,14 @@ msgstr "整合"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
-msgstr "轉移應用所有權"
+msgstr "轉移應用程式所有權"
 
 #: nextcloudappstore/user/templates/user/base.html:21
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
 #: nextcloudappstore/user/templates/user/set-language.html:26
 msgid "Change language"
-msgstr "變更語言"
+msgstr "轉換語言"
 
 #: nextcloudappstore/user/templates/user/base.html:25
 #: nextcloudappstore/user/templates/user/password.html:5
@@ -1445,7 +1451,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr ""
+msgstr "所有權轉移應用程式"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1460,23 +1466,23 @@ msgstr "擁有權轉讓狀態"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "更新擁有權轉讓狀態"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "解鎖可轉讓"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "鎖定，無法轉讓"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "鎖定所有權轉移"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "解鎖所有權轉讓"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
