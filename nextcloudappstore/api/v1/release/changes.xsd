@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="release">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changelog" maxOccurs="1" minOccurs="1">
+                    <xs:complexType>
+                        <xs:attribute name="href" type="xs:anyURI" use="required"  />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="whatsNew" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="regular" type="whatsNewInfo" minOccurs="1" maxOccurs="1" />
+                            <xs:element name="admin" type="whatsNewInfo" minOccurs="0" maxOccurs="1" />
+                        </xs:sequence>
+                        <xs:attribute name="lang" type="language" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="version" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="version">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"/>
+            <xs:minLength value="6"/>
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- based on xs:language, just uses _ as a separator between lang and region. -->
+    <xs:simpleType name="language">
+        <xs:restriction base="xs:token">
+            <xs:pattern
+                    value="([a-zA-Z]{2}|[iI]-[a-zA-Z]+|[xX]-[a-zA-Z]{1,8})(_[a-zA-Z]{1,8})*"
+            />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="whatsNewInfo">
+        <xs:sequence>
+            <xs:element name="item" minOccurs="1" maxOccurs="3">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -12,6 +12,8 @@ class ReleaseConfig:
         self.info_schema = read_relative_file(__file__, 'info.xsd')
         self.info_xslt = read_relative_file(__file__, 'info.xslt')
         self.pre_info_xslt = read_relative_file(__file__, 'pre-info.xslt')
+        self.changes_schema = read_relative_file(__file__, 'changes.xsd')
+        self.pre_changes_xslt = read_relative_file(__file__, 'pre-changes.xslt')
         self.db_schema = read_relative_file(__file__, 'database.xsd')
         self.pre_db_xslt = read_relative_file(__file__, 'pre-database.xslt')
         self.languages = settings.LANGUAGES

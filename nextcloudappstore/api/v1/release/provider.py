@@ -6,8 +6,8 @@ from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.api.v1.release.downloader import \
     AppReleaseDownloader
 from nextcloudappstore.api.v1.release.parser import \
-    GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog, \
-    validate_database
+    GunZipAppMetadataExtractor, parse_app_metadata, parse_app_whats_new, \
+    parse_changelog, validate_database
 
 
 class InvalidAppDirectoryException(ValidationError):
@@ -35,6 +35,9 @@ class AppReleaseProvider:
             info = parse_app_metadata(meta.info_xml, self.config.info_schema,
                                       self.config.pre_info_xslt,
                                       self.config.info_xslt)
+            if meta.changes_xml:
+                whats_new = parse_app_whats_new(meta.changes_xml, self.config.changes_schema,
+                                                self.config.pre_changes_xslt)
             if meta.database_xml:
                 validate_database(meta.database_xml, self.config.db_schema,
                                   self.config.pre_db_xslt)
