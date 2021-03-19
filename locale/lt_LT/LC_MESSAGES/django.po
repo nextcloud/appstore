@@ -6,22 +6,21 @@
 # Translators:
 # Valentinas <fizikiukas@gmail.com>, 2017
 # Antanas Lapinskas <antanas@lapinskas.lt>, 2017
-# Skynet Vilnius <skynetpkkc@gmail.com>, 2017
 # Daiwa T. <d.tautkute@gmail.com>, 2017
 # gdrs <giedriuskaz@gmail.com>, 2018
 # vikriu <vormex@gmail.com>, 2019
 # Jokubas Dargis <jokubuidargiui@protonmail.com>, 2019
-# Moo, 2020
 # Vytautas Simanaitis <vyt.sima@gmail.com>, 2020
+# Moo, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-08 03:27+0000\n"
+"POT-Creation-Date: 2021-03-19 03:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Vytautas Simanaitis <vyt.sima@gmail.com>, 2020\n"
+"Last-Translator: Moo, 2020\n"
 "Language-Team: Lithuanian (Lithuania) (https://www.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +30,11 @@ msgstr ""
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
-msgstr "Naujausi programėlės leidimai"
+msgstr "Naujausi programėlės laidos"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Gaukite naujausius taikomųjų programų atnaujinimus "
+msgstr "Gaukite naujausius programėlių laidų atnaujinimus "
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -118,7 +117,7 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "taikomosios programos ID,identiškas katalogo pavadinimui"
+msgstr "programėlės ID, identiškas aplanko pavadinimui"
 
 #: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
 #: nextcloudappstore/core/templates/app/detail.html:76
@@ -142,7 +141,7 @@ msgstr "Santrauka"
 
 #: nextcloudappstore/core/models.py:66
 msgid "Short text describing the app's purpose"
-msgstr "Taikomosios programos paskirties trumpas aprašymas"
+msgstr "Trumpas programėlės paskirties aprašas"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
 #: nextcloudappstore/scaffolding/forms.py:56
@@ -152,7 +151,7 @@ msgstr "Aprašas"
 
 #: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
 msgid "Will be rendered as Markdown"
-msgstr ""
+msgstr "Bus atvaizduojama kaip „Markdown“"
 
 #: nextcloudappstore/core/models.py:72
 msgid "User documentation URL"
@@ -193,7 +192,7 @@ msgstr "Atnaujinta"
 
 #: nextcloudappstore/core/models.py:85
 msgid "App owner"
-msgstr "Taikomosios programos savininkas"
+msgstr "Programėlės savininkas"
 
 #: nextcloudappstore/core/models.py:88
 #: nextcloudappstore/core/templates/app/detail.html:84
@@ -202,7 +201,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:339
 msgid "App authors"
-msgstr "Taikomosios programos autoriai"
+msgstr "Programėlės autoriai"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
@@ -213,7 +212,7 @@ msgstr ""
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
-msgstr "Naujausias įvertinimas"
+msgstr "Paskiausias įvertinimas"
 
 #: nextcloudappstore/core/models.py:94
 #: nextcloudappstore/core/templates/app/detail.html:79
@@ -325,7 +324,7 @@ msgstr "PHP plėtinio priklausomybė"
 
 #: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
-msgstr "Duomenų bazės priklausomumas"
+msgstr "Duomenų bazės priklausomybė"
 
 #: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
 msgid "License"
@@ -633,8 +632,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Prašome, patvirtinkite, kad <a href=\"mailto:%(email)s\">%(email)s</a> el. "
-"pašto adresas priklauso naudotojui  %(user_display)s."
+"Patvirtinkite, kad <a href=\"mailto:%(email)s\">%(email)s</a> yra el. pašto "
+"adresas, skirtas naudotojui  %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -646,8 +645,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Ši el. pašto patvirtinimo nuoroda yra netinkama arba baigėsi jos galiojimo "
-"laikas. Prašome <a href=\"%(email_url)s\">išsiųskite naują el. pašto "
+"Ši el. pašto patvirtinimo nuoroda yra netinkama arba pasibaigė jos galiojimo"
+" laikas. Prašome, <a href=\"%(email_url)s\">išsiųskite naują el. pašto "
 "patvirtinimo užklausą</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
@@ -662,7 +661,7 @@ msgstr "Prisijungti"
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/signup.html:25
 msgid "Log in with GitHub"
-msgstr "Prisijungti naudojant GitHub"
+msgstr "Prisijungti naudojant „GitHub“"
 
 #: nextcloudappstore/core/templates/account/login.html:35
 msgid "Forgot password?"
@@ -719,7 +718,7 @@ msgid ""
 "reset</a>."
 msgstr ""
 "Slaptažodžio atstatymo nuoroda buvo neteisinga, galbūt todėl, kad ji jau "
-"buvo naudojama. Išsiųskite prašymą <a href=\"%(passwd_reset_url)s\">naujo "
+"buvo naudojama. Išsiųskite užklausą <a href=\"%(passwd_reset_url)s\">naujo "
 "slaptažodžio atstatymui</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
@@ -751,7 +750,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr "Naujausi %(app_name)s leidimai"
+msgstr "Naujausios %(app_name)s laidos"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -802,7 +801,7 @@ msgstr "Nestabilus"
 
 #: nextcloudappstore/core/templates/app/detail.html:129
 msgid "All releases"
-msgstr "Visi leidimai"
+msgstr "Visos laidos"
 
 #: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Discussion"
@@ -822,7 +821,7 @@ msgstr "Užduokite klausimus arba diskutuokite"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate app"
-msgstr "Įvertinkite taikomąją programą"
+msgstr "Įvertinkite programėlę"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
@@ -917,13 +916,13 @@ msgstr "Mano programėlės"
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-"Nerastos jokios programos, pagal paiešką \"<em>%(query)s</em>\" kategorijoje"
-" %(category)s."
+"Kategorijoje %(category)s, pagal užklausą „<em>%(query)s</em>“, nerasta "
+"jokių programėlių."
 
 #: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "Nerastos jokios programos, pagal paiešką \"<em>%(query)s</em>\"."
+msgstr "Pagal užklausą „<em>%(query)s</em>“, nerasta jokių programėlių."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1452,9 +1451,9 @@ msgid ""
 "delete your account, insert your e-mail address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Ištrynus paskyrą bus ištrintos ir visos jūsų taikomosios programos ir jų "
-"leidimai.  Jei norite ištrinti savo paskyrą, įvesties lauke įrašykite savo "
-"el. pašto adresą ir spustelėkite mygtuką \"Ištrinti paskyrą\":"
+"Ištrynus paskyrą bus ištrintos ir visos jūsų programėlės bei jų laidos.  "
+"Norėdami ištrinti savo paskyrą, įvesties lauke įrašykite savo el. pašto "
+"adresą ir spustelėkite mygtuką „Ištrinti paskyrą“:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
