@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-19 03:58+0000\n"
+"POT-Creation-Date: 2021-03-20 03:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2021\n"
 "Language-Team: Chinese (Hong Kong) (https://www.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
@@ -87,7 +87,7 @@ msgstr ""
 "通常存儲在 ~/.nextcloud/certificates/APP_ID.crt，其中 APP_ID 是您應用程式的 "
 "ID。如果您沒有證書，則需要首先建立一個證書證書請求（CSR），該證書證書請求（CSR）應發佈在 <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">證書資料庫</a>上（遵循 README）。您可以通過執行以下命令來生成 CSR："
+"rel=\"noreferrer noopener\">證書數據庫</a>上（遵循 README）。您可以通過執行以下命令來生成 CSR："
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -318,7 +318,7 @@ msgstr "需要的 PHP 擴充元件"
 
 #: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
 msgid "Database dependency"
-msgstr "需要的資料庫"
+msgstr "需要的數據庫"
 
 #: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
 msgid "License"
@@ -363,7 +363,7 @@ msgstr "該應用程式憑證簽署的簽章"
 
 #: nextcloudappstore/core/models.py:380
 msgid "Signature hashing algorithm"
-msgstr "簽章雜湊演算法"
+msgstr "簽章雜湊算法"
 
 #: nextcloudappstore/core/models.py:382
 #: nextcloudappstore/core/templates/app/releases.html:29
@@ -453,32 +453,32 @@ msgstr "授權"
 
 #: nextcloudappstore/core/models.py:512
 msgid "Key which is used to identify a database"
-msgstr "用來分辨資料庫的關鍵字"
+msgstr "用來分辨數據庫的關鍵字"
 
 #: nextcloudappstore/core/models.py:515
 msgid "Database name which will be presented to the user"
-msgstr "顯示給用戶的資料庫名稱"
+msgstr "顯示給用戶的數據庫名稱"
 
 #: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
 msgid "Database"
-msgstr "資料庫"
+msgstr "數據庫"
 
 #: nextcloudappstore/core/models.py:519
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
-msgstr "資料庫"
+msgstr "數據庫"
 
 #: nextcloudappstore/core/models.py:533
 msgid "Database version requirement"
-msgstr "資料庫版本需求"
+msgstr "數據庫版本需求"
 
 #: nextcloudappstore/core/models.py:536
 msgid "Database version requirement (raw)"
-msgstr "資料庫版本需求（原始）"
+msgstr "數據庫版本需求（原始）"
 
 #: nextcloudappstore/core/models.py:540
 msgid "Database dependencies"
-msgstr "資料庫相依元件"
+msgstr "數據庫相依元件"
 
 #: nextcloudappstore/core/models.py:549
 msgid "e.g. libxml"
@@ -790,7 +790,7 @@ msgstr "討論"
 
 #: nextcloudappstore/core/templates/app/detail.html:144
 msgid "Report problem"
-msgstr "回報問題"
+msgstr "舉報問題"
 
 #: nextcloudappstore/core/templates/app/detail.html:148
 msgid "Request feature"
@@ -819,7 +819,7 @@ msgid ""
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
 "評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
-"不要在此處報告錯誤或請求功能，因為開發者和用戶都不會因您的評論而收到通知。\n"
+"不要在此處舉報錯誤或請求功能，因為開發者和用戶都不會因您的評論而收到通知。\n"
 "不含評論的評分也會計算在內，但不會在下方列出。"
 
 #: nextcloudappstore/core/templates/app/detail.html:179
@@ -1177,7 +1177,7 @@ msgstr "安全性"
 msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
-msgstr "提供其他安全機制（例如身份驗證，授權，加密等）的應用程式。"
+msgstr "提供其他安全機制（例如身分驗證，授權，加密等）的應用程式。"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
@@ -1252,7 +1252,7 @@ msgstr "作者主頁"
 #: nextcloudappstore/scaffolding/forms.py:49
 #: nextcloudappstore/scaffolding/forms.py:66
 msgid "Bug reports and feature requests"
-msgstr "錯誤回報及功能請求"
+msgstr "錯誤舉報及功能請求"
 
 #: nextcloudappstore/scaffolding/forms.py:52
 #: nextcloudappstore/scaffolding/forms.py:70
@@ -1366,7 +1366,7 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"                調用應用程式商店時，API權杖可用於身份驗證\n"
+"                調用應用程式商店時，API權杖可用於身分驗證\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "                確保對其保密。可以在下面生成新權杖，從而使舊權杖無效。"
 
