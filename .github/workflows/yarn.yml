@@ -61,12 +61,5 @@ jobs:
         run: ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
       - name: Tests
         run: xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
-
-  coverall:
-    needs: test
-
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Coverall
         uses: AndreMiras/coveralls-python-action@develop
