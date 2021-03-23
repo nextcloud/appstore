@@ -22,19 +22,19 @@
         "@types/screenfull": "^4.1.0",
         "copy-webpack-plugin": "^5.0.2",
         "jasmine-core": "^3.0.0",
-        "karma": "^4.0.0",
+        "karma": "^5.0.0",
         "karma-firefox-launcher": "^1.0.1",
         "karma-jasmine": "^2.0.1",
-        "karma-webpack": "^4.0.2",
+        "karma-webpack": "^5.0.0",
         "ts-loader": "^6.0.4",
         "typescript": "^3.0.1",
-        "webpack": "^4.0.1",
-        "webpack-cli": "^3.0.1"
+        "webpack": "^5.27.2",
+        "webpack-cli": "^4.5.0"
     },
     "scripts": {
         "test": "./node_modules/karma/bin/karma start --single-run",
-        "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors --mode production",
-        "watch": "./node_modules/.bin/webpack --progress --colors --watch --mode development",
+        "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --mode production",
+        "watch": "./node_modules/.bin/webpack --progress --watch --mode development",
         "watch-test": "./node_modules/karma/bin/karma start"
     },
     "repository": {
@@ -55,8 +55,5 @@
         "url": "https://github.com/nextcloud/appstore/issues"
     },
     "homepage": "https://github.com/nextcloud/appstore#readme",
-    "private": true,
-    "resolutions": {
-        "terser": "3.14.1"
-    }
+    "private": true
 }
