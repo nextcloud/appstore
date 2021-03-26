@@ -31,21 +31,26 @@ module.exports = {
     plugins: [
         // we dont care about bootstrap, jquery or polyfills, just copy it from
         // node_modules to the vendor directory for each page load to include
-        new CopyWebpackPlugin([
-            {from: 'node_modules/bootstrap/dist/fonts', to: `${base}vendor/bootstrap/dist/fonts`},
-            {
-                from: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
-                to: `${base}vendor/bootstrap/dist/css/bootstrap.min.css`
-            },
-            {
-                from: 'node_modules/bootstrap.native/dist/bootstrap-native.min.js',
-                to: `${base}vendor/bootstrap.native.min.js`
-            },
-            {
-                from: 'node_modules/highlight.js/styles/github.css',
-                to: `${base}vendor/github.css`
-            },
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'node_modules/bootstrap/dist/fonts',
+                    to: `${base}vendor/bootstrap/dist/fonts`
+                },
+                {
+                    from: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                    to: `${base}vendor/bootstrap/dist/css/bootstrap.min.css`
+                },
+                {
+                    from: 'node_modules/bootstrap.native/dist/bootstrap-native.min.js',
+                    to: `${base}vendor/bootstrap.native.min.js`
+                },
+                {
+                    from: 'node_modules/highlight.js/styles/github.css',
+                    to: `${base}vendor/github.css`
+                },
+            ]
+        }),
         new webpack.NormalModuleReplacementPlugin(
             /node_modules\/highlight\.js\/lib\/index\.js/,
             '../../../nextcloudappstore/core/static/assets/patches/hl.js'
