@@ -325,7 +325,7 @@ class AppAuthor(Model):
     name = CharField(max_length=256, verbose_name=_('Full name'))
     homepage = URLField(max_length=256, blank=True,
                         verbose_name=_('Homepage'))
-    mail = EmailField(max_length=256, verbose_name=_('E-Mail'), blank=True)
+    mail = EmailField(max_length=256, verbose_name=_('Email'), blank=True)
 
     def __str__(self) -> str:
         if self.mail:
