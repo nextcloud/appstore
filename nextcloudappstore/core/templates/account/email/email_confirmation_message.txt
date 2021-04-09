@@ -1,6 +1,6 @@
 {% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Greetings from the {{ site_name }}!
 
-You're receiving this e-mail because user {{ user_display }} has linked this e-mail address to their account at {{ site_domain }}.
+You're receiving this email because user {{ user_display }} has linked this email address to their account at {{ site_domain }}.
 
 To confirm this is correct, go to {{ activate_url }}
 
