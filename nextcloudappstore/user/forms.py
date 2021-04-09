@@ -22,7 +22,7 @@ class SignupFormRecaptcha(forms.Form):
 
 
 class DeleteAccountForm(forms.Form):
-    email = EmailField(required=True, label=_('Your e-mail address'))
+    email = EmailField(required=True, label=_('Your email address'))
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -34,7 +34,7 @@ class DeleteAccountForm(forms.Form):
             return email
         else:
             raise forms.ValidationError(_(
-                'The given e-mail address does not match your e-mail address'))
+                'The given email address does not match your e-mail address'))
 
 
 class AccountForm(forms.ModelForm):
@@ -54,7 +54,7 @@ class AccountForm(forms.ModelForm):
         users = filter_users_by_email(value)
         if [u for u in users if u.pk != self.instance.pk]:
             msg = _(
-                'This e-mail address is already associated with another '
+                'This email address is already associated with another '
                 'account.')
             raise forms.ValidationError(msg)
         return value
@@ -70,12 +70,12 @@ class AccountForm(forms.ModelForm):
 class CustomResetPasswordForm(forms.Form):
     # remove this class once issue #1307 is resolved django-allauth
     email = forms.EmailField(
-        label=_("E-mail"),
+        label=_("Email"),
         required=True,
         widget=forms.TextInput(attrs={
             "type": "email",
             "size": "30",
-            "placeholder": _("E-mail address"),
+            "placeholder": _("Email address"),
         })
     )
 
