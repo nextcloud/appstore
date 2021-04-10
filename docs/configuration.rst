@@ -25,7 +25,7 @@ In order to get up a minimal production configuration you can extend the base pr
 
     ALLOWED_HOSTS = ['production-domain.com']
 
-    # E-Mail settings which are used to send mails (e.g. confirm account messages)
+    # Email settings which are used to send mails (e.g. confirm account messages)
     # for more configuration options consult the Django documentation
     # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-EMAIL_HOST
     DEFAULT_FROM_EMAIL = 'appstore@nextcloud.com'

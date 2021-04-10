@@ -34,7 +34,7 @@ class DeleteAccountForm(forms.Form):
             return email
         else:
             raise forms.ValidationError(_(
-                'The given email address does not match your e-mail address'))
+                'The given email address does not match your email address'))
 
 
 class AccountForm(forms.ModelForm):
