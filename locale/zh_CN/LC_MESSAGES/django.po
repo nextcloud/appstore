@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: tranxde, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/nextcloud/teams/64236/zh_CN/)\n"
@@ -320,9 +320,9 @@ msgstr "应用评分"
 msgid "Full name"
 msgstr "全名"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "电子邮件"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -612,19 +612,12 @@ msgstr "您要查找的页面不存在！"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"来自 %(site_name)s 的问候！\n"
-"\n"
-"您正在接收的此电子邮件，是因为用户 %(user_display)s 在 %(site_domain)s 已将此电子邮件地址链接到其账号。\n"
-"\n"
-"确认这是正确的，请点击前往 %(activate_url)s\n"
-"\n"
-"如果您在 %(site_domain)s，没有账号，请忽略此信息。\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -637,15 +630,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "确认电子邮件地址"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
-msgstr "请确认 <a href=\"mailto:%(email)s\">%(email)s</a>是用户%(user_display)s的电子邮件地址。"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -654,9 +647,9 @@ msgstr "确认"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr "此电子邮件确认链接已过期或无效。请 <a href=\"%(email_url)s\">发出新的电子邮件确认请求</a>。"
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1264,8 +1257,8 @@ msgid "Author's full name"
 msgstr "作者的全名"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "作者的电子邮件"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1328,12 +1321,12 @@ msgid "Last name"
 msgstr "姓氏"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "您的电子邮件地址"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "给定的电子邮件地址与您的电子邮件地址不匹配。"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1347,20 +1340,16 @@ msgid ""
 msgstr "需要密码才能防止未经授权的用户更改您的电子邮件地址并重置您的密码。此字段不会更新您的密码！"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "此电子邮件地址已与另一账号关联。"
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "无效的密码"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "电子邮件"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "电子邮件地址"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1439,9 +1428,9 @@ msgstr "删除账号"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
-msgstr "删除您的账号将删除您的所有应用程序和版本。要删除您的账号，请将您的电子邮件地址填写到输入字段，然后单击“删除账号”按钮： "
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

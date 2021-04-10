@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Denis Kranjčić <denis.kranjcic@ciklopea.com>, 2020\n"
 "Language-Team: Croatian (https://www.transifex.com/nextcloud/teams/64236/hr/)\n"
@@ -304,9 +304,9 @@ msgstr "Ocjene aplikacije"
 msgid "Full name"
 msgstr "Puno ime"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "E-pošta"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -603,19 +603,12 @@ msgstr "Stranica koju tražite ne postoji!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Pozdrav od %(site_name)s!\n"
-"\n"
-"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu adresu e-pošte sa svojim računom %(site_domain)s.\n"
-"\n"
-"Ako biste potvrdili da je navedeno točno, posjetite %(activate_url)s\n"
-"\n"
-"Ako nemate otvoren račun na %(site_domain)s, zanemarite ovu poruku.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -628,17 +621,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Potvrdi adresu e-pošte"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Potvrdite je li <a href=\"mailto:%(email)s\">%(email)s</a> adresa e-pošte "
-"korisnika %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -647,11 +638,9 @@ msgstr "Potvrdi"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a "
-"href=\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1277,8 +1266,8 @@ msgid "Author's full name"
 msgstr "Ime i prezime autora"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "E-pošta autora"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1343,12 +1332,12 @@ msgid "Last name"
 msgstr "Prezime"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Vaša adresa e-pošte"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Navedena adresa e-pošte ne odgovara vašoj adresi e-pošte"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1365,20 +1354,16 @@ msgstr ""
 "zaporku!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Ova adresa e-pošte već je povezana s drugim računom."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Netočna zaporka"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "E-pošta"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "Adresa e-pošte"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1461,12 +1446,9 @@ msgstr "Izbriši račun"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Brisanjem računa izbrisat ćete i sve aplikacije i izdanja. Kako biste "
-"izbrisali svoj račun, unesite adresu e-pošte u polje za unos i kliknite gumb"
-" „Izbriši račun”:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

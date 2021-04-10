@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Duy BQ <duybq86@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/nextcloud/teams/64236/vi/)\n"
@@ -306,9 +306,9 @@ msgstr "Các đánh giá Ứng dụng"
 msgid "Full name"
 msgstr "Tên đầy đủ"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "Thư điện tử"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -607,19 +607,12 @@ msgstr "Trang mà bạn đang tìm không tồn tại!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Một lời chào đến từ %(site_name)s!\n"
-"\n"
-"Bạn nhận được thư điện tử này bởi vì người dùng %(user_display)s vừa mới liên kết địa chỉ thư điện tử này vào tài khoản của họ ở %(site_domain)s.\n"
-"\n"
-"Để xác nhận điều này là chính xác, đi đến %(activate_url)s\n"
-"\n"
-"Nếu bạn không có một tài khoản tại %(site_domain)s, hãy bỏ qua tin nhắn này.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -632,17 +625,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Xác nhận địa chỉ thư điện tử"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Vui lòng xác nhận rằng <a href=\"mailto:%(email)s\">%(email)s</a> là một địa"
-" chỉ thư điện tử cho người dùng %(user_display)s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -651,12 +642,9 @@ msgstr "Xác nhận"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Liên kết xác nhận thư điện tử này đã hết hạn hoặc không khả dụng. Vui lòng "
-"<a href=\"%(email_url)s\"> cấp lại một yêu cầu xác nhận thư điện tử mới "
-"</a>. "
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1283,8 +1271,8 @@ msgid "Author's full name"
 msgstr "Tên đầy đủ của tác giả "
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "Email của tác giả"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1353,12 +1341,12 @@ msgid "Last name"
 msgstr "Họ"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Địa chỉ email của bạn"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Email bạn cung cấp không khớp với địa chỉ email của bạn"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1375,20 +1363,16 @@ msgstr ""
 " mật khẩu của bạn!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Địa chỉ email này đã đồng hành cùng với một tài khoản khác."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Invalid Password"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "Email"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "Địa chỉ email"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1470,12 +1454,9 @@ msgstr "Xóa tài khoản"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Việc xóa tài khoản của bạn sẽ xóa hết tất cả các ứng dụng cũng như các phiên"
-" bản của chúng. Để xóa tài khoản của bạn, nhập vào địa chỉ email của bạn vào"
-" vùng nhập liệu và bấm nút \"Xóa tài khoản\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

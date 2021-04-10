@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Jordi Sanfeliu <jordi@fibranet.cat>, 2020\n"
 "Language-Team: Catalan (https://www.transifex.com/nextcloud/teams/64236/ca/)\n"
@@ -311,9 +311,9 @@ msgstr "Puntuacions de l'aplicació"
 msgid "Full name"
 msgstr "Nom complet"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "Correu electrònic"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -612,19 +612,12 @@ msgstr "La pàgina que esteu buscant no existeix!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Salutacions des de %(site_name)s!\n"
-"\n"
-"Rebeu aquest correu electrònic perquè l'usuari %(user_display)s ha vinculat a aquesta adreça de correu electrònic al seu compte a %(site_domain)s.\n"
-"\n"
-"Per confirmar que és correcta, accediu a %(activate_url)s\n"
-"\n"
-"Si no teniu un compte a %(site_domain)s, simplement ignoreu aquest missatge.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -637,17 +630,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Confirmeu el correu electrònic"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Si us plau, confirmeu si <a href=\"mailto:%(email)s\">%(email)s</a> és el "
-"correu electrònic de l'usuari %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -656,12 +647,9 @@ msgstr "Confirma"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Aquest enllaç de confirmació de correu electrònic ha caducat o no és vàlid. "
-"Si us plau <a href=\"%(email_url)s\">genereu una nova petició de confirmació"
-" de correu electrònic</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1288,8 +1276,8 @@ msgid "Author's full name"
 msgstr "Nom complet de l'autor"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "Correu electrònic de l'autor"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1357,14 +1345,12 @@ msgid "Last name"
 msgstr "Cognoms"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Correu electrònic"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
+msgid "The given email address does not match your e-mail address"
 msgstr ""
-"L'adreça de correu electrònic que heu entrat no coincideix amb la vostra "
-"adreça de correu electrònic"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1381,21 +1367,16 @@ msgstr ""
 "Aquest camp no modifica la vostra contrasenya!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
+msgid "This email address is already associated with another account."
 msgstr ""
-"Aquesta adreça de correu electrònic ja està associada a un altre compte."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "Correu electrònic"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "Adreça de correu"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1478,12 +1459,9 @@ msgstr "Suprimeix el compte"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Suprimint el compte suprimirà totes les vostres apps i llançaments també. "
-"Per suprimir el vostre compte, introduïu la vostra adreça de correu "
-"electrònic al camp d'entrada i feu clic al botó \"Suprimeix el compte\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Nick Bakkegaard <nickbakkegaard@gmail.com>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/nextcloud/teams/64236/da/)\n"
@@ -312,9 +312,9 @@ msgstr "App bedømmelser"
 msgid "Full name"
 msgstr "Fulde navn"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "E-mail"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -612,19 +612,12 @@ msgstr "Siden du leder efter findes ikke!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Hilsner fra %(site_name)s!\n"
-"\n"
-"Du modtager denne email fordi brugeren %(user_display)s har linket denne e-mail adresse til sin konto hos %(site_domain)s.\n"
-"\n"
-"For at bekræfte dette, gå til %(activate_url)s\n"
-"\n"
-"Såfremt du ikke har en konto hos %(site_domain)s, venligst blot ignorer denne meddelelse.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -637,17 +630,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Bekræft e-mail adresse"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Venligst bekræft at <a href=\"mailto:%(email)s\">%(email)s</a> er e-mail "
-"adresse tilhørende brugeren %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -656,11 +647,9 @@ msgstr "Bekræft"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Dette e-mail bekræftelseslink er udløbet eller ugyldigt. Venligst <a "
-"href=\"%(email_url)s\">udsend en ny e-mail bekræftelsesmail</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1282,8 +1271,8 @@ msgid "Author's full name"
 msgstr "Ophavspersonens fulde navn"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "Ophavspersonens e-mail"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1347,12 +1336,12 @@ msgid "Last name"
 msgstr "Efternavn"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Din e-mail adresse"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Den angivne e-mail adresse matcher ikke din e-mail adresse"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1369,20 +1358,16 @@ msgstr ""
 "kodeord!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Denne e-mail adresse er allerede tilknyttet en anden konto."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Ugyldigt kodeord"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "E-mail"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "E-mail adresse"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1462,12 +1447,9 @@ msgstr "Slet konto"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Når din konto slettes bliver alle dine apps og udgivelser ligeledes slettes."
-" For at slette din konto, indsæt din e-mail adresse i feltet og tryk på "
-"knappen \"Delete account\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

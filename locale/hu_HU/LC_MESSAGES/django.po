@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Gábor Baráth <dincsi@gmail.com>, 2021\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
@@ -310,9 +310,9 @@ msgstr "Alkalmazás-értékelések"
 msgid "Full name"
 msgstr "Teljes név"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "E-mail"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -607,19 +607,12 @@ msgstr "Az oldal amit keres, nem létezik."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Üdvözöli a(z) %(site_name)s!\n"
-"\n"
-"Azért kapta ezt az e-mailt, mert %(user_display)s felhasználó ezt a címet hozzákötötte a fiókjához itt: %(site_domain)s.\n"
-"\n"
-"A megerősítéshez látogasson el ide: %(activate_url)s\n"
-"\n"
-"Ha nincs itt fiókja itt: %(site_domain)s, hagyja figyelmen kívül ezt a levelet.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -632,17 +625,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "E-mail cím megerősítése"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Erősítse meg, hogy az <a href=\"mailto:%(email)s\">%(email)s</a> e-mail cím "
-"%(user_display)s felhasználóhoz tartozik."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -651,11 +642,9 @@ msgstr "Megerősítés"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ez az e-mail cím igazoló hivatkozás lejárt vagy érvénytelen. <a "
-"href=\"%(email_url)s\">Küldjön egy új e-mail cím megerősítő kérést</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1283,8 +1272,8 @@ msgid "Author's full name"
 msgstr "A szerző teljes neve"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "A szerző e-mail címe"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1350,12 +1339,12 @@ msgid "Last name"
 msgstr "Vezetéknév"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Az e-mail címe"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "A megadott e-mail cím nem egyezik az e-mail címével"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1372,20 +1361,16 @@ msgstr ""
 " nem frissíti a jelszavát!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Ez az e-mail cím már egy másik fiókhoz lett hozzárendelve."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Érvénytelen jelszó"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "E-mail"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "E-mail cím"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1468,11 +1453,9 @@ msgstr "Fiók törlése"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"A fiókja törlésével az alkalmazásai is törlődnek. A fiók törléséhez írja a "
-"lenti mezőbe az e-mail címét, és nyomja meg a „Fiók törlése” gombot:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

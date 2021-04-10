@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Moo, 2020\n"
 "Language-Team: Lithuanian (Lithuania) (https://www.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
@@ -302,9 +302,9 @@ msgstr "Taikomosios programos įvertinimai"
 msgid "Full name"
 msgstr "Vardas, pavardė"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "El. paštas"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -598,19 +598,12 @@ msgstr "Puslapis, kurio ieškote - neegzistuoja!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Sveikinimai nuo %(site_name)s!\n"
-"\n"
-"Jūs gavote šį laišką, kadangi naudotojas %(user_display)s susiejo šį el pašto adresą su  jų paskyra, %(site_domain)s srityje.\n"
-"\n"
-"Norėdami patvirtinti, kad tai teisinga, paspauskite nuorodą%(activate_url)s\n"
-"\n"
-"Jei Jūs neturite paskyros %(site_domain)s srityje, šį pranešimą ignoruokite .\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -623,17 +616,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Patvirtinti el. pašto adresą"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Patvirtinkite, kad <a href=\"mailto:%(email)s\">%(email)s</a> yra el. pašto "
-"adresas, skirtas naudotojui  %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -642,12 +633,9 @@ msgstr "Patvirtinti"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ši el. pašto patvirtinimo nuoroda yra netinkama arba pasibaigė jos galiojimo"
-" laikas. Prašome, <a href=\"%(email_url)s\">išsiųskite naują el. pašto "
-"patvirtinimo užklausą</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1269,8 +1257,8 @@ msgid "Author's full name"
 msgstr "Autoriaus vardas ir pavardė"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "Autoriaus el. paštas"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1337,12 +1325,12 @@ msgid "Last name"
 msgstr "Pavardė"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Jūsų el. pašto adresas"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "Pateiktas el. pašto adresas neatitinka jūsų el. pašto adreso"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1359,20 +1347,16 @@ msgstr ""
 "laukelis esamo slaptažodžio nepakeičia!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Šis el. pašto adresas jau yra susietas su kita paskyra."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Neteisingas slaptažodis"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "El. paštas"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "El. pašto adresas"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1448,12 +1432,9 @@ msgstr "Ištrinti paskyrą"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Ištrynus paskyrą bus ištrintos ir visos jūsų programėlės bei jų laidos.  "
-"Norėdami ištrinti savo paskyrą, įvesties lauke įrašykite savo el. pašto "
-"adresą ir spustelėkite mygtuką „Ištrinti paskyrą“:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

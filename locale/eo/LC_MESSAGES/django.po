@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-09 04:05+0000\n"
+"POT-Creation-Date: 2021-04-10 04:16+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: gpl34 <gpl@mac.com>, 2020\n"
 "Language-Team: Esperanto (https://www.transifex.com/nextcloud/teams/64236/eo/)\n"
@@ -302,9 +302,9 @@ msgstr "Aplikaĵa pritaksoj"
 msgid "Full name"
 msgstr "Plena nomo"
 
-#: nextcloudappstore/core/models.py:328
-msgid "E-Mail"
-msgstr "Retpoŝtadreso"
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+msgid "Email"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -602,19 +602,12 @@ msgstr "La paĝo, kiun vi serĉas, ne ekzistas!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this e-mail because user %(user_display)s has linked this e-mail address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"Saluton el %(site_name)s!\n"
-"\n"
-"Vi ricevas tiun ĉi mesaĝon, ĉar la uzanto %(user_display)s ligis ĉi tiun retpoŝtadreson al sia konto ĉe %(site_domain)s.\n"
-"\n"
-"Por konfirmi, ke tio ĝustas, iru al %(activate_url)s\n"
-"\n"
-"Se vi ne havas konton ĉe %(site_domain)s, sufiĉas ignori tiun ĉi mesaĝon.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -627,17 +620,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
-msgid "Confirm E-mail Address"
-msgstr "Konfirmi retpoŝtadreson"
+msgid "Confirm Email Address"
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
 msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Bv. konfirmi, ke <a href=\"mailto:%(email)s\">%(email)s</a> estas "
-"retpoŝtadreso de uzanto %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -646,11 +637,9 @@ msgstr "Konfirmi"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"La retpoŝta konfirmoligilo ne validas aŭ senvalidiĝis. Bv. <a "
-"href=\"%(email_url)s\">peti novan konfirmon</a>. "
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -1273,8 +1262,8 @@ msgid "Author's full name"
 msgstr "Plena nomo de la aŭtoro"
 
 #: nextcloudappstore/scaffolding/forms.py:46
-msgid "Author's e-mail"
-msgstr "Retpoŝtadreso de la aŭtoro"
+msgid "Author's email"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1337,12 +1326,12 @@ msgid "Last name"
 msgstr "Familia nomo"
 
 #: nextcloudappstore/user/forms.py:25
-msgid "Your e-mail address"
-msgstr "Via retpoŝtadreso"
+msgid "Your email address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given e-mail address does not match your e-mail address"
-msgstr "La entajpita retpoŝtadreso ne kongruas kun via retpoŝtadreso"
+msgid "The given email address does not match your e-mail address"
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1359,20 +1348,16 @@ msgstr ""
 "vian pasvorton!"
 
 #: nextcloudappstore/user/forms.py:57
-msgid "This e-mail address is already associated with another account."
-msgstr "Tiu ĉi retpoŝtadreso jam estas asociita kun alia konto."
+msgid "This email address is already associated with another account."
+msgstr ""
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
 msgstr "Nevalida pasvorto"
 
-#: nextcloudappstore/user/forms.py:73
-msgid "E-mail"
-msgstr "Retpoŝto"
-
 #: nextcloudappstore/user/forms.py:78
-msgid "E-mail address"
-msgstr "Retpoŝtadreso"
+msgid "Email address"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1453,12 +1438,9 @@ msgstr "Forigi konton"
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
-"delete your account, insert your e-mail address into the input field and "
+"delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
-"Forigado de via konto forigos ĉiujn viajn aplikaĵojn kaj ankaŭ iliajn "
-"eldonojn. Por forigi vian konton, entajpu vian retpoŝtadreson en la enigan "
-"kampon, kaj alklaku la butonon „Forigi konton“:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
