@@ -5,20 +5,20 @@
 # 
 # Translators:
 # Rodrigo Romão <romao.rodrigo@gmail.com>, 2016
-# Flávio Veras <flaviove@gmail.com>, 2017
 # Rodrigues Santana <rodrigues@blupixel.com.br>, 2017
 # Javier Llamas <s_llamasj@globalhitss.com>, 2017
 # Paulo Schopf, 2020
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2020
+# Flávio Veras <flaviove@gmail.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 04:16+0000\n"
+"POT-Creation-Date: 2021-04-11 04:02+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>, 2020\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>, 2021\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,7 +308,7 @@ msgstr "Nome completo"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -613,6 +613,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Saudações do  %(site_name)s!\n"
+"\n"
+"Você está recebendo este e-mail porque o usuário  %(user_display)s vinculou este endereço de e-mail à conta em %(site_domain)s.\n"
+"\n"
+"Para confirmar que isso está correto, vá para  %(activate_url)s\n"
+"\n"
+"Se você não tem uma conta em  %(site_domain)s, simplesmente ignore esta mensagem. \n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -626,7 +633,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Confirme o endereço de e-mail"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -634,6 +641,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Por favor, confirme isso <a href=\"mailto:%(email)s\">%(email)s</a> é um "
+"endereço de e-mail para o usuário %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -645,6 +654,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Este link de confirmação de e-mail expirou ou é inválido. Por favor  <a "
+"href=\"%(email_url)s\">emitir um novo pedido de confirmação por e-mail </a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -682,11 +693,9 @@ msgstr "Reset de senha"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
 msgstr ""
-"Esqueceu a senha? Escreva embaixo  seu endereço de e-mail que nós enviaremos"
-" um e-mail que permite redefinir sua senha"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1273,7 +1282,7 @@ msgstr "Nome completo do autor"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "E-mail do autor "
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1340,10 +1349,10 @@ msgstr "Ultimo nome"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Seu endereço de email "
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given email address does not match your e-mail address"
+msgid "The given email address does not match your email address"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
@@ -1361,7 +1370,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Este endereço de e-mail já está associado a outra conta. "
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1369,7 +1378,7 @@ msgstr "Senha inválida"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "Endereço de e-mail"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1454,6 +1463,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Excluir sua conta também excluirá todos os seus aplicativos e lançamentos. "
+"Para excluir sua conta, insira seu endereço de e-mail no campo de entrada e "
+"clique no botão \"Excluir conta\": "
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 04:16+0000\n"
+"POT-Creation-Date: 2021-04-11 04:02+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2021\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -310,7 +310,7 @@ msgstr "Celé jméno"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -613,6 +613,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"%(site_name)s vás zdraví!\n"
+"\n"
+"Tento e-mail dostáváte proto, že uživatel %(user_display)s  připojil tuto e-mailovou adresu ke svému účtu na %(site_domain)s.\n"
+"\n"
+"Pro potvrzení, že je to správně, běžte na %(activate_url)s\n"
+"\n"
+"Pokud na %(site_domain)s účet nemáte, jednoduše si této zprávy nevšímejte.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -626,7 +633,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Potvrďte e-mailovou adresu"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -634,6 +641,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Potvrďte, že  <a href=\"mailto:%(email)s\">%(email)s</a> je e-mailová adresa"
+" uživatele %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -645,6 +654,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Platnost odkazu v tomto potvrzovacím e-mailovu skončila, nebo není platný. "
+"Vytvořte <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -682,11 +693,9 @@ msgstr "Reset hesla"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
 msgstr ""
-"Zapomněli jste své heslo? Zadejte níže svou e-mailovou adresu na kterou bude"
-" odeslán e-mail pro jeho resetování. "
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1268,7 +1277,7 @@ msgstr "Celé jméno autora"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "E-mailová adresa autora"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1337,10 +1346,10 @@ msgstr "Příjmení"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Vaše e-mailová adresa"
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given email address does not match your e-mail address"
+msgid "The given email address does not match your email address"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
@@ -1358,7 +1367,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Tato e-mailová adresa je již spojena s jiným účtem."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1366,7 +1375,7 @@ msgstr "Neplatné heslo"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "E-mailová adresa"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1452,6 +1461,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Smazání vašeho účtu vymaže všechny vaše aplikace a jejich vydání. Pro "
+"smazání účtu zadejte do pole níže svou e-mailovou adresu a klikněte na "
+"tlačítko „Smazat účet“:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"

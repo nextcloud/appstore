@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 04:16+0000\n"
+"POT-Creation-Date: 2021-04-11 04:02+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2021\n"
 "Language-Team: Chinese (Hong Kong) (https://www.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
@@ -298,7 +298,7 @@ msgstr "全名"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "電子郵件"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -594,6 +594,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"%(site_name)s 向您問好！\n"
+"\n"
+"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 %(site_domain)s 上的賬戶。\n"
+"\n"
+"如果準確無誤，請至 %(activate_url)s 進行確認。\n"
+"\n"
+"如果您在 %(site_domain)s 上並沒有賬戶，請不要理會此封郵件。\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -607,7 +614,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "確認電郵地址"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -615,6 +622,7 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的電郵地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -625,7 +633,7 @@ msgstr "確認"
 msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
+msgstr "此郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出電郵地址確認請求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -663,9 +671,9 @@ msgstr "密碼重設"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
-msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1234,7 +1242,7 @@ msgstr "作者姓名"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "作者電子郵件"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1298,10 +1306,10 @@ msgstr "姓氏"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "您的電郵地址"
 
 #: nextcloudappstore/user/forms.py:37
-msgid "The given email address does not match your e-mail address"
+msgid "The given email address does not match your email address"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:41
@@ -1317,7 +1325,7 @@ msgstr "為防止未經授權的用戶更改您的電郵地址和重置密碼，
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "此電子郵件賬戶已註冊。"
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1325,7 +1333,7 @@ msgstr "無效的密碼"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "電郵地址"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1407,7 +1415,7 @@ msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
-msgstr ""
+msgstr "刪除賬戶也會刪除您所有的應用程式和版本。 要刪除您的賬戶，請將您的電郵地址輸入字段，然後單擊“刪除賬戶”按鈕："
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
