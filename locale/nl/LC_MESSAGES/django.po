@@ -20,15 +20,16 @@
 # André Koot <meneer@tken.net>, 2020
 # Frank Henkes <frank.henkes@gmail.com>, 2020
 # Guido Tolboom <Guido@tolboom.info>, 2020
+# null null <transifex@beardhatcode.be>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-11 04:02+0000\n"
+"POT-Creation-Date: 2021-04-12 04:04+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Guido Tolboom <Guido@tolboom.info>, 2020\n"
+"Last-Translator: null null <transifex@beardhatcode.be>, 2021\n"
 "Language-Team: Dutch (https://www.transifex.com/nextcloud/teams/64236/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -318,7 +319,7 @@ msgstr "Volledige naam"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -623,6 +624,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Groeten vanaf de %(site_name)s!\n"
+"\n"
+"Je krijgt deze email omdat gebruiker %(user_display)s dit e-mailadres heeft gekoppeld aan diens account op %(site_domain)s.\n"
+"\n"
+"Om te bevestigen, ga naar %(activate_url)s\n"
+"\n"
+"Als je geen account op %(site_domain)s hebt, negeer dan dit bericht.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -636,7 +644,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Bevestig e-mailadres"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -644,6 +652,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Bevestig dat <a href=\"mailto:%(email)s\">%(email)s</a> een e-mailadres is "
+"van %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -655,6 +665,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Deze e-mail bevestigingslink is vervallen of ongeldig. <a "
+"href=\"%(email_url)s\">Doe een nieuwe aanvraag</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -695,6 +707,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Wachtwoord vergeten? Voer je e-mailadres hieronder in en we sturen je een "
+"e-mail waarmee je het opnieuw kunt instellen."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1277,7 +1291,7 @@ msgstr "Volledige naam van de auteur"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "E-mail van de auteur."
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1345,11 +1359,11 @@ msgstr "Achternaam"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Je e-mailadres"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Het opgegeven e-mailadres komt niet overeen met jouw adres"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1367,7 +1381,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Dit e-mailadres is al gekoppeld aan een ander account."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1375,7 +1389,7 @@ msgstr "Ongeldig wachtwoord"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "E-mailadres"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1461,6 +1475,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Het verwijderen van je account verwijdert ook al je apps en releases. Om je "
+"account te verwijderen, vul je e-mailadres hier in klik op de \"Verwijder "
+"account\" knop:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
