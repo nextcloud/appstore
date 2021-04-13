@@ -8,18 +8,18 @@
 # Alessandro Polidori <alessandro.polidori@gmail.com>, 2016
 # Marco Lazzarotto, 2016
 # Claudio Driussi <claudio.driussi@gmail.com>, 2017
-# Random_R, 2020
 # Mark Ziegler <mark.ziegler@rakekniven.de>, 2021
 # Vincenzo Reale <vinx.reale@gmail.com>, 2021
+# Random_R, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-12 04:04+0000\n"
+"POT-Creation-Date: 2021-04-13 04:04+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>, 2021\n"
+"Last-Translator: Random_R, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/nextcloud/teams/64236/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -614,6 +614,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Saluti da %(site_name)s!\n"
+"\n"
+"Hai ricevuto questa email perché l'utente %(user_display)s ha collegato questo indirizzo di posta al proprio account su %(site_domain)s.\n"
+"\n"
+"Per confermare che sia corretto, vai su %(activate_url)s\n"
+"\n"
+"Se non hai un account su %(site_domain)s, semplicemente ignora questo messaggio.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -627,7 +634,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Conferma indirizzo email"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -635,6 +642,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Conferma che <a href=\"mailto:%(email)s\">%(email)s</a> è un indirizzo di "
+"posta per l'utente %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -646,6 +655,9 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Questo collegamento di conferma tramite posta è scaduto o non è valido. <a "
+"href=\"%(email_url)s\">Richiedi una nuova conferma tramite posta "
+"elettronica</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -686,6 +698,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Hai dimenticato la password? Digita il tuo indirizzo di posta elettronica in"
+" basso e ti invieremo un'email che ti consentirà di ripristinarla."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1270,7 +1284,7 @@ msgstr "Nome completo dell'autore"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Email dell'autore"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1340,11 +1354,11 @@ msgstr "Cognome"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Il tuo indirizzo email"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "L'indirizzo di posta fornito non corrisponde alla tua email"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1362,7 +1376,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Questo indirizzo di posta è già associato ad un altro account."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1370,7 +1384,7 @@ msgstr "Password non valida"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "Indirizzo email"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1455,6 +1469,10 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"L'eliminazione del tuo account eliminerà tutte le tue applicazioni, così "
+"come i rilasci. Per eliminare il tuo account, digita il tuo indirizzo di "
+"posta elettronica nel campo apposito e clicca il pulsante \"Elimina "
+"account\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
