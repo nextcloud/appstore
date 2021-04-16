@@ -10,16 +10,16 @@
 # Arda Kılıçdağı <ardakilicdagi@gmail.com>, 2017
 # Kemal Oktay Aktoğan <oktayaktogan@gmail.com>, 2020
 # Hüseyin Fahri Uzun <mail@fahriuzun.com>, 2020
-# Kaya Zeren <kayazeren@gmail.com>, 2020
+# Kaya Zeren <kayazeren@gmail.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 04:04+0000\n"
+"POT-Creation-Date: 2021-04-16 04:07+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2020\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2021\n"
 "Language-Team: Turkish (https://www.transifex.com/nextcloud/teams/64236/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,7 +309,7 @@ msgstr "Tam ad"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-posta"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -612,6 +612,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"%(site_name)s sitesine hoş geldiniz!\n"
+"\n"
+"Bu bildirim %(user_display)s kullanıcısının bu e-posta adresini %(site_domain)s üzerindeki hesabıyla ilişkilendirdiğini bildirmek için gönderilmiştir.\n"
+"\n"
+"İşlemi tamamlamak için etkinleştirme bağlantısına tıklayın: %(activate_url)s\n"
+"\n"
+"%(site_domain)s sitesinde bir hesabınız yok ise bu iletiyi yok sayın.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -625,7 +632,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "E-posta Adresini Onayla"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -633,6 +640,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Lütfen <a href=\"mailto:%(email)s\">%(email)s</a> e-posta adresinin "
+"%(user_display)s kullanıcısına ait olduğunu onaylayın."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -644,6 +653,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Bu e-posta onaylama bağlantısı geçersiz ya da süresi geçmiş. Lütfen <a "
+"href=\"%(email_url)s\">yeni bir e-posta onaylama isteğinde bulunun</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -684,6 +695,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Parolanızı unuttuysanız aşağıya e-posta adresinizi yazın. Parola sıfırlama "
+"bağlantısı e-posta adresinize gönderilecek."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1268,7 +1281,7 @@ msgstr "Yazarın tam adı"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Yazarın e-posta adresi"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1335,11 +1348,11 @@ msgstr "Soyad"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "E-posta adresiniz"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Yazdığınız e-posta adresi kayıtlı adresiniz ile aynı değil"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1356,7 +1369,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Bu e-posta adresi zaten başka bir hesapla ilişkili."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1364,7 +1377,7 @@ msgstr "Parola geçersiz"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "E-posta adresi"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1449,6 +1462,8 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Hesabınızı silerseniz uygulamalarınız ve sürümleriniz de silinir. Hesabınızı"
+" silmek için e-posta adresinizi yazın ve \"Hesabı Sil\" düğmesine tıklayın:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
