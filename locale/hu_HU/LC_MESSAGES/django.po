@@ -10,19 +10,18 @@
 # Csaba Vágányik, 2018
 # Tiri Gor <gortiri@freemail.hu>, 2020
 # Norbert Ézsiás, 2020
-# Mr Dini <diniboy74@gmail.com>, 2020
-# Balázs Meskó <meskobalazs@mailbox.org>, 2020
 # Falu <info@falu.me>, 2020
 # Gábor Baráth <dincsi@gmail.com>, 2021
+# Balázs Meskó <meskobalazs@mailbox.org>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 04:07+0000\n"
+"POT-Creation-Date: 2021-04-17 04:03+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Gábor Baráth <dincsi@gmail.com>, 2021\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2021\n"
 "Language-Team: Hungarian (Hungary) (https://www.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,12 +90,12 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"Általában itt található: ~/.nextcloud/certificates/APP_ID.crt ahol az APP_ID"
-" a te app-id ID-je ID. Ha nincs tanúsítványod, előbb készítened kell egy "
-"kérvényt (CSR) , amit be kell küldened a <a "
+"Általában itt található: ~/.nextcloud/certificates/APP_ID.crt, ahol az "
+"APP_ID az Ön alkalmazásazonsítója. Ha nincs tanúsítványa, akkor előbb "
+"készítenie kell egy kérést (CSR) , amelyet be kell küldenie a <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">tanúsítvány tárba</a> (kövesd a README-t). "
-"Legenerálhatod a CSR-t a következő paranccsal:"
+"rel=\"noreferrer noopener\">tanúsítványtárba</a> (kövesse a README fájlt). A"
+" CSR-t a következő paranccsal állíthatja elő:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -259,7 +258,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr "Integráció (azaz Outlook plugin)"
+msgstr "Integráció (azaz Outlook-bővítmény)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
@@ -559,8 +558,9 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"Ha igaz, ez egy tényleges Nextcloud kiadás amit le lehet tölteni csomagként."
-" Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető le."
+"Ha igaz, ez egy tényleges Nextcloud kiadás, amelyet le lehet tölteni "
+"csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető"
+" le."
 
 #: nextcloudappstore/core/models.py:632
 msgid "Version is supported"
@@ -633,7 +633,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr "E-mail cím megerősítése"
+msgstr "E-mail-cím megerősítése"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -641,7 +641,7 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Erősítse meg, hogy az <a href=\"mailto:%(email)s\">%(email)s</a> e-mail cím "
+"Erősítse meg, hogy az <a href=\"mailto:%(email)s\">%(email)s</a> e-mail-cím "
 "%(user_display)s felhasználóhoz tartozik."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
@@ -654,8 +654,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ez az e-mail cím igazoló hivatkozás lejárt vagy érvénytelen. <a "
-"href=\"%(email_url)s\">Küldjön egy új e-mail cím megerősítő kérést</a>."
+"Ez az e-mail-cím igazoló hivatkozás lejárt vagy érvénytelen. <a "
+"href=\"%(email_url)s\">Küldjön egy új e-mail-cím megerősítő kérést</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -673,7 +673,7 @@ msgstr "Bejelentkezés GitHubbal"
 
 #: nextcloudappstore/core/templates/account/login.html:35
 msgid "Forgot password?"
-msgstr "Elfelejtett jelszó?"
+msgstr "Elfelejtette a jelszavát?"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
@@ -696,17 +696,17 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Elfelejtette a jelszavát? Adja meg az e-mail címét, és küldünk egy e-mailt a"
+"Elfelejtette a jelszavát? Adja meg az e-mail-címét, és küldünk egy e-mailt a"
 " visszaállítási információkkal."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
-msgstr "A jelszavam visszaállítsa"
+msgstr "Jelszó visszaállítása"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó-visszaállítással"
+"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó visszaállítással"
 " kapcsolatban"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
@@ -718,7 +718,7 @@ msgstr "Hibás API token"
 #: nextcloudappstore/user/templates/user/password.html:8
 #: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
-msgstr "Jelszó módosítás"
+msgstr "Jelszó módosítása"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
 #, python-format
