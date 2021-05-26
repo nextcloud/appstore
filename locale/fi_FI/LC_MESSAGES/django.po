@@ -13,16 +13,16 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2020
 # Lassi Tanskanen <lassi@landsound.fi>, 2020
 # James Jesse <jt.inkinen@gmail.com>, 2020
-# teemue, 2020
+# teemue, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-25 04:13+0000\n"
+"POT-Creation-Date: 2021-05-26 04:14+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: teemue, 2020\n"
+"Last-Translator: teemue, 2021\n"
 "Language-Team: Finnish (Finland) (https://www.transifex.com/nextcloud/teams/64236/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,7 +313,7 @@ msgstr "Koko nimi"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -617,6 +617,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Tervehdys, %(site_name)s tässä!\n"
+"\n"
+"Saat tämän sähköpostin koska käyttäjä %(user_display)s on linkittänyt tämän sähköpostiosoitteen tiliinsä (%(site_domain)s).\n"
+"\n"
+"Varmistaaksesi, että tämä on oikein, mene osoitteeseen %(activate_url)s\n"
+"\n"
+"Jos sinulla ei ole tiliä osoitteessa %(site_domain)s, voit ohittaa tämän viestin.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -630,7 +637,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Vahvista sähköpostiosoite"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -638,6 +645,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Ole hyvä ja varmista, että <a href=\"mailto:%(email)s\">%(email)s</a> on "
+"käyttäjän %(user_display)s sähköpostiosoite."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -649,6 +658,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Tämä sähköpostin vahvistuslinkki on vanhentunut tai virheellinen. Ole hyvä "
+"ja <a href=\"%(email_url)s\">pyydä uusi pyyntö</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -689,6 +700,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Unohditko salasanasi? Syötä sähköpostiosoitteesi alle, ja lähetämme sinulle "
+"linkin salasanan nollaamiseen."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1270,7 +1283,7 @@ msgstr "Tekijän koko nimi"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Tekijän sähköpostiosoite"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1340,11 +1353,11 @@ msgstr "Sukunimi"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Sähköpostiosoitteesi"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Annettu sähköpostiosoite ei täsmää sähköpostiosoitteesi kanssa"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1362,7 +1375,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Tämä sähköpostiosoite on jo toisen tilin käytössä."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1370,7 +1383,7 @@ msgstr "Virheellinen salasana"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "Sähköpostiosoite"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud Appstore password changed"
@@ -1400,6 +1413,11 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                API-valtuutusta voidaan käyttää tunnistautumiseen sovelluskaupaan\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>:n kautta.\n"
+"                Pidä se salassa. Uusi valtuutus voidaan luoda alapuolelta, samalla hylätään vanha valtuutus\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1451,6 +1469,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Tilin poistaminen poistaa myös kaikki sovelluksesi ja julkaisut. Poista "
+"tilisi syöttämällä sähköpostiosoitteesi ja napsauta \"Poista tili\" "
+"-painiketta:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
