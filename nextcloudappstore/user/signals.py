@@ -28,8 +28,8 @@ def password_changed_signal(sender, instance, **kwargs):
     :param kwargs:
     :return:
     """
-    mail_subect = _('Nextcloud Appstore password changed')
-    mail_message = _('Your Appstore password has changed. '
+    mail_subect = _('Nextcloud App Store password changed')
+    mail_message = _('Your Nextcloud App Store password has changed. '
                      'Contact support if this wasn\'t you.')
 
     try:
