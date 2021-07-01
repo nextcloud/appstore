@@ -96,7 +96,7 @@ class Migration(migrations.Migration):
                 ('platform_version_spec', models.CharField(max_length=256, verbose_name='Platform version requirement')),
                 ('raw_php_version_spec', models.CharField(max_length=256, verbose_name='PHP version requirement (raw)')),
                 ('raw_platform_version_spec', models.CharField(max_length=256, verbose_name='Platform version requirement (raw)')),
-                ('min_int_size', models.IntegerField(blank=True, default=32, help_text='e.g. 32 for 32bit Integers', verbose_name='Minimum integer bits')),
+                ('min_int_size', models.IntegerField(blank=True, default=32, help_text='e.g. 32 for 32-bit Integers', verbose_name='Minimum integer bits')),
                 ('download', models.URLField(blank=True, max_length=256, verbose_name='Archive download Url')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Created at')),
                 ('last_modified', models.DateTimeField(auto_now=True, db_index=True, verbose_name='Updated at')),
