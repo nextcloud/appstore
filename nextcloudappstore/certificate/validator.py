@@ -50,10 +50,8 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         err_msg = 'Signature is invalid'
         try:
-            result = verify(cert, b64decode(signature.encode()), data,
-                            self.config.digest)
-            if result is not None:
-                raise InvalidSignatureException(err_msg)
+            verify(cert, b64decode(signature.encode()), data,
+                   self.config.digest)
         except Exception as e:
             raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
 
@@ -81,7 +79,7 @@ class CertificateValidator:
             store.set_flags(X509StoreFlags.CRL_CHECK)
             store.add_crl(parsed_crl)
 
-        ctx = X509StoreContext(store, cert)
+        ctx = X509StoreContext(store, cert, chain=None)
         err_msg = 'Certificate is invalid'
 
         try:
