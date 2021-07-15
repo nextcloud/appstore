@@ -129,7 +129,7 @@ Updating and Revoking a Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you've lost or leaked your private certificate you want to revoke and update your certificate:
 
-* Post a new CSR for an already existing app `on our issue tracker <https://github.com/nextcloud/appstore/issues/new>`_ (edit the same file)
+* Send a pull request with the new CSR for an already existing app `to our repository <hhttps://github.com/nextcloud/app-certificate-requests>`_ (overwrite the existing file, e.g. news/news.csr and delete the existing news/news.crt)
 * We will revoke your old certificate and sign your new certificate request
 * Then re-register your app certificate on the `app register page <https://apps.nextcloud.com/developer/apps/new>`_. This will delete all existing releases.
 
