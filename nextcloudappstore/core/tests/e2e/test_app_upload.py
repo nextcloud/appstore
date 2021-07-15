@@ -49,4 +49,4 @@ class UploadAppReleaseTest(BaseStoreTest, AppDevSteps):
         self.go_to_app_upload()
         self.by_id('id_download').send_keys(url)
         self.by_id('id_signature').send_keys(sig)
-        self.by_id('id_signature').submit()
+        self.by_id('submit').submit()
