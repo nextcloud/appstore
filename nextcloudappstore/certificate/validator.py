@@ -85,9 +85,7 @@ class CertificateValidator:
         err_msg = 'Certificate is invalid'
 
         try:
-            result = ctx.verify_certificate()
-            if result is not None:
-                raise InvalidCertificateException(err_msg)
+            ctx.verify_certificate()
         except Exception as e:
             raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
 
