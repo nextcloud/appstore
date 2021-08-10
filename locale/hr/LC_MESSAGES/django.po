@@ -7,16 +7,16 @@
 # Joas Schilling, 2019
 # Alen Vodopijevec <alen@irb.hr>, 2020
 # Vladimir Ostović <vladimir.ostovic@ciklopea.com>, 2020
-# Denis Kranjčić <denis.kranjcic@ciklopea.com>, 2020
+# Denis Kranjčić <denis.kranjcic@ciklopea.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-09 04:02+0000\n"
+"POT-Creation-Date: 2021-08-10 04:19+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Denis Kranjčić <denis.kranjcic@ciklopea.com>, 2020\n"
+"Last-Translator: Denis Kranjčić <denis.kranjcic@ciklopea.com>, 2021\n"
 "Language-Team: Croatian (https://www.transifex.com/nextcloud/teams/64236/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,7 +306,7 @@ msgstr "Puno ime"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-pošta"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -609,6 +609,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Pozdrav od %(site_name)s!\n"
+"\n"
+"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu adresu e-pošte sa svojim računom %(site_domain)s.\n"
+"\n"
+"Ako biste potvrdili da je navedeno točno, posjetite %(activate_url)s\n"
+"\n"
+"Ako nemate otvoren račun na %(site_domain)s, zanemarite ovu poruku.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -622,7 +629,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Potvrdi adresu e-pošte"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -630,6 +637,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Potvrdite je li <a href=\"mailto:%(email)s\">%(email)s</a> adresa e-pošte "
+"korisnika %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -641,6 +650,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a "
+"href=\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -681,6 +692,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Zaboravili ste zaporku? U nastavku unesite svoju adresu e-pošte i poslat "
+"ćemo vam poruku koja vam omogućuje resetiranje zaporke."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1262,7 +1275,7 @@ msgstr "Ime i prezime autora"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Adresa e-pošte autora"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1328,11 +1341,11 @@ msgstr "Prezime"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Vaša adresa e-pošte"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Navedena adresa e-pošte ne odgovara vašoj adresi e-pošte"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1350,7 +1363,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Ova adresa e-pošte već je povezana s drugim računom."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1358,17 +1371,19 @@ msgstr "Netočna zaporka"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "Adresa e-pošte"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud App Store password changed"
-msgstr ""
+msgstr "Zaporka za Nextcloud App Store je promijenjena"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Nextcloud App Store password has changed. Contact support if this "
 "wasn't you."
 msgstr ""
+"Vaša zaporka za Nextcloud App Store je promijenjena. Obratite se službi za "
+"podršku ako je niste osobno promijenili."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1387,6 +1402,11 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                API token može se koristiti za autentifikaciju prilikom otvaranja trgovine aplikacijama\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Nemojte ga otkrivati drugim osobama. U nastavku možete generirati novi token nakon čega će stari token postati nevažeći.\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1438,6 +1458,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Brisanjem računa izbrisat ćete i sve aplikacije i izdanja. Kako biste "
+"izbrisali svoj račun, unesite adresu e-pošte u polje za unos i kliknite gumb"
+" „Izbriši račun”:"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
