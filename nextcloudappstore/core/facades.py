@@ -72,10 +72,7 @@ def any_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     :return: true if a predicate returns true for at least one element in an
      iterable
     """
-    for entry in iterable:
-        if predicate(entry):
-            return True
-    return False
+    return any(predicate(entry) for entry in iterable)
 
 
 def distinct(iterable: Iterable[T],

@@ -63,11 +63,11 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
 
     def post(self, request, *args, **kwargs):
         form = DeleteAccountForm(request.POST, user=request.user)
-        if form.is_valid():
-            request.user.delete()
-            return redirect(reverse_lazy('home'))
-        else:
+        if not form.is_valid():
             return render(request, self.template_name, {'form': form})
+
+        request.user.delete()
+        return redirect(reverse_lazy('home'))
 
 
 class AccountView(LoginRequiredMixin, UpdateView):
