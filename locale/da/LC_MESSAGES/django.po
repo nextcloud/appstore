@@ -16,15 +16,16 @@
 # Allan B. Christensen <allan@dansksquash.dk>, 2020
 # Thomas Nielsen <thsnielsen@gmail.com>, 2020
 # Nick Bakkegaard <nickbakkegaard@gmail.com>, 2020
+# Kaspar Brygger, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-10 04:03+0000\n"
+"POT-Creation-Date: 2021-11-11 03:59+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Nick Bakkegaard <nickbakkegaard@gmail.com>, 2020\n"
+"Last-Translator: Kaspar Brygger, 2021\n"
 "Language-Team: Danish (https://www.transifex.com/nextcloud/teams/64236/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,11 +262,11 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr ""
+msgstr "Integration (i.e. Outlook plugin)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr ""
+msgstr "Bruges til at godkende integrationer"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -314,7 +315,7 @@ msgstr "Fulde navn"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -618,6 +619,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Hilsen fra %(site_name)s!\n"
+"\n"
+"Du modtager denne e-mail, fordi brugeren %(user_display)shar knyttet denne e-mailadresse til deres konto på %(site_domain)s.\n"
+"\n"
+"For at bekræfte, at dette er korrekt, gå til %(activate_url)s\n"
+"\n"
+"Hvis du ikke har en konto på %(site_domain)s, skal du blot ignorere denne besked.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -631,7 +639,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Bekræft Email adresse"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -639,6 +647,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Bekræft venligst, at <a href=\"mailto:%(email)s\">%(email)s</a> er en "
+"e-mailadresse for brugeren %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -650,6 +660,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Dette link til bekræftelse via e-mail er udløbet eller er ugyldigt. Send "
+"venligst <a href=\"%(email_url)s\">en ny anmodning om e-mailbekræftelse</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -690,6 +702,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Glemt dit kodeord? Indtast din e-mailadresse nedenfor, og vi sender dig en "
+"e-mail, så du kan nulstille den."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -745,7 +759,7 @@ msgstr "Alle apps"
 #: nextcloudappstore/core/templates/app/base.html:14
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps"
-msgstr ""
+msgstr "Udvalgte apps"
 
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
@@ -826,7 +840,7 @@ msgstr "Bedøm app"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "Bedøm integration"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -870,17 +884,17 @@ msgstr "Vis bedømmelses-kommentarer i :"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
 msgid "Register integration"
-msgstr ""
+msgstr "Registrer integration"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr ""
+msgstr "Administrer integration"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr ""
+msgstr "Rediger integration"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -888,7 +902,7 @@ msgstr "Opdatér"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:20
 msgid "Approve"
-msgstr ""
+msgstr "Godkend"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:21
 msgid "Reject"
@@ -1060,15 +1074,15 @@ msgstr "obligatorisk felt"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr ""
+msgstr "Søg i %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
-msgstr ""
+msgstr "Søg i fremhævede apps"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in all apps"
-msgstr ""
+msgstr "Søg i alle apps"
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
@@ -1089,7 +1103,7 @@ msgstr "Dokumentation"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr ""
+msgstr "Integrationsudvikler"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1130,7 +1144,7 @@ msgstr "Dashboard"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
-msgstr ""
+msgstr "Apps inklusive Nextcloud Dashboard-widgets"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1222,11 +1236,11 @@ msgstr "Alt andet"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:27
 msgid "Flow"
-msgstr ""
+msgstr "Flow"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:28
 msgid "Apps for Nextcloud Flow"
-msgstr ""
+msgstr "Apps til Nextcloud Flow"
 
 #: nextcloudappstore/core/templatetags/app_rating.py:7
 msgid "Very negative"
@@ -1267,7 +1281,7 @@ msgstr "Ophavspersonens fulde navn"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Forfatterens e-mail"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1298,29 +1312,32 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "Integrationsnavn"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
-msgstr ""
+msgstr "Skærmbillede URL"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "URL til integrationsskærmbillede"
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
-msgstr ""
+msgstr "Skærmbilledes miniature-URL"
 
 #: nextcloudappstore/scaffolding/forms.py:80
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"URL til integrationsskærmbillede i mindre dimensioner. Skal bruges i "
+"kombination med et større skærmbillede."
 
 #: nextcloudappstore/scaffolding/forms.py:86
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
+"Fuld beskrivelse af, hvad din integration gør. Kan indeholde Markdown."
 
 #: nextcloudappstore/user/forms.py:15
 msgid "First name"
@@ -1332,11 +1349,11 @@ msgstr "Efternavn"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Din email adresse"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Den angivne e-mailadresse stemmer ikke overens med din e-mailadresse"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1354,7 +1371,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Denne e-mailadresse er allerede knyttet til en anden konto."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1362,17 +1379,19 @@ msgstr "Ugyldigt kodeord"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "Email adresse"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud App Store password changed"
-msgstr ""
+msgstr "Nextcloud App Store-adgangskode ændret"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Nextcloud App Store password has changed. Contact support if this "
 "wasn't you."
 msgstr ""
+"Din Nextcloud App Store-adgangskode er ændret. Kontakt support, hvis det "
+"ikke var dig."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1391,6 +1410,11 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                API-tokenet kan bruges til godkendelse, når du ringer til App Store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Sørg for at holde det hemmeligt. Et nyt token kan genereres nedenfor, hvilket gør det gamle token ugyldigt.\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1407,7 +1431,7 @@ msgstr "Gendan API nøgle"
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
-msgstr ""
+msgstr "Integrationer"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
@@ -1442,10 +1466,13 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button:"
 msgstr ""
+"Sletning af din konto vil også slette alle dine apps og udgivelser. For at "
+"slette din konto skal du indsætte din e-mailadresse i indtastningsfeltet og "
+"klikke på knappen \"Slet konto\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
-msgstr ""
+msgstr "Afventer godkendelse"
 
 #: nextcloudappstore/user/templates/user/integrations.html:14
 #: nextcloudappstore/user/templates/user/integrations.html:37
@@ -1458,7 +1485,7 @@ msgstr "Vis"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr ""
+msgstr "Dine integrationer"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1468,6 +1495,7 @@ msgstr "Redigér"
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
 msgstr ""
+"Du har ikke indsendt nogen integration endnu, eller de afventer godkendelse!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
