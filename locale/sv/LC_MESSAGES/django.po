@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-22 04:21+0000\n"
+"POT-Creation-Date: 2021-11-23 04:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Martin H <pilino@posteo.de>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/nextcloud/teams/64236/sv/)\n"
@@ -259,11 +259,11 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
-msgstr ""
+msgstr "Integration (t.ex. Outlook-plugin)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr ""
+msgstr "Används för att godkänna integrationer"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -312,7 +312,7 @@ msgstr "Namn"
 
 #: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
 msgid "Email"
-msgstr ""
+msgstr "E-post"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -365,7 +365,7 @@ msgstr "Minimum Integer bits"
 
 #: nextcloudappstore/core/models.py:370
 msgid "e.g. 32 for 32-bit Integers"
-msgstr ""
+msgstr "t.ex. 32 för 32-bitars heltal"
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
@@ -615,6 +615,16 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Hej!\n"
+"\n"
+"Du får det här e-postmeddelandet eftersom användaren %(user_display)s har kopplat denna e-postadress till sitt konto på %(site_domain)s\n"
+"\n"
+"För att bekräfta detta är korrekt, gå till %(activate_url)s\n"
+"\n"
+"Om du inte har ett konto på %(site_domain)s så kan du ignorera detta meddelande.\n"
+"\n"
+"Med vänliga hälsningar,\n"
+"%(site_name)s\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -628,7 +638,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Bekräfta e-postadress"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -636,6 +646,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Vänligen bekräfta att <a href=\"mailto:%(email)s\">%(email)s</a> är en "
+"e-postadress för användaren %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -647,6 +659,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Denna e-postaktiveringslänk har upphört eller är felaktig. Vänligen <a "
+"href=\"%(email_url)s\">begär en ny e-postaktiveringslänk</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -687,6 +701,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Har du glömt ditt lösenord? Ange din e-postadress nedan så skickar vi ett "
+"e-postmeddelande med information om hur du återställer det."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -1330,11 +1346,11 @@ msgstr "Efternamn"
 
 #: nextcloudappstore/user/forms.py:25
 msgid "Your email address"
-msgstr ""
+msgstr "Din e-postadress"
 
 #: nextcloudappstore/user/forms.py:37
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Den angivna e-post adressen matchar inte med din e-postadress"
 
 #: nextcloudappstore/user/forms.py:41
 msgid "Confirm password"
@@ -1352,7 +1368,7 @@ msgstr ""
 
 #: nextcloudappstore/user/forms.py:57
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Den här e-postadressen är redan associerad med ett annat konto."
 
 #: nextcloudappstore/user/forms.py:67
 msgid "Invalid password"
@@ -1360,17 +1376,19 @@ msgstr "Ogiltigt lösenord"
 
 #: nextcloudappstore/user/forms.py:78
 msgid "Email address"
-msgstr ""
+msgstr "E-postadress"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud App Store password changed"
-msgstr ""
+msgstr "Lösenord till Nextcloud-appbutik har ändrats"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Nextcloud App Store password has changed. Contact support if this "
 "wasn't you."
 msgstr ""
+"Ditt lösenord till Nextcloud-appbutiken har ändrats. Kontakta supporten om "
+"det inte var du."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
