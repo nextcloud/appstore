@@ -14,7 +14,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 VALIDATE_CERTIFICATES = False
 
 FIXTURE_DIRS = (
-    BASE_DIR / 'nextcloudappstore/core/tests/e2e/fixtures',
+    BASE_DIR / 'core/tests/e2e/fixtures',
 )
 
 LOGGING['handlers']['console'] = {
@@ -40,3 +40,7 @@ if 'test' in sys.argv:
 
 EMAIL_HOST = 'localhost'
 EMAIL_HOST_USER = "noreply@nextcloud.com"
+
+# Disable testing in tests
+TESTING = bool(len(sys.argv) > 1 and sys.argv[1] == 'test')
+CAPTCHA_TEST_MODE = TESTING

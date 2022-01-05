@@ -41,10 +41,7 @@ dev-setup:
 	rm -f db.sqlite3
 	$(yarn) install
 	$(yarn) run build
-	poetry install
-ifeq ($(db), postgres)
-	$(pip) install -r $(CURDIR)/requirements/production.txt
-endif
+	$(poetry) install
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
 	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(MAKE) initdb

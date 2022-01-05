@@ -242,7 +242,7 @@ LOGGING = {
     },
 }
 LOCALE_PATHS = (
-    BASE_DIR / 'locale/',
+    BASE_DIR.parent / 'locale/',
 )
 
 # Disable in order for cooldown periods to work properly
@@ -272,10 +272,8 @@ ARCHIVE_FOLDER_BLACKLIST = {
 }
 
 # certificate location configuration
-NEXTCLOUD_CERTIFICATE_LOCATION = BASE_DIR / \
-    'nextcloudappstore/certificate/nextcloud.crt'
-NEXTCLOUD_CRL_LOCATION = BASE_DIR / \
-        'nextcloudappstore/certificate/nextcloud.crl'
+NEXTCLOUD_CERTIFICATE_LOCATION = BASE_DIR / 'certificate/nextcloud.crt'
+NEXTCLOUD_CRL_LOCATION = BASE_DIR / 'certificate/nextcloud.crl'
 
 # whitelist for serializing markdown
 MARKDOWN_ALLOWED_TAGS = [
@@ -313,3 +311,5 @@ GITHUB_API_TOKEN = None
 # Nextcloud Email
 NEXTCLOUD_FROM_EMAIL = 'appstore@nextcloud.com'
 NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ['marketing-team@nextcloud.com']
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
