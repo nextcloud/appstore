@@ -1,15 +1,14 @@
-venv_bin=venv/bin/
-python=$(venv_bin)python
-pip=$(venv_bin)pip3
-pycodestyle=$(venv_bin)pycodestyle
-pyresttest=$(venv_bin)pyresttest
-coverage=$(venv_bin)coverage
-bandit=$(venv_bin)bandit
-mypy=$(venv_bin)mypy
+poetry=poetry
+poetry_run=$(poetry) run
+python=$(poetry_run) python
+pycodestyle=$(poetry_run) pycodestyle
+pyresttest=$(poetry_run) pyresttest
+coverage=$(poetry_run) coverage
+bandit=$(poetry_run) bandit
+mypy=$(poetry_run) mypy
 manage-script=$(CURDIR)/manage.py
-manage=$(python) $(manage-script)
+manage=$(poetry_run) $(manage-script)
 db=sqlite
-pyvenv=python3 -m venv
 yarn=yarn
 prod_version=12.0.0
 
@@ -42,10 +41,7 @@ dev-setup:
 	rm -f db.sqlite3
 	$(yarn) install
 	$(yarn) run build
-	$(pyvenv) venv
-	$(pip) install --upgrade pip
-	$(pip) install -r $(CURDIR)/requirements/development.txt
-	$(pip) install -r $(CURDIR)/requirements/base.txt
+	poetry install
 ifeq ($(db), postgres)
 	$(pip) install -r $(CURDIR)/requirements/production.txt
 endif
@@ -69,8 +65,7 @@ docs:
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	$(pip) install --upgrade -r $(CURDIR)/requirements/development.txt
-	$(pip) install --upgrade -r $(CURDIR)/requirements/base.txt
+	$(poetry) upgrade
 	$(yarn) install --upgrade
 
 .PHONY: authors
