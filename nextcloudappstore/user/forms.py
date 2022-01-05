@@ -5,13 +5,12 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import EmailField, CharField, PasswordInput
 from django.utils.translation import ugettext_lazy as _
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from captcha.fields import CaptchaField
 
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
-    recaptcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = CaptchaField()
     first_name = CharField(max_length=30, label=_('First name'))
     last_name = CharField(max_length=30, label=_('Last name'))
 
