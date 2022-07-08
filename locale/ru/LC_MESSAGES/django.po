@@ -24,15 +24,16 @@
 # Andrey Atapin <atab74@gmail.com>, 2020
 # Nikita Epifanov, 2021
 # Leon Backs, 2022
+# Алексей Хрусталёв, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 04:16+0000\n"
+"POT-Creation-Date: 2022-07-08 04:18+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Leon Backs, 2022\n"
+"Last-Translator: Алексей Хрусталёв, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/nextcloud/teams/64236/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1207,7 +1208,7 @@ msgstr "Организация"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, To-Do list and calendar apps"
-msgstr ""
+msgstr "Управление временем, списки дел и приложения для календаря"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1395,13 +1396,15 @@ msgstr "Адрес электронной почты"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud app store password changed"
-msgstr ""
+msgstr "Изменен пароль магазина приложений Nextcloud"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
+"Ваш пароль магазина приложений Nextcloud изменился. Обратитесь в службу "
+"поддержки, если пароль изменён не вами."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1420,6 +1423,10 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                 API-токен можно использовать для аутентификации при вызове магазина приложений Nextcloud\n"
+"                 <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                 Держите его в тайне. Новый токен можно сгенерировать ниже, это сделает старый токен недействительным."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
