@@ -222,7 +222,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
 LOG_LEVEL = 'WARNING'
-LOG_FILE = BASE_DIR / 'appstore.log'
+LOG_FILE = BASE_DIR / '..' / 'appstore.log'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
