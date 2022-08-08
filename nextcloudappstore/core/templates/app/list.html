@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
 {% load i18n %}
-{% load staticfiles %}
+{% load static %}
 
 {% block head-title %}{% if current_category %}{{ current_category.name }} - {% elif is_featured_category %}{% trans 'Featured apps' %} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}

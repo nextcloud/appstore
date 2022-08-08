@@ -1,4 +1,4 @@
-name: Python (yarn) tests
+name: Python (npm) tests
 
 on:
   pull_request:
@@ -11,11 +11,11 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: [3.5, 3.6, 3.7]
+        python-version: ['3.9', '3.10']
         db-type: [postgres, sqlite]
 
     services:
@@ -41,6 +41,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install poetry
+        run: pip install poetry==1.1.12
       - uses: browser-actions/setup-firefox@latest
         with:
           firefox-version: latest
@@ -49,14 +51,12 @@ jobs:
       - name: Set up node
         uses: dcodeIO/setup-node-nvm@master
         with:
-          node-version: 12
-      - name: Install yarn
-        run: npm -g install yarn
+          node-version: 16
       - name: Make dev-setup
         run: |
           make dev-setup db="${{ matrix.db-type }}" venv_bin=""
           make l10n venv_bin=""
-          yarn add tslint
+          npm install tslint
       - name: Linter
         run: ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
       - name: Tests

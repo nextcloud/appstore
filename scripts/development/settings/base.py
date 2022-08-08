@@ -14,7 +14,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 VALIDATE_CERTIFICATES = False
 
 FIXTURE_DIRS = (
-    join(BASE_DIR, 'nextcloudappstore/core/tests/e2e/fixtures'),
+    BASE_DIR / 'core/tests/e2e/fixtures',
 )
 
 LOGGING['handlers']['console'] = {
@@ -28,3 +28,19 @@ CSP_EXCLUDE_URL_PREFIXES = ('/api/v1',)
 
 REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_upload'] = '10000/day'
 REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['app_register'] = '10000/day'
+import sys
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3'}
+
+# For development, dump email to the console instead of trying to actually send it.
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Alternatively, run python3 -m smtpd -n -c DebuggingServer -d '0.0.0.0:2525' and set
+# EMAIL_PORT = 2525
+
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = "noreply@nextcloud.com"
+
+# Disable testing in tests
+TESTING = bool(len(sys.argv) > 1 and sys.argv[1] == 'test')
+CAPTCHA_TEST_MODE = TESTING

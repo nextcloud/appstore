@@ -50,10 +50,8 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         err_msg = 'Signature is invalid'
         try:
-            result = verify(cert, b64decode(signature.encode()), data,
-                            self.config.digest)
-            if result is not None:
-                raise InvalidSignatureException(err_msg)
+            verify(cert, b64decode(signature.encode()), data,
+                   self.config.digest)
         except Exception as e:
             raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
 
@@ -85,9 +83,7 @@ class CertificateValidator:
         err_msg = 'Certificate is invalid'
 
         try:
-            result = ctx.verify_certificate()
-            if result is not None:
-                raise InvalidCertificateException(err_msg)
+            ctx.verify_certificate()
         except Exception as e:
             raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
 
