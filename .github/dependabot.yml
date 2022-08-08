@@ -4,37 +4,7 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-    day: saturday
+    day: monday
     time: "03:00"
     timezone: Europe/Paris
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: django
-    versions:
-    - ">= 3.0.a, < 3.1"
-  - dependency-name: django
-    versions:
-    - 3.1.5
-    - 3.1.6
-    - 3.1.7
-    - "3.2"
-  - dependency-name: lxml
-    versions:
-    - 4.6.2
-  - dependency-name: bleach
-    versions:
-    - 3.2.2
-    - 3.2.3
-    - 3.3.0
-  - dependency-name: djangorestframework
-    versions:
-    - 3.11.2
-  - dependency-name: newrelic
-    versions:
-    - 6.0.1.155
-  - dependency-name: pytz
-    versions:
-    - "2020.5"
-  - dependency-name: markdown
-    versions:
-    - 3.3.3
