@@ -24,9 +24,9 @@ class UpdatePasswordTest(BaseStoreTest):
         pass2.submit()
 
         # TODO FIXME false positive test
-        #self.assertTrue(self.by_css('.alert-success').is_displayed())
+        # self.assertTrue(self.by_css('.alert-success').is_displayed())
 
-        #self.login(TEST_USER, 'thisisatest')
+        # self.login(TEST_USER, 'thisisatest')
 
-        #self.assertTrue(
-        #    self.findNavigationLink('account_logout').is_displayed())
+        # self.assertTrue(
+        #     self.findNavigationLink('account_logout').is_displayed())
