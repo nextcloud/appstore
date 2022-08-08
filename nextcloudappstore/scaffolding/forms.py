@@ -43,7 +43,7 @@ class AppScaffoldingForm(Form):
     platform = ChoiceField(choices=lazy(get_versions, list), required=True,
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
-    author_email = EmailField(label=_('Author\'s email'))
+    author_email = EmailField(label=_('Author\'s email'), required=True)
     author_homepage = URLField(label=_('Author\'s homepage'), required=False)
     issue_tracker = URLField(label=_('Issue tracker URL'), required=True,
                              help_text=_('Bug reports and feature requests'))
