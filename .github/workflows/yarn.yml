@@ -51,7 +51,7 @@ jobs:
       - name: Set up node
         uses: dcodeIO/setup-node-nvm@master
         with:
-          node-version: 12
+          node-version: 16
       - name: Make dev-setup
         run: |
           make dev-setup db="${{ matrix.db-type }}" venv_bin=""
