@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n staticfiles %}
+{% load i18n static %}
 
 {% block head-title %}{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% elif integration_page == 'account-integration-moderate' %}{% trans 'Moderate integration' %}{% else %}{% trans 'Edit integration' %}{% endif %} - {% endblock %}
 

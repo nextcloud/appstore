@@ -9,7 +9,7 @@ mypy=$(poetry_run) mypy
 manage-script=$(CURDIR)/manage.py
 manage=$(poetry_run) $(manage-script)
 db=sqlite
-yarn=yarn
+npm=npm
 prod_version=12.0.0
 
 .PHONY: lint
@@ -21,7 +21,7 @@ lint:
 
 .PHONY: test
 test: lint
-	$(yarn) test
+	$(npm) test
 	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development -v 2
 	$(coverage) report --fail-under 90
 
@@ -39,8 +39,8 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	rm -f db.sqlite3
-	$(yarn) install
-	$(yarn) run build
+	$(npm) install
+	$(npm) run build
 	$(poetry) install
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
 	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
@@ -63,7 +63,7 @@ docs:
 .PHONY: update-dev-deps
 update-dev-deps:
 	$(poetry) upgrade
-	$(yarn) install --upgrade
+	$(npm) install --upgrade
 
 .PHONY: authors
 authors:
