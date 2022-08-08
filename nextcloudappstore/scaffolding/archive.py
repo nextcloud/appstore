@@ -24,7 +24,8 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_homepage': args['author_homepage'],
         'issue_tracker': args['issue_tracker'],
         'categories': args['categories'],
-        'nextcloud_version': platform
+        'nextcloud_version': platform,
+        'license': 'AGPL-3.0-or-later',
     }
     vars.update(settings.APP_SCAFFOLDING_PROFILES.get(platform, {}))
     relative_base = 'app-templates/%i/app/' % platform
