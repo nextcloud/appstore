@@ -41,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'captcha',
+    'tailwind',
+    'nextcloudappstore.theme',
+    'django_browser_reload',  
 ]
+
+TAILWIND_APP_NAME = 'nextcloudappstore.theme'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
 ROOT_URLCONF = 'nextcloudappstore.urls'
@@ -202,10 +208,10 @@ CORS_EXPOSE_HEADERS = (
 )
 CSP_DEFAULT_SRC = ('\'none\'',)
 CSP_IMG_SRC = ('*',)
-CSP_FONT_SRC = ('\'self\'',)
-CSP_SCRIPT_SRC = ('\'self\'',)
+CSP_FONT_SRC = ('\'self\'', 'data:')
+CSP_SCRIPT_SRC = ('\'self\'', 'unpkg.com', '\'unsafe-inline\'')
 CSP_CONNECT_SRC = ('\'self\'',)
-CSP_STYLE_SRC = ('\'self\'',)
+CSP_STYLE_SRC = ('\'self\'', 'unpkg.com')
 CSP_FORM_ACTION = ('\'self\'',)
 
 CSP_SIGNUP = {

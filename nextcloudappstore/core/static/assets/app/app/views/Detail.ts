@@ -25,10 +25,13 @@ ready.then(() => {
 
     // load app description
     const descriptionTarget = queryOrThrow('.app-description', HTMLElement);
+    const summaryTarget = queryOrThrow('.app-summary', HTMLElement);
     fetchDescription(descriptionUrl)
         .then((description) => {
             descriptionTarget.innerHTML = description;
             descriptionTarget.classList.remove('loading');
+            summaryTarget.innerHTML = description.split(/\n/)[0];
+            summaryTarget.classList.remove('loading');
         });
 
     // load user ratings list

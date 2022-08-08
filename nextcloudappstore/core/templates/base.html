@@ -1,4 +1,5 @@
 {% load static %}
+{% load tailwind_tags %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE }}">
@@ -12,47 +13,42 @@
     <link rel="apple-touch-icon" href="{% static 'assets/img/favicon-180.png' %}">
     <title>{% block head-title %}{% endblock %}App Store - Nextcloud</title>
     <link rel="stylesheet" href="{% static 'assets/css/fonts.css' %}" charset="utf-8">
-    <link rel="stylesheet"
-          href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}" charset="utf-8">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" charset="utf-8">
-    <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}" charset="utf-8">
     {% block feeds %}
         <link rel="alternate" type="application/atom+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-atom' %}" />
         <link rel="alternate" type="application/rss+xml" title="{% trans 'Latest app releases' %}" href="{% url 'feeds-releases-rss' %}" />
     {% endblock %}
     <script type="text/javascript" src="{% static 'vendor/bootstrap.native.min.js' %}" async></script>
     {% block head %}{% endblock %}
+    {% tailwind_css %}
 </head>
 
 <body>
-<div id="container">
-    {% block navbar %}{% include 'nav.html' %}{% endblock %}
-    <div class="container" id="body">
-        <div class="messages">
-            {% for message in messages %}
-                <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
-                    {{ message }}
-                </div>
-            {% endfor %}
-            {% block messages %}{% endblock %}
+  {% block navbar %}{% include 'nav.html' %}{% endblock %}
+  <div class="w-full" id="body">
+      <div class="messages">
+          {% for message in messages %}
+              <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                  {{ message }}
+              </div>
+          {% endfor %}
+          {% block messages %}{% endblock %}
+      </div>
+      {% block content %}{% endblock %}
+  </div>
+  <footer class="bg-white mt-10">
+    <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+      <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+        <div class="px-5 py-2">
+          <a class="text-base text-gray-500 hover:text-gray-900" href="https://github.com/nextcloud/appstore" rel="noreferrer noopener">{% trans 'Fork me on GitHub' %}</a>
         </div>
-        {% block content %}{% endblock %}
+        <div class="px-5 py-2">
+          <a class="text-base text-gray-500 hover:text-gray-900" href="https://nextcloud.com/privacy/" rel="noreferrer noopener">{% trans 'Privacy and legal' %}</a>
+        </div>
+        <div class="px-5 py-2">
+          <a class="text-base text-gray-500 hover:text-gray-900" href="https://nextcloud.com/impressum/" rel="noreferrer noopener">{% trans 'Legal Notice' %}</a>
+        </div>
+      </nav>
     </div>
-    <footer class="navbar-default" id="footer">
-        <div class="container">
-            <ul class="nav navbar-nav navbar-left">
-                <li class="nav-link">
-                    <a href="https://github.com/nextcloud/appstore" rel="noreferrer noopener">{% trans 'Fork me on GitHub' %}</a>
-                </li>
-                <li class="nav-link">
-                    <a href="https://nextcloud.com/privacy/" rel="noreferrer noopener">{% trans 'Privacy and legal' %}</a>
-                </li>
-                <li class="nav-link">
-                    <a href="https://nextcloud.com/impressum/" rel="noreferrer noopener">{% trans 'Legal Notice' %}</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-</div>
+  </footer>
 </body>
 </html>
