@@ -63,13 +63,12 @@
 
 #body .nav-pills .active a {
     background-color: var(--bg-color);
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     color: var(--link-active-color);
 }
 
 #body .nav-pills a:hover {
     text-decoration: none;
-    border-radius: var(--border-radius);
 }
 
 #body .nav-tabs a {
@@ -93,11 +92,28 @@
 }
 
 .btn-primary {
-    background-color: var(--bg-color);
+    background-color: var(--color-primary);
 }
 
+.btn-danger {
+    background-color: var(--color-error);
+}
+
+.btn-danger:hover, .btn-danger:focus {
+    background-color: var(--color-error-hover);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--color-primary-hover);
+}
+.btn-primary:focus {
+    box-shadow: 0 0 0 2px var(--color-main-text);
+}
+
+.btn-default,
+.btn-danger,
 .btn-primary {
-    position: relative;
+    border-radius: var(--border-radius);
     width: fit-content;
     overflow: hidden;
     border: 0;
@@ -113,18 +129,6 @@
     border-radius: 22px;
     transition: background-color 0.1s linear !important;
     padding: 4px 16px;
-}
-
-.btn-primary:hover, .btn-primary:focus {
-    background-color: var(--color-primary-hover);
-}
-.btn-primary:focus {
-    box-shadow: 0 0 0 2px var(--color-main-text);
-}
-
-.btn-default,
-.btn-danger {
-    border-radius: var(--border-radius);
 }
 
 .form-control {
@@ -147,7 +151,7 @@ pre, code {
     padding: 10px 15px;
 }
 
-input[type="text"], input[type="mail"], input[type="url"], textarea.form-control {
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea.form-control, select.form-control {
     margin: 0;
     padding: 0 12px;
     padding-right: 12px;
@@ -163,6 +167,6 @@ input[type="text"], input[type="mail"], input[type="url"], textarea.form-control
     -moz-appearance: textfield !important;
 }
 
-input[type="text"], input[type="mail"], input[type="url"] {
+input[type="text"], input[type="email"], input[type="url"], input[type="password"] {
     height: 36px !important;
 }

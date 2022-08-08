@@ -1,4 +1,4 @@
-import time
+emport time
 from django.core.management import call_command
 from django.test import TestCase
 from io import StringIO
