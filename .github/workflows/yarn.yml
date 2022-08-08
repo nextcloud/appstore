@@ -1,4 +1,4 @@
-name: Python (yarn) tests
+name: Python (npm) tests
 
 on:
   pull_request:
@@ -52,13 +52,11 @@ jobs:
         uses: dcodeIO/setup-node-nvm@master
         with:
           node-version: 12
-      - name: Install yarn
-        run: npm -g install yarn
       - name: Make dev-setup
         run: |
           make dev-setup db="${{ matrix.db-type }}" venv_bin=""
           make l10n venv_bin=""
-          yarn add tslint
+          npm install tslint
       - name: Linter
         run: ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
       - name: Tests
