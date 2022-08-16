@@ -42,7 +42,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
             rel_file_path = '%s/%s' % (
                 vars['id'], relpath(file_path, base)
             )
-            with open(file_path) as f:
+            with open(file_path, encoding='utf-8') as f:
                 t = Template(f.read())
                 result[rel_file_path] = t.render(context)
 
