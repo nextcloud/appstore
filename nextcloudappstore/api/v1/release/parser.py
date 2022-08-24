@@ -170,7 +170,7 @@ def test_blacklisted_members(tar, blacklist):
         try:
             if tar.getmember(n).isdir():
                 names.append(n)
-        except:
+        except KeyError:
             pass
 
     for name in names:
