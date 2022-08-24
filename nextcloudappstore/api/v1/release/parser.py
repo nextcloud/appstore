@@ -165,7 +165,15 @@ def test_blacklisted_members(tar, blacklist):
     :raises: BlacklistedMemberException
     :return:
     """
-    for name in (n for n in tar.getnames() if tar.getmember(n).isdir()):
+    names = []
+    for n in tar.getnames():
+        try:
+            if tar.getmember(n).isdir():
+                names.append(n)
+        except:
+            pass
+
+    for name in names:
         for error, regex in blacklist.items():
             regex = re.compile(regex)
             if regex.search(name):
