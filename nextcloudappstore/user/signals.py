@@ -34,7 +34,11 @@ def password_changed_signal(sender, instance, **kwargs):
 
     try:
         user = get_user_model().objects.get(pk=instance.pk)
-        if user.password != instance.password:
+        if (user.password != instance.password
+                and instance._password is not None):
+            # make sure we only send an email when user changed their
+            # password and _password is set and not when password hash
+            # was changed due to a new default hashing algorithm
             update_token(user.username)
             send_mail(
                     mail_subect,

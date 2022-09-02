@@ -1,6 +1,7 @@
 from allauth.account.models import EmailAddress
 from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
+from django.db import transaction
 
 
 def create_user(username: str, password: str, email: str, verify: bool = True):
@@ -28,11 +29,13 @@ def verify_email(username, email):
 
 def update_token(username: str, token: str = None) -> Token:
     user = get_user_model().objects.get(username=username)
-    Token.objects.filter(user=user).delete()
-    if token:
-        return Token.objects.create(key=token, user=user)
-    else:
-        return Token.objects.create(user=user)
+    with transaction.atomic():
+        # Wrap deletion and creation in a transaction
+        Token.objects.filter(user=user).delete()
+        if token:
+            return Token.objects.create(key=token, user=user)
+        else:
+            return Token.objects.create(user=user)
 
 
 def delete_user(username):
