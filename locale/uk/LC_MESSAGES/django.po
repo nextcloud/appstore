@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-09 04:35+0000\n"
+"POT-Creation-Date: 2022-09-10 04:40+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Vitaliy <gviabcua@gmail.com>, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/nextcloud/teams/64236/uk/)\n"
@@ -97,10 +97,16 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
+"Зазвичай зберігається в ~/.nextcloud/certificates/APP_ID.crt, де APP_ID – це"
+" ідентифікатор вашої програми. Якщо у вас немає сертифіката, вам потрібно "
+"спочатку створити запит на підпис сертифіката (CSR), який слід опублікувати "
+"в <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">сховищі сертифікатів</a> (дотримуйтеся README). "
+"Ви можете створити CSR, виконавши таку команду:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr ""
+msgstr "Підпис над ідентифікатором програми"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -229,11 +235,11 @@ msgstr "Загальна оцінка"
 
 #: nextcloudappstore/core/models.py:96
 msgid "Number of recently submitted ratings"
-msgstr ""
+msgstr "Кількість нещодавно поданих оцінок"
 
 #: nextcloudappstore/core/models.py:98
 msgid "Number of overall submitted ratings"
-msgstr ""
+msgstr "Кількість поданих загальних оцінок"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Last release at"
@@ -253,6 +259,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
+"Якщо ввімкнено, користувач може спробувати зареєструвати ту саму програму "
+"знову, використовуючи загальнодоступний сертифікат і підпис. Якщо він це "
+"зробить, додаток буде передано йому."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -260,7 +269,7 @@ msgstr "Інтеграція (напр., плаґін Outlook)"
 
 #: nextcloudappstore/core/models.py:110
 msgid "Used to approve integrations"
-msgstr ""
+msgstr "Використовується для схвалення інтеграцій"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
 #: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
@@ -362,7 +371,7 @@ msgstr "Мінімальна кількість цілих бітів"
 
 #: nextcloudappstore/core/models.py:370
 msgid "e.g. 32 for 32-bit Integers"
-msgstr ""
+msgstr "напр. 32 для 32-розрядних цілих чисел"
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
@@ -383,7 +392,7 @@ msgstr "Зміни"
 
 #: nextcloudappstore/core/models.py:383
 msgid "The release changelog. Can contain Markdown"
-msgstr ""
+msgstr "Журнал змін випуску. Може містити Markdown"
 
 #: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
 #: nextcloudappstore/core/models.py:563
@@ -438,6 +447,8 @@ msgstr "ID"
 #: nextcloudappstore/core/models.py:468
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
+"Ідентифікатор категорії, який використовується для визначення категорії, до "
+"якої завантажено програму"
 
 #: nextcloudappstore/core/models.py:476
 msgid "Category name which will be presented to the user"
@@ -519,11 +530,11 @@ msgstr "Залежності розширення PHP"
 
 #: nextcloudappstore/core/models.py:601
 msgid "App release deletion"
-msgstr ""
+msgstr "Видалення випуску програми"
 
 #: nextcloudappstore/core/models.py:602
 msgid "App release deletions"
-msgstr ""
+msgstr "Видалення випуску програми"
 
 #: nextcloudappstore/core/models.py:615
 #: nextcloudappstore/scaffolding/forms.py:44
@@ -532,7 +543,7 @@ msgstr "Версія Nextcloud"
 
 #: nextcloudappstore/core/models.py:616
 msgid "e.g. 9.0.54"
-msgstr ""
+msgstr "напр. 9.0.54"
 
 #: nextcloudappstore/core/models.py:617
 msgid "Is current version"
@@ -543,6 +554,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
+"Лише одна версія може бути поточною. Це поле використовується для "
+"попереднього вибору спадних меню для створення програми тощо."
 
 #: nextcloudappstore/core/models.py:623
 msgid "Has a release"
@@ -554,6 +567,9 @@ msgid ""
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
+"Якщо правда, це фактично випущена версія Nextcloud, яку можна завантажити як"
+" архів. Якщо значення false, випуск є попереднім випуском або більше не "
+"доступний для завантаження."
 
 #: nextcloudappstore/core/models.py:632
 msgid "Version is supported"
@@ -564,6 +580,8 @@ msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
+"Правда, якщо ця версія все ще офіційно підтримується (за винятком "
+"корпоративної підтримки)"
 
 #: nextcloudappstore/core/models.py:639
 msgid "Nextcloud release"
@@ -618,7 +636,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Підтвердьте адресу електронної пошти"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
