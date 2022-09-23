@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-22 04:41+0000\n"
+"POT-Creation-Date: 2022-09-23 04:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Vitaliy (viabcua) <gviabcua@gmail.com>, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/nextcloud/teams/64236/uk/)\n"
@@ -623,6 +623,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Вітання від %(site_name)s! \n"
+"\n"
+"Ви отримали цей електронний лист, оскільки користувач %(user_display)s пов’язав цю адресу електронної пошти зі своїм обліковим записом у %(site_domain)s. \n"
+"\n"
+"Щоб переконатися, що це правильно, перейдіть до%(activate_url)s\n"
+"\n"
+"Якщо у вас немає облікового запису в %(site_domain)s, просто проігноруйте це повідомлення.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -644,6 +651,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Підтвердьте, що <a href=\"mailto:%(email)s\">%(email)s</a> це електронна "
+"адреса користувача %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -655,6 +664,9 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Термін дії цього посилання для підтвердження електронною поштою минув або "
+"воно недійсне. <a href=\"%(email_url)s\">Надішліть новий запит на "
+"підтвердження електронною поштою</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -695,6 +707,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Забули свій пароль? Введіть свою електронну адресу нижче, і ми надішлемо вам"
+" електронний лист, який дозволить вам скинути її."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -738,11 +752,11 @@ msgstr "Створити запис"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr ""
+msgstr "Адміністратор Nextcloud App Store"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr ""
+msgstr "Адміністрування Nextcloud App Store"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -833,7 +847,7 @@ msgstr "Оцінити застосунок"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "Інтеграція рейтингів"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -862,27 +876,27 @@ msgstr "Коментарі відсутні."
 
 #: nextcloudappstore/core/templates/app/detail.html:216
 msgid "Rating comments"
-msgstr ""
+msgstr "Рейтингові коментарі"
 
 #: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Display ratings comments in:"
-msgstr ""
+msgstr "Відображати коментарі оцінок у:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:70
 msgid "Register integration"
-msgstr ""
+msgstr "Реєстраційна інтеграція"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr ""
+msgstr "Можерувати інтеграцію"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr ""
+msgstr "Редагувати інтеграцію"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -937,6 +951,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Щоб дізнатися більше про те, як отримати сертифікат і створити підпис, "
+"перегляньте <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">посібник розробника програми</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -971,7 +989,7 @@ msgstr "Деталі збірки"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
-msgstr ""
+msgstr "Підписовий дайджест"
 
 #: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Dependencies"
@@ -1012,6 +1030,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
+"Щоб дізнатися більше про те, як створити підпис, перегляньте <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">посібник розробника програми</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1022,6 +1043,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
+"Магазин додатків Nextcloud - завантажуйте свої програми та встановлюйте нові"
+" програми на свій Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1038,7 +1061,7 @@ msgstr "Форк мене на GitHub"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Privacy and legal"
-msgstr ""
+msgstr "Конфіденційність і право"
 
 #: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
@@ -1052,7 +1075,7 @@ msgstr "обов'язкове поле"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr ""
+msgstr "Пошук в %(category)s"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
@@ -1081,7 +1104,7 @@ msgstr "Документація"
 
 #: nextcloudappstore/core/templates/nav.html:66
 msgid "Integration developer"
-msgstr ""
+msgstr "Розробник інтеграції"
 
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Admin"
@@ -1122,7 +1145,7 @@ msgstr "Майстерня"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
-msgstr ""
+msgstr "Програми, включаючи віджети Nextcloud Dashboard"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1178,7 +1201,7 @@ msgstr "Організація роботи"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, To-Do list and calendar apps"
-msgstr ""
+msgstr "Програми для керування часом, списку справ і календаря"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1193,6 +1216,8 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
+"Програми, які надають додаткові механізми безпеки, такі як автентифікація, "
+"авторизація, шифрування тощо."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
@@ -1241,7 +1266,7 @@ msgstr "Дуже добре"
 
 #: nextcloudappstore/core/validators.py:6
 msgid "Enter a valid HTTPS URL"
-msgstr ""
+msgstr "Введіть дійсну URL-адресу HTTPS"
 
 #: nextcloudappstore/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
@@ -1258,7 +1283,7 @@ msgstr "ПІБ автора"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Електронна адреса автора"
 
 #: nextcloudappstore/scaffolding/forms.py:47
 #: nextcloudappstore/scaffolding/forms.py:64
@@ -1268,12 +1293,12 @@ msgstr "Домашня сторінка автора"
 #: nextcloudappstore/scaffolding/forms.py:49
 #: nextcloudappstore/scaffolding/forms.py:66
 msgid "Bug reports and feature requests"
-msgstr ""
+msgstr "Звіти про помилки та запити щодо функцій"
 
 #: nextcloudappstore/scaffolding/forms.py:52
 #: nextcloudappstore/scaffolding/forms.py:70
 msgid "Hold down Ctrl and click to select multiple entries"
-msgstr ""
+msgstr "Утримуйте Ctrl і клацніть, щоб вибрати кілька записів"
 
 #: nextcloudappstore/scaffolding/forms.py:55
 #: nextcloudappstore/scaffolding/forms.py:73
@@ -1288,29 +1313,31 @@ msgstr "Повний опис того, що робить ваш додаток.
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "Назва інтеграції"
 
 #: nextcloudappstore/scaffolding/forms.py:74
 msgid "Screenshot URL"
-msgstr ""
+msgstr "URL-адреса знімка екрана"
 
 #: nextcloudappstore/scaffolding/forms.py:76
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "URL-адреса для знімка екрана інтеграції"
 
 #: nextcloudappstore/scaffolding/forms.py:77
 msgid "Screenshot thumbnail URL"
-msgstr ""
+msgstr "URL-адреса мініатюри знімка екрана"
 
 #: nextcloudappstore/scaffolding/forms.py:80
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"URL-адреса для знімка екрана інтеграції в менших розмірах. Потрібно "
+"використовувати разом із більшим знімком екрана."
 
 #: nextcloudappstore/scaffolding/forms.py:86
 msgid "Full description of what your integration does. Can contain Markdown."
-msgstr ""
+msgstr "Повний опис того, що робить ваша інтеграція. Може містити Markdown."
 
 #: nextcloudappstore/user/forms.py:14
 msgid "First name"
@@ -1326,7 +1353,7 @@ msgstr "Ваша адреса електронної пошти"
 
 #: nextcloudappstore/user/forms.py:36
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Вказана електронна адреса не збігається з вашою електронною адресою"
 
 #: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
@@ -1338,10 +1365,12 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
+"Пароль потрібен, щоб неавторизовані користувачі не могли змінити вашу адресу"
+" електронної пошти та скинути пароль. Це поле не оновлює ваш пароль!"
 
 #: nextcloudappstore/user/forms.py:56
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Ця електронна адреса вже пов’язана з іншим обліковим записом."
 
 #: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
@@ -1353,13 +1382,15 @@ msgstr "Адреса ел.пошти"
 
 #: nextcloudappstore/user/signals.py:31
 msgid "Nextcloud app store password changed"
-msgstr ""
+msgstr "Пароль магазину програм Nextcloud змінено"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
+"Ваш пароль магазину програм Nextcloud змінено. Зверніться до служби "
+"підтримки, якщо це були не ви."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1378,6 +1409,10 @@ msgid ""
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"Маркер API можна використовувати для автентифікації під час виклику \n"
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a> магазину програм Nextcloud. \n"
+"Зберігайте це в секреті. Нижче можна створити новий маркер, що зробить старий маркер недійсним."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1394,11 +1429,11 @@ msgstr "Відновити маркер API"
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
-msgstr ""
+msgstr "Інтеграції"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
-msgstr ""
+msgstr "Передати право власності на додаток"
 
 #: nextcloudappstore/user/templates/user/base.html:21
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1428,11 +1463,11 @@ msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
-msgstr ""
+msgstr "Передати право власності на додаток"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
-msgstr ""
+msgstr "Очікує підтвердження"
 
 #: nextcloudappstore/user/templates/user/integrations.html:14
 #: nextcloudappstore/user/templates/user/integrations.html:37
@@ -1445,7 +1480,7 @@ msgstr "Перегляд"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr ""
+msgstr "Ваші інтеграції"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1454,11 +1489,11 @@ msgstr "Редагувати"
 #: nextcloudappstore/user/templates/user/integrations.html:52
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
-msgstr ""
+msgstr "Ви ще не надіслали жодної інтеграції або вони очікують на схвалення!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr ""
+msgstr "Зміна пароля також призведе до відновлення маркера API!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
@@ -1480,31 +1515,34 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
+"Щоб передати програму новому власнику, її потрібно спочатку розблокувати. "
+"Після цього користувач може отримати контроль над програмою, зареєструвавши "
+"її знову на сторінці реєстрації програми в меню розробника програми."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
-msgstr ""
+msgstr "Статус переходу права власності"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr ""
+msgstr "Змінити статус передачі права власності"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
-msgstr ""
+msgstr "Розблоковано для передачі"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:26
 msgid "Locked, no transfer possible"
-msgstr ""
+msgstr "Заблоковано, передача неможлива"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr ""
+msgstr "Блокування передачі права власності"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr ""
+msgstr "Розблокувати передачу права власності"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr ""
+msgstr "Ви ще не завантажили жодної програми!"
