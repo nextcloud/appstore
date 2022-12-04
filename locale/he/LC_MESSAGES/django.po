@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Topaz Barziv <mail@topazbarziv.com>, 2020
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2021
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-30 03:38+0000\n"
+"POT-Creation-Date: 2022-12-04 03:32+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2021\n"
 "Language-Team: Hebrew (https://www.transifex.com/nextcloud/teams/64236/he/)\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
+"1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
@@ -79,10 +80,10 @@ msgstr "אישור ציבורי"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
@@ -113,13 +114,13 @@ msgstr "מזהה"
 msgid "app ID, identical to folder name"
 msgstr "מזהה יישומון, זהה לשם התיקייה"
 
-#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "קטגוריה"
 
-#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:477
-#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:480
+#: nextcloudappstore/core/models.py:499 nextcloudappstore/core/models.py:516
 msgid "Name"
 msgstr "שם"
 
@@ -137,13 +138,13 @@ msgstr "תקציר"
 msgid "Short text describing the app's purpose"
 msgstr "טקסט קצר שמתאר את תכלית היישומון"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
 #: nextcloudappstore/scaffolding/forms.py:85
 msgid "Description"
 msgstr "תיאור"
 
-#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:482
 msgid "Will be rendered as Markdown"
 msgstr "יעובד בתור Markdown"
 
@@ -175,12 +176,12 @@ msgid "Forum"
 msgstr "פורום"
 
 #: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:374
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Created at"
 msgstr "נוצר ב־"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:473
+#: nextcloudappstore/core/models.py:476
 msgid "Updated at"
 msgstr "עודכן ב‏־"
 
@@ -249,7 +250,7 @@ msgid "Used to approve integrations"
 msgstr "משמש לאישור שילובים"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:432
 msgid "App"
 msgstr "יישומון"
 
@@ -309,15 +310,15 @@ msgstr "גרסה"
 msgid "Version follows Semantic Versioning"
 msgstr "הגרסה עוקבת אחר מעקב גרסאות סמנטי"
 
-#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:578
 msgid "PHP extension dependency"
 msgstr "תלות הרחבות PHP"
 
-#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:542
 msgid "Database dependency"
 msgstr "תלות מסדי נתונים"
 
-#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:505
 msgid "License"
 msgstr "רישיון"
 
@@ -371,8 +372,8 @@ msgstr "יומן שינויים"
 msgid "The release changelog. Can contain Markdown"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:563
+#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:566
 msgid "App release"
 msgstr "מהדורת יישומון"
 
@@ -380,182 +381,182 @@ msgstr "מהדורת יישומון"
 msgid "App releases"
 msgstr "מהדורות יישומון"
 
-#: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/models.py:429
 msgid "Image URL"
 msgstr "כתובת תמונה"
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:431
 msgid "Small thumbnail"
 msgstr "תמונה ממוזערת"
 
-#: nextcloudappstore/core/models.py:431
+#: nextcloudappstore/core/models.py:434
 msgid "Ordering"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:434
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "צילום מסך"
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
-#: nextcloudappstore/core/models.py:451 nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:454 nextcloudappstore/core/models.py:459
 msgid "Shell command"
 msgstr "פקודת מעטפת"
 
-#: nextcloudappstore/core/models.py:453
+#: nextcloudappstore/core/models.py:456
 msgid "Name of a required shell command, e.g. grep"
 msgstr "שם של פקודת מעטפת נדרשת, למשל grep"
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "פקודות מעטפת"
 
-#: nextcloudappstore/core/models.py:466 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:469 nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:514
 msgid "Id"
 msgstr "מזהה"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:471
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:479
 msgid "Category name which will be presented to the user"
 msgstr "שם הקטגוריה שיוצג למשתמש"
 
-#: nextcloudappstore/core/models.py:484
+#: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
 #: nextcloudappstore/scaffolding/forms.py:68
 msgid "Categories"
 msgstr "קטגוריות"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Key which is used to identify a license"
 msgstr "מפתח שמשמש לזיהוי רישיון"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:501
 msgid "License name which will be presented to the user"
 msgstr "שם רישיון שיוצג למשתמש"
 
-#: nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:506
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "רישיונות"
 
-#: nextcloudappstore/core/models.py:512
+#: nextcloudappstore/core/models.py:515
 msgid "Key which is used to identify a database"
 msgstr "מפתח שישמש לזיהוי מסד נתונים"
 
-#: nextcloudappstore/core/models.py:515
+#: nextcloudappstore/core/models.py:518
 msgid "Database name which will be presented to the user"
 msgstr "שם מסד נתונים שיוצג למשתמש"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:534
 msgid "Database"
 msgstr "מסד נתונים"
 
-#: nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:522
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "מסדי נתונים"
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement"
 msgstr "דרישת גרסת מסד נתונים"
 
-#: nextcloudappstore/core/models.py:536
+#: nextcloudappstore/core/models.py:539
 msgid "Database version requirement (raw)"
 msgstr "דרישת גרסת מסד נתונים (גולמי)"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:543
 msgid "Database dependencies"
 msgstr "תלויות מסד נתונים"
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:552
 msgid "e.g. libxml"
 msgstr "למשל: libxml"
 
-#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:553 nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:569
 msgid "PHP extension"
 msgstr "הרחבת PHP"
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "הרחבות PHP"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement"
 msgstr "דרישת גרסת הרחבה"
 
-#: nextcloudappstore/core/models.py:572
+#: nextcloudappstore/core/models.py:575
 msgid "Extension version requirement (raw)"
 msgstr "דרישת גרסת הרחבה (גולמי)"
 
-#: nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:579
 msgid "PHP extension dependencies"
 msgstr "תלויות הרחבת PHP"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:604
 msgid "App release deletion"
 msgstr "מחיקת מהדורת יישומון"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:605
 msgid "App release deletions"
 msgstr "מחיקות של מהדורות יישומון"
 
-#: nextcloudappstore/core/models.py:615
+#: nextcloudappstore/core/models.py:618
 #: nextcloudappstore/scaffolding/forms.py:44
 msgid "Nextcloud version"
 msgstr "גרסת Nextcloud"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:619
 msgid "e.g. 9.0.54"
 msgstr "למשל: 9.0.54"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:620
 msgid "Is current version"
 msgstr "הגרסה הנוכחית"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:621
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
 
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:626
 msgid "Has a release"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:628
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:635
 msgid "Version is supported"
 msgstr "הגרסה נתמכת"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:636
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
 msgstr "מהדורת Nextcloud"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:643
 msgid "Nextcloud releases"
 msgstr "מהדורות Nextcloud"
 
@@ -585,11 +586,13 @@ msgstr "העמוד המבוקש לא קיים!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
@@ -620,8 +623,8 @@ msgstr "אימות"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/login.html:5
@@ -687,8 +690,8 @@ msgstr "החלפת ססמה"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
@@ -804,9 +807,13 @@ msgstr "דירוג"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:179
@@ -894,15 +901,15 @@ msgstr "רישום יישומון"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 
@@ -966,9 +973,9 @@ msgstr "מהדורת יישומון הועלתה בהצלחה"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/upload.html:25
@@ -1073,7 +1080,8 @@ msgstr "יציאה"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1340,9 +1348,12 @@ msgstr "אסימון API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1429,8 +1440,8 @@ msgstr "החלפת הססמה שלך תגרום ליצירת אסימון ה־AP
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "נראה כי החשבון שלך רשום דרך ספק צד־שלישי. לכן, <strong>לא</strong> ניתן "
 "לשנות את הססמה שלך בעמוד הזה."
