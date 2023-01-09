@@ -304,6 +304,9 @@ DISCOURSE_PARENT_CATEGORY_ID = 26
 # templates; first key is the Nextcloud version for which the app is generated
 APP_SCAFFOLDING_PROFILES = {}
 
+# Path to log app scaffording requests to a csv format
+APP_SCAFFOLDING_LOG = None
+
 # GitHub api configuration
 GITHUB_API_BASE_URL = 'https://api.github.com'
 GITHUB_API_TOKEN = None
