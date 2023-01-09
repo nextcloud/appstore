@@ -24,7 +24,7 @@ def get_categories():
 
 def get_versions():
     tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
-    return sorted(((v, v) for v in tpls))
+    return sorted(((v, v) for v in tpls), reverse=True)
 
 
 def validate_id(input: str) -> None:
