@@ -420,9 +420,9 @@ class AppRelease(TranslatableModel):
     @property
     def is_unstable(self):
         return (self.is_nightly or '-dev' in self.version
-          or '-a' in self.version or '-alpha' in self.version
-          or '-b' in self.version or '-beta' in self.version
-          or '-rc' in self.version or '-RC' in self.version)
+                or '-a' in self.version or '-alpha' in self.version
+                or '-b' in self.version or '-beta' in self.version
+                or '-rc' in self.version or '-RC' in self.version)
 
 
 class Screenshot(Model):
