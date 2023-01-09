@@ -48,8 +48,9 @@ jobs:
           firefox-version: latest
       - name: Set up Geckodriver
         uses: browser-actions/setup-geckodriver@latest
-      - name: Set up node
-        uses: dcodeIO/setup-node-nvm@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Make dev-setup
