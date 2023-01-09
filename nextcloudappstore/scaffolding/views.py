@@ -11,6 +11,7 @@ from nextcloudappstore.scaffolding.forms import AppScaffoldingForm, \
 from django.conf import settings
 
 import csv
+from datetime import datetime
 
 
 class AppScaffoldingView(FormView):
@@ -31,8 +32,9 @@ class AppScaffoldingView(FormView):
     def form_valid(self, form):
         if settings.APP_SCAFFOLDING_LOG:
             with open(settings.APP_SCAFFOLDING_LOG, 'a') as csvfile:
+                entries = form.cleaned_data.values()
                 logwriter = csv.writer(csvfile, delimiter='|')
-                logwriter.writerow(form.cleaned_data.values())
+                logwriter.writerow([datetime.now(), *entries])
         buffer = build_archive(form.cleaned_data)
         response = HttpResponse(content_type='application/tar+gzip')
         response['Content-Disposition'] = 'attachment; filename="app.tar.gz"'
