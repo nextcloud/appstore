@@ -10,7 +10,7 @@
         <form id="app-generate-form" method="post" action="{% url 'app-scaffold' %}">
             {% csrf_token %}
             {% include 'form-fields.html' %}
-            <p>{% trans 'The entries of this form will be saved to analyse the success of our developer programme.' %}</p>
+            <p>{% trans 'The entries of this form will be saved to analyse the success of our developer program.' %}</p>
             <button id="submit" class="btn btn-primary btn-block">{% trans 'Generate and download' %}</button>
         </form>
     </div>
