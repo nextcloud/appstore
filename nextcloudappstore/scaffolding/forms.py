@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
-    TextInput
+    TextInput, BooleanField
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField,\
@@ -56,6 +56,11 @@ class AppScaffoldingForm(Form):
     description = CharField(widget=Textarea, label=_('Description'),
                             help_text=_('Full description of what your app '
                                         'does. Can contain Markdown.'))
+    opt_in = BooleanField(
+        label=_('I opt in for the collection of my personal data. '
+                'We could then reach out to you to check in with you about '
+                'your plans or to ask for feedback on our developer program.'),
+        required=False)
 
 
 class IntegrationScaffoldingForm(Form):
