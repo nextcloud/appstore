@@ -176,7 +176,7 @@ class AppReleaseView(DestroyAPIView):
     def post(self, request):
         serializer = AppReleaseDownloadSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        with(transaction.atomic()):
+        with (transaction.atomic()):
             url = serializer.validated_data['download']
             signature = serializer.validated_data['signature']
             is_nightly = serializer.validated_data['nightly']
