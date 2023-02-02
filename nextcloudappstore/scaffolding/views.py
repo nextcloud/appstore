@@ -32,7 +32,8 @@ class AppScaffoldingView(FormView):
     def form_valid(self, form):
         if settings.APP_SCAFFOLDING_LOG:
             with open(settings.APP_SCAFFOLDING_LOG, 'a') as csvfile:
-                entries = form.cleaned_data.values()
+                data = form.cleaned_data
+                entries = data.values() if ['opt_in'] else [data['name']]
                 logwriter = csv.writer(csvfile, delimiter='|')
                 logwriter.writerow([datetime.now(), *entries])
         buffer = build_archive(form.cleaned_data)
