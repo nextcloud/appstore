@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-02 03:48+0000\n"
+"POT-Creation-Date: 2023-02-03 03:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: YANO Tetsu <tetuyano+transi@gmail.com>, 2022\n"
 "Language-Team: Japanese (Japan) (https://www.transifex.com/nextcloud/"
@@ -155,7 +155,7 @@ msgstr "ユーザーのためのレンダリングされたアプリ名"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:54
-#: nextcloudappstore/scaffolding/forms.py:72
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Summary"
 msgstr "要約"
 
@@ -165,7 +165,7 @@ msgstr "アプリの目的を説明する短い文章"
 
 #: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Description"
 msgstr "説明"
 
@@ -187,7 +187,7 @@ msgstr "開発者用ドキュメントURL"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:48
-#: nextcloudappstore/scaffolding/forms.py:65
+#: nextcloudappstore/scaffolding/forms.py:70
 msgid "Issue tracker URL"
 msgstr "課題管理 URL"
 
@@ -461,7 +461,7 @@ msgstr "ユーザーに提示されるカテゴリ名"
 
 #: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
-#: nextcloudappstore/scaffolding/forms.py:68
+#: nextcloudappstore/scaffolding/forms.py:73
 msgid "Categories"
 msgstr "カテゴリ"
 
@@ -1022,12 +1022,6 @@ msgid "Generate app"
 msgstr "アプリの作成"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
-msgid ""
-"The entries of this form will be saved to analyse the success of our "
-"developer program."
-msgstr ""
-
-#: nextcloudappstore/core/templates/app/scaffold.html:14
 msgid "Generate and download"
 msgstr "生成してダウンロードする"
 
@@ -1319,22 +1313,22 @@ msgid "Author's email"
 msgstr "作者のメールアドレス"
 
 #: nextcloudappstore/scaffolding/forms.py:47
-#: nextcloudappstore/scaffolding/forms.py:64
+#: nextcloudappstore/scaffolding/forms.py:69
 msgid "Author's homepage"
 msgstr "作者のホームページ"
 
 #: nextcloudappstore/scaffolding/forms.py:49
-#: nextcloudappstore/scaffolding/forms.py:66
+#: nextcloudappstore/scaffolding/forms.py:71
 msgid "Bug reports and feature requests"
 msgstr "バグレポート、機能追加リクエスト"
 
 #: nextcloudappstore/scaffolding/forms.py:52
-#: nextcloudappstore/scaffolding/forms.py:70
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "複数選択する場合はCTRLを押しながらクリックしてください"
 
 #: nextcloudappstore/scaffolding/forms.py:55
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "短い広告としてレンダリングされるアプリの簡単な説明"
 
@@ -1344,25 +1338,32 @@ msgstr ""
 "あなたのアプリが何をするかについてのすべての説明( Markdownを含むことができま"
 "す。)"
 
-#: nextcloudappstore/scaffolding/forms.py:62
+#: nextcloudappstore/scaffolding/forms.py:60
+msgid ""
+"I opt in for the collection of my personal data. We could then reach out to "
+"you to check in with you about your plans or to ask for feedback on our "
+"developer program."
+msgstr ""
+
+#: nextcloudappstore/scaffolding/forms.py:67
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "インテグレーションの名前"
 
-#: nextcloudappstore/scaffolding/forms.py:74
+#: nextcloudappstore/scaffolding/forms.py:79
 msgid "Screenshot URL"
 msgstr "スクリーンショットのＵＲＬ"
 
-#: nextcloudappstore/scaffolding/forms.py:76
+#: nextcloudappstore/scaffolding/forms.py:81
 msgid "URL for integration screenshot"
 msgstr "インテグレーションのスクリーンショットのＵＲＬ"
 
-#: nextcloudappstore/scaffolding/forms.py:77
+#: nextcloudappstore/scaffolding/forms.py:82
 msgid "Screenshot thumbnail URL"
 msgstr "スクリーンショットのサムネールのＵＲＬ"
 
-#: nextcloudappstore/scaffolding/forms.py:80
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1370,7 +1371,7 @@ msgstr ""
 "インテグレーションの小さいサイズのスクリーンショットのＵＲＬ。大きいサイズの"
 "スクリーンショットと組み合わせて使われなければならない。"
 
-#: nextcloudappstore/scaffolding/forms.py:86
+#: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "あなたのインテグレーションが何をするかについてのすべての説明。 Markdownを含む"
