@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Pràctiques bTactic <practiques@btactic.com>, 2017
 # 37b6b9617b927a9c446866c606cf7d1c_63ca782, 2018
@@ -16,21 +16,20 @@
 # Marc Riera <marcriera@softcatala.org>, 2022
 # Leandro Navarro <leandro@pangea.org>, 2022
 # omar.maciasmolina <omar.maciasmolina@gmail.com>, 2023
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 11:56+0000\n"
+"POT-Creation-Date: 2023-04-06 04:49+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: omar.maciasmolina <omar.maciasmolina@gmail.com>, 2023\n"
-"Language-Team: Catalan (https://app.transifex.com/nextcloud/teams/64236/"
-"ca/)\n"
-"Language: ca\n"
+"Language-Team: Catalan (https://app.transifex.com/nextcloud/teams/64236/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:15
@@ -39,7 +38,8 @@ msgstr "Noves versions de l'aplicació"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Obteniu les actualitzacions més recents de les versions de l'aplicació"
+msgstr ""
+"Obteniu les actualitzacions més recents de les versions de l'aplicació"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -90,14 +90,14 @@ msgstr "Certificat públic"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 "Normalment s'emmagatzema en ~/.nextcloud/certificates/APP_ID.crt on APP_ID "
-"és l'identificador de la vostra aplicació. Si no teniu un certificat, primer "
-"heu de crear una sol·licitud de signatura de certificat (CSR), que s'haurà "
+"és l'identificador de la vostra aplicació. Si no teniu un certificat, primer"
+" heu de crear una sol·licitud de signatura de certificat (CSR), que s'haurà "
 "de publicar al <a href=\"https://github.com/nextcloud/app-certificate-"
 "requests\" rel=\"noreferrer noopener\">repositori del certificat </a> "
 "(llegiu el README). Podeu generar la CSR tot executant la següent ordre:"
@@ -257,9 +257,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Si està habilitat, un usuari pot intentar registrar la mateixa app una altra "
-"vegada utilitzant el certificat públic i signatura. Si ho fa, l'aplicació es "
-"transferirà cap a ell."
+"Si està habilitat, un usuari pot intentar registrar la mateixa app una altra"
+" vegada utilitzant el certificat públic i signatura. Si ho fa, l'aplicació "
+"es transferirà cap a ell."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -561,8 +561,8 @@ msgstr "Té una nova versió"
 
 #: nextcloudappstore/core/models.py:628
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Si és cert, aquesta és la versió més nova de Nextcloud que es pot "
@@ -578,8 +578,8 @@ msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
-"Cert si aquesta versió encara està oficialment suportada (excloent el suport "
-"empresarial)"
+"Cert si aquesta versió encara està oficialment suportada (excloent el suport"
+" empresarial)"
 
 #: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
@@ -615,23 +615,19 @@ msgstr "La pàgina que esteu buscant no existeix!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Salutacions des de %(site_name)s!\n"
 "\n"
-"Rebeu aquest correu electrònic perquè l'usuari %(user_display)s ha enllaçat "
-"aquesta adreça electrònica al seu compte a %(site_domain)s.\n"
+"Rebeu aquest correu electrònic perquè l'usuari %(user_display)s ha enllaçat aquesta adreça electrònica al seu compte a %(site_domain)s.\n"
 "\n"
 "Per confirmar que això és correcte, aneu a %(activate_url)s\n"
 "\n"
-"Si no teniu cap compte a %(site_domain)s, simplement ignoreu aquest "
-"missatge.\n"
+"Si no teniu cap compte a %(site_domain)s, simplement ignoreu aquest missatge.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -663,11 +659,11 @@ msgstr "Confirma"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Aquest enllaç de confirmació per correu electrònic ha caducat o no és vàlid. "
-"Envieu <a href=\"%(email_url)s\">una nova sol·licitud de confirmació per "
+"Aquest enllaç de confirmació per correu electrònic ha caducat o no és vàlid."
+" Envieu <a href=\"%(email_url)s\">una nova sol·licitud de confirmació per "
 "correu electrònic</a> ."
 
 #: nextcloudappstore/core/templates/account/login.html:5
@@ -738,12 +734,12 @@ msgstr "Canvia la contrasenya"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "L’enllaç per restablir la contrasenya no era vàlid, possiblement perquè ja "
-"s'ha utilitzat.  Si us plau, sol·liciteu un <a href=\"%(passwd_reset_url)s"
-"\">nou restabliment de contrasenya</a>."
+"s'ha utilitzat.  Si us plau, sol·liciteu un <a "
+"href=\"%(passwd_reset_url)s\">nou restabliment de contrasenya</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -858,21 +854,13 @@ msgstr "Puntua"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or "
-"request features. Neither developers nor users will be notified of your "
-"comment.\n"
-"                            A rating without a comment still counts, but "
-"will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
+"                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"Els comentaris sobre la puntuació té suport <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            No utilitzeu la valoració de comentaris per "
-"informar d'errors o sol·licitar característiques. Ni els desenvolupadors ni "
-"els usuaris no rebran notificació del vostre comentari.\n"
-"                            Una qualificació sense un comentari encara "
-"compte, però no es mostrarà a sota."
+"Els comentaris sobre la puntuació té suport <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            No utilitzeu la valoració de comentaris per informar d'errors o sol·licitar característiques. Ni els desenvolupadors ni els usuaris no rebran notificació del vostre comentari.\n"
+"                            Una qualificació sense un comentari encara compte, però no es mostrarà a sota."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -959,24 +947,24 @@ msgstr "Registra l'aplicació"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "Per a més informació sobre com obtenir el certificat i crear la signatura, "
-"comproveu la <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
-"developer.html\" rel=\"noopener norefferer\">Guia del desenvolupador d’Apps</"
-"a>."
+"comproveu la <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">Guia del desenvolupador d’Apps</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "També es pot utilitzar aquest formulari per actualitzar certificats "
-"existents, però només el propietari de l'aplicació està autoritzat a fer-ho. "
-"L’actualització d'un certificat d'aplicació suprimirà tots els vostres "
+"existents, però només el propietari de l'aplicació està autoritzat a fer-ho."
+" L’actualització d'un certificat d'aplicació suprimirà tots els vostres "
 "llançaments ja carregats!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
@@ -1039,13 +1027,13 @@ msgstr "Llançament de l'applicació pujada correctament."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Per més informació sobre com crear la signatura comproveu la <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">Guia pel desenvolupador d'apps</a>."
+"Per més informació sobre com crear la signatura comproveu la <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">Guia pel desenvolupador d'apps</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1151,13 +1139,10 @@ msgstr "Tanca la sessió"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Esteu a punt de fer servir el vostre compte %(provider_name)s per inici de "
-"sessió a\n"
-"            %(site_name)s. Com a pas final, si us plau completeu el següent "
-"formulari:"
+"Esteu a punt de fer servir el vostre compte %(provider_name)s per inici de sessió a\n"
+"            %(site_name)s. Com a pas final, si us plau completeu el següent formulari:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1182,7 +1167,8 @@ msgstr "Fitxers"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
 msgstr ""
-"Aplicacions de gestió d'extensió per gestió de fitxers i aplicació de Fitxers"
+"Aplicacions de gestió d'extensió per gestió de fitxers i aplicació de "
+"Fitxers"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
@@ -1338,7 +1324,8 @@ msgstr ""
 #: nextcloudappstore/scaffolding/forms.py:55
 #: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr "Breu descripció de la vostra Aplicació que es mostrarà com anunci curt"
+msgstr ""
+"Breu descripció de la vostra Aplicació que es mostrarà com anunci curt"
 
 #: nextcloudappstore/scaffolding/forms.py:57
 msgid "Full description of what your app does. Can contain Markdown."
@@ -1378,8 +1365,8 @@ msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
-"URL per a captura de pantalla d'integració en dimensions menors. S'ha d'usar "
-"en combinació amb una captura de pantalla més gran."
+"URL per a captura de pantalla d'integració en dimensions menors. S'ha d'usar"
+" en combinació amb una captura de pantalla més gran."
 
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
@@ -1414,8 +1401,8 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Cal una contrasenya per evitar que els usuaris no autoritzats puguin canviar "
-"la vostra adreça de correu electrònic i restablir la vostra contrasenya. "
+"Cal una contrasenya per evitar que els usuaris no autoritzats puguin canviar"
+" la vostra adreça de correu electrònic i restablir la vostra contrasenya. "
 "Aquest camp no modifica la vostra contrasenya!"
 
 #: nextcloudappstore/user/forms.py:56
@@ -1455,21 +1442,15 @@ msgstr "Codi de l'API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                La fitxa d'API es pot utilitzar per a l'autenticació en "
-"cridar el\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">API REST</a> del magatzem d’apps de Nextcloud.\n"
-"                Assegureu-vos de mantenir-la en secret. Una nova fitxa es "
-"pot generar a sota, invalidant la fitxa anterior.\n"
+"                La fitxa d'API es pot utilitzar per a l'autenticació en cridar el\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">API REST</a> del magatzem d’apps de Nextcloud.\n"
+"                Assegureu-vos de mantenir-la en secret. Una nova fitxa es pot generar a sota, invalidant la fitxa anterior.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1555,12 +1536,13 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr "Si canvieu la contrasenya també es tornarà a generar el codi de l'API!"
+msgstr ""
+"Si canvieu la contrasenya també es tornarà a generar el codi de l'API!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Sembla que esteu fent servir un compte registrat amb un proveïdor de "
 "tercers. Per tant, la contrasenya <strong>no</strong> es podrà canviar en "
