@@ -67,7 +67,7 @@ Next install the required libraries::
 
     pip install --upgrade wheel
     pip install --upgrade pip
-    pip install poetry==1.1.12
+    pip install poetry==1.4.2
 
 Setting Up Poetry
 -----------------
