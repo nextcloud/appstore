@@ -1,4 +1,4 @@
-FROM node:8 as node
+FROM node:20 as node
 
 WORKDIR /srv
 
