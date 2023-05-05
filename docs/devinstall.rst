@@ -39,7 +39,7 @@ Install poetry
 --------------
 Install poetry to handle python dependencies::
 
-    pip install poetry==1.1.12
+    pip install poetry==1.4.2
 
 App Store Setup
 ---------------
