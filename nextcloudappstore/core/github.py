@@ -18,7 +18,8 @@ class GitHubClient:
     def get_tags(self, page: int, size: int = 100):
         url = '%s/repos/nextcloud/server/tags' % self.base_url
         params = (('per_page', size), ('page', page))
-        response = requests.get(url, params=params, headers=self.headers)
+        response = requests.get(
+            url, params=params, headers=self.headers, timeout=21)
         response.raise_for_status()
         return response.json()
 

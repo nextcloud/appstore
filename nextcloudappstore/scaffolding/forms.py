@@ -110,7 +110,7 @@ class IntegrationScaffoldingForm(Form):
         # want to abort app registration just because the forum is down or
         # leak sensitive data like tokens or users
         try:
-            requests.post(url, data=data)
+            requests.post(url, data=data, timeout=30)
         except requests.HTTPError:
             pass
 
