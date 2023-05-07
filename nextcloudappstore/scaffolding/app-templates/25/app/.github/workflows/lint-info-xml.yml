@@ -1,3 +1,4 @@
+{% verbatim %}
 # This workflow is provided via the organization template repository
 #
 # https://github.com/nextcloud/.github
@@ -21,7 +22,7 @@ jobs:
     name: info.xml lint
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: Download schema
         run: wget https://raw.githubusercontent.com/nextcloud/appstore/master/nextcloudappstore/api/v1/release/info.xsd
@@ -31,3 +32,4 @@ jobs:
         with:
           xml-file: ./appinfo/info.xml
           xml-schema-file: ./info.xsd
+{% endverbatim %}
