@@ -12,7 +12,7 @@ RUN yarn install
 RUN yarn run build
 
 
-FROM python:3.6 as translations
+FROM python:3.11 as translations
 
 WORKDIR /srv
 
@@ -31,7 +31,7 @@ RUN echo "SECRET_KEY = 'secret'" >> nextcloudappstore/settings/base.py
 RUN python manage.py compilemessages --settings=nextcloudappstore.settings.base
 
 
-FROM python:3.6 as main
+FROM python:3.11 as main
 
 ARG platform
 ENV PYTHONUNBUFFERED=1
