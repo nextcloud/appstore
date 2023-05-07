@@ -475,15 +475,18 @@ django = "*"
 
 [[package]]
 name = "django-braces"
-version = "1.13.0"
+version = "1.15.0"
 description = "Reusable, generic mixins for Django"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "django-braces-1.13.0.tar.gz", hash = "sha256:ba68e98b817c6f01d71d10849f359979617b3fe4cefb7f289adefddced092ddc"},
-    {file = "django_braces-1.13.0-py2.py3-none-any.whl", hash = "sha256:a457d74ea29478123c0c4652272681b3cea0bf1232187fd9f9b6f1d97d32a890"},
+    {file = "django-braces-1.15.0.tar.gz", hash = "sha256:f451d08ffc1078d81209a2e17f2219bce20196928853c82405451b18a46875e0"},
+    {file = "django_braces-1.15.0-py2.py3-none-any.whl", hash = "sha256:28f00b0f98368c9a37f30cce6087fc57127f0a24c5b8b449f9e1245bded6405d"},
 ]
+
+[package.dependencies]
+Django = ">=2.2"
 
 [[package]]
 name = "django-compressor"
@@ -1898,4 +1901,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "1890a04ee24e5faa47fa813a7948fde811f4420441fc11abb31d39e0fc232a1c"
+content-hash = "d09dd388e91c8ebb15315c162b539437b3ced281df3963de9ea119f53b440873"
