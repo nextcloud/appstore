@@ -1,5 +1,6 @@
 import logging
 from base64 import b64decode
+from typing import Optional
 
 import pem
 from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
@@ -50,15 +51,13 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         err_msg = 'Signature is invalid'
         try:
-            result = verify(cert, b64decode(signature.encode()), data,
-                            self.config.digest)
-            if result is not None:
-                raise InvalidSignatureException(err_msg)
+            verify(cert, b64decode(signature.encode()), data,
+                   self.config.digest)
         except Exception as e:
             raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
 
     def validate_certificate(self, certificate: str, chain: str,
-                             crl: str = None) -> None:
+                             crl: Optional[str] = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired.
@@ -85,9 +84,7 @@ class CertificateValidator:
         err_msg = 'Certificate is invalid'
 
         try:
-            result = ctx.verify_certificate()
-            if result is not None:
-                raise InvalidCertificateException(err_msg)
+            ctx.verify_certificate()
         except Exception as e:
             raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
 

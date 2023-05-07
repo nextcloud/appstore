@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='apprelease',
             name='min_int_size',
-            field=models.IntegerField(blank=True, default=32, help_text='e.g. 32 for 32bit Integers', verbose_name='Minimum Integer bits'),
+            field=models.IntegerField(blank=True, default=32, help_text='e.g. 32 for 32-bit Integers', verbose_name='Minimum Integer bits'),
         ),
     ]

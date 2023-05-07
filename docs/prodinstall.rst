@@ -60,20 +60,6 @@ Afterwards change into your preferred target folder, clone the repository using 
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
 
-Afterwards set up a new virtual environment by running the following command::
-
-    python3 -m venv venv
-
-This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
-
-Then activate it::
-
-    source venv/bin/activate
-
-.. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
-
-.. note:: Keep in mind that you need to have the virtual environment activated for all the following commands
-
 Installing Required Libraries
 -----------------------------
 
@@ -81,8 +67,24 @@ Next install the required libraries::
 
     pip install --upgrade wheel
     pip install --upgrade pip
-    pip install -r requirements/base.txt
-    pip install -r requirements/production.txt
+    pip install poetry==1.4.2
+
+Setting Up Poetry
+-----------------
+
+Afterwards set up a new virtual environment with poetry by running the following command::
+
+    poetry install
+
+This will create a local virtual environment in the **.venv** folder. You only need to do this once in the beginning.
+
+Then activate it::
+
+    poetry shell
+
+.. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
+
+.. note:: Keep in mind that you need to have the virtual environment activated for all the following commands
 
 Adjusting Default Settings
 --------------------------
@@ -156,7 +158,7 @@ Then adjust the config in **/etc/apache2/sites-enabled/default.conf** and add th
 
     <VirtualHost *:80>
 
-    WSGIDaemonProcess apps python-home=/path/to/appstore/venv python-path=/path/to/appstore
+    WSGIDaemonProcess apps python-home=/path/to/appstore/.venv python-path=/path/to/appstore
     WSGIProcessGroup apps
     WSGIScriptAlias / /path/to/appstore/nextcloudappstore/wsgi.py
     WSGIPassAuthorization On
@@ -285,7 +287,7 @@ To automate syncing you might want to add the command as a cronjob and schedule 
 
 ::
 
-    venv/bin/python manage.py syncnextcloudreleases --oldest-supported="12.0.0"
+    poetry run ./manage.py syncnextcloudreleases --oldest-supported="12.0.0"
 
 Keeping Up To Date
 ------------------

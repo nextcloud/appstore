@@ -6,6 +6,7 @@ from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
+from django.urls import path
 from django.views.decorators.http import etag
 
 from nextcloudappstore.core.caching import app_rating_etag
@@ -53,6 +54,7 @@ urlpatterns = [
         include('nextcloudappstore.user.urls', namespace='user')),
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 urlpatterns += i18n_patterns(

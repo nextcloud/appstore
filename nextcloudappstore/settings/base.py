@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-from os.path import dirname, abspath, join, pardir, realpath
+import pathlib
 
 from django.conf.global_settings import LANGUAGES
 
-BASE_DIR = realpath(join(dirname(dirname(abspath(__file__))), pardir))
+BASE_DIR = pathlib.Path(__file__).absolute().parent.parent
+
+print(BASE_DIR)
 
 INSTALLED_APPS = [
     'nextcloudappstore.core.apps.CoreConfig',
@@ -26,7 +28,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'snowpenguin.django.recaptcha2',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'nextcloudappstore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,9 +79,9 @@ WSGI_APPLICATION = 'nextcloudappstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'db.sqlite3',
         'TEST': {
-            'NAME': join(BASE_DIR, 'test.sqlite3'),
+            'NAME': 'test.sqlite3',
         }
     }
 }
@@ -172,8 +174,8 @@ PARLER_LANGUAGES = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-MEDIA_ROOT = join(BASE_DIR, 'media')
-STATIC_ROOT = join(BASE_DIR, 'static')
+MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
@@ -204,7 +206,7 @@ CSP_FONT_SRC = ('\'self\'',)
 CSP_SCRIPT_SRC = ('\'self\'',)
 CSP_CONNECT_SRC = ('\'self\'',)
 CSP_STYLE_SRC = ('\'self\'',)
-CSP_FORM_ACTION = ('\'self\'',)
+CSP_FORM_ACTION = ('\'self\'', 'https://github.com',)
 
 CSP_SIGNUP = {
     'SCRIPT_SRC': ['https://google.com/recaptcha/',
@@ -220,7 +222,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'account_login'
 
 LOG_LEVEL = 'WARNING'
-LOG_FILE = join(BASE_DIR, 'appstore.log')
+LOG_FILE = BASE_DIR / '..' / 'appstore.log'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -240,7 +242,7 @@ LOGGING = {
     },
 }
 LOCALE_PATHS = (
-    join(BASE_DIR, 'locale/'),
+    BASE_DIR.parent / 'locale/',
 )
 
 # Disable in order for cooldown periods to work properly
@@ -270,10 +272,8 @@ ARCHIVE_FOLDER_BLACKLIST = {
 }
 
 # certificate location configuration
-NEXTCLOUD_CERTIFICATE_LOCATION = join(
-    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crt')
-NEXTCLOUD_CRL_LOCATION = join(
-    BASE_DIR, 'nextcloudappstore/certificate/nextcloud.crl')
+NEXTCLOUD_CERTIFICATE_LOCATION = BASE_DIR / 'certificate/nextcloud.crt'
+NEXTCLOUD_CRL_LOCATION = BASE_DIR / 'certificate/nextcloud.crl'
 
 # whitelist for serializing markdown
 MARKDOWN_ALLOWED_TAGS = [
@@ -304,6 +304,9 @@ DISCOURSE_PARENT_CATEGORY_ID = 26
 # templates; first key is the Nextcloud version for which the app is generated
 APP_SCAFFOLDING_PROFILES = {}
 
+# Path to log app scaffording requests to a csv format
+APP_SCAFFOLDING_LOG = None
+
 # GitHub api configuration
 GITHUB_API_BASE_URL = 'https://api.github.com'
 GITHUB_API_TOKEN = None
@@ -311,3 +314,5 @@ GITHUB_API_TOKEN = None
 # Nextcloud Email
 NEXTCLOUD_FROM_EMAIL = 'appstore@nextcloud.com'
 NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ['marketing-team@nextcloud.com']
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

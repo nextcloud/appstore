@@ -689,11 +689,11 @@ Changelogs have to follow the `Keep a CHANGELOG format <http://keepachangelog.co
     ### Security
     - Fixed XXE in xml upload
 
-.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**, the regex for nightlies is **^## [Unreleased]**
+.. note:: The regex for matching the line is **^## (\\d+\\.\\d+\\.\\d+)**, the regex for nightlies and pre-releases is **^## [Unreleased]**
 
 The version has to be equal to the version in your info.xml. If the parser can't find a changelog entry, it will be set to an empty string. Only the changelog for the current release will be imported.
 
-The changelog for nightlies will be taken from the **## [Unreleased]** block
+The changelog for nightlies and pre-releases will be taken from the **## [Unreleased]** block
 
 Changelogs can be translated as well. To add a changelog for a specific translation, use **CHANGELOG.code.md**, e.g.: **CHANGELOG.fr.md**
 

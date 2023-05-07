@@ -161,7 +161,7 @@ class AppRegisterView(APIView):
         # want to abort app registration just because the forum is down or
         # leak sensitive data like tokens or users
         try:
-            requests.post(url, data=data)
+            requests.post(url, data=data, timeout=30)
         except requests.HTTPError:
             pass
 
@@ -176,7 +176,7 @@ class AppReleaseView(DestroyAPIView):
     def post(self, request):
         serializer = AppReleaseDownloadSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        with(transaction.atomic()):
+        with (transaction.atomic()):
             url = serializer.validated_data['download']
             signature = serializer.validated_data['signature']
             is_nightly = serializer.validated_data['nightly']
@@ -239,7 +239,10 @@ class AppReleaseView(DestroyAPIView):
         return status, app
 
     def get_object(self):
-        is_nightly = self.kwargs['nightly'] is not None
+        if 'nightly' in self.kwargs:
+            is_nightly = self.kwargs['nightly'] is not None
+        else:
+            is_nightly = False
         release = AppRelease.objects.filter(version=self.kwargs['version'],
                                             app__id=self.kwargs['app'],
                                             is_nightly=is_nightly)

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% load i18n %}
 <div class="banner">
     <div class="container">
@@ -45,7 +45,16 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-link">
-                            <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
+                            <a href="https://docs.nextcloud.com/server/latest/developer_manual" rel="noopener noreferrer">{% trans 'Documentation' %}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">{% trans 'Upload your app' %}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://nextcloud.com/developer" rel="noopener noreferrer">{% trans 'Developer resources' %}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://docs.nextcloud.com/server/latest/developer_manual/basics/front-end/l10n.html" rel="noopener noreferrer">{% trans 'Request translations' %}</a>
                         </li>
                         <li class="nav-link">
                             <a href="{% url 'app-scaffold' %}">{% trans 'Generate app' %}</a>

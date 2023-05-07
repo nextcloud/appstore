@@ -11,17 +11,17 @@
 # vikriu <vormex@gmail.com>, 2019
 # Jokubas Dargis <jokubuidargiui@protonmail.com>, 2019
 # Vytautas Simanaitis <vyt.sima@gmail.com>, 2020
-# Moo, 2021
+# Moo, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-01 03:56+0000\n"
+"POT-Creation-Date: 2023-04-26 04:46+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Moo, 2021\n"
-"Language-Team: Lithuanian (Lithuania) (https://www.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
+"Last-Translator: Moo, 2022\n"
+"Language-Team: Lithuanian (Lithuania) (https://app.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,11 +30,11 @@ msgstr ""
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Newest app releases"
-msgstr "Naujausi programėlės laidos"
+msgstr "Naujausios programėlės laidos"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Gaukite naujausius programėlių laidų atnaujinimus "
+msgstr ""
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -51,6 +51,7 @@ msgid "Bad"
 msgstr "Blogai"
 
 #: nextcloudappstore/core/forms.py:11
+#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "Gerai"
 
@@ -119,13 +120,13 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "programėlės ID, identiškas aplanko pavadinimui"
 
-#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategorija"
 
-#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:477
-#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:480
+#: nextcloudappstore/core/models.py:499 nextcloudappstore/core/models.py:516
 msgid "Name"
 msgstr "Pavadinimas"
 
@@ -135,7 +136,7 @@ msgstr "Pateiktas programos pavadinimas naudotojams"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:54
-#: nextcloudappstore/scaffolding/forms.py:72
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Summary"
 msgstr "Santrauka"
 
@@ -143,13 +144,13 @@ msgstr "Santrauka"
 msgid "Short text describing the app's purpose"
 msgstr "Trumpas programėlės paskirties aprašas"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Description"
 msgstr "Aprašas"
 
-#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:482
 msgid "Will be rendered as Markdown"
 msgstr "Bus atvaizduojama kaip „Markdown“"
 
@@ -167,26 +168,26 @@ msgstr "Plėtotojo dokumentacijos URL"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:48
-#: nextcloudappstore/scaffolding/forms.py:65
+#: nextcloudappstore/scaffolding/forms.py:70
 msgid "Issue tracker URL"
 msgstr "Problemos sekimo URL"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:327
 #: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Homepage"
-msgstr "Pradžios tinklalapis"
+msgstr "Tinklalapis"
 
 #: nextcloudappstore/core/models.py:80
 msgid "Forum"
 msgstr "Forumas"
 
 #: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:374
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Created at"
 msgstr "Sukurta"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:473
+#: nextcloudappstore/core/models.py:476
 msgid "Updated at"
 msgstr "Atnaujinta"
 
@@ -207,7 +208,7 @@ msgstr "Programėlės autoriai"
 #: nextcloudappstore/core/templates/app/detail.html:22
 #: nextcloudappstore/core/templates/app/list.html:29
 msgid "Featured"
-msgstr ""
+msgstr "Siūlomos"
 
 #: nextcloudappstore/core/models.py:93
 #: nextcloudappstore/core/templates/app/detail.html:81
@@ -258,7 +259,7 @@ msgid "Used to approve integrations"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:432
 msgid "App"
 msgstr "Taikomoji programa"
 
@@ -302,7 +303,7 @@ msgstr "Taikomosios programos įvertinimai"
 msgid "Full name"
 msgstr "Vardas, pavardė"
 
-#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:72
 msgid "Email"
 msgstr "El. paštas"
 
@@ -318,15 +319,15 @@ msgstr "Versija"
 msgid "Version follows Semantic Versioning"
 msgstr "Versija laikosi semantinės versijų sistemos"
 
-#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:578
 msgid "PHP extension dependency"
 msgstr "PHP plėtinio priklausomybė"
 
-#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:542
 msgid "Database dependency"
 msgstr "Duomenų bazės priklausomybė"
 
-#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:505
 msgid "License"
 msgstr "Licencija"
 
@@ -356,7 +357,7 @@ msgid "Minimum Integer bits"
 msgstr "Minimalus bitų skaičius"
 
 #: nextcloudappstore/core/models.py:370
-msgid "e.g. 32 for 32bit Integers"
+msgid "e.g. 32 for 32-bit Integers"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:372
@@ -380,8 +381,8 @@ msgstr "Keitinių žurnalas"
 msgid "The release changelog. Can contain Markdown"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:563
+#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:566
 msgid "App release"
 msgstr "Taikomosios programos leidimas"
 
@@ -389,153 +390,153 @@ msgstr "Taikomosios programos leidimas"
 msgid "App releases"
 msgstr "Taikomosios programos leidimai"
 
-#: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/models.py:429
 msgid "Image URL"
 msgstr "Paveikslo URL"
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:431
 msgid "Small thumbnail"
 msgstr "Maža miniatiūra"
 
-#: nextcloudappstore/core/models.py:431
+#: nextcloudappstore/core/models.py:434
 msgid "Ordering"
 msgstr "Užsakymas"
 
-#: nextcloudappstore/core/models.py:434
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Ekrano kopija"
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 msgid "Screenshots"
 msgstr "Ekrano kopijos"
 
-#: nextcloudappstore/core/models.py:451 nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:454 nextcloudappstore/core/models.py:459
 msgid "Shell command"
 msgstr "Apvalkalo komanda"
 
-#: nextcloudappstore/core/models.py:453
+#: nextcloudappstore/core/models.py:456
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Apvalkalo (Shell) komandos pavadinimas, pvz. grep."
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Apvalkalo komandos"
 
-#: nextcloudappstore/core/models.py:466 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:469 nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:514
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:471
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "Kategorijos ID, naudojamas kategorijai, į kurią įkelta programėlė, "
 "nustatymas"
 
-#: nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:479
 msgid "Category name which will be presented to the user"
 msgstr "Kategorijos pavadinimas, kurį matys naudotojas"
 
-#: nextcloudappstore/core/models.py:484
+#: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
-#: nextcloudappstore/scaffolding/forms.py:68
+#: nextcloudappstore/scaffolding/forms.py:73
 msgid "Categories"
 msgstr "Kategorijos"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Key which is used to identify a license"
 msgstr "Raktas naudojamas licenzijos nustatymui"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:501
 msgid "License name which will be presented to the user"
 msgstr "Licencijos pavadinimas, kurį matys naudotojas"
 
-#: nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:506
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licencijos"
 
-#: nextcloudappstore/core/models.py:512
+#: nextcloudappstore/core/models.py:515
 msgid "Key which is used to identify a database"
 msgstr "Raktas naudojamas duomenų bazės nustatymui"
 
-#: nextcloudappstore/core/models.py:515
+#: nextcloudappstore/core/models.py:518
 msgid "Database name which will be presented to the user"
 msgstr "Duomenų bazės pavadinimas, kurį matys naudotojas"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:534
 msgid "Database"
 msgstr "Duomenų bazė"
 
-#: nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:522
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Duomenų bazės"
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement"
 msgstr "Duomenų bazės versijos reikalavimas"
 
-#: nextcloudappstore/core/models.py:536
+#: nextcloudappstore/core/models.py:539
 msgid "Database version requirement (raw)"
 msgstr "Duomenų bazės versijos reikalavimas (neapdorotas)"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:543
 msgid "Database dependencies"
 msgstr "Duomenų bazės priklausomybės"
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:552
 msgid "e.g. libxml"
-msgstr "pvz. libxml"
+msgstr "pvz., libxml"
 
-#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:553 nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:569
 msgid "PHP extension"
 msgstr "PHP plėtinys"
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP plėtiniai"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement"
 msgstr "Plėtinio versijos reikalavimai"
 
-#: nextcloudappstore/core/models.py:572
+#: nextcloudappstore/core/models.py:575
 msgid "Extension version requirement (raw)"
 msgstr "Plėtinio versijos reikalavimai (neapdoroti)"
 
-#: nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:579
 msgid "PHP extension dependencies"
 msgstr "PHP plėtinių priklausomybės"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:604
 msgid "App release deletion"
 msgstr "Taikomosios programos leidimo ištrynimas"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:605
 msgid "App release deletions"
 msgstr "Taikomosios programos leidimo ištrynimai"
 
-#: nextcloudappstore/core/models.py:615
+#: nextcloudappstore/core/models.py:618
 #: nextcloudappstore/scaffolding/forms.py:44
 msgid "Nextcloud version"
 msgstr "Nextcloud versija"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:619
 msgid "e.g. 9.0.54"
 msgstr "pvz., 9.0.54"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:620
 msgid "Is current version"
 msgstr "Dabartinė versija"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:621
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -543,32 +544,32 @@ msgstr ""
 "Tik viena versija gali būti dabartine. Šis laukas yra naudojamas norint iš "
 "anksto pasirinkti išskleidžiamuosius sąrašus programėlių kūrimui ir t.t."
 
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:626
 msgid "Has a release"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:628
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:635
 msgid "Version is supported"
 msgstr "Versija palaikoma"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:636
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
 msgstr "Nextcloud laida"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:643
 msgid "Nextcloud releases"
 msgstr "Nextcloud laidos"
 
@@ -591,7 +592,7 @@ msgstr "Puslapis nerastas"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
-msgstr "Puslapis, kurio ieškote - neegzistuoja!"
+msgstr "Puslapio, kurio ieškote, nėra!"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -642,12 +643,12 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:100
 msgid "Log in"
 msgstr "Prisijungti"
 
 #: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:25
+#: nextcloudappstore/core/templates/account/signup.html:24
 msgid "Log in with GitHub"
 msgstr "Prisijungti naudojant „GitHub“"
 
@@ -657,10 +658,10 @@ msgstr "Pamiršote slaptažodį?"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:35
+#: nextcloudappstore/core/templates/account/signup.html:34
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:94
+#: nextcloudappstore/core/templates/nav.html:103
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -711,7 +712,7 @@ msgstr ""
 msgid "Your password is now changed."
 msgstr "Dabar, jūsų slaptažodis yra pakeistas."
 
-#: nextcloudappstore/core/templates/account/signup.html:18
+#: nextcloudappstore/core/templates/account/signup.html:17
 msgid "Create account"
 msgstr "Sukurti paskyrą"
 
@@ -731,7 +732,7 @@ msgstr "Visos programėlės"
 #: nextcloudappstore/core/templates/app/base.html:14
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps"
-msgstr ""
+msgstr "Siūlomos programėlės"
 
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
@@ -833,10 +834,6 @@ msgstr "Atnaujinti įvertinimą"
 msgid "Submit rating"
 msgstr "Pateikti įvertinimus"
 
-#: nextcloudappstore/core/templates/app/detail.html:195
-msgid "Ok"
-msgstr "Gerai"
-
 #: nextcloudappstore/core/templates/app/detail.html:208
 msgid "No comments found."
 msgstr "Komentarų nerasta."
@@ -851,7 +848,7 @@ msgstr "Rodyti įvertinimų komentarus:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:70
+#: nextcloudappstore/core/templates/nav.html:79
 msgid "Register integration"
 msgstr ""
 
@@ -909,7 +906,7 @@ msgstr "Pagal užklausą „<em>%(query)s</em>“, nerasta jokių programėlių.
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/nav.html:64
 msgid "Register app"
 msgstr "Registruoti programėlę"
 
@@ -946,11 +943,11 @@ msgstr "Programėlė registruota."
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
 msgid "Releases"
-msgstr "Leidimas"
+msgstr "Laidos"
 
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
-msgstr "Taikomosios programos išsami informacija"
+msgstr "Išsamesnė informacija apie programėlę"
 
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
@@ -974,17 +971,17 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:51
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Generate app"
 msgstr "Generuoti programėlę"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Sugeneruoti ir atsisiųsti"
+msgstr "Generuoti ir atsisiųsti"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:58
+#: nextcloudappstore/core/templates/nav.html:67
 msgid "Upload app release"
 msgstr "Įkelti programos leidimą"
 
@@ -1042,15 +1039,15 @@ msgstr "privalomas laukas"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr ""
+msgstr "Ieškoti kategorijoje „%(category)s“"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
-msgstr ""
+msgstr "Ieškoti siūlomose programėlėse"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in all apps"
-msgstr ""
+msgstr "Ieškoti visose programėlėse"
 
 #: nextcloudappstore/core/templates/nav.html:23
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
@@ -1069,15 +1066,27 @@ msgstr "Programėlės plėtotojas"
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: nextcloudappstore/core/templates/nav.html:66
+#: nextcloudappstore/core/templates/nav.html:51
+msgid "Upload your app"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:54
+msgid "Developer resources"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:57
+msgid "Request translations"
+msgstr "Prašyti vertimų"
+
+#: nextcloudappstore/core/templates/nav.html:75
 msgid "Integration developer"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:88
 msgid "Admin"
 msgstr "Administratorius"
 
-#: nextcloudappstore/core/templates/nav.html:84
+#: nextcloudappstore/core/templates/nav.html:93
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
@@ -1085,7 +1094,7 @@ msgstr "Administratorius"
 msgid "Account"
 msgstr "Paskyra"
 
-#: nextcloudappstore/core/templates/nav.html:87
+#: nextcloudappstore/core/templates/nav.html:96
 msgid "Log out"
 msgstr "Atsijungti"
 
@@ -1169,8 +1178,8 @@ msgid "Organization"
 msgstr "Organizavimas"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
-msgid "Time management, Todo list and calendar apps"
-msgstr "Laiko planavimo, darbų sąrašo ir kalendoriaus programos"
+msgid "Time management, To-Do list and calendar apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1253,85 +1262,91 @@ msgstr "Autoriaus vardas ir pavardė"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Autoriaus el. paštas"
 
 #: nextcloudappstore/scaffolding/forms.py:47
-#: nextcloudappstore/scaffolding/forms.py:64
+#: nextcloudappstore/scaffolding/forms.py:69
 msgid "Author's homepage"
 msgstr "Autoriaus pradžios tinklalapis"
 
 #: nextcloudappstore/scaffolding/forms.py:49
-#: nextcloudappstore/scaffolding/forms.py:66
+#: nextcloudappstore/scaffolding/forms.py:71
 msgid "Bug reports and feature requests"
-msgstr "Pranešimai apie klaidas ir papildomų funkcijų prašymai"
+msgstr "Pranešimai apie klaidas ir prašymai pridėti papildomas funkcijas"
 
 #: nextcloudappstore/scaffolding/forms.py:52
-#: nextcloudappstore/scaffolding/forms.py:70
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr ""
 "Laikykite nuspaudę Vald klavišą ir spustelėkite, norėdami pasirinkti kelis "
 "įrašus"
 
 #: nextcloudappstore/scaffolding/forms.py:55
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
-"Trumpas taikomosios programos apibūdinimas, kuris bus pateikiamas kaip "
-"trumpas anonsas"
+"Trumpas programėlės aprašas, kuris bus pateikiamas kaip trumpas anonsas"
 
 #: nextcloudappstore/scaffolding/forms.py:57
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr "Programos aprašymas. Gali būti Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:62
+#: nextcloudappstore/scaffolding/forms.py:60
+msgid ""
+"I opt in for the collection of my personal data. We could then reach out to "
+"you to check in with you about your plans or to ask for feedback on our "
+"developer program."
+msgstr ""
+
+#: nextcloudappstore/scaffolding/forms.py:67
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr ""
 
-#: nextcloudappstore/scaffolding/forms.py:74
+#: nextcloudappstore/scaffolding/forms.py:79
 msgid "Screenshot URL"
 msgstr "Ekrano kopijos URL"
 
-#: nextcloudappstore/scaffolding/forms.py:76
+#: nextcloudappstore/scaffolding/forms.py:81
 msgid "URL for integration screenshot"
 msgstr ""
 
-#: nextcloudappstore/scaffolding/forms.py:77
+#: nextcloudappstore/scaffolding/forms.py:82
 msgid "Screenshot thumbnail URL"
 msgstr "Ekrano kopijos miniatiūros URL"
 
-#: nextcloudappstore/scaffolding/forms.py:80
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
 
-#: nextcloudappstore/scaffolding/forms.py:86
+#: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Vardas"
 
-#: nextcloudappstore/user/forms.py:16
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Pavardė"
 
-#: nextcloudappstore/user/forms.py:25
+#: nextcloudappstore/user/forms.py:24
 msgid "Your email address"
 msgstr "Jūsų el. pašto adresas"
 
-#: nextcloudappstore/user/forms.py:37
+#: nextcloudappstore/user/forms.py:36
 msgid "The given email address does not match your email address"
-msgstr ""
+msgstr "Nurodytas el. pašto adresas neatitinka jūsų el. pašto adreso"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Patvirtinkite slaptažodį"
 
-#: nextcloudappstore/user/forms.py:42
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1341,26 +1356,26 @@ msgstr ""
 "kėsinimusi pakeisti jūsų el. pašto adresą ir atstatyti jūsų slaptažodį. Šis "
 "laukelis esamo slaptažodžio nepakeičia!"
 
-#: nextcloudappstore/user/forms.py:57
+#: nextcloudappstore/user/forms.py:56
 msgid "This email address is already associated with another account."
-msgstr ""
+msgstr "Šis el. pašto adresas jau yra susietas su kita paskyra."
 
-#: nextcloudappstore/user/forms.py:67
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Neteisingas slaptažodis"
 
-#: nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/user/forms.py:77
 msgid "Email address"
 msgstr "El. pašto adresas"
 
 #: nextcloudappstore/user/signals.py:31
-msgid "Nextcloud App Store password changed"
+msgid "Nextcloud app store password changed"
 msgstr ""
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
-"Your Nextcloud App Store password has changed. Contact support if this "
-"wasn't you."
+"Your Nextcloud app store password has changed. Contact support if this was "
+"not you."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
@@ -1375,7 +1390,7 @@ msgstr "API prieigos raktas"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the App Store\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
@@ -1396,7 +1411,7 @@ msgstr "Iš naujo generuoti API prieigos raktą"
 #: nextcloudappstore/user/templates/user/base.html:15
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
-msgstr ""
+msgstr "Integracijos"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
@@ -1429,7 +1444,7 @@ msgstr "Ištrinti paskyrą"
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
-"click the \"Delete account\" button:"
+"click the \"Delete account\" button."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
@@ -1512,4 +1527,4 @@ msgstr "Atrakinti nuosavybės perdavimą"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "Kol kas nesate įkėlę jokių programų!"
+msgstr "Kol kas nesate įkėlę jokių programėlių!"

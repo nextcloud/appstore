@@ -12,8 +12,7 @@ def escape_tpl_string(string):
 
 
 class Command(BaseCommand):
-    translation_file = ('nextcloudappstore/core/templates/translation/'
-                        'db_translations.txt')
+    translation_file = ('core/templates/translation/' 'db_translations.txt')
     help = (
         'Goes through all translated database models (hardcoded) and creates '
         'translations in %s' % translation_file)

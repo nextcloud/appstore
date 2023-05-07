@@ -7,23 +7,25 @@
 # Pràctiques bTactic <practiques@btactic.com>, 2017
 # 37b6b9617b927a9c446866c606cf7d1c_63ca782, 2018
 # Javi RG <xrodriguezgallego@gmail.com>, 2018
-# Marc Riera <marcriera@softcatala.org>, 2020
 # Lluís Forns Puigmartí, 2020
 # Davidmp <medipas@gmail.com>, 2020
 # Carles Ferrando Garcia <carles.ferrando@gnuescultura.eu>, 2020
 # Rafael Carreras <rcarreras@fsfe.org>, 2020
-# Leandro Navarro <leandro@pangea.org>, 2020
 # Jordi Sanfeliu <jordi@fibranet.cat>, 2020
+# Kintu, 2022
+# Marc Riera <marcriera@softcatala.org>, 2022
+# Leandro Navarro <leandro@pangea.org>, 2022
+# omar.maciasmolina <omar.maciasmolina@gmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-01 03:56+0000\n"
+"POT-Creation-Date: 2023-04-26 04:46+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Jordi Sanfeliu <jordi@fibranet.cat>, 2020\n"
-"Language-Team: Catalan (https://www.transifex.com/nextcloud/teams/64236/ca/)\n"
+"Last-Translator: omar.maciasmolina <omar.maciasmolina@gmail.com>, 2023\n"
+"Language-Team: Catalan (https://app.transifex.com/nextcloud/teams/64236/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,6 +56,7 @@ msgid "Bad"
 msgstr "Dolent"
 
 #: nextcloudappstore/core/forms.py:11
+#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "D'acord"
 
@@ -64,7 +67,7 @@ msgstr "Correcte"
 
 #: nextcloudappstore/core/forms.py:26
 msgid "Download link (tar.gz)"
-msgstr "Descarrega enllaç (tar.gz)"
+msgstr "Baixada enllaç (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:29 nextcloudappstore/core/models.py:377
 #: nextcloudappstore/core/templates/app/releases.html:40
@@ -101,12 +104,12 @@ msgstr ""
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
-msgstr "Signatura sobre l'identificador de la vostra aplicació"
+msgstr "Signatura sobre l'ID de la vostra aplicació"
 
 #: nextcloudappstore/core/forms.py:70
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "Language"
-msgstr "Idioma"
+msgstr "Llengua"
 
 #: nextcloudappstore/core/forms.py:73
 msgid ""
@@ -126,25 +129,25 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "App ID, idèntic al nom de la carpeta"
+msgstr "ID d'aplicació, idèntic al nom de la carpeta"
 
-#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Categoria"
 
-#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:477
-#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:480
+#: nextcloudappstore/core/models.py:499 nextcloudappstore/core/models.py:516
 msgid "Name"
 msgstr "Nom"
 
 #: nextcloudappstore/core/models.py:63
 msgid "Rendered app name for users"
-msgstr "Nom d'app mostrada per a usuaris"
+msgstr "Nom d'aplicació mostrada per a usuaris"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:54
-#: nextcloudappstore/scaffolding/forms.py:72
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Summary"
 msgstr "Resum"
 
@@ -152,13 +155,13 @@ msgstr "Resum"
 msgid "Short text describing the app's purpose"
 msgstr "Text breu per descriure l'aplicació proposada"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Description"
 msgstr "Descripció"
 
-#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:482
 msgid "Will be rendered as Markdown"
 msgstr "Es mostrarà com a Markdown"
 
@@ -176,9 +179,9 @@ msgstr "URL de documentació del desenvolupador"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:48
-#: nextcloudappstore/scaffolding/forms.py:65
+#: nextcloudappstore/scaffolding/forms.py:70
 msgid "Issue tracker URL"
-msgstr "URL de seguiment problema"
+msgstr "URL de gestor d'errors"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:327
 #: nextcloudappstore/core/templates/app/detail.html:101
@@ -190,12 +193,12 @@ msgid "Forum"
 msgstr "Fòrum"
 
 #: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:374
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Created at"
 msgstr "Creat a"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:473
+#: nextcloudappstore/core/models.py:476
 msgid "Updated at"
 msgstr "Pujat a"
 
@@ -254,9 +257,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Si està activat, un usuari pot intentar registrar la mateixa app una altra "
-"vegada utilitzant el certificat públic i signatura. Si ho fa, l'app es "
-"transferirà cap a ell."
+"Si està habilitat, un usuari pot intentar registrar la mateixa app una altra"
+" vegada utilitzant el certificat públic i signatura. Si ho fa, l'aplicació "
+"es transferirà cap a ell."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -267,7 +270,7 @@ msgid "Used to approve integrations"
 msgstr "S'usa per aprovar integracions"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:432
 msgid "App"
 msgstr "Aplicació"
 
@@ -311,9 +314,9 @@ msgstr "Puntuacions de l'aplicació"
 msgid "Full name"
 msgstr "Nom complet"
 
-#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:72
 msgid "Email"
-msgstr ""
+msgstr "Correu"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -327,15 +330,15 @@ msgstr "Versió"
 msgid "Version follows Semantic Versioning"
 msgstr "La versió segueix el Versionat Semàntic"
 
-#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:578
 msgid "PHP extension dependency"
 msgstr "Extensió depenent de PHP"
 
-#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:542
 msgid "Database dependency"
 msgstr "Dependència de la base de dades"
 
-#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:505
 msgid "License"
 msgstr "Llicència"
 
@@ -353,7 +356,7 @@ msgstr "Versió requerida de la plataforma"
 
 #: nextcloudappstore/core/models.py:365
 msgid "PHP version requirement (raw)"
-msgstr "versió requerida de PHP (en brut)"
+msgstr "Versió requerida de PHP (en brut)"
 
 #: nextcloudappstore/core/models.py:367
 msgid "Platform version requirement (raw)"
@@ -365,12 +368,12 @@ msgid "Minimum Integer bits"
 msgstr "Mínim de bits integrats"
 
 #: nextcloudappstore/core/models.py:370
-msgid "e.g. 32 for 32bit Integers"
-msgstr "e.g. 32 de 32bit integrats"
+msgid "e.g. 32 for 32-bit Integers"
+msgstr "per exemple. 32 per a enters de 32 bits"
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
-msgstr "URL per descarregar l'arxiu"
+msgstr "URL per baixada de l'arxiu"
 
 #: nextcloudappstore/core/models.py:378
 msgid "A signature using the app's certificate"
@@ -389,188 +392,188 @@ msgstr "Registre de canvis"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Registre de canvis del llançament. Pot contenir Markdown"
 
-#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:563
+#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:566
 msgid "App release"
-msgstr "Llançament de la App"
+msgstr "Llançament de l'Aplicació"
 
 #: nextcloudappstore/core/models.py:389
 msgid "App releases"
-msgstr "Llançaments de l’App"
+msgstr "Llançaments de l’Aplicació"
 
-#: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/models.py:429
 msgid "Image URL"
 msgstr "URL de la imatge"
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:431
 msgid "Small thumbnail"
 msgstr "Petita miniatura"
 
-#: nextcloudappstore/core/models.py:431
+#: nextcloudappstore/core/models.py:434
 msgid "Ordering"
 msgstr "Ordre"
 
-#: nextcloudappstore/core/models.py:434
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Captura de pantalla"
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
-#: nextcloudappstore/core/models.py:451 nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:454 nextcloudappstore/core/models.py:459
 msgid "Shell command"
 msgstr "Ordre de Shell"
 
-#: nextcloudappstore/core/models.py:453
+#: nextcloudappstore/core/models.py:456
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Nom d'una ordre de shell necessària, per exemple, grep"
+msgstr "Nom d'una ordre de comandes necessària, per exemple, grep"
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Ordres de Shell"
 
-#: nextcloudappstore/core/models.py:466 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:469 nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:514
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:471
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
-"ID de categoria utilitzat per identificar la categoria en la que un app està"
-" publicada"
+"ID de categoria utilitzat per identificar la categoria en la que una "
+"aplicació està publicada"
 
-#: nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:479
 msgid "Category name which will be presented to the user"
 msgstr "Nom de la categoria que es presentarà a l'usuari"
 
-#: nextcloudappstore/core/models.py:484
+#: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
-#: nextcloudappstore/scaffolding/forms.py:68
+#: nextcloudappstore/scaffolding/forms.py:73
 msgid "Categories"
 msgstr "Categories"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Key which is used to identify a license"
 msgstr "Clau que s'utilitza per identificar una llicència"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:501
 msgid "License name which will be presented to the user"
 msgstr "Nom de llicència que es presentarà a l'usuari"
 
-#: nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:506
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Llicències"
 
-#: nextcloudappstore/core/models.py:512
+#: nextcloudappstore/core/models.py:515
 msgid "Key which is used to identify a database"
 msgstr "Clau que s'utilitza per identificar una base de dades"
 
-#: nextcloudappstore/core/models.py:515
+#: nextcloudappstore/core/models.py:518
 msgid "Database name which will be presented to the user"
 msgstr "Nom de base de dades que es presentarà a l'usuari"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:534
 msgid "Database"
 msgstr "Base de dades"
 
-#: nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:522
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Bases de dades"
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement"
 msgstr "Versió requerida de la base de dades"
 
-#: nextcloudappstore/core/models.py:536
+#: nextcloudappstore/core/models.py:539
 msgid "Database version requirement (raw)"
 msgstr "Versió requerida de la base de dades (en brut)"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:543
 msgid "Database dependencies"
 msgstr "Dependències de la base de dades"
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:552
 msgid "e.g. libxml"
 msgstr "e.g. libxml"
 
-#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:553 nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:569
 msgid "PHP extension"
 msgstr "Extensió PHP"
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "Extensions PHP"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement"
 msgstr "Versió requerida de l'extensió"
 
-#: nextcloudappstore/core/models.py:572
+#: nextcloudappstore/core/models.py:575
 msgid "Extension version requirement (raw)"
 msgstr "Versió requerida de l'extensió (en brut)"
 
-#: nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:579
 msgid "PHP extension dependencies"
 msgstr "Dependències de l'extensió PHP"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:604
 msgid "App release deletion"
-msgstr "Supressió del llançament d’App"
+msgstr "Supressió del llançament d’Aplicació"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:605
 msgid "App release deletions"
-msgstr "Supressions de llançaments d’App"
+msgstr "Supressions de llançaments d’Aplicació"
 
-#: nextcloudappstore/core/models.py:615
+#: nextcloudappstore/core/models.py:618
 #: nextcloudappstore/scaffolding/forms.py:44
 msgid "Nextcloud version"
 msgstr "Versió del Nextcloud"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:619
 msgid "e.g. 9.0.54"
 msgstr "p. ex. 9.0.54"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:620
 msgid "Is current version"
 msgstr "És la versió actual"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:621
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
 "Només una versió pot ser l'actual. Aquest camp s'utilitza per pre-"
-"seleccionar desplegables per la generació d'app, etc."
+"seleccionar desplegables per la generació d'aplicacions, etc."
 
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:626
 msgid "Has a release"
 msgstr "Té una nova versió"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:628
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"Si és cert, aquesta és la versió més nova de Nexcloud que es pot "
+"Si és cert, aquesta és la versió més nova de Nextcloud que es pot "
 "descarregar. Si és fals, es tracta d'una versió prèvia o bé que ja no està "
 "disponible."
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:635
 msgid "Version is supported"
 msgstr "La versió està suportada"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:636
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -578,11 +581,11 @@ msgstr ""
 "Cert si aquesta versió encara està oficialment suportada (excloent el suport"
 " empresarial)"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
 msgstr "Llançament del Nextcloud"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:643
 msgid "Nextcloud releases"
 msgstr "Llançaments del Nextcloud"
 
@@ -593,7 +596,7 @@ msgstr "Prohibit"
 
 #: nextcloudappstore/core/templates/403.html:10
 msgid "You are forbidden to access this page!"
-msgstr "No disposeu de permisos per accedir a aquesta pàgina!"
+msgstr "Teniu prohibit accedir a aquesta pàgina!"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
@@ -618,6 +621,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
+"Salutacions des de %(site_name)s!\n"
+"\n"
+"Rebeu aquest correu electrònic perquè l'usuari %(user_display)s ha enllaçat aquesta adreça electrònica al seu compte a %(site_domain)s.\n"
+"\n"
+"Per confirmar que això és correcte, aneu a %(activate_url)s\n"
+"\n"
+"Si no teniu cap compte a %(site_domain)s, simplement ignoreu aquest missatge.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -631,7 +641,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr ""
+msgstr "Confirmeu l'adreça de correu"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -639,6 +649,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
+"Confirmeu que <a href=\"mailto:%(email)s\">%(email)s</a> és una adreça de "
+"correu electrònic per a l'usuari %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -650,18 +662,21 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
+"Aquest enllaç de confirmació per correu electrònic ha caducat o no és vàlid."
+" Envieu <a href=\"%(email_url)s\">una nova sol·licitud de confirmació per "
+"correu electrònic</a> ."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:100
 msgid "Log in"
 msgstr "Inici de sessió"
 
 #: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:25
+#: nextcloudappstore/core/templates/account/signup.html:24
 msgid "Log in with GitHub"
 msgstr "Inicia la sessió amb GitHub"
 
@@ -671,10 +686,10 @@ msgstr "Heu oblidat la contrasenya?"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:35
+#: nextcloudappstore/core/templates/account/signup.html:34
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:94
+#: nextcloudappstore/core/templates/nav.html:103
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -690,6 +705,9 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Has oblidat la teva contrassenya? Introduïu la vostra adreça de correu "
+"electrònic a continuació i us enviarem un correu electrònic que us permetrà "
+"restablir-la."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -720,24 +738,24 @@ msgid ""
 "reset</a>."
 msgstr ""
 "L’enllaç per restablir la contrasenya no era vàlid, possiblement perquè ja "
-"s'ha utilitzat.  Si us plau, demaneu un <a href=\"%(passwd_reset_url)s\">nou"
-" restabliment de contrasenya</a>."
+"s'ha utilitzat.  Si us plau, sol·liciteu un <a "
+"href=\"%(passwd_reset_url)s\">nou restabliment de contrasenya</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
-msgstr "La contrasenya ha estat canviada"
+msgstr "La contrasenya ha estat canviada."
 
-#: nextcloudappstore/core/templates/account/signup.html:18
+#: nextcloudappstore/core/templates/account/signup.html:17
 msgid "Create account"
 msgstr "Crea un compte"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Botiga d'Apps Nextcloud admin"
+msgstr "Magatzem d'Aplicacions Nextcloud admin"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Administració de la botiga d’Apps Nextcloud"
+msgstr "Administració del magatzem d’Aplicacions Nextcloud"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
@@ -852,13 +870,9 @@ msgstr "S'està actualitzant la puntuació"
 msgid "Submit rating"
 msgstr "Envia la puntuació"
 
-#: nextcloudappstore/core/templates/app/detail.html:195
-msgid "Ok"
-msgstr "D'acord"
-
 #: nextcloudappstore/core/templates/app/detail.html:208
 msgid "No comments found."
-msgstr "No s'han trobat els comentaris"
+msgstr "No s'ha trobat cap comentari."
 
 #: nextcloudappstore/core/templates/app/detail.html:216
 msgid "Rating comments"
@@ -870,7 +884,7 @@ msgstr "Mostra comentaris puntuacions a:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:70
+#: nextcloudappstore/core/templates/nav.html:79
 msgid "Register integration"
 msgstr "Integració de registre"
 
@@ -902,7 +916,7 @@ msgstr "Puntuacions (més recent)"
 
 #: nextcloudappstore/core/templates/app/list.html:17
 msgid "Latest"
-msgstr "Últim"
+msgstr "Darrer"
 
 #: nextcloudappstore/core/templates/app/list.html:19
 #: nextcloudappstore/core/templates/app/list.html:21
@@ -926,7 +940,7 @@ msgstr "Cap aplicació trobada cercant \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/nav.html:64
 msgid "Register app"
 msgstr "Registra l'aplicació"
 
@@ -959,7 +973,7 @@ msgstr "El certificat no és públic"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr "App registrada."
+msgstr "Aplicació registrada."
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -992,24 +1006,24 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:51
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Generate app"
 msgstr "Genera aplicació"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Genera i descarrega"
+msgstr "Genera i baixa"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:58
+#: nextcloudappstore/core/templates/nav.html:67
 msgid "Upload app release"
-msgstr "Carrega la versió d'app"
+msgstr "Pujada de la versió d'aplicació"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr "Llançament de la App carregada correctament."
+msgstr "Llançament de l'applicació pujada correctament."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -1030,8 +1044,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
-"La botiga d'Apps Nextcloud - Carregueu les vostres apps i instal·leu noves "
-"apps en el vostre Nextcloud"
+"El magatzem d'Aplicacions Nextcloud - Carregueu les vostres apps i "
+"instal·leu noves aplicacions en el vostre Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1079,7 +1093,7 @@ msgstr "Cerca"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
-msgstr "Navegació"
+msgstr "Commuta navegació"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
@@ -1089,15 +1103,27 @@ msgstr "Desenvolupador d'aplicacions"
 msgid "Documentation"
 msgstr "Documentació"
 
-#: nextcloudappstore/core/templates/nav.html:66
+#: nextcloudappstore/core/templates/nav.html:51
+msgid "Upload your app"
+msgstr "Pujada de la vostra aplicació"
+
+#: nextcloudappstore/core/templates/nav.html:54
+msgid "Developer resources"
+msgstr "Recursos per a desenvolupadors"
+
+#: nextcloudappstore/core/templates/nav.html:57
+msgid "Request translations"
+msgstr "Sol·licita traduccions"
+
+#: nextcloudappstore/core/templates/nav.html:75
 msgid "Integration developer"
 msgstr "Desenvolupador d'integració"
 
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:88
 msgid "Admin"
 msgstr "Administrador"
 
-#: nextcloudappstore/core/templates/nav.html:84
+#: nextcloudappstore/core/templates/nav.html:93
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
@@ -1105,7 +1131,7 @@ msgstr "Administrador"
 msgid "Account"
 msgstr "Compte"
 
-#: nextcloudappstore/core/templates/nav.html:87
+#: nextcloudappstore/core/templates/nav.html:96
 msgid "Log out"
 msgstr "Tanca la sessió"
 
@@ -1115,7 +1141,7 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Esteu a punt de fer servir el vostre %(provider_name)s per connectar-vos a\n"
+"Esteu a punt de fer servir el vostre compte %(provider_name)s per inici de sessió a\n"
 "            %(site_name)s. Com a pas final, si us plau completeu el següent formulari:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1140,7 +1166,9 @@ msgstr "Fitxers"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
-msgstr "Apps de gestió de fitxers i fitxers d’extensió d’apps"
+msgstr ""
+"Aplicacions de gestió d'extensió per gestió de fitxers i aplicació de "
+"Fitxers"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
@@ -1188,8 +1216,9 @@ msgid "Organization"
 msgstr "Organització"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
-msgid "Time management, Todo list and calendar apps"
-msgstr "Aplicacions de gestió del temps, llista de tasques i calendari"
+msgid "Time management, To-Do list and calendar apps"
+msgstr ""
+"Gestió del temps, llista de tasques pendents i aplicacions de calendari"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1205,7 +1234,7 @@ msgid ""
 "authorization, encryption, etc."
 msgstr ""
 "Aplicacions que proporcionen mecanismes addicionals de seguretat com "
-"l'autenticació, autorització, encriptació, etc."
+"l'autenticació, autorització, xifrat, etc."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
@@ -1259,7 +1288,8 @@ msgstr "Introdueix un URL d'HTTPS vàlid"
 
 #: nextcloudappstore/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "El nom d'app ha de ser en majúscules per parts com per ex. MyApp"
+msgstr ""
+"El nom de l'aplicació ha de ser en majúscules per parts com per ex. MevaApp"
 
 #: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
@@ -1272,53 +1302,65 @@ msgstr "Nom complet de l'autor"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr ""
+msgstr "Correu de l'autor"
 
 #: nextcloudappstore/scaffolding/forms.py:47
-#: nextcloudappstore/scaffolding/forms.py:64
+#: nextcloudappstore/scaffolding/forms.py:69
 msgid "Author's homepage"
 msgstr "Pàgina principal de l'autor"
 
 #: nextcloudappstore/scaffolding/forms.py:49
-#: nextcloudappstore/scaffolding/forms.py:66
+#: nextcloudappstore/scaffolding/forms.py:71
 msgid "Bug reports and feature requests"
 msgstr "Informes d'error i peticions de noves funcionalitats"
 
 #: nextcloudappstore/scaffolding/forms.py:52
-#: nextcloudappstore/scaffolding/forms.py:70
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr ""
 "Mantingueu premuda la tecla CTRL i feu clic per seleccionar entrades "
 "múltiples"
 
 #: nextcloudappstore/scaffolding/forms.py:55
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr "Breu descripció de la vostra App que es mostrarà com anunci curt"
+msgstr ""
+"Breu descripció de la vostra Aplicació que es mostrarà com anunci curt"
 
 #: nextcloudappstore/scaffolding/forms.py:57
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "Descripció completa del que fa la vostra App. Pot contenir Markdown."
+msgstr ""
+"Descripció completa del que fa la vostra Aplicació. Pot contenir Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:62
+#: nextcloudappstore/scaffolding/forms.py:60
+msgid ""
+"I opt in for the collection of my personal data. We could then reach out to "
+"you to check in with you about your plans or to ask for feedback on our "
+"developer program."
+msgstr ""
+"Jo opto per la recollida de les meves dades personals. Llavors podríem "
+"demanar-vos comprovar amb vosaltres en quant a plans o demanar-vos "
+"comentaris sobre el nostre programa de desenvolupador."
+
+#: nextcloudappstore/scaffolding/forms.py:67
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "Nom d'integració"
 
-#: nextcloudappstore/scaffolding/forms.py:74
+#: nextcloudappstore/scaffolding/forms.py:79
 msgid "Screenshot URL"
 msgstr "URL de captura de pantalla"
 
-#: nextcloudappstore/scaffolding/forms.py:76
+#: nextcloudappstore/scaffolding/forms.py:81
 msgid "URL for integration screenshot"
 msgstr "URL per captura de pantalla d'integració"
 
-#: nextcloudappstore/scaffolding/forms.py:77
+#: nextcloudappstore/scaffolding/forms.py:82
 msgid "Screenshot thumbnail URL"
 msgstr "URL de miniatura de captura de pantalla"
 
-#: nextcloudappstore/scaffolding/forms.py:80
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1326,32 +1368,34 @@ msgstr ""
 "URL per a captura de pantalla d'integració en dimensions menors. S'ha d'usar"
 " en combinació amb una captura de pantalla més gran."
 
-#: nextcloudappstore/scaffolding/forms.py:86
+#: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Descripció completa del que fa la vostra integració. Pot contenir Markdown."
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Nom"
 
-#: nextcloudappstore/user/forms.py:16
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Cognoms"
 
-#: nextcloudappstore/user/forms.py:25
+#: nextcloudappstore/user/forms.py:24
 msgid "Your email address"
-msgstr ""
+msgstr "La vostra adreça de correu"
 
-#: nextcloudappstore/user/forms.py:37
+#: nextcloudappstore/user/forms.py:36
 msgid "The given email address does not match your email address"
 msgstr ""
+"L'adreça de correu electrònic proporcionada no coincideix amb la vostra "
+"adreça de correu electrònic"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Confirma la contrasenya"
 
-#: nextcloudappstore/user/forms.py:42
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1361,27 +1405,30 @@ msgstr ""
 " la vostra adreça de correu electrònic i restablir la vostra contrasenya. "
 "Aquest camp no modifica la vostra contrasenya!"
 
-#: nextcloudappstore/user/forms.py:57
+#: nextcloudappstore/user/forms.py:56
 msgid "This email address is already associated with another account."
 msgstr ""
+"Aquesta adreça de correu electrònic ja està associada amb un altre compte."
 
-#: nextcloudappstore/user/forms.py:67
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
 
-#: nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/user/forms.py:77
 msgid "Email address"
-msgstr ""
+msgstr "Adreça de correu"
 
 #: nextcloudappstore/user/signals.py:31
-msgid "Nextcloud App Store password changed"
-msgstr ""
+msgid "Nextcloud app store password changed"
+msgstr "La contrasenya del magatzem d'aplicacions de Nextcloud ha canviat"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
-"Your Nextcloud App Store password has changed. Contact support if this "
-"wasn't you."
+"Your Nextcloud app store password has changed. Contact support if this was "
+"not you."
 msgstr ""
+"La contrasenya del teu magatzem d'aplicacions de Nextcloud ha canviat. "
+"Contacta amb l'assistència si no eres tu."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1395,11 +1442,16 @@ msgstr "Codi de l'API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the App Store\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
+"\n"
+"                La fitxa d'API es pot utilitzar per a l'autenticació en cridar el\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">API REST</a> del magatzem d’apps de Nextcloud.\n"
+"                Assegureu-vos de mantenir-la en secret. Una nova fitxa es pot generar a sota, invalidant la fitxa anterior.\n"
+"            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1420,14 +1472,14 @@ msgstr "Integracions"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
-msgstr "Transfereix la propietat d'app"
+msgstr "Transfereix la propietat de l'aplicació"
 
 #: nextcloudappstore/user/templates/user/base.html:21
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
 #: nextcloudappstore/user/templates/user/set-language.html:26
 msgid "Change language"
-msgstr "Canvia l'dioma"
+msgstr "Canvia la llengua"
 
 #: nextcloudappstore/user/templates/user/base.html:25
 #: nextcloudappstore/user/templates/user/password.html:5
@@ -1449,8 +1501,11 @@ msgstr "Suprimeix el compte"
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
-"click the \"Delete account\" button:"
+"click the \"Delete account\" button."
 msgstr ""
+"Suprimir el compte suprimirà tots les teves apps i llançaments també. Per "
+"suprimir el vostre compte, introduïu la vostra adreça e-mail al camp "
+"d'entrada i feu clic al botó \"Suprimeix el compte\":"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
@@ -1471,7 +1526,7 @@ msgstr "Les vostres integracions"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
-msgstr "Edita"
+msgstr "Edició"
 
 #: nextcloudappstore/user/templates/user/integrations.html:52
 msgid ""
@@ -1506,8 +1561,8 @@ msgid ""
 msgstr ""
 "Per transferir una aplicació a un nou propietari primer la heu de "
 "desbloquejar. Un usuari pot llavors prendre control de l'aplicació "
-"registrant-la de nou a la pàgina de registre de l’apps al menú de "
-"desenvolupador d'apps."
+"registrant-la de nou a la pàgina de registre de l’aplicació al menú de "
+"desenvolupador d'aplicacions."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"

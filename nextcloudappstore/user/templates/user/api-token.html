@@ -1,6 +1,6 @@
 {% extends "user/base.html" %}
 {% load i18n %}
-{% load staticfiles %}
+{% load static %}
 
 {% block head %}
     <script defer src="{% static 'public/user/token.js' %}"></script>
@@ -13,7 +13,7 @@
     <section id="tokenSection">
         <p>
             {% blocktrans %}
-                The API token can be used for authentication when calling the App Store
+                The API token can be used for authentication when calling the Nextcloud app store
                 <a href="https://nextcloudappstore.readthedocs.io/en/latest/restapi.html">REST API</a>.
                 Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.
             {% endblocktrans %}

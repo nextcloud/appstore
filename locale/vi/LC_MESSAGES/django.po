@@ -7,19 +7,23 @@
 # Nguyen Cong Thanh <nguyenthanhy2k@gmail.com>, 2019
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2019
 # An Nguyen Hoang <annh.mobitechs@gmail.com>, 2019
-# Bùi Nhất Vũ <bui4vu@gmail.com>, 2020
 # Hung Viet <hungnv94@outlook.com>, 2020
 # Duy BQ <duybq86@gmail.com>, 2020
+# Cường Nguyễn Phi <nphicuong.is@gmail.com>, 2022
+# AnhNT <anh93.nguyentuan@gmail.com>, 2022
+# Bùi Nhất Vũ <bui4vu@gmail.com>, 2022
+# Andy Scherzinger <info@andy-scherzinger.de>, 2022
+# Phạm Trường Vĩnh, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-01 03:56+0000\n"
+"POT-Creation-Date: 2023-04-26 04:46+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Duy BQ <duybq86@gmail.com>, 2020\n"
-"Language-Team: Vietnamese (https://www.transifex.com/nextcloud/teams/64236/vi/)\n"
+"Last-Translator: Phạm Trường Vĩnh, 2023\n"
+"Language-Team: Vietnamese (https://app.transifex.com/nextcloud/teams/64236/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,6 +53,7 @@ msgid "Bad"
 msgstr "Xấu"
 
 #: nextcloudappstore/core/forms.py:11
+#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "OK"
 
@@ -123,13 +128,13 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "ID ứng dụng, ngang bằng với tên thư mục"
 
-#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Các hạng mục"
 
-#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:477
-#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:480
+#: nextcloudappstore/core/models.py:499 nextcloudappstore/core/models.py:516
 msgid "Name"
 msgstr "Tên"
 
@@ -139,7 +144,7 @@ msgstr "Tên ứng dụng được trính xuất hình ảnh dành cho người 
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:54
-#: nextcloudappstore/scaffolding/forms.py:72
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Summary"
 msgstr "Tóm tắt"
 
@@ -147,13 +152,13 @@ msgstr "Tóm tắt"
 msgid "Short text describing the app's purpose"
 msgstr "Một đoạn văn bản ngắn mô tả mục đích của ứng dụng"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Description"
 msgstr "Mô tả"
 
-#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:482
 msgid "Will be rendered as Markdown"
 msgstr "Sẽ được trích xuất hình ảnh như là Markdown"
 
@@ -171,7 +176,7 @@ msgstr "Liên kết URL tài liệu dành cho nhà phát triển"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:48
-#: nextcloudappstore/scaffolding/forms.py:65
+#: nextcloudappstore/scaffolding/forms.py:70
 msgid "Issue tracker URL"
 msgstr "Liên kết URL tới diễn đàn theo dỡi vấn đề "
 
@@ -185,12 +190,12 @@ msgid "Forum"
 msgstr "Diễn đàn"
 
 #: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:374
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Created at"
 msgstr "Được tạo ra vào lúc"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:473
+#: nextcloudappstore/core/models.py:476
 msgid "Updated at"
 msgstr "Được tải lên vào lúc"
 
@@ -262,7 +267,7 @@ msgid "Used to approve integrations"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:432
 msgid "App"
 msgstr "Ứng dụng"
 
@@ -306,9 +311,9 @@ msgstr "Các đánh giá Ứng dụng"
 msgid "Full name"
 msgstr "Tên đầy đủ"
 
-#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:72
 msgid "Email"
-msgstr ""
+msgstr "Thư điện tử"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
@@ -322,15 +327,15 @@ msgstr "Phiên bản"
 msgid "Version follows Semantic Versioning"
 msgstr "Phiên bản tuân theo tiêu chuẩn Phát Hành Phiên Bản Của Semantic "
 
-#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:578
 msgid "PHP extension dependency"
 msgstr "PHP mở rộng phụ thuộc"
 
-#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:542
 msgid "Database dependency"
 msgstr "Database phụ thuộc"
 
-#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:505
 msgid "License"
 msgstr "Giấy phép"
 
@@ -360,8 +365,8 @@ msgid "Minimum Integer bits"
 msgstr "Integer bit nhỏ nhất"
 
 #: nextcloudappstore/core/models.py:370
-msgid "e.g. 32 for 32bit Integers"
-msgstr "ví dụ: 32 cho 32bit integers"
+msgid "e.g. 32 for 32-bit Integers"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
@@ -384,8 +389,8 @@ msgstr "Sổ cập nhập thay đổi"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Sổ cập nhập thay đổi của bản phát hành. Có thể chứa Markdown"
 
-#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:563
+#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:566
 msgid "App release"
 msgstr "Bản phát hành Ứng dụng"
 
@@ -393,153 +398,153 @@ msgstr "Bản phát hành Ứng dụng"
 msgid "App releases"
 msgstr "Các bản phát hành Ứng dụng"
 
-#: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/models.py:429
 msgid "Image URL"
 msgstr "URL hình ảnh"
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:431
 msgid "Small thumbnail"
 msgstr "Thumbnail nhỏ"
 
-#: nextcloudappstore/core/models.py:431
+#: nextcloudappstore/core/models.py:434
 msgid "Ordering"
 msgstr "đặt"
 
-#: nextcloudappstore/core/models.py:434
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Ảnh chụp màn hình"
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 msgid "Screenshots"
 msgstr "Các ảnh chụp màn hình"
 
-#: nextcloudappstore/core/models.py:451 nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:454 nextcloudappstore/core/models.py:459
 msgid "Shell command"
 msgstr "Lệnh thực thi Shell"
 
-#: nextcloudappstore/core/models.py:453
+#: nextcloudappstore/core/models.py:456
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Tên của một lệnh thực thi Shell bắt buộc, ví dụ: grep"
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "các lệnh thực thi Shell"
 
-#: nextcloudappstore/core/models.py:466 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:469 nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:514
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:471
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "Hạng mục ID được sử dụng để định danh hạng mục mà một ứng dụng được đăng tải"
 " đến"
 
-#: nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:479
 msgid "Category name which will be presented to the user"
 msgstr "Tên Hạng mục mà sẽ được trình bày cho người dùng"
 
-#: nextcloudappstore/core/models.py:484
+#: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
-#: nextcloudappstore/scaffolding/forms.py:68
+#: nextcloudappstore/scaffolding/forms.py:73
 msgid "Categories"
 msgstr "Các hạng mục"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Key which is used to identify a license"
 msgstr "Chũi khóa được sử dụng để định danh một giấy phép"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:501
 msgid "License name which will be presented to the user"
 msgstr "Tên giấy phép sẽ được trình bày cho người dùng"
 
-#: nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:506
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Các giấy phép"
 
-#: nextcloudappstore/core/models.py:512
+#: nextcloudappstore/core/models.py:515
 msgid "Key which is used to identify a database"
 msgstr "Chũi khóa được sử dụng để định danh một cơ sở dữ liệu"
 
-#: nextcloudappstore/core/models.py:515
+#: nextcloudappstore/core/models.py:518
 msgid "Database name which will be presented to the user"
 msgstr "Tên Cơ sở dữ liệu sẽ được trình bày cho người dừng"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:534
 msgid "Database"
 msgstr "Cơ sở dữ liệu"
 
-#: nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:522
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Các cơ sở dữ liệu"
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:536
 msgid "Database version requirement"
 msgstr "Yêu cầu dành cho phiên bản cơ sở dữ liệu"
 
-#: nextcloudappstore/core/models.py:536
+#: nextcloudappstore/core/models.py:539
 msgid "Database version requirement (raw)"
 msgstr "Yêu cầu dành cho phiên bản cơ sở dữ liệu (raw)"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:543
 msgid "Database dependencies"
 msgstr "Các cơ sở dữ liệu độc lập"
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:552
 msgid "e.g. libxml"
 msgstr "ví dụ: libxml"
 
-#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:553 nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:569
 msgid "PHP extension"
 msgstr "PHP mở rộng"
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "các PHP mở rộng"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:572
 msgid "Extension version requirement"
 msgstr "Yêu cầu dành cho phiên bản mở rộng"
 
-#: nextcloudappstore/core/models.py:572
+#: nextcloudappstore/core/models.py:575
 msgid "Extension version requirement (raw)"
 msgstr "Yêu cầu dành cho phiên bản mở rộng (raw)"
 
-#: nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:579
 msgid "PHP extension dependencies"
 msgstr "các phiên bản mở rộng PHP độc lập"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:604
 msgid "App release deletion"
 msgstr "Phiên bản Ứng dụng đã gỡ bỏ"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:605
 msgid "App release deletions"
 msgstr "Các phiên bản Ứng dụng đã gỡ bỏ"
 
-#: nextcloudappstore/core/models.py:615
+#: nextcloudappstore/core/models.py:618
 #: nextcloudappstore/scaffolding/forms.py:44
 msgid "Nextcloud version"
 msgstr "Phiên bản Nextcloud"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:619
 msgid "e.g. 9.0.54"
 msgstr "ví dụ:  9.0.54"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:620
 msgid "Is current version"
 msgstr "Là phiên bản hiện hành"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:621
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -547,11 +552,11 @@ msgstr ""
 "Chỉ một phiên bản có thể là phiên bản hiện hành. Vùng này được sử dụng để "
 "chọn trước các mục trong bảng chọn cho các phiên bản Ứng dụng, ví dụ:"
 
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:626
 msgid "Has a release"
 msgstr "Ra mắt một phiên bản"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:628
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -561,11 +566,11 @@ msgstr ""
 "thể được tải xuống như là một bản đã lưu trữ. Nếu sai, phiên bản này hoặc là"
 " một tiền-phiên bản, hoặc có thể không khả dụng để tải xuống nữa."
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:635
 msgid "Version is supported"
 msgstr "Phiên bản được hỗ trợ"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:636
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -573,11 +578,11 @@ msgstr ""
 "Đúng nếu phiên bản này vẫn còn được hỗ trợ chính thức (ngoại trừ hỗ trợ dành"
 " cho tổ chức)"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
 msgstr "Phiên bản Nextcloud"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:643
 msgid "Nextcloud releases"
 msgstr "Các phiên bản Nextcloud"
 
@@ -651,12 +656,12 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:100
 msgid "Log in"
 msgstr "Đăng nhập"
 
 #: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:25
+#: nextcloudappstore/core/templates/account/signup.html:24
 msgid "Log in with GitHub"
 msgstr "Đăng nhập với Github"
 
@@ -666,10 +671,10 @@ msgstr "Quên mật khẩu sao?"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:35
+#: nextcloudappstore/core/templates/account/signup.html:34
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:94
+#: nextcloudappstore/core/templates/nav.html:103
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -722,7 +727,7 @@ msgstr ""
 msgid "Your password is now changed."
 msgstr "Mật khẩu của bạn bây giờ đã được thay đổi."
 
-#: nextcloudappstore/core/templates/account/signup.html:18
+#: nextcloudappstore/core/templates/account/signup.html:17
 msgid "Create account"
 msgstr "Tạo tài khoản"
 
@@ -847,10 +852,6 @@ msgstr "Cập nhập đánh giá"
 msgid "Submit rating"
 msgstr "Gửi đánh giá"
 
-#: nextcloudappstore/core/templates/app/detail.html:195
-msgid "Ok"
-msgstr "Ok"
-
 #: nextcloudappstore/core/templates/app/detail.html:208
 msgid "No comments found."
 msgstr "Không tìm thấy bình luận nào."
@@ -865,7 +866,7 @@ msgstr "Trình chiếu các bình luận đánh giá trong:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:70
+#: nextcloudappstore/core/templates/nav.html:79
 msgid "Register integration"
 msgstr "Tích hợp cho đăng ký"
 
@@ -885,11 +886,11 @@ msgstr "Cập nhật"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:20
 msgid "Approve"
-msgstr ""
+msgstr "Chấp thuận"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:21
 msgid "Reject"
-msgstr ""
+msgstr "‎Từ chối‎"
 
 #: nextcloudappstore/core/templates/app/list.html:16
 msgid "Rating (recent)"
@@ -923,7 +924,7 @@ msgstr "Không ứng dụng nào được tìm thấy cho tìm kiếm \"<em>%(qu
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/nav.html:64
 msgid "Register app"
 msgstr "Đăng ký ứng dụng"
 
@@ -988,7 +989,7 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:51
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Generate app"
 msgstr "Tạo ứng dụng"
 
@@ -998,7 +999,7 @@ msgstr "Tạo và tải về"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:58
+#: nextcloudappstore/core/templates/nav.html:67
 msgid "Upload app release"
 msgstr "Tải lên phiên bản ứng dụng"
 
@@ -1086,15 +1087,27 @@ msgstr "Nhà phát triển ứng dụng"
 msgid "Documentation"
 msgstr "Tài liệu"
 
-#: nextcloudappstore/core/templates/nav.html:66
+#: nextcloudappstore/core/templates/nav.html:51
+msgid "Upload your app"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:54
+msgid "Developer resources"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:57
+msgid "Request translations"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:75
 msgid "Integration developer"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:88
 msgid "Admin"
 msgstr "Quản trị hệ thống"
 
-#: nextcloudappstore/core/templates/nav.html:84
+#: nextcloudappstore/core/templates/nav.html:93
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
@@ -1102,7 +1115,7 @@ msgstr "Quản trị hệ thống"
 msgid "Account"
 msgstr "Tài khoản"
 
-#: nextcloudappstore/core/templates/nav.html:87
+#: nextcloudappstore/core/templates/nav.html:96
 msgid "Log out"
 msgstr "Đăng xuất"
 
@@ -1185,8 +1198,8 @@ msgid "Organization"
 msgstr "Tổ chức"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
-msgid "Time management, Todo list and calendar apps"
-msgstr "Ứng dụng uản lý thời gian, danh sách cần làm và lịch"
+msgid "Time management, To-Do list and calendar apps"
+msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1270,22 +1283,22 @@ msgid "Author's email"
 msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:47
-#: nextcloudappstore/scaffolding/forms.py:64
+#: nextcloudappstore/scaffolding/forms.py:69
 msgid "Author's homepage"
 msgstr "Trang chủ của tác giả"
 
 #: nextcloudappstore/scaffolding/forms.py:49
-#: nextcloudappstore/scaffolding/forms.py:66
+#: nextcloudappstore/scaffolding/forms.py:71
 msgid "Bug reports and feature requests"
 msgstr "Báo lỗi và các yêu cầu tính năng"
 
 #: nextcloudappstore/scaffolding/forms.py:52
-#: nextcloudappstore/scaffolding/forms.py:70
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Giữ phím Ctrl và bấm để chọn đa phương án"
 
 #: nextcloudappstore/scaffolding/forms.py:55
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
 "Mô tả ngắn ứng dụng của bạn và nó sẽ được trích xuất như một đoạn quảng cáo "
@@ -1295,25 +1308,32 @@ msgstr ""
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr "Mô tả đầy đủ về khả năng làm việc của ứng dụng. Có thể chứa Markdown"
 
-#: nextcloudappstore/scaffolding/forms.py:62
+#: nextcloudappstore/scaffolding/forms.py:60
+msgid ""
+"I opt in for the collection of my personal data. We could then reach out to "
+"you to check in with you about your plans or to ask for feedback on our "
+"developer program."
+msgstr ""
+
+#: nextcloudappstore/scaffolding/forms.py:67
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "Tên bộ tích hợp"
 
-#: nextcloudappstore/scaffolding/forms.py:74
+#: nextcloudappstore/scaffolding/forms.py:79
 msgid "Screenshot URL"
 msgstr "URL ảnh chụp màn hình"
 
-#: nextcloudappstore/scaffolding/forms.py:76
+#: nextcloudappstore/scaffolding/forms.py:81
 msgid "URL for integration screenshot"
 msgstr "URL ảnh chụp màn hình bộ tích hợp"
 
-#: nextcloudappstore/scaffolding/forms.py:77
+#: nextcloudappstore/scaffolding/forms.py:82
 msgid "Screenshot thumbnail URL"
 msgstr "URL ảnh chụp màn hình các thumbnail"
 
-#: nextcloudappstore/scaffolding/forms.py:80
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1321,33 +1341,33 @@ msgstr ""
 "Đường dẫn URL cho ảnh chụp màn hình bộ tích hợp của bạn với kích nhỏ. Buộc "
 "phải được kèm them 1 bản kích lớn. "
 
-#: nextcloudappstore/scaffolding/forms.py:86
+#: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Bản mô tả đầy đủ những gì bộ tích hợp của bạn có thể làm. Có thẻ chứa "
 "Markdown"
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Tên"
 
-#: nextcloudappstore/user/forms.py:16
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Họ"
 
-#: nextcloudappstore/user/forms.py:25
+#: nextcloudappstore/user/forms.py:24
 msgid "Your email address"
-msgstr ""
+msgstr "Địa chỉ email của bạn"
 
-#: nextcloudappstore/user/forms.py:37
+#: nextcloudappstore/user/forms.py:36
 msgid "The given email address does not match your email address"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
 msgstr "Xác nhận mật khẩu"
 
-#: nextcloudappstore/user/forms.py:42
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1357,26 +1377,26 @@ msgstr ""
 " thay đổi địa chỉ email và đặt lại mật khẩu của bạn. Vùng này không cập nhập"
 " mật khẩu của bạn!"
 
-#: nextcloudappstore/user/forms.py:57
+#: nextcloudappstore/user/forms.py:56
 msgid "This email address is already associated with another account."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:67
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Invalid Password"
 
-#: nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/user/forms.py:77
 msgid "Email address"
-msgstr ""
+msgstr "Địa chỉ thư điện tử"
 
 #: nextcloudappstore/user/signals.py:31
-msgid "Nextcloud App Store password changed"
+msgid "Nextcloud app store password changed"
 msgstr ""
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
-"Your Nextcloud App Store password has changed. Contact support if this "
-"wasn't you."
+"Your Nextcloud app store password has changed. Contact support if this was "
+"not you."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:12
@@ -1391,7 +1411,7 @@ msgstr "Tín chỉ API "
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the App Store\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
@@ -1445,7 +1465,7 @@ msgstr "Xóa tài khoản"
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
-"click the \"Delete account\" button:"
+"click the \"Delete account\" button."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/integrations.html:9

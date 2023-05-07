@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
-{% load css_class recaptcha2 socialaccount i18n %}
+{% load css_class socialaccount i18n %}
 
 {% block head-title %}{% trans "Register" %} - {% endblock %}
 
 {% block head %}
-    {% recaptcha_init request.LANGUAGE_CODE %}
 {% endblock %}
 
 {% block content %}

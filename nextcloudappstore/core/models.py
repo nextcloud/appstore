@@ -367,7 +367,7 @@ class AppRelease(TranslatableModel):
         'Platform version requirement (raw)'))
     min_int_size = IntegerField(blank=True, default=32,
                                 verbose_name=_('Minimum Integer bits'),
-                                help_text=_('e.g. 32 for 32bit Integers'))
+                                help_text=_('e.g. 32 for 32-bit Integers'))
     download = URLField(max_length=256, blank=True,
                         verbose_name=_('Archive download URL'))
     created = DateTimeField(auto_now_add=True, editable=False,
@@ -419,7 +419,10 @@ class AppRelease(TranslatableModel):
 
     @property
     def is_unstable(self):
-        return self.is_nightly or '-' in self.version
+        return (self.is_nightly or '-dev' in self.version
+                or '-a' in self.version or '-alpha' in self.version
+                or '-b' in self.version or '-beta' in self.version
+                or '-rc' in self.version or '-RC' in self.version)
 
 
 class Screenshot(Model):

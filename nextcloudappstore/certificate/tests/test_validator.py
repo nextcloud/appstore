@@ -40,7 +40,7 @@ class ValidatorTest(TestCase):
     def test_validate_cert_not_signed(self) -> None:
         cert = self._read_cert('app.crt')
         chain = self._read_cert('imaginary.chain')
-        with(self.assertRaises(InvalidCertificateException)):
+        with (self.assertRaises(InvalidCertificateException)):
             self.validator.validate_certificate(cert, chain)
 
     def test_signature(self) -> None:

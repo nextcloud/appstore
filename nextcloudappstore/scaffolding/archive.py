@@ -2,7 +2,7 @@ import re
 import tarfile
 from io import BytesIO
 from os import walk
-from os.path import join, isdir, relpath
+from os.path import join, isdir, relpath, islink
 from typing import Dict
 
 from django.conf import settings
@@ -24,7 +24,8 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
         'author_homepage': args['author_homepage'],
         'issue_tracker': args['issue_tracker'],
         'categories': args['categories'],
-        'nextcloud_version': platform
+        'nextcloud_version': platform,
+        'license': 'AGPL-3.0-or-later',
     }
     vars.update(settings.APP_SCAFFOLDING_PROFILES.get(platform, {}))
     relative_base = 'app-templates/%i/app/' % platform
@@ -32,16 +33,18 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
 
     context = Context({'app': vars})
     result = {}
-    if isdir(base):
-        for root, dirs, files in walk(base):
-            for file in files:
-                file_path = join(root, file)
-                rel_file_path = '%s/%s' % (
-                    vars['id'], relpath(file_path, base)
-                )
-                with open(file_path) as f:
-                    t = Template(f.read())
-                    result[rel_file_path] = t.render(context)
+    if not isdir(base):
+        return result
+
+    for root, dirs, files in walk(base):
+        for file in files:
+            file_path = join(root, file)
+            rel_file_path = '%s/%s' % (
+                vars['id'], relpath(file_path, base)
+            )
+            with open(file_path, encoding='utf-8') as f:
+                t = Template(f.read())
+                result[rel_file_path] = t.render(context)
 
     return result
 

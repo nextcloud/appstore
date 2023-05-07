@@ -21,5 +21,5 @@ class ScaffoldTest(BaseStoreTest):
         self.by_id('id_description').send_keys('This app does nothing')
 
         valid_elems = self.by_css('#app-generate-form *:valid', True)
-        self.assertEqual(10, len(valid_elems))
+        self.assertEqual(11, len(valid_elems))
         self.by_id('submit').click()

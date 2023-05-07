@@ -5,8 +5,8 @@
 # 
 # Translators:
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2017
+# Maider Likona Santamarina <pisoni@gisa-elkartea.org>, 2018
 # Aitzol Berasategi <aitzol@disroot.org>, 2019
-# Miren B. <transifex@miren.bz>, 2019
 # Sendoa Sojo <sendoasojo@gmail.com>, 2019
 # Osoitz <oelkoro@gmail.com>, 2020
 # Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2020
@@ -14,21 +14,19 @@
 # Alexander Gabilondo <alexgabi@disroot.org>, 2020
 # assar <asier.sarasua@gmail.com>, 2020
 # Beñat Irazabal <birazabal@gmail.com>, 2020
-# Maider Likona Santamarina <pisoni@gisa-elkartea.org>, 2020
-# Mikel Gartzia <mikelgs@ni.eus>, 2020
-# Gontzal M. Pujana <juchuf@gmail.com>, 2021
-# Unai Tolosa Pontesta <utolosa002@gmail.com>, 2021
-# Make Irigoyen <make@ni.eus>, 2021
+# Gontzal Pujana Onaindia <juchuf@gmail.com>, 2022
+# Mikel Gartzia <mikelgs@ni.eus>, 2023
+# Make Irigoyen <make@ni.eus>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-01 03:56+0000\n"
+"POT-Creation-Date: 2023-04-18 03:20+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Make Irigoyen <make@ni.eus>, 2021\n"
-"Language-Team: Basque (https://www.transifex.com/nextcloud/teams/64236/eu/)\n"
+"Last-Translator: Make Irigoyen <make@ni.eus>, 2023\n"
+"Language-Team: Basque (https://app.transifex.com/nextcloud/teams/64236/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +39,7 @@ msgstr "Aplikazioen bertsio berrienak"
 
 #: nextcloudappstore/core/feeds.py:16
 msgid "Get the newest app release updates"
-msgstr "Aplikazioen eguneraketa berriak jaso"
+msgstr "Jaso aplikazioen eguneraketa berriak"
 
 #: nextcloudappstore/core/feeds.py:39
 msgid "Changes"
@@ -50,25 +48,26 @@ msgstr "Aldaketak"
 #: nextcloudappstore/core/feeds.py:45
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "Download"
-msgstr "Jaitsi"
+msgstr "Deskargatu"
 
 #: nextcloudappstore/core/forms.py:10
 #: nextcloudappstore/core/templates/app/detail.html:196
 msgid "Bad"
-msgstr "Gaizki"
+msgstr "Txarra"
 
 #: nextcloudappstore/core/forms.py:11
+#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:12
 #: nextcloudappstore/core/templates/app/detail.html:194
 msgid "Good"
-msgstr "Ondo"
+msgstr "Ona"
 
 #: nextcloudappstore/core/forms.py:26
 msgid "Download link (tar.gz)"
-msgstr "Esteka jaitsi (tar.gz)"
+msgstr "Deskargatu esteka (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:29 nextcloudappstore/core/models.py:377
 #: nextcloudappstore/core/templates/app/releases.html:40
@@ -96,12 +95,13 @@ msgid ""
 "rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
 "You can generate the CSR by executing the following command:"
 msgstr ""
-"Normalean ~/.nextcloud/certificates/APP_ID.crt gordeta dago, APP_Id "
-"aplikazioaren IDa izanik. Ziurtagiririk ez baduzu bat sortu beharko duzu, "
-"hortarako (CSR) ziurtagiri eskaera egin beharko duzu, "
+"Normalean ~/.nextcloud/certificates/APP_ID.crt fitxategian dago gordeta, "
+"APP_Id delarik zure aplikazioaren IDa. Ziurtagiririk ez baduzu (CSR) "
+"ziurtagiri eskaera egin beharko duzu lehenengo, <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">ziurtagiri errepositorioan</a> (README-a "
-"jarraitu). CSRa sortzeko hurrengo komandoa erabil dezakezu:"
+"rel=\"noreferrer noopener\">ziurtagiri errepositorioan</a> argitaratu "
+"beharko dena (jarraitu README-a). CSRa sortzeko hurrengo komandoa erabil "
+"dezakezu:"
 
 #: nextcloudappstore/core/forms.py:50
 msgid "Signature over your app's ID"
@@ -130,15 +130,15 @@ msgstr "ID"
 
 #: nextcloudappstore/core/models.py:59
 msgid "app ID, identical to folder name"
-msgstr "app-aren IDa, karpetaren izenaren berdina"
+msgstr "aplikazioaren IDa, karpetaren izenaren berdina"
 
-#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:483
+#: nextcloudappstore/core/models.py:60 nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategoria"
 
-#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:477
-#: nextcloudappstore/core/models.py:496 nextcloudappstore/core/models.py:513
+#: nextcloudappstore/core/models.py:62 nextcloudappstore/core/models.py:480
+#: nextcloudappstore/core/models.py:499 nextcloudappstore/core/models.py:516
 msgid "Name"
 msgstr "Izena"
 
@@ -148,41 +148,41 @@ msgstr "Erabiltzaileentzako sortutako app-en izenak"
 
 #: nextcloudappstore/core/models.py:64
 #: nextcloudappstore/scaffolding/forms.py:54
-#: nextcloudappstore/scaffolding/forms.py:72
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Summary"
 msgstr "Laburpena"
 
 #: nextcloudappstore/core/models.py:66
 msgid "Short text describing the app's purpose"
-msgstr "App-aren helburua azaltzeko deskribapen motza"
+msgstr "Aplikazioaren helburua azaltzeko deskribapen motza"
 
-#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:478
+#: nextcloudappstore/core/models.py:67 nextcloudappstore/core/models.py:481
 #: nextcloudappstore/scaffolding/forms.py:56
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Description"
 msgstr "Deskribapena"
 
-#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:479
+#: nextcloudappstore/core/models.py:68 nextcloudappstore/core/models.py:482
 msgid "Will be rendered as Markdown"
 msgstr "Markdown bezala renderizatuko da"
 
 #: nextcloudappstore/core/models.py:72
 msgid "User documentation URL"
-msgstr "Erabiltzaile dokumentazioaren URL"
+msgstr "Erabiltzaile dokumentazioaren URLa"
 
 #: nextcloudappstore/core/models.py:74
 msgid "Admin documentation URL"
-msgstr "Adminen dokumentazioaren URL"
+msgstr "Adminen dokumentazioaren URLa"
 
 #: nextcloudappstore/core/models.py:76
 msgid "Developer documentation URL"
-msgstr "Garatzaileen dokumentazioaren URL"
+msgstr "Garatzaileen dokumentazioaren URLa"
 
 #: nextcloudappstore/core/models.py:78
 #: nextcloudappstore/scaffolding/forms.py:48
-#: nextcloudappstore/scaffolding/forms.py:65
+#: nextcloudappstore/scaffolding/forms.py:70
 msgid "Issue tracker URL"
-msgstr "Arazoen jarraipenerako URL"
+msgstr "Arazoen jarraipenerako URLa"
 
 #: nextcloudappstore/core/models.py:79 nextcloudappstore/core/models.py:327
 #: nextcloudappstore/core/templates/app/detail.html:101
@@ -194,18 +194,18 @@ msgid "Forum"
 msgstr "Foroa"
 
 #: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:374
-#: nextcloudappstore/core/models.py:471
+#: nextcloudappstore/core/models.py:474
 msgid "Created at"
-msgstr "Sortua"
+msgstr "Sortze data"
 
 #: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:473
+#: nextcloudappstore/core/models.py:476
 msgid "Updated at"
 msgstr "Eguneratua"
 
 #: nextcloudappstore/core/models.py:85
 msgid "App owner"
-msgstr "Jabea"
+msgstr "Aplikazioaren jabea"
 
 #: nextcloudappstore/core/models.py:88
 #: nextcloudappstore/core/templates/app/detail.html:84
@@ -214,7 +214,7 @@ msgstr "Mantentzaileak"
 
 #: nextcloudappstore/core/models.py:91 nextcloudappstore/core/models.py:339
 msgid "App authors"
-msgstr "App-en egilean"
+msgstr "Aplikazioaren egileak"
 
 #: nextcloudappstore/core/models.py:92
 #: nextcloudappstore/core/templates/app/detail.html:22
@@ -230,7 +230,7 @@ msgstr "Oraingo balorazioa"
 #: nextcloudappstore/core/models.py:94
 #: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
-msgstr "Bataz-besteko balorazioa"
+msgstr "Batez-besteko balorazioa"
 
 #: nextcloudappstore/core/models.py:96
 msgid "Number of recently submitted ratings"
@@ -238,7 +238,7 @@ msgstr "Oraintsu bidalitako balorazioen kopurua"
 
 #: nextcloudappstore/core/models.py:98
 msgid "Number of overall submitted ratings"
-msgstr "Bataz-beste bidalitako balorazioen kopurua"
+msgstr "Batez-beste bidalitako balorazioen kopurua"
 
 #: nextcloudappstore/core/models.py:100
 msgid "Last release at"
@@ -258,9 +258,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Gaituta badago, erabiltzaile batek aplikazio bera erregistratzen saia "
-"daitekeziurtagiri eta sinadura publikoak erabiliz. Hori eginez gero, "
-"aplikazioa beste pertsonari pasako litzaioke"
+"Gaituta badago, erabiltzaile bat aplikazio bera erregistratzen saia daiteke "
+"ziurtagiri eta sinadura publikoak erabiliz. Hori egiten badu, aplikazioa "
+"berari transferituko zaio."
 
 #: nextcloudappstore/core/models.py:108
 msgid "Integration (i.e. Outlook plugin)"
@@ -271,16 +271,16 @@ msgid "Used to approve integrations"
 msgstr "Integrazioak onartzeko erabilia"
 
 #: nextcloudappstore/core/models.py:114 nextcloudappstore/core/models.py:268
-#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:429
+#: nextcloudappstore/core/models.py:345 nextcloudappstore/core/models.py:432
 msgid "App"
-msgstr "App"
+msgstr "Aplikazioa"
 
 #: nextcloudappstore/core/models.py:115
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/nav.html:40
 msgid "Apps"
-msgstr "App-ak"
+msgstr "Aplikazioak"
 
 #: nextcloudappstore/core/models.py:270
 msgid "User"
@@ -293,11 +293,11 @@ msgstr "Balorazioa"
 
 #: nextcloudappstore/core/models.py:273
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
-msgstr "Baloratu 0.0-tik (txarrena) 1.0-ra (hoberena) "
+msgstr "Baloratu 0.0-tik (txarrena) 1.0-ra (onena) "
 
 #: nextcloudappstore/core/models.py:276
 msgid "Rating comment"
-msgstr "Iruzkinaren balorazioa"
+msgstr "Balorazio iruzkina"
 
 #: nextcloudappstore/core/models.py:277
 msgid "Rating comment in Markdown"
@@ -305,23 +305,23 @@ msgstr "Balorazio iruzkina Markdown-en"
 
 #: nextcloudappstore/core/models.py:283
 msgid "App rating"
-msgstr "App-aren balorazioa"
+msgstr "Aplikazioaren balorazioa"
 
 #: nextcloudappstore/core/models.py:284
 msgid "App ratings"
-msgstr "App-en balorazioak"
+msgstr "Aplikazioen balorazioak"
 
 #: nextcloudappstore/core/models.py:325
 msgid "Full name"
 msgstr "Izen osoa"
 
-#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:73
+#: nextcloudappstore/core/models.py:328 nextcloudappstore/user/forms.py:72
 msgid "Email"
-msgstr "E-posta"
+msgstr "Posta elektronikoa"
 
 #: nextcloudappstore/core/models.py:338
 msgid "App author"
-msgstr "App-aren egilea"
+msgstr "Aplikazioaren egilea"
 
 #: nextcloudappstore/core/models.py:343
 msgid "Version"
@@ -331,15 +331,15 @@ msgstr "Bertsioa"
 msgid "Version follows Semantic Versioning"
 msgstr "Bertsio Semantikoa jarraitzen duen bertsioa"
 
-#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:351 nextcloudappstore/core/models.py:578
 msgid "PHP extension dependency"
 msgstr "PHP luzapen dependentzia"
 
-#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:354 nextcloudappstore/core/models.py:542
 msgid "Database dependency"
 msgstr "Datubase dependentzia"
 
-#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:355 nextcloudappstore/core/models.py:505
 msgid "License"
 msgstr "Lizentzia"
 
@@ -349,19 +349,19 @@ msgstr "Shell komandoaren dependentzia"
 
 #: nextcloudappstore/core/models.py:360
 msgid "PHP version requirement"
-msgstr "PHP bertsioaren aurrebaldintza"
+msgstr "PHP bertsioaren eskakizuna"
 
 #: nextcloudappstore/core/models.py:362
 msgid "Platform version requirement"
-msgstr "Plataformaren bertsioaren aurrebaldintza"
+msgstr "Plataformaren bertsioaren eskakizuna"
 
 #: nextcloudappstore/core/models.py:365
 msgid "PHP version requirement (raw)"
-msgstr "PHP bertsioaren aurrebaldintza (raw)"
+msgstr "PHP bertsioaren eskakizuna (raw)"
 
 #: nextcloudappstore/core/models.py:367
 msgid "Platform version requirement (raw)"
-msgstr "Plataformaren bertsioaren aurrebaldintza (raw)"
+msgstr "Plataformaren bertsioaren eskakizuna (raw)"
 
 #: nextcloudappstore/core/models.py:369
 #: nextcloudappstore/core/templates/app/releases.html:69
@@ -369,16 +369,16 @@ msgid "Minimum Integer bits"
 msgstr "Integer bit minimoa"
 
 #: nextcloudappstore/core/models.py:370
-msgid "e.g. 32 for 32bit Integers"
+msgid "e.g. 32 for 32-bit Integers"
 msgstr "adibidez 32, 32 bitetako Integerrentzat"
 
 #: nextcloudappstore/core/models.py:372
 msgid "Archive download URL"
-msgstr "Fitxategia jaisteko URL"
+msgstr "Fitxategia jaisteko URLa"
 
 #: nextcloudappstore/core/models.py:378
 msgid "A signature using the app's certificate"
-msgstr "Sinadura app-aren ziurtagiria erabiliz "
+msgstr "Sinadura aplikazioaren ziurtagiria erabiliz "
 
 #: nextcloudappstore/core/models.py:380
 msgid "Signature hashing algorithm"
@@ -391,222 +391,221 @@ msgstr "Aldaketak"
 
 #: nextcloudappstore/core/models.py:383
 msgid "The release changelog. Can contain Markdown"
-msgstr "Bertsioaren aldaketa-zerrenda. Markdown-en egon daiteke"
+msgstr "Bertsioaren aldaketa-zerrenda. Markdown onartzen da."
 
-#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:563
+#: nextcloudappstore/core/models.py:388 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:566
 msgid "App release"
-msgstr "App-aren bertsioa"
+msgstr "Aplikazioaren bertsioa"
 
 #: nextcloudappstore/core/models.py:389
 msgid "App releases"
-msgstr "App-aren bertsioak"
+msgstr "Aplikazioaren bertsioak"
 
-#: nextcloudappstore/core/models.py:426
+#: nextcloudappstore/core/models.py:429
 msgid "Image URL"
-msgstr "Irudiaren URL"
+msgstr "Irudiaren URLa"
 
-#: nextcloudappstore/core/models.py:428
+#: nextcloudappstore/core/models.py:431
 msgid "Small thumbnail"
 msgstr "Aurrebista txikia"
 
-#: nextcloudappstore/core/models.py:431
-msgid "Ordering"
-msgstr "Ordenazioa"
-
 #: nextcloudappstore/core/models.py:434
+msgid "Ordering"
+msgstr "Ordenatzea"
+
+#: nextcloudappstore/core/models.py:437
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Pantaila-argazkia"
 
-#: nextcloudappstore/core/models.py:435
+#: nextcloudappstore/core/models.py:438
 msgid "Screenshots"
 msgstr "Pantaila-argazkiak"
 
-#: nextcloudappstore/core/models.py:451 nextcloudappstore/core/models.py:456
+#: nextcloudappstore/core/models.py:454 nextcloudappstore/core/models.py:459
 msgid "Shell command"
 msgstr "Terminal komandoa"
 
-#: nextcloudappstore/core/models.py:453
+#: nextcloudappstore/core/models.py:456
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Komandoaren izena, adibidez grep"
+msgstr "Komando baten izena, adibidez grep"
 
-#: nextcloudappstore/core/models.py:457
+#: nextcloudappstore/core/models.py:460
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Terminal komandoak"
 
-#: nextcloudappstore/core/models.py:466 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:469 nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:514
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:471
 msgid "Category ID used to identify the category an app is uploaded to"
-msgstr "App-a igo den kategoria identifikatzeko IDa"
+msgstr "Aplikazioa kargatu den kategoria identifikatzeko kategoria IDa"
 
-#: nextcloudappstore/core/models.py:476
+#: nextcloudappstore/core/models.py:479
 msgid "Category name which will be presented to the user"
-msgstr "Erabiltzaileari aurkeztuko zaion kategoriaren izena"
+msgstr "Erabiltzaileari erakutsiko zaion kategoriaren izena"
 
-#: nextcloudappstore/core/models.py:484
+#: nextcloudappstore/core/models.py:487
 #: nextcloudappstore/scaffolding/forms.py:50
-#: nextcloudappstore/scaffolding/forms.py:68
+#: nextcloudappstore/scaffolding/forms.py:73
 msgid "Categories"
 msgstr "Kategoriak"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:498
 msgid "Key which is used to identify a license"
 msgstr "Lizentzia identifikatzeko gakoa"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:501
 msgid "License name which will be presented to the user"
-msgstr "Erabiltzaileari aurkeztuko zaion lizentziaren izena"
+msgstr "Erabiltzaileari erakutsiko zaion lizentzia izena"
 
-#: nextcloudappstore/core/models.py:503
+#: nextcloudappstore/core/models.py:506
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Lizentziak"
 
-#: nextcloudappstore/core/models.py:512
-msgid "Key which is used to identify a database"
-msgstr "Datubasea identifikatzeko gakoa"
-
 #: nextcloudappstore/core/models.py:515
+msgid "Key which is used to identify a database"
+msgstr "Datu-basea identifikatzeko gakoa"
+
+#: nextcloudappstore/core/models.py:518
 msgid "Database name which will be presented to the user"
-msgstr "Erabiltzaileari aurkeztuko zaion datubasearen izena"
+msgstr "Erabiltzaileari erakutsiko zaion datu-base izena"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:534
 msgid "Database"
-msgstr "Datubasea"
+msgstr "Datu-basea"
 
-#: nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:522
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
-msgstr "Datubaseak"
-
-#: nextcloudappstore/core/models.py:533
-msgid "Database version requirement"
-msgstr "Datubasearen bertsioaren betekizuna"
+msgstr "Datu-baseak"
 
 #: nextcloudappstore/core/models.py:536
+msgid "Database version requirement"
+msgstr "Datu-basearen bertsioaren eskakizuna"
+
+#: nextcloudappstore/core/models.py:539
 msgid "Database version requirement (raw)"
-msgstr "Datubasearen bertsioaren betekizuna (raw)"
+msgstr "Datu-basearen bertsioaren eskakizuna (raw)"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:543
 msgid "Database dependencies"
-msgstr "Datubasearen dependentziak"
+msgstr "Datu-basearen dependentziak"
 
-#: nextcloudappstore/core/models.py:549
+#: nextcloudappstore/core/models.py:552
 msgid "e.g. libxml"
 msgstr "adib. libxml"
 
-#: nextcloudappstore/core/models.py:550 nextcloudappstore/core/models.py:553
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:553 nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:569
 msgid "PHP extension"
 msgstr "PHP luzapena"
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP luzapenak"
 
-#: nextcloudappstore/core/models.py:569
-msgid "Extension version requirement"
-msgstr "Luzapenaren bertsioaren betekizuna"
-
 #: nextcloudappstore/core/models.py:572
-msgid "Extension version requirement (raw)"
-msgstr "Luzapenaren bertsioaren betekizuna (raw)"
+msgid "Extension version requirement"
+msgstr "Luzapenaren bertsioaren eskakizuna"
 
-#: nextcloudappstore/core/models.py:576
+#: nextcloudappstore/core/models.py:575
+msgid "Extension version requirement (raw)"
+msgstr "Luzapenaren bertsioaren eskakizuna (raw)"
+
+#: nextcloudappstore/core/models.py:579
 msgid "PHP extension dependencies"
 msgstr "PHP luzapenaren dependentziak"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:604
 msgid "App release deletion"
-msgstr "APP bertsioaren borratzea"
+msgstr "APP bertsioaren ezabatzea"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:605
 msgid "App release deletions"
-msgstr "App bertsioaren borratzeak"
+msgstr "App bertsioen ezabatzeak"
 
-#: nextcloudappstore/core/models.py:615
+#: nextcloudappstore/core/models.py:618
 #: nextcloudappstore/scaffolding/forms.py:44
 msgid "Nextcloud version"
 msgstr "Nextcloud bertsioa"
 
-#: nextcloudappstore/core/models.py:616
+#: nextcloudappstore/core/models.py:619
 msgid "e.g. 9.0.54"
 msgstr "adibidez 9.0.54"
 
-#: nextcloudappstore/core/models.py:617
+#: nextcloudappstore/core/models.py:620
 msgid "Is current version"
-msgstr "Eguneko bertsioa da"
+msgstr "Uneko bertsioa da"
 
-#: nextcloudappstore/core/models.py:618
+#: nextcloudappstore/core/models.py:621
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
-"Oraingo bertsioa bakarra izan behar du. Eremu hau app-en "
-"sorkuntzarako,eremuak aurrehautatzeko erabil daiteke, adibidez"
+"Uneko bertsio bakarra egon daiteke. Eremu hau aplikazioen sorkuntzarako "
+"eremuak aurrehautatzeko erabil daiteke, adibidez"
 
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:626
 msgid "Has a release"
 msgstr "Argitaratze bat du"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:628
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"Egiazkoa bada, fitxategi moduan jaitsi daitekeen Nextcloud bertsioa da hau. "
-"Faltsua bada, bertsio hau ez da azkenengoa, edo ez dago deskargatzeko "
-"erabilgarri"
+"Egia bada, fitxategi moduan deskargatu daitekeen Nextcloud bertsioa da hau. "
+"Faltsua bada, aurreargitalpen bertsio bat da, edo dagoeneko ez dago "
+"deskargatzeko eskuragarri."
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:635
 msgid "Version is supported"
 msgstr "Bertsioa onartzen da"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:636
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
-msgstr ""
-"Egia da bertsio hau ofizialki onartzen bada (enpresaren laguntza kenduta)"
+msgstr "Egia da bertsio hau ofizialki onartzen bada (enpresa laguntzak salbu)"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:642
 msgid "Nextcloud release"
 msgstr "Nextcloud bertsioa"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:643
 msgid "Nextcloud releases"
 msgstr "Nextcloud bertsioak"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
 msgid "Forbidden"
-msgstr "Ahaztuta"
+msgstr "Debekatuta"
 
 #: nextcloudappstore/core/templates/403.html:10
 msgid "You are forbidden to access this page!"
-msgstr "Ez duzu orri hau atzitzeko baimenik"
+msgstr "Ez duzu orri hau atzitzeko baimenik!"
 
 #: nextcloudappstore/core/templates/404.html:4
 msgid "Not Found"
-msgstr "Ez da topatu"
+msgstr "Ez da aurkitu"
 
 #: nextcloudappstore/core/templates/404.html:8
 msgid "Page not found"
-msgstr "Orria ez da topatu"
+msgstr "Orria ez da aurkitu"
 
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
-msgstr "Sartu nahi zaren orria ez da existitzen!"
+msgstr "Bilatzen ari zaren orria ez da existitzen!"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -619,13 +618,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"%(site_name)s-(e)n izenean ongi etorri!\n"
+"%(site_name)s-(r)en izenean, ongi etorri!\n"
 "\n"
 "Email hau jaso duzu%(user_display)serabiltzaileak helbide elektroniko hau bere%(site_domain)skontura estekatu duelako.\n"
 "\n"
-"Hau zuzena dela konfirmatzeko, %(activate_url)s-ra joan\n"
+"Hau zuzena dela berresteko, joan %(activate_url)s-ra\n"
 "\n"
-"%(site_domain)s-(e)n konturik ez baduzu, mezua baztertu.\n"
+"%(site_domain)s-(e)n konturik ez baduzu, besterik gabe baztertu mezu hau.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -639,7 +638,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
 msgid "Confirm Email Address"
-msgstr "E-posta helbidea baieztatu"
+msgstr "Berretsi helbide elektronikoa"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:17
 #, python-format
@@ -647,12 +646,12 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Konfirmatu <a href=\"mailto:%(email)s\">%(email)s</a>%(user_display)s-(a)ren"
-"  helbide elektronikoa dela."
+"Berretsi <a href=\"mailto:%(email)s\">%(email)s</a> helbide elektronikoa "
+"%(user_display)serabiltzailearena dela."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
-msgstr "Konfirmatu"
+msgstr "Berretsi"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
@@ -660,21 +659,21 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a "
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Mezu elektroniko bidezko konfirmazio esteka hau iraungi egin da edo "
-"baliogabea da. Mesedez<a href=\"%(email_url)s\">bidali mezu elektroniko "
-"berrespen-eskaera berria</a>."
+"Mezu elektroniko bidezko berrespen esteka hau iraungi egin da edo baliogabea"
+" da. Mesedez<a href=\"%(email_url)s\">bidali mezu elektroniko berrespen-"
+"eskaera berria</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
 #: nextcloudappstore/core/templates/account/login.html:33
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:100
 msgid "Log in"
 msgstr "Hasi saioa"
 
 #: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:25
+#: nextcloudappstore/core/templates/account/signup.html:24
 msgid "Log in with GitHub"
 msgstr "Hasi saioa GitHub bidez"
 
@@ -684,10 +683,10 @@ msgstr "Pasahitza ahaztu duzu?"
 
 #: nextcloudappstore/core/templates/account/login.html:36
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:35
+#: nextcloudappstore/core/templates/account/signup.html:34
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:94
+#: nextcloudappstore/core/templates/nav.html:103
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -696,7 +695,7 @@ msgstr "Erregistratu"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
 msgid "Password Reset"
-msgstr "Pasahitza berrezarri"
+msgstr "Berrezarri pasahitza"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:17
 msgid ""
@@ -708,12 +707,12 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
-msgstr "Nire pasahitza berrezarri"
+msgstr "Berrezarri nire pasahitza"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Gurekin harremanetan jarri mesedez, zure pasahitza berrezartzeko arazoak "
+"Jarri gurekin harremanetan mesedez, zure pasahitza berrezartzeko arazoak "
 "badituzu"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
@@ -725,7 +724,7 @@ msgstr "API token ezegokia"
 #: nextcloudappstore/user/templates/user/password.html:8
 #: nextcloudappstore/user/templates/user/password.html:14
 msgid "Change Password"
-msgstr "Pasahitza aldatu"
+msgstr "Aldatu pasahitza"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
 #, python-format
@@ -735,40 +734,40 @@ msgid ""
 "reset</a>."
 msgstr ""
 "Pasahitza berrezartzeko esteka baliogabea da, ziur aski erabili delako.  "
-"eskatu mesedez pasahitz berrezartze berria <a href=\"%(passwd_reset_url)s\">"
-" hemen "
+"Eskatu mesedez <a href=\"%(passwd_reset_url)s\">pasahitz berrezartze "
+"berria</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
-msgstr "Zure pasahitza aldatu da"
+msgstr "Zure pasahitza aldatu da."
 
-#: nextcloudappstore/core/templates/account/signup.html:18
+#: nextcloudappstore/core/templates/account/signup.html:17
 msgid "Create account"
-msgstr "Kontua sortu"
+msgstr "Sortu kontua"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Nextcloud-eko App dendaren administratzailea"
+msgstr "Nextcloudeko aplikazioen dendaren (App Store) administratzailea"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Nextcloud App dendaren administrazioa"
+msgstr "Nextcloudeko aplikazioen dendaren (App Store) administrazioa"
 
 #: nextcloudappstore/core/templates/app/base.html:11
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "All apps"
-msgstr "App guztiak"
+msgstr "Aplikazio guztiak"
 
 #: nextcloudappstore/core/templates/app/base.html:14
 #: nextcloudappstore/core/templates/app/list.html:5
 msgid "Featured apps"
-msgstr "App aipagarriak"
+msgstr "Aplikazio nabarmenduak"
 
 #: nextcloudappstore/core/templates/app/detail.html:16
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr "%(app_name)s ren azken bertsioak"
+msgstr "%(app_name)s(r)en azken bertsioak"
 
 #: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Previous"
@@ -785,11 +784,11 @@ msgstr "Eguneratua"
 
 #: nextcloudappstore/core/templates/app/detail.html:66
 msgid "Publisher"
-msgstr "Publikatzailea"
+msgstr "Argitaratzailea"
 
 #: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Resources"
-msgstr "Errekurtsoak"
+msgstr "Baliabideak"
 
 #: nextcloudappstore/core/templates/app/detail.html:104
 msgid "User documentation"
@@ -805,7 +804,7 @@ msgstr "Garatzaile dokumentazioa"
 
 #: nextcloudappstore/core/templates/app/detail.html:121
 msgid "Downloads"
-msgstr "Jaitsierak"
+msgstr "Deskargak"
 
 #: nextcloudappstore/core/templates/app/detail.html:128
 #: nextcloudappstore/core/templates/app/releases.html:23
@@ -823,23 +822,23 @@ msgstr "Bertsio guztiak"
 
 #: nextcloudappstore/core/templates/app/detail.html:140
 msgid "Discussion"
-msgstr "Diskusioa"
+msgstr "Eztabaida"
 
 #: nextcloudappstore/core/templates/app/detail.html:144
 msgid "Report problem"
-msgstr "Arazoa salatu"
+msgstr "Eman arazoaren berri"
 
 #: nextcloudappstore/core/templates/app/detail.html:148
 msgid "Request feature"
-msgstr "Ezaugarria eskatu"
+msgstr "Eskatu ezaugarria"
 
 #: nextcloudappstore/core/templates/app/detail.html:155
 msgid "Ask questions or discuss"
-msgstr "Galderak edo diskutsioak galdetu"
+msgstr "Egin galderak edo eztabaidatu"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate app"
-msgstr "App-a baloratu"
+msgstr "Baloratu aplikazioa"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
@@ -855,9 +854,9 @@ msgid ""
 "                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"A rating without a comment still counts, but will not be listed below."
+"Balorazio iruzkinek<a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> onartzen dute.\n"
+"Ez erabili balorazio iruzkinak arazoen berri eman edo ezaugarriak eskatzeko. Zure iruzkinaren jakinarazpenik ez zaie bidaltzen garatzaileei edo beste erabiltzaileei.\n"
+"Iruzkinik gabeko balorazioak kontuan hartzen dira, baina ez dira behean erakusten."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -867,37 +866,33 @@ msgstr "Eguneratu balorazioa"
 msgid "Submit rating"
 msgstr "Bidali balorazioa"
 
-#: nextcloudappstore/core/templates/app/detail.html:195
-msgid "Ok"
-msgstr "Ok"
-
 #: nextcloudappstore/core/templates/app/detail.html:208
 msgid "No comments found."
 msgstr "Ez da iruzkinik aurkitu."
 
 #: nextcloudappstore/core/templates/app/detail.html:216
 msgid "Rating comments"
-msgstr "Iruzkinaren balorazioa"
+msgstr "Balorazio iruzkinak"
 
 #: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Display ratings comments in:"
-msgstr "Display ratings comments in:"
+msgstr "Erakutsi balorazio iruzkinak hemen:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:70
+#: nextcloudappstore/core/templates/nav.html:79
 msgid "Register integration"
 msgstr "Erregistratze integrazioa"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr "Integrazio nabarmena"
+msgstr "Moderatze integrazioa"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr "Edizio integrazioa"
+msgstr "Editatze integrazioa"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -927,25 +922,25 @@ msgstr "Alfabetikoki"
 
 #: nextcloudappstore/core/templates/app/list.html:33
 msgid "My apps"
-msgstr "Nire app-ak"
+msgstr "Nire aplikazioak"
 
 #: nextcloudappstore/core/templates/app/list.html:61
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
-" \"<em>%(query)s</em>\"bilatu ondoren %(category)saren barrua ez da app-rik "
-"topatu."
+" \"<em>%(query)s</em>\" bilaketak ez du aplikaziorik aurkitu "
+"%(category)s(e)n."
 
 #: nextcloudappstore/core/templates/app/list.html:63
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr " \"<em>%(query)s</em>\" bilatua ez da app-rik topatu. "
+msgstr " \"<em>%(query)s</em>\" bilaketak ez du aplikaziorik eman."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/nav.html:64
 msgid "Register app"
-msgstr "App-a erregistratu"
+msgstr "Erregistratu aplikazioa"
 
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
@@ -954,8 +949,8 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Ziurtagiria nola eskuratu eta sinadura nola sortzeko informazio gehiagorako,"
-" egiaztatu <a "
+"Ziurtagiria eskuratzeko eta sinadura sortzeko moduei buruzko informazio "
+"gehiagorako, begiratu <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">aplikazioen garatzailearen gida</a>."
 
@@ -966,8 +961,9 @@ msgid ""
 "of its already uploaded releases!"
 msgstr ""
 "Formulario hau existitzen diren ziurtagiriak eguneratzeko erabil daiteke, "
-"baina app-aren jabeak bakarrik egin dezake. App baten ziurtagiria "
-"eguneratzean aurretik igotako bertsio guztiak borratuko ditu."
+"baina aplikaizioaren jabeak bakarrik egin dezake. Aplikazio baten "
+"ziurtagiria eguneratzean aurretik kargatutako bertsio guztiak ezabatuko "
+"dira!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -975,7 +971,7 @@ msgstr "Ez da ziurtagiri publikoa"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
-msgstr "App-a erregistratua"
+msgstr "Aplikazioa erregistratuta."
 
 #: nextcloudappstore/core/templates/app/releases.html:4
 #: nextcloudappstore/core/templates/app/releases.html:12
@@ -984,7 +980,7 @@ msgstr "Bertsioak"
 
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
-msgstr "App-aren xehetasunak"
+msgstr "Aplikazioaren xehetasunak"
 
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
@@ -1008,24 +1004,24 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:51
+#: nextcloudappstore/core/templates/nav.html:60
 msgid "Generate app"
-msgstr "App-a sortu"
+msgstr "Sortu aplikazioa"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:13
 msgid "Generate and download"
-msgstr "Sortu eta jaitsi"
+msgstr "Sortu eta deskargatu"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:58
+#: nextcloudappstore/core/templates/nav.html:67
 msgid "Upload app release"
-msgstr "Igo app bertsioa"
+msgstr "Kargatu aplikazioaren bertsioa"
 
 #: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
 msgid "App release successfully uploaded."
-msgstr "App bertsioa ongi igo da."
+msgstr "Aplikazioaren bertsioa ongi kargatu da."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
@@ -1039,15 +1035,15 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
-msgstr "Igo"
+msgstr "Kargatu"
 
 #: nextcloudappstore/core/templates/base.html:8
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
-"Nextcloud Aplikazioen Denda - Igo zure aplikazioak eta berriak instala "
-"itzazu zure Nextcloud-ean"
+"Nextcloud Aplikazioen Denda - Igo zure aplikazioak eta instala itzazu "
+"berriak zure Nextcloudean"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1056,7 +1052,7 @@ msgstr "Nextcloud Komunitatea"
 #: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
 msgid "Latest app releases"
-msgstr "Azkenengo app-en bertsioak"
+msgstr "Aplikazio bertsio berrienak"
 
 #: nextcloudappstore/core/templates/base.html:45
 msgid "Fork me on GitHub"
@@ -1068,7 +1064,7 @@ msgstr "Pribatutasuna eta legedia"
 
 #: nextcloudappstore/core/templates/base.html:51
 msgid "Legal Notice"
-msgstr "Ohar legala"
+msgstr "Lege oharra"
 
 #: nextcloudappstore/core/templates/form-fields.html:19
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -1078,11 +1074,11 @@ msgstr "beharrezko eremua"
 #: nextcloudappstore/core/templates/nav.html:15
 #, python-format
 msgid "Search in %(category)s"
-msgstr "Bilatu %(category)s etan"
+msgstr "Bilatu %(category)s(e)n"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in featured apps"
-msgstr "Bilatu aplikazio aipagarriak"
+msgstr "Bilatu aplikazio nabarmenduen artean"
 
 #: nextcloudappstore/core/templates/nav.html:15
 msgid "Search in all apps"
@@ -1095,25 +1091,37 @@ msgstr "Bilatu"
 
 #: nextcloudappstore/core/templates/nav.html:31
 msgid "Toggle navigation"
-msgstr "Nabigazioa aldatu"
+msgstr "Txandakatu nabigazioa"
 
 #: nextcloudappstore/core/templates/nav.html:44
 msgid "App developer"
-msgstr "App garatzailea"
+msgstr "Aplikazioaren garatzailea"
 
 #: nextcloudappstore/core/templates/nav.html:48
 msgid "Documentation"
 msgstr "Dokumentazioa"
 
-#: nextcloudappstore/core/templates/nav.html:66
-msgid "Integration developer"
-msgstr "Garatzaile integrazioa"
+#: nextcloudappstore/core/templates/nav.html:51
+msgid "Upload your app"
+msgstr "Kargatu zure aplikazioa"
 
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:54
+msgid "Developer resources"
+msgstr "Garatzaileen baliabideak"
+
+#: nextcloudappstore/core/templates/nav.html:57
+msgid "Request translations"
+msgstr "Eskatu itzulpenak"
+
+#: nextcloudappstore/core/templates/nav.html:75
+msgid "Integration developer"
+msgstr "Integrazio garatzailea"
+
+#: nextcloudappstore/core/templates/nav.html:88
 msgid "Admin"
 msgstr "Admin"
 
-#: nextcloudappstore/core/templates/nav.html:84
+#: nextcloudappstore/core/templates/nav.html:93
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
@@ -1121,9 +1129,9 @@ msgstr "Admin"
 msgid "Account"
 msgstr "Kontua"
 
-#: nextcloudappstore/core/templates/nav.html:87
+#: nextcloudappstore/core/templates/nav.html:96
 msgid "Log out"
-msgstr "Atera"
+msgstr "Amaitu saioa"
 
 #: nextcloudappstore/core/templates/socialaccount/signup.html:15
 #, python-format
@@ -1131,8 +1139,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Zure %(provider_name)s kontua             %(site_name)s sartzeko erabiliko duzu\n"
-". Bukaera pausutzat, ondoko formularioa bete:"
+"Zure %(provider_name)s kontuarekin %(site_name)s(e)n sartzera zoaz.\n"
+"Azken pauso gisa, bete ondoko formularioa:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1140,15 +1148,15 @@ msgstr "Pertsonalizazioa"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "Gaiak, diseinua eta UX aldaketentzako app-ak"
+msgstr "Gaiak, diseinua eta UX aldaketentzako aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
-msgstr "Mahaia"
+msgstr "Panela"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
-msgstr "Nextclouden aginte-panel widgetak dauzkaten aplikazioak"
+msgstr "Nextclouden aginte-panel trepetak dauzkaten aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1156,15 +1164,15 @@ msgstr "Fitxategiak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:6
 msgid "File management and Files app extension apps"
-msgstr "Fitxategien kudeaketa eta Fitxategi app-aren luzapen app-ak"
+msgstr "Fitxategien kudeaketa eta Fitxategi aplikazioaren luzapen aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:7
 msgid "Games"
-msgstr "Jokuak"
+msgstr "Jokoak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:8
 msgid "Games run in your Nextcloud"
-msgstr "Zure Nextcloudean exekuta daitezkeen jokuak"
+msgstr "Zure nextcloudean exekuta daitezkeen jokoak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:9
 msgid "Integration"
@@ -1172,7 +1180,7 @@ msgstr "Integrazioa"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:10
 msgid "Apps that connect Nextcloud with other services and platforms"
-msgstr "Nextcloud beste zerbitzu eta plataformekin konektatzeko app-ak"
+msgstr "Nextcloud beste zerbitzu eta plataformekin konektatzeko aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:11
 msgid "Monitoring"
@@ -1180,7 +1188,7 @@ msgstr "Monitorizazioa"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:12
 msgid "Data statistics, system diagnostics and activity apps"
-msgstr "Datu estatiktikak, sistema diagnostikoa eta jarduera app-ak"
+msgstr "Datu estatiktikak, sistema diagnostikoa eta jarduera aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:13
 msgid "Multimedia"
@@ -1188,7 +1196,7 @@ msgstr "Multimedia"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:14
 msgid "Audio, video and picture apps"
-msgstr "Audio, bideo eta argazki app-ak"
+msgstr "Audio, bideo eta argazki aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:15
 msgid "Office & text"
@@ -1196,19 +1204,19 @@ msgstr "Bulegoa eta testua"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:16
 msgid "Office and text processing apps"
-msgstr "Bulegoak eta testu prozesatzaileen app-ak"
+msgstr "Bulego eta testu prozesatzaileen aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:17
 msgid "Organization"
 msgstr "Antolakuntza"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
-msgid "Time management, Todo list and calendar apps"
+msgid "Time management, To-Do list and calendar apps"
 msgstr "Denboraren kudeaketa, egitekoen zerrenda eta egutegi aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
-msgstr "Zerikusia duten aplikazioak bilatu"
+msgstr "Bilatu zerikusia duten aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:21
 msgid "Security"
@@ -1219,16 +1227,16 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
-"Segurtasun gehiago emateko app-ak, adibidez autentikazioa, autorizazioa, "
-"enkriptazioa eta abar."
+"Segurtasun gehiago emateko aplikazioak, adibidez autentikazioa, "
+"autorizazioa, enkriptazioa eta abar."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
-msgstr "Soziala eta komunikazioa"
+msgstr "Arlo soziala eta komunikazioa"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Messaging, contact management and social media apps"
-msgstr "Mezularitza, kontaktuen kudeaketa eta sare sozialen app-ak"
+msgstr "Mezularitza, kontaktuen kudeaketa eta sare sozialen aplikazioak"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Tools"
@@ -1272,12 +1280,12 @@ msgstr "Sartu baliozko HTTPS URL-a"
 
 #: nextcloudappstore/scaffolding/forms.py:33
 msgid "The app name must be camel case e.g. MyApp"
-msgstr "App-ak \"camel case\" modukoa izan behar du, adib. NireApp"
+msgstr "Aplikazio izenak \"camel case\" modukoa izan behar du, adib. NireApp"
 
 #: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
-msgstr "App izena"
+msgstr "Aplikazioaren izena"
 
 #: nextcloudappstore/scaffolding/forms.py:45
 msgid "Author's full name"
@@ -1285,51 +1293,62 @@ msgstr "Egilearen izen osoa"
 
 #: nextcloudappstore/scaffolding/forms.py:46
 msgid "Author's email"
-msgstr "Egilearen eposta"
+msgstr "Egilearen posta elektronikoa"
 
 #: nextcloudappstore/scaffolding/forms.py:47
-#: nextcloudappstore/scaffolding/forms.py:64
+#: nextcloudappstore/scaffolding/forms.py:69
 msgid "Author's homepage"
 msgstr "Egilearen hasiera orria"
 
 #: nextcloudappstore/scaffolding/forms.py:49
-#: nextcloudappstore/scaffolding/forms.py:66
+#: nextcloudappstore/scaffolding/forms.py:71
 msgid "Bug reports and feature requests"
-msgstr "Bug salaketa eta ezaugarrien eskaera"
+msgstr "Bug salaketa eta ezaugarrien eskaerak"
 
 #: nextcloudappstore/scaffolding/forms.py:52
-#: nextcloudappstore/scaffolding/forms.py:70
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Hold down Ctrl and click to select multiple entries"
-msgstr "Sakatu Ktrl eta klik egin sarrera bat baino gehiago hautatzeko"
+msgstr ""
+"Sakatu eta mantendu Ktrl eta egin klik sarrera bat baino gehiago hautatzeko"
 
 #: nextcloudappstore/scaffolding/forms.py:55
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:78
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Aplikazioaren deskribapen txikia erreklamo moduan erabiltzeko"
 
 #: nextcloudappstore/scaffolding/forms.py:57
 msgid "Full description of what your app does. Can contain Markdown."
-msgstr "App-ak egiten duenaren deskribapen zabala. Markdown izan dezake."
+msgstr "Aplikazioak egiten duenaren deskribapen osoa. Markdown onartzen da."
 
-#: nextcloudappstore/scaffolding/forms.py:62
+#: nextcloudappstore/scaffolding/forms.py:60
+msgid ""
+"I opt in for the collection of my personal data. We could then reach out to "
+"you to check in with you about your plans or to ask for feedback on our "
+"developer program."
+msgstr ""
+"Nire datu pertsonalak biltzeko aukera ematen dut. Zurekin harremanetan jar "
+"gaitezke zure planei buruzkoa zurekin egiaztatzeko edo gure garatzaile-"
+"programari buruzko iritzia eskatzeko."
+
+#: nextcloudappstore/scaffolding/forms.py:67
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr "Izen integrazioa"
+msgstr "Integrazioaren izena"
 
-#: nextcloudappstore/scaffolding/forms.py:74
+#: nextcloudappstore/scaffolding/forms.py:79
 msgid "Screenshot URL"
-msgstr "Pantaila-argazki URLa"
+msgstr "Pantaila-argazkiaren URLa"
 
-#: nextcloudappstore/scaffolding/forms.py:76
+#: nextcloudappstore/scaffolding/forms.py:81
 msgid "URL for integration screenshot"
 msgstr "Integrazioaren pantaila-argazkirako URLa"
 
-#: nextcloudappstore/scaffolding/forms.py:77
+#: nextcloudappstore/scaffolding/forms.py:82
 msgid "Screenshot thumbnail URL"
-msgstr "Pantaila-argazkien koadro txiki URLa"
+msgstr "Pantaila-argazkiaren koadro txiki URLa"
 
-#: nextcloudappstore/scaffolding/forms.py:80
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1337,64 +1356,64 @@ msgstr ""
 "Dimentsio txikiagoetan integrazioen pantaila-argazkiak egiteko URLa. "
 "Pantaila-argazki handiago batekin konbinatuz erabili behar da."
 
-#: nextcloudappstore/scaffolding/forms.py:86
+#: nextcloudappstore/scaffolding/forms.py:91
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
-"Zure integrazioak egiten duenaren deskribapen zabala. Markdown izan dezake."
+"Zure integrazioak egiten duenaren deskribapen osoa. Markdown onartzen da."
 
-#: nextcloudappstore/user/forms.py:15
+#: nextcloudappstore/user/forms.py:14
 msgid "First name"
 msgstr "Izena"
 
-#: nextcloudappstore/user/forms.py:16
+#: nextcloudappstore/user/forms.py:15
 msgid "Last name"
 msgstr "Abizena"
 
-#: nextcloudappstore/user/forms.py:25
+#: nextcloudappstore/user/forms.py:24
 msgid "Your email address"
-msgstr "Zure e-posta"
+msgstr "Zure helbide elektronikoa"
 
-#: nextcloudappstore/user/forms.py:37
+#: nextcloudappstore/user/forms.py:36
 msgid "The given email address does not match your email address"
 msgstr ""
 "Emandako helbide elektronikoa ez dator bat zure helbide elektronikoarekin"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:40
 msgid "Confirm password"
-msgstr "Pasahitza berretsi"
+msgstr "Berretsi pasahitza"
 
-#: nextcloudappstore/user/forms.py:42
+#: nextcloudappstore/user/forms.py:41
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Pasahitza beharrezkoa da baimenik gabeko erabiltzaileek zure eposta kontua "
-"eta pasahitza alda ez dezaten. Eremu honek ez du zure pasahitza eguneratuko "
-"!"
+"Pasahitza beharrezkoa da baimenik gabeko erabiltzaileek zure helbide "
+"elektronikoa eta pasahitza aldatzea saihesteko. Eremu honek ez du zure "
+"pasahitza eguneratuko!"
 
-#: nextcloudappstore/user/forms.py:57
+#: nextcloudappstore/user/forms.py:56
 msgid "This email address is already associated with another account."
-msgstr "Eposta kontu hau beste kontu batekin lotuta dago."
+msgstr "Posta elektroniko hau beste kontu batekin lotuta dago."
 
-#: nextcloudappstore/user/forms.py:67
+#: nextcloudappstore/user/forms.py:66
 msgid "Invalid password"
 msgstr "Pasahitz desegokia"
 
-#: nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/user/forms.py:77
 msgid "Email address"
-msgstr "E-posta helbidea"
+msgstr "Helbide elektronikoa"
 
 #: nextcloudappstore/user/signals.py:31
-msgid "Nextcloud App Store password changed"
-msgstr "Nextcloud App Store-ko pasahitza aldatu da"
+msgid "Nextcloud app store password changed"
+msgstr "Nextcloud aplikazioen dendaren pasahitza aldatu da"
 
 #: nextcloudappstore/user/signals.py:32
 msgid ""
-"Your Nextcloud App Store password has changed. Contact support if this "
-"wasn't you."
+"Your Nextcloud app store password has changed. Contact support if this was "
+"not you."
 msgstr ""
-"Zure Nextcloud App Store-ko pasahitza aldatu da. Jarri harremanetan "
+"Nextcloud aplikazioen dendako pasahitza aldatu da. Jarri harremanetan "
 "laguntza-zerbitzuarekin zu izan ez bazara."
 
 #: nextcloudappstore/user/templates/user/account.html:12
@@ -1404,20 +1423,20 @@ msgstr "Gorde"
 #: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
 msgid "API Token"
-msgstr "API Token"
+msgstr "API tokena"
 
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the App Store\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
 "                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
 "                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                   API token-a autentifikaziorako erabil daiteke App Store-ra deitzerakoan \n"
-"                   <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                    Ziurtatu isilpean gordetzen duzula. Jarraian token berri bat sor daiteke, token zaharra baliogabe bihurtuz."
+"               API token-a autentifikaziorako erabil daiteke app store-ra deitzerakoan \n"
+"              <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>. \n"
+"                Ziurtatu isilpean gordetzen duzula. Jarraian token berri bat sor daiteke, token zaharra baliogabe bihurtuz."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1425,7 +1444,7 @@ msgstr "Zure API tokena hau da:"
 
 #: nextcloudappstore/user/templates/user/api-token.html:27
 msgid "New API token generated."
-msgstr "API token berria sortuta"
+msgstr "API token berria sortu da."
 
 #: nextcloudappstore/user/templates/user/api-token.html:32
 msgid "Regenerate API token"
@@ -1438,7 +1457,7 @@ msgstr "Integrazioak"
 
 #: nextcloudappstore/user/templates/user/base.html:18
 msgid "Transfer app ownership"
-msgstr "Apparen jabetza transferitu"
+msgstr "Transferitu aplikazioaren jabetza"
 
 #: nextcloudappstore/user/templates/user/base.html:21
 #: nextcloudappstore/user/templates/user/set-language.html:4
@@ -1461,17 +1480,17 @@ msgstr "API tokena"
 #: nextcloudappstore/user/templates/user/delete-account.html:8
 #: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid "Delete account"
-msgstr "Kontua borratu"
+msgstr "Ezabatu kontua"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
-"click the \"Delete account\" button:"
+"click the \"Delete account\" button."
 msgstr ""
 "Zure kontua ezabatzeak zure aplikazio eta bertsio guztiak ere ezabatuko "
 "ditu. Zure kontua ezabatzeko, sartu zure helbide elektronikoa idazketa-"
-"eremuan eta egin klik \"Ezabatu kontua\" botoian:"
+"eremuan eta egin klik \"Ezabatu kontua\" botoian."
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
@@ -1501,20 +1520,21 @@ msgstr "Ez duzu integraziorik bidali oraindik edo onarpenaren zain daude!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
-msgstr "Pasahitza aldatzeak zure APIaren tokena aldatuko du!"
+msgstr "Pasahitza aldatzeak zure APIaren tokena ere birsortuko du!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Beste hornitzaile batekin erregistratutako kontua erabiltzen saiatzen ari "
-"zara. Horregatik <strong>EZIN DA</strong> pasahitza aldatu webgune honetatik"
+"Beste hornitzaile batekin erregistratutako kontua erabiltzen ari zarela "
+"dirudi. Horregatik <strong>EZIN DA</strong> pasahitza aldatu webgune "
+"honetatik."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 msgid "Transfer Apps"
-msgstr "App-ak transferitu"
+msgstr "Transferitu aplikazioak"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:10
 msgid ""
@@ -1522,9 +1542,10 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"Appak jabe berri batera transferitzeko app-a desblokeatu behar duzu "
-"lehenago. Erabiltzaileekapp-aren kontrola har dezakete app-aren erregistro "
-"orria app-aren garatzailearen menuan"
+"Aplikazioak jabe berri bati transferitzeko aplikazioa desblokeatu behar duzu"
+" lehenago. Orduan beste erabiltzaileak aplikazioaren kontrola hartu ahalko "
+"du, aplikazioa berriro erregistratuz, aplikazio garatzaileen menuko "
+"erregistroen orrian."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1532,7 +1553,7 @@ msgstr "Jabetzaren transferentzia egoera"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Change ownership transfer status"
-msgstr "Jabetzaren transferentzia egoera aldatu"
+msgstr "Aldatu jabetzaren transferentzia egoera"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:24
 msgid "Unlocked for transfer"
@@ -1544,12 +1565,12 @@ msgstr "Blokeatuta, ezin da transferentziarik egin"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:33
 msgid "Lock ownership transfer"
-msgstr "Jabetzaren transferentzia blokeatu"
+msgstr "Blokeatu jabetzaren transferentzia"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:35
 msgid "Unlock ownership transfer"
-msgstr "Jabetzaren transferentzia desblokeatu"
+msgstr "Desblokeatu jabetzaren transferentzia"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "Ez duzu app-rik igo oraindik!"
+msgstr "Ez duzu aplikaziorik kargatu oraindik!"

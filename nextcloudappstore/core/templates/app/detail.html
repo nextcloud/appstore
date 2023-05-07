@@ -1,5 +1,5 @@
 {% extends 'app/base.html' %}
-{% load i18n sort_by_version staticfiles app_rating app_rating_class humanize %}
+{% load i18n sort_by_version static app_rating app_rating_class humanize %}
 
 {% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
@@ -192,7 +192,7 @@
                         <div class="date"></div>
                         <div class="author"></div>
                         <div class="rating rating-good">{% trans 'Good' %}</div>
-                        <div class="rating rating-ok">{% trans 'Ok' %}</div>
+                        <div class="rating rating-ok">{% trans 'OK' %}</div>
                         <div class="rating rating-bad">{% trans 'Bad' %}</div>
                     </header>
                     <div class="comment"></div>

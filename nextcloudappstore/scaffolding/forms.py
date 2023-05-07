@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
-    TextInput
+    TextInput, BooleanField
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _  # type: ignore
 from django.forms.fields import EmailField, CharField, ChoiceField,\
@@ -24,7 +24,7 @@ def get_categories():
 
 def get_versions():
     tpls = listdir(resolve_file_relative_path(__file__, 'app-templates'))
-    return sorted(((v, v) for v in tpls))
+    return sorted(((v, v) for v in tpls), reverse=True)
 
 
 def validate_id(input: str) -> None:
@@ -43,7 +43,7 @@ class AppScaffoldingForm(Form):
     platform = ChoiceField(choices=lazy(get_versions, list), required=True,
                            label=_('Nextcloud version'))
     author_name = CharField(max_length=80, label=_('Author\'s full name'))
-    author_email = EmailField(label=_('Author\'s email'))
+    author_email = EmailField(label=_('Author\'s email'), required=True)
     author_homepage = URLField(label=_('Author\'s homepage'), required=False)
     issue_tracker = URLField(label=_('Issue tracker URL'), required=True,
                              help_text=_('Bug reports and feature requests'))
@@ -56,6 +56,11 @@ class AppScaffoldingForm(Form):
     description = CharField(widget=Textarea, label=_('Description'),
                             help_text=_('Full description of what your app '
                                         'does. Can contain Markdown.'))
+    opt_in = BooleanField(
+        label=_('I opt in for the collection of my personal data. '
+                'We could then reach out to you to check in with you about '
+                'your plans or to ask for feedback on our developer program.'),
+        required=False)
 
 
 class IntegrationScaffoldingForm(Form):
@@ -105,7 +110,7 @@ class IntegrationScaffoldingForm(Form):
         # want to abort app registration just because the forum is down or
         # leak sensitive data like tokens or users
         try:
-            requests.post(url, data=data)
+            requests.post(url, data=data, timeout=30)
         except requests.HTTPError:
             pass
 

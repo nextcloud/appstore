@@ -35,6 +35,12 @@ Clone the repository using git and change into it::
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
 
+Install poetry
+--------------
+Install poetry to handle python dependencies::
+
+    pip install poetry==1.4.2
+
 App Store Setup
 ---------------
 The project root contains a **Makefile** which allows you to quickly set everything up by running::
@@ -47,7 +53,7 @@ Launching the Development Server
 --------------------------------
 The server can be started after activating the virtual environment first::
 
-    source venv/bin/activate
+    poetry shell
     export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
     python manage.py runserver
 
@@ -55,12 +61,12 @@ The website is available at `http://127.0.0.1:8000 <http://127.0.0.1:8000>`_. Co
 
 Every time you start a new terminal session you will need to reactive the virtual environment and set the development settings::
 
-    source venv/bin/activate
+    poetry shell
     export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development
 
 We therefore recommend creating a small bash alias in your **~/.bashrc**::
 
-    alias cda='cd path/to/appstore && source venv/bin/activate && export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development'
+    alias cda='cd path/to/appstore && poetry shell && export DJANGO_SETTINGS_MODULE=nextcloudappstore.settings.development'
 
 Keeping Up to Date
 ------------------

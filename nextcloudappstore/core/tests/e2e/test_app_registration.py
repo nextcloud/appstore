@@ -22,7 +22,8 @@ class AppRegistrationTest(BaseStoreTest, AppDevSteps):
 
         def validate_error_msg(el):
             msg = 'Signature is invalid: [(\'rsa routines\', ' \
-                  '\'int_rsa_verify\', \'wrong signature length\')]'
+                  '\'\', \'wrong signature length\'), ' \
+                  '(\'Provider routines\', \'\', \'RSA lib\')]'
             self.assertTrue(el.is_displayed())
             self.assertEqual(msg, el.text.strip())
 

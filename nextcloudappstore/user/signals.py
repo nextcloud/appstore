@@ -28,13 +28,17 @@ def password_changed_signal(sender, instance, **kwargs):
     :param kwargs:
     :return:
     """
-    mail_subect = _('Nextcloud App Store password changed')
-    mail_message = _('Your Nextcloud App Store password has changed. '
-                     'Contact support if this wasn\'t you.')
+    mail_subect = _('Nextcloud app store password changed')
+    mail_message = _('Your Nextcloud app store password has changed. '
+                     'Contact support if this was not you.')
 
     try:
         user = get_user_model().objects.get(pk=instance.pk)
-        if user.password != instance.password:
+        if (user.password != instance.password
+                and instance._password is not None):
+            # make sure we only send an email when user changed their
+            # password and _password is set and not when password hash
+            # was changed due to a new default hashing algorithm
             update_token(user.username)
             send_mail(
                     mail_subect,
