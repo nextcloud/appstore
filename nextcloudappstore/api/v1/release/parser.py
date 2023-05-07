@@ -93,9 +93,12 @@ class GunZipAppMetadataExtractor:
                             self.config.max_file_size)
         database = get_contents('%s/appinfo/database.xml' % app_id, tar,
                                 self.config.max_file_size, '')
-        changelog = {}  # type: Dict[str, str]
-        changelog['en'] = get_contents('%s/CHANGELOG.md' % app_id, tar,
-                                       self.config.max_file_size, '')
+        changelog = {
+            'en': get_contents(
+                '%s/CHANGELOG.md' % app_id, tar, self.config.max_file_size, ''
+            )
+        }  # type: Dict[str, str]
+
         for code, _ in self.config.languages:
             trans_changelog = get_contents(
                 '%s/CHANGELOG.%s.md' % (app_id, code), tar,
@@ -124,11 +127,10 @@ def get_contents(path: str, tar: Any, max_file_size: int,
     """
     member = find_member(tar, path)
     if member is None:
-        if default is None:
-            msg = 'Path %s does not exist in package' % path
-            raise InvalidAppPackageStructureException(msg)
-        else:
+        if default is not None:
             return default
+        msg = 'Path %s does not exist in package' % path
+        raise InvalidAppPackageStructureException(msg)
     return stream_read_utf8(tar, member, max_file_size)
 
 
@@ -404,7 +406,7 @@ def find_member(tar: Any, path: str) -> Any:
         :return: the previous list with the new result which was
         constructed from the last element and the current element
         """
-        if len(prev) > 0:
+        if prev:
             return prev + ['%s/%s' % (prev[-1], curr)]
         else:
             return [curr]

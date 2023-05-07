@@ -134,17 +134,7 @@ class ImporterTest(TestCase):
                                  ex.releasedependencies.get().version_spec)
                 self.assertEqual('>=2.7.8',
                                  ex.releasedependencies.get().raw_version_spec)
-            elif ex.id == 'curl':
-                self.assertEqual('*',
-                                 ex.releasedependencies.get().version_spec)
-                self.assertEqual('*',
-                                 ex.releasedependencies.get().raw_version_spec)
-            elif ex.id == 'SimpleXML':
-                self.assertEqual('*',
-                                 ex.releasedependencies.get().version_spec)
-                self.assertEqual('*',
-                                 ex.releasedependencies.get().raw_version_spec)
-            elif ex.id == 'iconv':
+            elif ex.id in ['curl', 'SimpleXML', 'iconv']:
                 self.assertEqual('*',
                                  ex.releasedependencies.get().version_spec)
                 self.assertEqual('*',

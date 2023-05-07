@@ -95,10 +95,11 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         action = "save"
-        if self.request.method == "POST" and "reject" in self.request.POST:
-            action = "reject"
-        elif self.request.method == "POST" and "approve" in self.request.POST:
-            action = "approve"
+        if self.request.method == "POST":
+            if "reject" in self.request.POST:
+                action = "reject"
+            elif "approve" in self.request.POST:
+                action = "approve"
 
         return_value = form.save(self.request.user, self.app_id, action)
         self.success_url = "/apps/{}".format(return_value)

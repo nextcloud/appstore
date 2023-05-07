@@ -51,8 +51,5 @@ def app_ratings_etag(request: Any) -> str:
 def nextcloud_release_etag(request: Any) -> str:
     releases = [Version(rel.version) for rel in NextcloudRelease.objects.all()]
     release_num = len(releases)
-    if release_num > 0:
-        latest_release = str(max(releases))
-    else:
-        latest_release = ''
+    latest_release = str(max(releases)) if release_num > 0 else ''
     return '%d-%s' % (release_num, latest_release)
