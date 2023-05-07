@@ -21,7 +21,7 @@ class ArchiveTest(TestCase):
         }
 
     def test_build_files(self):
-        with self.settings(APP_SCAFFOLDING_PROFILES={23: {
+        with self.settings(APP_SCAFFOLDING_PROFILES={24: {
             'owncloud_version': '9.2'
         }}):
             expected = read_relative_file(__file__, 'data/info.xml').strip()
@@ -39,7 +39,7 @@ class ArchiveTest(TestCase):
         self.assertDictEqual({}, result)
 
     def test_build_archive(self):
-        with self.settings(APP_SCAFFOLDING_PROFILES={23: {
+        with self.settings(APP_SCAFFOLDING_PROFILES={24: {
             'owncloud_version': '9.2'
         }}):
             result = build_archive(self.args)
