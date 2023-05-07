@@ -558,6 +558,11 @@ class ParserTest(TestCase):
     def test_parse_changelog_empty(self):
         changelog = parse_changelog('', '9.0')
         self.assertEqual('', changelog)
+        for changelog_path in ('data/changelogs/CHANGELOG.md',
+                               'data/changelogs/CHANGELOG_v.md'):
+            file = self._get_contents(changelog_path)
+            changelog = parse_changelog(file, '0.3')
+            self.assertEqual('', changelog)
 
     def test_parse_changelog_not_found(self):
         file = self._get_contents('data/changelogs/CHANGELOG.md')
@@ -586,6 +591,18 @@ class ParserTest(TestCase):
         file = self._get_contents('data/changelogs/CHANGELOG.md')
         changelog = parse_changelog(file, '0.4.3', True)
         expected = self._get_contents('data/changelogs/unreleased.md').strip()
+        self.assertEqual(expected, changelog)
+
+    def test_parse_changelog_prefix_v(self):
+        file = self._get_contents('data/changelogs/CHANGELOG_v.md')
+        changelog = parse_changelog(file, '0.4.3')
+        expected = self._get_contents('data/changelogs/0.4.3.md').strip()
+        self.assertEqual(expected, changelog)
+
+    def test_parse_changelog_brackets_prefix_v(self):
+        file = self._get_contents('data/changelogs/CHANGELOG_v.md')
+        changelog = parse_changelog(file, '0.6.0')
+        expected = self._get_contents('data/changelogs/0.6.0.md').strip()
         self.assertEqual(expected, changelog)
 
     def _get_contents(self, target):

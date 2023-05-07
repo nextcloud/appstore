@@ -330,7 +330,7 @@ def parse_changelog(changelog: str, version: str,
     if is_nightly or '-' in version:
         version = 'Unreleased'
     changelog = changelog.strip()
-    regex = re.compile(r'^## (?:\[)?(?:v)?(\d+\.\d+\.\d+)')
+    regex = re.compile(r'^## (?:\[)?(?:v)?(\d+\.\d+(\.\d+)?)')
     unstable_regex = re.compile(r'^## \[Unreleased\]')
     result = {}  # type: Dict[str, List[str]]
     curr_version = ''
