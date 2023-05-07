@@ -15,7 +15,7 @@ class ArchiveTest(TestCase):
             'author_name': 'author name',
             'author_email': 'author email',
             'author_homepage': 'author homepage',
-            'platform': '23',
+            'platform': '24',
             'issue_tracker': 'https://test.com',
             'categories': ['tools'],
         }
