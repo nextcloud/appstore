@@ -3,23 +3,21 @@ Store Production Installation
 
 There are two ways to install the store, both are mutually exclusive (means: don't mix and match). If you are looking for a development setup, proceed to :doc:`devinstall`, otherwise continue.
 
-.. note:: This guide will use Ubuntu 16.04, Apache and PostgreSQL to set up the app store. You can of course also use different distributions and web-servers, however we will not be able to support you.
+.. note:: This guide will use Ubuntu 22.04, Apache and PostgreSQL to set up the app store. You can of course also use different distributions and web-servers, however we will not be able to support you.
 
 Installing Packages
 -------------------
-First you want to switch your machine to an up to date Node.js version and install Yarn::
+First you want to switch your machine to an up to date Node.js (16) and NPM (8) versions::
 
-    curl -sS https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-    echo "deb https://deb.nodesource.com/node_8.x xenial main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-    echo "deb-src https://deb.nodesource.com/node_8.x xenial main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+    cd ~
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+    sudo apt -y install nodejs -y
 
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 Then install the following libraries::
 
     sudo apt-get update
-    sudo apt-get install python3-venv python3-wheel libxslt-dev libxml2-dev libz-dev libpq-dev build-essential python3-dev python3-setuptools git gettext libssl-dev libffi-dev nodejs yarn
+    sudo apt-get install python3-venv python3-pip python3-wheel build-essential git libpq-dev gettext
 
 
 Database Setup
@@ -30,7 +28,7 @@ Then install the database::
 
 configure it::
 
-    echo "listen_address = '127.0.0.1'" | sudo tee -a /etc/postgresql/9.5/main/pg_ident.conf
+    echo "listen_address = '127.0.0.1'" | sudo tee -a /etc/postgresql/14/main/pg_ident.conf
     sudo systemctl restart postgresql.service
 
 and create a user and database::
@@ -60,6 +58,20 @@ Afterwards change into your preferred target folder, clone the repository using 
     git clone https://github.com/nextcloud/appstore.git
     cd appstore
 
+Afterwards set up a new virtual environment by running the following command::
+
+    python3 -m venv venv
+
+This will create a local virtual environment in the **venv** folder. You only need to do this once in the beginning.
+
+Then activate it::
+
+    source venv/bin/activate
+
+.. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
+
+.. note:: Keep in mind that you need to have the virtual environment activated for all the following commands
+
 Installing Required Libraries
 -----------------------------
 
@@ -68,23 +80,7 @@ Next install the required libraries::
     pip install --upgrade wheel
     pip install --upgrade pip
     pip install poetry==1.4.2
-
-Setting Up Poetry
------------------
-
-Afterwards set up a new virtual environment with poetry by running the following command::
-
     poetry install
-
-This will create a local virtual environment in the **.venv** folder. You only need to do this once in the beginning.
-
-Then activate it::
-
-    poetry shell
-
-.. note:: The above command changes your shell settings for the current session only, so once you launch a new terminal you need to run the command again to register all the paths.
-
-.. note:: Keep in mind that you need to have the virtual environment activated for all the following commands
 
 Adjusting Default Settings
 --------------------------
@@ -128,8 +124,8 @@ Building the Frontend
 
 To build the frontend run::
 
-    yarn install
-    yarn run build
+    npm ci
+    npm run build
 
 Placing Static Content
 ----------------------
