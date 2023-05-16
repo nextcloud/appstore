@@ -12,12 +12,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.9', '3.10']
+        python-version: ['3.9', '3.10', '3.11']
         db-type: [postgres, sqlite]
 
     services:
       postgres:
-        image: postgres:10
+        image: postgres:14
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: nextcloudappstore
