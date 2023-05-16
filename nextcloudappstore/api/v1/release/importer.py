@@ -1,14 +1,16 @@
-from typing import Dict, Any, Set, Tuple  # type: ignore
+from typing import Any, Dict, Set, Tuple  # type: ignore
 
-from django.utils import timezone
 from django.conf import settings  # type: ignore
+from django.utils import timezone
 from semantic_version import Version  # type: ignore
 
 from nextcloudappstore.core.facades import any_match
-from nextcloudappstore.core.models import App, Screenshot, Category, \
-    AppRelease, ShellCommand, License, Database, DatabaseDependency, \
-    PhpExtensionDependency, PhpExtension, AppAuthor
-from nextcloudappstore.core.versioning import to_spec, to_raw_spec
+from nextcloudappstore.core.models import (App, AppAuthor, AppRelease, Category,
+                                           Database, DatabaseDependency,
+                                           License, PhpExtension,
+                                           PhpExtensionDependency, Screenshot,
+                                           ShellCommand)
+from nextcloudappstore.core.versioning import to_raw_spec, to_spec
 
 
 def none_to_empty_string(value: str) -> str:

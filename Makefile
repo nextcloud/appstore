@@ -14,7 +14,7 @@ prod_version=12.0.0
 
 .PHONY: lint
 lint:
-	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations,development.py
+	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations,development.py --max-line-length=80
 	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/api/v1/release
 	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/certificate
 	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/.bandit.yml

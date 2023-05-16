@@ -1,6 +1,7 @@
 from django import template
-from nextcloudappstore.core.versioning import pad_min_version
 from semantic_version import Version
+
+from nextcloudappstore.core.versioning import pad_min_version
 
 register = template.Library()
 

@@ -2,11 +2,14 @@ import time
 from collections import OrderedDict
 from datetime import datetime
 from sys import maxsize
+
 from django.test import TestCase
-from nextcloudappstore.core.versioning import pad_min_version, to_spec, \
-    pad_max_version, pad_max_inc_version, raw_version, to_raw_spec, \
-    AppSemVer, \
-    group_by_main_version
+
+from nextcloudappstore.core.versioning import (AppSemVer, group_by_main_version,
+                                               pad_max_inc_version,
+                                               pad_max_version, pad_min_version,
+                                               raw_version, to_raw_spec,
+                                               to_spec)
 
 
 class VersioningTest(TestCase):

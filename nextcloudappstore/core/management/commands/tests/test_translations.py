@@ -1,11 +1,12 @@
 import time
+import unittest
+from io import StringIO
+
 from django.core.management import call_command
 from django.test import TestCase
-from io import StringIO
-import unittest
 
-from nextcloudappstore.core.facades import read_relative_file, \
-    write_relative_file
+from nextcloudappstore.core.facades import (read_relative_file,
+                                            write_relative_file)
 from nextcloudappstore.core.models import Category
 
 

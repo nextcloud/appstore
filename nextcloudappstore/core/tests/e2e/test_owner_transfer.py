@@ -1,11 +1,10 @@
+from django.test import tag
 from django.urls import reverse
 
 from nextcloudappstore.core.tests.e2e import NEWS_CERT
 from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 from nextcloudappstore.user.facades import verify_email
-
-from django.test import tag
 
 
 @tag('e2e')

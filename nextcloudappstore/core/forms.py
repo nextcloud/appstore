@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.forms import Form, CharField, Textarea, ChoiceField, RadioSelect, \
-    BooleanField, TextInput
-from django.utils.translation import get_language_info, \
-    ugettext_lazy as _  # type: ignore
+from django.forms import (BooleanField, CharField, ChoiceField, Form,
+                          RadioSelect, Textarea, TextInput)
+from django.utils.translation import get_language_info
+from django.utils.translation import ugettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating
 

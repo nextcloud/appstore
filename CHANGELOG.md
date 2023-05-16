@@ -8,10 +8,10 @@
 
 ## [4.0.0]  - 2018-11-10
 
-### Added 
+### Added
 
 - Support for Nextcloud 14
-- Add info.xml validation for fulltextsearch and dashboard 
+- Add info.xml validation for fulltextsearch and dashboard
 
 ### Changed
 
@@ -19,7 +19,7 @@
 - Make test output more verbose
 - Pin down Travis-CI versions to match Ubuntu 16.04
 
-### Removed 
+### Removed
 
 - Removed Support for Nextcloud 11
 - Removed compiled JavaScript files from version control
@@ -59,7 +59,7 @@
 
 ### Security
 
-- Narrow down fixtures to not accidentally import test data on production systems. Check if a user with the user name **admin** was created. If so delete that user from your system.  
+- Narrow down fixtures to not accidentally import test data on production systems. Check if a user with the user name **admin** was created. If so delete that user from your system.
 
 ## [3.1.2] - 2018-02-02
 
@@ -134,10 +134,10 @@
 - Moved certificate and scaffolding to separate folders
 - Moved Nextcloud public certificate and CRL to new folder
 - Trim text of most info.xml elements
-  
+
 ### Removed
 
-- Removed **auth** category, use **security** instead 
+- Removed **auth** category, use **security** instead
 - Dropped Node.js 7 support and require Node.js 8+
 - Dropped support for Nextcloud 9 and 10:
   - owncloud tag in info.xml will not be migrated to nextcloud tags anymore

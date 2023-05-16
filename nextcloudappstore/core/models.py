@@ -5,23 +5,23 @@ from typing import Tuple
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
-from django.db.models import Manager
-from django.db.models import ManyToManyField, ForeignKey, \
-    URLField, IntegerField, CharField, CASCADE, TextField, \
-    DateTimeField, Model, BooleanField, EmailField, Q, \
-    FloatField  # type: ignore
+from django.db.models import FloatField  # type: ignore
+from django.db.models import (CASCADE, BooleanField, CharField, DateTimeField,
+                              EmailField, ForeignKey, IntegerField, Manager,
+                              ManyToManyField, Model, Q, TextField, URLField)
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _  # type: ignore
-from parler.models import TranslatedFields, TranslatableModel, \
-    TranslatableManager  # type: ignore
-from semantic_version import Version, Spec
+from parler.models import TranslatableManager  # type: ignore
+from parler.models import TranslatableModel, TranslatedFields
+from semantic_version import Spec, Version
 
 from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
-from nextcloudappstore.core.versioning import pad_min_version, \
-    pad_max_inc_version, AppSemVer, group_by_main_version
+from nextcloudappstore.core.versioning import (AppSemVer, group_by_main_version,
+                                               pad_max_inc_version,
+                                               pad_min_version)
 
 
 class AppManager(TranslatableManager):

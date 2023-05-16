@@ -1,7 +1,7 @@
 from allauth.account.models import EmailAddress
 from django.contrib.auth import get_user_model
-from rest_framework.authtoken.models import Token
 from django.db import transaction
+from rest_framework.authtoken.models import Token
 
 
 def create_user(username: str, password: str, email: str, verify: bool = True):

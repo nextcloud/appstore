@@ -7,22 +7,25 @@ from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from rest_framework.exceptions import ValidationError, PermissionDenied
-from rest_framework.generics import DestroyAPIView, \
-    get_object_or_404, ListAPIView  # type: ignore
+from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.generics import DestroyAPIView  # type: ignore
+from rest_framework.generics import ListAPIView, get_object_or_404
 from rest_framework.permissions import IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
 
 from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
-from nextcloudappstore.api.v1.serializers import AppSerializer, \
-    AppReleaseDownloadSerializer, CategorySerializer, AppRatingSerializer, \
-    AppRegisterSerializer, NextcloudReleaseSerializer
+from nextcloudappstore.api.v1.serializers import (AppRatingSerializer,
+                                                  AppRegisterSerializer,
+                                                  AppReleaseDownloadSerializer,
+                                                  AppSerializer,
+                                                  CategorySerializer,
+                                                  NextcloudReleaseSerializer)
 from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
-from nextcloudappstore.core.models import App, AppRelease, Category, \
-    AppRating, NextcloudRelease
+from nextcloudappstore.core.models import (App, AppRating, AppRelease, Category,
+                                           NextcloudRelease)
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import version_in_spec

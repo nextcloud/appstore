@@ -2,15 +2,15 @@ import re
 import tarfile  # type: ignore
 from functools import reduce
 from pathlib import Path
-from typing import Dict, Any, List, Set, Pattern
+from typing import Any, Dict, List, Pattern, Set
 
 import lxml.etree  # type: ignore
-from rest_framework.exceptions import ParseError, \
-    ValidationError  # type: ignore
+from rest_framework.exceptions import ValidationError  # type: ignore
+from rest_framework.exceptions import ParseError
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.versioning import pad_max_version, \
-    pad_min_version, raw_version
+from nextcloudappstore.core.versioning import (pad_max_version, pad_min_version,
+                                               raw_version)
 
 
 class MaxFileSizeExceeded(ValidationError):

@@ -1,8 +1,8 @@
+from bleach import clean
+from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
-from django import template
 from markdown import markdown as default_markdown
-from bleach import clean
 
 register = template.Library()
 

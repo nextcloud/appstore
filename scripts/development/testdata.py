@@ -1,4 +1,4 @@
-from . import import_app, import_release, ADMIN
+from . import ADMIN, import_app, import_release
 
 twofactor_cert = """
 -----BEGIN CERTIFICATE-----

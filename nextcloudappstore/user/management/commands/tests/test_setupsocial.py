@@ -1,8 +1,9 @@
+from io import StringIO
+
 from allauth.socialaccount.models import SocialApp
 from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.test import TestCase
-from io import StringIO
 
 
 class SetupSocialCommandTest(TestCase):

@@ -2,7 +2,7 @@ import re
 import tarfile
 from io import BytesIO
 from os import walk
-from os.path import join, isdir, relpath, islink
+from os.path import isdir, join, relpath
 from typing import Dict
 
 from django.conf import settings

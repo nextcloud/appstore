@@ -2,7 +2,7 @@ from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_update
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
@@ -11,11 +11,12 @@ from django.views.decorators.http import etag
 
 from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
-from nextcloudappstore.core.views import CategoryAppListView, AppDetailView, \
-    app_description, AppReleasesView, AppUploadView, AppRatingApi, \
-    AppRegisterView
-from nextcloudappstore.scaffolding.views import AppScaffoldingView, \
-    IntegrationScaffoldingView
+from nextcloudappstore.core.views import (AppDetailView, AppRatingApi,
+                                          AppRegisterView, AppReleasesView,
+                                          AppUploadView, CategoryAppListView,
+                                          app_description)
+from nextcloudappstore.scaffolding.views import (AppScaffoldingView,
+                                                 IntegrationScaffoldingView)
 
 admin.site.login = login_required(admin.site.login)
 

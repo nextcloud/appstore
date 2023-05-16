@@ -5,7 +5,7 @@ import sys
 
 from requests import get
 
-from . import import_app, ADMIN, import_release
+from . import ADMIN, import_app, import_release
 
 APPS_URL = 'https://apps.nextcloud.com/api/v1/platform/%s/apps.json'
 

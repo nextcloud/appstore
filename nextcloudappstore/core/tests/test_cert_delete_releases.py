@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+
 from nextcloudappstore.core.models import App, AppRelease
 
 

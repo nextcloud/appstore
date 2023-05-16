@@ -3,9 +3,9 @@ from base64 import b64decode
 from typing import Optional
 
 import pem
-from OpenSSL.crypto import FILETYPE_PEM, load_certificate, verify, X509, \
-    X509Store, X509StoreContext, load_crl, X509StoreFlags
 from django.conf import settings  # type: ignore
+from OpenSSL.crypto import (FILETYPE_PEM, X509, X509Store, X509StoreContext,
+                            X509StoreFlags, load_certificate, load_crl, verify)
 from rest_framework.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)

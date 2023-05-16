@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-import subprocess
 import re
-from typing import List, Dict, Tuple, Iterator
-
+import subprocess
 from os import pardir
-from os.path import dirname, realpath, join
+from os.path import dirname, join, realpath
+from typing import Dict, Iterator, List, Tuple
 
 
 def get_git_authors() -> List[str]:

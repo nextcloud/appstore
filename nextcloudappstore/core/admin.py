@@ -1,10 +1,13 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 
-from nextcloudappstore.core.models import DatabaseDependency, AppRelease, \
-    ShellCommand, Screenshot, PhpExtensionDependency, License, PhpExtension, \
-    Database, AppRating, App, Category, AppAuthor, AppReleaseDeleteLog, \
-    NextcloudRelease
+from nextcloudappstore.core.models import (App, AppAuthor, AppRating,
+                                           AppRelease, AppReleaseDeleteLog,
+                                           Category, Database,
+                                           DatabaseDependency, License,
+                                           NextcloudRelease, PhpExtension,
+                                           PhpExtensionDependency, Screenshot,
+                                           ShellCommand)
 
 
 class DatabaseDependencyInline(admin.TabularInline):
