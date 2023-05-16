@@ -5,14 +5,14 @@ from django.test import TestCase
 from rest_framework.exceptions import ParseError
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
-from nextcloudappstore.api.v1.release.parser import \
-    parse_app_metadata, GunZipAppMetadataExtractor, \
-    InvalidAppPackageStructureException, \
-    UnsupportedAppArchiveException, InvalidAppMetadataXmlException, \
-    fix_partial_translations, parse_changelog, ForbiddenLinkException, \
-    validate_database, BlacklistedMemberException
-from nextcloudappstore.core.facades import resolve_file_relative_path, \
-    read_file_contents
+from nextcloudappstore.api.v1.release.parser import (
+    BlacklistedMemberException, ForbiddenLinkException,
+    GunZipAppMetadataExtractor, InvalidAppMetadataXmlException,
+    InvalidAppPackageStructureException, UnsupportedAppArchiveException,
+    fix_partial_translations, parse_app_metadata, parse_changelog,
+    validate_database)
+from nextcloudappstore.core.facades import (read_file_contents,
+                                            resolve_file_relative_path)
 
 
 class ParserTest(TestCase):

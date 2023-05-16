@@ -1,10 +1,9 @@
-from nextcloudappstore.core.tests.e2e import NEWS_ARCHIVE_URL, \
-    NEWS_ARCHIVE_SIGNATURE, \
-    NEWS_CERT
+from django.test import tag
+
+from nextcloudappstore.core.tests.e2e import (NEWS_ARCHIVE_SIGNATURE,
+                                              NEWS_ARCHIVE_URL, NEWS_CERT)
 from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
-from django.test import tag
 
 
 @tag('e2e')

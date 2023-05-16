@@ -327,4 +327,3 @@ After obtaining the token from GitHub, add it anywhere in your settings file (**
 To automate syncing you might want to add the command as a cronjob and schedule it every hour.
 
 .. note:: Only one sync command should be run at a time, otherwise race conditions might cause unpredictable results. To ensure this use a proper cronjob daemon that supports running only one command at a time, for instance `SystemD timers <https://wiki.archlinux.org/index.php/Systemd/Timers>`_
-

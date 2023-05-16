@@ -18,9 +18,9 @@ from semantic_version import Version
 
 from nextcloudappstore.core.caching import app_etag
 from nextcloudappstore.core.facades import flatmap
-from nextcloudappstore.core.forms import AppRatingForm, AppReleaseUploadForm, \
-    AppRegisterForm
-from nextcloudappstore.core.models import App, Category, AppRating
+from nextcloudappstore.core.forms import (AppRatingForm, AppRegisterForm,
+                                          AppReleaseUploadForm)
+from nextcloudappstore.core.models import App, AppRating, Category
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
 

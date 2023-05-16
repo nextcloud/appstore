@@ -1,10 +1,14 @@
 from django.conf.urls import url
 from django.views.decorators.http import etag
-from nextcloudappstore.api.v1.views import AppView, AppReleaseView, \
-    CategoryView, SessionObtainAuthToken, RegenerateAuthToken, AppRatingView, \
-    AppRegisterView, NextcloudReleaseView, AppsView
-from nextcloudappstore.core.caching import app_ratings_etag, categories_etag, \
-    apps_etag, nextcloud_release_etag, apps_all_etag
+
+from nextcloudappstore.api.v1.views import (AppRatingView, AppRegisterView,
+                                            AppReleaseView, AppsView, AppView,
+                                            CategoryView, NextcloudReleaseView,
+                                            RegenerateAuthToken,
+                                            SessionObtainAuthToken)
+from nextcloudappstore.core.caching import (app_ratings_etag, apps_all_etag,
+                                            apps_etag, categories_etag,
+                                            nextcloud_release_etag)
 from nextcloudappstore.core.versioning import SEMVER_REGEX
 
 app_name = 'v1'

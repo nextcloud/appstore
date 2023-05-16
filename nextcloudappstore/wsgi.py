@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
 import os
-from os.path import pardir, join, dirname, abspath, realpath, isfile
+from os.path import abspath, dirname, isfile, join, pardir, realpath
 
 from django.core.wsgi import get_wsgi_application
 

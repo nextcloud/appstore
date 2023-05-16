@@ -1,11 +1,10 @@
+from django.test import tag
 from selenium.webdriver.support.expected_conditions import staleness_of
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from nextcloudappstore.core.tests.e2e import SELENIUM_WAIT_SEC
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
-from django.test import tag
 
 
 @tag('e2e')

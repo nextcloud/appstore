@@ -1,4 +1,5 @@
 from django.conf import settings  # type: ignore
+
 from nextcloudappstore.core.facades import read_relative_file
 
 

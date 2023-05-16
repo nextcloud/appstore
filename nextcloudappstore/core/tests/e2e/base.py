@@ -1,4 +1,4 @@
-from typing import Dict, Callable, Any
+from typing import Any, Callable, Dict
 from urllib.parse import urlparse
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -9,8 +9,8 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as exp_cond
 from selenium.webdriver.support.wait import WebDriverWait
 
-from nextcloudappstore.core.tests.e2e import TEST_USER, TEST_EMAIL, \
-    TEST_PASSWORD, SELENIUM_WAIT_SEC
+from nextcloudappstore.core.tests.e2e import (SELENIUM_WAIT_SEC, TEST_EMAIL,
+                                              TEST_PASSWORD, TEST_USER)
 from nextcloudappstore.user.facades import create_user, delete_user
 
 

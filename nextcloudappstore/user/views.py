@@ -3,14 +3,12 @@ from allauth.account.views import PasswordChangeView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.urls import reverse_lazy
-from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse
-from django.views.generic import TemplateView
-from django.views.generic import UpdateView
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import TemplateView, UpdateView
 
 from nextcloudappstore.core.models import App
-from nextcloudappstore.user.forms import DeleteAccountForm, AccountForm
+from nextcloudappstore.user.forms import AccountForm, DeleteAccountForm
 
 
 class IntegrationsView(LoginRequiredMixin, TemplateView):

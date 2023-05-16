@@ -1,14 +1,13 @@
+from bleach import clean
 from django.conf import settings
 from django.contrib.syndication.views import Feed
-from django.urls import reverse
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.utils.feedgenerator import Atom1Feed
 from django.utils.translation import ugettext_lazy as _  # type: ignore
+from markdown import markdown
 from parler.models import TranslationDoesNotExist
 
 from nextcloudappstore.core.models import AppRelease
-from markdown import markdown
-from bleach import clean
 
 
 class AppReleaseRssFeed(Feed):

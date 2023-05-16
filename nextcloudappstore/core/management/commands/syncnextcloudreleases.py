@@ -1,10 +1,9 @@
 import requests
 from django.conf import settings
-from django.core.management import BaseCommand
-from django.core.management import CommandError
+from django.core.management import BaseCommand, CommandError
 
-from nextcloudappstore.core.github import get_supported_releases, \
-    GitHubClient, sync_releases
+from nextcloudappstore.core.github import (GitHubClient, get_supported_releases,
+                                           sync_releases)
 
 
 class Command(BaseCommand):

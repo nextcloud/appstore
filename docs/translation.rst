@@ -51,4 +51,3 @@ Translations are managed on `Transifex <https://www.transifex.com/nextcloud/next
 All translatable languages for the App Store can be found on its `resources page <https://www.transifex.com/nextcloud/nextcloud/appstore/>`_. Select the language you want to translate and hit the **Translate** or **view strings online** button.
 
 Translated content will be pulled daily from Transifex.
-

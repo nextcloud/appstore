@@ -1,21 +1,20 @@
 import re
-from os import listdir
 import uuid
+from os import listdir
 
 import requests
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
-from django.forms import Textarea, Form, URLField, MultipleChoiceField, \
-    TextInput, BooleanField
+from django.forms import (BooleanField, Form, MultipleChoiceField, Textarea,
+                          TextInput, URLField)
+from django.forms.fields import CharField, ChoiceField, EmailField, HiddenInput
+from django.utils.functional import lazy
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _  # type: ignore
-from django.forms.fields import EmailField, CharField, ChoiceField,\
-    HiddenInput
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 from nextcloudappstore.core.models import App, Category, Screenshot
-from django.utils.functional import lazy
 
 
 def get_categories():

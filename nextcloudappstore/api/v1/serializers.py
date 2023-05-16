@@ -2,11 +2,12 @@ from django.contrib.auth import get_user_model
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField, DateTimeField
+from rest_framework.fields import DateTimeField, SerializerMethodField
 
-from nextcloudappstore.core.models import PhpExtensionDependency, \
-    DatabaseDependency, Category, AppAuthor, AppRelease, Screenshot, \
-    AppRating, App, NextcloudRelease
+from nextcloudappstore.core.models import (App, AppAuthor, AppRating,
+                                           AppRelease, Category,
+                                           DatabaseDependency, NextcloudRelease,
+                                           PhpExtensionDependency, Screenshot)
 from nextcloudappstore.core.validators import HttpsUrlValidator
 
 

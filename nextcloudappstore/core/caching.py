@@ -1,9 +1,10 @@
-from typing import List, Tuple, Any
+from typing import Any, List, Tuple
+
 from django.db.models import Max, QuerySet
 from semantic_version import Version
 
-from nextcloudappstore.core.models import App, AppReleaseDeleteLog, Category, \
-    AppRating, NextcloudRelease
+from nextcloudappstore.core.models import (App, AppRating, AppReleaseDeleteLog,
+                                           Category, NextcloudRelease)
 
 
 def create_etag(pairs: List[Tuple[QuerySet, str]]) -> str:

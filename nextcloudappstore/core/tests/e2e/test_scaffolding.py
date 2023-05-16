@@ -1,6 +1,6 @@
-from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
 from django.test import tag
+
+from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
 @tag('e2e')

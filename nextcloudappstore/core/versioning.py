@@ -1,9 +1,9 @@
 from datetime import datetime
 from functools import reduce
 from sys import maxsize
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 
-from semantic_version import Version, Spec
+from semantic_version import Spec, Version
 
 SEMVER_REGEX = (r'(?:0|[1-9][0-9]*)'
                 r'\.(?:0|[1-9][0-9]*)'

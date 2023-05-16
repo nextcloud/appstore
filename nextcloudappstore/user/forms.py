@@ -1,11 +1,11 @@
 from allauth.account.forms import EmailAwarePasswordResetTokenGenerator
-from allauth.account.utils import filter_users_by_email, user_username, \
-    user_pk_to_url_str
+from allauth.account.utils import (filter_users_by_email, user_pk_to_url_str,
+                                   user_username)
+from captcha.fields import CaptchaField
 from django import forms
 from django.contrib.auth import get_user_model
-from django.forms import EmailField, CharField, PasswordInput
+from django.forms import CharField, EmailField, PasswordInput
 from django.utils.translation import ugettext_lazy as _
-from captcha.fields import CaptchaField
 
 
 class SignupFormRecaptcha(forms.Form):

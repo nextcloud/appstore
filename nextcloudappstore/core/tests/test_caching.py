@@ -3,10 +3,10 @@ from urllib.request import Request
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from nextcloudappstore.core.caching import nextcloud_release_etag, \
-    categories_etag, app_ratings_etag
-from nextcloudappstore.core.models import NextcloudRelease, Category, \
-    AppRating, App
+from nextcloudappstore.core.caching import (app_ratings_etag, categories_etag,
+                                            nextcloud_release_etag)
+from nextcloudappstore.core.models import (App, AppRating, Category,
+                                           NextcloudRelease)
 
 
 class CachingTest(TestCase):

@@ -1,10 +1,9 @@
 from enum import Enum
 
+from django.test import tag
 from selenium.webdriver.support.select import Select
 
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
-from django.test import tag
 
 
 class Rating(Enum):

@@ -1,17 +1,16 @@
-from django.http import HttpResponse, Http404
-from django.views.generic import FormView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
-
-from nextcloudappstore.core.models import App, Screenshot, NextcloudRelease
-from nextcloudappstore.scaffolding.archive import build_archive
-from nextcloudappstore.scaffolding.forms import AppScaffoldingForm, \
-    IntegrationScaffoldingForm
-
-from django.conf import settings
-
 import csv
 from datetime import datetime
+
+from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404, HttpResponse
+from django.urls import reverse
+from django.views.generic import FormView
+
+from nextcloudappstore.core.models import App, NextcloudRelease, Screenshot
+from nextcloudappstore.scaffolding.archive import build_archive
+from nextcloudappstore.scaffolding.forms import (AppScaffoldingForm,
+                                                 IntegrationScaffoldingForm)
 
 
 class AppScaffoldingView(FormView):

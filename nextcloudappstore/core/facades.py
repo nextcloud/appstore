@@ -1,6 +1,6 @@
 import os
 from itertools import chain
-from typing import Iterable, TypeVar, Callable, Set
+from typing import Callable, Iterable, Set, TypeVar
 
 """
 Contains small utility and shortcut functions

@@ -1,9 +1,10 @@
 from django.conf.urls import url
 
-from nextcloudappstore.user.views import PasswordView, AccountView, \
-    APITokenView, DeleteAccountView, ChangeLanguageView, TransferAppsView, \
-    IntegrationsView
 from nextcloudappstore.scaffolding.views import IntegrationScaffoldingView
+from nextcloudappstore.user.views import (AccountView, APITokenView,
+                                          ChangeLanguageView, DeleteAccountView,
+                                          IntegrationsView, PasswordView,
+                                          TransferAppsView)
 
 app_name = 'user'
 

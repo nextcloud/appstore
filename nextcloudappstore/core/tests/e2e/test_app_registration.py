@@ -1,11 +1,11 @@
-from nextcloudappstore.core.facades import resolve_file_relative_path, \
-    read_relative_file
+from django.test import tag
+
+from nextcloudappstore.core.facades import (read_relative_file,
+                                            resolve_file_relative_path)
 from nextcloudappstore.core.models import App
 from nextcloudappstore.core.tests.e2e import TEST_APP_SIG
 from nextcloudappstore.core.tests.e2e.app_dev_steps import AppDevSteps
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
-
-from django.test import tag
 
 
 @tag('e2e')

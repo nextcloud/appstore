@@ -1,0 +1,45 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: check-toml
+    -   id: check-yaml
+        exclude: nextcloudappstore/scaffolding/app-templates/.*
+    -   id: end-of-file-fixer
+        exclude: |
+          (?x)^(
+            \.tx/.*|
+            \.idea/.*|
+            locale/.*|
+            nextcloudappstore/core/static/.*|
+            nextcloudappstore/core/templates/.*|
+            nextcloudappstore/templates/.*|
+            nextcloudappstore/user/templates/.*
+          )$
+    -   id: trailing-whitespace
+        exclude: |
+          (?x)^(
+            \.tx/.*|
+            \.idea/.*|
+            locale/.*|
+            nextcloudappstore/core/static/.*|
+            nextcloudappstore/core/templates/.*|
+            nextcloudappstore/templates/.*|
+            nextcloudappstore/user/templates/.*
+          )$
+    -   id: mixed-line-ending
+        exclude: |
+          (?x)^(
+            \.tx/.*|
+            \.idea/.*|
+            locale/.*|
+            nextcloudappstore/core/static/.*|
+            nextcloudappstore/core/templates/.*|
+            nextcloudappstore/templates/.*|
+            nextcloudappstore/user/templates/.*
+          )$
+
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort

@@ -1,13 +1,13 @@
-from typing import Dict, Tuple, Any
+from typing import Any, Dict, Tuple
 
 from rest_framework.exceptions import ValidationError
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
-from nextcloudappstore.api.v1.release.downloader import \
-    AppReleaseDownloader
-from nextcloudappstore.api.v1.release.parser import \
-    GunZipAppMetadataExtractor, parse_app_metadata, parse_changelog, \
-    validate_database
+from nextcloudappstore.api.v1.release.downloader import AppReleaseDownloader
+from nextcloudappstore.api.v1.release.parser import (GunZipAppMetadataExtractor,
+                                                     parse_app_metadata,
+                                                     parse_changelog,
+                                                     validate_database)
 
 
 class InvalidAppDirectoryException(ValidationError):

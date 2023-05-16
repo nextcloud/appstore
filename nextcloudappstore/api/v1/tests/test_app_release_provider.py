@@ -1,16 +1,15 @@
 from unittest.mock import MagicMock
 
 from django.test import TestCase
-from nextcloudappstore.api.v1.release.downloader import \
-    AppReleaseDownloader
-from nextcloudappstore.api.v1.release.parser import \
-    GunZipAppMetadataExtractor, AppMetaData
-from nextcloudappstore.api.v1.release.provider import \
-    AppReleaseProvider, \
-    InvalidAppDirectoryException
-from nextcloudappstore.core.facades import read_relative_file, \
-    resolve_file_relative_path
 from pymple import Container
+
+from nextcloudappstore.api.v1.release.downloader import AppReleaseDownloader
+from nextcloudappstore.api.v1.release.parser import (AppMetaData,
+                                                     GunZipAppMetadataExtractor)
+from nextcloudappstore.api.v1.release.provider import (
+    AppReleaseProvider, InvalidAppDirectoryException)
+from nextcloudappstore.core.facades import (read_relative_file,
+                                            resolve_file_relative_path)
 
 
 class FakeDownload:
