@@ -1,6 +1,6 @@
 from django.test import tag
 
-from nextcloudappstore.core.tests.e2e import TEST_PASSWORD, TEST_USER
+from nextcloudappstore.core.tests.e2e import TEST_PASSWORD  # , TEST_USER
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 

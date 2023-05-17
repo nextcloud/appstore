@@ -48,10 +48,10 @@ class GitHubTest(TestCase):
 
         self.assertEquals(16, NextcloudRelease.objects.count())
         self.assertEquals(False, self.get_rel('10.0.0').is_supported)
-        self.assertEquals(True,  self.get_rel('10.0.0').has_release)
+        self.assertEquals(True, self.get_rel('10.0.0').has_release)
         self.assertEquals(False, self.get_rel('10.0.0').is_current)
         self.assertEquals(False, self.get_rel('10.0.1').is_supported)
-        self.assertEquals(True,  self.get_rel('10.0.1').has_release)
+        self.assertEquals(True, self.get_rel('10.0.1').has_release)
         self.assertEquals(False, self.get_rel('10.0.1').is_current)
         self.assertEquals(True, self.get_rel('11.0.0').is_supported)
         self.assertEquals(True, self.get_rel('11.0.0').has_release)

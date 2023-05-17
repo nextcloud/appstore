@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.management import BaseCommand, CommandError
-from django.utils.translation import activate, ugettext
+from django.utils.translation import ugettext
 from parler.models import TranslatableModel
 from parler.utils.context import switch_language
 

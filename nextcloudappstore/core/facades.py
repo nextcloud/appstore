@@ -83,7 +83,7 @@ def distinct(iterable: Iterable[T],
     a custom distinctness criteria
     :return: a distinct iterator of elements from an iterable
     """
-    occurred_values = set()  # type: Set[U]
+    occurred_values: Set[U] = set()
     for element in iterable:
         value = criteria(element)
         if value not in occurred_values:

@@ -60,7 +60,7 @@ class AppReleaseDownloader:
                 req = session.get(url, stream=True, timeout=timeout)
                 req.raise_for_status()
                 self._stream_to_file(file, max_size, req)
-        except requests.exceptions.RequestException as e:
+        except requests.exceptions.RequestException:
             """
             We previously passed the whole error message to the client which
             is unwanted in case of a malicious client - the error message could

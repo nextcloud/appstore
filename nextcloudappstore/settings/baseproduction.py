@@ -1,5 +1,5 @@
 # recommended default settings to inherit in a production environment
-from nextcloudappstore.settings.base import *
+from nextcloudappstore.settings.base import *  # noqa
 
 # DEBUG must be false to not leak sensitive content
 DEBUG = False
@@ -13,6 +13,6 @@ ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 CSP_IMG_SRC = ('https:',)
 
 LOG_LEVEL = 'ERROR'
-LOGGING['handlers']['file']['filename'] = LOG_FILE
-LOGGING['handlers']['file']['level'] = LOG_LEVEL
-LOGGING['loggers']['django']['level'] = LOG_LEVEL
+LOGGING['handlers']['file']['filename'] = LOG_FILE  # noqa
+LOGGING['handlers']['file']['level'] = LOG_LEVEL  # noqa
+LOGGING['loggers']['django']['level'] = LOG_LEVEL  # noqa

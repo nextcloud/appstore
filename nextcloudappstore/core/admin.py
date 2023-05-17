@@ -28,7 +28,7 @@ class AppReleaseAdmin(admin.ModelAdmin):
 
 
 @admin.register(AppRelease)
-class AppReleaseAdmin(TranslatableAdmin):
+class AppReleaseAdmin(TranslatableAdmin):  # noqa
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
     list_display = ('app', 'version', 'is_nightly', 'last_modified')
     list_filter = ('app__id', 'is_nightly', 'last_modified')

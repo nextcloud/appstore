@@ -28,9 +28,9 @@ class AppManager(TranslatableManager):
     def search(self, terms, lang):
         queryset = self.get_queryset().active_translations(lang).language(
             lang).distinct()
-        predicates = map(lambda t: (Q(translations__name__icontains=t) |
-                                    Q(translations__summary__icontains=t) |
-                                    Q(translations__description__icontains=t)),
+        predicates = map(lambda t: (Q(translations__name__icontains=t)
+                                    | Q(translations__summary__icontains=t)
+                                    | Q(translations__description__icontains=t)),
                          terms)
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
@@ -475,8 +475,8 @@ class Category(TranslatableModel):
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
                                   verbose_name=_('Updated at'))
     translations = TranslatedFields(
-        name=CharField(max_length=256, help_text=_(
-            'Category name which will be presented to the user'),
+        name=CharField(max_length=256,
+                       help_text=_('Category name which will be presented to the user'),
                        verbose_name=_('Name')),
         description=TextField(verbose_name=_('Description'),
                               help_text=_('Will be rendered as Markdown'))

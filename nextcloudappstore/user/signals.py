@@ -40,10 +40,10 @@ def password_changed_signal(sender, instance, **kwargs):
             # was changed due to a new default hashing algorithm
             update_token(user.username)
             send_mail(
-                    mail_subect,
-                    mail_message,
-                    settings.DEFAULT_FROM_EMAIL,
-                    [user.email],
-                    False)
+                mail_subect,
+                mail_message,
+                settings.DEFAULT_FROM_EMAIL,
+                [user.email],
+                False)
     except User.DoesNotExist:
         pass

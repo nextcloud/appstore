@@ -1,7 +1,6 @@
 poetry=poetry
 poetry_run=$(poetry) run
 python=$(poetry_run) python
-pycodestyle=$(poetry_run) pycodestyle
 pyresttest=$(poetry_run) pyresttest
 coverage=$(poetry_run) coverage
 manage-script=$(CURDIR)/manage.py
@@ -10,12 +9,8 @@ db=sqlite
 npm=npm
 prod_version=12.0.0
 
-.PHONY: lint
-lint:
-	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations,development.py --max-line-length=80
-
 .PHONY: test
-test: lint
+test:
 	$(npm) test
 	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development -v 2
 	$(coverage) report --fail-under 90

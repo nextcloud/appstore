@@ -196,13 +196,11 @@ class CategoryAppListView(ListView):
         lang = get_language_info(get_language())['code']
         category_id = self.kwargs['id']
         queryset = App.objects.search(self.search_terms, lang).order_by(
-            *sort_columns).filter(Q(releases__gt=0) | (Q(is_integration=True) &
-                                                       Q(approved=True)))
+            *sort_columns).filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)
-                queryset = queryset.filter(Q(owner=user) |
-                                           Q(co_maintainers=user))
+                queryset = queryset.filter(Q(owner=user) | Q(co_maintainers=user))
             except ObjectDoesNotExist:
                 return queryset.none()
         if category_id:

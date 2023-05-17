@@ -12,5 +12,5 @@ class UserConfig(AppConfig):
     def ready(self):
         # during tests ready can be called more than once.
         if not self._ready:
-            from . import signals
+            from . import signals  # noqa
             self._ready = True
