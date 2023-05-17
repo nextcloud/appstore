@@ -1,7 +1,7 @@
 from datetime import datetime
 from functools import reduce
 from sys import maxsize
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from semantic_version import Spec, Version
 
@@ -18,7 +18,7 @@ class AppSemVer:
     """
 
     def __init__(self, version: str, is_nightly: bool = False,
-                 released_at: datetime = None) -> None:
+                 released_at: Optional[datetime] = None) -> None:
         self.released_at = released_at
         self.is_nightly = is_nightly
         self.version = Version(version)

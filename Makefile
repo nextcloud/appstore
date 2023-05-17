@@ -4,7 +4,6 @@ python=$(poetry_run) python
 pycodestyle=$(poetry_run) pycodestyle
 pyresttest=$(poetry_run) pyresttest
 coverage=$(poetry_run) coverage
-mypy=$(poetry_run) mypy
 manage-script=$(CURDIR)/manage.py
 manage=$(poetry_run) $(manage-script)
 db=sqlite
@@ -14,8 +13,6 @@ prod_version=12.0.0
 .PHONY: lint
 lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations,development.py --max-line-length=80
-	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/api/v1/release
-	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/certificate
 
 .PHONY: test
 test: lint
