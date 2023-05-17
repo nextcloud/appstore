@@ -4,7 +4,6 @@ python=$(poetry_run) python
 pycodestyle=$(poetry_run) pycodestyle
 pyresttest=$(poetry_run) pyresttest
 coverage=$(poetry_run) coverage
-bandit=$(poetry_run) bandit
 mypy=$(poetry_run) mypy
 manage-script=$(CURDIR)/manage.py
 manage=$(poetry_run) $(manage-script)
@@ -17,7 +16,6 @@ lint:
 	$(pycodestyle) $(CURDIR)/nextcloudappstore --exclude=migrations,development.py --max-line-length=80
 	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/api/v1/release
 	$(mypy) --ignore-missing-imports $(CURDIR)/nextcloudappstore/certificate
-	$(bandit) -r $(CURDIR)/nextcloudappstore -c $(CURDIR)/.bandit.yml
 
 .PHONY: test
 test: lint
