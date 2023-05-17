@@ -62,9 +62,11 @@ All test suites can be run with:
 
 ### Linting/Coding-Style
 
-Your source code files can be linted with:
+We use [pre-commit](https://pre-commit.com) hooks to analyze Python code. Install a pre-commit and after that run:
 
-    make lint
+    pre-commit install
+
+This will run linter checks every time you make a commit. Even if the changes are made to non-Python code, we recommend running these hooks.
 
 Travis-CI also runs TSLint. You will have to install and run TSLint locally since we do not trust the company that develops it: the lib is developed by Palantir, a large American NSA/CIA contractor. If you do not want to do that you can run the linting on Travis-CI when creating a pull request.
 
