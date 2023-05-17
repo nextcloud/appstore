@@ -1,8 +1,8 @@
 from rest_framework.permissions import BasePermission
 
-DELETE_METHODS = ('DELETE',)
-UPDATE_METHODS = ('PUT', 'PATCH', 'POST')
-READ_METHODS = ('GET', 'HEAD', 'OPTIONS')
+DELETE_METHODS = ("DELETE",)
+UPDATE_METHODS = ("PUT", "PATCH", "POST")
+READ_METHODS = ("GET", "HEAD", "OPTIONS")
 
 
 class UpdateDeletePermission(BasePermission):

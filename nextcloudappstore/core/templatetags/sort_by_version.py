@@ -8,6 +8,7 @@ register = template.Library()
 
 @register.filter()
 def sort_by_version(value, arg):
-    reverse = arg == 'desc'
-    return [(key, value[key]) for key in sorted(value.keys(), reverse=reverse,
-            key=lambda v: Version(pad_min_version(v)))]
+    reverse = arg == "desc"
+    return [
+        (key, value[key]) for key in sorted(value.keys(), reverse=reverse, key=lambda v: Version(pad_min_version(v)))
+    ]

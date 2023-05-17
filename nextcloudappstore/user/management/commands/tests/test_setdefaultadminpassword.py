@@ -7,13 +7,13 @@ from django.test import TestCase
 
 class SetDefaultAdminPasswordCommandTest(TestCase):
     fixtures = [
-        'admin.json',
+        "admin.json",
     ]
 
     def test_set_password(self):
-        user = get_user_model().objects.get(username='admin')
-        user.set_password('different')
+        user = get_user_model().objects.get(username="admin")
+        user.set_password("different")
         user.save()
-        call_command('setdefaultadminpassword', stdout=StringIO())
+        call_command("setdefaultadminpassword", stdout=StringIO())
         user.refresh_from_db()
-        self.assertTrue(user.check_password('admin'))
+        self.assertTrue(user.check_password("admin"))

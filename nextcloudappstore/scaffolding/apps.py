@@ -2,8 +2,8 @@ from django.apps import AppConfig
 
 
 class ScaffoldingConfig(AppConfig):
-    name = 'nextcloudappstore.scaffolding'
-    verbose_name = 'App Store Scaffolding'
+    name = "nextcloudappstore.scaffolding"
+    verbose_name = "App Store Scaffolding"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

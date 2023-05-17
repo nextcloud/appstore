@@ -1,8 +1,8 @@
 SELENIUM_WAIT_SEC = 120
 
-TEST_USER = 'livetest'
-TEST_PASSWORD = 'password'
-TEST_EMAIL = 'livetest@localhost'
+TEST_USER = "livetest"
+TEST_PASSWORD = "password"
+TEST_EMAIL = "livetest@localhost"
 
 NEWS_CERT = """
 -----BEGIN CERTIFICATE-----
@@ -30,8 +30,7 @@ XIRiCDjmJr4YhdYjgByIgxVTiKAoTxuZ1wcj+nU4ve1MMjYEe/b30x2uLAA+cQmu
 JvshYmx3I5aXFXOf3l0zEMmIuw==
 -----END CERTIFICATE-----
 """
-NEWS_ARCHIVE_URL = 'https://github.com/nextcloud/news/releases/download/11.0' \
-                   '.5/news.tar.gz'
+NEWS_ARCHIVE_URL = "https://github.com/nextcloud/news/releases/download/11.0.5/news.tar.gz"
 NEWS_ARCHIVE_SIGNATURE = """
 TY0nB4gH3LLWzfyeP+fut/m/j2VfjRAcI96DI0LQ6+QYpyy/j+6RDRI/LSqfxzhn
 lvtCdsFa/ieHbi/ZXcqhJABBq9WI+zSAXUoiOOHfC8t8Rf1yi1BJRiesIghKm7xj

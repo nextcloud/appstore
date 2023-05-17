@@ -7,18 +7,17 @@ from nextcloudappstore.core.tests.e2e import SELENIUM_WAIT_SEC
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
 
 
-@tag('e2e')
+@tag("e2e")
 class ChangeLanguageTest(BaseStoreTest):
     def test_change_lang(self):
         self.login()
-        self.go_to('user:account-change-language')
+        self.go_to("user:account-change-language")
 
-        elem = self.by_id('language')
+        elem = self.by_id("language")
         lang = Select(elem)
-        lang.select_by_value('de')
+        lang.select_by_value("de")
         elem.submit()
 
-        WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(
-            staleness_of(elem))
-        account_link = self.findNavigationLink('user:account')
-        self.assertEqual('Konto', account_link.text)
+        WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(staleness_of(elem))
+        account_link = self.findNavigationLink("user:account")
+        self.assertEqual("Konto", account_link.text)

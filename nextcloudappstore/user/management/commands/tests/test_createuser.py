@@ -7,8 +7,8 @@ from django.test import TestCase
 
 class CreateUserCommandTest(TestCase):
     def test_create_user(self):
-        call_command('createtestuser', '--username=cmdtest',
-                     '--password=cmdtest', '--email=test@test.com',
-                     stdout=StringIO())
-        user = get_user_model().objects.get(username='cmdtest')
-        self.assertEqual('test@test.com', user.email)
+        call_command(
+            "createtestuser", "--username=cmdtest", "--password=cmdtest", "--email=test@test.com", stdout=StringIO()
+        )
+        user = get_user_model().objects.get(username="cmdtest")
+        self.assertEqual("test@test.com", user.email)

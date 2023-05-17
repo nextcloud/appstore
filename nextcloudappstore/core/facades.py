@@ -25,7 +25,7 @@ def read_file_contents(file_path: str) -> str:
     :param file_path: the path to the file
     :return: the read text
     """
-    with open(file_path, 'r') as f:
+    with open(file_path, "r") as f:
         result = f.read()
     return result
 
@@ -42,8 +42,7 @@ def read_relative_file(file_path: str, target_path: str) -> str:
     return read_file_contents(file)
 
 
-def write_relative_file(file_path: str, target_path: str,
-                        content: str) -> None:
+def write_relative_file(file_path: str, target_path: str, content: str) -> None:
     """
     Similar to read_relative_file but for writing
     :param file_path: most of the time __file__, file path from which you
@@ -53,12 +52,12 @@ def write_relative_file(file_path: str, target_path: str,
     :return:
     """
     file = resolve_file_relative_path(file_path, target_path)
-    with open(file, 'w') as f:
+    with open(file, "w") as f:
         f.write(content)
 
 
-T = TypeVar('T')
-U = TypeVar('U')
+T = TypeVar("T")
+U = TypeVar("U")
 
 
 def flatmap(f: Callable[[T], Iterable[U]], xs: Iterable[T]) -> Iterable[U]:
@@ -75,15 +74,14 @@ def any_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     return any(predicate(entry) for entry in iterable)
 
 
-def distinct(iterable: Iterable[T],
-             criteria: Callable[[T], U]) -> Iterable[T]:
+def distinct(iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:
     """
     :param iterable:
     :param criteria: by default the object in the list. Pass a lambda to choose
     a custom distinctness criteria
     :return: a distinct iterator of elements from an iterable
     """
-    occurred_values = set()  # type: Set[U]
+    occurred_values: Set[U] = set()
     for element in iterable:
         value = criteria(element)
         if value not in occurred_values:

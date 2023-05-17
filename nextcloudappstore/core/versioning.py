@@ -1,14 +1,13 @@
 from datetime import datetime
 from functools import reduce
 from sys import maxsize
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from semantic_version import Spec, Version
 
-SEMVER_REGEX = (r'(?:0|[1-9][0-9]*)'
-                r'\.(?:0|[1-9][0-9]*)'
-                r'\.(?:0|[1-9][0-9]*)'
-                r'(?:\-(?:[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?')
+SEMVER_REGEX = (
+    r"(?:0|[1-9][0-9]*)" r"\.(?:0|[1-9][0-9]*)" r"\.(?:0|[1-9][0-9]*)" r"(?:\-(?:[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?"
+)
 
 
 class AppSemVer:
@@ -17,16 +16,14 @@ class AppSemVer:
     time
     """
 
-    def __init__(self, version: str, is_nightly: bool = False,
-                 released_at: datetime = None) -> None:
+    def __init__(self, version: str, is_nightly: bool = False, released_at: Optional[datetime] = None) -> None:
         self.released_at = released_at
         self.is_nightly = is_nightly
         self.version = Version(version)
 
-    def __lt__(self, other: 'AppSemVer') -> bool:
+    def __lt__(self, other: "AppSemVer") -> bool:
         if self.version == other.version:
-            if (self.is_nightly and other.is_nightly and self.released_at
-                    and other.released_at):
+            if self.is_nightly and other.is_nightly and self.released_at and other.released_at:
                 return self.released_at < other.released_at
             elif self.is_nightly:
                 return False
@@ -43,7 +40,7 @@ def raw_version(version: str) -> str:
     :return: raw version
     """
     if not version:
-        return '*'
+        return "*"
     else:
         return version
 
@@ -56,9 +53,9 @@ def pad_max_version(version: str) -> str:
     :return an exclusive maximum version
     """
     if not version:
-        return '*'
+        return "*"
 
-    parts = [int(part) for part in version.split('.')]
+    parts = [int(part) for part in version.split(".")]
     if len(parts) == 1:
         parts[0] += 1
         parts += [0, 0]
@@ -68,8 +65,8 @@ def pad_max_version(version: str) -> str:
     elif len(parts) == 3:
         parts[2] += 1
     else:
-        raise ValueError('Could not parse version %s' % version)
-    return '.'.join([str(part) for part in parts])
+        raise ValueError("Could not parse version %s" % version)
+    return ".".join([str(part) for part in parts])
 
 
 def pad_max_inc_version(version: str) -> str:
@@ -81,18 +78,18 @@ def pad_max_inc_version(version: str) -> str:
     :return an exclusive maximum version
     """
     if not version:
-        return '*'
+        return "*"
 
-    while version.count('.') < 2:
-        version += '.%i' % maxsize
+    while version.count(".") < 2:
+        version += ".%i" % maxsize
     return version
 
 
 def pad_min_version(version: str) -> str:
     if not version:
-        return '*'
-    while version.count('.') < 2:
-        version += '.0'
+        return "*"
+    while version.count(".") < 2:
+        version += ".0"
     return version
 
 
@@ -103,14 +100,14 @@ def to_raw_spec(min_version: str, max_version: str) -> str:
     :argument max_version: max version
     :return: the spec
     """
-    if max_version == '*' and min_version == '*':
-        return '*'
-    elif max_version == '*':
-        return '>=%s' % min_version
-    elif min_version == '*':
-        return '<=%s' % max_version
+    if max_version == "*" and min_version == "*":
+        return "*"
+    elif max_version == "*":
+        return ">=%s" % min_version
+    elif min_version == "*":
+        return "<=%s" % max_version
     else:
-        return '>=%s,<=%s' % (min_version, max_version)
+        return ">=%s,<=%s" % (min_version, max_version)
 
 
 def to_spec(min_version: str, max_version: str) -> str:
@@ -121,14 +118,14 @@ def to_spec(min_version: str, max_version: str) -> str:
     :argument max_version: max version
     :return: the spec
     """
-    if max_version == '*' and min_version == '*':
-        return '*'
-    elif max_version == '*':
-        return '>=%s' % min_version
-    elif min_version == '*':
-        return '<%s' % max_version
+    if max_version == "*" and min_version == "*":
+        return "*"
+    elif max_version == "*":
+        return ">=%s" % min_version
+    elif min_version == "*":
+        return "<%s" % max_version
     else:
-        return '>=%s,<%s' % (min_version, max_version)
+        return ">=%s,<%s" % (min_version, max_version)
 
 
 GroupedVersions = Dict[str, List[Any]]

@@ -9,17 +9,14 @@ from nextcloudappstore.core.models import NextcloudRelease
 
 class GitHubClient:
     def __init__(self, base_url: str, api_token: str = None) -> None:
-        self.base_url = base_url.rstrip('/')
+        self.base_url = base_url.rstrip("/")
         self.api_token = api_token
-        self.headers = None if self.api_token else {
-            'Authorization': 'token %s' % self.api_token
-        }
+        self.headers = None if self.api_token else {"Authorization": "token %s" % self.api_token}
 
     def get_tags(self, page: int, size: int = 100):
-        url = '%s/repos/nextcloud/server/tags' % self.base_url
-        params = (('per_page', size), ('page', page))
-        response = requests.get(
-            url, params=params, headers=self.headers, timeout=21)
+        url = "%s/repos/nextcloud/server/tags" % self.base_url
+        params = (("per_page", size), ("page", page))
+        response = requests.get(url, params=params, headers=self.headers, timeout=21)
         response.raise_for_status()
         return response.json()
 
@@ -33,10 +30,7 @@ def sync_releases(versions: Iterable[str]) -> None:
     :return:
     """
     current_releases = NextcloudRelease.objects.all()
-    imported_releases = [
-        NextcloudRelease.objects.get_or_create(version=version)[0]
-        for version in versions
-    ]
+    imported_releases = [NextcloudRelease.objects.get_or_create(version=version)[0] for version in versions]
     if imported_releases:
         # all imported releases have a release, existing ones don't
         for release in imported_releases:
@@ -56,25 +50,19 @@ def sync_releases(versions: Iterable[str]) -> None:
 NextcloudReleases = List[NextcloudRelease]
 
 
-def get_old_releases(current: NextcloudReleases,
-                     imported: NextcloudReleases) -> NextcloudReleases:
+def get_old_releases(current: NextcloudReleases, imported: NextcloudReleases) -> NextcloudReleases:
     imported_versions = {release.version for release in imported}
-    return [release for release in current
-            if release.version not in imported_versions]
+    return [release for release in current if release.version not in imported_versions]
 
 
-def get_supported_releases(client: GitHubClient,
-                           oldest_supported: str) -> Iterable[str]:
+def get_supported_releases(client: GitHubClient, oldest_supported: str) -> Iterable[str]:
     releases = get_stable_releases(client)
     return takewhile(lambda v: is_supported(v, oldest_supported), releases)
 
 
 def get_stable_releases(client: GitHubClient) -> Iterable[str]:
     json = chain.from_iterable(TagPages(client))
-    return (tag for tag in (release['name'].lstrip('v')
-                            for release in json
-                            if 'name' in release)
-            if is_stable(tag))
+    return (tag for tag in (release["name"].lstrip("v") for release in json if "name" in release) if is_stable(tag))
 
 
 def is_supported(oldest_supported: str, version: str) -> bool:
@@ -102,7 +90,7 @@ class TagPages:
         self.size = size
         self.page = 1  # pages are 1 indexed
 
-    def __iter__(self) -> 'TagPages':
+    def __iter__(self) -> "TagPages":
         return self
 
     def __next__(self):
