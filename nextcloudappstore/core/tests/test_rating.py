@@ -35,7 +35,7 @@ class RatingTest(TestCase):
         user2 = self.create_user(2)
         user3 = self.create_user(3)
         user4 = self.create_user(4)
-        app = App.objects.create(id='news', owner=user1)
+        app = App.objects.create(id="news", owner=user1)
         AppRating.objects.create(app=app, user=user1, rating=0.5)
         AppRating.objects.create(app=app, user=user2, rating=0.5)
         AppRating.objects.create(app=app, user=user3, rating=0.5)
@@ -57,8 +57,5 @@ class RatingTest(TestCase):
         self.assertEqual(5, App.objects.get(id=app.id).rating_num_recent)
 
     def create_user(self, id):
-        user_id = 'test%i' % id
-        return get_user_model().objects.create_user(username=user_id,
-                                                    password=user_id,
-                                                    email='%s@test.com'
-                                                          % user_id)
+        user_id = "test%i" % id
+        return get_user_model().objects.create_user(username=user_id, password=user_id, email="%s@test.com" % user_id)

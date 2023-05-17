@@ -9,10 +9,10 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
-CSP_IMG_SRC = ('https:',)
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+CSP_IMG_SRC = ("https:",)
 
-LOG_LEVEL = 'ERROR'
-LOGGING['handlers']['file']['filename'] = LOG_FILE  # noqa
-LOGGING['handlers']['file']['level'] = LOG_LEVEL  # noqa
-LOGGING['loggers']['django']['level'] = LOG_LEVEL  # noqa
+LOG_LEVEL = "ERROR"
+LOGGING["handlers"]["file"]["filename"] = LOG_FILE  # noqa
+LOGGING["handlers"]["file"]["level"] = LOG_LEVEL  # noqa
+LOGGING["loggers"]["django"]["level"] = LOG_LEVEL  # noqa

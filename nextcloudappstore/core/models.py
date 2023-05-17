@@ -6,9 +6,21 @@ from typing import Tuple
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import FloatField  # type: ignore
-from django.db.models import (CASCADE, BooleanField, CharField, DateTimeField,
-                              EmailField, ForeignKey, IntegerField, Manager,
-                              ManyToManyField, Model, Q, TextField, URLField)
+from django.db.models import (
+    CASCADE,
+    BooleanField,
+    CharField,
+    DateTimeField,
+    EmailField,
+    ForeignKey,
+    IntegerField,
+    Manager,
+    ManyToManyField,
+    Model,
+    Q,
+    TextField,
+    URLField,
+)
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.utils import timezone
@@ -19,24 +31,29 @@ from semantic_version import Spec, Version
 
 from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
-from nextcloudappstore.core.versioning import (AppSemVer, group_by_main_version,
-                                               pad_max_inc_version,
-                                               pad_min_version)
+from nextcloudappstore.core.versioning import (
+    AppSemVer,
+    group_by_main_version,
+    pad_max_inc_version,
+    pad_min_version,
+)
 
 
 class AppManager(TranslatableManager):
     def search(self, terms, lang):
-        queryset = self.get_queryset().active_translations(lang).language(
-            lang).distinct()
-        predicates = map(lambda t: (Q(translations__name__icontains=t)
-                                    | Q(translations__summary__icontains=t)
-                                    | Q(translations__description__icontains=t)),
-                         terms)
+        queryset = self.get_queryset().active_translations(lang).language(lang).distinct()
+        predicates = map(
+            lambda t: (
+                Q(translations__name__icontains=t)
+                | Q(translations__summary__icontains=t)
+                | Q(translations__description__icontains=t)
+            ),
+            terms,
+        )
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
 
-    def get_compatible(self, platform_version, inclusive=False, prefetch=None,
-                       select=None):
+    def get_compatible(self, platform_version, inclusive=False, prefetch=None, select=None):
         qs = App.objects
         if select is not None and len(select) > 0:
             qs = qs.select_related(*select)
@@ -54,65 +71,59 @@ class AppManager(TranslatableManager):
 
 class App(TranslatableModel):
     objects = AppManager()
-    id = CharField(max_length=256, unique=True, primary_key=True,
-                   verbose_name=_('ID'),
-                   help_text=_('app ID, identical to folder name'))
-    categories = ManyToManyField('Category', verbose_name=_('Category'))
+    id = CharField(
+        max_length=256,
+        unique=True,
+        primary_key=True,
+        verbose_name=_("ID"),
+        help_text=_("app ID, identical to folder name"),
+    )
+    categories = ManyToManyField("Category", verbose_name=_("Category"))
     translations = TranslatedFields(
-        name=CharField(max_length=256, verbose_name=_('Name'),
-                       help_text=_('Rendered app name for users')),
-        summary=CharField(max_length=256, verbose_name=_('Summary'),
-                          help_text=_(
-                              'Short text describing the app\'s purpose')),
-        description=TextField(verbose_name=_('Description'), help_text=_(
-            'Will be rendered as Markdown'))
+        name=CharField(max_length=256, verbose_name=_("Name"), help_text=_("Rendered app name for users")),
+        summary=CharField(
+            max_length=256, verbose_name=_("Summary"), help_text=_("Short text describing the app's purpose")
+        ),
+        description=TextField(verbose_name=_("Description"), help_text=_("Will be rendered as Markdown")),
     )
     # resources
-    user_docs = URLField(max_length=256, blank=True,
-                         verbose_name=_('User documentation URL'))
-    admin_docs = URLField(max_length=256, blank=True,
-                          verbose_name=_('Admin documentation URL'))
-    developer_docs = URLField(max_length=256, blank=True,
-                              verbose_name=_('Developer documentation URL'))
-    issue_tracker = URLField(max_length=256, blank=True,
-                             verbose_name=_('Issue tracker URL'))
-    website = URLField(max_length=256, blank=True, verbose_name=_('Homepage'))
-    discussion = URLField(max_length=256, blank=True, verbose_name=_('Forum'))
-    created = DateTimeField(auto_now_add=True, editable=False,
-                            verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
-                                  verbose_name=_('Updated at'))
-    owner = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('App owner'),
-                       on_delete=CASCADE, related_name='owned_apps')
-    co_maintainers = ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
-                                     verbose_name=_('Co-Maintainers'),
-                                     related_name='co_maintained_apps')
-    authors = ManyToManyField('AppAuthor', blank=True, related_name='apps',
-                              verbose_name=_('App authors'))
-    is_featured = BooleanField(verbose_name=_('Featured'), default=False)
-    rating_recent = FloatField(verbose_name=_('Recent rating'), default=0.5)
-    rating_overall = FloatField(verbose_name=_('Overall rating'), default=0.5)
-    rating_num_recent = IntegerField(
-        verbose_name=_('Number of recently submitted ratings'), default=0)
-    rating_num_overall = IntegerField(
-        verbose_name=_('Number of overall submitted ratings'), default=0)
-    last_release = DateTimeField(editable=False, db_index=True,
-                                 verbose_name=_('Last release at'),
-                                 default=timezone.now)
-    certificate = TextField(verbose_name=_('Certificate'))
+    user_docs = URLField(max_length=256, blank=True, verbose_name=_("User documentation URL"))
+    admin_docs = URLField(max_length=256, blank=True, verbose_name=_("Admin documentation URL"))
+    developer_docs = URLField(max_length=256, blank=True, verbose_name=_("Developer documentation URL"))
+    issue_tracker = URLField(max_length=256, blank=True, verbose_name=_("Issue tracker URL"))
+    website = URLField(max_length=256, blank=True, verbose_name=_("Homepage"))
+    discussion = URLField(max_length=256, blank=True, verbose_name=_("Forum"))
+    created = DateTimeField(auto_now_add=True, editable=False, verbose_name=_("Created at"))
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True, verbose_name=_("Updated at"))
+    owner = ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name=_("App owner"), on_delete=CASCADE, related_name="owned_apps"
+    )
+    co_maintainers = ManyToManyField(
+        settings.AUTH_USER_MODEL, blank=True, verbose_name=_("Co-Maintainers"), related_name="co_maintained_apps"
+    )
+    authors = ManyToManyField("AppAuthor", blank=True, related_name="apps", verbose_name=_("App authors"))
+    is_featured = BooleanField(verbose_name=_("Featured"), default=False)
+    rating_recent = FloatField(verbose_name=_("Recent rating"), default=0.5)
+    rating_overall = FloatField(verbose_name=_("Overall rating"), default=0.5)
+    rating_num_recent = IntegerField(verbose_name=_("Number of recently submitted ratings"), default=0)
+    rating_num_overall = IntegerField(verbose_name=_("Number of overall submitted ratings"), default=0)
+    last_release = DateTimeField(editable=False, db_index=True, verbose_name=_("Last release at"), default=timezone.now)
+    certificate = TextField(verbose_name=_("Certificate"))
     ownership_transfer_enabled = BooleanField(
-        verbose_name=_('Ownership transfer enabled'), default=False,
-        help_text=_('If enabled, a user can try to register the same app '
-                    'again using the public certificate and signature. If he '
-                    'does, the app will be transferred to him.'))
-    is_integration = BooleanField(verbose_name=_('Integration (i.e. Outlook '
-                                                 'plugin)'), default=False)
-    approved = BooleanField(verbose_name=_('Used to approve integrations'),
-                            default=False)
+        verbose_name=_("Ownership transfer enabled"),
+        default=False,
+        help_text=_(
+            "If enabled, a user can try to register the same app "
+            "again using the public certificate and signature. If he "
+            "does, the app will be transferred to him."
+        ),
+    )
+    is_integration = BooleanField(verbose_name=_("Integration (i.e. Outlook plugin)"), default=False)
+    approved = BooleanField(verbose_name=_("Used to approve integrations"), default=False)
 
     class Meta:
-        verbose_name = _('App')
-        verbose_name_plural = _('Apps')
+        verbose_name = _("App")
+        verbose_name_plural = _("Apps")
 
     def __str__(self) -> str:
         return self.name
@@ -128,8 +139,7 @@ class App(TranslatableModel):
         if self.discussion:
             return self.discussion
         else:
-            return '%s/c/apps/%s' % (settings.DISCOURSE_URL,
-                                     self.id.replace('_', '-'))
+            return "%s/c/apps/%s" % (settings.DISCOURSE_URL, self.id.replace("_", "-"))
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
@@ -198,10 +208,7 @@ class App(TranslatableModel):
         all_versions = set(chain(latest_stable.keys(), latest_unstable.keys()))
 
         def stable_or_unstable_releases(ver):
-            return (ver, {
-                'stable': latest_stable.get(ver, None),
-                'unstable': latest_unstable.get(ver, None)
-            })
+            return (ver, {"stable": latest_stable.get(ver, None), "unstable": latest_unstable.get(ver, None)})
 
         return dict(map(stable_or_unstable_releases, all_versions))
 
@@ -215,12 +222,10 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(
-                lambda r: r.is_compatible(platform_version,
-                                          inclusive) and not r.is_unstable,
-                self.releases.all()),
+            filter(lambda r: r.is_compatible(platform_version, inclusive) and not r.is_unstable, self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
-            reverse=True)
+            reverse=True,
+        )
 
     def compatible_unstable_releases(self, platform_version, inclusive=True):
         """Returns all unstable releases of this app that are compatible with
@@ -232,18 +237,14 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(
-                lambda r: r.is_compatible(platform_version,
-                                          inclusive) and r.is_unstable,
-                self.releases.all()),
+            filter(lambda r: r.is_compatible(platform_version, inclusive) and r.is_unstable, self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
-            reverse=True)
+            reverse=True,
+        )
 
     def _latest(self, releases):
         try:
-            return max(releases,
-                       key=lambda r: AppSemVer(r.version, r.is_nightly,
-                                               r.last_modified))
+            return max(releases, key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified))
         except ValueError:
             return None
 
@@ -252,8 +253,8 @@ class App(TranslatableModel):
         try:
             if self.pk is not None:
                 orig = App.objects.get(pk=self.pk)
-                current = self.certificate.replace('\r', '').strip()
-                former = orig.certificate.replace('\r', '').strip()
+                current = self.certificate.replace("\r", "").strip()
+                former = orig.certificate.replace("\r", "").strip()
                 # for some reason the django admin inserts \r\n for \n so
                 # saving a model in the admin with the same cert kills all
                 # releases
@@ -265,24 +266,21 @@ class App(TranslatableModel):
 
 
 class AppRating(TranslatableModel):
-    app = ForeignKey('App', related_name='ratings', verbose_name=_('App'),
-                     on_delete=CASCADE)
-    user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'),
-                      on_delete=CASCADE, related_name='app_ratings')
-    rating = FloatField(verbose_name=_('Rating'), default=0.5,
-                        help_text=_('Rating from 0.0 (worst) to 1.0 (best)'))
+    app = ForeignKey("App", related_name="ratings", verbose_name=_("App"), on_delete=CASCADE)
+    user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"), on_delete=CASCADE, related_name="app_ratings")
+    rating = FloatField(verbose_name=_("Rating"), default=0.5, help_text=_("Rating from 0.0 (worst) to 1.0 (best)"))
     rated_at = DateTimeField(auto_now=True, db_index=True)
     translations = TranslatedFields(
-        comment=TextField(verbose_name=_('Rating comment'), default='',
-                          help_text=_('Rating comment in Markdown'),
-                          blank=True)
+        comment=TextField(
+            verbose_name=_("Rating comment"), default="", help_text=_("Rating comment in Markdown"), blank=True
+        )
     )
 
     class Meta:
-        unique_together = (('app', 'user'),)
-        verbose_name = _('App rating')
-        verbose_name_plural = _('App ratings')
-        ordering = ('-rated_at',)
+        unique_together = (("app", "user"),)
+        verbose_name = _("App rating")
+        verbose_name_plural = _("App ratings")
+        ordering = ("-rated_at",)
 
     def __str__(self) -> str:
         return str(self.rating)
@@ -301,8 +299,7 @@ class AppRating(TranslatableModel):
         app.rating_num_overall = num
         app.save()
 
-    def _compute_app_rating(self, days: int = -1,
-                            threshold: int = 5) -> Tuple[float, int]:
+    def _compute_app_rating(self, days: int = -1, threshold: int = 5) -> Tuple[float, int]:
         """
         Computes an app rating based on
         :param days: passing 30 will only consider ratings from the last
@@ -322,73 +319,58 @@ class AppRating(TranslatableModel):
 
 
 class AppAuthor(Model):
-    name = CharField(max_length=256, verbose_name=_('Full name'))
-    homepage = URLField(max_length=256, blank=True,
-                        verbose_name=_('Homepage'))
-    mail = EmailField(max_length=256, verbose_name=_('Email'), blank=True)
+    name = CharField(max_length=256, verbose_name=_("Full name"))
+    homepage = URLField(max_length=256, blank=True, verbose_name=_("Homepage"))
+    mail = EmailField(max_length=256, verbose_name=_("Email"), blank=True)
 
     def __str__(self) -> str:
         if self.mail:
-            mail = '<%s>' % self.mail
+            mail = "<%s>" % self.mail
         else:
-            mail = ''
-        return '%s %s' % (self.name, mail)
+            mail = ""
+        return "%s %s" % (self.name, mail)
 
     class Meta:
-        verbose_name = _('App author')
-        verbose_name_plural = _('App authors')
+        verbose_name = _("App author")
+        verbose_name_plural = _("App authors")
 
 
 class AppRelease(TranslatableModel):
-    version = CharField(max_length=256, verbose_name=_('Version'),
-                        help_text=_('Version follows Semantic Versioning'))
-    app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
-                     related_name='releases')
+    version = CharField(max_length=256, verbose_name=_("Version"), help_text=_("Version follows Semantic Versioning"))
+    app = ForeignKey("App", on_delete=CASCADE, verbose_name=_("App"), related_name="releases")
     # dependencies
-    php_extensions = ManyToManyField('PhpExtension', blank=True,
-                                     through='PhpExtensionDependency',
-                                     verbose_name=_(
-                                         'PHP extension dependency'))
-    databases = ManyToManyField('Database', blank=True,
-                                through='DatabaseDependency',
-                                verbose_name=_('Database dependency'))
-    licenses = ManyToManyField('License', verbose_name=_('License'))
-    shell_commands = ManyToManyField('ShellCommand', blank=True,
-                                     verbose_name=_(
-                                         'Shell command dependency'))
-    php_version_spec = CharField(max_length=256,
-                                 verbose_name=_('PHP version requirement'))
-    platform_version_spec = CharField(max_length=256, verbose_name=_(
-        'Platform version requirement'))
-    raw_php_version_spec = CharField(max_length=256,
-                                     verbose_name=_(
-                                         'PHP version requirement (raw)'))
-    raw_platform_version_spec = CharField(max_length=256, verbose_name=_(
-        'Platform version requirement (raw)'))
-    min_int_size = IntegerField(blank=True, default=32,
-                                verbose_name=_('Minimum Integer bits'),
-                                help_text=_('e.g. 32 for 32-bit Integers'))
-    download = URLField(max_length=256, blank=True,
-                        verbose_name=_('Archive download URL'))
-    created = DateTimeField(auto_now_add=True, editable=False,
-                            verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
-                                  verbose_name=_('Updated at'))
-    signature = TextField(verbose_name=_('Signature'), help_text=_(
-        'A signature using the app\'s certificate'))
-    signature_digest = CharField(max_length=256,
-                                 verbose_name=_('Signature hashing algorithm'))
-    translations = TranslatedFields(
-        changelog=TextField(verbose_name=_('Changelog'), help_text=_(
-            'The release changelog. Can contain Markdown'), default='')
+    php_extensions = ManyToManyField(
+        "PhpExtension", blank=True, through="PhpExtensionDependency", verbose_name=_("PHP extension dependency")
     )
-    is_nightly = BooleanField(verbose_name=_('Nightly'), default=False)
+    databases = ManyToManyField(
+        "Database", blank=True, through="DatabaseDependency", verbose_name=_("Database dependency")
+    )
+    licenses = ManyToManyField("License", verbose_name=_("License"))
+    shell_commands = ManyToManyField("ShellCommand", blank=True, verbose_name=_("Shell command dependency"))
+    php_version_spec = CharField(max_length=256, verbose_name=_("PHP version requirement"))
+    platform_version_spec = CharField(max_length=256, verbose_name=_("Platform version requirement"))
+    raw_php_version_spec = CharField(max_length=256, verbose_name=_("PHP version requirement (raw)"))
+    raw_platform_version_spec = CharField(max_length=256, verbose_name=_("Platform version requirement (raw)"))
+    min_int_size = IntegerField(
+        blank=True, default=32, verbose_name=_("Minimum Integer bits"), help_text=_("e.g. 32 for 32-bit Integers")
+    )
+    download = URLField(max_length=256, blank=True, verbose_name=_("Archive download URL"))
+    created = DateTimeField(auto_now_add=True, editable=False, verbose_name=_("Created at"))
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True, verbose_name=_("Updated at"))
+    signature = TextField(verbose_name=_("Signature"), help_text=_("A signature using the app's certificate"))
+    signature_digest = CharField(max_length=256, verbose_name=_("Signature hashing algorithm"))
+    translations = TranslatedFields(
+        changelog=TextField(
+            verbose_name=_("Changelog"), help_text=_("The release changelog. Can contain Markdown"), default=""
+        )
+    )
+    is_nightly = BooleanField(verbose_name=_("Nightly"), default=False)
 
     class Meta:
-        verbose_name = _('App release')
-        verbose_name_plural = _('App releases')
-        unique_together = (('app', 'version', 'is_nightly'),)
-        ordering = ['-version']
+        verbose_name = _("App release")
+        verbose_name_plural = _("App releases")
+        unique_together = (("app", "version", "is_nightly"),)
+        ordering = ["-version"]
 
     def can_update(self, user: User) -> bool:
         return self.app.owner == user or user in self.app.co_maintainers.all()
@@ -397,7 +379,7 @@ class AppRelease(TranslatableModel):
         return self.can_update(user)
 
     def __str__(self) -> str:
-        return '%s %s' % (self.app, self.version)
+        return "%s %s" % (self.app, self.version)
 
     def is_compatible(self, platform_version, inclusive=False):
         """Checks if a release is compatible with a platform version
@@ -413,30 +395,34 @@ class AppRelease(TranslatableModel):
         spec = Spec(self.platform_version_spec)
         if inclusive:
             max_version = Version(pad_max_inc_version(platform_version))
-            return (min_version in spec or max_version in spec)
+            return min_version in spec or max_version in spec
         else:
             return min_version in spec
 
     @property
     def is_unstable(self):
-        return (self.is_nightly or '-dev' in self.version
-                or '-a' in self.version or '-alpha' in self.version
-                or '-b' in self.version or '-beta' in self.version
-                or '-rc' in self.version or '-RC' in self.version)
+        return (
+            self.is_nightly
+            or "-dev" in self.version
+            or "-a" in self.version
+            or "-alpha" in self.version
+            or "-b" in self.version
+            or "-beta" in self.version
+            or "-rc" in self.version
+            or "-RC" in self.version
+        )
 
 
 class Screenshot(Model):
-    url = URLField(max_length=256, verbose_name=_('Image URL'))
-    small_thumbnail = URLField(max_length=256,
-                               verbose_name=_('Small thumbnail'), default='')
-    app = ForeignKey('App', on_delete=CASCADE, verbose_name=_('App'),
-                     related_name='screenshots')
-    ordering = IntegerField(verbose_name=_('Ordering'))
+    url = URLField(max_length=256, verbose_name=_("Image URL"))
+    small_thumbnail = URLField(max_length=256, verbose_name=_("Small thumbnail"), default="")
+    app = ForeignKey("App", on_delete=CASCADE, verbose_name=_("App"), related_name="screenshots")
+    ordering = IntegerField(verbose_name=_("Ordering"))
 
     class Meta:
-        verbose_name = _('Screenshot')
-        verbose_name_plural = _('Screenshots')
-        ordering = ['ordering']
+        verbose_name = _("Screenshot")
+        verbose_name_plural = _("Screenshots")
+        ordering = ["ordering"]
 
     @property
     def front_img_small(self):
@@ -450,138 +436,138 @@ class Screenshot(Model):
 
 
 class ShellCommand(Model):
-    name = CharField(max_length=256, unique=True, primary_key=True,
-                     verbose_name=_('Shell command'),
-                     help_text=_(
-                         'Name of a required shell command, e.g. grep'))
+    name = CharField(
+        max_length=256,
+        unique=True,
+        primary_key=True,
+        verbose_name=_("Shell command"),
+        help_text=_("Name of a required shell command, e.g. grep"),
+    )
 
     class Meta:
-        verbose_name = _('Shell command')
-        verbose_name_plural = _('Shell commands')
-        ordering = ['name']
+        verbose_name = _("Shell command")
+        verbose_name_plural = _("Shell commands")
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return self.name
 
 
 class Category(TranslatableModel):
-    id = CharField(max_length=256, unique=True, primary_key=True,
-                   verbose_name=_('Id'),
-                   help_text=_(
-                       'Category ID used to identify the '
-                       'category an app is uploaded to'))
-    created = DateTimeField(auto_now_add=True, editable=False,
-                            verbose_name=_('Created at'))
-    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True,
-                                  verbose_name=_('Updated at'))
+    id = CharField(
+        max_length=256,
+        unique=True,
+        primary_key=True,
+        verbose_name=_("Id"),
+        help_text=_("Category ID used to identify the category an app is uploaded to"),
+    )
+    created = DateTimeField(auto_now_add=True, editable=False, verbose_name=_("Created at"))
+    last_modified = DateTimeField(auto_now=True, editable=False, db_index=True, verbose_name=_("Updated at"))
     translations = TranslatedFields(
-        name=CharField(max_length=256,
-                       help_text=_('Category name which will be presented to the user'),
-                       verbose_name=_('Name')),
-        description=TextField(verbose_name=_('Description'),
-                              help_text=_('Will be rendered as Markdown'))
+        name=CharField(
+            max_length=256, help_text=_("Category name which will be presented to the user"), verbose_name=_("Name")
+        ),
+        description=TextField(verbose_name=_("Description"), help_text=_("Will be rendered as Markdown")),
     )
 
     class Meta:
-        verbose_name = _('Category')
-        verbose_name_plural = _('Categories')
-        ordering = ['id']
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
+        ordering = ["id"]
 
     def __str__(self) -> str:
         return self.name
 
 
 class License(Model):
-    id = CharField(max_length=256, unique=True, primary_key=True,
-                   verbose_name=_('Id'),
-                   help_text=_(
-                       'Key which is used to identify a license'))
-    name = CharField(max_length=256, verbose_name=_('Name'),
-                     help_text=_(
-                         'License name which will be presented to '
-                         'the user'))
+    id = CharField(
+        max_length=256,
+        unique=True,
+        primary_key=True,
+        verbose_name=_("Id"),
+        help_text=_("Key which is used to identify a license"),
+    )
+    name = CharField(
+        max_length=256, verbose_name=_("Name"), help_text=_("License name which will be presented to the user")
+    )
 
     class Meta:
-        verbose_name = _('License')
-        verbose_name_plural = _('Licenses')
+        verbose_name = _("License")
+        verbose_name_plural = _("Licenses")
 
     def __str__(self) -> str:
         return self.name
 
 
 class Database(Model):
-    id = CharField(max_length=256, unique=True, primary_key=True,
-                   verbose_name=_('Id'),
-                   help_text=_('Key which is used to identify a database'))
-    name = CharField(max_length=256, verbose_name=_('Name'),
-                     help_text=_(
-                         'Database name which will be presented to the user'))
+    id = CharField(
+        max_length=256,
+        unique=True,
+        primary_key=True,
+        verbose_name=_("Id"),
+        help_text=_("Key which is used to identify a database"),
+    )
+    name = CharField(
+        max_length=256, verbose_name=_("Name"), help_text=_("Database name which will be presented to the user")
+    )
 
     class Meta:
-        verbose_name = _('Database')
-        verbose_name_plural = _('Databases')
-        ordering = ['name']
+        verbose_name = _("Database")
+        verbose_name_plural = _("Databases")
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return self.name
 
 
 class DatabaseDependency(Model):
-    app_release = ForeignKey('AppRelease', on_delete=CASCADE,
-                             verbose_name=_('App release'),
-                             related_name='databasedependencies')
-    database = ForeignKey('Database', related_name='releasedependencies',
-                          on_delete=CASCADE, verbose_name=_('Database'))
-    version_spec = CharField(max_length=256,
-                             verbose_name=_('Database version requirement'))
-    raw_version_spec = CharField(max_length=256,
-                                 verbose_name=_(
-                                     'Database version requirement (raw)'))
+    app_release = ForeignKey(
+        "AppRelease", on_delete=CASCADE, verbose_name=_("App release"), related_name="databasedependencies"
+    )
+    database = ForeignKey("Database", related_name="releasedependencies", on_delete=CASCADE, verbose_name=_("Database"))
+    version_spec = CharField(max_length=256, verbose_name=_("Database version requirement"))
+    raw_version_spec = CharField(max_length=256, verbose_name=_("Database version requirement (raw)"))
 
     class Meta:
-        verbose_name = _('Database dependency')
-        verbose_name_plural = _('Database dependencies')
-        unique_together = (('app_release', 'database', 'version_spec'),)
+        verbose_name = _("Database dependency")
+        verbose_name_plural = _("Database dependencies")
+        unique_together = (("app_release", "database", "version_spec"),)
 
     def __str__(self) -> str:
-        return '%s: %s %s' % (self.app_release, self.database,
-                              self.version_spec)
+        return "%s: %s %s" % (self.app_release, self.database, self.version_spec)
 
 
 class PhpExtension(Model):
-    id = CharField(max_length=256, unique=True, help_text=_('e.g. libxml'),
-                   primary_key=True, verbose_name=_('PHP extension'))
+    id = CharField(
+        max_length=256, unique=True, help_text=_("e.g. libxml"), primary_key=True, verbose_name=_("PHP extension")
+    )
 
     class Meta:
-        verbose_name = _('PHP extension')
-        verbose_name_plural = _('PHP extensions')
-        ordering = ['id']
+        verbose_name = _("PHP extension")
+        verbose_name_plural = _("PHP extensions")
+        ordering = ["id"]
 
     def __str__(self) -> str:
         return self.id
 
 
 class PhpExtensionDependency(Model):
-    app_release = ForeignKey('AppRelease', on_delete=CASCADE,
-                             verbose_name=_('App release'),
-                             related_name='phpextensiondependencies')
-    php_extension = ForeignKey('PhpExtension', on_delete=CASCADE,
-                               verbose_name=_('PHP extension'),
-                               related_name='releasedependencies')
-    version_spec = CharField(max_length=256,
-                             verbose_name=_('Extension version requirement'))
-    raw_version_spec = CharField(max_length=256,
-                                 verbose_name=_(
-                                     'Extension version requirement (raw)'))
+    app_release = ForeignKey(
+        "AppRelease", on_delete=CASCADE, verbose_name=_("App release"), related_name="phpextensiondependencies"
+    )
+    php_extension = ForeignKey(
+        "PhpExtension", on_delete=CASCADE, verbose_name=_("PHP extension"), related_name="releasedependencies"
+    )
+    version_spec = CharField(max_length=256, verbose_name=_("Extension version requirement"))
+    raw_version_spec = CharField(max_length=256, verbose_name=_("Extension version requirement (raw)"))
 
     class Meta:
-        verbose_name = _('PHP extension dependency')
-        verbose_name_plural = _('PHP extension dependencies')
-        unique_together = (('app_release', 'php_extension', 'version_spec'),)
+        verbose_name = _("PHP extension dependency")
+        verbose_name_plural = _("PHP extension dependencies")
+        unique_together = (("app_release", "php_extension", "version_spec"),)
 
     def __str__(self) -> str:
-        return '%s: %s %s' % (self.app_release.app, self.php_extension,
-                              self.version_spec)
+        return "%s: %s %s" % (self.app_release.app, self.php_extension, self.version_spec)
 
 
 @receiver(post_delete, sender=App)
@@ -598,11 +584,12 @@ class AppReleaseDeleteLog(Model):
     """
     Used to keep track of app and app release deletions
     """
+
     last_modified = DateTimeField(auto_now=True, db_index=True)
 
     class Meta:
-        verbose_name = _('App release deletion')
-        verbose_name_plural = _('App release deletions')
+        verbose_name = _("App release deletion")
+        verbose_name_plural = _("App release deletions")
 
     def __str__(self) -> str:
         return str(self.last_modified)
@@ -615,39 +602,47 @@ class NextcloudReleaseManager(Manager):
 
 class NextcloudRelease(Model):
     objects = NextcloudReleaseManager()
-    version = CharField(max_length=100, verbose_name=_('Nextcloud version'),
-                        help_text=_('e.g. 9.0.54'), primary_key=True)
-    is_current = BooleanField(verbose_name=_('Is current version'),
-                              help_text=_('Only one version can be '
-                                          'the current one. This field is '
-                                          'used to pre-select dropdowns for '
-                                          'app generation, etc.'),
-                              default=False)
-    has_release = BooleanField(verbose_name=_('Has a release'),
-                               help_text=_(
-                                   'If true, this is an actual released '
-                                   'Nextcloud version that can be '
-                                   'downloaded as an archive. If false, '
-                                   'the release is either a pre-release, '
-                                   'or not available for download '
-                                   'anymore.'),
-                               default=False)
-    is_supported = BooleanField(verbose_name=_('Version is supported'),
-                                help_text=_('True if this version is still '
-                                            'officially supported (excluding '
-                                            'enterprise support)'),
-                                default=False)
+    version = CharField(
+        max_length=100, verbose_name=_("Nextcloud version"), help_text=_("e.g. 9.0.54"), primary_key=True
+    )
+    is_current = BooleanField(
+        verbose_name=_("Is current version"),
+        help_text=_(
+            "Only one version can be "
+            "the current one. This field is "
+            "used to pre-select dropdowns for "
+            "app generation, etc."
+        ),
+        default=False,
+    )
+    has_release = BooleanField(
+        verbose_name=_("Has a release"),
+        help_text=_(
+            "If true, this is an actual released "
+            "Nextcloud version that can be "
+            "downloaded as an archive. If false, "
+            "the release is either a pre-release, "
+            "or not available for download "
+            "anymore."
+        ),
+        default=False,
+    )
+    is_supported = BooleanField(
+        verbose_name=_("Version is supported"),
+        help_text=_("True if this version is still officially supported (excluding enterprise support)"),
+        default=False,
+    )
 
     class Meta:
-        verbose_name = _('Nextcloud release')
-        verbose_name_plural = _('Nextcloud releases')
-        ordering = ('-version',)
+        verbose_name = _("Nextcloud release")
+        verbose_name_plural = _("Nextcloud releases")
+        ordering = ("-version",)
 
     @staticmethod
     def get_current_main():
         current = NextcloudRelease.objects.get_current()
         if len(current) > 0:
-            return current[0].version.split('.')[0]
+            return current[0].version.split(".")[0]
         else:
             return None
 

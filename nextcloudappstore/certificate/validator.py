@@ -4,8 +4,16 @@ from typing import Optional
 
 import pem
 from django.conf import settings  # type: ignore
-from OpenSSL.crypto import (FILETYPE_PEM, X509, X509Store, X509StoreContext,
-                            X509StoreFlags, load_certificate, load_crl, verify)
+from OpenSSL.crypto import (
+    FILETYPE_PEM,
+    X509,
+    X509Store,
+    X509StoreContext,
+    X509StoreFlags,
+    load_certificate,
+    load_crl,
+    verify,
+)
 from rest_framework.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)
@@ -37,8 +45,7 @@ class CertificateValidator:
     def __init__(self, config: CertificateConfiguration) -> None:
         self.config = config
 
-    def validate_signature(self, certificate: str, signature: str,
-                           data: bytes) -> None:
+    def validate_signature(self, certificate: str, signature: str, data: bytes) -> None:
         """
         Tests if a value is a valid certificate using the provided hash
         algorithm
@@ -49,15 +56,13 @@ class CertificateValidator:
         :return: None
         """
         cert = self._to_cert(certificate)
-        err_msg = 'Signature is invalid'
+        err_msg = "Signature is invalid"
         try:
-            verify(cert, b64decode(signature.encode()), data,
-                   self.config.digest)
+            verify(cert, b64decode(signature.encode()), data, self.config.digest)
         except Exception as e:
-            raise InvalidSignatureException('%s: %s' % (err_msg, str(e)))
+            raise InvalidSignatureException("%s: %s" % (err_msg, str(e)))
 
-    def validate_certificate(self, certificate: str, chain: str,
-                             crl: Optional[str] = None) -> None:
+    def validate_certificate(self, certificate: str, chain: str, crl: Optional[str] = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired.
@@ -81,12 +86,12 @@ class CertificateValidator:
             store.add_crl(parsed_crl)
 
         ctx = X509StoreContext(store, cert)
-        err_msg = 'Certificate is invalid'
+        err_msg = "Certificate is invalid"
 
         try:
             ctx.verify_certificate()
         except Exception as e:
-            raise InvalidCertificateException('%s: %s' % (err_msg, str(e)))
+            raise InvalidCertificateException("%s: %s" % (err_msg, str(e)))
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -109,12 +114,12 @@ class CertificateValidator:
         """
         cn = self.get_cn(certificate)
         if cn != app_id:
-            msg = 'App id %s does not match cert CN %s' % (app_id, cn)
+            msg = "App id %s does not match cert CN %s" % (app_id, cn)
             raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:
         try:
             return load_certificate(FILETYPE_PEM, certificate.encode())
         except Exception as e:
-            msg = '%s: %s' % ('Invalid certificate', str(e))
+            msg = "%s: %s" % ("Invalid certificate", str(e))
             raise InvalidCertificateException(msg)

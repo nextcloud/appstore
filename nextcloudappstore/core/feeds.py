@@ -11,50 +11,50 @@ from nextcloudappstore.core.models import AppRelease
 
 
 class AppReleaseRssFeed(Feed):
-    title = _('Newest app releases')
-    description = _('Get the newest app release updates')
-    link = reverse_lazy('home')
+    title = _("Newest app releases")
+    description = _("Get the newest app release updates")
+    link = reverse_lazy("home")
 
     def __call__(self, request, *args, **kwargs):
         self.request = request
         return super().__call__(request, *args, **kwargs)
 
     def items(self):
-        queryset = AppRelease.objects.order_by('-last_modified')
-        if 'nightly' not in self.request.GET:
+        queryset = AppRelease.objects.order_by("-last_modified")
+        if "nightly" not in self.request.GET:
             queryset = queryset.filter(is_nightly=False)
-        if 'prerelease' not in self.request.GET:
-            queryset = queryset.exclude(version__contains='-')
-        if 'app' in self.request.GET:
-            queryset = queryset.filter(app__id=self.request.GET.get('app'))
+        if "prerelease" not in self.request.GET:
+            queryset = queryset.exclude(version__contains="-")
+        if "app" in self.request.GET:
+            queryset = queryset.filter(app__id=self.request.GET.get("app"))
         return queryset[:10]
 
     def item_title(self, item):
-        return '%s (%s)' % (item.app.name, item.version)
+        return "%s (%s)" % (item.app.name, item.version)
 
     def item_description(self, item):
         try:
             if item.changelog:
-                changelog = '\n\n# %s\n\n%s' % (_('Changes'), item.changelog)
+                changelog = "\n\n# %s\n\n%s" % (_("Changes"), item.changelog)
             else:
-                changelog = ''
-            content = '%s%s' % (item.app.description, changelog)
+                changelog = ""
+            content = "%s%s" % (item.app.description, changelog)
         except TranslationDoesNotExist:
             content = item.app.description
-        content += '\n\n [%s](%s)' % (_('Download'), item.download)
-        return clean(markdown(content),
-                     attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES,
-                     tags=settings.MARKDOWN_ALLOWED_TAGS)
+        content += "\n\n [%s](%s)" % (_("Download"), item.download)
+        return clean(
+            markdown(content), attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES, tags=settings.MARKDOWN_ALLOWED_TAGS
+        )
 
     def item_guid(self, obj):
-        nightly = '-nightly' if obj.is_nightly else ''
-        return '%s-%s%s' % (obj.app.id, obj.version, nightly)
+        nightly = "-nightly" if obj.is_nightly else ""
+        return "%s-%s%s" % (obj.app.id, obj.version, nightly)
 
     def item_link(self, item):
-        return reverse('app-detail', kwargs={'id': item.app.id})
+        return reverse("app-detail", kwargs={"id": item.app.id})
 
     def item_author_name(self, item):
-        return '%s %s' % (item.app.owner.first_name, item.app.owner.last_name)
+        return "%s %s" % (item.app.owner.first_name, item.app.owner.last_name)
 
     def item_pubdate(self, item):
         return item.last_modified

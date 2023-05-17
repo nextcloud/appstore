@@ -5,8 +5,7 @@ from typing import Any
 import requests
 from rest_framework.exceptions import ValidationError  # type: ignore
 
-from nextcloudappstore.api.v1.release.parser import \
-    UnsupportedAppArchiveException
+from nextcloudappstore.api.v1.release.parser import UnsupportedAppArchiveException
 
 
 class MaximumDownloadSizeExceededException(ValidationError):
@@ -21,7 +20,7 @@ class ReleaseDownload:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> 'ReleaseDownload':
+    def __enter__(self) -> "ReleaseDownload":
         return self
 
     def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
@@ -29,9 +28,14 @@ class ReleaseDownload:
 
 
 class AppReleaseDownloader:
-    def get_archive(self, url: str, target_directory: str, timeout: int = 60,
-                    max_redirects: int = 10,
-                    max_size: int = 50 * (1024 ** 2)) -> ReleaseDownload:
+    def get_archive(
+        self,
+        url: str,
+        target_directory: str,
+        timeout: int = 60,
+        max_redirects: int = 10,
+        max_size: int = 50 * (1024**2),
+    ) -> ReleaseDownload:
         """
         Downloads an app release from an url to a directory
         :argument target_directory directory where the downloaded archive
@@ -52,8 +56,7 @@ class AppReleaseDownloader:
             file = tempfile.NamedTemporaryFile(delete=False)
         else:
             os.makedirs(target_directory, mode=0o700, exist_ok=True)
-            file = tempfile.NamedTemporaryFile(dir=target_directory,
-                                               delete=False)
+            file = tempfile.NamedTemporaryFile(dir=target_directory, delete=False)
         try:
             with requests.Session() as session:
                 session.max_redirects = max_redirects
@@ -71,13 +74,12 @@ class AppReleaseDownloader:
             This is technically correct but might not be the best UX, however
             it's definitely the best we can do now given security circumstances
             """
-            filename = url[url.rfind("/") + 1:]
-            msg = '%s is not a valid tar.gz archive ' % filename
+            filename = url[url.rfind("/") + 1 :]
+            msg = "%s is not a valid tar.gz archive " % filename
             raise UnsupportedAppArchiveException(msg)
         return ReleaseDownload(file.name)
 
-    def _stream_to_file(self, file: Any, max_size: int,
-                        req: requests.Response) -> None:
+    def _stream_to_file(self, file: Any, max_size: int, req: requests.Response) -> None:
         # start streaming download
         finished = False
         try:
@@ -86,8 +88,7 @@ class AppReleaseDownloader:
                 file.write(chunk)
                 size += len(chunk)
                 if size > max_size:
-                    msg = 'Downloaded archive is bigger than the ' \
-                          'allowed %i bytes' % max_size
+                    msg = "Downloaded archive is bigger than the allowed %i bytes" % max_size
                     raise MaximumDownloadSizeExceededException(msg)
             finished = True
         finally:

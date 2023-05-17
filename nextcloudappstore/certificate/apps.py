@@ -4,8 +4,8 @@ from django.apps import AppConfig
 
 
 class CertificateConfig(AppConfig):
-    name = 'nextcloudappstore.certificate'
-    verbose_name = 'App Store Certificate'
+    name = "nextcloudappstore.certificate"
+    verbose_name = "App Store Certificate"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)

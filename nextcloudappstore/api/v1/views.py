@@ -16,36 +16,43 @@ from rest_framework.views import APIView
 
 from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
-from nextcloudappstore.api.v1.serializers import (AppRatingSerializer,
-                                                  AppRegisterSerializer,
-                                                  AppReleaseDownloadSerializer,
-                                                  AppSerializer,
-                                                  CategorySerializer,
-                                                  NextcloudReleaseSerializer)
+from nextcloudappstore.api.v1.serializers import (
+    AppRatingSerializer,
+    AppRegisterSerializer,
+    AppReleaseDownloadSerializer,
+    AppSerializer,
+    CategorySerializer,
+    NextcloudReleaseSerializer,
+)
 from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
-from nextcloudappstore.core.models import (App, AppRating, AppRelease, Category,
-                                           NextcloudRelease)
+from nextcloudappstore.core.models import (
+    App,
+    AppRating,
+    AppRelease,
+    Category,
+    NextcloudRelease,
+)
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import version_in_spec
 from nextcloudappstore.user.facades import update_token
 
 APP_PREFETCH_LIST = [
-    'authors',
-    'screenshots',
-    'categories',
-    'translations',
-    'releases__translations',
-    'releases__phpextensiondependencies__php_extension',
-    'releases__databasedependencies__database',
-    'releases__shell_commands',
-    'releases__licenses',
+    "authors",
+    "screenshots",
+    "categories",
+    "translations",
+    "releases__translations",
+    "releases__phpextensiondependencies__php_extension",
+    "releases__databasedependencies__database",
+    "releases__shell_commands",
+    "releases__licenses",
 ]
 
 
 class CategoryView(ListAPIView):
-    queryset = Category.objects.prefetch_related('translations').all()
+    queryset = Category.objects.prefetch_related("translations").all()
     serializer_class = CategorySerializer
 
 
@@ -65,16 +72,17 @@ class AppsView(ListAPIView):
 
 
 class AppView(DestroyAPIView):
-    authentication_classes = (authentication.TokenAuthentication,
-                              authentication.BasicAuthentication,)
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
     permission_classes = (UpdateDeletePermission,)
     serializer_class = AppSerializer
     queryset = App.objects.all()
 
     def get(self, request, *args, **kwargs):
-        version = self.kwargs['version']
-        working_apps = App.objects.get_compatible(version,
-                                                  prefetch=APP_PREFETCH_LIST)
+        version = self.kwargs["version"]
+        working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
         return Response(data)
@@ -90,26 +98,28 @@ class AppView(DestroyAPIView):
         """
 
         def is_compatible(release) -> bool:
-            spec = release['platform_version_spec'].replace(' ', ',')
+            spec = release["platform_version_spec"].replace(" ", ",")
             return version_in_spec(version, spec)
 
         for app in data:
-            app['releases'] = list(filter(is_compatible, app['releases']))
+            app["releases"] = list(filter(is_compatible, app["releases"]))
         return data
 
 
 class AppRegisterView(APIView):
-    authentication_classes = (authentication.TokenAuthentication,
-                              authentication.BasicAuthentication,)
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
     permission_classes = (IsAuthenticated,)
     throttle_classes = (PostThrottle,)
-    throttle_scope = 'app_register'
+    throttle_scope = "app_register"
 
     def post(self, request):
         serializer = AppRegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        signature = serializer.validated_data['signature'].strip()
-        certificate = serializer.validated_data['certificate'].strip()
+        signature = serializer.validated_data["signature"].strip()
+        certificate = serializer.validated_data["certificate"].strip()
 
         container = Container()
 
@@ -120,8 +130,7 @@ class AppRegisterView(APIView):
         app_id = validator.get_cn(certificate)
         if settings.VALIDATE_CERTIFICATES:
             validator.validate_certificate(certificate, chain, crl)
-            validator.validate_signature(certificate, signature,
-                                         app_id.encode())
+            validator.validate_signature(certificate, signature, app_id.encode())
 
         try:
             app = App.objects.get(id=app_id)
@@ -129,15 +138,14 @@ class AppRegisterView(APIView):
                 app.owner = request.user
                 app.ownership_transfer_enabled = False
             elif app.owner != request.user:
-                msg = 'Only the app owner is allowed to update the certificate'
+                msg = "Only the app owner is allowed to update the certificate"
                 raise PermissionDenied(msg)
             app.certificate = certificate
             app.save()
             return Response(status=204)
         except App.DoesNotExist:
-            app = App.objects.create(id=app_id, owner=request.user,
-                                     certificate=certificate)
-            app.set_current_language('en')
+            app = App.objects.create(id=app_id, owner=request.user, certificate=certificate)
+            app.set_current_language("en")
             app.description = app_id
             app.name = app_id
             app.summary = app_id
@@ -147,18 +155,14 @@ class AppRegisterView(APIView):
             return Response(status=201)
 
     def _create_discourse_category(self, app_id: str) -> None:
-        url = '%s/categories?api_key=%s&api_username=%s' % (
-            settings.DISCOURSE_URL.rstrip('/'),
+        url = "%s/categories?api_key=%s&api_username=%s" % (
+            settings.DISCOURSE_URL.rstrip("/"),
             settings.DISCOURSE_TOKEN,
-            settings.DISCOURSE_USER
+            settings.DISCOURSE_USER,
         )
-        data = {
-            'name': app_id.replace('_', '-'),
-            'color': '3c3945',
-            'text_color': 'ffffff'
-        }
+        data = {"name": app_id.replace("_", "-"), "color": "3c3945", "text_color": "ffffff"}
         if settings.DISCOURSE_PARENT_CATEGORY_ID:
-            data['parent_category_id'] = settings.DISCOURSE_PARENT_CATEGORY_ID
+            data["parent_category_id"] = settings.DISCOURSE_PARENT_CATEGORY_ID
 
         # ignore requests errors because there can be many issues and we do not
         # want to abort app registration just because the forum is down or
@@ -170,19 +174,21 @@ class AppRegisterView(APIView):
 
 
 class AppReleaseView(DestroyAPIView):
-    authentication_classes = (authentication.TokenAuthentication,
-                              authentication.BasicAuthentication,)
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
     permission_classes = (UpdateDeletePermission, IsAuthenticated)
     throttle_classes = (PostThrottle,)
-    throttle_scope = 'app_upload'
+    throttle_scope = "app_upload"
 
     def post(self, request):
         serializer = AppReleaseDownloadSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        with (transaction.atomic()):
-            url = serializer.validated_data['download']
-            signature = serializer.validated_data['signature']
-            is_nightly = serializer.validated_data['nightly']
+        with transaction.atomic():
+            url = serializer.validated_data["download"]
+            signature = serializer.validated_data["signature"]
+            is_nightly = serializer.validated_data["nightly"]
 
             # download the latest release and create or update the models
             container = Container()
@@ -193,14 +199,13 @@ class AppReleaseView(DestroyAPIView):
                 raise ValidationError(e)
 
             # populate metadata from request
-            info['app']['release']['signature'] = signature
-            info['app']['release']['download'] = url
+            info["app"]["release"]["signature"] = signature
+            info["app"]["release"]["download"] = url
 
-            app_id = info['app']['id']
-            version = info['app']['release']['version']
+            app_id = info["app"]["id"]
+            version = info["app"]["release"]["version"]
 
-            status, app = self._check_permission(request, app_id, version,
-                                                 is_nightly)
+            status, app = self._check_permission(request, app_id, version, is_nightly)
 
             # verify certs and signature
             validator = container.resolve(CertificateValidator)
@@ -212,21 +217,19 @@ class AppReleaseView(DestroyAPIView):
                 validator.validate_app_id(app.certificate, app_id)
 
             importer = container.resolve(AppImporter)
-            importer.import_data('app', info['app'], None)
+            importer.import_data("app", info["app"], None)
         return Response(status=status)
 
     def _check_permission(self, request, app_id, version, is_nightly):
         try:
             app = App.objects.get(pk=app_id)
         except App.DoesNotExist:
-            raise ValidationError('App %s does not exist, you need to register'
-                                  'it first' % app_id)
+            raise ValidationError("App %s does not exist, you need to registerit first" % app_id)
 
         # if an app release does not exist, it must be checked if the
         # user is allowed to create it first
         try:
-            release = AppRelease.objects.filter(version=version, app=app,
-                                                is_nightly=is_nightly)
+            release = AppRelease.objects.filter(version=version, app=app, is_nightly=is_nightly)
             release = get_object_or_404(release)
             self.check_object_permissions(self.request, release)
             status = 200
@@ -242,13 +245,13 @@ class AppReleaseView(DestroyAPIView):
         return status, app
 
     def get_object(self):
-        if 'nightly' in self.kwargs:
-            is_nightly = self.kwargs['nightly'] is not None
+        if "nightly" in self.kwargs:
+            is_nightly = self.kwargs["nightly"] is not None
         else:
             is_nightly = False
-        release = AppRelease.objects.filter(version=self.kwargs['version'],
-                                            app__id=self.kwargs['app'],
-                                            is_nightly=is_nightly)
+        release = AppRelease.objects.filter(
+            version=self.kwargs["version"], app__id=self.kwargs["app"], is_nightly=is_nightly
+        )
         release = get_object_or_404(release)
         self.check_object_permissions(self.request, release)
         return release
@@ -261,19 +264,23 @@ class SessionObtainAuthToken(APIView):
     sent for BasicAuthentication.
     """
 
-    authentication_classes = (authentication.SessionAuthentication,
-                              authentication.BasicAuthentication,)
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.BasicAuthentication,
+    )
     throttle_classes = (PostThrottle,)
     permission_classes = (IsAuthenticated,)
-    parser_classes = (parsers.FormParser,
-                      parsers.MultiPartParser,
-                      parsers.JSONParser,)
+    parser_classes = (
+        parsers.FormParser,
+        parsers.MultiPartParser,
+        parsers.JSONParser,
+    )
     renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
         token, created = Token.objects.get_or_create(user=request.user)
-        return Response({'token': token.key})
+        return Response({"token": token.key})
 
 
 class RegenerateAuthToken(APIView):
@@ -283,15 +290,19 @@ class RegenerateAuthToken(APIView):
     Accepts TokenAuthentication and BasicAuthentication.
     """
 
-    authentication_classes = (authentication.TokenAuthentication,
-                              authentication.BasicAuthentication,)
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
     throttle_classes = (PostThrottle,)
     permission_classes = (IsAuthenticated,)
-    parser_classes = (parsers.FormParser,
-                      parsers.MultiPartParser,
-                      parsers.JSONParser,)
+    parser_classes = (
+        parsers.FormParser,
+        parsers.MultiPartParser,
+        parsers.JSONParser,
+    )
     renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
-        return Response({'token': update_token(request.user.username).key})
+        return Response({"token": update_token(request.user.username).key})

@@ -9,8 +9,11 @@ from rest_framework.exceptions import ValidationError  # type: ignore
 from rest_framework.exceptions import ParseError
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
-from nextcloudappstore.core.versioning import (pad_max_version, pad_min_version,
-                                               raw_version)
+from nextcloudappstore.core.versioning import (
+    pad_max_version,
+    pad_min_version,
+    raw_version,
+)
 
 
 class MaxFileSizeExceeded(ValidationError):
@@ -42,8 +45,7 @@ class BlacklistedMemberException(ValidationError):
 
 
 class AppMetaData:
-    def __init__(self, info_xml: str, database_xml: str, app_id: str,
-                 changelog: Dict[str, str]) -> None:
+    def __init__(self, info_xml: str, database_xml: str, app_id: str, changelog: Dict[str, str]) -> None:
         self.changelog = changelog
         self.app_id = app_id
         self.database_xml = database_xml
@@ -56,7 +58,7 @@ class GunZipAppMetadataExtractor:
         :argument config the config
         """
         self.config = config
-        self.app_folder_regex = re.compile(r'^[a-z]+[a-z0-9_]*(?:/.*)*$')
+        self.app_folder_regex = re.compile(r"^[a-z]+[a-z0-9_]*(?:/.*)*$")
 
     def extract_app_metadata(self, archive_path: str) -> AppMetaData:
         """
@@ -75,11 +77,11 @@ class GunZipAppMetadataExtractor:
             unwanted. To mitigate the issue we now get only the filename
             and include that in the error message
             """
-            msg = '%s is not a valid tar.gz archive ' % Path(archive_path).name
+            msg = "%s is not a valid tar.gz archive " % Path(archive_path).name
             raise UnsupportedAppArchiveException(msg)
 
         try:
-            with tarfile.open(archive_path, 'r:gz') as tar:  # type: ignore
+            with tarfile.open(archive_path, "r:gz") as tar:  # type: ignore
                 result = self._parse_archive(tar)
             return result
         # for some reason there are still various errors possible although we
@@ -89,20 +91,14 @@ class GunZipAppMetadataExtractor:
 
     def _parse_archive(self, tar: Any) -> AppMetaData:
         app_id = find_app_id(tar, self.app_folder_regex)
-        info = get_contents('%s/appinfo/info.xml' % app_id, tar,
-                            self.config.max_file_size)
-        database = get_contents('%s/appinfo/database.xml' % app_id, tar,
-                                self.config.max_file_size, '')
+        info = get_contents("%s/appinfo/info.xml" % app_id, tar, self.config.max_file_size)
+        database = get_contents("%s/appinfo/database.xml" % app_id, tar, self.config.max_file_size, "")
         changelog = {
-            'en': get_contents(
-                '%s/CHANGELOG.md' % app_id, tar, self.config.max_file_size, ''
-            )
+            "en": get_contents("%s/CHANGELOG.md" % app_id, tar, self.config.max_file_size, "")
         }  # type: Dict[str, str]
 
         for code, _ in self.config.languages:
-            trans_changelog = get_contents(
-                '%s/CHANGELOG.%s.md' % (app_id, code), tar,
-                self.config.max_file_size, '')
+            trans_changelog = get_contents("%s/CHANGELOG.%s.md" % (app_id, code), tar, self.config.max_file_size, "")
             if trans_changelog:
                 changelog[code] = trans_changelog
 
@@ -113,8 +109,7 @@ class GunZipAppMetadataExtractor:
         return AppMetaData(info, database, app_id, changelog)
 
 
-def get_contents(path: str, tar: Any, max_file_size: int,
-                 default: Any = None) -> str:
+def get_contents(path: str, tar: Any, max_file_size: int, default: Any = None) -> str:
     """
     Reads the contents of a file
     :param path: the path to the target file
@@ -129,7 +124,7 @@ def get_contents(path: str, tar: Any, max_file_size: int,
     if member is None:
         if default is not None:
             return default
-        msg = 'Path %s does not exist in package' % path
+        msg = "Path %s does not exist in package" % path
         raise InvalidAppPackageStructureException(msg)
     return stream_read_utf8(tar, member, max_file_size)
 
@@ -144,21 +139,16 @@ def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
     """
     folders = find_app_folders(tar, app_folder_regex)
     if len(folders) > 1:
-        msg = 'More than one possible app folder found'
+        msg = "More than one possible app folder found"
         raise InvalidAppPackageStructureException(msg)
     elif len(folders) == 0:
-        msg = 'No possible app folder found. App folder must contain ' \
-              'only lowercase ASCII characters or underscores'
+        msg = "No possible app folder found. App folder must contain only lowercase ASCII characters or underscores"
         raise InvalidAppPackageStructureException(msg)
     return folders.pop()
 
 
 def find_app_folders(tar: Any, app_folder_regex: Pattern) -> Set[str]:
-    return {
-        folder.split('/')[0]
-        for folder in tar.getnames()
-        if re.match(app_folder_regex, folder)
-    }
+    return {folder.split("/")[0] for folder in tar.getnames() if re.match(app_folder_regex, folder)}
 
 
 def test_blacklisted_members(tar, blacklist):
@@ -179,29 +169,24 @@ def test_blacklisted_members(tar, blacklist):
         for error, regex in blacklist.items():
             regex = re.compile(regex)
             if regex.search(name):
-                msg = 'Blacklist rule "%s": Directory %s is not ' \
-                      'allowed to be present in the app ' \
-                      'archive' % (error, name)
+                msg = 'Blacklist rule "%s": Directory %s is not allowed to be present in the app archive' % (
+                    error,
+                    name,
+                )
                 raise BlacklistedMemberException(msg)
 
 
 def element_to_dict(element: Any) -> Dict:
-    type = element.get('type')
-    key = element.tag.replace('-', '_')
-    if type == 'int' and element.text is not None:
+    type = element.get("type")
+    key = element.tag.replace("-", "_")
+    if type == "int" and element.text is not None:
         return {key: int(element.text)}
-    elif type == 'list':
+    elif type == "list":
         return {key: list(map(element_to_dict, element.iterchildren()))}
-    elif type == 'min-version':
-        return {
-            key: pad_min_version(element.text),
-            'raw_%s' % key: raw_version(element.text)
-        }
-    elif type == 'max-version':
-        return {
-            key: pad_max_version(element.text),
-            'raw_%s' % key: raw_version(element.text)
-        }
+    elif type == "min-version":
+        return {key: pad_min_version(element.text), "raw_%s" % key: raw_version(element.text)}
+    elif type == "max-version":
+        return {key: pad_max_version(element.text), "raw_%s" % key: raw_version(element.text)}
     elif len(list(element)) > 0:
         contents = {}
         for child in element.iterchildren():
@@ -213,14 +198,16 @@ def element_to_dict(element: Any) -> Dict:
 
 def create_safe_xml_parser() -> lxml.etree.XMLParser:
     return lxml.etree.XMLParser(  # type: ignore
-        resolve_entities=False, no_network=True,  # type: ignore
-        remove_comments=True, load_dtd=False,  # type: ignore
-        remove_blank_text=True, dtd_validation=False  # type: ignore
+        resolve_entities=False,
+        no_network=True,  # type: ignore
+        remove_comments=True,
+        load_dtd=False,  # type: ignore
+        remove_blank_text=True,
+        dtd_validation=False,  # type: ignore
     )  # type: ignore
 
 
-def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
-                       xslt: str) -> Dict:
+def parse_app_metadata(xml: str, schema: str, pre_xslt: str, xslt: str) -> Dict:
     """
     Parses, validates and maps the xml onto a dict
     :argument xml the info.xml string to parse
@@ -233,20 +220,20 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str,
     """
     parser = create_safe_xml_parser()
     try:
-        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+        doc = lxml.etree.fromstring(bytes(xml, encoding="utf-8"), parser)
     except lxml.etree.XMLSyntaxError as e:
-        msg = 'info.xml contains malformed xml: %s' % e
+        msg = "info.xml contains malformed xml: %s" % e
         raise XMLSyntaxError(msg)
     for _ in doc.iter(lxml.etree.Entity):  # type: ignore
-        raise InvalidAppMetadataXmlException('Must not contain entities')
+        raise InvalidAppMetadataXmlException("Must not contain entities")
     pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
     pre_transformed_doc = pre_transform(doc)
-    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
+    schema_doc = lxml.etree.fromstring(bytes(schema, encoding="utf-8"), parser)
     schema = lxml.etree.XMLSchema(schema_doc)  # type: ignore
     try:
         schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
-        msg = 'info.xml did not validate: %s' % e
+        msg = "info.xml did not validate: %s" % e
         raise InvalidAppMetadataXmlException(msg)
     transform = lxml.etree.XSLT(lxml.etree.XML(xslt))  # type: ignore
     transformed_doc = transform(pre_transformed_doc)  # type: ignore
@@ -267,20 +254,20 @@ def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
     """
     parser = create_safe_xml_parser()
     try:
-        doc = lxml.etree.fromstring(bytes(xml, encoding='utf-8'), parser)
+        doc = lxml.etree.fromstring(bytes(xml, encoding="utf-8"), parser)
     except lxml.etree.XMLSyntaxError as e:
-        msg = 'database.xml contains malformed xml: %s' % e
+        msg = "database.xml contains malformed xml: %s" % e
         raise XMLSyntaxError(msg)
     for _ in doc.iter(lxml.etree.Entity):  # type: ignore
-        raise InvalidAppMetadataXmlException('Must not contain entities')
+        raise InvalidAppMetadataXmlException("Must not contain entities")
     pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
     pre_transformed_doc = pre_transform(doc)
-    schema_doc = lxml.etree.fromstring(bytes(schema, encoding='utf-8'), parser)
+    schema_doc = lxml.etree.fromstring(bytes(schema, encoding="utf-8"), parser)
     schema = lxml.etree.XMLSchema(schema_doc)  # type: ignore
     try:
         schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
-        msg = 'database.xml did not validate: %s' % e
+        msg = "database.xml did not validate: %s" % e
         raise InvalidAppMetadataXmlException(msg)
 
 
@@ -291,10 +278,10 @@ def validate_english_present(info: Dict) -> None:
     :raises: InvalidAppMetadataXmlException if at least one of the required
      fields is not present in english
     """
-    app = info['app']
-    translated_fields = ['name', 'summary', 'description']
+    app = info["app"]
+    translated_fields = ["name", "summary", "description"]
     for field in translated_fields:
-        if 'en' not in app[field]:
+        if "en" not in app[field]:
             msg = 'At least one element "%s" with lang "en" required' % field
             raise InvalidAppMetadataXmlException(msg)
 
@@ -305,8 +292,8 @@ def fix_partial_translations(info: Dict) -> None:
     :param info: the parsed info.xml
     :return: None
     """
-    app = info['app']
-    trans_fields = ['name', 'summary', 'description']
+    app = info["app"]
+    trans_fields = ["name", "summary", "description"]
     fields = [field for field in trans_fields if field in app]
     codes = set()  # type: Set[str]
     for field in fields:
@@ -314,11 +301,10 @@ def fix_partial_translations(info: Dict) -> None:
     for field in fields:
         absent_codes = [code for code in codes if code not in app[field]]
         for code in absent_codes:
-            app[field][code] = app[field]['en']
+            app[field][code] = app[field]["en"]
 
 
-def parse_changelog(changelog: str, version: str,
-                    is_nightly: bool = False) -> str:
+def parse_changelog(changelog: str, version: str, is_nightly: bool = False) -> str:
     """
     Parses and finds the changelog for the current version. Follows the "Keep
     a changelog" format.
@@ -327,13 +313,13 @@ def parse_changelog(changelog: str, version: str,
     :param is_nightly: if the version is a nightly
     :return: the parsed changelog
     """
-    if is_nightly or '-' in version:
-        version = 'Unreleased'
+    if is_nightly or "-" in version:
+        version = "Unreleased"
     changelog = changelog.strip()
-    regex = re.compile(r'^## (?:\[)?(?:v)?(\d+\.\d+(\.\d+)?)')
-    unstable_regex = re.compile(r'^## \[Unreleased\]')
+    regex = re.compile(r"^## (?:\[)?(?:v)?(\d+\.\d+(\.\d+)?)")
+    unstable_regex = re.compile(r"^## \[Unreleased\]")
     result = {}  # type: Dict[str, List[str]]
-    curr_version = ''
+    curr_version = ""
     empty_list = []  # type: List[str]
     for line in changelog.splitlines():
         search = re.search(regex, line)
@@ -341,11 +327,10 @@ def parse_changelog(changelog: str, version: str,
         if search:
             curr_version = search.group(1)
         elif unstable_search:
-            curr_version = 'Unreleased'
+            curr_version = "Unreleased"
         else:
-            result[curr_version] = result.get(curr_version, empty_list) + [
-                line]
-    return '\n'.join(result.get(version, empty_list)).strip()
+            result[curr_version] = result.get(curr_version, empty_list) + [line]
+    return "\n".join(result.get(version, empty_list)).strip()
 
 
 def stream_read_utf8(tarfile: Any, path: str, max_size: int) -> str:
@@ -357,7 +342,7 @@ def stream_read_utf8(tarfile: Any, path: str, max_size: int) -> str:
     :raises MaxFileSizeExceeded: if the maximum size was reached
     :return: the file as text
     """
-    return stream_read_file(tarfile, path, max_size).decode('utf-8')
+    return stream_read_file(tarfile, path, max_size).decode("utf-8")
 
 
 def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
@@ -373,11 +358,11 @@ def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
     file = tarfile.extractfile(path)
 
     size = 0
-    result = b''
+    result = b""
     while True:
         size += 1024
         if size > max_size:
-            msg = 'file %s was bigger than allowed %i bytes' % (path, max_size)
+            msg = "file %s was bigger than allowed %i bytes" % (path, max_size)
             raise MaxFileSizeExceeded(msg)
         chunk = file.read(1024)
         if not chunk:
@@ -407,7 +392,7 @@ def find_member(tar: Any, path: str) -> Any:
         constructed from the last element and the current element
         """
         if prev:
-            return prev + ['%s/%s' % (prev[-1], curr)]
+            return prev + ["%s/%s" % (prev[-1], curr)]
         else:
             return [curr]
 
@@ -419,11 +404,11 @@ def find_member(tar: Any, path: str) -> Any:
             return None
 
     default = []  # type: List[str]
-    member_paths = reduce(build_paths, path.split('/'), default)
+    member_paths = reduce(build_paths, path.split("/"), default)
     checked_members = [check_member(m) for m in member_paths]
 
     for member in filter(lambda m: m is not None, checked_members):
         if member.issym() or member.islnk():
-            msg = 'Symlinks and hard links can not be used for %s' % member
+            msg = "Symlinks and hard links can not be used for %s" % member
             raise ForbiddenLinkException(msg)
     return check_member(path)
