@@ -45,3 +45,10 @@ class ArchiveTest(TestCase):
                 with f.extractfile(member) as info:
                     result = info.read().strip().decode("utf-8")
                     self.assertEqual(expected, result)
+
+    def test_build_files_github_actions_format(self):
+        for file_path, file_content in build_files(self.args).items():
+            if file_path.find(".github/") != -1 and file_path.endswith(".yml"):
+                assert not file_content.startswith("\n")
+                assert not file_content.endswith("\n\n")
+                assert file_content.endswith("\n")
