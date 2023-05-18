@@ -2,9 +2,16 @@
 
 ## [Unreleased]
 
+## [4.1.0]  - 2023-05-18
+
 ### Added
 
 - Notify users on password change
+
+### Changed
+
+- Updated Python and JavaScript dependencies
+- Dropped Python 3.6 support
 
 ## [4.0.0]  - 2018-11-10
 
