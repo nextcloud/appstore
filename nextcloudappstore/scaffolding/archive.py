@@ -47,7 +47,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
 
 
 def apply_github_actions_fixer(file_path: str, file_content: str) -> str:
-    if file_path.find(".github/") == -1 and file_path.endswith(".yml"):
+    if file_path.find(".github/") == -1 or not file_path.endswith(".yml"):
         return file_content
     fixed_content = file_content.lstrip("\n")
     if fixed_content.endswith("\n\n"):
