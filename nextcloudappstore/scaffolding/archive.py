@@ -42,9 +42,17 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
             rel_file_path = "%s/%s" % (vars["id"], relpath(file_path, base))
             with open(file_path, encoding="utf-8") as f:
                 t = Template(f.read())
-                result[rel_file_path] = t.render(context)
-
+                result[rel_file_path] = apply_github_actions_fixer(rel_file_path, t.render(context))
     return result
+
+
+def apply_github_actions_fixer(file_path: str, file_content: str) -> str:
+    if file_path.find(".github/") == -1 or not file_path.endswith(".yml"):
+        return file_content
+    fixed_content = file_content.lstrip("\n")
+    if fixed_content.endswith("\n\n"):
+        fixed_content = fixed_content[: len(fixed_content) - 1]
+    return fixed_content
 
 
 def build_archive(parameters: Dict[str, str]) -> BytesIO:

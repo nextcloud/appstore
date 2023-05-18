@@ -3,7 +3,11 @@ import tarfile
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
-from nextcloudappstore.scaffolding.archive import build_archive, build_files
+from nextcloudappstore.scaffolding.archive import (
+    apply_github_actions_fixer,
+    build_archive,
+    build_files,
+)
 
 
 class ArchiveTest(TestCase):
@@ -45,3 +49,18 @@ class ArchiveTest(TestCase):
                 with f.extractfile(member) as info:
                     result = info.read().strip().decode("utf-8")
                     self.assertEqual(expected, result)
+
+    def test_build_files_github_actions_format(self):
+        for file_path, file_content in build_files(self.args).items():
+            if file_path.find(".github/") != -1 and file_path.endswith(".yml"):
+                assert not file_content.startswith("\n")
+                assert not file_content.endswith("\n\n")
+                assert file_content.endswith("\n")
+
+    def test_apply_github_actions_fixer(self):
+        for rel_path in (".github/CODE_OF_CONDUCT.md", ".github/workflows/reuse."):
+            assert apply_github_actions_fixer(rel_path, "\nbody\n\n") == "\nbody\n\n"
+        for rel_path in (".github/test.yml", ".github/workflows/test.yml"):
+            assert apply_github_actions_fixer(rel_path, "\nbody\n\n") == "body\n"
+        for file_content in ("body\n\n", "\nbody\n", "body\n"):
+            assert apply_github_actions_fixer(".github/test.yml", file_content) == "body\n"
