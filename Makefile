@@ -81,7 +81,7 @@ l10n:
 
 .PHONY: coverage
 coverage:
-	$(coverage) html
+	$(coverage) html && $(coverage) xml
 
 .PHONY: test-user
 test-user:
