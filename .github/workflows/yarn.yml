@@ -67,20 +67,22 @@ jobs:
       - name: Linter
         run: ./node_modules/.bin/tslint "./nextcloudappstore/core/static/assets/**/*.ts"
 
-      - name: Tests
-        run: xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
+      - name: Generate coverage report
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
+          make coverage venv_bin=""
 
-      - name: Coverall
-        uses: AndreMiras/coveralls-python-action@develop
+      - name: HTML coverage to artifacts
+        uses: actions/upload-artifact@v3
         with:
-          parallel: true
-          flag-name: Unit Test
+          name: coverage_${{ matrix.python-version }}
+          path: ./htmlcov
+          if-no-files-found: error
 
-  coveralls_finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: AndreMiras/coveralls-python-action@develop
-      with:
-        parallel-finished: true
+      - name: Upload report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          fail_ci_if_error: true
+          verbose: true
