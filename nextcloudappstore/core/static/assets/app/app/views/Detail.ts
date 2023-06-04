@@ -1,4 +1,4 @@
-import * as screenfull from 'screenfull';
+import screenfull from 'screenfull';
 import {fetchDescription} from '../../api/Api';
 import {
     getMetaValueOrThrow, id, idOrThrow, queryOrThrow, ready,
@@ -46,7 +46,7 @@ ready.then(() => {
         item.addEventListener('click', () => {
             if (screenfull && screenfull.isEnabled) {
                 item.classList.toggle('fullscreen');
-                screenfull.toggle(gallery);
+                screenfull?.toggle(gallery);
             }
         });
     });
