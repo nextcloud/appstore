@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Valentinas <fizikiukas@gmail.com>, 2017
 # Antanas Lapinskas <antanas@lapinskas.lt>, 2017
@@ -12,7 +12,8 @@
 # Jokubas Dargis <jokubuidargiui@protonmail.com>, 2019
 # Vytautas Simanaitis <vyt.sima@gmail.com>, 2020
 # Moo, 2022
-#
+# Liudas LT, 2023
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -20,16 +21,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-13 02:38+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Moo, 2022\n"
-"Language-Team: Lithuanian (Lithuania) (https://app.transifex.com/nextcloud/"
-"teams/64236/lt_LT/)\n"
-"Language: lt_LT\n"
+"Last-Translator: Liudas LT, 2023\n"
+"Language-Team: Lithuanian (Lithuania) (https://app.transifex.com/nextcloud/teams/64236/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
-"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
-"1 : n % 1 != 0 ? 2: 3);\n"
+"Language: lt_LT\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -37,7 +35,7 @@ msgstr "Naujausios programėlės laidos"
 
 #: nextcloudappstore/core/feeds.py:15
 msgid "Get the newest app release updates"
-msgstr ""
+msgstr "Gauti naujausius programėlės atnaujinimu"
 
 #: nextcloudappstore/core/feeds.py:38
 msgid "Changes"
@@ -88,10 +86,10 @@ msgstr "Viešasis liudijimas"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 
 #: nextcloudappstore/core/forms.py:59
@@ -201,7 +199,7 @@ msgstr "Programėlės savininkas"
 #: nextcloudappstore/core/models.py:102
 #: nextcloudappstore/core/templates/app/detail.html:84
 msgid "Co-Maintainers"
-msgstr ""
+msgstr "Prižiūrėtojas"
 
 #: nextcloudappstore/core/models.py:104 nextcloudappstore/core/models.py:335
 msgid "App authors"
@@ -361,7 +359,7 @@ msgstr "Minimalus bitų skaičius"
 
 #: nextcloudappstore/core/models.py:355
 msgid "e.g. 32 for 32-bit Integers"
-msgstr ""
+msgstr "pvz. 32 atitinka 32 bitų sveikuosius skaičius"
 
 #: nextcloudappstore/core/models.py:357
 msgid "Archive download URL"
@@ -437,7 +435,8 @@ msgstr "Id"
 #: nextcloudappstore/core/models.py:462
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
-"Kategorijos ID, naudojamas kategorijai, į kurią įkelta programėlė, nustatymas"
+"Kategorijos ID, naudojamas kategorijai, į kurią įkelta programėlė, "
+"nustatymas"
 
 #: nextcloudappstore/core/models.py:468
 msgid "Category name which will be presented to the user"
@@ -548,12 +547,12 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
-msgstr ""
+msgstr "Programa išleista"
 
 #: nextcloudappstore/core/models.py:621
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
@@ -601,13 +600,11 @@ msgstr "Puslapio, kurio ieškote, nėra!"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
@@ -638,8 +635,8 @@ msgstr "Patvirtinti"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/login.html:5
@@ -705,8 +702,8 @@ msgstr "Pakeisti slaptažodį"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Slaptažodžio atstatymo nuoroda buvo neteisinga, galbūt todėl, kad ji jau "
 "buvo naudojama. Išsiųskite užklausą <a href=\"%(passwd_reset_url)s\">naujo "
@@ -805,7 +802,7 @@ msgstr "Pranešti apie problemą"
 
 #: nextcloudappstore/core/templates/app/detail.html:148
 msgid "Request feature"
-msgstr ""
+msgstr "Prašyti funkcionalumo"
 
 #: nextcloudappstore/core/templates/app/detail.html:155
 msgid "Ask questions or discuss"
@@ -817,7 +814,7 @@ msgstr "Įvertinkite programėlę"
 
 #: nextcloudappstore/core/templates/app/detail.html:161
 msgid "Rate integration"
-msgstr ""
+msgstr "Įvertinti integraciją"
 
 #: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Rate"
@@ -825,13 +822,9 @@ msgstr "Įvertinkite"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or "
-"request features. Neither developers nor users will be notified of your "
-"comment.\n"
-"                            A rating without a comment still counts, but "
-"will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
+"                            A rating without a comment still counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:179
@@ -858,17 +851,17 @@ msgstr "Rodyti įvertinimų komentarus:"
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 #: nextcloudappstore/core/templates/nav.html:79
 msgid "Register integration"
-msgstr ""
+msgstr "Registruoti integraciją"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Moderate integration"
-msgstr ""
+msgstr "Peržiūrėti integraciją"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
 msgid "Edit integration"
-msgstr ""
+msgstr "Redaguoti integraciją"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:14
 msgid "Update"
@@ -921,18 +914,19 @@ msgstr "Registruoti programėlę"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "Daugiau informacijos apie tai, kaip gauti liudijimą ir susikurti parašą, "
-"rasite <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer."
-"html\" rel=\"noopener norefferer\">programėlių plėtotojo instrukcijoje</a>."
+"rasite <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">programėlių plėtotojo instrukcijoje</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Ši forma gali būti naudojama atnaujinant egzistuojančius sertifikatus, "
@@ -999,13 +993,13 @@ msgstr "Taikomosios programos leidimas sėkmingai atnaujintas."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Daugiau informacijos apie tai, kaip susikurti parašą, rasite <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">programėlių plėtotojo instrukcijoje</a>."
+"Daugiau informacijos apie tai, kaip susikurti parašą, rasite <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">programėlių plėtotojo instrukcijoje</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1075,11 +1069,11 @@ msgstr "Dokumentacija"
 
 #: nextcloudappstore/core/templates/nav.html:51
 msgid "Upload your app"
-msgstr ""
+msgstr "Įkelti savo programėlę"
 
 #: nextcloudappstore/core/templates/nav.html:54
 msgid "Developer resources"
-msgstr ""
+msgstr "Kūrėjo ištekliai"
 
 #: nextcloudappstore/core/templates/nav.html:57
 msgid "Request translations"
@@ -1087,7 +1081,7 @@ msgstr "Prašyti vertimų"
 
 #: nextcloudappstore/core/templates/nav.html:75
 msgid "Integration developer"
-msgstr ""
+msgstr "Integracijos kūrėjas"
 
 #: nextcloudappstore/core/templates/nav.html:88
 msgid "Admin"
@@ -1109,8 +1103,7 @@ msgstr "Atsijungti"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "Jūs jungiatės su savo paskyra %(provider_name)s prie %(site_name)s. "
 "Paskutinis žingsnis, prašome užpildykite šią formą:"
@@ -1121,7 +1114,8 @@ msgstr "Tinkinimas"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr "Apipavidalinimai, išdėstymas ir naudotojo patyrimo keitimo programėlės"
+msgstr ""
+"Apipavidalinimai, išdėstymas ir naudotojo patyrimo keitimo programėlės"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
@@ -1211,7 +1205,8 @@ msgstr "Socialiniai reikalai ir bendravimas"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Messaging, contact management and social media apps"
 msgstr ""
-"Pranešimų, adresatų valdymo ir socialinės žiniasklaidos taikomosios programos"
+"Pranešimų, adresatų valdymo ir socialinės žiniasklaidos taikomosios "
+"programos"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Tools"
@@ -1308,7 +1303,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
-msgstr ""
+msgstr "Integracijos pavadinimas"
 
 #: nextcloudappstore/scaffolding/forms.py:101
 msgid "Screenshot URL"
@@ -1316,7 +1311,7 @@ msgstr "Ekrano kopijos URL"
 
 #: nextcloudappstore/scaffolding/forms.py:101
 msgid "URL for integration screenshot"
-msgstr ""
+msgstr "Integracijos nuotraukos URL"
 
 #: nextcloudappstore/scaffolding/forms.py:105
 msgid "Screenshot thumbnail URL"
@@ -1327,10 +1322,14 @@ msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
 msgstr ""
+"Mažesnio dydžio integracijos nuotraukos URL. Turi būti naudojama kartu su "
+"didesne nuotrauka."
 
 #: nextcloudappstore/scaffolding/forms.py:118
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
+"Pilnas integracijos funkcionalumo aprašymas. Gali būti pateikiamos ir "
+"pastabos."
 
 #: nextcloudappstore/user/forms.py:18
 msgid "First name"
@@ -1376,13 +1375,15 @@ msgstr "El. pašto adresas"
 
 #: nextcloudappstore/user/signals.py:29
 msgid "Nextcloud app store password changed"
-msgstr ""
+msgstr "Nextcloud Appstore slaptažodis pakeistas"
 
 #: nextcloudappstore/user/signals.py:30
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
+"Jūsų Appstore slaptažodis buvo pakeistas. Susisiekite su pagalba, jei jūs "
+"slaptažodžio nekeitėte."
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1396,12 +1397,9 @@ msgstr "API prieigos raktas"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1458,7 +1456,7 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
-msgstr ""
+msgstr "Laukiama patvirtinimo"
 
 #: nextcloudappstore/user/templates/user/integrations.html:14
 #: nextcloudappstore/user/templates/user/integrations.html:37
@@ -1471,7 +1469,7 @@ msgstr "Rodyti"
 
 #: nextcloudappstore/user/templates/user/integrations.html:31
 msgid "Your integrations"
-msgstr ""
+msgstr "Jūsų integracijos"
 
 #: nextcloudappstore/user/templates/user/integrations.html:45
 msgid "Edit"
@@ -1480,7 +1478,7 @@ msgstr "Taisyti"
 #: nextcloudappstore/user/templates/user/integrations.html:52
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
-msgstr ""
+msgstr "Nėra įkaltų integracijų arba jos laukia patvirtinimo!"
 
 #: nextcloudappstore/user/templates/user/password.html:10
 msgid "Changing your password will also regenerate your API token!"
@@ -1488,11 +1486,11 @@ msgstr "Keičiant slaptažodį, kartu pasikeis ir jūsų API prieigos raktas!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Atrodo, kad naudojate trečiosios šalies teikėjo užregistruotą paskyrą. Todėl "
-"jūsų slaptažodis <strong>negali</strong> būti pakeistas šiame puslapyje."
+"Atrodo, kad naudojate trečiosios šalies teikėjo užregistruotą paskyrą. Todėl"
+" jūsų slaptažodis <strong>negali</strong> būti pakeistas šiame puslapyje."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
