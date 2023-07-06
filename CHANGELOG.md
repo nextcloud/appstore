@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [4.2.0]  - 2023-0x-xx
+
+### Fixed
+
+- Added `Password reset` rate limit configuration
+
 ## [4.1.0]  - 2023-05-18
 
 ### Added

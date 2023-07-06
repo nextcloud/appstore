@@ -122,6 +122,8 @@ REST_FRAMEWORK = {
     },
 }
 
+ACCOUNT_RATE_LIMITS = {"reset_password": "1/m"}
+
 SITE_ID = 1
 
 # Allauth configuration
