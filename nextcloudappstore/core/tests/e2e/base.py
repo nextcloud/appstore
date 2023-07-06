@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict
+from typing import Any, Callable, Dict, Optional
 from urllib.parse import urlparse
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -92,6 +92,11 @@ class BaseStoreTest(StaticLiveServerTestCase):
 
     def wait_for_url(self, url: str) -> Any:
         WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(exp_cond.url_contains(url))
+
+    def wait_for_url_match(self, url: str, timeout: Optional[int] = None) -> Any:
+        if timeout is None:
+            timeout = SELENIUM_WAIT_SEC
+        WebDriverWait(self.selenium, timeout).until(exp_cond.url_matches(url))
 
     def assertOnPage(self, url_name: str, kwargs: Dict[str, str] = None) -> None:
         parsed = urlparse(self.selenium.current_url)

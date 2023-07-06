@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head-title %}{% trans 'Forbidden' %} - {% endblock %}
+
+{% block content %}
+
+    <h1>{% trans 'Forbidden' %}</h1>
+
+    <p>{% trans 'Too many tries. Try again in a few minutes.' %}</p>
+
+{% endblock %}
+
