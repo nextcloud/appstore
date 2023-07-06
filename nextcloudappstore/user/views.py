@@ -1,8 +1,10 @@
 from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, UpdateView
@@ -79,10 +81,19 @@ class AccountView(LoginRequiredMixin, UpdateView):
         context["acc_page"] = "account"
         return context
 
+    def form_invalid(self, form):
+        failed_attempts = self.request.session.get("account_update_failed_count", 0)
+        if failed_attempts >= 15:
+            logout(self.request)
+            return HttpResponseRedirect("/")
+        self.request.session["account_update_failed_count"] = failed_attempts + 1
+        return super().form_invalid(form)
+
     def form_valid(self, form):
         email = EmailAddress.objects.get_primary(user=self.request.user)
         email.change(None, form.cleaned_data["email"])
         messages.success(self.request, "Account details saved.")
+        self.request.session["account_update_failed_count"] = 0
         return super().form_valid(form)
 
     def get_object(self, queryset=None):

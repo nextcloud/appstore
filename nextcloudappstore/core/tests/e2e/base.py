@@ -90,13 +90,20 @@ class BaseStoreTest(StaticLiveServerTestCase):
         )
         return then(element)
 
-    def wait_for_url(self, url: str) -> Any:
-        WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(exp_cond.url_contains(url))
+    def wait_for_url(self, url: str, timeout: Optional[int] = None) -> Any:
+        if timeout is None:
+            timeout = SELENIUM_WAIT_SEC
+        WebDriverWait(self.selenium, timeout).until(exp_cond.url_contains(url))
 
     def wait_for_url_match(self, url: str, timeout: Optional[int] = None) -> Any:
         if timeout is None:
             timeout = SELENIUM_WAIT_SEC
         WebDriverWait(self.selenium, timeout).until(exp_cond.url_matches(url))
+
+    def wait_for_url_to_be(self, url: str, timeout: Optional[int] = None) -> Any:
+        if timeout is None:
+            timeout = SELENIUM_WAIT_SEC
+        WebDriverWait(self.selenium, timeout).until(self._url_to_be(url))
 
     def assertOnPage(self, url_name: str, kwargs: Dict[str, str] = None) -> None:
         parsed = urlparse(self.selenium.current_url)
@@ -106,3 +113,10 @@ class BaseStoreTest(StaticLiveServerTestCase):
     def findNavigationLink(self, url_name: str, kwargs: Dict[str, str] = None):
         route = reverse(url_name, kwargs=kwargs)
         return self.by_css('#navbar a[href="%s"]' % route)
+
+    @staticmethod
+    def _url_to_be(url: str) -> Callable[[Any], bool]:
+        def _predicate(driver):
+            return url.removesuffix("/") == str(driver.current_url).removesuffix("/")
+
+        return _predicate
