@@ -20,5 +20,5 @@ class ResetPasswordTest(BaseStoreTest):
         email_input.clear()
         email_input.send_keys("admin@admin.com")
         email_input.submit()
-        sleep(8)
-        assert not self.selenium.current_url.find("/password/reset/done") != -1
+        sleep(4)  # wait till url change
+        self.wait_for_url_match(r".*\/password\/reset\/?$", timeout=5)
