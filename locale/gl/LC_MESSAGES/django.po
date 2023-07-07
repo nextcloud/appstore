@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-28 02:52+0000\n"
+"POT-Creation-Date: 2023-07-07 02:42+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2023\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
@@ -88,8 +88,8 @@ msgid ""
 "You can generate the CSR by executing the following command:"
 msgstr ""
 "Normalmente almacenado en ~/.nextcloud/certificates/APP_ID.crt, onde APP_ID "
-"é o ID da súa aplicación. Se non ten un certificado, necesita crear primeiro"
-" unha solicitude de sinatura de certificado (CSR) que debería publicarse no "
+"é o ID da súa aplicación. Se non ten un certificado, necesita crear antes "
+"unha solicitude de sinatura de certificado (CSR) que debería publicarse no "
 "<a href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">repositorio de certificados</a> (siga as "
 "indicacións do ficheiro :LÉEME). Pode xerar o CSR executando a seguinte "
@@ -584,6 +584,8 @@ msgstr "Publicacións do Nexcloud:"
 
 #: nextcloudappstore/core/templates/403.html:4
 #: nextcloudappstore/core/templates/403.html:8
+#: nextcloudappstore/core/templates/429.html:4
+#: nextcloudappstore/core/templates/429.html:8
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -602,6 +604,10 @@ msgstr "Non se atopou a páxina"
 #: nextcloudappstore/core/templates/404.html:10
 msgid "The page you are looking for does not exist!"
 msgstr "La paxina que busca vostede non existe!"
+
+#: nextcloudappstore/core/templates/429.html:10
+msgid "Too many tries. Try again in a few minutes."
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -1547,7 +1553,7 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"Para transferir unha aplicación cara a outro propietario, primeiro ten que "
+"Para transferir unha aplicación cara a outro propietario, antes ten que "
 "desbloquear a aplicación. Outro usuario pode entón tomar o control da "
 "aplicación rexistrándoa de novo na páxina de rexistro de aplicacións do menú"
 " de desenvolvedor da aplicación. "
