@@ -4,9 +4,14 @@
 
 ## [4.2.0]  - 2023-0x-xx
 
+### Changed
+
+- Dropped Python 3.7/3.8 support
+
 ### Fixed
 
-- Added `Password reset` rate limit configuration
+- Added `Password reset` rate limit configuration. #1077
+- Forced user logout after 15 failed attempts to change password. #1078
 
 ## [4.1.0]  - 2023-05-18
 
