@@ -120,6 +120,7 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "app_upload": "100/day",
         "app_register": "100/day",
+        "api_token_gen": "30/minute",
     },
 }
 
