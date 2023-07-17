@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+import os
 import pathlib
 
 from django.conf.global_settings import LANGUAGES
@@ -61,7 +62,7 @@ ROOT_URLCONF = "nextcloudappstore.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -344,3 +345,7 @@ NEXTCLOUD_FROM_EMAIL = "appstore@nextcloud.com"
 NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ["marketing-team@nextcloud.com"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+# Account login bruteforce
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 3600  # 1 hour in seconds
