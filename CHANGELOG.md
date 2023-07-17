@@ -2,14 +2,17 @@
 
 ## [Unreleased]
 
-## [4.2.0]  - 2023-0x-xx
+## [4.2.0]  - 2023-07-18
 
 ### Changed
 
 - Dropped Python 3.7/3.8 support
+- Updated dependencies & packages.
 
 ### Fixed
 
+- Added default bruteforce login protection. #1087
+- Added rate limit to `API token generating`. #1088
 - Added `Password reset` rate limit configuration. #1077
 - Forced user logout after 15 failed attempts to change password. #1078
 

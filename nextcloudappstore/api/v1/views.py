@@ -295,6 +295,8 @@ class RegenerateAuthToken(APIView):
         authentication.BasicAuthentication,
     )
     throttle_classes = (PostThrottle,)
+    throttle_scope = "api_token_gen"
+
     permission_classes = (IsAuthenticated,)
     parser_classes = (
         parsers.FormParser,
