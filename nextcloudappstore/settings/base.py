@@ -224,11 +224,18 @@ LOG_FILE = BASE_DIR / ".." / "appstore.log"
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+    "formatters": {
+        "timestamp": {
+            "format": "{asctime} {levelname} {message}",
+            "style": "{",
+        },
+    },
     "handlers": {
         "file": {
             "level": LOG_LEVEL,
             "class": "logging.FileHandler",
             "filename": LOG_FILE,
+            "formatter": "timestamp",
         },
     },
     "loggers": {
