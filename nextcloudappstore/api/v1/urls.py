@@ -32,7 +32,7 @@ urlpatterns = [
     url(r"^apps/(?P<pk>[a-z0-9_]+)/?$", AppView.as_view(), name="app-delete"),
     url(r"^ratings.json$", etag(app_ratings_etag)(AppRatingView.as_view()), name="app-ratings"),
     url(
-        r"^apps/(?P<app>[a-z_]+)/releases/(?:(?P<nightly>nightly)/)?" r"(?P<version>" + SEMVER_REGEX + ")/?$",
+        r"^apps/(?P<app>[a-z0-9_]+)/releases/(?:(?P<nightly>nightly)/)?" r"(?P<version>" + SEMVER_REGEX + ")/?$",
         AppReleaseView.as_view(),
         name="app-release-delete",
     ),
