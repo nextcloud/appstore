@@ -9,14 +9,14 @@ from nextcloudappstore.core.models import App, AppRelease
 
 
 class AppReleaseTest(ApiTest):
-    delete_url = reverse("api:v1:app-release-delete", kwargs={"app": "news", "version": "9.0.0"})
+    delete_url = reverse("api:v1:app-release-delete", kwargs={"app": "news0", "version": "9.0.0"})
     delete_url_nightly = reverse(
-        "api:v1:app-release-delete", kwargs={"app": "news", "version": "9.0.0", "nightly": "nightly"}
+        "api:v1:app-release-delete", kwargs={"app": "news0", "version": "9.0.0", "nightly": "nightly"}
     )
     create_url = reverse("api:v1:app-release-create")
     app_args = {
         "app": {
-            "id": "news",
+            "id": "news0",
             "release": {
                 "version": "9.0.0",
                 "platform_min_version": "9.0.0",
@@ -32,7 +32,7 @@ class AppReleaseTest(ApiTest):
     }
 
     def create_release(self, owner, version="9.0.0", co_maintainers=[]):
-        app = App.objects.create(id="news", owner=owner)
+        app = App.objects.create(id="news0", owner=owner)
         app.co_maintainers.set(co_maintainers)
         app.save()
         return AppRelease.objects.create(version=version, app=app)
@@ -43,7 +43,7 @@ class AppReleaseTest(ApiTest):
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(204, response.status_code)
         with self.assertRaises(AppRelease.DoesNotExist):
-            AppRelease.objects.get(version="9.0.0", app__id="news")
+            AppRelease.objects.get(version="9.0.0", app__id="news0")
 
     def test_delete_unauthenticated(self):
         self.create_release(self.user)
@@ -71,7 +71,7 @@ class AppReleaseTest(ApiTest):
         response = self.api_client.delete(self.delete_url)
         self.assertEqual(204, response.status_code)
         with self.assertRaises(AppRelease.DoesNotExist):
-            AppRelease.objects.get(version="9.0.0", app__id="news")
+            AppRelease.objects.get(version="9.0.0", app__id="news0")
 
     def test_delete_not_found(self):
         self._login()
@@ -117,7 +117,7 @@ class AppReleaseTest(ApiTest):
                 format="json",
             )
             self.assertEqual(200, response.status_code)
-            AppRelease.objects.get(version="9.0.0", app__id="news")
+            AppRelease.objects.get(version="9.0.0", app__id="news0")
 
     @patch.object(AppReleaseProvider, "get_release_info")
     def test_no_app(self, get_release_info):
@@ -134,7 +134,7 @@ class AppReleaseTest(ApiTest):
             )
             self.assertEqual(400, response.status_code)
             with self.assertRaises(AppRelease.DoesNotExist):
-                AppRelease.objects.get(version="9.0.0", app__id="news")
+                AppRelease.objects.get(version="9.0.0", app__id="news0")
 
     def test_create_validate_https(self):
         self._login_token()
