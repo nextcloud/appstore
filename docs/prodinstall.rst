@@ -10,7 +10,7 @@ Installing Packages
 First you want to switch your machine to an up to date Node.js (16) and NPM (8) versions::
 
     cd ~
-    curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
     sudo apt -y install nodejs -y
 
 

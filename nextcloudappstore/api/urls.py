@@ -1,7 +1,7 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 
 app_name = "api"
 
 urlpatterns = [
-    url(r"^v1/", include("nextcloudappstore.api.v1.urls", namespace="v1")),
+    path("v1/", include("nextcloudappstore.api.v1.urls", namespace="v1")),
 ]

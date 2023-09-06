@@ -1,5 +1,5 @@
 from django.core.validators import URLValidator
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+from django.utils.translation import gettext_lazy as _  # type: ignore
 
 
 class HttpsUrlValidator(URLValidator):

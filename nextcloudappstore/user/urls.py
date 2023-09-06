@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 
 from nextcloudappstore.scaffolding.views import IntegrationScaffoldingView
 from nextcloudappstore.user.views import (
@@ -14,18 +14,18 @@ from nextcloudappstore.user.views import (
 app_name = "user"
 
 urlpatterns = [
-    url(r"^$", AccountView.as_view(), name="account"),
-    url(r"^integrations/?$", IntegrationsView.as_view(), name="account-integrations"),
-    url(r"^integrations/(?P<pk>[a-z0-9_]+)/?$", IntegrationScaffoldingView.as_view(), name="account-integration"),
-    url(
+    path("", AccountView.as_view(), name="account"),
+    re_path(r"^integrations/?$", IntegrationsView.as_view(), name="account-integrations"),
+    re_path(r"^integrations/(?P<pk>[a-z0-9_]+)/?$", IntegrationScaffoldingView.as_view(), name="account-integration"),
+    re_path(
         r"^integrations/(?P<pk>[a-z0-9_]+)/moderate/?$",
         IntegrationScaffoldingView.as_view(),
         name="account-integration-moderate",
     ),
-    url(r"^transfer-apps/?$", TransferAppsView.as_view(), name="account-transfer-apps"),
-    url(r"^transfer-apps/(?P<pk>[a-z0-9_]+)/?$", TransferAppsView.as_view(), name="account-transfer-app"),
-    url(r"^password/?$", PasswordView.as_view(), name="account-password"),
-    url(r"^token/?$", APITokenView.as_view(), name="account-api-token"),
-    url(r"^delete/?$", DeleteAccountView.as_view(), name="account-deletion"),
-    url(r"^change-language/?$", ChangeLanguageView.as_view(), name="account-change-language"),
+    re_path(r"^transfer-apps/?$", TransferAppsView.as_view(), name="account-transfer-apps"),
+    re_path(r"^transfer-apps/(?P<pk>[a-z0-9_]+)/?$", TransferAppsView.as_view(), name="account-transfer-app"),
+    re_path(r"^password/?$", PasswordView.as_view(), name="account-password"),
+    re_path(r"^token/?$", APITokenView.as_view(), name="account-api-token"),
+    re_path(r"^delete/?$", DeleteAccountView.as_view(), name="account-deletion"),
+    re_path(r"^change-language/?$", ChangeLanguageView.as_view(), name="account-change-language"),
 ]

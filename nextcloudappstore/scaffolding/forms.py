@@ -17,7 +17,7 @@ from django.forms import (
 from django.forms.fields import CharField, ChoiceField, EmailField, HiddenInput
 from django.utils.functional import lazy
 from django.utils.text import slugify
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+from django.utils.translation import gettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 from nextcloudappstore.core.models import App, Category, Screenshot

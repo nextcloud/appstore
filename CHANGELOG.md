@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [4.3.0]  - 2023-09-07
+
+### Changed
+
+- Replaced `django-cors-middleware` package with `django-cors-headers`
+- Updated Django from `3.2` to `4.2.5` version.
+
+### Fixed
+
+- Bug in REST API for deleting releases when APP_ID contains number. #1127
+
 ## [4.2.0]  - 2023-07-18
 
 ### Changed
