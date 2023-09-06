@@ -8,7 +8,7 @@ from captcha.fields import CaptchaField
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import CharField, EmailField, PasswordInput
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class SignupFormRecaptcha(forms.Form):

@@ -7,7 +7,7 @@ manage-script=$(CURDIR)/manage.py
 manage=$(poetry_run) $(manage-script)
 db=sqlite
 npm=npm
-prod_version=12.0.0
+prod_version=27.0.0
 
 .PHONY: test
 test:

@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.management import BaseCommand, CommandError
-from django.utils.translation import ugettext
+from django.utils.translation import gettext
 from parler.models import TranslatableModel
 from parler.utils.context import switch_language
 
@@ -35,7 +35,7 @@ class Command(BaseCommand):
                 if obj.has_translation(language_code):
                     obj.delete_translation(language_code)
                 source = [self._get_en(obj, field) for field in fields]
-                translations = [ugettext(value) for value in source]
+                translations = [gettext(value) for value in source]
                 for field, translation in zip(fields, translations):
                     setattr(obj, field, translation)
                     obj.save()

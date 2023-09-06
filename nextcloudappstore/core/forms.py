@@ -9,7 +9,7 @@ from django.forms import (
     TextInput,
 )
 from django.utils.translation import get_language_info
-from django.utils.translation import ugettext_lazy as _  # type: ignore
+from django.utils.translation import gettext_lazy as _  # type: ignore
 
 from nextcloudappstore.core.models import App, AppRating
 
