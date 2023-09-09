@@ -10,7 +10,7 @@ jobs:
   appstore_docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: actions/setup-python@v4
       with:
         python-version: '3.10'
@@ -31,7 +31,7 @@ jobs:
       run: tar czf /tmp/documentation.tar.gz -C docs/_build/html .
 
     - name: Upload static documentation
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: Appstore docs.zip
         path: "/tmp/documentation.tar.gz"
