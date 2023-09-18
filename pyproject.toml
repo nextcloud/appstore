@@ -25,8 +25,7 @@ pem = "^23.0.0"
 django-simple-captcha = "^0.5.14"
 uWSGI = "^2.0.20"
 newrelic = "^7.2.4"
-psycopg = "^3.1.10"
-psycopg-binary = "^3.1.10"
+psycopg = {extras = ["binary"], version = "^3.1.10"}
 
 [tool.poetry.group.docs]
 optional = true

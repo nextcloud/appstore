@@ -1033,6 +1033,7 @@ files = [
 ]
 
 [package.dependencies]
+psycopg-binary = {version = "3.1.10", optional = true, markers = "extra == \"binary\""}
 typing-extensions = ">=4.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
@@ -1857,4 +1858,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "28d393096efb99fe3eb548021d8339607610ec990548de62d1202daaf3d6016c"
+content-hash = "31428659140019915f2e80bea75d4893339e4489e7adce469b0a9b8cbfd231cb"
