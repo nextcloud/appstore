@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [4.3.1]  - 2023-09-19
+
+### Changed
+
+- Replaced `psycopg2` with new `psycopg` package. #1143
+- Updated dependencies & packages. #1129
+
 ## [4.3.0]  - 2023-09-07
 
 ### Changed
