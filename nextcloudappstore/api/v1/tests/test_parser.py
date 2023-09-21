@@ -557,6 +557,33 @@ class ParserTest(TestCase):
         expected = self._get_contents("data/changelogs/0.6.0.md").strip()
         self.assertEqual(expected, changelog)
 
+    def test_appapi(self):
+        xml = self._get_contents("data/infoxmls/app_api.xml")
+        result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
+        assert result["app"]["release"]["version"] == "2.0.0"
+        r_ex_app = result["app"]["release"]["ex_app"]
+        assert r_ex_app["docker_install"] == {
+            "image": "cloud-py-api/skeleton",
+            "image_tag": "1.0.0",
+            "registry": "ghcr.io",
+        }
+        assert r_ex_app["scopes"] == [{"required": "FILES"}, {"required": "NOTIFICATIONS"}, {"optional": "TALK"}]
+        assert r_ex_app["protocol"] == "https"
+        assert r_ex_app["system"] == "true"
+
+    def test_appapi_minimal(self):
+        xml = self._get_contents("data/infoxmls/app_api_minimal.xml")
+        result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
+        assert result["app"]["release"]["version"] == "1.0.0"
+        r_ex_app = result["app"]["release"]["ex_app"]
+        assert r_ex_app["docker_install"] == {
+            "image": "cloud-py-api/skeleton",
+            "image_tag": "latest",
+            "registry": "ghcr.io",
+        }
+        assert r_ex_app["scopes"] == [{"required": "FILES"}]
+        assert r_ex_app["protocol"] == "http"
+
     def _get_contents(self, target):
         path = self.get_path(target)
         return read_file_contents(path)

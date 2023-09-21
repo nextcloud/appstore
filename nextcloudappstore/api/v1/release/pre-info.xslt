@@ -53,6 +53,8 @@
             <xsl:copy-of select="remote"/>
             <xsl:copy-of select="requiremin"/>
             <xsl:copy-of select="requiremax"/>
+
+            <xsl:apply-templates select="ex-app"/>
         </info>
     </xsl:template>
 
@@ -145,6 +147,30 @@
             <xsl:copy-of select="install"/>
             <xsl:copy-of select="uninstall"/>
         </repair-steps>
+    </xsl:template>
+
+    <xsl:template match="ex-app">
+        <ex-app>
+            <xsl:apply-templates select="docker-install"/>
+            <xsl:apply-templates select="scopes"/>
+            <xsl:copy-of select="protocol"/>
+            <xsl:copy-of select="system"/>
+        </ex-app>
+    </xsl:template>
+
+    <xsl:template match="docker-install">
+        <docker-install>
+            <xsl:copy-of select="registry"/>
+            <xsl:copy-of select="image"/>
+            <xsl:copy-of select="image-tag"/>
+        </docker-install>
+    </xsl:template>
+
+    <xsl:template match="scopes">
+        <scopes>
+            <xsl:copy-of select="required"/>
+            <xsl:copy-of select="optional"/>
+        </scopes>
     </xsl:template>
 
 </xsl:stylesheet>

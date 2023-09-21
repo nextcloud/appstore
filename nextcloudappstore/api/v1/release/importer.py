@@ -1,3 +1,4 @@
+import json
 from typing import Any, Dict, Set, Tuple  # type: ignore
 
 from django.conf import settings  # type: ignore
@@ -7,6 +8,8 @@ from semantic_version import Version  # type: ignore
 from nextcloudappstore.core.facades import any_match
 from nextcloudappstore.core.models import (
     App,
+    AppApiReleaseApiScope,
+    AppApiReleaseDeployMethod,
     AppAuthor,
     AppRelease,
     Category,
@@ -159,6 +162,25 @@ class L10NImporter(ScalarImporter):
             obj.save()
 
 
+class AppApiImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        obj.aa_proto = value["protocol"]
+        obj.aa_is_system = value.get("aa_is_system", False)
+        for supported_deploy_types in ("docker_install",):
+            if supported_deploy_types in value:
+                install_data = json.dumps(value[supported_deploy_types])
+                AppApiReleaseDeployMethod.objects.get_or_create(
+                    app_release=obj,
+                    install_type=supported_deploy_types,
+                    install_data=install_data,
+                )
+        for scope in value.get("scopes", []):
+            scope_type = list(scope)[0]
+            AppApiReleaseApiScope.objects.get_or_create(
+                app_release=obj, optional=bool(scope_type != "required"), scope_name=scope[scope_type]
+            )
+
+
 class AppReleaseImporter(Importer):
     def __init__(
         self,
@@ -169,6 +191,7 @@ class AppReleaseImporter(Importer):
         string_attribute_importer: StringAttributeImporter,
         default_attribute_importer: DefaultAttributeImporter,
         l10n_importer: L10NImporter,
+        app_api_importer: AppApiImporter,
     ) -> None:
         super().__init__(
             {
@@ -185,6 +208,7 @@ class AppReleaseImporter(Importer):
                 "download": string_attribute_importer,
                 "changelog": l10n_importer,
                 "is_nightly": default_attribute_importer,
+                "ex_app": app_api_importer,
             },
             {
                 "version",

@@ -67,6 +67,7 @@
                             maxOccurs="1" />
                 <xs:element name="versions" type="versions" minOccurs="0"
                             maxOccurs="1" />
+                <xs:element name="ex-app" type="ex-app" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -641,6 +642,42 @@
                         maxOccurs="1"/>
             <xs:element name="uninstall" type="steps" minOccurs="0"
                         maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="docker-install">
+        <xs:sequence>
+            <xs:element name="registry" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="image" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="image-tag" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="scopes_required">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="scopes_optional">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="scopes">
+        <xs:sequence>
+            <xs:element name="required" type="scopes_required" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="optional" type="scopes_optional" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ex-app">
+        <xs:sequence>
+            <xs:element name="docker-install" type="docker-install" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="scopes" type="scopes" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="protocol" type="non-empty-string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="system" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 

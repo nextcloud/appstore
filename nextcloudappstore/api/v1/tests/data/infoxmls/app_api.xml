@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../release/info.xsd">
+    <id>aa_skeleton</id>
+    <name>AppAPI Skeleton2</name>
+    <description>Testing info.xml</description>
+    <version>2.0.0</version>
+    <licence>agpl</licence>
+    <author>Andrey Borysenko</author>
+    <category>tools</category>
+    <bugs>https://github.com/cloud-py-api/nc_py_api/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="28" max-version="28"/>
+    </dependencies>
+    <documentation>
+        <developer>https://cloud-py-api.github.io/nc_py_api/</developer>
+    </documentation>
+    <website>https://github.com/cloud-py-api/nc_py_api</website>
+    <discussion>https://github.com/cloud-py-api/nc_py_api/discussions</discussion>
+	<ex-app>
+        <docker-install>
+		    <registry>ghcr.io</registry>
+			<image>cloud-py-api/skeleton</image>
+			<image-tag>1.0.0</image-tag>
+		</docker-install>
+        <scopes>
+			<required>
+                <value>FILES</value>
+				<value>NOTIFICATIONS</value>
+			</required>
+			<optional>
+                <value>TALK</value>
+			</optional>
+		</scopes>
+        <protocol>https</protocol>
+        <system>true</system>
+    </ex-app>
+</info>

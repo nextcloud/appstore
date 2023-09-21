@@ -2,6 +2,7 @@ from django.urls import re_path
 from django.views.decorators.http import etag
 
 from nextcloudappstore.api.v1.views import (
+    AppApiAppsView,
     AppRatingView,
     AppRegisterView,
     AppReleaseView,
@@ -27,6 +28,7 @@ urlpatterns = [
     re_path(r"^platforms\.json$", etag(nextcloud_release_etag)(NextcloudReleaseView.as_view()), name="platforms"),
     re_path(r"^platform/(?P<version>\d+\.\d+\.\d+)/apps\.json$", etag(apps_etag)(AppView.as_view()), name="app"),
     re_path(r"^apps\.json$", etag(apps_all_etag)(AppsView.as_view()), name="apps"),
+    re_path(r"^appapi_apps\.json$", etag(apps_all_etag)(AppApiAppsView.as_view()), name="appapi_apps"),
     re_path(r"^apps/releases/?$", AppReleaseView.as_view(), name="app-release-create"),
     re_path(r"^apps/?$", AppRegisterView.as_view(), name="app-register"),
     re_path(r"^apps/(?P<pk>[a-z0-9_]+)/?$", AppView.as_view(), name="app-delete"),
