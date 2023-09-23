@@ -1,4 +1,4 @@
-import * as hljs from 'highlight.js';
+import hljs from 'highlight.js';
 import * as markdownit from 'markdown-it';
 import {noReferrerLinks} from './Templating';
 
@@ -7,7 +7,7 @@ export function renderMd(html: string): string {
         highlight: (str, lang) => {
             if (lang && hljs.getLanguage(lang)) {
                 try {
-                    return hljs.highlight(lang, str).value;
+                    return hljs.highlight(str, {language: lang, ignoreIllegals: false}).value;
                 } catch (e) {
                     console.error(e);
                 }
