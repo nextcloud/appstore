@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [4.3.2]  - 2023-09-23
+
+### Added
+
+- Support of `Last-Modified`, e.g. `If-Modified-Since:` header for the Rest API endpoints. #1147
+- `redis` python dependency for `django-allauth`.
+
+### Changed
+
+- `/api/v1/apps.json` endpoint now ALWAYS return gzipped data. #1147
+
 ## [4.3.1]  - 2023-09-19
 
 ### Changed
