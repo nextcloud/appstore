@@ -2,6 +2,8 @@ import requests
 from django.conf import settings
 from django.db import transaction
 from django.http import Http404
+from django.utils.decorators import method_decorator
+from django.views.decorators.gzip import gzip_page
 from pymple import Container
 from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
@@ -66,6 +68,7 @@ class NextcloudReleaseView(ListAPIView):
     serializer_class = NextcloudReleaseSerializer
 
 
+@method_decorator(gzip_page, name="dispatch")
 class AppsView(ListAPIView):
     queryset = App.objects.prefetch_related(*APP_PREFETCH_LIST).all()
     serializer_class = AppSerializer

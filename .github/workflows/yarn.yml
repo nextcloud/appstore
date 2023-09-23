@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt install gettext netcat-openbsd xvfb
+        run: sudo apt install gettext netcat-openbsd xvfb redis-server
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
