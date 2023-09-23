@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [4.3.3]  - 2023-09-29
+
+### Changed
+
+- **Node.js:** Now requires `v20` or higher.
+- **npm:** Now requires `v9` or higher.
+- Updated python dependencies.
+
 ## [4.3.2]  - 2023-09-23
 
 ### Added
