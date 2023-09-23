@@ -357,10 +357,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # Account login bruteforce
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 3600  # 1 hour in seconds
-
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/",
-    }
-}
