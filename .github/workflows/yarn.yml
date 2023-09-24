@@ -41,9 +41,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install poetry
-        run: |
-          pip install "urllib3<2"
-          pip install poetry==1.4.2
+        run: pip install poetry==1.6.1
 
       - uses: browser-actions/setup-firefox@latest
         with:

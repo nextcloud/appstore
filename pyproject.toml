@@ -2,7 +2,7 @@
 name = "nextcloudappstore"
 version = "4.3.3"
 description = "App store for Nextcloud apps"
-authors = ["Morris Jobke <hey@morrisjobke.de>"]
+authors = ["Alexander Piskun <bigcat88@icloud.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -50,14 +50,16 @@ types-pyOpenSSL = "^23.0.0"
 [build-system]
 build-backend = "poetry.masonry.api"
 requires = [
-  "poetry>=1.4.2",
+  "poetry>=1.6.1",
 ]
 
 [tool.mypy]
-ignore_missing_imports = true
+ignore_missing_imports = false
+warn_unreachable = false
 warn_no_return = true
 strict_optional = true
 check_untyped_defs = true
+show_error_codes = true
 
 [tool.black]
 line-length = 120
