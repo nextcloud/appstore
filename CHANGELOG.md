@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [4.3.3]  - 2023-09-29
+## [4.3.3]  - 2023-09-26
 
 ### Changed
 
@@ -10,6 +10,7 @@
 - **npm:** Now requires `v9` or higher.
 - Updated python dependencies.
 - Updated `highlight.js` dependency to last major version. #1063
+- Updated `django-allauth` from 0.54 to 0.57. #1152
 
 ## [4.3.2]  - 2023-09-23
 
