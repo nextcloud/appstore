@@ -147,13 +147,13 @@
                 </licenses>
 
                 <xsl:apply-templates select="dependencies"/>
-                <xsl:apply-templates select="ex-app"/>
+                <xsl:apply-templates select="external-app"/>
             </release>
         </app>
     </xsl:template>
 
-    <xsl:template match="ex-app">
-        <ex-app>
+    <xsl:template match="external-app">
+        <external-app>
             <docker-install>
                 <registry type="string">
                     <xsl:value-of select="docker-install/registry"/>
@@ -183,7 +183,7 @@
             <system type="boolean">
                 <xsl:value-of select="system"/>
             </system>
-        </ex-app>
+        </external-app>
     </xsl:template>
 
     <xsl:template match="dependencies">

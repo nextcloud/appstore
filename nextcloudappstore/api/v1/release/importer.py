@@ -208,7 +208,7 @@ class AppReleaseImporter(Importer):
                 "download": string_attribute_importer,
                 "changelog": l10n_importer,
                 "is_nightly": default_attribute_importer,
-                "ex_app": app_api_importer,
+                "external_app": app_api_importer,
             },
             {
                 "version",

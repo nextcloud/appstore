@@ -54,7 +54,7 @@
             <xsl:copy-of select="requiremin"/>
             <xsl:copy-of select="requiremax"/>
 
-            <xsl:apply-templates select="ex-app"/>
+            <xsl:apply-templates select="external-app"/>
         </info>
     </xsl:template>
 
@@ -149,13 +149,13 @@
         </repair-steps>
     </xsl:template>
 
-    <xsl:template match="ex-app">
-        <ex-app>
+    <xsl:template match="external-app">
+        <external-app>
             <xsl:apply-templates select="docker-install"/>
             <xsl:apply-templates select="scopes"/>
             <xsl:copy-of select="protocol"/>
             <xsl:copy-of select="system"/>
-        </ex-app>
+        </external-app>
     </xsl:template>
 
     <xsl:template match="docker-install">

@@ -67,7 +67,7 @@
                             maxOccurs="1" />
                 <xs:element name="versions" type="versions" minOccurs="0"
                             maxOccurs="1" />
-                <xs:element name="ex-app" type="ex-app" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="external-app" type="external-app" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
         <xs:unique name="uniqueNameL10n">
@@ -672,7 +672,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ex-app">
+    <xs:complexType name="external-app">
         <xs:sequence>
             <xs:element name="docker-install" type="docker-install" minOccurs="0" maxOccurs="1"/>
             <xs:element name="scopes" type="scopes" minOccurs="1" maxOccurs="1"/>

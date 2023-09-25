@@ -561,7 +561,7 @@ class ParserTest(TestCase):
         xml = self._get_contents("data/infoxmls/app_api.xml")
         result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
         assert result["app"]["release"]["version"] == "2.0.0"
-        r_ex_app = result["app"]["release"]["ex_app"]
+        r_ex_app = result["app"]["release"]["external_app"]
         assert r_ex_app["docker_install"] == {
             "image": "cloud-py-api/skeleton",
             "image_tag": "1.0.0",
@@ -575,7 +575,7 @@ class ParserTest(TestCase):
         xml = self._get_contents("data/infoxmls/app_api_minimal.xml")
         result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
         assert result["app"]["release"]["version"] == "1.0.0"
-        r_ex_app = result["app"]["release"]["ex_app"]
+        r_ex_app = result["app"]["release"]["external_app"]
         assert r_ex_app["docker_install"] == {
             "image": "cloud-py-api/skeleton",
             "image_tag": "latest",
