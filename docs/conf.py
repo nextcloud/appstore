@@ -56,9 +56,9 @@ master_doc = "index"
 # General information about the project.
 project = "AppStore"
 copyright = str(datetime.now().year) + " Nextcloud GmbH"  # noqa
-author = "Bernhard Posselt, Adi Sieker"
+author = "Nextclouders"
 
-version = "4.2.0"
+version = "4.3.3"
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -260,7 +260,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, "nextcloudappstore.tex", "nextcloudappstore Documentation", "Bernhard Posselt, Adi Sieker", "manual"),
+    (master_doc, "nextcloudappstore.tex", "nextcloudappstore Documentation", "Nextclouders", "manual"),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
