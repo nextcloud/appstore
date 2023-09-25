@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # SYTang, 2019
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2020
 # Café Tango, 2023
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-09 02:50+0000\n"
+"POT-Creation-Date: 2023-09-25 02:53+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2023\n"
-"Language-Team: Chinese (Hong Kong) (https://app.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
+"Language-Team: Chinese (Hong Kong) (https://app.transifex.com/nextcloud/"
+"teams/64236/zh_HK/)\n"
+"Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_HK\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: nextcloudappstore/core/feeds.py:14
@@ -80,15 +81,16 @@ msgstr "公共證書"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "通常存儲在 ~/.nextcloud/certificates/APP_ID.crt，其中 APP_ID 是您應用程式的 "
-"ID。如果您沒有證書，則需要首先建立一個證書簽署請求（CSR），該證書簽署請求（CSR）應發佈在 <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">證書數據庫</a>上（遵循 README）。您可以通過執行以下命令來生成 CSR："
+"ID。如果您沒有證書，則需要首先建立一個證書簽署請求（CSR），該證書簽署請求"
+"（CSR）應發佈在 <a href=\"https://github.com/nextcloud/app-certificate-"
+"requests\" rel=\"noreferrer noopener\">證書數據庫</a>上（遵循 README）。您可"
+"以通過執行以下命令來生成 CSR："
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -242,7 +244,9 @@ msgstr "已啟用所有權移交"
 msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
-msgstr "當啟動的時候，其他用戶可以使用該公開憑證和簽章再次註冊這個應用程式，完成註冊後，此應用程式的所有權將會移交給他。"
+msgstr ""
+"當啟動的時候，其他用戶可以使用該公開憑證和簽章再次註冊這個應用程式，完成註冊"
+"後，此應用程式的所有權將會移交給他。"
 
 #: nextcloudappstore/core/models.py:121
 msgid "Integration (i.e. Outlook plugin)"
@@ -532,7 +536,8 @@ msgstr "是目前版本"
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
-msgstr "只有一個版本可以是當前一個。此字段用於預選擇下拉菜單以生成應用程式等等。"
+msgstr ""
+"只有一個版本可以是當前一個。此字段用於預選擇下拉菜單以生成應用程式等等。"
 
 #: nextcloudappstore/core/models.py:619
 msgid "Has a release"
@@ -540,10 +545,12 @@ msgstr "有一份最新發行"
 
 #: nextcloudappstore/core/models.py:621
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
-msgstr "如果為 true，則這是實際發佈的Nextcloud版本，可以下載為存檔。如果為 false，則該版本為預發行版本，或者不再可供下載。"
+msgstr ""
+"如果為 true，則這是實際發佈的Nextcloud版本，可以下載為存檔。如果為 false，則"
+"該版本為預發行版本，或者不再可供下載。"
 
 #: nextcloudappstore/core/models.py:631
 msgid "Version is supported"
@@ -595,15 +602,18 @@ msgstr "嘗試次數太多了。請幾分鐘後重試。"
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "%(site_name)s 向您問好！\n"
 "\n"
-"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 %(site_domain)s 上的賬戶。\n"
+"您收到這封郵件，是因為用戶 %(user_display)s 把此郵件地址連到了他/她在 "
+"%(site_domain)s 上的賬戶。\n"
 "\n"
 "如果準確無誤，請至 %(activate_url)s 進行確認。\n"
 "\n"
@@ -629,7 +639,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的電郵地址。"
+"請確認 <a href=\"mailto:%(email)s\">%(email)s</a> 是用戶 %(user_display)s 的"
+"電郵地址。"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -638,9 +649,11 @@ msgstr "確認"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr "此郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出電郵地址確認請求</a>。"
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+"此郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出電郵地址確認"
+"請求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -680,7 +693,8 @@ msgstr "密碼重設"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
-msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
+msgstr ""
+"忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重置密碼。"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -705,9 +719,11 @@ msgstr "改變密碼"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
-msgstr "密碼重置連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重置密碼</a>。"
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"密碼重置連結無效或已被使用。請重新<a href=\"%(passwd_reset_url)s\">申請重置密"
+"碼</a>。"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -822,11 +838,16 @@ msgstr "評價"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
-"評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball。net/projects/markdown/syntax\">Markdown</a>。\n"
+"評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball。"
+"net/projects/markdown/syntax\">Markdown</a>。\n"
 "不要在此處舉報錯誤或要求評論功能。開發者和用戶都不會收到您的評論通知。\n"
 "不含評論的評分也會計算在內，但不會在下方列出。"
 
@@ -915,20 +936,22 @@ msgstr "註冊應用程式"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"有關如何獲得證書和建立簽名的更多信息，請查看 <a "
-"href=\"https://nextcloudappstore。readthedocs。io/en/latest/developer。html\" "
-"rel=\"noopener norefferer\">應用程式開發人員指南</a>。"
+"有關如何獲得證書和建立簽名的更多信息，請查看 <a href=\"https://"
+"nextcloudappstore。readthedocs。io/en/latest/developer。html\" rel="
+"\"noopener norefferer\">應用程式開發人員指南</a>。"
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
-msgstr "此表格也可以用於更新現有證書，但是僅允許應用程式所有者這樣做。更新應用程式證書將刪除其所有已上傳的版本！"
+msgstr ""
+"此表格也可以用於更新現有證書，但是僅允許應用程式所有者這樣做。更新應用程式證"
+"書將刪除其所有已上傳的版本！"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -990,13 +1013,13 @@ msgstr "應用程式版本成功上傳。"
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"有關如何創建簽名的更多信息，請查看 <a "
-"href=\"https://nextcloudappstore。readthedocs。io/en/latest/developer。html\" "
-"rel=\"noopener norefferer\">應用程式開發人員指南</a>。"
+"有關如何創建簽名的更多信息，請查看 <a href=\"https://nextcloudappstore。"
+"readthedocs。io/en/latest/developer。html\" rel=\"noopener norefferer\">應用"
+"程式開發人員指南</a>。"
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1006,7 +1029,8 @@ msgstr "上傳"
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
-msgstr "The Nextcloud App Store - 上傳您的應用程式並將新應用程式安裝到您的Nextcloud"
+msgstr ""
+"The Nextcloud App Store - 上傳您的應用程式並將新應用程式安裝到您的Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1100,7 +1124,8 @@ msgstr "登出"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "您將使用您的 %(provider_name)s 賬戶登入\n"
 "           %(site_name)s。最後，請填寫以下表格："
@@ -1285,7 +1310,9 @@ msgid ""
 "I opt in for the collection of my personal data. We could then reach out to "
 "you to check in with you about your plans or to ask for feedback on our "
 "developer program."
-msgstr "您主動選擇加入個人數據收集。這使我們能夠與您聯絡以了解您的計劃或回饋對我們的開發者計劃的反饋。"
+msgstr ""
+"您主動選擇加入個人數據收集。這使我們能夠與您聯絡以了解您的計劃或回饋對我們的"
+"開發者計劃的反饋。"
 
 #: nextcloudappstore/scaffolding/forms.py:82
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1340,7 +1367,9 @@ msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
 "password!"
-msgstr "為防止未經授權的用戶更改您的電郵地址和重置密碼，必須輸入密碼。此字段不會更新您的密碼！"
+msgstr ""
+"為防止未經授權的用戶更改您的電郵地址和重置密碼，必須輸入密碼。此字段不會更新"
+"您的密碼！"
 
 #: nextcloudappstore/user/forms.py:63
 msgid "This email address is already associated with another account."
@@ -1362,7 +1391,8 @@ msgstr "NextCloud app store 密碼已更改"
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
-msgstr "您的 Nextcloud App Store 密碼已更改。如果您沒有進行更改，請與支援人員聯絡。"
+msgstr ""
+"您的 Nextcloud App Store 密碼已更改。如果您沒有進行更改，請與支援人員聯絡。"
 
 #: nextcloudappstore/user/templates/user/account.html:12
 msgid "Save"
@@ -1376,14 +1406,18 @@ msgstr "API 權杖"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
 "                API token 可用於調用 Nextcloud App Store 時進行身份驗證\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>。\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>。\n"
 "                確保對其保密。可以在下面生成新權杖，從而使舊權杖無效。"
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1435,7 +1469,9 @@ msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
-msgstr "刪除賬戶也會刪除您所有的應用程式和版本。要刪除您的賬戶，請將您的電郵地址輸入字段，然後單擊【刪除賬戶】按鈕。"
+msgstr ""
+"刪除賬戶也會刪除您所有的應用程式和版本。要刪除您的賬戶，請將您的電郵地址輸入"
+"字段，然後單擊【刪除賬戶】按鈕。"
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
 msgid "Pending approval"
@@ -1469,9 +1505,11 @@ msgstr "更改密碼也會重新生成 API 權杖！"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
-msgstr "您似乎正在使用向第三方提供商註冊的賬戶。因此，<strong>無法</strong>在此頁面上更改您的密碼。"
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
+msgstr ""
+"您似乎正在使用向第三方提供商註冊的賬戶。因此，<strong>無法</strong>在此頁面上"
+"更改您的密碼。"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1484,7 +1522,8 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"要將應用轉移給新所有者，您必須首先解鎖該應用程式。然後，用戶可以通過在應用程式開發人員選項單的應用程式註冊頁面上再次註冊該應用程式來控制該應用程式。"
+"要將應用轉移給新所有者，您必須首先解鎖該應用程式。然後，用戶可以通過在應用程"
+"式開發人員選項單的應用程式註冊頁面上再次註冊該應用程式來控制該應用程式。"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
