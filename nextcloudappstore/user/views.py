@@ -91,7 +91,9 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         email = EmailAddress.objects.get_primary(user=self.request.user)
-        email.change(None, form.cleaned_data["email"])
+        if email.email != form.cleaned_data["email"]:
+            email.email = form.cleaned_data["email"]
+            email.save(update_fields=["email"])
         messages.success(self.request, "Account details saved.")
         self.request.session["account_update_failed_count"] = 0
         return super().form_valid(form)
