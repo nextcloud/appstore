@@ -147,8 +147,43 @@
                 </licenses>
 
                 <xsl:apply-templates select="dependencies"/>
+                <xsl:apply-templates select="external-app"/>
             </release>
         </app>
+    </xsl:template>
+
+    <xsl:template match="external-app">
+        <external-app>
+            <docker-install>
+                <registry type="string">
+                    <xsl:value-of select="docker-install/registry"/>
+                </registry>
+                <image type="string">
+                    <xsl:value-of select="docker-install/image"/>
+                </image>
+                <image-tag type="string">
+                    <xsl:value-of select="docker-install/image-tag"/>
+                </image-tag>
+            </docker-install>
+            <scopes type="list">
+                <xsl:for-each select="scopes/required/value">
+                    <required>
+                        <xsl:value-of select="."/>
+                    </required>
+                </xsl:for-each>
+                <xsl:for-each select="scopes/optional/value">
+                    <optional>
+                        <xsl:value-of select="."/>
+                    </optional>
+                </xsl:for-each>
+            </scopes>
+            <protocol type="string">
+                <xsl:value-of select="protocol"/>
+            </protocol>
+            <system type="boolean">
+                <xsl:value-of select="system"/>
+            </system>
+        </external-app>
     </xsl:template>
 
     <xsl:template match="dependencies">

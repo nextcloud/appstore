@@ -6,6 +6,8 @@ from rest_framework.fields import DateTimeField, SerializerMethodField
 
 from nextcloudappstore.core.models import (
     App,
+    AppApiReleaseApiScope,
+    AppApiReleaseDeployMethod,
     AppAuthor,
     AppRating,
     AppRelease,
@@ -114,6 +116,49 @@ class AppReleaseSerializer(serializers.ModelSerializer):
         return obj.raw_php_version_spec.replace(",", " ")
 
 
+class DeployMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppApiReleaseDeployMethod
+        fields = ("install_type", "install_data")
+
+
+class ApiScopeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppApiReleaseApiScope
+        fields = ("optional", "scope_name")
+
+
+class AppApiAppReleaseSerializer(AppReleaseSerializer):
+    deploy_methods = DeployMethodSerializer(many=True, read_only=True)
+    api_scopes = ApiScopeSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = AppRelease
+        fields = (
+            "version",
+            "php_extensions",
+            "databases",
+            "shell_commands",
+            "php_version_spec",
+            "platform_version_spec",
+            "min_int_size",
+            "download",
+            "created",
+            "licenses",
+            "last_modified",
+            "is_nightly",
+            "raw_php_version_spec",
+            "raw_platform_version_spec",
+            "signature",
+            "translations",
+            "signature_digest",
+            "aa_proto",
+            "aa_is_system",
+            "deploy_methods",
+            "api_scopes",
+        )
+
+
 class ScreenshotSerializer(serializers.ModelSerializer):
     class Meta:
         model = Screenshot
@@ -155,6 +200,10 @@ class AppSerializer(serializers.ModelSerializer):
 
     def get_discussion(self, obj):
         return obj.discussion_url
+
+
+class AppApiAppSerializer(AppSerializer):
+    releases = AppApiAppReleaseSerializer(many=True, read_only=True)
 
 
 class UserSerializer(serializers.ModelSerializer):

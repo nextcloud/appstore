@@ -365,6 +365,25 @@ class AppRelease(TranslatableModel):
         )
     )
     is_nightly = BooleanField(verbose_name=_("Nightly"), default=False)
+    aa_proto = CharField(
+        max_length=8,
+        verbose_name=_("AppAPI communication protocol"),
+        blank=True,
+        default="",
+        help_text=_(
+            "If empty, then this is a release of a regular application; "
+            "any other value indicates the application protocol for the AppAPI system"
+        ),
+        db_index=True,
+    )
+    aa_is_system = BooleanField(
+        verbose_name=_("AppAPI system app flag"),
+        help_text=_(
+            "Whether the application is system-wide (i.e. can impersonate the user without him interacting with the "
+            "application)"
+        ),
+        default=False,
+    )
 
     class Meta:
         verbose_name = _("App release")
@@ -411,6 +430,48 @@ class AppRelease(TranslatableModel):
             or "-rc" in self.version
             or "-RC" in self.version
         )
+
+
+class AppApiReleaseDeployMethod(Model):
+    app_release = ForeignKey(
+        "AppRelease",
+        on_delete=CASCADE,
+        verbose_name=_("App release"),
+        related_name="deploy_methods",
+        db_index=True,
+    )
+    install_type = CharField(max_length=64, verbose_name=_("Deploy Identifier"))
+    install_data = CharField(
+        max_length=1024,
+        verbose_name=_("Installer specific data"),
+        help_text=_("JSON data for AppAPI installer depending on installation type"),
+    )
+
+    class Meta:
+        db_table = _("core_appapi_release_deploy_method")
+        verbose_name = _("AppAPI release Deploy method")
+        verbose_name_plural = _("AppAPI release Deploy methods")
+
+
+class AppApiReleaseApiScope(Model):
+    app_release = ForeignKey(
+        "AppRelease",
+        on_delete=CASCADE,
+        verbose_name=_("App release"),
+        related_name="api_scopes",
+        db_index=True,
+    )
+    optional = BooleanField(
+        verbose_name=_("Is scope optional"),
+        help_text=_("Is it possible for the application to work without this API group?"),
+        default=False,
+    )
+    scope_name = CharField(max_length=32, verbose_name=_("Name of the API scope"))
+
+    class Meta:
+        db_table = _("core_appapi_release_api_scopes")
+        verbose_name = _("AppAPI release API Scope")
+        verbose_name_plural = _("AppAPI release API Scopes")
 
 
 class Screenshot(Model):

@@ -1,6 +1,7 @@
 import requests
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Count, Prefetch, Q
 from django.http import Http404
 from django.utils.decorators import method_decorator
 from django.views.decorators.gzip import gzip_page
@@ -19,6 +20,7 @@ from rest_framework.views import APIView
 from nextcloudappstore.api.v1.release.importer import AppImporter
 from nextcloudappstore.api.v1.release.provider import AppReleaseProvider
 from nextcloudappstore.api.v1.serializers import (
+    AppApiAppSerializer,
     AppRatingSerializer,
     AppRegisterSerializer,
     AppReleaseDownloadSerializer,
@@ -40,16 +42,33 @@ from nextcloudappstore.core.throttling import PostThrottle
 from nextcloudappstore.core.versioning import version_in_spec
 from nextcloudappstore.user.facades import update_token
 
-APP_PREFETCH_LIST = [
+BASIC_PREFETCH_LIST = [
     "authors",
     "screenshots",
     "categories",
     "translations",
+]
+
+RELEASES_PREFETCH_LIST = [
     "releases__translations",
     "releases__phpextensiondependencies__php_extension",
     "releases__databasedependencies__database",
     "releases__shell_commands",
     "releases__licenses",
+]
+
+APP_PREFETCH_LIST = [
+    *BASIC_PREFETCH_LIST,
+    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_proto__isnull=True) | Q(aa_proto=""))),
+    *RELEASES_PREFETCH_LIST,
+]
+
+AA_APP_PREFETCH_LIST = [
+    *BASIC_PREFETCH_LIST,
+    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_proto__isnull=False) & ~Q(aa_proto=""))),
+    *RELEASES_PREFETCH_LIST,
+    "releases__deploy_methods",
+    "releases__api_scopes",
 ]
 
 
@@ -70,8 +89,23 @@ class NextcloudReleaseView(ListAPIView):
 
 @method_decorator(gzip_page, name="dispatch")
 class AppsView(ListAPIView):
-    queryset = App.objects.prefetch_related(*APP_PREFETCH_LIST).all()
+    queryset = (
+        App.objects.prefetch_related(*APP_PREFETCH_LIST)
+        .annotate(num_releases=Count("releases", filter=Q(releases__aa_proto__isnull=True) | Q(releases__aa_proto="")))
+        .filter(Q(num_releases__gt=0) | Q(is_integration=True))
+    )
     serializer_class = AppSerializer
+
+
+class AppApiAppsView(ListAPIView):
+    queryset = (
+        App.objects.prefetch_related(*AA_APP_PREFETCH_LIST)
+        .annotate(
+            num_releases=Count("releases", filter=Q(releases__aa_proto__isnull=False) & ~Q(releases__aa_proto=""))
+        )
+        .filter(num_releases__gt=0)
+    )
+    serializer_class = AppApiAppSerializer
 
 
 class AppView(DestroyAPIView):
