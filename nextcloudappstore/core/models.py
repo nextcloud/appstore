@@ -449,6 +449,8 @@ class AppApiReleaseDeployMethod(Model):
 
     class Meta:
         db_table = _("core_appapi_release_deploy_method")
+        verbose_name = _("AppAPI release Deploy method")
+        verbose_name_plural = _("AppAPI release Deploy methods")
 
 
 class AppApiReleaseApiScope(Model):
@@ -468,6 +470,8 @@ class AppApiReleaseApiScope(Model):
 
     class Meta:
         db_table = _("core_appapi_release_api_scopes")
+        verbose_name = _("AppAPI release API Scope")
+        verbose_name_plural = _("AppAPI release API Scopes")
 
 
 class Screenshot(Model):

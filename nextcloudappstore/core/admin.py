@@ -16,6 +16,8 @@ from nextcloudappstore.core.models import (
     PhpExtensionDependency,
     Screenshot,
     ShellCommand,
+    AppApiReleaseApiScope,
+    AppApiReleaseDeployMethod,
 )
 
 
@@ -132,4 +134,14 @@ class NextcloudReleaseAdmin(admin.ModelAdmin):
 
 @admin.register(ShellCommand)
 class ShellCommandAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AppApiReleaseApiScope)
+class AppApiReleaseApiScopeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AppApiReleaseDeployMethod)
+class AppApiReleaseDeployMethodAdmin(admin.ModelAdmin):
     pass
