@@ -3,6 +3,8 @@ from parler.admin import TranslatableAdmin
 
 from nextcloudappstore.core.models import (
     App,
+    AppApiReleaseApiScope,
+    AppApiReleaseDeployMethod,
     AppAuthor,
     AppRating,
     AppRelease,
@@ -16,8 +18,6 @@ from nextcloudappstore.core.models import (
     PhpExtensionDependency,
     Screenshot,
     ShellCommand,
-    AppApiReleaseApiScope,
-    AppApiReleaseDeployMethod,
 )
 
 
