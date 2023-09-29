@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # miles teg <varota@gmail.com>, 2017
 # H P <bashman@hpacc.hu>, 2018
@@ -14,20 +14,21 @@
 # Gábor Baráth <dincsi@gmail.com>, 2021
 # Balázs Úr, 2022
 # Balázs Meskó <meskobalazs@mailbox.org>, 2023
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-17 02:53+0000\n"
+"POT-Creation-Date: 2023-09-29 02:54+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2023\n"
-"Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
+"teams/64236/hu_HU/)\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:14
@@ -87,17 +88,17 @@ msgstr "Nyilvános tanúsítvány"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Általában itt található: ~/.nextcloud/certificates/APP_ID.crt, ahol az "
 "APP_ID az Ön alkalmazásazonsítója. Ha nincs tanúsítványa, akkor előbb "
-"készítenie kell egy kérést (CSR) , amelyet be kell küldenie a <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">tanúsítványtárba</a> (kövesse a README fájlt). A"
-" CSR-t a következő paranccsal állíthatja elő:"
+"készítenie kell egy kérést (CSR) , amelyet be kell küldenie a <a href="
+"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener\">tanúsítványtárba</a> (kövesse a README fájlt). A CSR-t a "
+"következő paranccsal állíthatja elő:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -128,13 +129,13 @@ msgstr "Azonosító"
 msgid "app ID, identical to folder name"
 msgstr "alkalmazásazonosító, megegyezik a mappa nevével"
 
-#: nextcloudappstore/core/models.py:81 nextcloudappstore/core/models.py:474
+#: nextcloudappstore/core/models.py:81 nextcloudappstore/core/models.py:535
 #: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategória"
 
-#: nextcloudappstore/core/models.py:83 nextcloudappstore/core/models.py:468
-#: nextcloudappstore/core/models.py:491 nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:83 nextcloudappstore/core/models.py:529
+#: nextcloudappstore/core/models.py:552 nextcloudappstore/core/models.py:572
 msgid "Name"
 msgstr "Név"
 
@@ -152,13 +153,13 @@ msgstr "Összefoglalás"
 msgid "Short text describing the app's purpose"
 msgstr "Az alkalmazás céljának rövid leírása"
 
-#: nextcloudappstore/core/models.py:87 nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:87 nextcloudappstore/core/models.py:531
 #: nextcloudappstore/scaffolding/forms.py:68
 #: nextcloudappstore/scaffolding/forms.py:117
 msgid "Description"
 msgstr "Leírás"
 
-#: nextcloudappstore/core/models.py:87 nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:87 nextcloudappstore/core/models.py:531
 msgid "Will be rendered as Markdown"
 msgstr "Markdownként lesz megjelenítve"
 
@@ -190,12 +191,12 @@ msgid "Forum"
 msgstr "Fórum"
 
 #: nextcloudappstore/core/models.py:96 nextcloudappstore/core/models.py:358
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:525
 msgid "Created at"
 msgstr "Létrehozva:"
 
 #: nextcloudappstore/core/models.py:97 nextcloudappstore/core/models.py:359
-#: nextcloudappstore/core/models.py:465
+#: nextcloudappstore/core/models.py:526
 msgid "Updated at"
 msgstr "Frissítve:"
 
@@ -254,9 +255,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Ha be van kapcsolva, akkor egy másik felhasználó regisztrálhatja ugyanazt az"
-" alkalmazást a nyilvános tanúsítvánnyal és aláírással. Ha megteszi, akkor az"
-" alkalmazás átkerül hozzá."
+"Ha be van kapcsolva, akkor egy másik felhasználó regisztrálhatja ugyanazt az "
+"alkalmazást a nyilvános tanúsítvánnyal és aláírással. Ha megteszi, akkor az "
+"alkalmazás átkerül hozzá."
 
 #: nextcloudappstore/core/models.py:121
 msgid "Integration (i.e. Outlook plugin)"
@@ -267,7 +268,7 @@ msgid "Used to approve integrations"
 msgstr "Az integrációk jóváhagyására szolgál"
 
 #: nextcloudappstore/core/models.py:125 nextcloudappstore/core/models.py:269
-#: nextcloudappstore/core/models.py:340 nextcloudappstore/core/models.py:419
+#: nextcloudappstore/core/models.py:340 nextcloudappstore/core/models.py:480
 msgid "App"
 msgstr "Alkalmazás"
 
@@ -327,15 +328,15 @@ msgstr "Verzió"
 msgid "Version follows Semantic Versioning"
 msgstr "A verzió szemantikus verziózást követ"
 
-#: nextcloudappstore/core/models.py:343 nextcloudappstore/core/models.py:565
+#: nextcloudappstore/core/models.py:343 nextcloudappstore/core/models.py:626
 msgid "PHP extension dependency"
 msgstr "PHP kiterjesztés függőség"
 
-#: nextcloudappstore/core/models.py:346 nextcloudappstore/core/models.py:532
+#: nextcloudappstore/core/models.py:346 nextcloudappstore/core/models.py:593
 msgid "Database dependency"
 msgstr "Adatbázis függőség"
 
-#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:348 nextcloudappstore/core/models.py:556
 msgid "License"
 msgstr "Licenc"
 
@@ -389,160 +390,237 @@ msgstr "Változásnapló"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Kiadási változásnapló. Markdownt tartalmazhat"
 
-#: nextcloudappstore/core/models.py:370 nextcloudappstore/core/models.py:525
-#: nextcloudappstore/core/models.py:556
+#: nextcloudappstore/core/models.py:370
+msgid "AppAPI communication protocol"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:374
+msgid ""
+"If empty, then this is a release of a regular application; any other value "
+"indicates the application protocol for the AppAPI system"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:380
+msgid "AppAPI system app flag"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:382
+msgid ""
+"Whether the application is system-wide (i.e. can impersonate the user "
+"without him interacting with the application)"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:389 nextcloudappstore/core/models.py:439
+#: nextcloudappstore/core/models.py:460 nextcloudappstore/core/models.py:586
+#: nextcloudappstore/core/models.py:617
 msgid "App release"
 msgstr "Alkalmazáskiadás"
 
-#: nextcloudappstore/core/models.py:371
+#: nextcloudappstore/core/models.py:390
 msgid "App releases"
 msgstr "Alkalmazáskiadások"
 
-#: nextcloudappstore/core/models.py:417
+#: nextcloudappstore/core/models.py:443
+msgid "Deploy Identifier"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:446
+msgid "Installer specific data"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:447
+msgid "JSON data for AppAPI installer depending on installation type"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:451
+msgid "core_appapi_release_deploy_method"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:452
+#, fuzzy
+#| msgid "App release deletion"
+msgid "AppAPI release Deploy method"
+msgstr "Alkalmazás kiadás törlés"
+
+#: nextcloudappstore/core/models.py:453
+#, fuzzy
+#| msgid "App release deletions"
+msgid "AppAPI release Deploy methods"
+msgstr "Alkalmazás kiadás törlések"
+
+#: nextcloudappstore/core/models.py:465
+msgid "Is scope optional"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:466
+msgid "Is it possible for the application to work without this API group?"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:469
+msgid "Name of the API scope"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:472
+msgid "core_appapi_release_api_scopes"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:473
+#, fuzzy
+#| msgid "App release"
+msgid "AppAPI release API Scope"
+msgstr "Alkalmazáskiadás"
+
+#: nextcloudappstore/core/models.py:474
+#, fuzzy
+#| msgid "App releases"
+msgid "AppAPI release API Scopes"
+msgstr "Alkalmazáskiadások"
+
+#: nextcloudappstore/core/models.py:478
 msgid "Image URL"
 msgstr "Kép URL"
 
-#: nextcloudappstore/core/models.py:418
+#: nextcloudappstore/core/models.py:479
 msgid "Small thumbnail"
 msgstr "Kis bélyegkép"
 
-#: nextcloudappstore/core/models.py:420
+#: nextcloudappstore/core/models.py:481
 msgid "Ordering"
 msgstr "Rendezés"
 
-#: nextcloudappstore/core/models.py:423
+#: nextcloudappstore/core/models.py:484
 #: nextcloudappstore/core/templates/app/detail.html:50
 #: nextcloudappstore/core/templates/app/list.html:49
 #: nextcloudappstore/core/templates/app/list.html:51
 msgid "Screenshot"
 msgstr "Képernyőkép"
 
-#: nextcloudappstore/core/models.py:424
+#: nextcloudappstore/core/models.py:485
 msgid "Screenshots"
 msgstr "Képernyőképek"
 
-#: nextcloudappstore/core/models.py:443 nextcloudappstore/core/models.py:448
+#: nextcloudappstore/core/models.py:504 nextcloudappstore/core/models.py:509
 msgid "Shell command"
 msgstr "Rendszerhéj-parancsok"
 
-#: nextcloudappstore/core/models.py:444
+#: nextcloudappstore/core/models.py:505
 msgid "Name of a required shell command, e.g. grep"
 msgstr "A szükséges rendszerhéj-parancs neve, például grep"
 
-#: nextcloudappstore/core/models.py:449
+#: nextcloudappstore/core/models.py:510
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Rendszerhéj-parancsok"
 
-#: nextcloudappstore/core/models.py:461 nextcloudappstore/core/models.py:487
-#: nextcloudappstore/core/models.py:507
+#: nextcloudappstore/core/models.py:522 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:568
 msgid "Id"
 msgstr "Azonosító"
 
-#: nextcloudappstore/core/models.py:462
+#: nextcloudappstore/core/models.py:523
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr "Kategóriaazonosító az alkalmazás feltöltési kategóriájához"
 
-#: nextcloudappstore/core/models.py:468
+#: nextcloudappstore/core/models.py:529
 msgid "Category name which will be presented to the user"
 msgstr "Kategórianév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:475
+#: nextcloudappstore/core/models.py:536
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
 msgstr "Kategóriák"
 
-#: nextcloudappstore/core/models.py:488
+#: nextcloudappstore/core/models.py:549
 msgid "Key which is used to identify a license"
 msgstr "A licenc azonosításához használt kulcs"
 
-#: nextcloudappstore/core/models.py:491
+#: nextcloudappstore/core/models.py:552
 msgid "License name which will be presented to the user"
 msgstr "Licencnév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:557
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licencek"
 
-#: nextcloudappstore/core/models.py:508
+#: nextcloudappstore/core/models.py:569
 msgid "Key which is used to identify a database"
 msgstr "Az adatbázis azonosításához használt kulcs"
 
-#: nextcloudappstore/core/models.py:511
+#: nextcloudappstore/core/models.py:572
 msgid "Database name which will be presented to the user"
 msgstr "Adatbázisnév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:515 nextcloudappstore/core/models.py:527
+#: nextcloudappstore/core/models.py:576 nextcloudappstore/core/models.py:588
 msgid "Database"
 msgstr "Adatbázis"
 
-#: nextcloudappstore/core/models.py:516
+#: nextcloudappstore/core/models.py:577
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Adatbázisok"
 
-#: nextcloudappstore/core/models.py:528
+#: nextcloudappstore/core/models.py:589
 msgid "Database version requirement"
 msgstr "Adatbázis verzió követelmény"
 
-#: nextcloudappstore/core/models.py:529
+#: nextcloudappstore/core/models.py:590
 msgid "Database version requirement (raw)"
 msgstr "Adatbázis verzió követelmény (nyers)"
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:594
 msgid "Database dependencies"
 msgstr "Adatbázis függőségek"
 
-#: nextcloudappstore/core/models.py:542
+#: nextcloudappstore/core/models.py:603
 msgid "e.g. libxml"
 msgstr "pl. libxml"
 
-#: nextcloudappstore/core/models.py:542 nextcloudappstore/core/models.py:546
-#: nextcloudappstore/core/models.py:559
+#: nextcloudappstore/core/models.py:603 nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:620
 msgid "PHP extension"
 msgstr "PHP kiterjesztés"
 
-#: nextcloudappstore/core/models.py:547
+#: nextcloudappstore/core/models.py:608
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP kiterjesztések"
 
-#: nextcloudappstore/core/models.py:561
+#: nextcloudappstore/core/models.py:622
 msgid "Extension version requirement"
 msgstr "Kiterjesztés verzió követelmény"
 
-#: nextcloudappstore/core/models.py:562
+#: nextcloudappstore/core/models.py:623
 msgid "Extension version requirement (raw)"
 msgstr "Kiterjesztés verzió követelmény (nyers)"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:627
 msgid "PHP extension dependencies"
 msgstr "PHP kiterjesztés függőségek"
 
-#: nextcloudappstore/core/models.py:591
+#: nextcloudappstore/core/models.py:652
 msgid "App release deletion"
 msgstr "Alkalmazás kiadás törlés"
 
-#: nextcloudappstore/core/models.py:592
+#: nextcloudappstore/core/models.py:653
 msgid "App release deletions"
 msgstr "Alkalmazás kiadás törlések"
 
-#: nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:667
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud verzió"
 
-#: nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:667
 msgid "e.g. 9.0.54"
 msgstr "pl. 9.0.54"
 
-#: nextcloudappstore/core/models.py:609
+#: nextcloudappstore/core/models.py:670
 msgid "Is current version"
 msgstr "Aktuális verzió"
 
-#: nextcloudappstore/core/models.py:611
+#: nextcloudappstore/core/models.py:672
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -550,36 +628,35 @@ msgstr ""
 "Csak egy aktuális verzió létezhet. Ez a mező a legördülők előzetes "
 "beállítására szolgál, mint az alkalmazás-előállítás, stb."
 
-#: nextcloudappstore/core/models.py:619
+#: nextcloudappstore/core/models.py:680
 msgid "Has a release"
 msgstr "Kiadással rendelkezik"
 
-#: nextcloudappstore/core/models.py:621
+#: nextcloudappstore/core/models.py:682
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ha igaz, ez egy tényleges Nextcloud kiadás, amelyet le lehet tölteni "
-"csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető"
-" le."
+"csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető "
+"le."
 
-#: nextcloudappstore/core/models.py:631
+#: nextcloudappstore/core/models.py:692
 msgid "Version is supported"
 msgstr "Támogatott verzió"
 
-#: nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:693
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
-msgstr ""
-"Igaz, ha a verzió hivatalosan támogatott (kivétel az üzleti támogatás)"
+msgstr "Igaz, ha a verzió hivatalosan támogatott (kivétel az üzleti támogatás)"
 
-#: nextcloudappstore/core/models.py:637
+#: nextcloudappstore/core/models.py:698
 msgid "Nextcloud release"
 msgstr "Nextcloud kiadás"
 
-#: nextcloudappstore/core/models.py:638
+#: nextcloudappstore/core/models.py:699
 msgid "Nextcloud releases"
 msgstr "Nextcloud kiadások"
 
@@ -615,19 +692,23 @@ msgstr "Túl sok próbálkozás. Próbálja újra néhány perc múlva."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Üdvözöli a(z) %(site_name)s!\n"
 "\n"
-"Azért kapta ezt az e-mailt, mert %(user_display)s felhasználó ezt a címet hozzákötötte a fiókjához itt: %(site_domain)s.\n"
+"Azért kapta ezt az e-mailt, mert %(user_display)s felhasználó ezt a címet "
+"hozzákötötte a fiókjához itt: %(site_domain)s.\n"
 "\n"
 "A megerősítéshez látogasson el ide: %(activate_url)s\n"
 "\n"
-"Ha nincs itt fiókja itt: %(site_domain)s, hagyja figyelmen kívül ezt a levelet.\n"
+"Ha nincs itt fiókja itt: %(site_domain)s, hagyja figyelmen kívül ezt a "
+"levelet.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -659,11 +740,11 @@ msgstr "Megerősítés"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ez az e-mail-cím igazoló hivatkozás lejárt vagy érvénytelen. <a "
-"href=\"%(email_url)s\">Küldjön egy új e-mail-cím megerősítő kérést</a>."
+"Ez az e-mail-cím igazoló hivatkozás lejárt vagy érvénytelen. <a href="
+"\"%(email_url)s\">Küldjön egy új e-mail-cím megerősítő kérést</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:17
@@ -704,8 +785,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Elfelejtette a jelszavát? Adja meg az e-mail-címét, és küldünk egy e-mailt a"
-" visszaállítási információkkal."
+"Elfelejtette a jelszavát? Adja meg az e-mail-címét, és küldünk egy e-mailt a "
+"visszaállítási információkkal."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:22
 msgid "Reset My Password"
@@ -714,8 +795,8 @@ msgstr "Jelszó visszaállítása"
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó visszaállítással"
-" kapcsolatban"
+"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó visszaállítással "
+"kapcsolatban"
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -732,12 +813,12 @@ msgstr "Jelszó módosítása"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "A jelszó visszaállító hivatkozás hibás volt, lehetséges, hogy azért, mert "
-"már fel lett használva. Igényeljen újból egy <a "
-"href=\"%(passwd_reset_url)s\">jelszó visszaállítást</a>."
+"már fel lett használva. Igényeljen újból egy <a href=\"%(passwd_reset_url)s"
+"\">jelszó visszaállítást</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -852,13 +933,21 @@ msgstr "Értékelés"
 
 #: nextcloudappstore/core/templates/app/detail.html:174
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Do not use rating comments to report bugs or "
+"request features. Neither developers nor users will be notified of your "
+"comment.\n"
+"                            A rating without a comment still counts, but "
+"will not be listed below."
 msgstr ""
-"Az értékelő hozzászólások támogatják a <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdownt</a>.\n"
-"                            Ne használja az értékelő hozzászólásokat arra, hogy hibákat jelentsen vagy funkciókat kérjen. Sem a fejlesztők, sem a felhasználók nem értesülnek a hozzászólásáról.\n"
-"                            A hozzászólás nélküli értékelések is számítanak, csak nem lesznek megjelenítve alul."
+"Az értékelő hozzászólások támogatják a <a rel=\"noopener noreferrer\" href="
+"\"https://daringfireball.net/projects/markdown/syntax\">Markdownt</a>.\n"
+"                            Ne használja az értékelő hozzászólásokat arra, "
+"hogy hibákat jelentsen vagy funkciókat kérjen. Sem a fejlesztők, sem a "
+"felhasználók nem értesülnek a hozzászólásáról.\n"
+"                            A hozzászólás nélküli értékelések is számítanak, "
+"csak nem lesznek megjelenítve alul."
 
 #: nextcloudappstore/core/templates/app/detail.html:179
 msgid "Update rating"
@@ -947,23 +1036,23 @@ msgstr "Alkalmazás regisztrálása"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "A tanúsítványigénylés és az aláírás beszerzéséhez szükséges információkért "
-"nézze meg az <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">alkalmazásfejlesztői dokumentációt</a>."
+"nézze meg az <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">alkalmazásfejlesztői "
+"dokumentációt</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Ez az űrlap a meglévő tanúsítványok frissítésére is alkalmas, habár ezt csak"
-" az alkalmazástulajdonos teheti meg. A tanúsítvány frissítése törli a már "
+"Ez az űrlap a meglévő tanúsítványok frissítésére is alkalmas, habár ezt csak "
+"az alkalmazástulajdonos teheti meg. A tanúsítvány frissítése törli a már "
 "feltöltött kiadásokat."
 
 #: nextcloudappstore/core/templates/app/register.html:19
@@ -1026,13 +1115,13 @@ msgstr "Alkalmazáskiadás sikeresen feltöltve."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Az aláírás-ellenőrzés megvalósításáról többet a <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">fejlesztői dokumentációban</a> olvashat."
+"Az aláírás-ellenőrzés megvalósításáról többet a <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">fejlesztői dokumentációban</a> olvashat."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1138,10 +1227,12 @@ msgstr "Kijelentkezés"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "A(z) %(provider_name)s szolgáltató fiókját készül használni az ide történő\n"
-"            bejelentkezéshez: %(site_name)s. Befejező lépésként töltse ki az alábbi űrlapot:"
+"            bejelentkezéshez: %(site_name)s. Befejező lépésként töltse ki az "
+"alábbi űrlapot:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1318,8 +1409,7 @@ msgstr "Több elem kiválasztásához tartsa lenyomva a Ctrl-t"
 #: nextcloudappstore/scaffolding/forms.py:98
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
-"Az alkalmazása rövid leírása, amely egy rövid ismertetőként lesz "
-"megjelenítve"
+"Az alkalmazása rövid leírása, amely egy rövid ismertetőként lesz megjelenítve"
 
 #: nextcloudappstore/scaffolding/forms.py:69
 msgid "Full description of what your app does. Can contain Markdown."
@@ -1331,8 +1421,8 @@ msgid ""
 "you to check in with you about your plans or to ask for feedback on our "
 "developer program."
 msgstr ""
-"A személyes adataim gyűjtését választom. Ezután elérhetjük, hogy megosszuk a"
-" terveinket, és a visszajelzését kérjünk a fejlesztői programunkról."
+"A személyes adataim gyűjtését választom. Ezután elérhetjük, hogy megosszuk a "
+"terveinket, és a visszajelzését kérjünk a fejlesztői programunkról."
 
 #: nextcloudappstore/scaffolding/forms.py:82
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1391,8 +1481,8 @@ msgid ""
 "password!"
 msgstr ""
 "Jelszó szükséges ahhoz, hogy megakadályozza az illetéktelen felhasználók "
-"számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező"
-" nem frissíti a jelszavát!"
+"számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező "
+"nem frissíti a jelszavát!"
 
 #: nextcloudappstore/user/forms.py:63
 msgid "This email address is already associated with another account."
@@ -1430,15 +1520,21 @@ msgstr "API token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Az API token hitelesítésre használható a Nextcloud alkalmazástár\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>-jának hívásakor.\n"
-"                Tartsa titokban. Lent kérhet új tokent, a régit használhatatlanná téve.\n"
+"                Az API token hitelesítésre használható a Nextcloud "
+"alkalmazástár\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>-jának hívásakor.\n"
+"                Tartsa titokban. Lent kérhet új tokent, a régit "
+"használhatatlanná téve.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1526,11 +1622,11 @@ msgstr "A jelszó módosítása az API tokent is újra előállítja!"
 
 #: nextcloudappstore/user/templates/user/password.html:17
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Úgy tűnik, hogy egy harmadik félen keresztül regisztrált fiókot használ. Így"
-" a jelszava <strong>nem</strong> változtatható meg ezen a lapon."
+"Úgy tűnik, hogy egy harmadik félen keresztül regisztrált fiókot használ. Így "
+"a jelszava <strong>nem</strong> változtatható meg ezen a lapon."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
