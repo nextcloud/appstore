@@ -448,7 +448,7 @@ class AppApiReleaseDeployMethod(Model):
     )
 
     class Meta:
-        db_table = _("core_appapi_release_deploy_method")
+        db_table = "core_appapi_release_deploy_method"
         verbose_name = _("AppAPI release Deploy method")
         verbose_name_plural = _("AppAPI release Deploy methods")
 
@@ -469,7 +469,7 @@ class AppApiReleaseApiScope(Model):
     scope_name = CharField(max_length=32, verbose_name=_("Name of the API scope"))
 
     class Meta:
-        db_table = _("core_appapi_release_api_scopes")
+        db_table = "core_appapi_release_api_scopes"
         verbose_name = _("AppAPI release API Scope")
         verbose_name_plural = _("AppAPI release API Scopes")
 
