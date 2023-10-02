@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
-## [4.3.3]  - 2023-09-26
+## [4.4.0]  - 2023-10-03
+
+### Added
+
+- AppAPI applications upload & download support. #1145
 
 ### Changed
 
