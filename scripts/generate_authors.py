@@ -21,7 +21,11 @@ def append_git_author(line: str, result_list: list[dict]) -> None:
         for i in ignore:
             if name.lower().find(i) != -1:
                 return
-        result_list.append({"commits": result.group("commit_count"), "name": name, "email": result.group("email")})
+        present = next((item for item in result_list if item["name"] == name), None)
+        if present:
+            present["commits"] = str(int(present["commits"]) + int(result.group("commit_count")))
+        else:
+            result_list.append({"commits": result.group("commit_count"), "name": name, "email": result.group("email")})
     else:
         raise ValueError("Could not extract authors from line %s" % line)
 
