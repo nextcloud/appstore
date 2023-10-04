@@ -1,6 +1,7 @@
 import os
+from collections.abc import Callable, Iterable
 from itertools import chain
-from typing import Callable, Iterable, Set, TypeVar
+from typing import TypeVar
 
 """
 Contains small utility and shortcut functions
@@ -25,7 +26,7 @@ def read_file_contents(file_path: str) -> str:
     :param file_path: the path to the file
     :return: the read text
     """
-    with open(file_path, "r") as f:
+    with open(file_path) as f:
         result = f.read()
     return result
 
@@ -81,7 +82,7 @@ def distinct(iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:
     a custom distinctness criteria
     :return: a distinct iterator of elements from an iterable
     """
-    occurred_values: Set[U] = set()
+    occurred_values: set[U] = set()
     for element in iterable:
         value = criteria(element)
         if value not in occurred_values:

@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict
+from typing import Any
 from unittest.mock import MagicMock
 
 from django.test import TestCase
@@ -34,7 +34,7 @@ class GitHubTest(TestCase):
             "12.0.4",
             "12.0.5",
         ]
-        self.assertEquals(expected, sorted(list(releases)))
+        self.assertEqual(expected, sorted(list(releases)))
 
     def test_import_releases(self):
         client = MagicMock(spec=GitHubClient)
@@ -48,25 +48,25 @@ class GitHubTest(TestCase):
 
         sync_releases(releases)
 
-        self.assertEquals(16, NextcloudRelease.objects.count())
-        self.assertEquals(False, self.get_rel("10.0.0").is_supported)
-        self.assertEquals(True, self.get_rel("10.0.0").has_release)
-        self.assertEquals(False, self.get_rel("10.0.0").is_current)
-        self.assertEquals(False, self.get_rel("10.0.1").is_supported)
-        self.assertEquals(True, self.get_rel("10.0.1").has_release)
-        self.assertEquals(False, self.get_rel("10.0.1").is_current)
-        self.assertEquals(True, self.get_rel("11.0.0").is_supported)
-        self.assertEquals(True, self.get_rel("11.0.0").has_release)
-        self.assertEquals(False, self.get_rel("11.0.0").is_current)
-        self.assertEquals(True, self.get_rel("11.0.1").is_supported)
-        self.assertEquals(True, self.get_rel("11.0.1").has_release)
-        self.assertEquals(False, self.get_rel("11.0.1").is_current)
-        self.assertEquals(True, self.get_rel("12.0.4").is_supported)
-        self.assertEquals(True, self.get_rel("12.0.4").has_release)
-        self.assertEquals(False, self.get_rel("12.0.4").is_current)
-        self.assertEquals(True, self.get_rel("12.0.5").is_supported)
-        self.assertEquals(True, self.get_rel("12.0.5").has_release)
-        self.assertEquals(True, self.get_rel("12.0.5").is_current)
+        self.assertEqual(16, NextcloudRelease.objects.count())
+        self.assertEqual(False, self.get_rel("10.0.0").is_supported)
+        self.assertEqual(True, self.get_rel("10.0.0").has_release)
+        self.assertEqual(False, self.get_rel("10.0.0").is_current)
+        self.assertEqual(False, self.get_rel("10.0.1").is_supported)
+        self.assertEqual(True, self.get_rel("10.0.1").has_release)
+        self.assertEqual(False, self.get_rel("10.0.1").is_current)
+        self.assertEqual(True, self.get_rel("11.0.0").is_supported)
+        self.assertEqual(True, self.get_rel("11.0.0").has_release)
+        self.assertEqual(False, self.get_rel("11.0.0").is_current)
+        self.assertEqual(True, self.get_rel("11.0.1").is_supported)
+        self.assertEqual(True, self.get_rel("11.0.1").has_release)
+        self.assertEqual(False, self.get_rel("11.0.1").is_current)
+        self.assertEqual(True, self.get_rel("12.0.4").is_supported)
+        self.assertEqual(True, self.get_rel("12.0.4").has_release)
+        self.assertEqual(False, self.get_rel("12.0.4").is_current)
+        self.assertEqual(True, self.get_rel("12.0.5").is_supported)
+        self.assertEqual(True, self.get_rel("12.0.5").has_release)
+        self.assertEqual(True, self.get_rel("12.0.5").is_current)
 
     def get_rel(self, version: str) -> NextcloudRelease:
         return NextcloudRelease.objects.get(version=version)
@@ -78,7 +78,7 @@ class GitHubTest(TestCase):
             version=version, is_current=is_current, has_release=has_release, is_supported=is_supported
         )
 
-    def _get_tags(self, page: int, size: int = 100) -> Dict[Any, Any]:
+    def _get_tags(self, page: int, size: int = 100) -> dict[Any, Any]:
         return json.loads(self._read("tags_page_%d.json" % page))
 
     def _read(self, path: str) -> str:

@@ -1,7 +1,6 @@
 import datetime
 from functools import reduce
 from itertools import chain
-from typing import Tuple
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
@@ -139,7 +138,7 @@ class App(TranslatableModel):
         if self.discussion:
             return self.discussion
         else:
-            return "%s/c/apps/%s" % (settings.DISCOURSE_URL, self.id.replace("_", "-"))
+            return "{}/c/apps/{}".format(settings.DISCOURSE_URL, self.id.replace("_", "-"))
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
@@ -299,7 +298,7 @@ class AppRating(TranslatableModel):
         app.rating_num_overall = num
         app.save()
 
-    def _compute_app_rating(self, days: int = -1, threshold: int = 5) -> Tuple[float, int]:
+    def _compute_app_rating(self, days: int = -1, threshold: int = 5) -> tuple[float, int]:
         """
         Computes an app rating based on
         :param days: passing 30 will only consider ratings from the last
@@ -328,7 +327,7 @@ class AppAuthor(Model):
             mail = "<%s>" % self.mail
         else:
             mail = ""
-        return "%s %s" % (self.name, mail)
+        return f"{self.name} {mail}"
 
     class Meta:
         verbose_name = _("App author")
@@ -398,7 +397,7 @@ class AppRelease(TranslatableModel):
         return self.can_update(user)
 
     def __str__(self) -> str:
-        return "%s %s" % (self.app, self.version)
+        return f"{self.app} {self.version}"
 
     def is_compatible(self, platform_version, inclusive=False):
         """Checks if a release is compatible with a platform version
@@ -595,7 +594,7 @@ class DatabaseDependency(Model):
         unique_together = (("app_release", "database", "version_spec"),)
 
     def __str__(self) -> str:
-        return "%s: %s %s" % (self.app_release, self.database, self.version_spec)
+        return f"{self.app_release}: {self.database} {self.version_spec}"
 
 
 class PhpExtension(Model):
@@ -628,7 +627,7 @@ class PhpExtensionDependency(Model):
         unique_together = (("app_release", "php_extension", "version_spec"),)
 
     def __str__(self) -> str:
-        return "%s: %s %s" % (self.app_release.app, self.php_extension, self.version_spec)
+        return f"{self.app_release.app}: {self.php_extension} {self.version_spec}"
 
 
 @receiver(post_delete, sender=App)

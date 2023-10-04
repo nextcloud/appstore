@@ -1,5 +1,5 @@
+from collections.abc import Iterable
 from itertools import chain, takewhile
-from typing import Iterable, List
 
 import requests
 from semantic_version import Version
@@ -47,7 +47,7 @@ def sync_releases(versions: Iterable[str]) -> None:
         latest.save()
 
 
-NextcloudReleases = List[NextcloudRelease]
+NextcloudReleases = list[NextcloudRelease]
 
 
 def get_old_releases(current: NextcloudReleases, imported: NextcloudReleases) -> NextcloudReleases:

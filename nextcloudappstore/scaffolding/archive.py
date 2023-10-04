@@ -3,7 +3,6 @@ import tarfile
 from io import BytesIO
 from os import walk
 from os.path import isdir, join, relpath
-from typing import Dict
 
 from django.conf import settings
 from django.template import Context, Template
@@ -11,7 +10,7 @@ from django.template import Context, Template
 from nextcloudappstore.core.facades import resolve_file_relative_path
 
 
-def build_files(args: Dict[str, str]) -> Dict[str, str]:
+def build_files(args: dict[str, str]) -> dict[str, str]:
     platform = int(args["platform"])  # prevent path traversal
     vars = {
         "id": args["name"].lower(),
@@ -39,7 +38,7 @@ def build_files(args: Dict[str, str]) -> Dict[str, str]:
     for root, dirs, files in walk(base):
         for file in files:
             file_path = join(root, file)
-            rel_file_path = "%s/%s" % (vars["id"], relpath(file_path, base))
+            rel_file_path = "{}/{}".format(vars["id"], relpath(file_path, base))
             with open(file_path, encoding="utf-8") as f:
                 t = Template(f.read())
                 result[rel_file_path] = apply_github_actions_fixer(rel_file_path, t.render(context))
@@ -55,7 +54,7 @@ def apply_github_actions_fixer(file_path: str, file_content: str) -> str:
     return fixed_content
 
 
-def build_archive(parameters: Dict[str, str]) -> BytesIO:
+def build_archive(parameters: dict[str, str]) -> BytesIO:
     buffer = BytesIO()
     with tarfile.open(fileobj=buffer, mode="w:gz") as f:
         files = build_files(parameters)

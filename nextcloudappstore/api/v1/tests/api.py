@@ -13,7 +13,7 @@ class ApiTest(TestCase):
         self.api_client = APIClient()
 
     def _login(self, user="test", password="test"):
-        credentials = "%s:%s" % (user, password)
+        credentials = f"{user}:{password}"
         base64_credentials = base64.b64encode(credentials.encode(HTTP_HEADER_ENCODING)).decode(HTTP_HEADER_ENCODING)
         auth = "Basic %s" % base64_credentials
         self.api_client.credentials(HTTP_AUTHORIZATION=auth)

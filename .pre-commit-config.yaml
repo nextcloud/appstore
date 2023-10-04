@@ -55,6 +55,11 @@ repos:
     hooks:
     -   id: pyproject-fmt
 
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.0.292
+    hooks:
+    -   id: ruff
+
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.5.1
     hooks:

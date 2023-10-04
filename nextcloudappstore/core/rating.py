@@ -1,9 +1,7 @@
-from typing import List, Tuple
-
-Rating = Tuple[float, int]
+Rating = tuple[float, int]
 
 
-def compute_rating(ratings: List[float], threshold: int = 5) -> Rating:
+def compute_rating(ratings: list[float], threshold: int = 5) -> Rating:
     """
     Turns a list of ratings into a score, 0 being the lowest and 1 being the
     highest. The idea is that everyone can use his own custom scale, e.g.

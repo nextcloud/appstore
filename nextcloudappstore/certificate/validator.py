@@ -1,6 +1,5 @@
 import logging
 from base64 import b64decode
-from typing import Optional
 
 import pem
 from django.conf import settings  # type: ignore
@@ -60,9 +59,9 @@ class CertificateValidator:
         try:
             verify(cert, b64decode(signature.encode()), data, self.config.digest)
         except Exception as e:
-            raise InvalidSignatureException("%s: %s" % (err_msg, str(e)))
+            raise InvalidSignatureException(f"{err_msg}: {str(e)}")
 
-    def validate_certificate(self, certificate: str, chain: str, crl: Optional[str] = None) -> None:
+    def validate_certificate(self, certificate: str, chain: str, crl: str | None = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired.
@@ -91,7 +90,7 @@ class CertificateValidator:
         try:
             ctx.verify_certificate()
         except Exception as e:
-            raise InvalidCertificateException("%s: %s" % (err_msg, str(e)))
+            raise InvalidCertificateException(f"{err_msg}: {str(e)}")
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -114,12 +113,12 @@ class CertificateValidator:
         """
         cn = self.get_cn(certificate)
         if cn != app_id:
-            msg = "App id %s does not match cert CN %s" % (app_id, cn)
+            msg = f"App id {app_id} does not match cert CN {cn}"
             raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:
         try:
             return load_certificate(FILETYPE_PEM, certificate.encode())
         except Exception as e:
-            msg = "%s: %s" % ("Invalid certificate", str(e))
+            msg = "{}: {}".format("Invalid certificate", str(e))
             raise InvalidCertificateException(msg)

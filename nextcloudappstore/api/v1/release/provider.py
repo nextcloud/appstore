@@ -1,4 +1,4 @@
-from typing import Any, Dict, Tuple
+from typing import Any
 
 from rest_framework.exceptions import ValidationError
 
@@ -16,7 +16,7 @@ class InvalidAppDirectoryException(ValidationError):
     pass
 
 
-Release = Tuple[Dict[Any, Any], bytes]
+Release = tuple[dict[Any, Any], bytes]
 
 
 class AppReleaseProvider:
@@ -44,7 +44,7 @@ class AppReleaseProvider:
                 validate_database(meta.database_xml, self.config.db_schema, self.config.pre_db_xslt)
             info_app_id = info["app"]["id"]
             if meta.app_id != info_app_id:
-                msg = "Archive app folder is %s but info.xml reports id %s" % (meta.app_id, info_app_id)
+                msg = f"Archive app folder is {meta.app_id} but info.xml reports id {info_app_id}"
                 raise InvalidAppDirectoryException(msg)
 
             release = info["app"]["release"]

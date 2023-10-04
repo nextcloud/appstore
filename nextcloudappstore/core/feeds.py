@@ -30,31 +30,31 @@ class AppReleaseRssFeed(Feed):
         return queryset[:10]
 
     def item_title(self, item):
-        return "%s (%s)" % (item.app.name, item.version)
+        return f"{item.app.name} ({item.version})"
 
     def item_description(self, item):
         try:
             if item.changelog:
-                changelog = "\n\n# %s\n\n%s" % (_("Changes"), item.changelog)
+                changelog = "\n\n# {}\n\n{}".format(_("Changes"), item.changelog)
             else:
                 changelog = ""
-            content = "%s%s" % (item.app.description, changelog)
+            content = f"{item.app.description}{changelog}"
         except TranslationDoesNotExist:
             content = item.app.description
-        content += "\n\n [%s](%s)" % (_("Download"), item.download)
+        content += "\n\n [{}]({})".format(_("Download"), item.download)
         return clean(
             markdown(content), attributes=settings.MARKDOWN_ALLOWED_ATTRIBUTES, tags=settings.MARKDOWN_ALLOWED_TAGS
         )
 
     def item_guid(self, obj):
         nightly = "-nightly" if obj.is_nightly else ""
-        return "%s-%s%s" % (obj.app.id, obj.version, nightly)
+        return f"{obj.app.id}-{obj.version}{nightly}"
 
     def item_link(self, item):
         return reverse("app-detail", kwargs={"id": item.app.id})
 
     def item_author_name(self, item):
-        return "%s %s" % (item.app.owner.first_name, item.app.owner.last_name)
+        return f"{item.app.owner.first_name} {item.app.owner.last_name}"
 
     def item_pubdate(self, item):
         return item.last_modified

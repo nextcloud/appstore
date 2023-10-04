@@ -1,6 +1,6 @@
 import json
 from io import StringIO
-from typing import Any, Dict
+from typing import Any
 from unittest.mock import patch
 
 from django.core.management import call_command
@@ -18,9 +18,9 @@ class SyncNextcloudReleasesTest(TestCase):
         call_command("syncnextcloudreleases", "--oldest-supported=11.0.0", stdout=StringIO())
 
         latest = NextcloudRelease.objects.get(version="12.0.5")
-        self.assertEquals(True, latest.is_current)
-        self.assertEquals(True, latest.has_release)
-        self.assertEquals(True, latest.is_supported)
+        self.assertEqual(True, latest.is_current)
+        self.assertEqual(True, latest.has_release)
+        self.assertEqual(True, latest.is_supported)
 
     @patch.object(GitHubClient, "get_tags")
     def test_sync_print(self, get_tags):
@@ -48,12 +48,12 @@ class SyncNextcloudReleasesTest(TestCase):
             )
             + "\n"
         )
-        self.assertEquals(0, NextcloudRelease.objects.count())
+        self.assertEqual(0, NextcloudRelease.objects.count())
 
         io.seek(0)
-        self.assertEquals(expected, io.read())
+        self.assertEqual(expected, io.read())
 
-    def _get_tags(self, page: int, size: int = 100) -> Dict[Any, Any]:
+    def _get_tags(self, page: int, size: int = 100) -> dict[Any, Any]:
         return json.loads(self._read("tags_page_%d.json" % page))
 
     def _read(self, path: str) -> str:

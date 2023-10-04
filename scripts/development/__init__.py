@@ -1,5 +1,4 @@
 import sys
-from typing import Tuple
 
 from requests import post
 
@@ -15,12 +14,12 @@ def handle_response(response) -> None:
         print(response.text, file=sys.stderr)
 
 
-def import_app(certificate: str, signature: str, auth=Tuple[str, str]) -> None:
+def import_app(certificate: str, signature: str, auth=tuple[str, str]) -> None:
     response = post(REGISTER_URL, auth=auth, json={"signature": signature, "certificate": certificate})
     handle_response(response)
 
 
-def import_release(url: str, signature: str, nightly: bool, auth=Tuple[str, str]) -> None:
+def import_release(url: str, signature: str, nightly: bool, auth=tuple[str, str]) -> None:
     print("Downloading app from %s" % url)
     response = post(RELEASE_URL, auth=auth, json={"download": url, "signature": signature, "nightly": nightly})
     handle_response(response)

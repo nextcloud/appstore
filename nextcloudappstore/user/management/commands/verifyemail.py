@@ -14,5 +14,5 @@ class Command(BaseCommand):
         username = options["username"]
         email = options["email"]
         verify_email(username, email)
-        msg = "Successfully verified email %s for user %s" % (email, username)
+        msg = f"Successfully verified email {email} for user {username}"
         self.stdout.write(self.style.SUCCESS(msg))

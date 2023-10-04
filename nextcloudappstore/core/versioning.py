@@ -1,7 +1,7 @@
 from datetime import datetime
 from functools import reduce
 from sys import maxsize
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from semantic_version import Spec, Version
 
@@ -16,7 +16,7 @@ class AppSemVer:
     time
     """
 
-    def __init__(self, version: str, is_nightly: bool = False, released_at: Optional[datetime] = None) -> None:
+    def __init__(self, version: str, is_nightly: bool = False, released_at: datetime | None = None) -> None:
         self.released_at = released_at
         self.is_nightly = is_nightly
         self.version = Version(version)
@@ -107,7 +107,7 @@ def to_raw_spec(min_version: str, max_version: str) -> str:
     elif min_version == "*":
         return "<=%s" % max_version
     else:
-        return ">=%s,<=%s" % (min_version, max_version)
+        return f">={min_version},<={max_version}"
 
 
 def to_spec(min_version: str, max_version: str) -> str:
@@ -125,10 +125,10 @@ def to_spec(min_version: str, max_version: str) -> str:
     elif min_version == "*":
         return "<%s" % max_version
     else:
-        return ">=%s,<%s" % (min_version, max_version)
+        return f">={min_version},<{max_version}"
 
 
-GroupedVersions = Dict[str, List[Any]]
+GroupedVersions = dict[str, list[Any]]
 
 
 def group_by_main_version(versions: GroupedVersions) -> GroupedVersions:

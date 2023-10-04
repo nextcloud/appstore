@@ -9,5 +9,5 @@ class Command(BaseCommand):
         user = get_user_model().objects.get(username="admin")
         user.set_password("admin")
         user.save()
-        msg = "Successfully set password %s for user %s" % ("admin", "admin")
+        msg = "Successfully set password {} for user {}".format("admin", "admin")
         self.stdout.write(self.style.SUCCESS(msg))

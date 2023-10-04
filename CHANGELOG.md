@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Dropped Python 3.9 support.
+
 ## [4.4.0]  - 2023-10-03
 
 ### Added
