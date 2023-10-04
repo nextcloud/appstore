@@ -1,5 +1,5 @@
+from collections.abc import Iterable
 from itertools import chain, takewhile
-from typing import Iterable
 
 import requests
 from semantic_version import Version

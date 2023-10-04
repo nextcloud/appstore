@@ -72,10 +72,9 @@ profile = "black"
 [tool.ruff]
 line-length = 120
 target-version = "py310"
-select = ["E", "F", "UP006", "UP007", "UP031", "UP032"]
-#select = ["E", "F", "UP"]
+select = ["E", "F", "UP"]
 
 [tool.ruff.extend-per-file-ignores]
 "**/tests/**/__init__.py" = ["F403"]
-"nextcloudappstore/core/migrations/**/*.py" = ["E501", "F401", "UP010"]
+"nextcloudappstore/core/migrations/**/*.py" = ["E501", "F401"]
 "scripts/development/settings/**/*.py" = ["F403", "F405", "F821"]

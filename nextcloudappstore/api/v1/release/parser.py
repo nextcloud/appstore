@@ -2,7 +2,8 @@ import re
 import tarfile  # type: ignore
 from functools import reduce
 from pathlib import Path
-from typing import Any, Pattern
+from re import Pattern
+from typing import Any
 
 import lxml.etree  # type: ignore
 from rest_framework.exceptions import ValidationError  # type: ignore

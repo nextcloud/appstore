@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import re
 import subprocess
+from collections.abc import Iterator
 from os import pardir
 from os.path import dirname, join, realpath
-from typing import Iterator
 
 
 def get_git_authors() -> list[str]:

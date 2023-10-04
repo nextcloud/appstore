@@ -58,7 +58,7 @@ class ValidatorTest(TestCase):
     def test_app_id_signature(self) -> None:
         cert = self._read_cert("news-old.crt")
         sign = self._read_cert("news-old-app-id.sig")
-        self.validator.validate_signature(cert, sign, "news".encode())
+        self.validator.validate_signature(cert, sign, b"news")
 
     def test_bad_signature(self) -> None:
         cert = self._read_cert("news-old.crt")
