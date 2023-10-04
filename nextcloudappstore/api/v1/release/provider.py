@@ -44,7 +44,7 @@ class AppReleaseProvider:
                 validate_database(meta.database_xml, self.config.db_schema, self.config.pre_db_xslt)
             info_app_id = info["app"]["id"]
             if meta.app_id != info_app_id:
-                msg = "Archive app folder is %s but info.xml reports id %s" % (meta.app_id, info_app_id)
+                msg = "Archive app folder is {} but info.xml reports id {}".format(meta.app_id, info_app_id)
                 raise InvalidAppDirectoryException(msg)
 
             release = info["app"]["release"]

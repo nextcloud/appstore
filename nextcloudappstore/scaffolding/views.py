@@ -23,7 +23,7 @@ class AppScaffoldingView(FormView):
         init = {"platform": NextcloudRelease.get_current_main(), "categories": ("tools",)}
         if self.request.user.is_authenticated:
             user = self.request.user
-            init["author_name"] = "%s %s" % (user.first_name, user.last_name)
+            init["author_name"] = "{} {}".format(user.first_name, user.last_name)
             init["author_email"] = user.email
         return init
 

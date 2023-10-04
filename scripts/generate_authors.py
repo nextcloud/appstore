@@ -33,14 +33,14 @@ def append_git_author(line: str, result_list: list[dict]) -> None:
 def to_markdown(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
     result = ["# Authors", ""]
     for author in authors:
-        result += ["* [%s](mailto:%s)" % (author["name"], author["email"])]
+        result += ["* [{}](mailto:{})".format(author["name"], author["email"])]
     return "\n".join(result) + "\n", "md"
 
 
 def to_rst(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
     result = ["Authors", "=======", ""]
     for author in authors:
-        result += ["* `%s <mailto:%s>`_" % (author["name"], author["email"])]
+        result += ["* `{} <mailto:{}>`_".format(author["name"], author["email"])]
     return "\n".join(result) + "\n", "rst"
 
 

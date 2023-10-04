@@ -24,5 +24,5 @@ class Command(BaseCommand):
         password = options["password"]
         email = options["email"]
         user = create_user(username, password, email)
-        msg = "Created user %s with password %s and email %s" % (user, password, email)
+        msg = "Created user {} with password {} and email {}".format(user, password, email)
         self.stdout.write(self.style.SUCCESS(msg))

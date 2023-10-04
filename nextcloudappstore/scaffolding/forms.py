@@ -119,7 +119,7 @@ class IntegrationScaffoldingForm(Form):
     )
 
     def _create_discourse_category(self, app_id: str) -> None:
-        url = "%s/categories?api_key=%s&api_username=%s" % (
+        url = "{}/categories?api_key={}&api_username={}".format(
             settings.DISCOURSE_URL.rstrip("/"),
             settings.DISCOURSE_TOKEN,
             settings.DISCOURSE_USER,

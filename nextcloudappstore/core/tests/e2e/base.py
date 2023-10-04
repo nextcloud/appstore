@@ -46,7 +46,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
 
     def go_to(self, url_name: str, kwargs: dict[str, str] = None) -> None:
         app_url = reverse(url_name, kwargs=kwargs)
-        self.selenium.get("%s%s" % (self.live_server_url, app_url))
+        self.selenium.get("{}{}".format(self.live_server_url, app_url))
 
     def go_to_app(self, app_id):
         self.go_to("app-detail", {"id": app_id})
@@ -58,7 +58,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
         self.go_to("app-upload")
 
     def go_to_login(self):
-        self.selenium.get("%s%s" % (self.live_server_url, "/login/"))
+        self.selenium.get(f"{self.live_server_url}/login/")
 
     def login(self, user: str = TEST_USER, password: str = TEST_PASSWORD):
         self.go_to_login()

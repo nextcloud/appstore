@@ -107,7 +107,7 @@ def to_raw_spec(min_version: str, max_version: str) -> str:
     elif min_version == "*":
         return "<=%s" % max_version
     else:
-        return ">=%s,<=%s" % (min_version, max_version)
+        return ">={},<={}".format(min_version, max_version)
 
 
 def to_spec(min_version: str, max_version: str) -> str:
@@ -125,7 +125,7 @@ def to_spec(min_version: str, max_version: str) -> str:
     elif min_version == "*":
         return "<%s" % max_version
     else:
-        return ">=%s,<%s" % (min_version, max_version)
+        return ">={},<{}".format(min_version, max_version)
 
 
 GroupedVersions = dict[str, list[Any]]

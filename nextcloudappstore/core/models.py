@@ -138,7 +138,7 @@ class App(TranslatableModel):
         if self.discussion:
             return self.discussion
         else:
-            return "%s/c/apps/%s" % (settings.DISCOURSE_URL, self.id.replace("_", "-"))
+            return "{}/c/apps/{}".format(settings.DISCOURSE_URL, self.id.replace("_", "-"))
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
@@ -327,7 +327,7 @@ class AppAuthor(Model):
             mail = "<%s>" % self.mail
         else:
             mail = ""
-        return "%s %s" % (self.name, mail)
+        return "{} {}".format(self.name, mail)
 
     class Meta:
         verbose_name = _("App author")
@@ -397,7 +397,7 @@ class AppRelease(TranslatableModel):
         return self.can_update(user)
 
     def __str__(self) -> str:
-        return "%s %s" % (self.app, self.version)
+        return "{} {}".format(self.app, self.version)
 
     def is_compatible(self, platform_version, inclusive=False):
         """Checks if a release is compatible with a platform version
@@ -594,7 +594,7 @@ class DatabaseDependency(Model):
         unique_together = (("app_release", "database", "version_spec"),)
 
     def __str__(self) -> str:
-        return "%s: %s %s" % (self.app_release, self.database, self.version_spec)
+        return "{}: {} {}".format(self.app_release, self.database, self.version_spec)
 
 
 class PhpExtension(Model):
@@ -627,7 +627,7 @@ class PhpExtensionDependency(Model):
         unique_together = (("app_release", "php_extension", "version_spec"),)
 
     def __str__(self) -> str:
-        return "%s: %s %s" % (self.app_release.app, self.php_extension, self.version_spec)
+        return "{}: {} {}".format(self.app_release.app, self.php_extension, self.version_spec)
 
 
 @receiver(post_delete, sender=App)

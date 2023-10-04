@@ -38,7 +38,7 @@ def build_files(args: dict[str, str]) -> dict[str, str]:
     for root, dirs, files in walk(base):
         for file in files:
             file_path = join(root, file)
-            rel_file_path = "%s/%s" % (vars["id"], relpath(file_path, base))
+            rel_file_path = "{}/{}".format(vars["id"], relpath(file_path, base))
             with open(file_path, encoding="utf-8") as f:
                 t = Template(f.read())
                 result[rel_file_path] = apply_github_actions_fixer(rel_file_path, t.render(context))

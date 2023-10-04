@@ -17,5 +17,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         username = options["username"]
         token = update_token(username, options.get("token", None))
-        msg = "Successfully set token %s for user %s" % (token.key, username)
+        msg = "Successfully set token {} for user {}".format(token.key, username)
         self.stdout.write(self.style.SUCCESS(msg))

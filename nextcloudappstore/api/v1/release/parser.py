@@ -98,7 +98,7 @@ class GunZipAppMetadataExtractor:
         }  # type: dict[str, str]
 
         for code, _ in self.config.languages:
-            trans_changelog = get_contents("%s/CHANGELOG.%s.md" % (app_id, code), tar, self.config.max_file_size, "")
+            trans_changelog = get_contents(f"{app_id}/CHANGELOG.{code}.md", tar, self.config.max_file_size, "")
             if trans_changelog:
                 changelog[code] = trans_changelog
 
@@ -169,7 +169,7 @@ def test_blacklisted_members(tar, blacklist):
         for error, regex in blacklist.items():
             regex = re.compile(regex)
             if regex.search(name):
-                msg = 'Blacklist rule "%s": Directory %s is not allowed to be present in the app archive' % (
+                msg = 'Blacklist rule "{}": Directory {} is not allowed to be present in the app archive'.format(
                     error,
                     name,
                 )
@@ -392,7 +392,7 @@ def find_member(tar: Any, path: str) -> Any:
         constructed from the last element and the current element
         """
         if prev:
-            return prev + ["%s/%s" % (prev[-1], curr)]
+            return prev + ["{}/{}".format(prev[-1], curr)]
         else:
             return [curr]
 
