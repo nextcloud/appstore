@@ -15,6 +15,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         language_codes = [language[0] for language in settings.LANGUAGES if language[0] != self.source_lang]
         for language_code in language_codes:
+            print(f"processing {language_code}")
             for model, fields in self.translated_fields:
                 if issubclass(model, TranslatableModel):
                     self._import_translations(model, fields, language_code)
