@@ -1,4 +1,4 @@
-from typing import Any, Dict, Tuple
+from typing import Any
 
 from rest_framework.exceptions import ValidationError
 
@@ -16,7 +16,7 @@ class InvalidAppDirectoryException(ValidationError):
     pass
 
 
-Release = Tuple[Dict[Any, Any], bytes]
+Release = tuple[dict[Any, Any], bytes]
 
 
 class AppReleaseProvider:

@@ -2,7 +2,7 @@ import re
 import tarfile  # type: ignore
 from functools import reduce
 from pathlib import Path
-from typing import Any, Dict, List, Pattern, Set
+from typing import Any, Pattern
 
 import lxml.etree  # type: ignore
 from rest_framework.exceptions import ValidationError  # type: ignore
@@ -45,7 +45,7 @@ class BlacklistedMemberException(ValidationError):
 
 
 class AppMetaData:
-    def __init__(self, info_xml: str, database_xml: str, app_id: str, changelog: Dict[str, str]) -> None:
+    def __init__(self, info_xml: str, database_xml: str, app_id: str, changelog: dict[str, str]) -> None:
         self.changelog = changelog
         self.app_id = app_id
         self.database_xml = database_xml
@@ -95,7 +95,7 @@ class GunZipAppMetadataExtractor:
         database = get_contents("%s/appinfo/database.xml" % app_id, tar, self.config.max_file_size, "")
         changelog = {
             "en": get_contents("%s/CHANGELOG.md" % app_id, tar, self.config.max_file_size, "")
-        }  # type: Dict[str, str]
+        }  # type: dict[str, str]
 
         for code, _ in self.config.languages:
             trans_changelog = get_contents("%s/CHANGELOG.%s.md" % (app_id, code), tar, self.config.max_file_size, "")
@@ -147,7 +147,7 @@ def find_app_id(tar: Any, app_folder_regex: Pattern) -> str:
     return folders.pop()
 
 
-def find_app_folders(tar: Any, app_folder_regex: Pattern) -> Set[str]:
+def find_app_folders(tar: Any, app_folder_regex: Pattern) -> set[str]:
     return {folder.split("/")[0] for folder in tar.getnames() if re.match(app_folder_regex, folder)}
 
 
@@ -176,7 +176,7 @@ def test_blacklisted_members(tar, blacklist):
                 raise BlacklistedMemberException(msg)
 
 
-def element_to_dict(element: Any) -> Dict:
+def element_to_dict(element: Any) -> dict:
     type = element.get("type")
     key = element.tag.replace("-", "_")
     if type == "int" and element.text is not None:
@@ -207,7 +207,7 @@ def create_safe_xml_parser() -> lxml.etree.XMLParser:
     )  # type: ignore
 
 
-def parse_app_metadata(xml: str, schema: str, pre_xslt: str, xslt: str) -> Dict:
+def parse_app_metadata(xml: str, schema: str, pre_xslt: str, xslt: str) -> dict:
     """
     Parses, validates and maps the xml onto a dict
     :argument xml the info.xml string to parse
@@ -271,7 +271,7 @@ def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
         raise InvalidAppMetadataXmlException(msg)
 
 
-def validate_english_present(info: Dict) -> None:
+def validate_english_present(info: dict) -> None:
     """
     Validates that name, summary and description are present in english
     :param info: the parsed xml
@@ -286,7 +286,7 @@ def validate_english_present(info: Dict) -> None:
             raise InvalidAppMetadataXmlException(msg)
 
 
-def fix_partial_translations(info: Dict) -> None:
+def fix_partial_translations(info: dict) -> None:
     """
     Collects translations and adds english fallbacks
     :param info: the parsed info.xml
@@ -295,7 +295,7 @@ def fix_partial_translations(info: Dict) -> None:
     app = info["app"]
     trans_fields = ["name", "summary", "description"]
     fields = [field for field in trans_fields if field in app]
-    codes = set()  # type: Set[str]
+    codes = set()  # type: set[str]
     for field in fields:
         codes |= set(app[field].keys())
     for field in fields:
@@ -318,9 +318,9 @@ def parse_changelog(changelog: str, version: str, is_nightly: bool = False) -> s
     changelog = changelog.strip()
     regex = re.compile(r"^## (?:\[)?(?:v)?(\d+\.\d+(\.\d+)?)")
     unstable_regex = re.compile(r"^## \[Unreleased\]")
-    result = {}  # type: Dict[str, List[str]]
+    result = {}  # type: dict[str, list[str]]
     curr_version = ""
-    empty_list = []  # type: List[str]
+    empty_list = []  # type: list[str]
     for line in changelog.splitlines():
         search = re.search(regex, line)
         unstable_search = re.match(unstable_regex, line)
@@ -382,7 +382,7 @@ def find_member(tar: Any, path: str) -> Any:
     :return: the member if found, otherwise None
     """
 
-    def build_paths(prev: List[str], curr: str) -> List[str]:
+    def build_paths(prev: list[str], curr: str) -> list[str]:
         """Builds a List of paths to the target from a list of path
         fragments, e.g.: ['a', 'a/path'], 'tofile' is being turned into
         ['a', 'a/path', 'a/path/tofile']
@@ -403,7 +403,7 @@ def find_member(tar: Any, path: str) -> Any:
         except KeyError:
             return None
 
-    default = []  # type: List[str]
+    default = []  # type: list[str]
     member_paths = reduce(build_paths, path.split("/"), default)
     checked_members = [check_member(m) for m in member_paths]
 

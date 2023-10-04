@@ -1,5 +1,5 @@
 import datetime
-from typing import Any, List, Tuple, Union
+from typing import Any, Union
 
 from django.db.models import Max, QuerySet
 from semantic_version import Version
@@ -13,7 +13,7 @@ from nextcloudappstore.core.models import (
 )
 
 
-def create_etag(pairs: List[Tuple[QuerySet, str]]) -> str:
+def create_etag(pairs: list[tuple[QuerySet, str]]) -> str:
     """
     Turn a list of queryset and timestamp pairs into an etag. The latest
     timestamp will be chosen as the etag
@@ -25,7 +25,7 @@ def create_etag(pairs: List[Tuple[QuerySet, str]]) -> str:
     return str(max(result, default=""))
 
 
-def get_last_modified(pairs: List[Tuple[QuerySet, str]]) -> Union[datetime.datetime, None]:
+def get_last_modified(pairs: list[tuple[QuerySet, str]]) -> Union[datetime.datetime, None]:
     result = map(lambda p: p[0].aggregate(m=Max(p[1]))["m"], pairs)
     result = filter(lambda r: r is not None, result)
     return max(result, default=None)

@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict
+from typing import Any
 from unittest.mock import MagicMock
 
 from django.test import TestCase
@@ -78,7 +78,7 @@ class GitHubTest(TestCase):
             version=version, is_current=is_current, has_release=has_release, is_supported=is_supported
         )
 
-    def _get_tags(self, page: int, size: int = 100) -> Dict[Any, Any]:
+    def _get_tags(self, page: int, size: int = 100) -> dict[Any, Any]:
         return json.loads(self._read("tags_page_%d.json" % page))
 
     def _read(self, path: str) -> str:

@@ -1,7 +1,7 @@
 from datetime import datetime
 from functools import reduce
 from sys import maxsize
-from typing import Any, Dict, List, Optional
+from typing import Any, Optional
 
 from semantic_version import Spec, Version
 
@@ -128,7 +128,7 @@ def to_spec(min_version: str, max_version: str) -> str:
         return ">=%s,<%s" % (min_version, max_version)
 
 
-GroupedVersions = Dict[str, List[Any]]
+GroupedVersions = dict[str, list[Any]]
 
 
 def group_by_main_version(versions: GroupedVersions) -> GroupedVersions:

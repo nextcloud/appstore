@@ -1,6 +1,6 @@
 import os
 from itertools import chain
-from typing import Callable, Iterable, Set, TypeVar
+from typing import Callable, Iterable, TypeVar
 
 """
 Contains small utility and shortcut functions
@@ -81,7 +81,7 @@ def distinct(iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:
     a custom distinctness criteria
     :return: a distinct iterator of elements from an iterable
     """
-    occurred_values: Set[U] = set()
+    occurred_values: set[U] = set()
     for element in iterable:
         value = criteria(element)
         if value not in occurred_values:

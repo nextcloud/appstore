@@ -63,8 +63,18 @@ show_error_codes = true
 
 [tool.black]
 line-length = 120
-target-versions = ["py39"]
+target-versions = ["py310"]
 preview = true
 
 [tool.isort]
 profile = "black"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+select = ["E", "F", "UP006"]
+
+[tool.ruff.extend-per-file-ignores]
+"**/tests/**/__init__.py" = ["F403"]
+"nextcloudappstore/core/migrations/**/*.py" = ["E501", "F401", "UP010"]
+"scripts/development/settings/**/*.py" = ["F403", "F405", "F821"]

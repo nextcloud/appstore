@@ -3,10 +3,10 @@ import re
 import subprocess
 from os import pardir
 from os.path import dirname, join, realpath
-from typing import Dict, Iterator, List, Tuple
+from typing import Iterator
 
 
-def get_git_authors() -> List[str]:
+def get_git_authors() -> list[str]:
     command = ["git", "--no-pager", "shortlog", "-nse", "HEAD"]
     authors = subprocess.check_output(command)
     return authors.decode("utf-8").split("\n")
@@ -30,14 +30,14 @@ def append_git_author(line: str, result_list: list[dict]) -> None:
         raise ValueError("Could not extract authors from line %s" % line)
 
 
-def to_markdown(authors: Iterator[Dict[str, str]]) -> Tuple[str, str]:
+def to_markdown(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
     result = ["# Authors", ""]
     for author in authors:
         result += ["* [%s](mailto:%s)" % (author["name"], author["email"])]
     return "\n".join(result) + "\n", "md"
 
 
-def to_rst(authors: Iterator[Dict[str, str]]) -> Tuple[str, str]:
+def to_rst(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
     result = ["Authors", "=======", ""]
     for author in authors:
         result += ["* `%s <mailto:%s>`_" % (author["name"], author["email"])]

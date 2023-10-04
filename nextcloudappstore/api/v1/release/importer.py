@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict, Set, Tuple  # type: ignore
+from typing import Any  # type: ignore
 
 from django.conf import settings  # type: ignore
 from django.utils import timezone
@@ -32,7 +32,7 @@ def none_to_empty_string(value: str) -> str:
 
 
 class Importer:
-    def __init__(self, importers: Dict[str, "Importer"], ignored_fields: Set[str]) -> None:
+    def __init__(self, importers: dict[str, "Importer"], ignored_fields: set[str]) -> None:
         self.importers = importers
         self.ignored_fields = ignored_fields
 
@@ -47,7 +47,7 @@ class Importer:
     def _get_object(self, key: str, value: Any, obj: Any) -> Any:
         raise NotImplementedError
 
-    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any, Any]:
+    def _before_import(self, key: str, value: Any, obj: Any) -> tuple[Any, Any]:
         raise NotImplementedError
 
 
@@ -89,7 +89,7 @@ class DatabaseImporter(ScalarImporter):
 
 class LicenseImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def map_models(data: Dict) -> License:
+        def map_models(data: dict) -> License:
             id = data["license"]["id"]
             model, created = License.objects.get_or_create(id=id)
             return model
@@ -99,7 +99,7 @@ class LicenseImporter(ScalarImporter):
 
 class ShellCommandImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def map_commands(data: Dict) -> ShellCommand:
+        def map_commands(data: dict) -> ShellCommand:
             name = data["shell_command"]["name"]
             command, created = ShellCommand.objects.get_or_create(name=name)
             return command
@@ -109,7 +109,7 @@ class ShellCommandImporter(ScalarImporter):
 
 class AuthorImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def map_authors(data: Dict) -> AppAuthor:
+        def map_authors(data: dict) -> AppAuthor:
             author = data["author"]
             return AppAuthor.objects.create(
                 name=author["name"],
@@ -132,7 +132,7 @@ class StringAttributeImporter(ScalarImporter):
 
 class ScreenshotsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def create_screenshot(img: Dict[str, str]) -> Screenshot:
+        def create_screenshot(img: dict[str, str]) -> Screenshot:
             return Screenshot.objects.create(
                 url=img["url"],
                 app=obj,
@@ -146,7 +146,7 @@ class ScreenshotsImporter(ScalarImporter):
 
 class CategoryImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def map_categories(cat: Dict) -> Category:
+        def map_categories(cat: dict) -> Category:
             id = cat["category"]["id"]
             category, created = Category.objects.get_or_create(id=id)
             return category
@@ -224,7 +224,7 @@ class AppReleaseImporter(Importer):
             },
         )
 
-    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any, Any]:
+    def _before_import(self, key: str, value: Any, obj: Any) -> tuple[Any, Any]:
         # combine versions into specs
         value["platform_version_spec"] = to_spec(value["platform_min_version"], value["platform_max_version"])
         value["php_version_spec"] = to_spec(value["php_min_version"], value["php_max_version"])
@@ -283,7 +283,7 @@ class AppImporter(Importer):
         app, created = App.objects.get_or_create(pk=value["id"])
         return app
 
-    def _before_import(self, key: str, value: Any, obj: Any) -> Tuple[Any, Any]:
+    def _before_import(self, key: str, value: Any, obj: Any) -> tuple[Any, Any]:
         obj.last_release = timezone.now()
 
         if "is_nightly" not in value["release"]:

@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Callable, Optional
 from urllib.parse import urlparse
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -44,7 +44,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
         super().tearDown()
         self.selenium.quit()
 
-    def go_to(self, url_name: str, kwargs: Dict[str, str] = None) -> None:
+    def go_to(self, url_name: str, kwargs: dict[str, str] = None) -> None:
         app_url = reverse(url_name, kwargs=kwargs)
         self.selenium.get("%s%s" % (self.live_server_url, app_url))
 
@@ -105,12 +105,12 @@ class BaseStoreTest(StaticLiveServerTestCase):
             timeout = SELENIUM_WAIT_SEC
         WebDriverWait(self.selenium, timeout).until(self._url_to_be(url))
 
-    def assertOnPage(self, url_name: str, kwargs: Dict[str, str] = None) -> None:
+    def assertOnPage(self, url_name: str, kwargs: dict[str, str] = None) -> None:
         parsed = urlparse(self.selenium.current_url)
         url = reverse(url_name, kwargs=kwargs)
         self.assertEqual(url, parsed.path)
 
-    def findNavigationLink(self, url_name: str, kwargs: Dict[str, str] = None):
+    def findNavigationLink(self, url_name: str, kwargs: dict[str, str] = None):
         route = reverse(url_name, kwargs=kwargs)
         return self.by_css('#navbar a[href="%s"]' % route)
 

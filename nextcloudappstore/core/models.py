@@ -1,7 +1,6 @@
 import datetime
 from functools import reduce
 from itertools import chain
-from typing import Tuple
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
@@ -299,7 +298,7 @@ class AppRating(TranslatableModel):
         app.rating_num_overall = num
         app.save()
 
-    def _compute_app_rating(self, days: int = -1, threshold: int = 5) -> Tuple[float, int]:
+    def _compute_app_rating(self, days: int = -1, threshold: int = 5) -> tuple[float, int]:
         """
         Computes an app rating based on
         :param days: passing 30 will only consider ratings from the last

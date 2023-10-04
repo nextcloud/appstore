@@ -1,3 +1,5 @@
+import sys
+
 from nextcloudappstore.settings.base import *
 
 DEBUG = True
@@ -26,7 +28,6 @@ CSP_EXCLUDE_URL_PREFIXES = ("/api/v1",)
 
 REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"]["app_upload"] = "10000/day"
 REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"]["app_register"] = "10000/day"
-import sys
 
 if "test" in sys.argv:
     DATABASES["default"] = {"ENGINE": "django.db.backends.sqlite3"}
