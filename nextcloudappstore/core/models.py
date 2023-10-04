@@ -327,7 +327,7 @@ class AppAuthor(Model):
             mail = "<%s>" % self.mail
         else:
             mail = ""
-        return "{} {}".format(self.name, mail)
+        return f"{self.name} {mail}"
 
     class Meta:
         verbose_name = _("App author")
@@ -397,7 +397,7 @@ class AppRelease(TranslatableModel):
         return self.can_update(user)
 
     def __str__(self) -> str:
-        return "{} {}".format(self.app, self.version)
+        return f"{self.app} {self.version}"
 
     def is_compatible(self, platform_version, inclusive=False):
         """Checks if a release is compatible with a platform version
@@ -594,7 +594,7 @@ class DatabaseDependency(Model):
         unique_together = (("app_release", "database", "version_spec"),)
 
     def __str__(self) -> str:
-        return "{}: {} {}".format(self.app_release, self.database, self.version_spec)
+        return f"{self.app_release}: {self.database} {self.version_spec}"
 
 
 class PhpExtension(Model):
@@ -627,7 +627,7 @@ class PhpExtensionDependency(Model):
         unique_together = (("app_release", "php_extension", "version_spec"),)
 
     def __str__(self) -> str:
-        return "{}: {} {}".format(self.app_release.app, self.php_extension, self.version_spec)
+        return f"{self.app_release.app}: {self.php_extension} {self.version_spec}"
 
 
 @receiver(post_delete, sender=App)

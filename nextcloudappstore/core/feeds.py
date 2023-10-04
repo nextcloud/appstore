@@ -30,7 +30,7 @@ class AppReleaseRssFeed(Feed):
         return queryset[:10]
 
     def item_title(self, item):
-        return "{} ({})".format(item.app.name, item.version)
+        return f"{item.app.name} ({item.version})"
 
     def item_description(self, item):
         try:
@@ -38,7 +38,7 @@ class AppReleaseRssFeed(Feed):
                 changelog = "\n\n# {}\n\n{}".format(_("Changes"), item.changelog)
             else:
                 changelog = ""
-            content = "{}{}".format(item.app.description, changelog)
+            content = f"{item.app.description}{changelog}"
         except TranslationDoesNotExist:
             content = item.app.description
         content += "\n\n [{}]({})".format(_("Download"), item.download)
@@ -48,13 +48,13 @@ class AppReleaseRssFeed(Feed):
 
     def item_guid(self, obj):
         nightly = "-nightly" if obj.is_nightly else ""
-        return "{}-{}{}".format(obj.app.id, obj.version, nightly)
+        return f"{obj.app.id}-{obj.version}{nightly}"
 
     def item_link(self, item):
         return reverse("app-detail", kwargs={"id": item.app.id})
 
     def item_author_name(self, item):
-        return "{} {}".format(item.app.owner.first_name, item.app.owner.last_name)
+        return f"{item.app.owner.first_name} {item.app.owner.last_name}"
 
     def item_pubdate(self, item):
         return item.last_modified

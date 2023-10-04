@@ -59,7 +59,7 @@ class CertificateValidator:
         try:
             verify(cert, b64decode(signature.encode()), data, self.config.digest)
         except Exception as e:
-            raise InvalidSignatureException("{}: {}".format(err_msg, str(e)))
+            raise InvalidSignatureException(f"{err_msg}: {str(e)}")
 
     def validate_certificate(self, certificate: str, chain: str, crl: str | None = None) -> None:
         """
@@ -90,7 +90,7 @@ class CertificateValidator:
         try:
             ctx.verify_certificate()
         except Exception as e:
-            raise InvalidCertificateException("{}: {}".format(err_msg, str(e)))
+            raise InvalidCertificateException(f"{err_msg}: {str(e)}")
 
     def get_cn(self, certificate: str) -> str:
         """
@@ -113,7 +113,7 @@ class CertificateValidator:
         """
         cn = self.get_cn(certificate)
         if cn != app_id:
-            msg = "App id {} does not match cert CN {}".format(app_id, cn)
+            msg = f"App id {app_id} does not match cert CN {cn}"
             raise CertificateAppIdMismatchException(msg)
 
     def _to_cert(self, certificate: str) -> X509:

@@ -23,7 +23,7 @@ class AppScaffoldingView(FormView):
         init = {"platform": NextcloudRelease.get_current_main(), "categories": ("tools",)}
         if self.request.user.is_authenticated:
             user = self.request.user
-            init["author_name"] = "{} {}".format(user.first_name, user.last_name)
+            init["author_name"] = f"{user.first_name} {user.last_name}"
             init["author_email"] = user.email
         return init
 
@@ -98,7 +98,7 @@ class IntegrationScaffoldingView(LoginRequiredMixin, FormView):
                 action = "approve"
 
         return_value = form.save(self.request.user, self.app_id, action)
-        self.success_url = "/apps/{}".format(return_value)
+        self.success_url = f"/apps/{return_value}"
 
         if action != "save":
             self.success_url = reverse("user:account-integrations")

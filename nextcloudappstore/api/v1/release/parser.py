@@ -169,10 +169,7 @@ def test_blacklisted_members(tar, blacklist):
         for error, regex in blacklist.items():
             regex = re.compile(regex)
             if regex.search(name):
-                msg = 'Blacklist rule "{}": Directory {} is not allowed to be present in the app archive'.format(
-                    error,
-                    name,
-                )
+                msg = f'Blacklist rule "{error}": Directory {name} is not allowed to be present in the app archive'
                 raise BlacklistedMemberException(msg)
 
 
@@ -392,7 +389,7 @@ def find_member(tar: Any, path: str) -> Any:
         constructed from the last element and the current element
         """
         if prev:
-            return prev + ["{}/{}".format(prev[-1], curr)]
+            return prev + [f"{prev[-1]}/{curr}"]
         else:
             return [curr]
 
