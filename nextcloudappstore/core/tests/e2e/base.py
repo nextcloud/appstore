@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional
+from typing import Any, Callable
 from urllib.parse import urlparse
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -90,17 +90,17 @@ class BaseStoreTest(StaticLiveServerTestCase):
         )
         return then(element)
 
-    def wait_for_url(self, url: str, timeout: Optional[int] = None) -> Any:
+    def wait_for_url(self, url: str, timeout: int | None = None) -> Any:
         if timeout is None:
             timeout = SELENIUM_WAIT_SEC
         WebDriverWait(self.selenium, timeout).until(exp_cond.url_contains(url))
 
-    def wait_for_url_match(self, url: str, timeout: Optional[int] = None) -> Any:
+    def wait_for_url_match(self, url: str, timeout: int | None = None) -> Any:
         if timeout is None:
             timeout = SELENIUM_WAIT_SEC
         WebDriverWait(self.selenium, timeout).until(exp_cond.url_matches(url))
 
-    def wait_for_url_to_be(self, url: str, timeout: Optional[int] = None) -> Any:
+    def wait_for_url_to_be(self, url: str, timeout: int | None = None) -> Any:
         if timeout is None:
             timeout = SELENIUM_WAIT_SEC
         WebDriverWait(self.selenium, timeout).until(self._url_to_be(url))

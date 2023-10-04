@@ -1,6 +1,5 @@
 import logging
 from base64 import b64decode
-from typing import Optional
 
 import pem
 from django.conf import settings  # type: ignore
@@ -62,7 +61,7 @@ class CertificateValidator:
         except Exception as e:
             raise InvalidSignatureException("%s: %s" % (err_msg, str(e)))
 
-    def validate_certificate(self, certificate: str, chain: str, crl: Optional[str] = None) -> None:
+    def validate_certificate(self, certificate: str, chain: str, crl: str | None = None) -> None:
         """
         Tests if a certificate has been signed by the chain, is not revoked
         and has not yet been expired.
