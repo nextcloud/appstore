@@ -11,6 +11,7 @@
 ### Fixed
 
 - Allow uploading of MIT licensed application releases. #1165
+- Adjusted Makefile in the app generation template. #1166
 
 ## [4.4.0]  - 2023-10-03
 
