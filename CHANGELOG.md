@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [4.4.1]  - 2023-10-05
+
 ### Changed
 
-- Dropped Python 3.9 support.
+- Dropped Python 3.9 support. #1163
+
+### Fixed
+
+- Allow uploading of MIT licensed application releases. #1165
 
 ## [4.4.0]  - 2023-10-03
 

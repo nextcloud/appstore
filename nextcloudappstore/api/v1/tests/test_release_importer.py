@@ -228,7 +228,7 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual(0, release.php_extensions.count())
         self.assertEqual(0, release.databases.count())
         self.assertEqual(0, release.shell_commands.count())
-        self.assertEqual("agpl", release.licenses.all()[0].id)
+        self.assertEqual("mit", release.licenses.all()[0].id)
         self.assertEqual("http", release.aa_proto)
         self.assertEqual(False, release.aa_is_system)
         self.assertEqual(1, release.deploy_methods.count())
