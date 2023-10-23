@@ -1,6 +1,7 @@
 """
 Queries the live API and import all releases locally for a Nextcloud version
 """
+
 import sys
 
 from requests import get
