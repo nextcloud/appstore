@@ -629,6 +629,7 @@ class PhpExtensionDependency(Model):
     def __str__(self) -> str:
         return f"{self.app_release.app}: {self.php_extension} {self.version_spec}"
 
+
 class Podcast(Model):
     title = CharField(max_length=256, verbose_name=_("Heading"))
     excerpt = CharField(max_length=512, verbose_name=_("Excerpt"))

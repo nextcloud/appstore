@@ -19,6 +19,7 @@ to_rating_img = (
     (lambda r: True, 10),
 )
 
+
 @register.filter(name="app_rating")
 def app_rating(value):
     for predicate, rating in to_rating:

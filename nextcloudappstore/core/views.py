@@ -218,7 +218,7 @@ class CategoryAppListView(ListView):
         context["url_params"] = self.url_params
         podcast = Podcast.objects.filter(show=True).last()
         if podcast:
-            podcast.excerpt = (podcast.excerpt[:230] + '...') if len(podcast.excerpt) > 230 else podcast.excerpt
+            podcast.excerpt = (podcast.excerpt[:230] + "...") if len(podcast.excerpt) > 230 else podcast.excerpt
         if podcast:
             context["podcast"] = podcast
         return context
