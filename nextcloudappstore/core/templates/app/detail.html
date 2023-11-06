@@ -18,32 +18,13 @@
 {% endblock %}
 
 {% block apps %}
-    <div class="header-wrap">
-        <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
-    </div>
     {% if object.screenshots.all %}
         <section id="app-gallery-container">
             <div id="app-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div {% if object.screenshots.all|length < 2 %}hidden{% endif %} class="carousel-controls">
-                    <a class="left carousel-control" href="#app-gallery" role="button" data-slide="prev">
-                        <span>
-                            <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                            <span class="control-text">{% trans 'Previous' %}</span>
-                        </span>
-                    </a>
-                    <ol class="carousel-indicators">
-                        {% for screenshot in object.screenshots.all %}
-                            <li data-target="#app-gallery" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
-                        {% endfor %}
-                    </ol>
-                    <a class="right carousel-control" href="#app-gallery" role="button" data-slide="next">
-                        <span>
-                            <span class="control-text">{% trans 'Next' %}</span>
-                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                        </span>
-                    </a>
-                </div>
                 <div class="inner-container">
+                    <a class="left carousel-control {% if object.screenshots.all|length < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="prev">
+                        <span class="icon icon-chevron-left" aria-hidden="true" aria-label="{% trans 'Previous' %}"></span>
+                    </a>
                     <div class="carousel-inner" role="listbox">
                         {% for screenshot in object.screenshots.all %}
                             <div class="item {% if forloop.first %}active{% endif %}">
@@ -51,19 +32,30 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <a class="right carousel-control {% if object.screenshots.all|length < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="next">
+                        <span class="icon icon-chevron-right" aria-hidden="true" aria-label="{% trans 'Next' %}"></span>
+                    </a>
                 </div>
             </div>
-
         </section>
     {% endif %}
-    <div class="app-meta col-md-4">
+    <div class="header-wrap">
+        <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+    </div>
+    <div class="app-meta col-md-4 col-sm-12">
         <section>
-            {% if object.last_release %}
-            <h5>{% trans "Updated" %}</h5>
-            <p>{{ object.last_release|naturaltime }}</p>
-            {% endif %}
+            <h5>{% trans "Highest Nextcloud version" %}</h5>
+            {% with latest_releases_by_platform_v|sort_by_version:'desc'|last as latest_release %}
+                <p>
+                    Nextcloud {{ latest_release.0 }} <br />
+                    <a href="{% url 'app-releases' object.id %}?platform={{ latest_release.0 }}#{{ latest_release.0 }}">{% trans "Show all releases" %}</a>
+                </p>
+            {% endwith %}
+            <h5>{% trans "Community rating" %}</h5>
+            <img class="app-score-image" src="/static/assets/img/rating/s{{ object.rating_recent|app_rating_img }}.svg" alt="">
+
             {% if object.owner %}
-            <h5>{% trans "Publisher" %}</h5>
+            <h5>{% trans "Author" %}</h5>
             <p>
                 {% if object.owner.first_name or object.owner.last_name %}
                     {{ object.owner.first_name }} {{ object.owner.last_name }}
@@ -72,14 +64,6 @@
                 {% endif %}
             </p>
             {% endif %}
-            {% for category in object.categories.all %}
-                <h5>{% trans "Category" %}</h5>
-                <p>{{ category }}</p>
-            {% endfor %}
-            <h5>{% trans 'Overall rating' %}</h5>
-            <p class="{{ object.rating_overall|app_rating_class }}">{{ object.rating_overall|app_rating }}</p>
-            <h5>{% trans 'Recent rating' %}</h5>
-            <p class="{{ object.rating_recent|app_rating_class }}">{{ object.rating_recent|app_rating }}</p>
             {% if object.co_maintainers.all %}
             <h5>{% trans "Co-Maintainers" %}</h5>
             <ul class="list-inline">
@@ -92,6 +76,12 @@
                 {% endfor %}
             </ul>
             {% endif %}
+            {% if object.last_release %}
+            <h5>{% trans "Last updated" %}</h5>
+            <p>{{ object.last_release|naturaltime }}</p>
+            {% endif %}
+            <h5>{% trans "Categories" %}</h5>
+            <p>{{ object.categories.all|join:", " }}</p>
         </section>
         {% if object.website or object.user_docs or object.admin_docs or object.developer_docs %}
         <section class="resources">
@@ -112,21 +102,54 @@
             </ul>
         </section>
         {% endif %}
+        <section class="interact-section">
+            <h5>{% trans "Interact" %}</h5>
+            {% if object.issue_tracker %}
+                <a rel="noreferrer noopener"
+                       href="{{ object.issue_tracker }}"
+                       class="btn btn-primary">
+                    <span class="icon icon-bug icon-white"></span>
+                    {% trans 'Report problem' %}
+                </a>
+                <a rel="noreferrer noopener"
+                       href="{{ object.issue_tracker }}"
+                       class="btn btn-default btn-light">
+                    <span class="icon icon-feature-search"></span>
+                    {% trans 'Request feature' %}
+                </a>
+            {% endif %}
+            <a rel="noreferrer noopener"
+               href="{{ object.discussion_url }}"
+               class="btn btn-default btn-light">
+                <span class="icon icon-comment-question"></span>
+                {% trans 'Ask questions or discuss' %}
+            </a>
+        </section>
     </div>
+
     <section class="app-description markdown loading"></section>
+
     {% if not object.is_integration %}
     <div class="row app-download">
         <div class="col-md-12">
             <section>
-                <h4 id="downloads">{% trans "Downloads" %}</h4>
+                <h3 id="downloads" class="section-heading">{% trans "Releases" %}</h3>
                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Nextcloud version" %}</th>
+                            <th>{% trans "Stable channel" %}</th>
+                            <th>{% trans "Nightly channel" %}</th>
+                            <th>{% trans "All releases" %}</th>
+                        </tr>
+                    </thead>
                     {% for platform_v, releases in latest_releases_by_platform_v|sort_by_version:'desc' %}
                         {% if releases.stable or releases.unstable %}
                             <tr>
-                                <td>Nextcloud {{ platform_v }}</td>
+                                <td>{{ platform_v }}</td>
                                 <td>{% if releases.stable %}<a href="{{ releases.stable.download }}" rel="noopener noreferrer">{{ releases.stable.version }}</a>{% endif %}</td>
-                                <td>{% if releases.unstable %}<a href="{{ releases.unstable.download }}" rel="noopener noreferrer" class="unstable">{{ releases.unstable.version }}{% if releases.unstable.is_nightly %} - {% trans 'nightly' %}{% endif %} ({%  trans 'Unstable' %})</a>{% endif %}</td>
-                                <td><a href="{% url 'app-releases' object.id %}?platform={{ platform_v }}#{{ platform_v }}">{% trans "All releases" %}</a></td>
+                                <td class="nightly-channel-column">{% if releases.unstable %}<a href="{{ releases.unstable.download }}" rel="noopener noreferrer" class="unstable">{{ releases.unstable.version }}{% if releases.unstable.is_nightly %} - {% trans 'nightly' %}{% endif %} ({%  trans 'Unstable' %})</a>{% else %}-{% endif %}</td>
+                                <td><a href="{% url 'app-releases' object.id %}?platform={{ platform_v }}#{{ platform_v }}">{{ platform_v }}</a></td>
                             </tr>
                         {% endif %}
                     {% endfor %}
@@ -135,71 +158,30 @@
         </div>
     </div>
     {% endif %}
-    <div class="row app-comments">
-        <ul class="col-md-12">
-            <h4 class="section-heading">{% trans 'Discussion' %}</h4>
-            {% if object.issue_tracker %}
-                <li><a rel="noreferrer noopener"
-                       href="{{ object.issue_tracker }}"
-                       class="btn btn-primary">{% trans 'Report problem' %}</a>
-                </li>
-                <li><a rel="noreferrer noopener"
-                       href="{{ object.issue_tracker }}"
-                       class="btn btn-primary">{% trans 'Request feature' %}</a>
-                </li>
-            {% endif %}
 
-            <li>
-                <a rel="noreferrer noopener"
-                   href="{{ object.discussion_url }}"
-                   class="btn btn-primary">{% trans 'Ask questions or discuss' %}</a>
-            </li>
-            {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
-                <li>
-                    <button id="toggle-comment-button" aria-expanded="true"
-                            data-toggle="collapse" data-target="#app-ratings"
-                            class="btn btn-primary">{% if not object.is_integration %}{% trans 'Rate app' %}{% else %}{% trans 'Rate integration' %}{% endif %}</button>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
-    {% if request.user.is_authenticated and request.user != object.owner %}
-        <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
-            <div class="col-md-12">
-                <h4 class="section-heading" id="comments">{% trans 'Rate' %}</h4>
-                <form action="{% url 'app-detail' object.id %}" method="post">
-                    {% csrf_token %}
-                    {% include 'form-fields.html' with form=rating_form %}
-                    <p class="help-block">
-                        {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
-                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.
-                            A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
-                    </p>
-                    {% if rating_form.is_bound %}
-                        <input type="submit" value="{% trans 'Update rating' %}" class="btn btn-primary">
-                    {% else %}
-                        <input type="submit" value="{% trans 'Submit rating' %}" class="btn btn-primary">
-                    {% endif %}
-                </form>
-            </div>
-        </div>
-    {% endif %}
     <template id="rating-template">
         <div class="row">
             <div class="col-md-12">
                 <div class="rating-comment">
                     <header>
-                        <div class="date"></div>
                         <div class="author"></div>
-                        <div class="rating rating-good">{% trans 'Good' %}</div>
-                        <div class="rating rating-ok">{% trans 'OK' %}</div>
-                        <div class="rating rating-bad">{% trans 'Bad' %}</div>
+                        <div class="rating rating-good">
+                            <img class="app-score-image" src="/static/assets/img/rating/s10.svg" alt="{% trans 'Good' %}">
+                        </div>
+                        <div class="rating rating-ok">
+                            <img class="app-score-image" src="/static/assets/img/rating/s5.svg" alt="{% trans 'Ok' %}">
+                        </div>
+                        <div class="rating rating-bad">
+                            <img class="app-score-image" src="/static/assets/img/rating/s1.svg" alt="{% trans 'Bad' %}">
+                        </div>
+                        <div class="date"></div>
                     </header>
                     <div class="comment"></div>
                 </div>
             </div>
         </div>
     </template>
+
     <template id="no-ratings-template">
         <div class="row">
             <div class="col-md-12">
@@ -211,13 +193,48 @@
             </div>
         </div>
     </template>
+
     <div class="row">
         <div class="col-md-12">
-            <h4 class="section-heading" id="comments">{% trans 'Rating comments' %}</h4>
+            <h3 class="section-heading" id="comments">{% trans 'Comments' %}</h3>
+
+            {% if request.user.is_authenticated and not user_has_rated_app and request.user != object.owner %}
+                <button id="toggle-comment-button" aria-expanded="true"
+                        data-toggle="collapse" data-target="#app-ratings"
+                        class="btn btn-primary">
+                    <span class="icon icon-star-plus icon-white"></span>
+                    {% if not object.is_integration %}{% trans 'Rate app' %}{% else %}{% trans 'Rate integration' %}{% endif %}
+                </button>
+            {% endif %}
+            {% if request.user.is_authenticated and request.user != object.owner %}
+                <div class="row app-ratings {% if not user_has_rated_app %}collapse{% endif %}" id="app-ratings">
+                    <div class="col-md-12">
+                        <h4 class="section-heading" id="comments">{% trans 'Your comment' %}</h4>
+                        <form action="{% url 'app-detail' object.id %}" method="post">
+                            {% csrf_token %}
+                            {% include 'form-fields.html' with form=rating_form %}
+                            <p class="help-block">
+                                {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
+                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.
+                                    A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
+                            </p>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="icon icon-star-plus icon-white"></span>
+                                {% if rating_form.is_bound %}
+                                    {% trans 'Update rating' %}
+                                {% else %}
+                                    {% trans 'Submit rating' %}
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+
             <div class="app-rating-language">
                 {% if languages %}
                     {% get_language_info_list for languages as languages %}
-                    <label for="comment_language">{% blocktrans %}Display ratings comments in:{% endblocktrans %}</label>
+                    <label for="comment_language">{% blocktrans %}Switch language for the comments:{% endblocktrans %}</label>
                     <select class="form-control" id="comment_language">
                         {% for language in languages %}
                             <option value="{{ language.code }}"{% if language.code == request.LANGUAGE_CODE %} selected="selected"{% endif %}>
@@ -229,6 +246,7 @@
             </div>
         </div>
     </div>
+
     <div class="app-rating-list loading"></div>
 
 {% endblock %}

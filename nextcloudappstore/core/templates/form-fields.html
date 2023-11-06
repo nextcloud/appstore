@@ -11,14 +11,18 @@
     <div class="form-group {% if field.errors %}has-error has-feedback{% endif %}">
 
         {% if field|field_type == 'CheckboxInput' %}
-            {{ field }}
-            <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+            <label class="control-label checkbox-group" for="{{ field.id_for_label }}">
+                {{ field.label }}
+                {{ field }}
+                <span class="checkmark"></span>
+            </label>
         {% else %}
 
             {% if field.field.required %}
                 <label title="{% trans 'required field' %}" class="control-label" for="{{ field.id_for_label }}">
                     {{ field.label }}
-                    <span class="required-field">*</span>
+                    <span class="required-field material-symbols-outlined">asterisk</span>
                 </label>
             {% else %}
                 <label class="control-label" for="{{ field.id_for_label }}">

@@ -18,6 +18,7 @@ from nextcloudappstore.core.models import (
     PhpExtensionDependency,
     Screenshot,
     ShellCommand,
+    Podcast,
 )
 
 
@@ -118,6 +119,9 @@ class PhpExtensionDependencyAdmin(admin.ModelAdmin):
     list_display = ("app_release", "php_extension", "version_spec")
     list_filter = ("app_release", "php_extension")
 
+@admin.register(Podcast)
+class PodcastAdmin(admin.ModelAdmin):
+    list_display = ("title", "excerpt", "link", "image")
 
 @admin.register(Screenshot)
 class ScreenshotAdmin(admin.ModelAdmin):

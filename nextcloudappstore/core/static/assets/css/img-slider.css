@@ -2,6 +2,8 @@
     display: flex;
     overflow-y: auto;
     min-width: 100%;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0px 8px 30px 0px rgba(0, 116, 178, 0.08);
 }
 
 #app-gallery {
@@ -9,48 +11,55 @@
     box-shadow: 0 0 4px #ccc;
 }
 
+#app-gallery .inner-container {
+    position: relative;
+}
+
 .carousel-controls {
     line-height: 40px;
+    width: 50%;
     height: 40px;
     background: none;
     opacity: 1;
     position: relative;
     margin: 0 auto;
-    background-color: var(--bg-color);
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius-large);
+    user-select: none;
 }
 
 .carousel-control {
-    background: none !important;
-    opacity: 1;
-    background-color: var(--bg-color) !important;
-    color: #fff !important;
     text-shadow: none;
-    font-size: 12pt;
     font-weight: 400;
+    position: absolute;
+    top: calc(50% - 1px);;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70px;
 }
 
-.carousel-control .glyphicon {
-    font-size: 11pt;
+.carousel-control.left {
+    left: 0;
+    background-image: linear-gradient(to left,rgba(0,0,0,.01) 0,rgb(255, 249, 249) 100%);
 }
 
-.carousel-control:hover {
-    background: none !important;
-    opacity: 1;
-    background-color: #fff !important;
-    color: var(--bg-color) !important;
-    border: 1px solid var(--bg-color);
-    text-shadow: none;
-    font-size: 13pt;
-    text-decoration: none !important;
+.carousel-control.right {
+    right: 0;
+    background-image: linear-gradient(to right,rgba(0,0,0,.01) 0,rgb(255, 249, 249) 100%);
+}
+
+.carousel-control .icon {
+    width: 36px;
+    height: 36px;
 }
 
 .carousel-indicators {
     top: 0;
     line-height: 40px;
-}
-
-.carousel-indicators li {
-    border-radius: 0;
 }
 
 .carousel-inner:not(.fullscreen) {

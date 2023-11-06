@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% load app_rating %}
 {% load i18n %}
 {% load static %}
 
@@ -10,37 +11,82 @@
 {% block apps %}
 
 
-<div class="row">
-    <ul class="nav-tabs nav sorting">
-        <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}active{% endif %}"><a href="{{ request.url }}?order_by=rating_overall&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Rating' %}</a></li>
-        <li role="presentation" class="{% if request.GET.order_by == 'rating_recent' %}active{% endif %}"><a href="{{ request.url }}?order_by=rating_recent&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Rating (recent)' %}</a></li>
-        <li role="presentation" class="{% if request.GET.order_by == 'last_release' %}active{% endif %}"><a href="{{ request.url }}?order_by=last_release&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">{% trans 'Latest' %}</a></li>
-        {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
-            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetically' %}</a></li>
-        {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
-            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> {% trans 'Alphabetically' %}</a></li>
-        {% else %}
-            <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}"><a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {% trans 'Alphabetically' %}</a></li>
-        {% endif %}
-        <li role="presentation" class="filters">
-            <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
-                {% if not is_featured_category %}
-                <input type="checkbox" class="auto-submit" id="featured-checkbox" name="is_featured" value="true" {% if request.GET.is_featured == 'true' %}checked{% endif %}>
-                <label for="featured-checkbox">{% trans 'Featured' %}</label>
-                {% endif %}
-                {% if request.user.is_authenticated %}
-                    <input type="checkbox" class="auto-submit" id="myapps-checkbox" name="maintainer" value="{{ request.user.username }}" {% if request.GET.maintainer == request.user.username %}checked{% endif %}>
-                    <label for="myapps-checkbox">{% trans 'My apps' %}</label>
-                {% endif %}
+<div class="row row-no-gutters">
+    <div class="col-md-12">
+        <ul class="nav-tabs nav sorting">
+            <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}active{% endif %}">
+                <a href="{{ request.url }}?order_by=rating_overall&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                    <span class="icon icon-star-plus {% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}icon-white{% endif %}"></span>
+                    {% trans 'Rating' %}
+                </a>
+            </li>
+            {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
+                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                    <a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                        <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}"></span>
+                        {% trans 'Alphabetically' %}
+                    </a>
+                </li>
+            {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
+                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                    <a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                        <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}" style="transform: rotateZ(180deg)"></span>
+                        {% trans 'Alphabetically' %}
+                    </a>
+                </li>
+            {% else %}
+                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                    <a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                        <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}"></span>
+                        {% trans 'Alphabetically' %}
+                    </a>
+                </li>
+            {% endif %}
+            <li role="presentation" class="{% if request.GET.order_by == 'last_release' %}active{% endif %}">
+                <a href="{{ request.url }}?order_by=last_release&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                    <span class="icon icon-rocket-launch {% if request.GET.order_by == 'last_release' %}icon-white{% endif %}"></span>
+                    {% trans 'Latest release' %}
+                </a>
+            </li>
+            <li role="presentation" class="{% if request.GET.order_by == 'rating_recent' %}active{% endif %}">
+                <a href="{{ request.url }}?order_by=rating_recent&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                    <span class="icon icon-timer-star {% if request.GET.order_by == 'rating_recent' %}icon-white{% endif %}"></span>
+                    {% trans 'Rating (recent)' %}
+                </a>
+            </li>
+            <li role="presentation" class="filters">
+                <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
+                    {% if not is_featured_category %}
+                        <label class="checkbox-group" for="featured-checkbox">
+                            {% trans 'Featured' %}
+                            <input type="checkbox" class="auto-submit" id="featured-checkbox" name="is_featured" value="true" {% if request.GET.is_featured == 'true' %}checked{% endif %}>
+                            <span class="checkmark"></span>
+                        </label>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <label class="checkbox-group" for="myapps-checkbox">
+                            {% trans 'My apps' %}
+                            <input type="checkbox" class="auto-submit" id="myapps-checkbox" name="maintainer" value="{{ request.user.username }}" {% if request.GET.maintainer == request.user.username %}checked{% endif %}>
+                            <span class="checkmark"></span>
+                        </label>
+                    {% endif %}
 
-                {# Include all GET arguments that should be preserved when applying a filter. #}
-                {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
-                {% if request.GET.order_by %}<input type="hidden" name="order_by" value="{{ request.GET.order_by }}">{% endif %}
-                {% if request.GET.ordering %}<input type="hidden" name="ordering" value="{{ request.GET.ordering }}">{% endif %}
-            </form>
-        </li>
-    </ul>
+                    {# Include all GET arguments that should be preserved when applying a filter. #}
+                    {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
+                    {% if request.GET.order_by %}<input type="hidden" name="order_by" value="{{ request.GET.order_by }}">{% endif %}
+                    {% if request.GET.ordering %}<input type="hidden" name="ordering" value="{{ request.GET.ordering }}">{% endif %}
+                </form>
+            </li>
+        </ul>
+    </div>
 </div>
+
+{% if podcast %}
+<div class="col-md-12">
+    {% include 'podcasts.html' %}
+</div>
+{% endif %}
+
 {% for app in object_list %}
         <div class="col-md-6 app-list-container">
             <div class="well">
@@ -52,6 +98,7 @@
                 {% endif %}
                 </div>
                 <h3><a title="{{ app.name }}" href="{% url 'app-detail' id=app.id %}">{{ app.name }}</a></h3>
+                <img class="app-score-image" src="/static/assets/img/rating/s{{ app.rating_overall|app_rating_img }}.svg" alt="{{ app.rating_overall|app_rating }}">
                 <p title="{{ app.summary }}">{{ app.summary }}</p>
             </div>
         </div>

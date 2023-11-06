@@ -9,7 +9,12 @@
     <section>
         <form action="{% url 'user:account' %}" method="post">
             {% include 'form-fields.html' %}
-            <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Save' %}</button></p>
+            <p>
+                <button class="btn btn-primary btn-block" type="submit">
+                    <span class="icon material-symbols-outlined">done</span>
+                    {% trans 'Save' %}
+                </button>
+            </p>
         </form>
     </section>
 {% endblock %}

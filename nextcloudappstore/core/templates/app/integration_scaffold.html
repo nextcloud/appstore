@@ -11,7 +11,14 @@
             <form id="integration-register-form" method="post" action="{% if integration_page == 'developer-integration' %}{% url 'integration-scaffold' %}{% else %}{{ request.get_full_path }}{% endif %}">
                 {% csrf_token %}
                 {% include 'form-fields.html' %}
-                <button id="submit" class="btn btn-primary btn-block">{% if integration_page == 'developer-integration' %}{% trans 'Register' %}{% else %}{% trans 'Update' %}{% endif %}</button>
+                <button id="submit" class="btn btn-primary btn-block">
+                    <span class="icon icon-integration-instructions icon-invert"></span>
+                    {% if integration_page == 'developer-integration' %}
+                        {% trans 'Register' %}
+                    {% else %}
+                        {% trans 'Update' %}
+                    {% endif %}
+                </button>
             </form>
         {% else %}
             <form id="integration-moderate-form" method="post" action="">
