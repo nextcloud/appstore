@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('excerpt', models.CharField(max_length=512, verbose_name='Excerpt')),
                 ('link', models.CharField(max_length=256, unique=True, verbose_name='Link')),
                 ('image', models.CharField(max_length=256, verbose_name='Image')),
+                ('show', models.BooleanField(default=True, verbose_name='Show podcast')),
             ],
             options={
                 'verbose_name': 'Nextcloud Podcast',
@@ -30,6 +31,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name='appapireleasedeploymethod',
-            options={'verbose_name': 'AppAPI release Deploy method', 'verbose_name_plural': 'AppAPI release Deploy methods'},
+            options={'verbose_name': 'AppAPI release Deploy method', 'verbose_name_plural': 'AppAPI release Deploy '
+                                                                                            'methods'},
         ),
     ]
