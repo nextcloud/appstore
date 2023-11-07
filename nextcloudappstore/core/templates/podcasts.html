@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="podcast">
+    <div class="podcast-details">
+        <a href="{{ podcast.link }}" target="_blank">
+            <h3>{{ podcast.title }}</h3>
+        </a>
+        <p>{{ podcast.excerpt }}</p>
+    </div>
+    <div class="podcast-image">
+        <a href="{{ podcast.link }}" target="_blank">
+            <img alt="Nextcloud Podcast" src="{{ podcast.image }}" title="Nextcloud Podcast">
+        </a>
+    </div>
+</div>

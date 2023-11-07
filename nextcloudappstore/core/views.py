@@ -23,7 +23,7 @@ from nextcloudappstore.core.forms import (
     AppRegisterForm,
     AppReleaseUploadForm,
 )
-from nextcloudappstore.core.models import App, AppRating, Category
+from nextcloudappstore.core.models import App, AppRating, Category, Podcast
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -216,6 +216,11 @@ class CategoryAppListView(ListView):
         if self.search_terms:
             context["search_query"] = " ".join(self.search_terms)
         context["url_params"] = self.url_params
+        podcast = Podcast.objects.filter(show=True).last()
+        if podcast:
+            podcast.excerpt = (podcast.excerpt[:230] + "...") if len(podcast.excerpt) > 230 else podcast.excerpt
+        if podcast:
+            context["podcast"] = podcast
         return context
 
     @cached_property

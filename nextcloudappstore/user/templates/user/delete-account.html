@@ -10,7 +10,13 @@
         <p class="alert alert-danger">{% trans 'Deleting your account will delete all your apps and releases as well. To delete your account, insert your email address into the input field and click the "Delete account" button.' %}</p>
         <form method="POST" action="{% url 'user:account-deletion' %}">
             {% include 'form-fields.html' %}
-            <p><input type="submit" class="btn btn-danger" value="{% trans 'Delete account' %}"></p>
+{#            <p><input type="submit" class="btn btn-danger" value="{% trans 'Delete account' %}"></p>#}
+            <p>
+                <button type="submit" class="btn btn-danger">
+                    <span class="icon material-symbols-outlined">person_remove</span>
+                    {% trans 'Delete account' %}
+                </button>
+            </p>
         </form>
     </section>
 {% endblock %}

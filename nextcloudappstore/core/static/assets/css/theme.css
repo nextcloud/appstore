@@ -5,7 +5,6 @@
     --bg-color-hover: #0069B0;
     --link-color: #0082c9;
     --link-active-color: #fff;
-    --border-radius: 0;
 	--color-main-text: #222;
 	--color-main-background: #fff;
 	--color-main-background-translucent: rgba(255, 255, 255, 0.97);
@@ -13,6 +12,7 @@
 	--color-background-hover: whitesmoke;
 	--color-background-dark: #ededed;
 	--color-background-darker: #dbdbdb;
+    --color-background-light: #e5f3fa;
 	--color-placeholder-light: #e6e6e6;
 	--color-placeholder-dark: #ccc;
 	--color-primary: #0082c9;
@@ -42,6 +42,7 @@
 	--color-border-dark: #dbdbdb;
 	--border-radius: 3px;
 	--border-radius-large: 10px;
+    --border-radius-big: 20px;
 	--border-radius-pill: 100px;
 	--font-face: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Cantarell, Ubuntu, Helvetica Neue, Arial, sans-serif, Noto Color Emoji, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	--default-font-size: 15px;
@@ -49,6 +50,7 @@
 	--animation-quick: 100ms;
 	--animation-slow: 300ms;
 	--header-height: 50px;
+    --icon-size: 22px;
 }
 
 
@@ -63,12 +65,22 @@
 
 #body .nav-pills .active a {
     background-color: var(--bg-color);
-    border-radius: 12px;
+    border-radius: var(--border-radius-pill);
     color: var(--link-active-color);
 }
 
-#body .nav-pills a:hover {
+#body .nav-pills li a:hover {
     text-decoration: none;
+}
+
+#body .nav-pills li:not(.active) a:hover {
+    border-radius: var(--border-radius-pill);
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+}
+
+#body .nav-tabs {
+    border-bottom: none;
 }
 
 #body .nav-tabs a {
@@ -80,6 +92,7 @@
 #body .nav-tabs .active a {
     background-color: var(--bg-color);
     color: var(--link-active-color);
+    border-radius: var(--border-radius-pill);
     text-decoration: none;
     cursor: pointer;
 }
@@ -87,8 +100,8 @@
 .well,
 .well-small,
 .container .jumbotron {
-    border-radius: var(--border-radius);
-    background-color: #fff;
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-background-light);
 }
 
 .btn-primary {
@@ -165,8 +178,13 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
     width: 100%;
     -webkit-appearance: textfield !important;
     -moz-appearance: textfield !important;
+    box-shadow: none;
 }
 
 input[type="text"], input[type="email"], input[type="url"], input[type="password"] {
     height: 36px !important;
+}
+
+.alert {
+    border-radius: var(--border-radius-big);
 }

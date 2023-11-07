@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/fonts.css' %}" charset="utf-8">
     <link rel="stylesheet"
           href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}" charset="utf-8">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" charset="utf-8">
     <link rel="stylesheet" href="{% static 'assets/css/theme.css' %}" charset="utf-8">
     {% block feeds %}
@@ -40,15 +41,24 @@
     </div>
     <footer class="navbar-default" id="footer">
         <div class="container">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="nav navbar-nav">
                 <li class="nav-link">
-                    <a href="https://github.com/nextcloud/appstore" rel="noreferrer noopener">{% trans 'Fork me on GitHub' %}</a>
+                    <a href="https://github.com/nextcloud/appstore" rel="noreferrer noopener">
+                        <span class="icon icon-source-fork"></span>
+                        {% trans 'Contribute to the app store' %}
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <a href="https://nextcloud.com/privacy/" rel="noreferrer noopener">{% trans 'Privacy and legal' %}</a>
+                    <a href="https://nextcloud.com/privacy/" rel="noreferrer noopener">
+                        <span class="icon icon-text-box"></span>
+                        {% trans 'Privacy and legal' %}
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <a href="https://nextcloud.com/impressum/" rel="noreferrer noopener">{% trans 'Legal Notice' %}</a>
+                    <a href="https://nextcloud.com/impressum/" rel="noreferrer noopener">
+                        <span class="icon icon-note-text"></span>
+                        {% trans 'Legal notice' %}
+                    </a>
                 </li>
             </ul>
         </div>

@@ -4,25 +4,34 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4 col-md-3">
         {% if categories %}
         <ul id="sidebar" class="nav nav-pills nav-stacked">
-            <li class="{% if cat.id == current_category.id and not object and not is_featured_category %}active{% endif %}">
-                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'All apps' %}</a>
+            <li class="category-app-item {% if cat.id == current_category.id and not object and not is_featured_category %}active{% endif %}">
+                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                    <span class="icon icon-category-all {% if cat.id == current_category.id and not object and not is_featured_category %}icon-white{% endif %}"></span>
+                    {% trans 'All apps' %}
+                </a>
             </li>
             <li class="{% if cat.id == current_category.id and not object and is_featured_category %}active{% endif %}">
-                <a href="{% url 'featured' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{% trans 'Featured apps' %}</a>
+                <a href="{% url 'featured' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                    <span class="icon icon-category-featured {% if cat.id == current_category.id and not object and is_featured_category %}icon-white{% endif %}"></span>
+                    {% trans 'Featured apps' %}
+                </a>
             </li>
 
             {% for cat in categories %}
-                <li class="{% if cat.id == current_category.id %}active{% endif %}">
-                    <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">{{ cat.name }}</a>
+                <li class="category-app-item {% if cat.id == current_category.id %}active{% endif %}">
+                    <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                        <span class="icon icon-category-{{ cat.id }} {% if cat.id == current_category.id %}icon-white{% endif %}"></span>
+                        {{ cat.name }}
+                    </a>
                 </li>
             {% endfor %}
         </ul>
         {% endif %}
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8 col-md-9">
         {% block apps %}{% endblock %}
     </div>
 </div>
