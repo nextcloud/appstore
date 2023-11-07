@@ -12,28 +12,24 @@
                     <ul class="nav navbar-nav developer-nav">
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle nav-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                {#                            <span class="icon icon-arrow-down-drop-circle-outline-white"></span>#}
                                 <span class="icon material-symbols-outlined">arrow_drop_down_circle</span>
                                 {% trans 'Resources for developers' %}
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-link">
                                     <a href="https://nextcloud.com/developer" rel="noopener noreferrer">
-                                        {#                                    <span class="icon icon-developer-board"></span>#}
                                         <span class="icon material-symbols-outlined">developer_board</span>
                                         {% trans 'Develop for Nextcloud' %}
                                     </a>
                                 </li>
                                 <li class="nav-link">
                                     <a href="https://docs.nextcloud.com/server/latest/developer_manual" rel="noopener noreferrer">
-                                        {#                                    <span class="icon icon-file-document"></span>#}
                                         <span class="icon material-symbols-outlined">description</span>
                                         {% trans 'Developer documentation' %}
                                     </a>
                                 </li>
                                 <li class="nav-link">
                                     <a href="https://docs.nextcloud.com/server/latest/developer_manual/basics/front-end/l10n.html" rel="noopener noreferrer">
-                                        {#                                    <span class="icon icon-translate-variant"></span>#}
                                         <span class="icon material-symbols-outlined">translate</span>
                                         {% trans 'Request translations' %}
                                     </a>
@@ -41,7 +37,6 @@
                                 <li role="separator" class="divider"></li>
                                 <li class="nav-link">
                                     <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">
-                                        {#                                    <span class="icon icon-upload"></span>#}
                                         <span class="icon material-symbols-outlined">upload</span>
                                         {% trans 'Submit your app' %}
                                     </a>
@@ -56,14 +51,12 @@
                                     <li role="separator" class="divider"></li>
                                     <li class="nav-link">
                                         <a href="{% url 'app-register' %}">
-                                            {#                                        <span class="icon icon-publish"></span>#}
                                             <span class="icon material-symbols-outlined">publish</span>
                                             {% trans 'Register app' %}
                                         </a>
                                     </li>
                                     <li class="nav-link">
                                         <a href="{% url 'app-upload' %}">
-                                            {#                                        <span class="icon icon-backup"></span>#}
                                             <span class="icon material-symbols-outlined">backup</span>
                                             {% trans 'Upload app release' %}
                                         </a>
@@ -72,7 +65,6 @@
                                 {% if request.user.is_authenticated %}
                                     <li class="nav-link">
                                         <a href="{% url 'integration-scaffold' %}">
-                                            {#                                        <span class="icon icon-integration-instructions"></span>#}
                                             <span class="icon material-symbols-outlined">integration_instructions</span>
                                             {% trans 'Register integration' %}
                                         </a>
@@ -91,8 +83,7 @@
                               {% else %}{% url 'home' %}
                               {% endif %}">
                             <div class="search-input-group">
-{#                                <span class="icon icon-magnify form-control-feedback" aria-hidden="true"></span>#}
-                                <span class="icon material-symbols-outlined">search</span>
+                                <span class="icon material-symbols-outlined" aria-hidden="true">search</span>
                                 <input type="search"
                                        name="search"
                                        role="search"
@@ -112,7 +103,6 @@
                         {% if request.user.is_superuser %}
                             <li class="nav-link">
                                 <a href="{% url 'admin:index' %}">
-{#                                    <span class="icon icon-admin-panel-settings icon-white"></span>#}
                                     <span class="icon material-symbols-outlined">admin_panel_settings</span>
                                     {% trans 'Admin' %}
                                 </a>
@@ -121,14 +111,12 @@
                         {% if request.user.is_authenticated %}
                             <li class="nav-link">
                                 <a href="{% url 'user:account' %}">
-{#                                    <span class="icon icon-person icon-white"></span>#}
                                     <span class="icon material-symbols-outlined">person</span>
                                     {% trans 'Account' %}
                                 </a>
                             </li>
                             <li class="nav-link">
                                 <a href="{% url 'account_logout' %}">
-{#                                    <span class="icon icon-logout icon-white"></span>#}
                                     <span class="icon material-symbols-outlined">logout</span>
                                     {% trans 'Log out' %}
                                 </a>
@@ -136,14 +124,12 @@
                         {% else %}
                             <li class="nav-link">
                                 <a href="{% url 'account_login' %}">
-{#                                    <span class="icon icon-login icon-white"></span>#}
                                     <span class="icon material-symbols-outlined">login</span>
                                     {% trans 'Log in' %}
                                 </a>
                             </li>
                             <li class="nav-link">
                                 <a href="{% url 'account_signup' %}">
-{#                                    <span class="icon icon-register icon-white"></span>#}
                                     <span class="icon material-symbols-outlined">app_registration</span>
                                     {% trans 'Register' %}
                                 </a>

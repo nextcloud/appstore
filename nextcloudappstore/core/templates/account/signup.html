@@ -17,7 +17,6 @@
                 <div class="actions">
                     <button class="btn btn-primary btn-block"
                             type="submit">
-{#                        <span class="icon icon-register icon-white"></span>#}
                         <span class="icon material-symbols-outlined">app_registration</span>
                         {% trans 'Register' %}
                     </button>
@@ -26,7 +25,6 @@
                         <a title="{{ provider.name }}"
                            class="socialaccount_provider {{ provider.id }} btn btn-default btn-light"
                            href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">
-{#                            <span class="icon icon-login"></span>#}
                             <span class="icon material-symbols-outlined">login</span>
                             {% trans 'Log in with GitHub' %}
                         </a>
