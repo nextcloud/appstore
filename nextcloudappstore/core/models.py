@@ -24,6 +24,8 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _  # type: ignore
+from packaging.version import InvalidVersion
+from packaging.version import parse as parse_version
 from parler.models import TranslatableManager  # type: ignore
 from parler.models import TranslatableModel, TranslatedFields
 from semantic_version import Spec, Version
@@ -182,6 +184,8 @@ class App(TranslatableModel):
         """Looks up the latest stable and unstable release for each platform
         version, returns only platforms where present any of the release type.
 
+        .. note:: if the stable version is equal or greater than unstable, only the stable version will be in result.
+
         Example of returned dict:
 
         {'9.1': {
@@ -207,7 +211,15 @@ class App(TranslatableModel):
         all_versions = set(chain(latest_stable.keys(), latest_unstable.keys()))
 
         def stable_or_unstable_releases(ver):
-            return ver, {"stable": latest_stable.get(ver, None), "unstable": latest_unstable.get(ver, None)}
+            _last_stable_ver = latest_stable.get(ver, None)
+            _last_unstable_ver = latest_unstable.get(ver, None)
+            if _last_stable_ver and _last_unstable_ver:
+                try:
+                    if parse_version(_last_stable_ver.version) >= parse_version(_last_unstable_ver.version):
+                        _last_unstable_ver = None
+                except InvalidVersion:
+                    pass
+            return ver, {"stable": _last_stable_ver, "unstable": _last_unstable_ver}
 
         result = dict(map(stable_or_unstable_releases, all_versions))
         return {k: result[k] for k in result if any(list(result[k].values()))}
