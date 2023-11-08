@@ -2,27 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Slobodan Simić <slsimic@gmail.com>, 2020
 # Branko Kokanovic <branko@kokanovic.org>, 2022
 # Andy Scherzinger <info@andy-scherzinger.de>, 2022
 # Иван Пешић, 2023
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-25 03:12+0000\n"
+"POT-Creation-Date: 2023-11-08 02:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Иван Пешић, 2023\n"
-"Language-Team: Serbian (https://app.transifex.com/nextcloud/teams/64236/sr/)\n"
+"Language-Team: Serbian (https://app.transifex.com/nextcloud/teams/64236/"
+"sr/)\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -42,17 +44,16 @@ msgid "Download"
 msgstr "Скини"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Bad"
 msgstr "Лоша"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "У реду је"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:194
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Good"
 msgstr "Добра"
 
@@ -81,17 +82,17 @@ msgstr "Јавни сертификат"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Обично ускладиштен у ~/.nextcloud/certificates/APP_ID.crt где је APP_ID "
 "идентификација Ваше апликације. Ако немате сертификат, морате прво креирати "
-"захтев за потписивањем сертификата (CSR), који треба објавити на <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">репозиторијуму сертификата</a> (пратите README)."
-" Можете генерисати CSR извршавањем следеће команде:"
+"захтев за потписивањем сертификата (CSR), који треба објавити на <a href="
+"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener\">репозиторијуму сертификата</a> (пратите README). Можете "
+"генерисати CSR извршавањем следеће команде:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -123,7 +124,6 @@ msgid "app ID, identical to folder name"
 msgstr "ID апликације, исто као и име фасцикле"
 
 #: nextcloudappstore/core/models.py:80 nextcloudappstore/core/models.py:534
-#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Категорија"
 
@@ -175,7 +175,7 @@ msgid "Issue tracker URL"
 msgstr "Адреса пратиоца проблема"
 
 #: nextcloudappstore/core/models.py:93 nextcloudappstore/core/models.py:322
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:91
 msgid "Homepage"
 msgstr "Почетна страна"
 
@@ -198,7 +198,7 @@ msgid "App owner"
 msgstr "Власник апликације"
 
 #: nextcloudappstore/core/models.py:101
-#: nextcloudappstore/core/templates/app/detail.html:84
+#: nextcloudappstore/core/templates/app/detail.html:68
 msgid "Co-Maintainers"
 msgstr "Одржаваоци"
 
@@ -207,18 +207,16 @@ msgid "App authors"
 msgstr "Аутори апликације"
 
 #: nextcloudappstore/core/models.py:104
-#: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:29
+#: nextcloudappstore/core/templates/app/detail.html:43
+#: nextcloudappstore/core/templates/app/list.html:61
 msgid "Featured"
 msgstr "Препоручене"
 
 #: nextcloudappstore/core/models.py:105
-#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "Скорашње оцене"
 
 #: nextcloudappstore/core/models.py:106
-#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "Укупне оцене"
 
@@ -268,7 +266,6 @@ msgstr "Апликација"
 #: nextcloudappstore/core/models.py:125
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/nav.html:40
 msgid "Apps"
 msgstr "Апликације"
 
@@ -277,7 +274,7 @@ msgid "User"
 msgstr "Корисник"
 
 #: nextcloudappstore/core/models.py:270
-#: nextcloudappstore/core/templates/app/list.html:15
+#: nextcloudappstore/core/templates/app/list.html:20
 msgid "Rating"
 msgstr "По оцени"
 
@@ -470,9 +467,9 @@ msgid "Ordering"
 msgstr "Редослед"
 
 #: nextcloudappstore/core/models.py:483
-#: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:49
-#: nextcloudappstore/core/templates/app/list.html:51
+#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/list.html:95
+#: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "Снимак екрана"
 
@@ -509,6 +506,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Име категорије онако како ће се показати кориснику"
 
 #: nextcloudappstore/core/models.py:535
+#: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
@@ -582,28 +580,63 @@ msgstr "Захтевана верзија екстензије (сирово)"
 msgid "PHP extension dependencies"
 msgstr "Зависности PHP екстензије"
 
-#: nextcloudappstore/core/models.py:651
+#: nextcloudappstore/core/models.py:634
+msgid "Heading"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:635
+msgid "Excerpt"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:636
+msgid "Link"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:637
+#, fuzzy
+#| msgid "Image URL"
+msgid "Image"
+msgstr "Адреса слике"
+
+#: nextcloudappstore/core/models.py:638
+msgid "Show podcast"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:641
+#, fuzzy
+#| msgid "Nextcloud release"
+msgid "Nextcloud Podcast"
+msgstr "Некстклауд издање"
+
+#: nextcloudappstore/core/models.py:642
+#, fuzzy
+#| msgid "Nextcloud releases"
+msgid "Nextcloud Podcasts"
+msgstr "Некстклауд издања"
+
+#: nextcloudappstore/core/models.py:666
 msgid "App release deletion"
 msgstr "Брисање издања апликације"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:667
 msgid "App release deletions"
 msgstr "Брисања издања апликације"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Некстклауд верзија"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
 msgid "e.g. 9.0.54"
 msgstr "нпр. 9.0.54"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:684
 msgid "Is current version"
 msgstr "Да ли је тренутна верзија"
 
-#: nextcloudappstore/core/models.py:671
+#: nextcloudappstore/core/models.py:686
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -611,25 +644,25 @@ msgstr ""
 "Само једна верзија може бити тренутна. Ово поље се користи да унапред "
 "постави падајуће меније за генерисање апликације итд."
 
-#: nextcloudappstore/core/models.py:679
+#: nextcloudappstore/core/models.py:694
 msgid "Has a release"
 msgstr "Има издање"
 
-#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/models.py:696
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ако је тачно, ово је стварно издата Некстклауд верзија која може бити "
 "скинута као архива. Ако није тачно, издање је још у изради или више није "
 "доступно за скидање."
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:706
 msgid "Version is supported"
 msgstr "Верзија је подржана"
 
-#: nextcloudappstore/core/models.py:692
+#: nextcloudappstore/core/models.py:707
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -637,11 +670,11 @@ msgstr ""
 "Ако је тачно, ова верзија је званично подржана (не укључује подршку за "
 "предузетнике)"
 
-#: nextcloudappstore/core/models.py:697
+#: nextcloudappstore/core/models.py:712
 msgid "Nextcloud release"
 msgstr "Некстклауд издање"
 
-#: nextcloudappstore/core/models.py:698
+#: nextcloudappstore/core/models.py:713
 msgid "Nextcloud releases"
 msgstr "Некстклауд издања"
 
@@ -677,15 +710,18 @@ msgstr "Превише покушаја. Покушајте поново нак�
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Поздрав од %(site_name)s!\n"
 "\n"
-"Примили сте овај и-мејл јер је корисник %(user_display)s повезао свој налог на %(site_domain)s са овом и-мејл адресом.\n"
+"Примили сте овај и-мејл јер је корисник %(user_display)s повезао свој налог "
+"на %(site_domain)s са овом и-мејл адресом.\n"
 "\n"
 "Ако желите потврдити да је ово исправно, посетите %(activate_url)s\n"
 "\n"
@@ -711,8 +747,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Молимо вас потврдите да је <a href=\"mailto:%(email)s\">%(email)s</a> и-мејл"
-" адреса корисника %(user_display)s."
+"Молимо вас потврдите да је <a href=\"mailto:%(email)s\">%(email)s</a> и-мејл "
+"адреса корисника %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -721,37 +757,37 @@ msgstr "Потврђујем"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Линк потврде у овој и-мејл поруци је истекао или није исправан. Молимо вас "
-"да <a href=\"%(email_url)s\">креирате нови захтев за потврду и-мејл "
-"адресе</a>."
+"да <a href=\"%(email_url)s\">креирате нови захтев за потврду и-мејл адресе</"
+"a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
-#: nextcloudappstore/core/templates/account/login.html:17
-#: nextcloudappstore/core/templates/account/login.html:33
+#: nextcloudappstore/core/templates/account/login.html:12
+#: nextcloudappstore/core/templates/account/login.html:21
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:100
+#: nextcloudappstore/core/templates/nav.html:128
 msgid "Log in"
 msgstr "Пријава"
 
-#: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:24
-msgid "Log in with GitHub"
-msgstr "Пријавите се преко GitHub-а"
-
-#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/login.html:25
 msgid "Forgot password?"
 msgstr "Заборавили сте лозинку?"
 
-#: nextcloudappstore/core/templates/account/login.html:36
+#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/signup.html:29
+msgid "Log in with GitHub"
+msgstr "Пријавите се преко GitHub-а"
+
+#: nextcloudappstore/core/templates/account/login.html:40
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:34
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/account/signup.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:17
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:103
+#: nextcloudappstore/core/templates/nav.html:134
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -762,7 +798,7 @@ msgstr "Региструј се"
 msgid "Password Reset"
 msgstr "Ресетуј лозинку"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:17
+#: nextcloudappstore/core/templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
@@ -770,11 +806,11 @@ msgstr ""
 "Заборавили сте своју лозинку? Унесите своју и-мејл адресу у поље испод, па "
 "ћемо вам послаци и-мејл који вам омогућава да је ресетујете."
 
-#: nextcloudappstore/core/templates/account/password_reset.html:22
+#: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
 msgstr "Ресетуј моју лозинку"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:27
+#: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
 "Контактирајте нас ако имате икаквих проблема приликом ресетовања лозинке"
@@ -786,7 +822,7 @@ msgstr "Лош API токен"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:14
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid "Change Password"
 msgstr "Промени лозинку"
 
@@ -794,8 +830,8 @@ msgstr "Промени лозинку"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Веза за ресетовање лозинке је неисправна, вероватно зато што је већ "
 "искоришћена. Затражите <a href=\"%(passwd_reset_url)s\">ново ресетовање "
@@ -805,8 +841,10 @@ msgstr ""
 msgid "Your password is now changed."
 msgstr "Ваша лозинка је сада измењена."
 
-#: nextcloudappstore/core/templates/account/signup.html:17
-msgid "Create account"
+#: nextcloudappstore/core/templates/account/signup.html:12
+#, fuzzy
+#| msgid "Create account"
+msgid "Create an account"
 msgstr "Направите налог"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
@@ -817,13 +855,13 @@ msgstr "Администрација Некстклауд продавнице �
 msgid "Nextcloud App Store administration"
 msgstr "Администрација Некстклауд продавнице апликација"
 
-#: nextcloudappstore/core/templates/app/base.html:11
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:13
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "All apps"
 msgstr "Све апликације"
 
-#: nextcloudappstore/core/templates/app/base.html:14
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:19
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "Featured apps"
 msgstr "Препоручене апликације"
 
@@ -833,118 +871,179 @@ msgstr "Препоручене апликације"
 msgid "Latest %(app_name)s releases"
 msgstr "Последњих %(app_name)s издања"
 
-#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
 msgstr "Претходна"
 
-#: nextcloudappstore/core/templates/app/detail.html:41
+#: nextcloudappstore/core/templates/app/detail.html:36
 msgid "Next"
 msgstr "Следећа"
 
-#: nextcloudappstore/core/templates/app/detail.html:62
-#: nextcloudappstore/core/templates/app/releases.html:27
-msgid "Updated"
-msgstr "Ажурирано"
+#: nextcloudappstore/core/templates/app/detail.html:47
+#, fuzzy
+#| msgid "Nextcloud version"
+msgid "Highest Nextcloud version"
+msgstr "Некстклауд верзија"
 
-#: nextcloudappstore/core/templates/app/detail.html:66
-msgid "Publisher"
-msgstr "Издавач"
+#: nextcloudappstore/core/templates/app/detail.html:51
+#, fuzzy
+#| msgid "All releases"
+msgid "Show all releases"
+msgstr "Сва издања"
 
-#: nextcloudappstore/core/templates/app/detail.html:98
+#: nextcloudappstore/core/templates/app/detail.html:54
+#, fuzzy
+#| msgid "Submit rating"
+msgid "Community rating"
+msgstr "Пошаљи оцену"
+
+#: nextcloudappstore/core/templates/app/detail.html:58
+#, fuzzy
+#| msgid "App author"
+msgid "Author"
+msgstr "Аутор апликације"
+
+#: nextcloudappstore/core/templates/app/detail.html:80
+#, fuzzy
+#| msgid "Last name"
+msgid "Last updated"
+msgstr "Презиме"
+
+#: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
 msgstr "Ресурси"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:94
 msgid "User documentation"
 msgstr "Корисничка документација"
 
-#: nextcloudappstore/core/templates/app/detail.html:107
+#: nextcloudappstore/core/templates/app/detail.html:97
 msgid "Admin documentation"
 msgstr "Администраторска документација"
 
-#: nextcloudappstore/core/templates/app/detail.html:110
+#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/nav.html:28
 msgid "Developer documentation"
 msgstr "Програмерска документација"
 
-#: nextcloudappstore/core/templates/app/detail.html:121
-msgid "Downloads"
-msgstr "Скидања"
+#: nextcloudappstore/core/templates/app/detail.html:106
+#, fuzzy
+#| msgid "Integration"
+msgid "Interact"
+msgstr "Интеграција"
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:112
+msgid "Report problem"
+msgstr "Пријави проблем"
+
+#: nextcloudappstore/core/templates/app/detail.html:118
+msgid "Request feature"
+msgstr "Затражи функционалност"
+
+#: nextcloudappstore/core/templates/app/detail.html:125
+msgid "Ask questions or discuss"
+msgstr "Питајте питање или дискутујте"
+
+#: nextcloudappstore/core/templates/app/detail.html:136
+#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/releases.html:12
+msgid "Releases"
+msgstr "Издања"
+
+#: nextcloudappstore/core/templates/app/detail.html:141
+msgid "Stable channel"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:142
+#, fuzzy
+#| msgid "Nightly"
+msgid "Nightly channel"
+msgstr "Nightly"
+
+#: nextcloudappstore/core/templates/app/detail.html:143
+msgid "All releases"
+msgstr "Сва издања"
+
+#: nextcloudappstore/core/templates/app/detail.html:151
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "nightly"
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Unstable"
 msgstr "Нестабилно"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
-msgid "All releases"
-msgstr "Сва издања"
-
-#: nextcloudappstore/core/templates/app/detail.html:140
-msgid "Discussion"
-msgstr "Дискусија"
-
-#: nextcloudappstore/core/templates/app/detail.html:144
-msgid "Report problem"
-msgstr "Пријави проблем"
-
-#: nextcloudappstore/core/templates/app/detail.html:148
-msgid "Request feature"
-msgstr "Затражи функционалност"
-
-#: nextcloudappstore/core/templates/app/detail.html:155
-msgid "Ask questions or discuss"
-msgstr "Питајте питање или дискутујте"
-
-#: nextcloudappstore/core/templates/app/detail.html:161
-msgid "Rate app"
-msgstr "Оцените апликацију"
-
-#: nextcloudappstore/core/templates/app/detail.html:161
-msgid "Rate integration"
-msgstr "Оцени интеграцију"
-
-#: nextcloudappstore/core/templates/app/detail.html:169
-msgid "Rate"
-msgstr "Оцени"
-
-#: nextcloudappstore/core/templates/app/detail.html:174
-msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
+#: nextcloudappstore/core/templates/app/detail.html:172
+msgid "Ok"
 msgstr ""
-"Коментари на оцене подржавају <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> синтаксу.\n"
-"                            Не користите коментаре на оцене да пријављујете грешке или да тражите нове функционалности. Ни програмери ни корисници неће бити обавештени о Вашем коментару.\n"
-"                            Оцена без коментара се исто рачуна, али неће бити излистана испод."
 
-#: nextcloudappstore/core/templates/app/detail.html:179
-msgid "Update rating"
-msgstr "Ажурирај оцену"
-
-#: nextcloudappstore/core/templates/app/detail.html:181
-msgid "Submit rating"
-msgstr "Пошаљи оцену"
-
-#: nextcloudappstore/core/templates/app/detail.html:208
+#: nextcloudappstore/core/templates/app/detail.html:190
 msgid "No comments found."
 msgstr "Нема коментара."
 
-#: nextcloudappstore/core/templates/app/detail.html:216
-msgid "Rating comments"
-msgstr "Коментари оцењивања"
+#: nextcloudappstore/core/templates/app/detail.html:199
+#, fuzzy
+#| msgid "Comment"
+msgid "Comments"
+msgstr "Коментар"
 
-#: nextcloudappstore/core/templates/app/detail.html:220
-msgid "Display ratings comments in:"
-msgstr "Прикажи коментаре оцењивања на језику:"
+#: nextcloudappstore/core/templates/app/detail.html:206
+msgid "Rate app"
+msgstr "Оцените апликацију"
+
+#: nextcloudappstore/core/templates/app/detail.html:206
+msgid "Rate integration"
+msgstr "Оцени интеграцију"
+
+#: nextcloudappstore/core/templates/app/detail.html:212
+#, fuzzy
+#| msgid "Comment"
+msgid "Your comment"
+msgstr "Коментар"
+
+#: nextcloudappstore/core/templates/app/detail.html:217
+#, fuzzy
+#| msgid ""
+#| "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+#| "daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+#| "                            Do not use rating comments to report bugs or "
+#| "request features. Neither developers nor users will be notified of your "
+#| "comment.\n"
+#| "                            A rating without a comment still counts, but "
+#| "will not be listed below."
+msgid ""
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                                    Do not use rating comments to report "
+"bugs or request features. Neither developers nor users will be notified of "
+"your comment.\n"
+"                                    A rating without a comment still counts, "
+"but will not be listed below."
+msgstr ""
+"Коментари на оцене подржавају <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a> синтаксу.\n"
+"                            Не користите коментаре на оцене да пријављујете "
+"грешке или да тражите нове функционалности. Ни програмери ни корисници неће "
+"бити обавештени о Вашем коментару.\n"
+"                            Оцена без коментара се исто рачуна, али неће "
+"бити излистана испод."
+
+#: nextcloudappstore/core/templates/app/detail.html:224
+msgid "Update rating"
+msgstr "Ажурирај оцену"
+
+#: nextcloudappstore/core/templates/app/detail.html:226
+msgid "Submit rating"
+msgstr "Пошаљи оцену"
+
+#: nextcloudappstore/core/templates/app/detail.html:237
+msgid "Switch language for the comments:"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Register integration"
 msgstr "Региструј интеграцију"
 
@@ -958,75 +1057,77 @@ msgstr "Модериши интеграцију"
 msgid "Edit integration"
 msgstr "Измени интеграцију"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:19
 msgid "Update"
 msgstr "Ажурирај"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:20
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:27
 msgid "Approve"
 msgstr "Одобри"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:28
 msgid "Reject"
 msgstr "Одбаци"
 
-#: nextcloudappstore/core/templates/app/list.html:16
-msgid "Rating (recent)"
-msgstr "По оцени (скорашње)"
-
-#: nextcloudappstore/core/templates/app/list.html:17
-msgid "Latest"
-msgstr "Најновије"
-
-#: nextcloudappstore/core/templates/app/list.html:19
-#: nextcloudappstore/core/templates/app/list.html:21
-#: nextcloudappstore/core/templates/app/list.html:23
+#: nextcloudappstore/core/templates/app/list.html:27
+#: nextcloudappstore/core/templates/app/list.html:34
+#: nextcloudappstore/core/templates/app/list.html:41
 msgid "Alphabetically"
 msgstr "Абецедно"
 
-#: nextcloudappstore/core/templates/app/list.html:33
+#: nextcloudappstore/core/templates/app/list.html:48
+#, fuzzy
+#| msgid "Latest app releases"
+msgid "Latest release"
+msgstr "Најновија издања апликације"
+
+#: nextcloudappstore/core/templates/app/list.html:54
+msgid "Rating (recent)"
+msgstr "По оцени (скорашње)"
+
+#: nextcloudappstore/core/templates/app/list.html:68
 msgid "My apps"
 msgstr "Моје апликације"
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:108
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "Ниједна апликација није нађена за претрагу \"<em>%(query)s</em>\" у "
 "категорији %(category)s."
 
-#: nextcloudappstore/core/templates/app/list.html:63
+#: nextcloudappstore/core/templates/app/list.html:110
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Ниједна апликација није нађена за претрагу \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:64
+#: nextcloudappstore/core/templates/nav.html:55
 msgid "Register app"
 msgstr "Региструјте апликацију"
 
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "За више информација како да добавите сертификат и креирате потпис, "
-"погледајте <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
+"погледајте <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">упутство за програмере "
+"апликација</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Овај формулар се може користити и да ажурирате постојеће сертификате, али то"
-" може само власник апликације. Ажурирање сертификата апликације ће избрисати"
-" сва већ постављена издања!"
+"Овај формулар се може користити и да ажурирате постојеће сертификате, али то "
+"може само власник апликације. Ажурирање сертификата апликације ће избрисати "
+"сва већ постављена издања!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
@@ -1036,11 +1137,6 @@ msgstr "Није јавни сертификат"
 msgid "App registered."
 msgstr "Апликација регистрована."
 
-#: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/app/releases.html:12
-msgid "Releases"
-msgstr "Издања"
-
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
 msgstr "Детаљи апликације"
@@ -1048,6 +1144,10 @@ msgstr "Детаљи апликације"
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "Детаљи издања"
+
+#: nextcloudappstore/core/templates/app/releases.html:27
+msgid "Updated"
+msgstr "Ажурирано"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
@@ -1067,17 +1167,17 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:60
+#: nextcloudappstore/core/templates/nav.html:47
 msgid "Generate app"
 msgstr "Генериши апликацију"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:13
+#: nextcloudappstore/core/templates/app/scaffold.html:15
 msgid "Generate and download"
 msgstr "Генериши и скини"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:67
+#: nextcloudappstore/core/templates/nav.html:61
 msgid "Upload app release"
 msgstr "Отпреми издање апликације"
 
@@ -1088,13 +1188,13 @@ msgstr "Издање апликације успешно отпремљено."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"За више информација како да направите потпис, погледајте <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
+"За више информација како да направите потпис, погледајте <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">упутство за програмере апликација</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1112,87 +1212,81 @@ msgstr ""
 msgid "The Nextcloud Community"
 msgstr "Некстклауд заједница"
 
-#: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
+#: nextcloudappstore/core/templates/base.html:22
 msgid "Latest app releases"
 msgstr "Најновија издања апликације"
 
-#: nextcloudappstore/core/templates/base.html:45
-msgid "Fork me on GitHub"
-msgstr "Форкуј ме на GitHub-у"
-
 #: nextcloudappstore/core/templates/base.html:48
+msgid "Contribute to the app store"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
 msgstr "Приватност и легалност"
 
-#: nextcloudappstore/core/templates/base.html:51
-msgid "Legal Notice"
+#: nextcloudappstore/core/templates/base.html:60
+#, fuzzy
+#| msgid "Legal Notice"
+msgid "Legal notice"
 msgstr "Правно обавештење"
 
-#: nextcloudappstore/core/templates/form-fields.html:19
+#: nextcloudappstore/core/templates/form-fields.html:23
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "обавезно поље"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:16
+msgid "Resources for developers"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:22
+#, fuzzy
+#| msgid "Apps for Nextcloud Flow"
+msgid "Develop for Nextcloud"
+msgstr "Апликације за Некстклауд Flow"
+
+#: nextcloudappstore/core/templates/nav.html:34
+msgid "Request translations"
+msgstr "Захтев за преводом"
+
+#: nextcloudappstore/core/templates/nav.html:41
+#, fuzzy
+#| msgid "Submit rating"
+msgid "Submit your app"
+msgstr "Пошаљи оцену"
+
+#: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
 msgstr "Претражи у %(category)s"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
 msgstr "Претражи у препорученим апликацијама"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in all apps"
 msgstr "Претражи у свим апликацијама"
 
-#: nextcloudappstore/core/templates/nav.html:23
+#: nextcloudappstore/core/templates/nav.html:99
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "Претрага"
 
-#: nextcloudappstore/core/templates/nav.html:31
-msgid "Toggle navigation"
-msgstr "Укључи/искључи навигацију"
-
-#: nextcloudappstore/core/templates/nav.html:44
-msgid "App developer"
-msgstr "Развој апликација"
-
-#: nextcloudappstore/core/templates/nav.html:48
-msgid "Documentation"
-msgstr "Документација"
-
-#: nextcloudappstore/core/templates/nav.html:51
-msgid "Upload your app"
-msgstr "Отпремите своју апликацију"
-
-#: nextcloudappstore/core/templates/nav.html:54
-msgid "Developer resources"
-msgstr "Материјали за програмере"
-
-#: nextcloudappstore/core/templates/nav.html:57
-msgid "Request translations"
-msgstr "Захтев за преводом"
-
-#: nextcloudappstore/core/templates/nav.html:75
-msgid "Integration developer"
-msgstr "Програмер интеграције"
-
-#: nextcloudappstore/core/templates/nav.html:88
+#: nextcloudappstore/core/templates/nav.html:107
 msgid "Admin"
 msgstr "Администрација"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:115
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
-#: nextcloudappstore/user/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/base.html:14
 msgid "Account"
 msgstr "Налог"
 
-#: nextcloudappstore/core/templates/nav.html:96
+#: nextcloudappstore/core/templates/nav.html:121
 msgid "Log out"
 msgstr "Одјава"
 
@@ -1200,7 +1294,8 @@ msgstr "Одјава"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Управо ћете искористити Ваш %(provider_name)s налог да приступите сајту\n"
 "            %(site_name)s. Као последњи корак, попуните следећи формулар:"
@@ -1211,8 +1306,7 @@ msgstr "Прилагођавање"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr ""
-"Теме, распоред елемената и апликације које мењају кориснички интерфејс"
+msgstr "Теме, распоред елемената и апликације које мењају кориснички интерфејс"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
@@ -1451,8 +1545,8 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Лозинка је неопходна да заштити неовлашћене корисника да промене адресу Ваше"
-" е-поште и ресетују Вашу лозинку. Ово поље не ажурира Вашу лозинку!"
+"Лозинка је неопходна да заштити неовлашћене корисника да промене адресу Ваше "
+"е-поште и ресетују Вашу лозинку. Ово поље не ажурира Вашу лозинку!"
 
 #: nextcloudappstore/user/forms.py:63
 msgid "This email address is already associated with another account."
@@ -1478,7 +1572,7 @@ msgstr ""
 "Ваша лозинка за Nextcloud продавницу апликација је промењена. Ако то нисте "
 "ви урадили, контактирајте подршку."
 
-#: nextcloudappstore/user/templates/user/account.html:12
+#: nextcloudappstore/user/templates/user/account.html:15
 msgid "Save"
 msgstr "Сачувај"
 
@@ -1490,16 +1584,22 @@ msgstr "API токен"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                API жетон може да се користи за аутентификацију када се позива \n"
-"               <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>\n"
+"                API жетон може да се користи за аутентификацију када се "
+"позива \n"
+"               <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>\n"
 "                Nextcloud продавнице апликација.\n"
-"                Будите сигурни да је тајна. Испод може да се генерише нови жетон, чиме стари престаје да важи.\n"
+"                Будите сигурни да је тајна. Испод може да се генерише нови "
+"жетон, чиме стари престаје да важи.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1514,35 +1614,35 @@ msgstr "Изгенерисан нови API токен."
 msgid "Regenerate API token"
 msgstr "Генериши API токен поново"
 
-#: nextcloudappstore/user/templates/user/base.html:15
+#: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
 msgstr "Интеграције"
 
-#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/base.html:26
 msgid "Transfer app ownership"
 msgstr "Пренеси власништво над апликацијом"
 
-#: nextcloudappstore/user/templates/user/base.html:21
+#: nextcloudappstore/user/templates/user/base.html:32
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
-#: nextcloudappstore/user/templates/user/set-language.html:26
+#: nextcloudappstore/user/templates/user/set-language.html:29
 msgid "Change language"
 msgstr "Промени језик"
 
-#: nextcloudappstore/user/templates/user/base.html:25
+#: nextcloudappstore/user/templates/user/base.html:39
 #: nextcloudappstore/user/templates/user/password.html:5
 msgid "Password"
 msgstr "Лозинка"
 
-#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/base.html:46
 msgid "API token"
 msgstr "API токен"
 
-#: nextcloudappstore/user/templates/user/base.html:32
+#: nextcloudappstore/user/templates/user/base.html:52
 #: nextcloudappstore/user/templates/user/delete-account.html:5
 #: nextcloudappstore/user/templates/user/delete-account.html:8
-#: nextcloudappstore/user/templates/user/delete-account.html:13
+#: nextcloudappstore/user/templates/user/delete-account.html:17
 msgid "Delete account"
 msgstr "Обриши налог"
 
@@ -1586,13 +1686,13 @@ msgstr "Нисте још поднели ниједну интеграцију �
 msgid "Changing your password will also regenerate your API token!"
 msgstr "Промена лозинке ће поново генерисати Ваше API токене!"
 
-#: nextcloudappstore/user/templates/user/password.html:17
+#: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Изгледа да користитите налог регистрован са другим провајдером. Ваша лозинка"
-" се због тога <strong>не</strong> може променити са ове стране."
+"Изгледа да користитите налог регистрован са другим провајдером. Ваша лозинка "
+"се због тога <strong>не</strong> може променити са ове стране."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1636,3 +1736,45 @@ msgstr "Откључај пренос власништва"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Још није отпремили ниједну апликацију!"
+
+#~ msgid "Publisher"
+#~ msgstr "Издавач"
+
+#~ msgid "Downloads"
+#~ msgstr "Скидања"
+
+#~ msgid "Discussion"
+#~ msgstr "Дискусија"
+
+#~ msgid "Rate"
+#~ msgstr "Оцени"
+
+#~ msgid "Rating comments"
+#~ msgstr "Коментари оцењивања"
+
+#~ msgid "Display ratings comments in:"
+#~ msgstr "Прикажи коментаре оцењивања на језику:"
+
+#~ msgid "Latest"
+#~ msgstr "Најновије"
+
+#~ msgid "Fork me on GitHub"
+#~ msgstr "Форкуј ме на GitHub-у"
+
+#~ msgid "Toggle navigation"
+#~ msgstr "Укључи/искључи навигацију"
+
+#~ msgid "App developer"
+#~ msgstr "Развој апликација"
+
+#~ msgid "Documentation"
+#~ msgstr "Документација"
+
+#~ msgid "Upload your app"
+#~ msgstr "Отпремите своју апликацију"
+
+#~ msgid "Developer resources"
+#~ msgstr "Материјали за програмере"
+
+#~ msgid "Integration developer"
+#~ msgstr "Програмер интеграције"
