@@ -85,7 +85,7 @@ class CompatibilityTest(TestCase):
         self.assertEqual(app2["9"]["stable"].version, "1.0.0")
         self.assertEqual(app2["10"]["stable"].version, "2.0.0")
         self.assertEqual(app2["11"]["stable"].version, "4.0.0")
-        self.assertEqual(app2["12"]["stable"], None)
+        self.assertTrue("12" not in app2)
 
     def test_correct_comparison(self):
         self._create_example_releases()

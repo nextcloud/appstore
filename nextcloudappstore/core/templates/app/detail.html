@@ -45,14 +45,14 @@
     <div class="app-meta col-md-4 col-sm-12">
         <section>
             <h5>{% trans "Highest Nextcloud version" %}</h5>
-            {% with latest_releases_by_platform_v|sort_by_version:'desc'|last as latest_release %}
+            {% with latest_releases_by_platform_v|sort_by_version:'asc'|last as latest_release %}
                 <p>
                     Nextcloud {{ latest_release.0 }} <br />
                     <a href="{% url 'app-releases' object.id %}?platform={{ latest_release.0 }}#{{ latest_release.0 }}">{% trans "Show all releases" %}</a>
                 </p>
             {% endwith %}
             <h5>{% trans "Community rating" %}</h5>
-            <img class="app-score-image" src="/static/assets/img/rating/s{{ object.rating_recent|app_rating_img }}.svg" alt="">
+            <img class="app-score-image" src="/static/assets/img/rating/s{{ object.rating_overall|app_rating_img }}.svg" alt="">
 
             {% if object.owner %}
             <h5>{% trans "Author" %}</h5>

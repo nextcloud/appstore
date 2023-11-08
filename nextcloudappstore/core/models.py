@@ -180,7 +180,7 @@ class App(TranslatableModel):
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest stable and unstable release for each platform
-        version.
+        version, returns only platforms where present any of the release type.
 
         Example of returned dict:
 
@@ -200,16 +200,17 @@ class App(TranslatableModel):
 
         def filter_latest(pair):
             version, releases = pair
-            return (version, self._latest(releases))
+            return version, self._latest(releases)
 
         latest_stable = dict(map(filter_latest, stable.items()))
         latest_unstable = dict(map(filter_latest, unstable.items()))
         all_versions = set(chain(latest_stable.keys(), latest_unstable.keys()))
 
         def stable_or_unstable_releases(ver):
-            return (ver, {"stable": latest_stable.get(ver, None), "unstable": latest_unstable.get(ver, None)})
+            return ver, {"stable": latest_stable.get(ver, None), "unstable": latest_unstable.get(ver, None)}
 
-        return dict(map(stable_or_unstable_releases, all_versions))
+        result = dict(map(stable_or_unstable_releases, all_versions))
+        return {k: result[k] for k in result if any(list(result[k].values()))}
 
     def compatible_releases(self, platform_version, inclusive=True):
         """Returns all stable releases of this app that are compatible
