@@ -6,34 +6,55 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4 col-md-3">
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="{% if acc_page == 'account' %}active{% endif %}">
-                <a href="{% url 'user:account' %}">{% trans 'Account' %}</a>
+                <a href="{% url 'user:account' %}">
+                    <span class="icon material-symbols-outlined">person</span>
+                    {% trans 'Account' %}
+                </a>
             </li>
             <li class="{% if acc_page == 'account-integrations' %}active{% endif %}">
-                <a href="{% url 'user:account-integrations' %}">{% trans 'Integrations' %}</a>
+                <a href="{% url 'user:account-integrations' %}">
+                    <span class="icon material-symbols-outlined">integration_instructions</span>
+                    {% trans 'Integrations' %}
+                </a>
             </li>
             <li class="{% if acc_page == 'account-transfer-apps' %}active{% endif %}">
-                <a href="{% url 'user:account-transfer-apps' %}">{% trans 'Transfer app ownership' %}</a>
+                <a href="{% url 'user:account-transfer-apps' %}">
+                    <span class="icon material-symbols-outlined">move_down</span>
+                    {% trans 'Transfer app ownership' %}
+                </a>
             </li>
             <li class="{% if acc_page == 'account-change-language' %}active{% endif %}">
-                <a href="{% url 'user:account-change-language' %}">{% trans 'Change language' %}</a>
+                <a href="{% url 'user:account-change-language' %}">
+                    <span class="icon material-symbols-outlined">translate</span>
+                    {% trans 'Change language' %}
+                </a>
             </li>
             {% if request.user.has_usable_password %}
                 <li class="{% if acc_page == 'password' %}active{% endif %}">
-                    <a href="{% url 'user:account-password' %}">{% trans 'Password' %}</a>
+                    <a href="{% url 'user:account-password' %}">
+                        <span class="icon material-symbols-outlined">password</span>
+                        {% trans 'Password' %}
+                    </a>
                 </li>
             {% endif %}
             <li class="{% if acc_page == 'api-token' %}active{% endif %}">
-                <a href="{% url 'user:account-api-token' %}">{% trans 'API token' %}</a>
+                <a href="{% url 'user:account-api-token' %}">
+                    <span class="icon material-symbols-outlined">key</span>
+                    {% trans 'API token' %}
+                </a>
             </li>
             <li class="{% if acc_page == 'delete-account' %}active{% endif %}">
-                <a href="{% url 'user:account-deletion' %}">{% trans 'Delete account' %}</a>
+                <a href="{% url 'user:account-deletion' %}">
+                    <span class="icon material-symbols-outlined">security</span>
+                    {% trans 'Delete account' %}
+                </a>
             </li>
         </ul>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8 col-md-9 account-content">
         {% block account-content %}{% endblock %}
     </div>
 </div>

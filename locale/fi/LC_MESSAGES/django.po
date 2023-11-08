@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 02:55+0000\n"
+"POT-Creation-Date: 2023-11-08 02:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>, 2023\n"
 "Language-Team: Finnish (Finland) (https://app.transifex.com/nextcloud/"
@@ -49,17 +49,16 @@ msgid "Download"
 msgstr "Lataa"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Bad"
 msgstr "Huono"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:194
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Good"
 msgstr "Hyvä"
 
@@ -131,7 +130,6 @@ msgid "app ID, identical to folder name"
 msgstr "sovellus ID on identtinen kansion nimen kanssa"
 
 #: nextcloudappstore/core/models.py:80 nextcloudappstore/core/models.py:534
-#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "Kategoria"
 
@@ -183,7 +181,7 @@ msgid "Issue tracker URL"
 msgstr "Ongelmien seurannan URL-osoite"
 
 #: nextcloudappstore/core/models.py:93 nextcloudappstore/core/models.py:322
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:91
 msgid "Homepage"
 msgstr "Kotisivu"
 
@@ -206,7 +204,7 @@ msgid "App owner"
 msgstr "Sovelluksen omistaja"
 
 #: nextcloudappstore/core/models.py:101
-#: nextcloudappstore/core/templates/app/detail.html:84
+#: nextcloudappstore/core/templates/app/detail.html:68
 msgid "Co-Maintainers"
 msgstr "Ylläpitäjät"
 
@@ -215,18 +213,16 @@ msgid "App authors"
 msgstr "Sovelluksen tekijät"
 
 #: nextcloudappstore/core/models.py:104
-#: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:29
+#: nextcloudappstore/core/templates/app/detail.html:43
+#: nextcloudappstore/core/templates/app/list.html:61
 msgid "Featured"
 msgstr "Poiminta"
 
 #: nextcloudappstore/core/models.py:105
-#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "Viimeaikainen arviointi"
 
 #: nextcloudappstore/core/models.py:106
-#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "Kokonaisarviointi"
 
@@ -276,7 +272,6 @@ msgstr "Sovellus"
 #: nextcloudappstore/core/models.py:125
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/nav.html:40
 msgid "Apps"
 msgstr "Sovellukset"
 
@@ -285,7 +280,7 @@ msgid "User"
 msgstr "Käyttäjä"
 
 #: nextcloudappstore/core/models.py:270
-#: nextcloudappstore/core/templates/app/list.html:15
+#: nextcloudappstore/core/templates/app/list.html:20
 msgid "Rating"
 msgstr "Arviointi"
 
@@ -474,9 +469,9 @@ msgid "Ordering"
 msgstr "Järjestys"
 
 #: nextcloudappstore/core/models.py:483
-#: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:49
-#: nextcloudappstore/core/templates/app/list.html:51
+#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/list.html:95
+#: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "Kuvankaappaus"
 
@@ -513,6 +508,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Kategorian nimi, joka esitetään käyttäjälle"
 
 #: nextcloudappstore/core/models.py:535
+#: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
@@ -586,28 +582,63 @@ msgstr "Laajennusversion vaatimus (raw)"
 msgid "PHP extension dependencies"
 msgstr "PHP-laajennusriippuvuudet"
 
-#: nextcloudappstore/core/models.py:651
+#: nextcloudappstore/core/models.py:634
+msgid "Heading"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:635
+msgid "Excerpt"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:636
+msgid "Link"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:637
+#, fuzzy
+#| msgid "Image URL"
+msgid "Image"
+msgstr "Kuvan URL-osoite"
+
+#: nextcloudappstore/core/models.py:638
+msgid "Show podcast"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:641
+#, fuzzy
+#| msgid "Nextcloud release"
+msgid "Nextcloud Podcast"
+msgstr "Nextcloud-julkaisu"
+
+#: nextcloudappstore/core/models.py:642
+#, fuzzy
+#| msgid "Nextcloud releases"
+msgid "Nextcloud Podcasts"
+msgstr "Nextcloud-julkaisut"
+
+#: nextcloudappstore/core/models.py:666
 msgid "App release deletion"
 msgstr "Sovelluksen julkaisun poisto"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:667
 msgid "App release deletions"
 msgstr "Sovelluksen julkaisuiden poistot"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud-versio"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
 msgid "e.g. 9.0.54"
 msgstr "esim. 9.0.54"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:684
 msgid "Is current version"
 msgstr "On nykyinen versio"
 
-#: nextcloudappstore/core/models.py:671
+#: nextcloudappstore/core/models.py:686
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -615,11 +646,11 @@ msgstr ""
 "Vain yksi versio voi olla käytössä. Tätä kenttää käytetään sovelluksen "
 "luomisessa valikoiden esivalintaan, yms."
 
-#: nextcloudappstore/core/models.py:679
+#: nextcloudappstore/core/models.py:694
 msgid "Has a release"
 msgstr "On julkaisu"
 
-#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/models.py:696
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded "
 "as an archive. If false, the release is either a pre-release, or not "
@@ -628,11 +659,11 @@ msgstr ""
 "Jos tosi, tämä on julkaistu Nextcloud versio, joka voidaan ladata arkistona. "
 "Jos epätosi, julkaisu on joko esijulkaisu, tai se ei ole enää ladattavissa."
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:706
 msgid "Version is supported"
 msgstr "Versio on tuettu"
 
-#: nextcloudappstore/core/models.py:692
+#: nextcloudappstore/core/models.py:707
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -640,11 +671,11 @@ msgstr ""
 "Tosi, jos tämä versio on edelleen virallisesti tuettu (pois lukien "
 "yritystuki)"
 
-#: nextcloudappstore/core/models.py:697
+#: nextcloudappstore/core/models.py:712
 msgid "Nextcloud release"
 msgstr "Nextcloud-julkaisu"
 
-#: nextcloudappstore/core/models.py:698
+#: nextcloudappstore/core/models.py:713
 msgid "Nextcloud releases"
 msgstr "Nextcloud-julkaisut"
 
@@ -735,29 +766,29 @@ msgstr ""
 "ja <a href=\"%(email_url)s\">pyydä uusi pyyntö</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
-#: nextcloudappstore/core/templates/account/login.html:17
-#: nextcloudappstore/core/templates/account/login.html:33
+#: nextcloudappstore/core/templates/account/login.html:12
+#: nextcloudappstore/core/templates/account/login.html:21
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:100
+#: nextcloudappstore/core/templates/nav.html:128
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:24
-msgid "Log in with GitHub"
-msgstr "Kirjaudu sisään GitHub-tiliä käyttäen"
-
-#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/login.html:25
 msgid "Forgot password?"
 msgstr "Unohditko salasanasi?"
 
-#: nextcloudappstore/core/templates/account/login.html:36
+#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/signup.html:29
+msgid "Log in with GitHub"
+msgstr "Kirjaudu sisään GitHub-tiliä käyttäen"
+
+#: nextcloudappstore/core/templates/account/login.html:40
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:34
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/account/signup.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:17
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:103
+#: nextcloudappstore/core/templates/nav.html:134
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -768,7 +799,7 @@ msgstr "Rekisteröidy"
 msgid "Password Reset"
 msgstr "Salasanan palautus"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:17
+#: nextcloudappstore/core/templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
@@ -776,11 +807,11 @@ msgstr ""
 "Unohditko salasanasi? Syötä sähköpostiosoitteesi alle, ja lähetämme sinulle "
 "linkin salasanan nollaamiseen."
 
-#: nextcloudappstore/core/templates/account/password_reset.html:22
+#: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
 msgstr "Palauta salasanani"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:27
+#: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr "Ota meihin yhteyttä, jos sinulla on ongelmia salasanan palautuksessa"
 
@@ -791,7 +822,7 @@ msgstr "Virheellinen API-poletti"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:14
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid "Change Password"
 msgstr "Vaihda salasana"
 
@@ -810,8 +841,10 @@ msgstr ""
 msgid "Your password is now changed."
 msgstr "Salasanasi on nyt vaihdettu."
 
-#: nextcloudappstore/core/templates/account/signup.html:17
-msgid "Create account"
+#: nextcloudappstore/core/templates/account/signup.html:12
+#, fuzzy
+#| msgid "Create account"
+msgid "Create an account"
 msgstr "Luo tili"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
@@ -822,13 +855,13 @@ msgstr "Nextcloud App Store -ylläpitäjä"
 msgid "Nextcloud App Store administration"
 msgstr "Nextcloud App Store -ylläpito"
 
-#: nextcloudappstore/core/templates/app/base.html:11
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:13
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "All apps"
 msgstr "Kaikki sovellukset"
 
-#: nextcloudappstore/core/templates/app/base.html:14
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:19
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "Featured apps"
 msgstr "Esitellyt sovellukset"
 
@@ -838,94 +871,155 @@ msgstr "Esitellyt sovellukset"
 msgid "Latest %(app_name)s releases"
 msgstr "Viimeisimmät %(app_name)s-julkaisut"
 
-#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
 msgstr "Edellinen"
 
-#: nextcloudappstore/core/templates/app/detail.html:41
+#: nextcloudappstore/core/templates/app/detail.html:36
 msgid "Next"
 msgstr "Seuraava"
 
-#: nextcloudappstore/core/templates/app/detail.html:62
-#: nextcloudappstore/core/templates/app/releases.html:27
-msgid "Updated"
-msgstr "Päivitetty"
+#: nextcloudappstore/core/templates/app/detail.html:47
+#, fuzzy
+#| msgid "Nextcloud version"
+msgid "Highest Nextcloud version"
+msgstr "Nextcloud-versio"
 
-#: nextcloudappstore/core/templates/app/detail.html:66
-msgid "Publisher"
-msgstr "Julkaisija"
+#: nextcloudappstore/core/templates/app/detail.html:51
+#, fuzzy
+#| msgid "All releases"
+msgid "Show all releases"
+msgstr "Kaikki julkaisut"
 
-#: nextcloudappstore/core/templates/app/detail.html:98
+#: nextcloudappstore/core/templates/app/detail.html:54
+#, fuzzy
+#| msgid "Submit rating"
+msgid "Community rating"
+msgstr "Lähetä arvostelu"
+
+#: nextcloudappstore/core/templates/app/detail.html:58
+#, fuzzy
+#| msgid "App author"
+msgid "Author"
+msgstr "Sovelluksen tekijä"
+
+#: nextcloudappstore/core/templates/app/detail.html:80
+#, fuzzy
+#| msgid "Last name"
+msgid "Last updated"
+msgstr "Sukunimi"
+
+#: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
 msgstr "Resurssit"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:94
 msgid "User documentation"
 msgstr "Käyttäjädokumentaatio"
 
-#: nextcloudappstore/core/templates/app/detail.html:107
+#: nextcloudappstore/core/templates/app/detail.html:97
 msgid "Admin documentation"
 msgstr "Ylläpitäjän dokumentaatio"
 
-#: nextcloudappstore/core/templates/app/detail.html:110
+#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/nav.html:28
 msgid "Developer documentation"
 msgstr "Kehittäjädokumentaatio"
 
-#: nextcloudappstore/core/templates/app/detail.html:121
-msgid "Downloads"
-msgstr "Lataukset"
+#: nextcloudappstore/core/templates/app/detail.html:106
+#, fuzzy
+#| msgid "Integration"
+msgid "Interact"
+msgstr "Integraatio"
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:112
+msgid "Report problem"
+msgstr "Ilmoita ongelmasta"
+
+#: nextcloudappstore/core/templates/app/detail.html:118
+msgid "Request feature"
+msgstr "Ehdota ominaisuutta"
+
+#: nextcloudappstore/core/templates/app/detail.html:125
+msgid "Ask questions or discuss"
+msgstr "Esitä kysymyksiä tai keskustele"
+
+#: nextcloudappstore/core/templates/app/detail.html:136
+#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/releases.html:12
+msgid "Releases"
+msgstr "Julkaisut"
+
+#: nextcloudappstore/core/templates/app/detail.html:141
+msgid "Stable channel"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:142
+#, fuzzy
+#| msgid "Nightly"
+msgid "Nightly channel"
+msgstr "Joka yö"
+
+#: nextcloudappstore/core/templates/app/detail.html:143
+msgid "All releases"
+msgstr "Kaikki julkaisut"
+
+#: nextcloudappstore/core/templates/app/detail.html:151
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "yöllinen"
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Unstable"
 msgstr "Epävakaa"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
-msgid "All releases"
-msgstr "Kaikki julkaisut"
+#: nextcloudappstore/core/templates/app/detail.html:172
+msgid "Ok"
+msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:140
-msgid "Discussion"
-msgstr "Keskustelu"
+#: nextcloudappstore/core/templates/app/detail.html:190
+msgid "No comments found."
+msgstr "Kommentteja ei löytynyt."
 
-#: nextcloudappstore/core/templates/app/detail.html:144
-msgid "Report problem"
-msgstr "Ilmoita ongelmasta"
+#: nextcloudappstore/core/templates/app/detail.html:199
+#, fuzzy
+#| msgid "Comment"
+msgid "Comments"
+msgstr "Kommentti"
 
-#: nextcloudappstore/core/templates/app/detail.html:148
-msgid "Request feature"
-msgstr "Ehdota ominaisuutta"
-
-#: nextcloudappstore/core/templates/app/detail.html:155
-msgid "Ask questions or discuss"
-msgstr "Esitä kysymyksiä tai keskustele"
-
-#: nextcloudappstore/core/templates/app/detail.html:161
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rate app"
 msgstr "Arvostele sovellus"
 
-#: nextcloudappstore/core/templates/app/detail.html:161
+#: nextcloudappstore/core/templates/app/detail.html:206
 msgid "Rate integration"
 msgstr "Arvioi integraatio"
 
-#: nextcloudappstore/core/templates/app/detail.html:169
-msgid "Rate"
-msgstr "Arvostele"
+#: nextcloudappstore/core/templates/app/detail.html:212
+#, fuzzy
+#| msgid "Comment"
+msgid "Your comment"
+msgstr "Kommentti"
 
-#: nextcloudappstore/core/templates/app/detail.html:174
+#: nextcloudappstore/core/templates/app/detail.html:217
+#, fuzzy
+#| msgid ""
+#| "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+#| "daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+#| "                            Do not use rating comments to report bugs or "
+#| "request features. Neither developers nor users will be notified of your "
+#| "comment.\n"
+#| "                            A rating without a comment still counts, but "
+#| "will not be listed below."
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
 "daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or "
-"request features. Neither developers nor users will be notified of your "
-"comment.\n"
-"                            A rating without a comment still counts, but "
-"will not be listed below."
+"                                    Do not use rating comments to report "
+"bugs or request features. Neither developers nor users will be notified of "
+"your comment.\n"
+"                                    A rating without a comment still counts, "
+"but will not be listed below."
 msgstr ""
 "Arvostelukommentti tukee <a rel=\"noopener noreferrer\" href=\"https://"
 "daringfireball.net/projects/markdown/syntax\">Markdown-muotoilua</a>.\n"
@@ -935,29 +1029,21 @@ msgstr ""
 "Arvostelu ilman kommenttia lasketaan mukaan kokonaisarvosteluun, mutta sitä "
 "ei näytetä alla erikseen."
 
-#: nextcloudappstore/core/templates/app/detail.html:179
+#: nextcloudappstore/core/templates/app/detail.html:224
 msgid "Update rating"
 msgstr "Päivitä arvostelu"
 
-#: nextcloudappstore/core/templates/app/detail.html:181
+#: nextcloudappstore/core/templates/app/detail.html:226
 msgid "Submit rating"
 msgstr "Lähetä arvostelu"
 
-#: nextcloudappstore/core/templates/app/detail.html:208
-msgid "No comments found."
-msgstr "Kommentteja ei löytynyt."
-
-#: nextcloudappstore/core/templates/app/detail.html:216
-msgid "Rating comments"
-msgstr "Arvostelut"
-
-#: nextcloudappstore/core/templates/app/detail.html:220
-msgid "Display ratings comments in:"
-msgstr "Näytä kommentit kielellä:"
+#: nextcloudappstore/core/templates/app/detail.html:237
+msgid "Switch language for the comments:"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Register integration"
 msgstr "Rekisteröi integraatio"
 
@@ -971,50 +1057,52 @@ msgstr "Moderoi integraatio"
 msgid "Edit integration"
 msgstr "Muokkaa integraatiota"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:19
 msgid "Update"
 msgstr "Päivitä"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:20
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:27
 msgid "Approve"
 msgstr "Hyväksy"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:28
 msgid "Reject"
 msgstr "Hylkää"
 
-#: nextcloudappstore/core/templates/app/list.html:16
-msgid "Rating (recent)"
-msgstr "Arviointi (viimeaikainen)"
-
-#: nextcloudappstore/core/templates/app/list.html:17
-msgid "Latest"
-msgstr "Viimeisin"
-
-#: nextcloudappstore/core/templates/app/list.html:19
-#: nextcloudappstore/core/templates/app/list.html:21
-#: nextcloudappstore/core/templates/app/list.html:23
+#: nextcloudappstore/core/templates/app/list.html:27
+#: nextcloudappstore/core/templates/app/list.html:34
+#: nextcloudappstore/core/templates/app/list.html:41
 msgid "Alphabetically"
 msgstr "Aakkosjärjestys"
 
-#: nextcloudappstore/core/templates/app/list.html:33
+#: nextcloudappstore/core/templates/app/list.html:48
+#, fuzzy
+#| msgid "Latest app releases"
+msgid "Latest release"
+msgstr "Viimeisimmät sovellusjulkaisut"
+
+#: nextcloudappstore/core/templates/app/list.html:54
+msgid "Rating (recent)"
+msgstr "Arviointi (viimeaikainen)"
+
+#: nextcloudappstore/core/templates/app/list.html:68
 msgid "My apps"
 msgstr "Sovellukseni"
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:108
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "Haulle \"<em>%(query)s</em>\" ei löytynyt tuloksia luokasta %(category)s."
 
-#: nextcloudappstore/core/templates/app/list.html:63
+#: nextcloudappstore/core/templates/app/list.html:110
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Haulla \"<em>%(query)s</em>\" ei löytynyt sovelluksia."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:64
+#: nextcloudappstore/core/templates/nav.html:55
 msgid "Register app"
 msgstr "Rekisteröi sovellus"
 
@@ -1047,11 +1135,6 @@ msgstr "Ei julkinen varmenne"
 msgid "App registered."
 msgstr "Sovellus rekisteröity."
 
-#: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/app/releases.html:12
-msgid "Releases"
-msgstr "Julkaisut"
-
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
 msgstr "Sovelluksen tiedot"
@@ -1059,6 +1142,10 @@ msgstr "Sovelluksen tiedot"
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "Julkaisun tiedot"
+
+#: nextcloudappstore/core/templates/app/releases.html:27
+msgid "Updated"
+msgstr "Päivitetty"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
@@ -1078,17 +1165,17 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:60
+#: nextcloudappstore/core/templates/nav.html:47
 msgid "Generate app"
 msgstr "Luo sovellus"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:13
+#: nextcloudappstore/core/templates/app/scaffold.html:15
 msgid "Generate and download"
 msgstr "Luo ja lataa"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:67
+#: nextcloudappstore/core/templates/nav.html:61
 msgid "Upload app release"
 msgstr "Lähetä sovellusjulkaisu"
 
@@ -1123,87 +1210,81 @@ msgstr ""
 msgid "The Nextcloud Community"
 msgstr "Nextcloud-yhteisö"
 
-#: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
+#: nextcloudappstore/core/templates/base.html:22
 msgid "Latest app releases"
 msgstr "Viimeisimmät sovellusjulkaisut"
 
-#: nextcloudappstore/core/templates/base.html:45
-msgid "Fork me on GitHub"
-msgstr "Haarauta GitHubissa"
-
 #: nextcloudappstore/core/templates/base.html:48
+msgid "Contribute to the app store"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
 msgstr "Yksityisyys ja lainsäädäntö"
 
-#: nextcloudappstore/core/templates/base.html:51
-msgid "Legal Notice"
+#: nextcloudappstore/core/templates/base.html:60
+#, fuzzy
+#| msgid "Legal Notice"
+msgid "Legal notice"
 msgstr "Oikeudellinen huomautus"
 
-#: nextcloudappstore/core/templates/form-fields.html:19
+#: nextcloudappstore/core/templates/form-fields.html:23
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "pakollinen kenttä"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:16
+msgid "Resources for developers"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:22
+#, fuzzy
+#| msgid "Apps for Nextcloud Flow"
+msgid "Develop for Nextcloud"
+msgstr "Sovellukset Nextcloud Flow:lle"
+
+#: nextcloudappstore/core/templates/nav.html:34
+msgid "Request translations"
+msgstr "Pyydä käännöksiä"
+
+#: nextcloudappstore/core/templates/nav.html:41
+#, fuzzy
+#| msgid "Submit rating"
+msgid "Submit your app"
+msgstr "Lähetä arvostelu"
+
+#: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
 msgstr "Etsi %(category)s"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
 msgstr "Etsi esitellyistä sovelluksista"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in all apps"
 msgstr "Etsi kaikista sovelluksista"
 
-#: nextcloudappstore/core/templates/nav.html:23
+#: nextcloudappstore/core/templates/nav.html:99
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "Etsi"
 
-#: nextcloudappstore/core/templates/nav.html:31
-msgid "Toggle navigation"
-msgstr "Näytä/piilota valikko"
-
-#: nextcloudappstore/core/templates/nav.html:44
-msgid "App developer"
-msgstr "Sovelluskehittäjä"
-
-#: nextcloudappstore/core/templates/nav.html:48
-msgid "Documentation"
-msgstr "Dokumentaatio"
-
-#: nextcloudappstore/core/templates/nav.html:51
-msgid "Upload your app"
-msgstr "Lataa oma sovelluksesi"
-
-#: nextcloudappstore/core/templates/nav.html:54
-msgid "Developer resources"
-msgstr "Kehittäjän sisällöt"
-
-#: nextcloudappstore/core/templates/nav.html:57
-msgid "Request translations"
-msgstr "Pyydä käännöksiä"
-
-#: nextcloudappstore/core/templates/nav.html:75
-msgid "Integration developer"
-msgstr "Integraation kehittäjä"
-
-#: nextcloudappstore/core/templates/nav.html:88
+#: nextcloudappstore/core/templates/nav.html:107
 msgid "Admin"
 msgstr "Ylläpito"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:115
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
-#: nextcloudappstore/user/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/base.html:14
 msgid "Account"
 msgstr "Tili"
 
-#: nextcloudappstore/core/templates/nav.html:96
+#: nextcloudappstore/core/templates/nav.html:121
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
@@ -1492,7 +1573,7 @@ msgstr ""
 "Nextcloud sovelluskaupan salasanasi on vaihdettu. Ota yhteys tukeen, mikäli "
 "et ole itse vaihtanut sitä."
 
-#: nextcloudappstore/user/templates/user/account.html:12
+#: nextcloudappstore/user/templates/user/account.html:15
 msgid "Save"
 msgstr "Tallenna"
 
@@ -1525,35 +1606,35 @@ msgstr "Uusi API-poletti luotu."
 msgid "Regenerate API token"
 msgstr "Luo API-poletti uudelleen"
 
-#: nextcloudappstore/user/templates/user/base.html:15
+#: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
 msgstr "Integraatiot"
 
-#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/base.html:26
 msgid "Transfer app ownership"
 msgstr "Siirrä sovelluksen omistajuus"
 
-#: nextcloudappstore/user/templates/user/base.html:21
+#: nextcloudappstore/user/templates/user/base.html:32
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
-#: nextcloudappstore/user/templates/user/set-language.html:26
+#: nextcloudappstore/user/templates/user/set-language.html:29
 msgid "Change language"
 msgstr "Vaihda kieltä"
 
-#: nextcloudappstore/user/templates/user/base.html:25
+#: nextcloudappstore/user/templates/user/base.html:39
 #: nextcloudappstore/user/templates/user/password.html:5
 msgid "Password"
 msgstr "Salasana"
 
-#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/base.html:46
 msgid "API token"
 msgstr "API-poletti"
 
-#: nextcloudappstore/user/templates/user/base.html:32
+#: nextcloudappstore/user/templates/user/base.html:52
 #: nextcloudappstore/user/templates/user/delete-account.html:5
 #: nextcloudappstore/user/templates/user/delete-account.html:8
-#: nextcloudappstore/user/templates/user/delete-account.html:13
+#: nextcloudappstore/user/templates/user/delete-account.html:17
 msgid "Delete account"
 msgstr "Poista tili"
 
@@ -1598,7 +1679,7 @@ msgstr ""
 msgid "Changing your password will also regenerate your API token!"
 msgstr "Salasanasi muuttaminen generoi myös uuden API tokenin!"
 
-#: nextcloudappstore/user/templates/user/password.html:17
+#: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your "
 "password can therefore <strong>not</strong> be changed from this page."
@@ -1649,3 +1730,45 @@ msgstr "Avaa omistajuuden siirron lukitus"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Et ole vielä lähettänyt yhtäkään sovellusta!"
+
+#~ msgid "Publisher"
+#~ msgstr "Julkaisija"
+
+#~ msgid "Downloads"
+#~ msgstr "Lataukset"
+
+#~ msgid "Discussion"
+#~ msgstr "Keskustelu"
+
+#~ msgid "Rate"
+#~ msgstr "Arvostele"
+
+#~ msgid "Rating comments"
+#~ msgstr "Arvostelut"
+
+#~ msgid "Display ratings comments in:"
+#~ msgstr "Näytä kommentit kielellä:"
+
+#~ msgid "Latest"
+#~ msgstr "Viimeisin"
+
+#~ msgid "Fork me on GitHub"
+#~ msgstr "Haarauta GitHubissa"
+
+#~ msgid "Toggle navigation"
+#~ msgstr "Näytä/piilota valikko"
+
+#~ msgid "App developer"
+#~ msgstr "Sovelluskehittäjä"
+
+#~ msgid "Documentation"
+#~ msgstr "Dokumentaatio"
+
+#~ msgid "Upload your app"
+#~ msgstr "Lataa oma sovelluksesi"
+
+#~ msgid "Developer resources"
+#~ msgstr "Kehittäjän sisällöt"
+
+#~ msgid "Integration developer"
+#~ msgstr "Integraation kehittäjä"

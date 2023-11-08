@@ -11,14 +11,15 @@
 # Yu-Ming Tseng <trueasa@gmail.com>, 2019
 # neo yang <kingwap.tw@gmail.com>, 2019
 # Jim Tsai <poormusic2001@gmail.com>, 2020
-# Natashia Maxins <railroad1987@gmail.com>, 2020
 # 8ca27c4e6542f7fddbcdc61668e3cba4_2080de7 <435b7b00b16a7e8a557ccde59492a7ae_876130>, 2020
 # Jimmy Chen <jimmy5670@gmail.com>, 2020
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2020
 # Kerwin Che, 2020
 # Yi Chi 齊一 <chiyi4869@gmail.com>, 2020
 # 范承豪 <marchfun@smhs.hlc.edu.tw>, 2020
 # 黃彥儒 <r1235613@gmail.com>, 2021
+# Natashia Maxins <railroad1987@gmail.com>, 2023
+# sbr <sbr.harry@gmail.com>, 2023
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2023
 # 黃柏諺 <s8321414@gmail.com>, 2023
 # 
 #, fuzzy
@@ -26,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-25 03:12+0000\n"
+"POT-Creation-Date: 2023-11-08 02:58+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2023\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/nextcloud/teams/64236/zh_TW/)\n"
@@ -54,17 +55,16 @@ msgid "Download"
 msgstr "下載"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Bad"
 msgstr "不佳"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:195
 msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:16
-#: nextcloudappstore/core/templates/app/detail.html:194
+#: nextcloudappstore/core/templates/app/detail.html:169
 msgid "Good"
 msgstr "不錯"
 
@@ -131,7 +131,6 @@ msgid "app ID, identical to folder name"
 msgstr "應用程式 ID，與資料夾名稱相同"
 
 #: nextcloudappstore/core/models.py:80 nextcloudappstore/core/models.py:534
-#: nextcloudappstore/core/templates/app/detail.html:76
 msgid "Category"
 msgstr "分類"
 
@@ -183,7 +182,7 @@ msgid "Issue tracker URL"
 msgstr "問題追蹤器連結"
 
 #: nextcloudappstore/core/models.py:93 nextcloudappstore/core/models.py:322
-#: nextcloudappstore/core/templates/app/detail.html:101
+#: nextcloudappstore/core/templates/app/detail.html:91
 msgid "Homepage"
 msgstr "首頁"
 
@@ -206,7 +205,7 @@ msgid "App owner"
 msgstr "應用程式擁有者"
 
 #: nextcloudappstore/core/models.py:101
-#: nextcloudappstore/core/templates/app/detail.html:84
+#: nextcloudappstore/core/templates/app/detail.html:68
 msgid "Co-Maintainers"
 msgstr "共同維護者"
 
@@ -215,18 +214,16 @@ msgid "App authors"
 msgstr "應用程式作者"
 
 #: nextcloudappstore/core/models.py:104
-#: nextcloudappstore/core/templates/app/detail.html:22
-#: nextcloudappstore/core/templates/app/list.html:29
+#: nextcloudappstore/core/templates/app/detail.html:43
+#: nextcloudappstore/core/templates/app/list.html:61
 msgid "Featured"
 msgstr "精選"
 
 #: nextcloudappstore/core/models.py:105
-#: nextcloudappstore/core/templates/app/detail.html:81
 msgid "Recent rating"
 msgstr "近期評價"
 
 #: nextcloudappstore/core/models.py:106
-#: nextcloudappstore/core/templates/app/detail.html:79
 msgid "Overall rating"
 msgstr "整體評價"
 
@@ -273,7 +270,6 @@ msgstr "應用程式"
 #: nextcloudappstore/core/models.py:125
 #: nextcloudappstore/core/templates/app/detail.html:4
 #: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/nav.html:40
 msgid "Apps"
 msgstr "應用程式"
 
@@ -282,7 +278,7 @@ msgid "User"
 msgstr "使用者"
 
 #: nextcloudappstore/core/models.py:270
-#: nextcloudappstore/core/templates/app/list.html:15
+#: nextcloudappstore/core/templates/app/list.html:20
 msgid "Rating"
 msgstr "評價"
 
@@ -471,9 +467,9 @@ msgid "Ordering"
 msgstr "排序"
 
 #: nextcloudappstore/core/models.py:483
-#: nextcloudappstore/core/templates/app/detail.html:50
-#: nextcloudappstore/core/templates/app/list.html:49
-#: nextcloudappstore/core/templates/app/list.html:51
+#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/list.html:95
+#: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "螢幕截圖"
 
@@ -508,6 +504,7 @@ msgid "Category name which will be presented to the user"
 msgstr "將顯示給使用者的分類名稱"
 
 #: nextcloudappstore/core/models.py:535
+#: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
@@ -581,38 +578,67 @@ msgstr "擴充元件版本需求（原始）"
 msgid "PHP extension dependencies"
 msgstr "需要的 PHP 擴充元件"
 
-#: nextcloudappstore/core/models.py:651
+#: nextcloudappstore/core/models.py:634
+msgid "Heading"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:635
+msgid "Excerpt"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:636
+msgid "Link"
+msgstr "連結"
+
+#: nextcloudappstore/core/models.py:637
+msgid "Image"
+msgstr "圖片"
+
+#: nextcloudappstore/core/models.py:638
+msgid "Show podcast"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:641
+msgid "Nextcloud Podcast"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:642
+msgid "Nextcloud Podcasts"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:666
 msgid "App release deletion"
 msgstr "應用程式版本刪除"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:667
 msgid "App release deletions"
 msgstr "應用程式版本刪除"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud 版本"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:681
 msgid "e.g. 9.0.54"
 msgstr "如：9.0.54"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:684
 msgid "Is current version"
 msgstr "是目前版本"
 
-#: nextcloudappstore/core/models.py:671
+#: nextcloudappstore/core/models.py:686
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr "僅有一個版本可以為目前版本。此欄位會用於預先選取下拉式選單以供生成應用程式等。"
 
-#: nextcloudappstore/core/models.py:679
+#: nextcloudappstore/core/models.py:694
 msgid "Has a release"
 msgstr "有一份最新發行"
 
-#: nextcloudappstore/core/models.py:681
+#: nextcloudappstore/core/models.py:696
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -620,21 +646,21 @@ msgid ""
 msgstr ""
 "若設定為 true，則為實際已釋出的 Nextcloud 版本，可以使用壓縮檔的形式下載。若設定為 false，則此版本為釋出前版本，或不再提供下載。"
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:706
 msgid "Version is supported"
 msgstr "版本不支援"
 
-#: nextcloudappstore/core/models.py:692
+#: nextcloudappstore/core/models.py:707
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr "若為 true，則此版本仍為正式支援（排除企業支援）"
 
-#: nextcloudappstore/core/models.py:697
+#: nextcloudappstore/core/models.py:712
 msgid "Nextcloud release"
 msgstr "Nextcloud 已發布新版本"
 
-#: nextcloudappstore/core/models.py:698
+#: nextcloudappstore/core/models.py:713
 msgid "Nextcloud releases"
 msgstr "Nextcloud 已發布新版本"
 
@@ -719,29 +745,29 @@ msgid ""
 msgstr "這條郵件確認連結無效或已過時，請<a href=\"%(email_url)s\">重新發出郵件確認請求</a>。"
 
 #: nextcloudappstore/core/templates/account/login.html:5
-#: nextcloudappstore/core/templates/account/login.html:17
-#: nextcloudappstore/core/templates/account/login.html:33
+#: nextcloudappstore/core/templates/account/login.html:12
+#: nextcloudappstore/core/templates/account/login.html:21
 #: nextcloudappstore/core/templates/account/password_reset.html:7
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:100
+#: nextcloudappstore/core/templates/nav.html:128
 msgid "Log in"
 msgstr "登入"
 
-#: nextcloudappstore/core/templates/account/login.html:24
-#: nextcloudappstore/core/templates/account/signup.html:24
-msgid "Log in with GitHub"
-msgstr "使用 GitHub 登入"
-
-#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/login.html:25
 msgid "Forgot password?"
 msgstr "忘記密碼？"
 
-#: nextcloudappstore/core/templates/account/login.html:36
+#: nextcloudappstore/core/templates/account/login.html:35
+#: nextcloudappstore/core/templates/account/signup.html:29
+msgid "Log in with GitHub"
+msgstr "使用 GitHub 登入"
+
+#: nextcloudappstore/core/templates/account/login.html:40
 #: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:34
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/account/signup.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:17
 #: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:103
+#: nextcloudappstore/core/templates/nav.html:134
 #: nextcloudappstore/core/templates/socialaccount/signup.html:5
 #: nextcloudappstore/core/templates/socialaccount/signup.html:13
 #: nextcloudappstore/core/templates/socialaccount/signup.html:21
@@ -752,17 +778,17 @@ msgstr "註冊"
 msgid "Password Reset"
 msgstr "密碼重設"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:17
+#: nextcloudappstore/core/templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr "忘記密碼了？請在以下輸入您的郵件地址。我們將向您寄出一封郵件，讓您重設密碼。"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:22
+#: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
 msgstr "重設我的密碼"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:27
+#: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr "若在重設密碼過程中遇到困難，請聯絡我們"
 
@@ -773,7 +799,7 @@ msgstr "無效的 API 權杖"
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
 #: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:14
+#: nextcloudappstore/user/templates/user/password.html:17
 msgid "Change Password"
 msgstr "變更密碼"
 
@@ -789,8 +815,8 @@ msgstr "密碼重設連結無效或已被使用。請重新<a href=\"%(passwd_re
 msgid "Your password is now changed."
 msgstr "您的密碼現在已變更"
 
-#: nextcloudappstore/core/templates/account/signup.html:17
-msgid "Create account"
+#: nextcloudappstore/core/templates/account/signup.html:12
+msgid "Create an account"
 msgstr "建立帳號"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
@@ -801,13 +827,13 @@ msgstr "Nextcloud App Store 管理"
 msgid "Nextcloud App Store administration"
 msgstr "Nextcloud App Store 管理者"
 
-#: nextcloudappstore/core/templates/app/base.html:11
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:13
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "All apps"
 msgstr "所有應用程式"
 
-#: nextcloudappstore/core/templates/app/base.html:14
-#: nextcloudappstore/core/templates/app/list.html:5
+#: nextcloudappstore/core/templates/app/base.html:19
+#: nextcloudappstore/core/templates/app/list.html:6
 msgid "Featured apps"
 msgstr "精選應用程式"
 
@@ -817,118 +843,141 @@ msgstr "精選應用程式"
 msgid "Latest %(app_name)s releases"
 msgstr "最新的 %(app_name)s 版本"
 
-#: nextcloudappstore/core/templates/app/detail.html:31
+#: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
 msgstr "上一步"
 
-#: nextcloudappstore/core/templates/app/detail.html:41
+#: nextcloudappstore/core/templates/app/detail.html:36
 msgid "Next"
 msgstr "下一步"
 
-#: nextcloudappstore/core/templates/app/detail.html:62
-#: nextcloudappstore/core/templates/app/releases.html:27
-msgid "Updated"
-msgstr "已更新"
+#: nextcloudappstore/core/templates/app/detail.html:47
+msgid "Highest Nextcloud version"
+msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:66
-msgid "Publisher"
-msgstr "發布者"
+#: nextcloudappstore/core/templates/app/detail.html:51
+msgid "Show all releases"
+msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:98
+#: nextcloudappstore/core/templates/app/detail.html:54
+msgid "Community rating"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:58
+msgid "Author"
+msgstr "作者"
+
+#: nextcloudappstore/core/templates/app/detail.html:80
+msgid "Last updated"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
 msgstr "資源"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:94
 msgid "User documentation"
 msgstr "使用者說明文件"
 
-#: nextcloudappstore/core/templates/app/detail.html:107
+#: nextcloudappstore/core/templates/app/detail.html:97
 msgid "Admin documentation"
 msgstr "管理員說明文件"
 
-#: nextcloudappstore/core/templates/app/detail.html:110
+#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/nav.html:28
 msgid "Developer documentation"
 msgstr "開發者說明文件"
 
-#: nextcloudappstore/core/templates/app/detail.html:121
-msgid "Downloads"
-msgstr "下載"
+#: nextcloudappstore/core/templates/app/detail.html:106
+msgid "Interact"
+msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:112
+msgid "Report problem"
+msgstr "回報問題"
+
+#: nextcloudappstore/core/templates/app/detail.html:118
+msgid "Request feature"
+msgstr "要求功能"
+
+#: nextcloudappstore/core/templates/app/detail.html:125
+msgid "Ask questions or discuss"
+msgstr "發問或討論"
+
+#: nextcloudappstore/core/templates/app/detail.html:136
+#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/releases.html:12
+msgid "Releases"
+msgstr "釋出版本"
+
+#: nextcloudappstore/core/templates/app/detail.html:141
+msgid "Stable channel"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:142
+msgid "Nightly channel"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:143
+msgid "All releases"
+msgstr "所有釋出版本"
+
+#: nextcloudappstore/core/templates/app/detail.html:151
 #: nextcloudappstore/core/templates/app/releases.html:23
 #: nextcloudappstore/core/templates/app/releases.html:86
 msgid "nightly"
 msgstr "每夜更新版"
 
-#: nextcloudappstore/core/templates/app/detail.html:128
+#: nextcloudappstore/core/templates/app/detail.html:151
 msgid "Unstable"
 msgstr "不穩定"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
-msgid "All releases"
-msgstr "所有釋出版本"
+#: nextcloudappstore/core/templates/app/detail.html:172
+msgid "Ok"
+msgstr "尚可"
 
-#: nextcloudappstore/core/templates/app/detail.html:140
-msgid "Discussion"
-msgstr "討論"
-
-#: nextcloudappstore/core/templates/app/detail.html:144
-msgid "Report problem"
-msgstr "回報問題"
-
-#: nextcloudappstore/core/templates/app/detail.html:148
-msgid "Request feature"
-msgstr "要求功能"
-
-#: nextcloudappstore/core/templates/app/detail.html:155
-msgid "Ask questions or discuss"
-msgstr "發問或討論"
-
-#: nextcloudappstore/core/templates/app/detail.html:161
-msgid "Rate app"
-msgstr "應用程式評價"
-
-#: nextcloudappstore/core/templates/app/detail.html:161
-msgid "Rate integration"
-msgstr "評價整合"
-
-#: nextcloudappstore/core/templates/app/detail.html:169
-msgid "Rate"
-msgstr "評價"
-
-#: nextcloudappstore/core/templates/app/detail.html:174
-msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                            Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
-"                            A rating without a comment still counts, but will not be listed below."
-msgstr ""
-"評分評論支援 <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>。\n"
-"                            不要在此處報告錯誤或請求功能，因為開發者和用戶都不會因您的評論而收到通知。\n"
-"                            不含評論的評分也會計算在內，但不會在下方列出。"
-
-#: nextcloudappstore/core/templates/app/detail.html:179
-msgid "Update rating"
-msgstr "更新評價"
-
-#: nextcloudappstore/core/templates/app/detail.html:181
-msgid "Submit rating"
-msgstr "送出評價"
-
-#: nextcloudappstore/core/templates/app/detail.html:208
+#: nextcloudappstore/core/templates/app/detail.html:190
 msgid "No comments found."
 msgstr "無評論"
 
-#: nextcloudappstore/core/templates/app/detail.html:216
-msgid "Rating comments"
-msgstr "評價留言"
+#: nextcloudappstore/core/templates/app/detail.html:199
+msgid "Comments"
+msgstr "留言"
 
-#: nextcloudappstore/core/templates/app/detail.html:220
-msgid "Display ratings comments in:"
-msgstr "在以下位置顯示評價與評論："
+#: nextcloudappstore/core/templates/app/detail.html:206
+msgid "Rate app"
+msgstr "應用程式評價"
+
+#: nextcloudappstore/core/templates/app/detail.html:206
+msgid "Rate integration"
+msgstr "評價整合"
+
+#: nextcloudappstore/core/templates/app/detail.html:212
+msgid "Your comment"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:217
+msgid ""
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
+"                                    A rating without a comment still counts, but will not be listed below."
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:224
+msgid "Update rating"
+msgstr "更新評價"
+
+#: nextcloudappstore/core/templates/app/detail.html:226
+msgid "Submit rating"
+msgstr "送出評價"
+
+#: nextcloudappstore/core/templates/app/detail.html:237
+msgid "Switch language for the comments:"
+msgstr ""
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:79
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Register integration"
 msgstr "註冊整合"
 
@@ -942,49 +991,49 @@ msgstr "管理整合"
 msgid "Edit integration"
 msgstr "編輯整合"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:14
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:19
 msgid "Update"
 msgstr "更新"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:20
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:27
 msgid "Approve"
 msgstr "核准"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:21
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:28
 msgid "Reject"
 msgstr "拒絕"
 
-#: nextcloudappstore/core/templates/app/list.html:16
-msgid "Rating (recent)"
-msgstr "評價（最新）"
-
-#: nextcloudappstore/core/templates/app/list.html:17
-msgid "Latest"
-msgstr "最新"
-
-#: nextcloudappstore/core/templates/app/list.html:19
-#: nextcloudappstore/core/templates/app/list.html:21
-#: nextcloudappstore/core/templates/app/list.html:23
+#: nextcloudappstore/core/templates/app/list.html:27
+#: nextcloudappstore/core/templates/app/list.html:34
+#: nextcloudappstore/core/templates/app/list.html:41
 msgid "Alphabetically"
 msgstr "字母"
 
-#: nextcloudappstore/core/templates/app/list.html:33
+#: nextcloudappstore/core/templates/app/list.html:48
+msgid "Latest release"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/list.html:54
+msgid "Rating (recent)"
+msgstr "評價（最新）"
+
+#: nextcloudappstore/core/templates/app/list.html:68
 msgid "My apps"
 msgstr "我的應用程式"
 
-#: nextcloudappstore/core/templates/app/list.html:61
+#: nextcloudappstore/core/templates/app/list.html:108
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "在%(category)s查無「<em>%(query)s</em>」的搜尋結果。"
 
-#: nextcloudappstore/core/templates/app/list.html:63
+#: nextcloudappstore/core/templates/app/list.html:110
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "查無「<em>%(query)s</em>」的搜尋結果。"
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:64
+#: nextcloudappstore/core/templates/nav.html:55
 msgid "Register app"
 msgstr "註冊應用程式"
 
@@ -1014,11 +1063,6 @@ msgstr "不是一個公開證書"
 msgid "App registered."
 msgstr "App 已註冊。"
 
-#: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/app/releases.html:12
-msgid "Releases"
-msgstr "釋出版本"
-
 #: nextcloudappstore/core/templates/app/releases.html:13
 msgid "App details"
 msgstr "應用程式詳細資訊"
@@ -1026,6 +1070,10 @@ msgstr "應用程式詳細資訊"
 #: nextcloudappstore/core/templates/app/releases.html:26
 msgid "Release Details"
 msgstr "版本詳細資訊"
+
+#: nextcloudappstore/core/templates/app/releases.html:27
+msgid "Updated"
+msgstr "已更新"
 
 #: nextcloudappstore/core/templates/app/releases.html:41
 msgid "Signature digest"
@@ -1045,17 +1093,17 @@ msgstr "PHP"
 
 #: nextcloudappstore/core/templates/app/scaffold.html:4
 #: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:60
+#: nextcloudappstore/core/templates/nav.html:47
 msgid "Generate app"
 msgstr "生成應用程式"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:13
+#: nextcloudappstore/core/templates/app/scaffold.html:15
 msgid "Generate and download"
 msgstr "生成並下載"
 
 #: nextcloudappstore/core/templates/app/upload.html:5
 #: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:67
+#: nextcloudappstore/core/templates/nav.html:61
 msgid "Upload app release"
 msgstr "上傳應用程式版本"
 
@@ -1088,87 +1136,75 @@ msgstr "Nextcloud 應用程式商店 - 上傳您的應用程式並在您的 Next
 msgid "The Nextcloud Community"
 msgstr "Nextcloud 社群"
 
-#: nextcloudappstore/core/templates/base.html:20
 #: nextcloudappstore/core/templates/base.html:21
+#: nextcloudappstore/core/templates/base.html:22
 msgid "Latest app releases"
 msgstr "最新應用程式版本"
 
-#: nextcloudappstore/core/templates/base.html:45
-msgid "Fork me on GitHub"
-msgstr "在 GitHub 上分支"
-
 #: nextcloudappstore/core/templates/base.html:48
+msgid "Contribute to the app store"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
 msgstr "隱私權政策"
 
-#: nextcloudappstore/core/templates/base.html:51
-msgid "Legal Notice"
+#: nextcloudappstore/core/templates/base.html:60
+msgid "Legal notice"
 msgstr "法律聲明"
 
-#: nextcloudappstore/core/templates/form-fields.html:19
+#: nextcloudappstore/core/templates/form-fields.html:23
 #: nextcloudappstore/user/templates/user/set-language.html:13
 msgid "required field"
 msgstr "必填欄位"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:16
+msgid "Resources for developers"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:22
+msgid "Develop for Nextcloud"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:34
+msgid "Request translations"
+msgstr "要求翻譯"
+
+#: nextcloudappstore/core/templates/nav.html:41
+msgid "Submit your app"
+msgstr ""
+
+#: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
 msgstr "在%(category)s中搜尋"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
 msgstr "在精選應用程式中搜尋"
 
-#: nextcloudappstore/core/templates/nav.html:15
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in all apps"
 msgstr "在所有應用程式中搜尋"
 
-#: nextcloudappstore/core/templates/nav.html:23
+#: nextcloudappstore/core/templates/nav.html:99
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "搜尋"
 
-#: nextcloudappstore/core/templates/nav.html:31
-msgid "Toggle navigation"
-msgstr "切換導覽"
-
-#: nextcloudappstore/core/templates/nav.html:44
-msgid "App developer"
-msgstr "應用程式開發者"
-
-#: nextcloudappstore/core/templates/nav.html:48
-msgid "Documentation"
-msgstr "說明文件"
-
-#: nextcloudappstore/core/templates/nav.html:51
-msgid "Upload your app"
-msgstr "上傳您的應用程式"
-
-#: nextcloudappstore/core/templates/nav.html:54
-msgid "Developer resources"
-msgstr "開發者資源"
-
-#: nextcloudappstore/core/templates/nav.html:57
-msgid "Request translations"
-msgstr "要求翻譯"
-
-#: nextcloudappstore/core/templates/nav.html:75
-msgid "Integration developer"
-msgstr "整合開發者"
-
-#: nextcloudappstore/core/templates/nav.html:88
+#: nextcloudappstore/core/templates/nav.html:107
 msgid "Admin"
 msgstr "管理員"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:115
 #: nextcloudappstore/user/templates/user/account.html:5
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/base.html:5
-#: nextcloudappstore/user/templates/user/base.html:12
+#: nextcloudappstore/user/templates/user/base.html:14
 msgid "Account"
 msgstr "帳號"
 
-#: nextcloudappstore/core/templates/nav.html:96
+#: nextcloudappstore/core/templates/nav.html:121
 msgid "Log out"
 msgstr "登出"
 
@@ -1440,7 +1476,7 @@ msgid ""
 "not you."
 msgstr "您的 Nextcloud 應用程式密碼已變更。若您並未進行變更，請聯絡支援人員。"
 
-#: nextcloudappstore/user/templates/user/account.html:12
+#: nextcloudappstore/user/templates/user/account.html:15
 msgid "Save"
 msgstr "儲存"
 
@@ -1475,35 +1511,35 @@ msgstr "已產生新的 API 權杖"
 msgid "Regenerate API token"
 msgstr "重新產生 API 權杖"
 
-#: nextcloudappstore/user/templates/user/base.html:15
+#: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
 msgid "Integrations"
 msgstr "整合"
 
-#: nextcloudappstore/user/templates/user/base.html:18
+#: nextcloudappstore/user/templates/user/base.html:26
 msgid "Transfer app ownership"
 msgstr "轉移應用所有權"
 
-#: nextcloudappstore/user/templates/user/base.html:21
+#: nextcloudappstore/user/templates/user/base.html:32
 #: nextcloudappstore/user/templates/user/set-language.html:4
 #: nextcloudappstore/user/templates/user/set-language.html:7
-#: nextcloudappstore/user/templates/user/set-language.html:26
+#: nextcloudappstore/user/templates/user/set-language.html:29
 msgid "Change language"
 msgstr "變更語言"
 
-#: nextcloudappstore/user/templates/user/base.html:25
+#: nextcloudappstore/user/templates/user/base.html:39
 #: nextcloudappstore/user/templates/user/password.html:5
 msgid "Password"
 msgstr "密碼"
 
-#: nextcloudappstore/user/templates/user/base.html:29
+#: nextcloudappstore/user/templates/user/base.html:46
 msgid "API token"
 msgstr "API 權杖"
 
-#: nextcloudappstore/user/templates/user/base.html:32
+#: nextcloudappstore/user/templates/user/base.html:52
 #: nextcloudappstore/user/templates/user/delete-account.html:5
 #: nextcloudappstore/user/templates/user/delete-account.html:8
-#: nextcloudappstore/user/templates/user/delete-account.html:13
+#: nextcloudappstore/user/templates/user/delete-account.html:17
 msgid "Delete account"
 msgstr "刪除帳號"
 
@@ -1544,7 +1580,7 @@ msgstr "您尚未遞交任何整合，或是它們正在等待批准！"
 msgid "Changing your password will also regenerate your API token!"
 msgstr "變更您的密碼也會重新生成您的 API 權杖！"
 
-#: nextcloudappstore/user/templates/user/password.html:17
+#: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
 "You seem to be using an account registered with a third-party provider. Your"
 " password can therefore <strong>not</strong> be changed from this page."

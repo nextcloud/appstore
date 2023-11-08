@@ -630,6 +630,21 @@ class PhpExtensionDependency(Model):
         return f"{self.app_release.app}: {self.php_extension} {self.version_spec}"
 
 
+class Podcast(Model):
+    title = CharField(max_length=256, verbose_name=_("Heading"))
+    excerpt = CharField(max_length=512, verbose_name=_("Excerpt"))
+    link = CharField(max_length=256, unique=True, verbose_name=_("Link"))
+    image = CharField(max_length=256, verbose_name=_("Image"))
+    show = BooleanField(verbose_name=_("Show podcast"), default=True)
+
+    class Meta:
+        verbose_name = _("Nextcloud Podcast")
+        verbose_name_plural = _("Nextcloud Podcasts")
+
+    def __str__(self):
+        return f"{self.title} ({self.link})"
+
+
 @receiver(post_delete, sender=App)
 def record_app_delete(sender, **kwargs):
     AppReleaseDeleteLog.objects.create()

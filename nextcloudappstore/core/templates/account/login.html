@@ -9,31 +9,36 @@
 {% get_providers as socialaccount_providers %}
 
 <div class="central-form">
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-            <a role="tab"
-               data-toggle="tab"
-               aria-controls="home"
-               href="#">{% trans 'Log in' %}</a>
-        </li>
-        {% get_providers as socialaccount_providers %}
-        {% for provider in socialaccount_providers %}
-            <li role="presentation">
-                <a title="{{ provider.name }}"
-                   class="socialaccount_provider {{ provider.id }}"
-                   href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">{% trans 'Log in with GitHub' %} </a>
-            </li>
-        {% endfor %}
-    </ul>
+    <h4>{% trans 'Log in' %}</h4>
 
     <div class="auth-form">
         <form method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {% include 'form-fields.html' %}
-            <p><button class="btn btn-primary btn-block" type="submit">{% trans 'Log in' %}</button></p>
-            <p class="row text-center">
-                <a class="col-lg-6" href="{% url 'account_reset_password' %}">{% trans 'Forgot password?' %}</a>
-                <a class="col-lg-6" href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
+            <p class="row text-center actions">
+                <button class="btn btn-primary btn-block" type="submit">
+                     <span class="icon material-symbols-outlined">login</span>
+                    {% trans 'Log in' %}
+                </button>
+                <a class="btn btn-default col-lg-6 btn-light" href="{% url 'account_reset_password' %}">
+                    <span class="icon material-symbols-outlined">psychology_alt</span>
+                    {% trans 'Forgot password?' %}
+                </a>
+            </p>
+            <p class="row text-center actions">
+                {% get_providers as socialaccount_providers %}
+                {% for provider in socialaccount_providers %}
+                    <a title="{{ provider.name }}"
+                       class="socialaccount_provider {{ provider.id }} btn btn-default btn-light col-lg-6"
+                       href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">
+                        <span class="icon material-symbols-outlined">login</span>
+                        {% trans 'Log in with GitHub' %}
+                    </a>
+                {% endfor %}
+                <a class="btn btn-default btn-light col-lg-6" href="{% url 'account_signup' %}">
+                    <span class="icon material-symbols-outlined">app_registration</span>
+                    {% trans 'Register' %}
+                </a>
             </p>
 
             {% if redirect_field_value %}

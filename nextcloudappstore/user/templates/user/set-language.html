@@ -10,7 +10,7 @@
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
             <div class="form-group">
-                <label title="{% trans 'required field' %}" class="control-label" for="language">{% trans 'Language' %}<span class="required-field">*</span></label>
+                <label title="{% trans 'required field' %}" class="control-label" for="language">{% trans 'Language' %}<span class="required-field material-symbols-outlined">asterisk</span></label>
 
                 <select name="language" id="language" class="form-control">
                     {% get_current_language as LANGUAGE_CODE %}
@@ -23,7 +23,13 @@
                     {% endfor %}
                 </select>
             </div>
-            <p><input type="submit" class="btn btn-primary btn-block" value="{% trans 'Change language' %}"></p>
+            <p>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="icon material-symbols-outlined">translate</span>
+                    {% trans 'Change language' %}
+                </button>
+{#                <input type="submit" class="btn btn-primary btn-block" value="{% trans 'Change language' %}">#}
+            </p>
         </form>
     </section>
 {% endblock %}

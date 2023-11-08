@@ -1,0 +1,348 @@
+:root {
+    --original-icon-category-all-dark: url('../img/icons/categories/all-apps.svg');
+    --original-icon-category-all-white: url('../img/icons/categories/all-apps-white.svg');
+    --original-icon-category-customization-dark: url('../img/icons/categories/tools.svg');
+    --original-icon-category-customization-white: url('../img/icons/categories/tools-white.svg');
+    --original-icon-category-dashboard-dark: url('../img/icons/categories/view-dashboard.svg');
+    --original-icon-category-dashboard-white: url('../img/icons/categories/view-dashboard-white.svg');
+    --original-icon-category-files-dark: url('../img/icons/categories/folder.svg');
+    --original-icon-category-files-white: url('../img/icons/categories/folder-white.svg');
+    --original-icon-category-games-dark: url('../img/icons/categories/gamepad-variant.svg');
+    --original-icon-category-games-white: url('../img/icons/categories/gamepad-variant-white.svg');
+    --original-icon-category-integration-dark: url('../img/icons/categories/open-in-app.svg');
+    --original-icon-category-integration-white: url('../img/icons/categories/open-in-app-white.svg');
+    --original-icon-category-monitoring-dark: url('../img/icons/categories/monitor-eye.svg');
+    --original-icon-category-monitoring-white: url('../img/icons/categories/monitor-eye-white.svg');
+    --original-icon-category-multimedia-dark: url('../img/icons/categories/multimedia.svg');
+    --original-icon-category-multimedia-white: url('../img/icons/categories/multimedia-white.svg');
+    --original-icon-category-office-dark: url('../img/icons/categories/text-box-edit.svg');
+    --original-icon-category-office-white: url('../img/icons/categories/text-box-edit-white.svg');
+    --original-icon-category-organization-dark: url('../img/icons/categories/office-building.svg');
+    --original-icon-category-organization-white: url('../img/icons/categories/office-building-white.svg');
+    --original-icon-category-search-dark: url('../img/icons/categories/magnify.svg');
+    --original-icon-category-search-white: url('../img/icons/categories/magnify-white.svg');
+    --original-icon-category-security-dark: url('../img/icons/categories/security.svg');
+    --original-icon-category-security-white: url('../img/icons/categories/security-white.svg');
+    --original-icon-category-social-dark: url('../img/icons/categories/account-network.svg');
+    --original-icon-category-social-white: url('../img/icons/categories/account-network-white.svg');
+    --original-icon-category-tools-dark: url('../img/icons/categories/tools.svg');
+    --original-icon-category-tools-white: url('../img/icons/categories/tools-white.svg');
+    --original-icon-category-workflow-dark: url('../img/icons/categories/clipboard-flow.svg');
+    --original-icon-category-workflow-white: url('../img/icons/categories/clipboard-flow-white.svg');
+    --original-icon-category-featured-dark: url('../img/icons/categories/featured.svg');
+    --original-icon-category-featured-white: url('../img/icons/categories/featured-white.svg');
+
+    --original-icon-source-fork-dark: url('../img/icons/footer/source-fork.svg');
+    --original-icon-source-fork-white: url('../img/icons/footer/source-fork-white.svg');
+    --original-icon-text-box-dark: url('../img/icons/footer/text-box.svg');
+    --original-icon-text-box-white: url('../img/icons/footer/text-box-white.svg');
+    --original-icon-note-text-dark: url('../img/icons/footer/note-text.svg');
+    --original-icon-note-text-white: url('../img/icons/footer/note-text-white.svg');
+    --original-icon-bug-dark: url('../img/icons/detail/bug.svg');
+    --original-icon-bug-white: url('../img/icons/detail/bug-white.svg');
+    --original-icon-comment-question-dark: url('../img/icons/detail/comment-question.svg');
+    --original-icon-comment-question-white: url('../img/icons/detail/comment-question-white.svg');
+    --original-icon-feature-search-dark: url('../img/icons/detail/feature-search.svg');
+    --original-icon-feature-search-white: url('../img/icons/detail/feature-search-white.svg');
+    --original-icon-rocket-launch-dark: url('../img/icons/list/rocket-launch.svg');
+    --original-icon-rocket-launch-white: url('../img/icons/list/rocket-launch-white.svg');
+    --original-icon-sort-alphabetical-variant-dark: url('../img/icons/list/sort-alphabetical-variant.svg');
+    --original-icon-sort-alphabetical-variant-white: url('../img/icons/list/sort-alphabetical-variant-white.svg');
+    --original-icon-star-plus-dark: url('../img/icons/list/star-plus.svg');
+    --original-icon-star-plus-white: url('../img/icons/list/star-plus-white.svg');
+    --original-icon-timer-star-dark: url('../img/icons/list/timer-star.svg');
+    --original-icon-timer-star-white: url('../img/icons/list/timer-star-white.svg');
+    --original-icon-creation-dark: url('../img/icons/resources/creation.svg');
+    --original-icon-chevron-left-dark: url('../img/icons/detail/chevron-left.svg');
+    --original-icon-chevron-right-dark: url('../img/icons/detail/chevron-right.svg');
+}
+
+body {
+    --icon-category-all-dark: var(--original-icon-category-all-dark);
+    --icon-category-all-white: var(--original-icon-category-all-white);
+    --icon-category-customization-dark: var(--original-icon-category-customization-dark);
+    --icon-category-customization-white: var(--original-icon-category-customization-white);
+    --icon-category-dashboard-dark: var(--original-icon-category-dashboard-dark);
+    --icon-category-dashboard-white: var(--original-icon-category-dashboard-white);
+    --icon-category-files-dark: var(--original-icon-category-files-dark);
+    --icon-category-files-white: var(--original-icon-category-files-white);
+    --icon-category-games-dark: var(--original-icon-category-games-dark);
+    --icon-category-games-white: var(--original-icon-category-games-white);
+    --icon-category-integration-dark: var(--original-icon-category-integration-dark);
+    --icon-category-integration-white: var(--original-icon-category-integration-white);
+    --icon-category-monitoring-dark: var(--original-icon-category-monitoring-dark);
+    --icon-category-monitoring-white: var(--original-icon-category-monitoring-white);
+    --icon-category-multimedia-dark: var(--original-icon-category-multimedia-dark);
+    --icon-category-multimedia-white: var(--original-icon-category-multimedia-white);
+    --icon-category-office-dark: var(--original-icon-category-office-dark);
+    --icon-category-office-white: var(--original-icon-category-office-white);
+    --icon-category-organization-dark: var(--original-icon-category-organization-dark);
+    --icon-category-organization-white: var(--original-icon-category-organization-white);
+    --icon-category-social-dark: var(--original-icon-category-social-dark);
+    --icon-category-social-white: var(--original-icon-category-social-white);
+    --icon-category-workflow-dark: var(--original-icon-category-workflow-dark);
+    --icon-category-workflow-white: var(--original-icon-category-workflow-white);
+    --icon-category-featured-dark: var(--original-icon-category-featured-dark);
+    --icon-category-featured-white: var(--original-icon-category-featured-white);
+    --icon-category-search-dark: var(--original-icon-category-search-dark);
+    --icon-category-search-white: var(--original-icon-category-search-white);
+    --icon-category-security-dark: var(--original-icon-category-security-dark);
+    --icon-category-security-white: var(--original-icon-category-security-white);
+    --icon-category-tools-dark: var(--original-icon-category-tools-dark);
+    --icon-category-tools-white: var(--original-icon-category-tools-white);
+
+    --icon-source-fork-dark: var(--original-icon-source-fork-dark);
+    --icon-source-fork-white: var(--original-icon-source-fork-white);
+    --icon-text-box-dark: var(--original-icon-text-box-dark);
+    --icon-text-box-white: var(--original-icon-text-box-white);
+    --icon-note-text-dark: var(--original-icon-note-text-dark);
+    --icon-note-text-white: var(--original-icon-note-text-white);
+    --icon-bug-dark: var(--original-icon-bug-dark);
+    --icon-bug-white: var(--original-icon-bug-white);
+    --icon-comment-question-dark: var(--original-icon-comment-question-dark);
+    --icon-comment-question-white: var(--original-icon-comment-question-white);
+    --icon-feature-search-dark: var(--original-icon-feature-search-dark);
+    --icon-feature-search-white: var(--original-icon-feature-search-white);
+    --icon-rocket-launch-dark: var(--original-icon-rocket-launch-dark);
+    --icon-rocket-launch-white: var(--original-icon-rocket-launch-white);
+    --icon-sort-alphabetical-variant-dark: var(--original-icon-sort-alphabetical-variant-dark);
+    --icon-sort-alphabetical-variant-white: var(--original-icon-sort-alphabetical-variant-white);
+    --icon-star-plus-dark: var(--original-icon-star-plus-dark);
+    --icon-star-plus-white: var(--original-icon-star-plus-white);
+    --icon-timer-star-dark: var(--original-icon-timer-star-dark);
+    --icon-timer-star-white: var(--original-icon-timer-star-white);
+    --icon-creation-dark: var(--original-icon-creation-dark);
+    --icon-developer-board-dark: var(--original-icon-developer-board-dark);
+    --icon-chevron-left-dark: var(--original-icon-chevron-left-dark);
+    --icon-chevron-right-dark: var(--original-icon-chevron-right-dark);
+}
+
+body .icon-invert {
+    filter: invert(1);
+}
+
+body .icon-category-all,
+body .icon-category-all-dark {
+    background-image: var(--icon-category-all-dark);
+}
+body .icon-category-all-white,
+body .icon-category-all.icon-white {
+    background-image: var(--icon-category-all-white);
+}
+body .icon-category-customization,
+body .icon-category-customization-dark {
+    background-image: var(--icon-category-customization-dark);
+}
+body .icon-category-customization-white,
+body .icon-category-customization.icon-white {
+    background-image: var(--icon-category-customization-white);
+}
+body .icon-category-dashboard,
+body .icon-category-dashboard-dark {
+    background-image: var(--icon-category-dashboard-dark);
+}
+body .icon-category-dashboard-white,
+body .icon-category-dashboard.icon-white {
+    background-image: var(--icon-category-dashboard-white);
+}
+body .icon-category-files,
+body .icon-category-files-dark {
+    background-image: var(--icon-category-files-dark);
+}
+body .icon-category-files-white,
+body .icon-category-files.icon-white {
+    background-image: var(--icon-category-files-white);
+}
+body .icon-category-games,
+body .icon-category-games-dark {
+    background-image: var(--icon-category-games-dark);
+}
+body .icon-category-games-white,
+body .icon-category-games.icon-white {
+    background-image: var(--icon-category-games-white);
+}
+body .icon-category-integration,
+body .icon-category-integration-dark {
+    background-image: var(--icon-category-integration-dark);
+}
+body .icon-category-integration-white,
+body .icon-category-integration.icon-white {
+    background-image: var(--icon-category-integration-white);
+}
+body .icon-category-monitoring,
+body .icon-category-monitoring-dark {
+    background-image: var(--icon-category-monitoring-dark);
+}
+body .icon-category-monitoring-white,
+body .icon-category-monitoring.icon-white {
+    background-image: var(--icon-category-monitoring-white);
+}
+body .icon-category-multimedia,
+body .icon-category-multimedia-dark {
+    background-image: var(--icon-category-multimedia-dark);
+}
+body .icon-category-multimedia-white,
+body .icon-category-multimedia.icon-white {
+    background-image: var(--icon-category-multimedia-white);
+}
+body .icon-category-office,
+body .icon-category-office-dark {
+    background-image: var(--icon-category-office-dark);
+}
+body .icon-category-office-white,
+body .icon-category-office.icon-white {
+    background-image: var(--icon-category-office-white);
+}
+body .icon-category-organization,
+body .icon-category-organization-dark {
+    background-image: var(--icon-category-organization-dark);
+}
+body .icon-category-organization-white,
+body .icon-category-organization.icon-white {
+    background-image: var(--icon-category-organization-white);
+}
+body .icon-category-social,
+body .icon-category-social-dark {
+    background-image: var(--icon-category-social-dark);
+}
+body .icon-category-social-white,
+body .icon-category-social.icon-white {
+    background-image: var(--icon-category-social-white);
+}
+body .icon-category-workflow,
+body .icon-category-workflow-dark {
+    background-image: var(--icon-category-workflow-dark);
+}
+body .icon-category-workflow-white,
+body .icon-category-workflow.icon-white {
+    background-image: var(--icon-category-workflow-white);
+}
+body .icon-category-featured,
+body .icon-category-featured-dark {
+    background-image: var(--icon-category-featured-dark);
+}
+body .icon-category-featured-white,
+body .icon-category-featured.icon-white {
+    background-image: var(--icon-category-featured-white);
+}
+body .icon-category-search,
+body .icon-category-search-dark {
+    background-image: var(--icon-category-search-dark);
+}
+body .icon-category-search-white,
+body .icon-category-search.icon-white {
+    background-image: var(--icon-category-search-white);
+}
+body .icon-category-security,
+body .icon-category-security-dark {
+    background-image: var(--icon-category-security-dark);
+}
+body .icon-category-security-white,
+body .icon-category-security.icon-white {
+    background-image: var(--icon-category-security-white);
+}
+body .icon-category-tools,
+body .icon-category-tools-dark {
+    background-image: var(--icon-category-tools-dark);
+}
+body .icon-category-tools-white,
+body .icon-category-tools.icon-white {
+    background-image: var(--icon-category-tools-white);
+}
+
+body .icon-source-fork,
+body .icon-source-fork-dark {
+    background-image: var(--icon-source-fork-dark);
+}
+body .icon-source-fork-white,
+body .icon-source-fork.icon-white {
+    background-image: var(--icon-source-fork-white);
+}
+body .icon-text-box,
+body .icon-text-box-dark {
+    background-image: var(--icon-text-box-dark);
+}
+body .icon-text-box-white,
+body .icon-text-box.icon-white {
+    background-image: var(--icon-text-box-white);
+}
+body .icon-note-text,
+body .icon-note-text-dark {
+    background-image: var(--icon-note-text-dark);
+}
+body .icon-note-text-white,
+body .icon-note-text.icon-white {
+    background-image: var(--icon-note-text-white);
+}
+
+body .icon-bug,
+body .icon-bug-dark {
+    background-image: var(--icon-bug-dark);
+}
+body .icon-bug-white,
+body .icon-bug.icon-white {
+    background-image: var(--icon-bug-white);
+}
+body .icon-comment-question,
+body .icon-comment-question-dark {
+    background-image: var(--icon-comment-question-dark);
+}
+body .icon-comment-question-white,
+body .icon-comment-question.icon-white {
+    background-image: var(--icon-comment-question-white);
+}
+body .icon-feature-search,
+body .icon-feature-search-dark {
+    background-image: var(--icon-feature-search-dark);
+}
+body .icon-feature-search-white,
+body .icon-feature-search.icon-white {
+    background-image: var(--icon-feature-search-white);
+}
+
+body .icon-rocket-launch,
+body .icon-rocket-launch-dark {
+    background-image: var(--icon-rocket-launch-dark);
+}
+body .icon-rocket-launch-white,
+body .icon-rocket-launch.icon-white {
+    background-image: var(--icon-rocket-launch-white);
+}
+body .icon-sort-alphabetical-variant,
+body .icon-sort-alphabetical-variant-dark {
+    background-image: var(--icon-sort-alphabetical-variant-dark);
+}
+body .icon-sort-alphabetical-variant-white,
+body .icon-sort-alphabetical-variant.icon-white {
+    background-image: var(--icon-sort-alphabetical-variant-white);
+}
+body .icon-star-plus,
+body .icon-star-plus-dark {
+    background-image: var(--icon-star-plus-dark);
+}
+body .icon-star-plus-white,
+body .icon-star-plus.icon-white {
+    background-image: var(--icon-star-plus-white);
+}
+body .icon-timer-star,
+body .icon-timer-star-dark {
+    background-image: var(--icon-timer-star-dark);
+}
+body .icon-timer-star-white,
+body .icon-timer-star.icon-white {
+    background-image: var(--icon-timer-star-white);
+}
+
+body .icon-creation,
+body .icon-creation-dark {
+    background-image: var(--icon-creation-dark);
+}
+
+body .icon-chevron-left,
+body .icon-chevron-left-dark {
+    background-image: var(--icon-chevron-left-dark);
+}
+body .icon-chevron-right,
+body .icon-chevron-right-dark {
+    background-image: var(--icon-chevron-right-dark);
+}

@@ -9,30 +9,27 @@
 
 {% block content %}
     <div class="central-form">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-                <a role="tab"
-                   data-toggle="tab"
-                   aria-controls="home"
-                   href="#">{% trans 'Create account' %}</a>
-            </li>
-            {% get_providers as socialaccount_providers %}
-            {% for provider in socialaccount_providers %}
-                <li role="presentation">
-                    <a title="{{ provider.name }}"
-                       class="socialaccount_provider {{ provider.id }}"
-                       href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">{% trans 'Log in with GitHub' %} </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <h4>{% trans 'Create an account' %}</h4>
         <div class="auth-form">
             <form method="POST" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                 {% include 'form-fields.html' %}
-                <p>
+                <div class="actions">
                     <button class="btn btn-primary btn-block"
-                            type="submit">{% trans 'Register' %}</button>
-                </p>
+                            type="submit">
+                        <span class="icon material-symbols-outlined">app_registration</span>
+                        {% trans 'Register' %}
+                    </button>
+                    {% get_providers as socialaccount_providers %}
+                    {% for provider in socialaccount_providers %}
+                        <a title="{{ provider.name }}"
+                           class="socialaccount_provider {{ provider.id }} btn btn-default btn-light"
+                           href="{% provider_login_url provider.id process='login' scope=scope auth_params=auth_params %}">
+                            <span class="icon material-symbols-outlined">login</span>
+                            {% trans 'Log in with GitHub' %}
+                        </a>
+                    {% endfor %}
+                </div>
             </form>
         </div>
     </div>
