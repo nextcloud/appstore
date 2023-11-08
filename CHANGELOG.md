@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [4.5.0]  - 2023-11-10
+
+### Changed
+
+- New UI. Thanks to @szaimen and @andrey18106.
+- urllib3 updated from `2.0.6` to `2.0.7`
+- django updated from `4.2.5` to `4.2.7`
+- django-simple-captcha from `0.5.18` to `0.5.20`
+- django-cors-headers from `4.2.0` to `4.3.0`
+- Updated NPM dependencies.
+
 ## [4.4.1]  - 2023-10-05
 
 ### Changed
