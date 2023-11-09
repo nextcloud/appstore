@@ -4,13 +4,18 @@
 
 ## [4.5.0]  - 2023-11-10
 
+### Added
+
+- Podcasts. #1202 @andrey18106
+
 ### Changed
 
-- New UI. Thanks to @szaimen and @andrey18106.
+- New UI. #1202 by @andrey18106 and @szaimen
 - urllib3 updated from `2.0.6` to `2.0.7`
 - django updated from `4.2.5` to `4.2.7`
-- django-simple-captcha from `0.5.18` to `0.5.20`
-- django-cors-headers from `4.2.0` to `4.3.0`
+- django-simple-captcha updated from `0.5.18` to `0.5.20`
+- django-cors-headers updated from `4.2.0` to `4.3.0`
+- markdown updated to `3.5.1`
 - Updated NPM dependencies.
 
 ## [4.4.1]  - 2023-10-05
