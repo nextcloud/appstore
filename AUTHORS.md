@@ -1,4 +1,4 @@
-# Authors
+2# Authors
 
 * [Bernhard Posselt](mailto:dev@bernhard-posselt.com)
 * [Alexander Piskun](mailto:13381981+bigcat88@users.noreply.github.com)
@@ -18,6 +18,7 @@
 * [Christoph Wurst](mailto:ChristophWurst@users.noreply.github.com)
 * [Matthieu Gallien](mailto:matthieu.gallien@nextcloud.com)
 * [Roeland Jago Douma](mailto:rullzer@users.noreply.github.com)
+* [Andrey Borysenko](mailto:andrey18106x@gmail.com)
 * [Allan Nordhøy](mailto:epost@anotheragency.no)
 * [Daphne Muller](mailto:86835268+DaphneMuller@users.noreply.github.com)
 * [Patrizio Bekerle](mailto:patrizio@bekerle.com)
@@ -36,12 +37,12 @@
 * [bigcat88](mailto:bigcat88@icloud.com)
 * [comradekingu](mailto:epost@anotheragency.no)
 * [fossxplorer](mailto:fossxplorer@gmail.com)
-* [Andrey Borysenko](mailto:andrey18106x@gmail.com)
 * [David Peach](mailto:mail@davidpeach.co.uk)
 * [Felix Wolfsteller](mailto:felix.wolfsteller@gmail.com)
 * [Franz Dietrich](mailto:dietrich@teilgedanken.de)
 * [Ilya Sher](mailto:ilya.sher@coding-knight.com)
 * [Jonne Haß](mailto:me@jhass.eu)
+* [Sami Finnilä](mailto:64466176+MB-Finski@users.noreply.github.com)
 * [Sander](mailto:brantje@gmail.com)
 * [Susinthiran Nathan](mailto:fossxplorer@gmail.com)
 * [Thomas Wouters](mailto:twouters@users.noreply.github.com)
