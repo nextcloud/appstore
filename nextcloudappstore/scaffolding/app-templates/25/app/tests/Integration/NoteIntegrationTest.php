@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
 
 namespace OCA\{{ app.namespace }}\Tests\Integration\Controller;
 
+use OCA\{{ app.namespace }}\Controller\NoteController;
+use OCA\{{ app.namespace }}\Db\Note;
+use OCA\{{ app.namespace }}\Db\NoteMapper;
+
 use OCP\AppFramework\App;
 use OCP\IRequest;
 use PHPUnit\Framework\TestCase;
-
-use OCA\{{ app.namespace }}\Db\Note;
-use OCA\{{ app.namespace }}\Db\NoteMapper;
-use OCA\{{ app.namespace }}\Controller\NoteController;
 
 class NoteIntegrationTest extends TestCase {
 	private NoteController $controller;

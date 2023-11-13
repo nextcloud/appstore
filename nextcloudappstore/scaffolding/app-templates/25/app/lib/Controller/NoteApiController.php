@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
@@ -18,8 +19,8 @@ class NoteApiController extends ApiController {
 	use Errors;
 
 	public function __construct(IRequest $request,
-								NoteService $service,
-								?string $userId) {
+		NoteService $service,
+		?string $userId) {
 		parent::__construct(Application::APP_ID, $request);
 		$this->service = $service;
 		$this->userId = $userId;
@@ -61,7 +62,7 @@ class NoteApiController extends ApiController {
 	 * @NoAdminRequired
 	 */
 	public function update(int $id, string $title,
-						   string $content): DataResponse {
+		string $content): DataResponse {
 		return $this->handleNotFound(function () use ($id, $title, $content) {
 			return $this->service->update($id, $title, $content, $this->userId);
 		});
