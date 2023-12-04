@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Максим Яснюк <maxim.yasniuk@gmail.com>, 2017
 # Vladislav Glinsky <cl0ne@mithril.org.ua>, 2018
@@ -18,9 +18,10 @@
 # Mehi Loki, 2023
 # Vitaliy (viabcua) <gviabcua@gmail.com>, 2023
 # Володимир Івах <vovaivah034@gmail.com>, 2023
-# O St <oleksiy.stasevych@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
-#
+# Yevhen Popok, 2023
+# O St <oleksiy.stasevych@gmail.com>, 2023
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -28,18 +29,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-04 02:41+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: daf9a3bef94549192358462a8bb20263_a023b71 "
-"<69530ed134884b79b067e9214de553f8_465041>, 2023\n"
-"Language-Team: Ukrainian (https://app.transifex.com/nextcloud/teams/64236/"
-"uk/)\n"
-"Language: uk\n"
+"Last-Translator: O St <oleksiy.stasevych@gmail.com>, 2023\n"
+"Language-Team: Ukrainian (https://app.transifex.com/nextcloud/teams/64236/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -97,17 +93,17 @@ msgstr "Публічний сертифікат"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
-"Зазвичай зберігається в ~/.nextcloud/certificates/APP_ID.crt, де APP_ID – це "
-"ідентифікатор вашої програми. Якщо у вас немає сертифіката, вам потрібно "
+"Зазвичай зберігається в ~/.nextcloud/certificates/APP_ID.crt, де APP_ID – це"
+" ідентифікатор вашої програми. Якщо у вас немає сертифіката, вам потрібно "
 "спочатку створити запит на підпис сертифіката (CSR), який слід опублікувати "
-"в <a href=\"https://github.com/nextcloud/app-certificate-requests\" rel="
-"\"noreferrer noopener\">сховищі сертифікатів</a> (дотримуйтеся README). Ви "
-"можете створити CSR, виконавши таку команду:"
+"в <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">сховищі сертифікатів</a> (дотримуйтеся README). "
+"Ви можете створити CSR, виконавши таку команду:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -393,27 +389,31 @@ msgstr "Зміни"
 
 #: nextcloudappstore/core/models.py:376
 msgid "The release changelog. Can contain Markdown"
-msgstr "Журнал змін випуску. Може містити Markdown"
+msgstr "Журнал змін збірки. Може містити Markdown"
 
 #: nextcloudappstore/core/models.py:382
 msgid "AppAPI communication protocol"
-msgstr ""
+msgstr "AppAPI протокол комунікації"
 
 #: nextcloudappstore/core/models.py:386
 msgid ""
 "If empty, then this is a release of a regular application; any other value "
 "indicates the application protocol for the AppAPI system"
 msgstr ""
+"Якщо порожньо, то це збірка звичайного застосунку; будь-яке інше значення "
+"вказує на протокол застосунку для системи AppAPI"
 
 #: nextcloudappstore/core/models.py:392
 msgid "AppAPI system app flag"
-msgstr ""
+msgstr "AppAPI позначка системного застосунку"
 
 #: nextcloudappstore/core/models.py:394
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr ""
+"Чи є застосунок загальносистемним (тобто може видавати себе за користувача "
+"без його взаємодії із застосунком)"
 
 #: nextcloudappstore/core/models.py:401 nextcloudappstore/core/models.py:451
 #: nextcloudappstore/core/models.py:472 nextcloudappstore/core/models.py:598
@@ -427,43 +427,43 @@ msgstr "Збірки застосунку"
 
 #: nextcloudappstore/core/models.py:455
 msgid "Deploy Identifier"
-msgstr ""
+msgstr "Розгорнути ідентифікатор"
 
 #: nextcloudappstore/core/models.py:458
 msgid "Installer specific data"
-msgstr ""
+msgstr "Специфічні дані інсталятора"
 
 #: nextcloudappstore/core/models.py:459
 msgid "JSON data for AppAPI installer depending on installation type"
-msgstr ""
+msgstr "Дані JSON для AppAPI інсталятора, в залежності від типу встановлення"
 
 #: nextcloudappstore/core/models.py:464
 msgid "AppAPI release Deploy method"
-msgstr ""
+msgstr "Метод розгортання збірки AppAPI"
 
 #: nextcloudappstore/core/models.py:465
 msgid "AppAPI release Deploy methods"
-msgstr ""
+msgstr "Методи розгортання збірки AppAPI"
 
 #: nextcloudappstore/core/models.py:477
 msgid "Is scope optional"
-msgstr ""
+msgstr "Чи обовʼязковою є сфера застосування"
 
 #: nextcloudappstore/core/models.py:478
 msgid "Is it possible for the application to work without this API group?"
-msgstr ""
+msgstr "Чи може застосунок працювати без цієї групи API?"
 
 #: nextcloudappstore/core/models.py:481
 msgid "Name of the API scope"
-msgstr ""
+msgstr "Назва сфери застосування API"
 
 #: nextcloudappstore/core/models.py:485
 msgid "AppAPI release API Scope"
-msgstr ""
+msgstr "AppAPI збірка сфери застосування API"
 
 #: nextcloudappstore/core/models.py:486
 msgid "AppAPI release API Scopes"
-msgstr ""
+msgstr "AppAPI збірка сфер застосування API"
 
 #: nextcloudappstore/core/models.py:490
 msgid "Image URL"
@@ -593,11 +593,11 @@ msgstr "Залежності розширення PHP"
 
 #: nextcloudappstore/core/models.py:647
 msgid "Heading"
-msgstr ""
+msgstr "Заголовок"
 
 #: nextcloudappstore/core/models.py:648
 msgid "Excerpt"
-msgstr ""
+msgstr "Уривок"
 
 #: nextcloudappstore/core/models.py:649
 msgid "Link"
@@ -609,15 +609,15 @@ msgstr "Зображення"
 
 #: nextcloudappstore/core/models.py:651
 msgid "Show podcast"
-msgstr ""
+msgstr "Показати подкаст"
 
 #: nextcloudappstore/core/models.py:654
 msgid "Nextcloud Podcast"
-msgstr ""
+msgstr "Подкаст Nextcloud"
 
 #: nextcloudappstore/core/models.py:655
 msgid "Nextcloud Podcasts"
-msgstr ""
+msgstr "Подкасти Nextcloud"
 
 #: nextcloudappstore/core/models.py:679
 msgid "App release deletion"
@@ -655,13 +655,13 @@ msgstr "Є збірка"
 
 #: nextcloudappstore/core/models.py:709
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"Якщо правда, це фактично випущена версія Nextcloud, яку можна завантажити як "
-"архів. Якщо значення false, випуск є попереднім випуском або більше не "
-"доступний для завантаження."
+"Якщо значення true, то це фактично опублікована версія Nextcloud, яку можна "
+"завантажити як архів. Якщо значення false, то збірка або є передрелізною, "
+"або більше недоступна для завантаження."
 
 #: nextcloudappstore/core/models.py:719
 msgid "Version is supported"
@@ -716,24 +716,19 @@ msgstr ""
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Вітання від %(site_name)s! \n"
 "\n"
-"Ви отримали цей електронний лист, оскільки користувач %(user_display)s "
-"пов’язав цю адресу електронної пошти зі своїм обліковим записом у "
-"%(site_domain)s. \n"
+"Ви отримали цей електронний лист, оскільки користувач %(user_display)s пов’язав цю адресу електронної пошти зі своїм обліковим записом у %(site_domain)s. \n"
 "\n"
 "Щоб переконатися, що це правильно, перейдіть до%(activate_url)s\n"
 "\n"
-"Якщо у вас немає облікового запису в %(site_domain)s, просто проігноруйте це "
-"повідомлення.\n"
+"Якщо у вас немає облікового запису в %(site_domain)s, просто проігноруйте це повідомлення.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -765,8 +760,8 @@ msgstr "Підтвердити"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Термін дії цього посилання для підтвердження електронною поштою минув або "
 "воно недійсне. <a href=\"%(email_url)s\">Надішліть новий запит на "
@@ -839,12 +834,12 @@ msgstr "Змінити Пароль"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Посилання для зміни пароля було недійсним, можливо, тому, що воно вже було "
-"використано. Будь ласка, надішліть запит <a href=\"%(passwd_reset_url)s\">на "
-"скидання нового пароля</a>."
+"використано. Будь ласка, надішліть запит <a href=\"%(passwd_reset_url)s\">на"
+" скидання нового пароля</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -852,7 +847,7 @@ msgstr "Ваш пароль змінено."
 
 #: nextcloudappstore/core/templates/account/signup.html:12
 msgid "Create an account"
-msgstr ""
+msgstr "Створити обліковий запис"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -888,23 +883,23 @@ msgstr "Далі"
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid "Highest Nextcloud version"
-msgstr ""
+msgstr "Найвища версія Nextcloud"
 
 #: nextcloudappstore/core/templates/app/detail.html:51
 msgid "Show all releases"
-msgstr ""
+msgstr "Показати всі збірки"
 
 #: nextcloudappstore/core/templates/app/detail.html:54
 msgid "Community rating"
-msgstr ""
+msgstr "Оцінка спільноти"
 
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Last updated"
-msgstr ""
+msgstr "Востаннє оновлено"
 
 #: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
@@ -925,7 +920,7 @@ msgstr "Документація для розробника"
 
 #: nextcloudappstore/core/templates/app/detail.html:106
 msgid "Interact"
-msgstr ""
+msgstr "Взаємодіяти"
 
 #: nextcloudappstore/core/templates/app/detail.html:112
 msgid "Report problem"
@@ -947,11 +942,11 @@ msgstr "Збірки"
 
 #: nextcloudappstore/core/templates/app/detail.html:141
 msgid "Stable channel"
-msgstr ""
+msgstr "Канал стабільних версій"
 
 #: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Nightly channel"
-msgstr ""
+msgstr "Канал нічних версій"
 
 #: nextcloudappstore/core/templates/app/detail.html:143
 msgid "All releases"
@@ -989,18 +984,17 @@ msgstr "Інтеграція рейтингів"
 
 #: nextcloudappstore/core/templates/app/detail.html:212
 msgid "Your comment"
-msgstr ""
+msgstr "Ваш коментар"
 
 #: nextcloudappstore/core/templates/app/detail.html:217
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
-"                                    Do not use rating comments to report "
-"bugs or request features. Neither developers nor users will be notified of "
-"your comment.\n"
-"                                    A rating without a comment still counts, "
-"but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
+"                                    A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Рейтингові коментарі підтримують <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. \n"
+" Не використовуйте коментарі рейтингу, щоб повідомити про помилки чи запитати про можливості. Ані розробники, ані користувачі не отримають сповіщення про ваш коментар.\n"
+"Оцінка без коментаря враховується, але її не буде в переліку нижче."
 
 #: nextcloudappstore/core/templates/app/detail.html:224
 msgid "Update rating"
@@ -1012,7 +1006,7 @@ msgstr "Надішліть оцінку"
 
 #: nextcloudappstore/core/templates/app/detail.html:237
 msgid "Switch language for the comments:"
-msgstr ""
+msgstr "Перемкнути мову коментарів:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -1050,7 +1044,7 @@ msgstr "За алфавітом"
 
 #: nextcloudappstore/core/templates/app/list.html:48
 msgid "Latest release"
-msgstr ""
+msgstr "Остання збірка"
 
 #: nextcloudappstore/core/templates/app/list.html:54
 msgid "Rating (recent)"
@@ -1079,28 +1073,29 @@ msgstr "Зареєструвати застосунок"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "Щоб дізнатися більше про те, як отримати сертифікат і створити підпис, "
-"перегляньте <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
-"developer.html\" rel=\"noopener norefferer\">посібник розробника програми</"
-"a>."
+"перегляньте <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">посібник розробника програми</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Цю форму також можна використовувати для оновлення наявних сертифікатів, "
-"однак це має право робити лише власник програми. Оновлення сертифіката "
-"програми призведе до вилучення всіх її вже раніше завантажених випусків!"
+"однак це має право робити лише власник застосунку. Оновлення сертифікату "
+"застосунку призведе до вилучення всіх збірок застосунку, які було раніше "
+"завантажено!"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid "Not a public certificate"
-msgstr "Не державний сертифікат"
+msgstr "Недержавний сертифікат"
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid "App registered."
@@ -1157,13 +1152,13 @@ msgstr "Збірку застосунку успішно завантажено.
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Щоб дізнатися більше про те, як створити підпис, перегляньте <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">посібник розробника програми</a>."
+"Щоб дізнатися більше про те, як створити підпис, перегляньте <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">посібник розробника програми</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1188,7 +1183,7 @@ msgstr "Останні збірки застосунку"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Contribute to the app store"
-msgstr ""
+msgstr "Допомогти магазину застосунків"
 
 #: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
@@ -1205,11 +1200,11 @@ msgstr "обов'язкове поле"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Resources for developers"
-msgstr ""
+msgstr "Ресурси для розробників"
 
 #: nextcloudappstore/core/templates/nav.html:22
 msgid "Develop for Nextcloud"
-msgstr ""
+msgstr "Розробка для Nextcloud"
 
 #: nextcloudappstore/core/templates/nav.html:34
 msgid "Request translations"
@@ -1217,7 +1212,7 @@ msgstr "Запит на локалізацію"
 
 #: nextcloudappstore/core/templates/nav.html:41
 msgid "Submit your app"
-msgstr ""
+msgstr "Надіслати ваш застосунок"
 
 #: nextcloudappstore/core/templates/nav.html:91
 #, python-format
@@ -1257,8 +1252,7 @@ msgstr "Вихід"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "Ви збираєтеся використовувати свій обліковий запис %(provider_name)s для "
 "входу в %(site_name)s. На завершення заповніть наступну форму:"
@@ -1484,22 +1478,25 @@ msgstr "Повний опис того, що робить ваша інтегр�
 #: nextcloudappstore/templates/socialaccount/login.html:8
 #, python-format
 msgid "Connect %(provider)s"
-msgstr ""
+msgstr "Підключити%(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:10
 #, python-format
 msgid "You are about to connect a new third party account from %(provider)s."
 msgstr ""
+"Ви збираєтеся підключити новий сторонній обліковий запис від %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:12
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr ""
+msgstr "Авторизуватися за допомогою %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
-msgid "You are about to sign in using a third party account from %(provider)s."
+msgid ""
+"You are about to sign in using a third party account from %(provider)s."
 msgstr ""
+"Ви збираєтеся підключити новий сторонній обліковий запис від %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 msgid "Continue"
@@ -1531,8 +1528,8 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Пароль потрібен, щоб неавторизовані користувачі не могли змінити вашу адресу "
-"електронної пошти та скинути пароль. Це поле не оновлює ваш пароль!"
+"Пароль потрібен, щоб неавторизовані користувачі не могли змінити вашу адресу"
+" електронної пошти та скинути пароль. Це поле не оновлює ваш пароль!"
 
 #: nextcloudappstore/user/forms.py:63
 msgid "This email address is already associated with another account."
@@ -1570,20 +1567,15 @@ msgstr "Маркер API"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
 "Токен API можна використовувати для авторизації під час виклику \n"
-"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html"
-"\">REST API</a> каталогу застосунків Nextcloud. \n"
-"Зберігайте його в секреті. Тут ви можете створити новий токен, після цього "
-"попередній токен стане недійсним."
+"<a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a> каталогу застосунків Nextcloud. \n"
+"Зберігайте його в секреті. Тут ви можете створити новий токен, після цього попередній токен стане недійсним."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1668,8 +1660,8 @@ msgstr "Зміна пароля також призведе до відновл�
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Схоже, ви використовуєте обліковий запис, зареєстрований у стороннього "
 "постачальника. Тому ваш пароль <strong>не</strong> можна змінити з цієї "
