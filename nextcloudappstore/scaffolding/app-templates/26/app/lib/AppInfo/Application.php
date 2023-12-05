@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
@@ -18,19 +19,19 @@ class Application extends App implements IBootstrap {
 	}
 
 
-    public function register(IRegistrationContext $context): void {
-        /*
-         * For further information about the app bootstrapping, please refer to our documentation:
-         * https://docs.nextcloud.com/server/latest/developer_manual/app_development/bootstrap.html
-         */
-        // Register your services, event listeners, etc.
-    }
+	public function register(IRegistrationContext $context): void {
+		/*
+		 * For further information about the app bootstrapping, please refer to our documentation:
+		 * https://docs.nextcloud.com/server/latest/developer_manual/app_development/bootstrap.html
+		 */
+		// Register your services, event listeners, etc.
+	}
 
-    public function boot(IBootContext $context): void {
-        /*
-         * For further information about the app bootstrapping, please refer to our documentation:
-         * https://docs.nextcloud.com/server/latest/developer_manual/app_development/bootstrap.html
-         */
-        // Prepare your app.
-    }
+	public function boot(IBootContext $context): void {
+		/*
+		 * For further information about the app bootstrapping, please refer to our documentation:
+		 * https://docs.nextcloud.com/server/latest/developer_manual/app_development/bootstrap.html
+		 */
+		// Prepare your app.
+	}
 }

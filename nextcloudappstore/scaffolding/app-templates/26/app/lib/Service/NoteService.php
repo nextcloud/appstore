@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
@@ -7,11 +8,11 @@ namespace OCA\{{ app.namespace }}\Service;
 
 use Exception;
 
-use OCP\AppFramework\Db\DoesNotExistException;
-use OCP\AppFramework\Db\MultipleObjectsReturnedException;
-
 use OCA\{{ app.namespace }}\Db\Note;
 use OCA\{{ app.namespace }}\Db\NoteMapper;
+
+use OCP\AppFramework\Db\DoesNotExistException;
+use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 
 class NoteService {
 	private NoteMapper $mapper;
@@ -44,9 +45,9 @@ class NoteService {
 			return $this->mapper->find($id, $userId);
 
 			// in order to be able to plug in different storage backends like files
-		// for instance it is a good idea to turn storage related exceptions
-		// into service related exceptions so controllers and service users
-		// have to deal with only one type of exception
+			// for instance it is a good idea to turn storage related exceptions
+			// into service related exceptions so controllers and service users
+			// have to deal with only one type of exception
 		} catch (Exception $e) {
 			$this->handleException($e);
 		}

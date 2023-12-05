@@ -1,18 +1,19 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
 
 namespace OCA\{{ app.namespace }}\Tests\Unit\Service;
 
-use OCA\{{ app.namespace }}\Service\NoteNotFound;
-use PHPUnit\Framework\TestCase;
-
-use OCP\AppFramework\Db\DoesNotExistException;
-
 use OCA\{{ app.namespace }}\Db\Note;
-use OCA\{{ app.namespace }}\Service\NoteService;
 use OCA\{{ app.namespace }}\Db\NoteMapper;
+
+use OCA\{{ app.namespace }}\Service\NoteNotFound;
+
+use OCA\{{ app.namespace }}\Service\NoteService;
+use OCP\AppFramework\Db\DoesNotExistException;
+use PHPUnit\Framework\TestCase;
 
 class NoteServiceTest extends TestCase {
 	private NoteService $service;

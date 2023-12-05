@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // SPDX-FileCopyrightText: {{ app.author_name }} <{{ app.author_mail }}>
 // SPDX-License-Identifier: {{ app.license }}
@@ -6,7 +7,6 @@ declare(strict_types=1);
 namespace OCA\{{ app.namespace }}\Db;
 
 use OCP\AppFramework\Db\DoesNotExistException;
-use OCP\AppFramework\Db\Entity;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IDBConnection;
