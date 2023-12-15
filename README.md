@@ -10,7 +10,7 @@
 [![IRC](https://img.shields.io/badge/irc%20channel-%23nextcloud--dev%20on%20freenode-blue.svg)](https://webchat.freenode.net/?channels=nextcloud-dev)
 
 
-A new app store for Nextcloud apps built with Django. Up and running at [https://apps.nextcloud.com](https://apps.nextcloud.com). We **do not handle Nextcloud integration**. Nextcloud integration is handled in the [Nextcloud Server repository](https://github.com/nextcloud/server).
+A new app store for Nextcloud apps built with Django. Up and running at [https://apps.nextcloud.com](https://apps.nextcloud.com). **Nextcloud integration is not handled by us**. Nextcloud integration is handled in the [Nextcloud Server repository](https://github.com/nextcloud/server).
 
 ## Documentation
 Documentation including setup and API specification is [available on Read the Docs](https://nextcloudappstore.readthedocs.io/en/latest/)
