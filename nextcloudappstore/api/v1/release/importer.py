@@ -298,7 +298,11 @@ class AppImporter(Importer):
             obj.authors.all().delete()
             obj.categories.clear()
             for translation in obj.translations.all():
-                translation.delete()
+                # remove only translations that are not present in the new release
+                # translations that are present will be simply rewritten.
+                # https://github.com/nextcloud/appstore/issues/1235
+                if translation.language_code not in value.get("name", {}):
+                    translation.delete()
         else:
             value = {"id": value["id"], "release": value["release"]}
 
