@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Andy Scherzinger <info@andy-scherzinger.de>, 2016
 # 611394701693ab53580184e165549ca6_e681d1e, 2017
 # Bernhard Posselt <BernhardPosselt@users.noreply.github.com>, 2017
 # Benedikt Geißler <benedikt@g5r.eu>, 2017
@@ -23,15 +22,16 @@
 # kachelkaiser, 2023
 # Mark Ziegler <mark.ziegler@rakekniven.de>, 2023
 # Markus Eckstein, 2023
+# Andy Scherzinger <info@andy-scherzinger.de>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 03:02+0000\n"
+"POT-Creation-Date: 2023-12-12 02:44+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Markus Eckstein, 2023\n"
+"Last-Translator: Andy Scherzinger <info@andy-scherzinger.de>, 2023\n"
 "Language-Team: German (https://app.transifex.com/nextcloud/teams/64236/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -396,23 +396,28 @@ msgstr "Die Liste der Änderungen. Darf Markdown enthalten"
 
 #: nextcloudappstore/core/models.py:382
 msgid "AppAPI communication protocol"
-msgstr ""
+msgstr "AppAPI-Kommunikationsprotokoll"
 
 #: nextcloudappstore/core/models.py:386
 msgid ""
 "If empty, then this is a release of a regular application; any other value "
 "indicates the application protocol for the AppAPI system"
 msgstr ""
+"Wenn leer, handelt es sich um eine Veröffentlichung einer regulären "
+"Anwendung. Jeder andere Wert gibt das Anwendungsprotokoll für das AppAPI-"
+"System an."
 
 #: nextcloudappstore/core/models.py:392
 msgid "AppAPI system app flag"
-msgstr ""
+msgstr "AppAPI-System-App-Flag"
 
 #: nextcloudappstore/core/models.py:394
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr ""
+"Ob die Anwendung systemweit ist (d. h. sie kann sich als Benutzer ausgeben, "
+"ohne dass er mit der Anwendung interagiert)"
 
 #: nextcloudappstore/core/models.py:401 nextcloudappstore/core/models.py:451
 #: nextcloudappstore/core/models.py:472 nextcloudappstore/core/models.py:598
@@ -426,43 +431,43 @@ msgstr "App Veröffentlichungen"
 
 #: nextcloudappstore/core/models.py:455
 msgid "Deploy Identifier"
-msgstr ""
+msgstr "Verteilungsbezeichner"
 
 #: nextcloudappstore/core/models.py:458
 msgid "Installer specific data"
-msgstr ""
+msgstr "Spezifische Daten des Installers"
 
 #: nextcloudappstore/core/models.py:459
 msgid "JSON data for AppAPI installer depending on installation type"
-msgstr ""
+msgstr "JSON-Daten für den AppAPI-Installer hängen vom Installationstyp ab"
 
 #: nextcloudappstore/core/models.py:464
 msgid "AppAPI release Deploy method"
-msgstr ""
+msgstr "AppAPI-Verteilungsmethode für die Veröffentlichung"
 
 #: nextcloudappstore/core/models.py:465
 msgid "AppAPI release Deploy methods"
-msgstr ""
+msgstr "AppAPI-Verteilungsmethoden für die Veröffentlichung"
 
 #: nextcloudappstore/core/models.py:477
 msgid "Is scope optional"
-msgstr ""
+msgstr "Ist der Umfang optional"
 
 #: nextcloudappstore/core/models.py:478
 msgid "Is it possible for the application to work without this API group?"
-msgstr ""
+msgstr "Kann die Anwendung ohne diese API-Gruppe funktionieren?"
 
 #: nextcloudappstore/core/models.py:481
 msgid "Name of the API scope"
-msgstr ""
+msgstr "Name des API-Bereichs"
 
 #: nextcloudappstore/core/models.py:485
 msgid "AppAPI release API Scope"
-msgstr ""
+msgstr "AppAPI-API-Bereich für die Veröffentlichung"
 
 #: nextcloudappstore/core/models.py:486
 msgid "AppAPI release API Scopes"
-msgstr ""
+msgstr "AppAPI-API-Bereiche für die Veröffentlichung"
 
 #: nextcloudappstore/core/models.py:490
 msgid "Image URL"
@@ -596,7 +601,7 @@ msgstr "Überschrift"
 
 #: nextcloudappstore/core/models.py:648
 msgid "Excerpt"
-msgstr ""
+msgstr "Auszug"
 
 #: nextcloudappstore/core/models.py:649
 msgid "Link"
@@ -608,15 +613,15 @@ msgstr "Bild"
 
 #: nextcloudappstore/core/models.py:651
 msgid "Show podcast"
-msgstr ""
+msgstr "Podcast anzeigen"
 
 #: nextcloudappstore/core/models.py:654
 msgid "Nextcloud Podcast"
-msgstr ""
+msgstr "Nextcloud Podcast"
 
 #: nextcloudappstore/core/models.py:655
 msgid "Nextcloud Podcasts"
-msgstr ""
+msgstr "Nextcloud Podcasts"
 
 #: nextcloudappstore/core/models.py:679
 msgid "App release deletion"
@@ -708,7 +713,7 @@ msgstr "Die Seite die du suchst existiert nicht!"
 
 #: nextcloudappstore/core/templates/429.html:10
 msgid "Too many tries. Try again in a few minutes."
-msgstr ""
+msgstr "Zu viele Versuche. Versuche es in einigen Minuten erneut."
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:1
 #, python-format
@@ -882,15 +887,15 @@ msgstr "Nächste"
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid "Highest Nextcloud version"
-msgstr ""
+msgstr "Höchste Nextcloud-Version"
 
 #: nextcloudappstore/core/templates/app/detail.html:51
 msgid "Show all releases"
-msgstr ""
+msgstr "Alle Veröffentlichungen anzeigen"
 
 #: nextcloudappstore/core/templates/app/detail.html:54
 msgid "Community rating"
-msgstr ""
+msgstr "Community-Bewertung"
 
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Author"
@@ -898,7 +903,7 @@ msgstr "Autor"
 
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Last updated"
-msgstr ""
+msgstr "Zuletzt aktualisiert"
 
 #: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
@@ -919,7 +924,7 @@ msgstr "Entwickler-Dokumentation"
 
 #: nextcloudappstore/core/templates/app/detail.html:106
 msgid "Interact"
-msgstr ""
+msgstr "Interagieren"
 
 #: nextcloudappstore/core/templates/app/detail.html:112
 msgid "Report problem"
@@ -941,11 +946,11 @@ msgstr "Veröffentlichungen"
 
 #: nextcloudappstore/core/templates/app/detail.html:141
 msgid "Stable channel"
-msgstr ""
+msgstr "Stabiler Kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Nightly channel"
-msgstr ""
+msgstr "Nightly-Kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:143
 msgid "All releases"
@@ -963,7 +968,7 @@ msgstr "Instabil"
 
 #: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: nextcloudappstore/core/templates/app/detail.html:190
 msgid "No comments found."
@@ -983,7 +988,7 @@ msgstr "Einbindung bewerten"
 
 #: nextcloudappstore/core/templates/app/detail.html:212
 msgid "Your comment"
-msgstr ""
+msgstr "Dein Kommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:217
 msgid ""
@@ -991,6 +996,9 @@ msgid ""
 "                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                                    A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Bewertungskommentare unterstützen <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"Verwende Bewertungskommentare nicht, um Fehler zu melden oder Funktionen anzufordern. Weder Entwickler noch Benutzer werden über deinen Kommentar benachrichtigt.\n"
+"Eine Bewertung ohne Kommentar zählt weiterhin, wird aber unten nicht aufgeführt."
 
 #: nextcloudappstore/core/templates/app/detail.html:224
 msgid "Update rating"
@@ -1002,7 +1010,7 @@ msgstr "Bewertung übermitteln"
 
 #: nextcloudappstore/core/templates/app/detail.html:237
 msgid "Switch language for the comments:"
-msgstr ""
+msgstr "Sprache für die Kommentare wechseln:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -1040,7 +1048,7 @@ msgstr "Alphabetisch"
 
 #: nextcloudappstore/core/templates/app/list.html:48
 msgid "Latest release"
-msgstr ""
+msgstr "Letzte Veröffentlichung"
 
 #: nextcloudappstore/core/templates/app/list.html:54
 msgid "Rating (recent)"
@@ -1180,7 +1188,7 @@ msgstr "Neueste App-Veröffentlichungen"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Contribute to the app store"
-msgstr ""
+msgstr "Trage zum App Store bei"
 
 #: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
@@ -1197,11 +1205,11 @@ msgstr "Erforderliches Feld"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Resources for developers"
-msgstr ""
+msgstr "Ressourcen für Entwickler"
 
 #: nextcloudappstore/core/templates/nav.html:22
 msgid "Develop for Nextcloud"
-msgstr ""
+msgstr "Entwickle für Nextcloud"
 
 #: nextcloudappstore/core/templates/nav.html:34
 msgid "Request translations"
@@ -1209,7 +1217,7 @@ msgstr "Übersetzungen anfordern"
 
 #: nextcloudappstore/core/templates/nav.html:41
 msgid "Submit your app"
-msgstr ""
+msgstr "Übermittle deine App"
 
 #: nextcloudappstore/core/templates/nav.html:91
 #, python-format
@@ -1480,23 +1488,26 @@ msgstr ""
 #: nextcloudappstore/templates/socialaccount/login.html:8
 #, python-format
 msgid "Connect %(provider)s"
-msgstr ""
+msgstr "Verbinde %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:10
 #, python-format
 msgid "You are about to connect a new third party account from %(provider)s."
 msgstr ""
+"Du bist dabei, ein neues Drittanbieterkonto von  %(provider)s zu verbinden."
 
 #: nextcloudappstore/templates/socialaccount/login.html:12
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr ""
+msgstr "Anmelden über %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid ""
 "You are about to sign in using a third party account from %(provider)s."
 msgstr ""
+"Du bist im Begriff, dich mit einem Drittanbieterkonto von %(provider)s "
+"anzumelden."
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 msgid "Continue"
