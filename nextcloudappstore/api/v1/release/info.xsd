@@ -371,6 +371,7 @@
             <xs:enumeration value="mit"/>
             <xs:enumeration value="mpl"/>
             <xs:enumeration value="apache"/>
+            <xs:enumeration value="gpl3"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -656,7 +657,7 @@
 
     <xs:complexType name="scopes_required">
         <xs:sequence>
-            <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
