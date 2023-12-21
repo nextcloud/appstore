@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [4.5.0]  - 2023-11-10
+## [4.5.0]  - 2023-12-21
 
 ### Added
 
@@ -12,11 +12,18 @@
 
 - New UI. #1202 by @andrey18106 and @szaimen
 - urllib3 updated from `2.0.6` to `2.0.7`
-- django updated from `4.2.5` to `4.2.7`
+- django updated from `4.2.5` to `4.2.8`
 - django-simple-captcha updated from `0.5.18` to `0.5.20`
-- django-cors-headers updated from `4.2.0` to `4.3.0`
+- django-cors-headers updated from `4.2.0` to `4.3.1`
+- psycopg updated from `3.1.13` to `3.1.14`
 - markdown updated to `3.5.1`
 - Updated NPM dependencies.
+
+### Fixed
+
+- App templates updated. #1234 by @kesselb
+- Allow `ExApp` without API scopes.
+- Allow uploading of GPLv3 licensed application releases.
 
 ## [4.4.1]  - 2023-10-05
 
