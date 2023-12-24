@@ -18,6 +18,7 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
+            appeal: false,
         }, {
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
@@ -29,6 +30,7 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
+            appeal: true,
         }, {
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
@@ -40,6 +42,7 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
+            appeal: true,
         }, {
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
@@ -47,6 +50,7 @@ describe('Ratings and comments', () => {
             relativeRatedAt: '',
             translations: {},
             user,
+            appeal: false,
         }];
         const result = filterEmptyComments(data, 'de');
         expect(result.length).toBe(1);
@@ -67,6 +71,7 @@ describe('Ratings and comments', () => {
                 firstName: ' Tom',
                 lastName: 'Jones',
             },
+            appeal: false,
         };
 
         const result = convertRating(data, 'de');
@@ -92,6 +97,7 @@ describe('Ratings and comments', () => {
                 firstName: '',
                 lastName: ' ',
             },
+            appeal: true,
         };
 
         const result = convertRating(data, 'de');
@@ -116,6 +122,7 @@ describe('Ratings and comments', () => {
                 firstName: '',
                 lastName: ' ',
             },
+            appeal: false,
         };
 
         const result = convertRating(data, 'de');

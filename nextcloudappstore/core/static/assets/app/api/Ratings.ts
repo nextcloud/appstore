@@ -16,6 +16,7 @@ export interface IRating {
         name: string;
         value: number;
     };
+    appeal: boolean;
 }
 
 interface IApiRating {
@@ -32,6 +33,7 @@ interface IApiRating {
         firstName: string;
         lastName: string;
     };
+    appeal: boolean;
 }
 
 export function filterEmptyComments(ratings: IApiRating[],
@@ -83,6 +85,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
             value: rating.rating,
         },
         relativeRatedAt: rating.relativeRatedAt,
+        appeal: rating.appeal,
     };
 }
 
