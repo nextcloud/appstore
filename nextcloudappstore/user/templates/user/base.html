@@ -52,6 +52,14 @@
                     {% trans 'Delete account' %}
                 </a>
             </li>
+            {% if user.is_superuser %}
+                <li class="{% if acc_page == 'appeal-comments' %}active{% endif %}">
+                    <a href="{% url 'user:appeal-comments' %}">
+                        <span class="icon material-symbols-outlined">Y</span>
+                        {% trans 'Appeal comments' %}
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
     <div class="col-sm-8 col-md-9 account-content">

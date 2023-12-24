@@ -1,0 +1,35 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head-title %}{% trans 'Appeal commentaries' %} - {% endblock %}
+
+{% block account-content %}
+    {% if user.is_superuser %}
+        <h1>{% trans "Comments Pending Appeal" %}</h1>
+        <section>
+            <table class="table table-striped">
+                <tr>
+                    <th>{% trans 'App' %}</th>
+                    <th>{% trans 'Comment author' %}</th>
+                    <th>{% trans 'Link' %}</th>
+                </tr>
+                {% for item in pending %}
+                    <tr>
+                        <td>{{ item.rating.app }}</td>
+                        <td>{{ item.rating.user }}</td>
+                        <td>
+                            <form action="{% url 'app-detail' id=item.rating.app.id %}" method="get">
+                                {% csrf_token %}
+                                <input type="hidden" name="comment_id" value="{{ item.rating.id }}">
+                                <input type="hidden" name="bad_comment_lang" value="{{ item.lang }}">
+                                <button class="btn btn-primary btn-block" type="submit">{% trans 'Go to' %}</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+    {% endif %}
+
+{% endblock %}

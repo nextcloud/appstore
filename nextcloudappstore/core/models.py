@@ -287,6 +287,7 @@ class AppRating(TranslatableModel):
             verbose_name=_("Rating comment"), default="", help_text=_("Rating comment in Markdown"), blank=True
         )
     )
+    appeal = BooleanField(default=False, verbose_name=_("Appeal"))
 
     class Meta:
         unique_together = (("app", "user"),)

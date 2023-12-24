@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, UpdateView
 
-from nextcloudappstore.core.models import App
+from nextcloudappstore.core.models import App, AppRating
 from nextcloudappstore.user.forms import AccountForm, DeleteAccountForm
 
 
@@ -122,4 +122,24 @@ class APITokenView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["acc_page"] = "api-token"
+        return context
+
+
+class AppealCommentsView(LoginRequiredMixin, TemplateView):
+    template_name = "user/appeal-comments.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_superuser:
+            # context["pending"] = AppRating.objects.filter(appeal=True)
+            pending_ratings = AppRating.objects.filter(appeal=True)
+            pending_with_lang = [
+                {
+                    "rating": rating,
+                    "lang": rating.translations.first().language_code if rating.translations.exists() else None,
+                }
+                for rating in pending_ratings
+            ]
+            context["pending"] = pending_with_lang
+        context["acc_page"] = "appeal-comments"
         return context

@@ -7,6 +7,7 @@ export interface IRatings {
 }
 
 export interface IRating {
+    id: number;
     comment: string;
     fullUserName: string;
     ratedAt: string;
@@ -18,6 +19,7 @@ export interface IRating {
 }
 
 interface IApiRating {
+    id: number;
     ratedAt: string;
     relativeRatedAt: string;
     rating: number;
@@ -72,6 +74,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
     }
     const translation = rating.translations[lang] || {comment: ''};
     return {
+        id: rating.id,
         comment: translation.comment,
         fullUserName: fullName.trim(),
         ratedAt: rating.ratedAt,

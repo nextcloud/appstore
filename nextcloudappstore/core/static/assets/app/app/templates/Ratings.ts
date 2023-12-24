@@ -11,6 +11,7 @@ export function renderRating(template: HTMLTemplateElement,
     };
 
     const root = render(template, context);
+    root.id = `rating-${rating.id}`; // Set the id attribute
     root.classList.add(rating.rating.name);
     return root;
 }

@@ -14,7 +14,7 @@ class AppRatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AppRating
-        fields = ("rating", "rated_at", "translations", "user", "app", "relative_rated_at")
+        fields = ("id", "rating", "rated_at", "translations", "user", "app", "relative_rated_at")
 
     def get_relative_rated_at(self, obj):
         return naturaltime(obj.rated_at)

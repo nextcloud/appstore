@@ -47,6 +47,15 @@ export function loadUserRatings(url: string, lang: string, fallback: string,
                 const tpl = renderEmptyRatings(config.templates.empty);
                 config.target.appendChild(tpl);
             }
+
+            // Scroll to the specific comment if the comment_id is provided in the URL
+            const commentId = new URLSearchParams(window.location.search).get('comment_id');
+            if (commentId) {
+                const element = document.getElementById(`rating-${commentId}`);
+                if (element) {
+                    element.scrollIntoView();
+                }
+            }
         });
 }
 

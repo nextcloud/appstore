@@ -8,6 +8,7 @@ describe('Ratings and comments', () => {
             lastName: 'jones',
         };
         const data = [{
+            id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
@@ -18,6 +19,7 @@ describe('Ratings and comments', () => {
             },
             user,
         }, {
+            id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
@@ -28,6 +30,7 @@ describe('Ratings and comments', () => {
             },
             user,
         }, {
+            id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
@@ -38,6 +41,7 @@ describe('Ratings and comments', () => {
             },
             user,
         }, {
+            id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
@@ -50,6 +54,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse ratings', () => {
         const data = {
+            id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
@@ -74,6 +79,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse ratings with empty user names', () => {
         const data = {
+            id: 66,
             ratedAt: '2017-03-22T16:54:32.168975Z',
             rating: 1.0,
             relativeRatedAt: '',
@@ -97,6 +103,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse bad rating', () => {
         const data = {
+            id: 66,
             ratedAt: '2017-03-22T16:54:32.168975Z',
             rating: 0.0,
             relativeRatedAt: '',
