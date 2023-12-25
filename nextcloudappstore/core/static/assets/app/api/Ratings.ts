@@ -124,7 +124,7 @@ export function findUserComment(result: IRatings): Maybe<string> {
 
 export function appealRating(url: string, token: string, rating: IRating) {
     return pageRequest({
-        url: url,
+        url,
         data: {
             appeal: 1,
             comment_id: rating.id,
@@ -135,7 +135,7 @@ export function appealRating(url: string, token: string, rating: IRating) {
 
 export function deleteRating(url: string, token: string, rating: IRating) {
     return pageRequest({
-        url: url,
+        url,
         data: {
             decision: 1,
             comment_id: rating.id,
