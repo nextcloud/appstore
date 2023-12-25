@@ -182,6 +182,25 @@
         </div>
     </template>
 
+    <template id="rating-comment-actions">
+        <div class="comment-actions">
+            {% csrf_token %}
+            <input type="hidden" name="comment-action-url" value="{% url 'app-detail' object.id %}">
+            {% if request.user == object.owner %}
+                <button class="btn btn-primary comment-actions-button comment-actions__appeal">
+                    <span class="icon material-symbols-outlined">flag</span>
+                    {% trans 'Appeal for spam' %}
+                </button>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                <button class="btn btn-danger comment-actions-button comment-actions__delete">
+                    <span class="icon material-symbols-outlined">delete</span>
+                    {% trans 'Delete spam comment' %}
+                </button>
+            {% endif %}
+        </div>
+    </template>
+
     <template id="no-ratings-template">
         <div class="row">
             <div class="col-md-12">

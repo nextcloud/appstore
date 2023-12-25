@@ -1,5 +1,5 @@
 import {Maybe} from '../Utils';
-import {pageRequest} from './Request';
+import {HttpMethod, pageRequest} from './Request';
 
 export interface IRatings {
     lang: string;
@@ -120,4 +120,26 @@ export function findUserComment(result: IRatings): Maybe<string> {
     return new Maybe(result.ratings)
         .map((ratings) => ratings[0])
         .map((rating: IRating) => rating.comment);
+}
+
+export function appealRating(url: string, token: string, rating: IRating) {
+    return pageRequest({
+        url: url,
+        data: {
+            appeal: 1,
+            comment_id: rating.id,
+        },
+        method: HttpMethod.POST,
+    }, token);
+}
+
+export function deleteRating(url: string, token: string, rating: IRating) {
+    return pageRequest({
+        url: url,
+        data: {
+            decision: 1,
+            comment_id: rating.id,
+        },
+        method: HttpMethod.POST,
+    }, token);
 }

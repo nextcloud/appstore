@@ -986,10 +986,36 @@ address {
     justify-content: space-between;
 }
 
+.rating-comment .comment-actions {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.rating-comment .comment-actions button {
+    margin-right: 10px;
+}
+
+.rating-comment .comment-actions button:last-child {
+    margin-right: 0;
+}
+
 @media (max-width: 500px) {
     .rating-comment header {
         display: flex;
         flex-direction: column;
+    }
+
+    .rating-comment .comment-actions {
+        flex-direction: column;
+    }
+
+    .rating-comment .comment-actions button {
+        margin-bottom: 10px;
+    }
+
+    .rating-comment .comment-actions button:last-child {
+        margin-bottom: 0;
     }
 }
 

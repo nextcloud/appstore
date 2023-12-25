@@ -1,6 +1,6 @@
 import {fetchRatings, findUserComment} from '../../api/Ratings';
-import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
-import {renderEmptyRatings, renderRating} from '../templates/Ratings';
+import {idOrThrow, queryAll, queryOrThrow, ready} from '../../dom/Facades';
+import {renderEmptyRatings, renderRating, renderRatingActions} from '../templates/Ratings';
 
 export interface IRatingTemplateConfig {
     languageChooser: HTMLSelectElement;
@@ -8,6 +8,7 @@ export interface IRatingTemplateConfig {
     templates: {
         empty: HTMLTemplateElement;
         rating: HTMLTemplateElement;
+        ratingActions: HTMLTemplateElement,
     };
 }
 
@@ -18,6 +19,7 @@ export const ratingConfig: Promise<IRatingTemplateConfig> = ready.then(() => {
         templates: {
             empty: idOrThrow('no-ratings-template', HTMLTemplateElement),
             rating: idOrThrow('rating-template', HTMLTemplateElement),
+            ratingActions: idOrThrow('rating-comment-actions', HTMLTemplateElement),
         },
     });
 });
@@ -40,7 +42,12 @@ export function loadUserRatings(url: string, lang: string, fallback: string,
 
             result.ratings.forEach((rating) => {
                 const tpl = renderRating(config.templates.rating, rating);
+                const ratingComment = queryOrThrow('.rating-comment', HTMLElement, tpl);
                 config.target.appendChild(tpl);
+                const ratingActions = renderRatingActions(config.templates.ratingActions, rating);
+                if (queryAll('.comment-actions-button', ratingActions).length !== 0) {
+                    ratingComment.appendChild(ratingActions);
+                }
             });
 
             if (config.target.children.length === 0) {

@@ -20,7 +20,6 @@
                         <td>{{ item.rating.user }}</td>
                         <td>
                             <form action="{% url 'app-detail' id=item.rating.app.id %}" method="get">
-                                {% csrf_token %}
                                 <input type="hidden" name="comment_id" value="{{ item.rating.id }}">
                                 <input type="hidden" name="bad_comment_lang" value="{{ item.lang }}">
                                 <button class="btn btn-primary btn-block" type="submit">{% trans 'Go to' %}</button>
