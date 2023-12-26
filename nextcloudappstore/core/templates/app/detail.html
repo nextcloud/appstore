@@ -186,16 +186,29 @@
         <div class="comment-actions">
             {% csrf_token %}
             <input type="hidden" name="comment-action-url" value="{% url 'app-detail' object.id %}">
-            {% if request.user == object.owner %}
+            {% if request.user.is_superuser %}
+                {% if request.user == object.owner %}
+                    <button class="btn btn-primary comment-actions-button comment-actions__appeal">
+                        <span class="icon material-symbols-outlined">flag</span>
+                        {% trans 'Appeal for spam' %}
+                    </button>
+                {% endif %}
+                <button class="btn btn-primary comment-actions-button comment-actions__appeal_cancel_admin">
+                    <span class="icon material-symbols-outlined">delete_history</span>
+                    {% trans 'Cancel spam appeal' %}
+                </button>
+                <button class="btn btn-danger comment-actions-button comment-actions__delete">
+                    <span class="icon material-symbols-outlined">delete</span>
+                    {% trans 'Delete spam comment' %}
+                </button>
+            {% elif request.user == object.owner %}
                 <button class="btn btn-primary comment-actions-button comment-actions__appeal">
                     <span class="icon material-symbols-outlined">flag</span>
                     {% trans 'Appeal for spam' %}
                 </button>
-            {% endif %}
-            {% if request.user.is_superuser %}
-                <button class="btn btn-danger comment-actions-button comment-actions__delete">
-                    <span class="icon material-symbols-outlined">delete</span>
-                    {% trans 'Delete spam comment' %}
+                <button class="btn btn-primary comment-actions-button comment-actions__appeal_cancel">
+                    <span class="icon material-symbols-outlined">delete_history</span>
+                    {% trans 'Cancel spam appeal' %}
                 </button>
             {% endif %}
         </div>

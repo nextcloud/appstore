@@ -21,24 +21,40 @@ export function renderRatingActions(template: HTMLTemplateElement,
                              rating: IRating): HTMLElement {
     const root = render(template, {});
     if (!rating.appeal) {
-        // Remove delete button if comment has no appeal for spam
+        // Remove these buttons from template if comment has no appeal for spam
+        const buttonsToRemove = [
+            'button.comment-actions__delete',
+            'button.comment-actions__appeal_cancel',
+            'button.comment-actions__appeal_cancel_admin'
+        ];
+        buttonsToRemove.forEach((buttonSelector) => {
+            try {
+                const button = queryOrThrow(buttonSelector, HTMLButtonElement, root);
+                root.removeChild(button);
+            } catch {
+            }
+        });
+    } else {
         try {
-            const deleteButton = queryOrThrow('button.comment-actions__delete', HTMLButtonElement, root);
-            root.removeChild(deleteButton);
+            const appealButton = queryOrThrow('button.comment-actions__appeal', HTMLButtonElement, root);
+            root.removeChild(appealButton);
         } catch {
-          // Nothing to do, if user not admin - no delete button
         }
     }
-    // Init event listeners for buttons
+    // Init event listeners for comment actions buttons
     const commentActions = queryAll('.comment-actions-button', root);
     commentActions.forEach((commentActionButton: HTMLButtonElement) => {
         commentActionButton.addEventListener('click', () => {
             const token = queryOrThrow('input[name="csrfmiddlewaretoken"]', HTMLInputElement, root)?.value;
             const url = queryOrThrow('input[name="comment-action-url"]', HTMLInputElement, root)?.value;
             if (commentActionButton.classList.contains('comment-actions__delete')) {
-                deleteRating(url, token, rating);
+                deleteRating(url, token, rating, false).then(() => window.location.reload());
             } else if (commentActionButton.classList.contains('comment-actions__appeal')) {
-                appealRating(url, token, rating);
+                appealRating(url, token, rating).then(() => window.location.reload());
+            } else if (commentActionButton.classList.contains('comment-actions__appeal_cancel')) {
+                appealRating(url, token, rating, false).then(() => window.location.reload());
+            } else if (commentActionButton.classList.contains('comment-actions__appeal_cancel_admin')) {
+                deleteRating(url, token, rating, true).then(() => window.location.reload());
             }
         });
     });
