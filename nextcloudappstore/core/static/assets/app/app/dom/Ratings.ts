@@ -44,7 +44,7 @@ export function loadUserRatings(url: string, lang: string, fallback: string,
                 const tpl = renderRating(config.templates.rating, rating);
                 const ratingComment = queryOrThrow('.rating-comment', HTMLElement, tpl);
                 config.target.appendChild(tpl);
-                const ratingActions = renderRatingActions(config.templates.ratingActions, rating);
+                const ratingActions = renderRatingActions(config.templates.ratingActions, rating, lang, fallback);
                 if (queryAll('.comment-actions-button', ratingActions).length !== 0) {
                     ratingComment.appendChild(ratingActions);
                 }
