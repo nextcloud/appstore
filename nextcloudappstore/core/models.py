@@ -692,6 +692,26 @@ class AppReleaseDeleteLog(Model):
         return str(self.last_modified)
 
 
+@receiver(post_delete, sender=AppRating)
+def record_app_rating_delete(sender, **kwargs):
+    AppRatingDeleteLog.objects.create()
+
+
+class AppRatingDeleteLog(Model):
+    """
+    Used to keep track of app rating deletions
+    """
+
+    last_modified = DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        verbose_name = _("App rating deletion")
+        verbose_name_plural = _("App rating deletions")
+
+    def __str__(self) -> str:
+        return str(self.last_modified)
+
+
 class NextcloudReleaseManager(Manager):
     def get_current(self):
         return self.get_queryset().filter(is_current=True)[:1]
