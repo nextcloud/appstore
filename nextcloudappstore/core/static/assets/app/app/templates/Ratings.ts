@@ -18,7 +18,7 @@ export function renderRating(template: HTMLTemplateElement,
 }
 
 export function renderRatingActions(template: HTMLTemplateElement,
-                             rating: IRating, lang: string, fallback_lang: string): HTMLElement {
+                             rating: IRating, lang: string, fallbackLang: string): HTMLElement {
     const root = render(template, {});
     if (!rating.appeal) {
         // Remove these buttons from template if comment has no appeal for spam
@@ -32,6 +32,7 @@ export function renderRatingActions(template: HTMLTemplateElement,
                 const button = queryOrThrow(buttonSelector, HTMLButtonElement, root);
                 root.removeChild(button);
             } catch {
+                // Ignoring
             }
         });
     } else {
@@ -39,6 +40,7 @@ export function renderRatingActions(template: HTMLTemplateElement,
             const appealButton = queryOrThrow('button.comment-actions__appeal', HTMLButtonElement, root);
             root.removeChild(appealButton);
         } catch {
+            // Ignoring
         }
     }
     // Init event listeners for comment actions buttons
@@ -48,9 +50,11 @@ export function renderRatingActions(template: HTMLTemplateElement,
             const token = queryOrThrow('input[name="csrfmiddlewaretoken"]', HTMLInputElement, root)?.value;
             const url = queryOrThrow('input[name="comment-action-url"]', HTMLInputElement, root)?.value;
             const reloadWithRatingParams = (deleteAction = false) => {
-                const target_lang = !deleteAction ? lang : fallback_lang;
-                const params = `comment_id=${rating.id}&bad_comment_lang=${target_lang}`;
-                window.location.href = !deleteAction ? window.location.pathname + '?' + params : window.location.pathname;
+                const targetLang = !deleteAction ? lang : fallbackLang;
+                const params = `comment_id=${rating.id}&bad_comment_lang=${targetLang}`;
+                window.location.href = !deleteAction ?
+                    window.location.pathname + '?' + params :
+                    window.location.pathname;
             };
             if (commentActionButton.classList.contains('comment-actions__delete')) {
                 deleteRating(url, token, rating, false).then(() => reloadWithRatingParams(true));
