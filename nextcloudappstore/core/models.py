@@ -281,12 +281,13 @@ class AppRating(TranslatableModel):
     app = ForeignKey("App", related_name="ratings", verbose_name=_("App"), on_delete=CASCADE)
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"), on_delete=CASCADE, related_name="app_ratings")
     rating = FloatField(verbose_name=_("Rating"), default=0.5, help_text=_("Rating from 0.0 (worst) to 1.0 (best)"))
-    rated_at = DateTimeField(auto_now=True, db_index=True)
+    rated_at = DateTimeField(db_index=True)
     translations = TranslatedFields(
         comment=TextField(
             verbose_name=_("Rating comment"), default="", help_text=_("Rating comment in Markdown"), blank=True
         )
     )
+    appeal = BooleanField(default=False, verbose_name=_("Appeal"))
 
     class Meta:
         unique_together = (("app", "user"),)
@@ -294,10 +295,18 @@ class AppRating(TranslatableModel):
         verbose_name_plural = _("App ratings")
         ordering = ("-rated_at",)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._original_appeal = self.appeal
+
     def __str__(self) -> str:
         return str(self.rating)
 
     def save(self, *args, **kwargs):
+        if self._original_appeal == self.appeal:
+            self.rated_at = timezone.now()  # Only update 'rated_at' if 'appeal' has not changed
+        else:
+            self._original_appeal = self.appeal
         super().save(*args, **kwargs)
         # update rating on the app
         app = self.app
@@ -678,6 +687,26 @@ class AppReleaseDeleteLog(Model):
     class Meta:
         verbose_name = _("App release deletion")
         verbose_name_plural = _("App release deletions")
+
+    def __str__(self) -> str:
+        return str(self.last_modified)
+
+
+@receiver(post_delete, sender=AppRating)
+def record_app_rating_delete(sender, **kwargs):
+    AppRatingDeleteLog.objects.create()
+
+
+class AppRatingDeleteLog(Model):
+    """
+    Used to keep track of app rating deletions
+    """
+
+    last_modified = DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        verbose_name = _("App rating deletion")
+        verbose_name_plural = _("App rating deletions")
 
     def __str__(self) -> str:
         return str(self.last_modified)

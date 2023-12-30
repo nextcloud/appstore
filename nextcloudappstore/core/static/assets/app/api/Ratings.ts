@@ -1,5 +1,5 @@
 import {Maybe} from '../Utils';
-import {pageRequest} from './Request';
+import {HttpMethod, pageRequest} from './Request';
 
 export interface IRatings {
     lang: string;
@@ -7,6 +7,7 @@ export interface IRatings {
 }
 
 export interface IRating {
+    id: number;
     comment: string;
     fullUserName: string;
     ratedAt: string;
@@ -15,9 +16,11 @@ export interface IRating {
         name: string;
         value: number;
     };
+    appeal: boolean;
 }
 
 interface IApiRating {
+    id: number;
     ratedAt: string;
     relativeRatedAt: string;
     rating: number;
@@ -30,6 +33,7 @@ interface IApiRating {
         firstName: string;
         lastName: string;
     };
+    appeal: boolean;
 }
 
 export function filterEmptyComments(ratings: IApiRating[],
@@ -72,6 +76,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
     }
     const translation = rating.translations[lang] || {comment: ''};
     return {
+        id: rating.id,
         comment: translation.comment,
         fullUserName: fullName.trim(),
         ratedAt: rating.ratedAt,
@@ -80,6 +85,7 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
             value: rating.rating,
         },
         relativeRatedAt: rating.relativeRatedAt,
+        appeal: rating.appeal,
     };
 }
 
@@ -114,4 +120,26 @@ export function findUserComment(result: IRatings): Maybe<string> {
     return new Maybe(result.ratings)
         .map((ratings) => ratings[0])
         .map((rating: IRating) => rating.comment);
+}
+
+export function appealRating(url: string, token: string, rating: IRating, appeal = true) {
+    return pageRequest({
+        url,
+        data: {
+            appeal: +appeal,
+            comment_id: rating.id,
+        },
+        method: HttpMethod.POST,
+    }, token);
+}
+
+export function deleteRating(url: string, token: string, rating: IRating, admin = false) {
+    return pageRequest({
+        url,
+        data: {
+            decision: +!admin,
+            comment_id: rating.id,
+        },
+        method: HttpMethod.POST,
+    }, token);
 }

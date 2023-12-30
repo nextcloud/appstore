@@ -1,6 +1,6 @@
 import {fetchRatings, findUserComment} from '../../api/Ratings';
-import {idOrThrow, queryOrThrow, ready} from '../../dom/Facades';
-import {renderEmptyRatings, renderRating} from '../templates/Ratings';
+import {idOrThrow, queryAll, queryOrThrow, ready} from '../../dom/Facades';
+import {renderEmptyRatings, renderRating, renderRatingActions} from '../templates/Ratings';
 
 export interface IRatingTemplateConfig {
     languageChooser: HTMLSelectElement;
@@ -8,6 +8,7 @@ export interface IRatingTemplateConfig {
     templates: {
         empty: HTMLTemplateElement;
         rating: HTMLTemplateElement;
+        ratingActions: HTMLTemplateElement,
     };
 }
 
@@ -18,6 +19,7 @@ export const ratingConfig: Promise<IRatingTemplateConfig> = ready.then(() => {
         templates: {
             empty: idOrThrow('no-ratings-template', HTMLTemplateElement),
             rating: idOrThrow('rating-template', HTMLTemplateElement),
+            ratingActions: idOrThrow('rating-comment-actions', HTMLTemplateElement),
         },
     });
 });
@@ -40,12 +42,26 @@ export function loadUserRatings(url: string, lang: string, fallback: string,
 
             result.ratings.forEach((rating) => {
                 const tpl = renderRating(config.templates.rating, rating);
+                const ratingComment = queryOrThrow('.rating-comment', HTMLElement, tpl);
                 config.target.appendChild(tpl);
+                const ratingActions = renderRatingActions(config.templates.ratingActions, rating, lang, fallback);
+                if (queryAll('.comment-actions-button', ratingActions).length !== 0) {
+                    ratingComment.appendChild(ratingActions);
+                }
             });
 
             if (config.target.children.length === 0) {
                 const tpl = renderEmptyRatings(config.templates.empty);
                 config.target.appendChild(tpl);
+            }
+
+            // Scroll to the specific comment if the comment_id is provided in the URL
+            const commentId = new URLSearchParams(window.location.search).get('comment_id');
+            if (commentId) {
+                const element = document.getElementById(`rating-${commentId}`);
+                if (element) {
+                    element.scrollIntoView();
+                }
             }
         });
 }

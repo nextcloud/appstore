@@ -1,3 +1,4 @@
+import json
 from urllib.parse import urlencode
 
 from django.conf import settings
@@ -62,10 +63,27 @@ class AppDetailView(DetailView):
     slug_url_kwarg = "id"
 
     def post(self, request, id):
-        form = AppRatingForm(request.POST, id=id, user=request.user)
-        # there is no way that a rating can be invalid by default
-        if form.is_valid() and request.user.is_authenticated:
-            form.save()
+        post_data = json.loads(request.body) if request.content_type == "application/json" else request.POST
+        if request.user.is_authenticated and ("decision" in post_data or "appeal" in post_data):
+            app_rating, created = AppRating.objects.get_or_create(id=post_data["comment_id"], app=id)
+            if not created:
+                # ignore request that comes for non-existing comments
+                if "decision" in post_data and request.user.is_superuser:
+                    # admin made a decision
+                    if bool(post_data["decision"]):
+                        app_rating.delete()
+                    else:
+                        app_rating.appeal = False
+                        app_rating.save()
+                elif "appeal" in post_data and "comment_id" in post_data and app_rating.app.owner == request.user:
+                    # author of App marked comment
+                    app_rating.appeal = bool(post_data["appeal"])
+                    app_rating.save()
+        else:
+            form = AppRatingForm(request.POST, id=id, user=request.user)
+            # there is no way that a rating can be invalid by default
+            if form.is_valid() and request.user.is_authenticated:
+                form.save()
         return redirect("app-detail", id=id)
 
     def get_context_data(self, **kwargs):

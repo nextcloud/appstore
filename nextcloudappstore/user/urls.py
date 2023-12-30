@@ -4,6 +4,7 @@ from nextcloudappstore.scaffolding.views import IntegrationScaffoldingView
 from nextcloudappstore.user.views import (
     AccountView,
     APITokenView,
+    AppealCommentsView,
     ChangeLanguageView,
     DeleteAccountView,
     IntegrationsView,
@@ -28,4 +29,5 @@ urlpatterns = [
     re_path(r"^token/?$", APITokenView.as_view(), name="account-api-token"),
     re_path(r"^delete/?$", DeleteAccountView.as_view(), name="account-deletion"),
     re_path(r"^change-language/?$", ChangeLanguageView.as_view(), name="account-change-language"),
+    re_path(r"^appeal-comments/?$", AppealCommentsView.as_view(), name="appeal-comments"),
 ]

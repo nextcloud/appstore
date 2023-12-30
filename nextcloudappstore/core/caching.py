@@ -7,6 +7,7 @@ from semantic_version import Version
 from nextcloudappstore.core.models import (
     App,
     AppRating,
+    AppRatingDeleteLog,
     AppReleaseDeleteLog,
     Category,
     NextcloudRelease,
@@ -64,7 +65,10 @@ def app_etag(request: Any, id: str) -> str:
 
 
 def app_rating_etag(request: Any, id: str) -> str:
-    return create_etag([(AppRating.objects.filter(app__id=id), "rated_at")])
+    return create_etag([
+        (AppRating.objects.filter(app__id=id), "rated_at"),
+        (AppRatingDeleteLog.objects.all(), "last_modified"),
+    ])
 
 
 def categories_etag(request: Any) -> str:

@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [4.6.0]  - 2023-12-31
+
+### Added
+
+- Ability to mark comments as a spam for an admin review. #1256
+
 ## [4.5.0]  - 2023-12-21
 
 ### Added

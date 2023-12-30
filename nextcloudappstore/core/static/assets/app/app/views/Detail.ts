@@ -32,12 +32,13 @@ ready.then(() => {
         });
 
     // load user ratings list
+    const urlParams = new URLSearchParams(window.location.search);
     ratingConfig.then((config) => {
         config.languageChooser.addEventListener('change', (event: Event) => {
             const target = event.target as HTMLSelectElement;
             loadUserRatings(ratingUrl, target.value, fallbackLang, config);
         });
-        loadUserRatings(ratingUrl, currentLang, fallbackLang, config);
+        loadUserRatings(ratingUrl, urlParams.get('bad_comment_lang') || currentLang, fallbackLang, config);
     });
 
     // fullscreen bindings
