@@ -2,11 +2,15 @@
 
 ## [Unreleased]
 
-## [4.6.0]  - 2023-12-31
+## [4.6.0]  - 2024-01-02
 
 ### Added
 
 - Ability to mark comments as a spam for an admin review. #1256
+
+### Changed
+
+- lxml updated from `4.9.3` to `4.9.4`
 
 ## [4.5.0]  - 2023-12-21
 
