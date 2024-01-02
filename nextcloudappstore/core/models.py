@@ -297,16 +297,13 @@ class AppRating(TranslatableModel):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._original_appeal = self.appeal
 
     def __str__(self) -> str:
         return str(self.rating)
 
     def save(self, *args, **kwargs):
-        if self._original_appeal == self.appeal:
-            self.rated_at = timezone.now()  # Only update 'rated_at' if 'appeal' has not changed
-        else:
-            self._original_appeal = self.appeal
+        if not getattr(self, "_appeal_changed", None):  # Only update 'rated_at' if 'appeal' has not changed
+            self.rated_at = timezone.now()
         super().save(*args, **kwargs)
         # update rating on the app
         app = self.app
