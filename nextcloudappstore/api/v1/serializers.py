@@ -218,7 +218,7 @@ class AppRatingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AppRating
-        fields = ("rating", "rated_at", "translations", "user", "app")
+        fields = ("rating", "rated_at", "last_modified", "translations", "user", "app")
 
 
 class AppReleaseDownloadSerializer(serializers.Serializer):
