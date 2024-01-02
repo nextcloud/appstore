@@ -74,10 +74,12 @@ class AppDetailView(DetailView):
                         app_rating.delete()
                     else:
                         app_rating.appeal = False
+                        app_rating._appeal_changed = True
                         app_rating.save()
                 elif "appeal" in post_data and "comment_id" in post_data and app_rating.app.owner == request.user:
                     # author of App marked comment
                     app_rating.appeal = bool(post_data["appeal"])
+                    app_rating._appeal_changed = True
                     app_rating.save()
         else:
             form = AppRatingForm(request.POST, id=id, user=request.user)
