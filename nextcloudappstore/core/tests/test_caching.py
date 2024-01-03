@@ -34,4 +34,4 @@ class CachingTest(TestCase):
         rating = AppRating.objects.create(app=app, user=user)
 
         etag = app_ratings_etag(Request("https://"))
-        self.assertEqual(str(rating.rated_at), etag)
+        self.assertEqual(str(rating.last_modified), etag)

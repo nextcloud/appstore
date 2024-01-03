@@ -89,8 +89,8 @@ class AppAdmin(TranslatableAdmin):
 
 @admin.register(AppRating)
 class AppRatingAdmin(TranslatableAdmin):
-    list_display = ("rating", "app", "user", "rated_at")
-    list_filter = ("app__id", "user", "rating", "rated_at")
+    list_display = ("rating", "app", "user", "rated_at", "last_modified")
+    list_filter = ("app__id", "user", "rating", "rated_at", "last_modified")
 
 
 @admin.register(Database)

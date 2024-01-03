@@ -66,7 +66,7 @@ def app_etag(request: Any, id: str) -> str:
 
 def app_rating_etag(request: Any, id: str) -> str:
     return create_etag([
-        (AppRating.objects.filter(app__id=id), "rated_at"),
+        (AppRating.objects.filter(app__id=id), "last_modified"),
         (AppRatingDeleteLog.objects.all(), "last_modified"),
     ])
 
@@ -80,7 +80,7 @@ def categories_last_modified(request: Any) -> datetime.datetime | None:
 
 
 def app_ratings_etag(request: Any) -> str:
-    return create_etag([(AppRating.objects.all(), "rated_at")])
+    return create_etag([(AppRating.objects.all(), "last_modified")])
 
 
 def nextcloud_release_etag(request: Any) -> str:
