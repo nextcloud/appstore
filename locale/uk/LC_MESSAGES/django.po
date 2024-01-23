@@ -20,16 +20,16 @@
 # Володимир Івах <vovaivah034@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Yevhen <xalt7x.service@gmail.com>, 2023
-# O St <oleksiy.stasevych@gmail.com>, 2023
+# O St <oleksiy.stasevych@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-04 02:48+0000\n"
+"POT-Creation-Date: 2024-01-21 03:06+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: O St <oleksiy.stasevych@gmail.com>, 2023\n"
+"Last-Translator: O St <oleksiy.stasevych@gmail.com>, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/nextcloud/teams/64236/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,15 +99,15 @@ msgid ""
 "You can generate the CSR by executing the following command:"
 msgstr ""
 "Зазвичай зберігається в ~/.nextcloud/certificates/APP_ID.crt, де APP_ID – це"
-" ідентифікатор вашої програми. Якщо у вас немає сертифіката, вам потрібно "
-"спочатку створити запит на підпис сертифіката (CSR), який слід опублікувати "
-"в <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
+" ідентифікатор вашого застосунку. Якщо у вас немає сертифіката, вам потрібно"
+" спочатку створити запит на підпис сертифіката (CSR), який слід опублікувати"
+" в <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
 "rel=\"noreferrer noopener\">сховищі сертифікатів</a> (дотримуйтеся README). "
 "Ви можете створити CSR, виконавши таку команду:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
-msgstr "Підпис над ідентифікатором програми"
+msgstr "Підпис над ідентифікатором застосунку"
 
 #: nextcloudappstore/core/forms.py:78
 #: nextcloudappstore/user/templates/user/set-language.html:13
@@ -145,7 +145,7 @@ msgstr "Ім'я"
 
 #: nextcloudappstore/core/models.py:84
 msgid "Rendered app name for users"
-msgstr "Відображена назва програми для користувачів"
+msgstr "Показано назву застосунку для користувачів"
 
 #: nextcloudappstore/core/models.py:86
 #: nextcloudappstore/scaffolding/forms.py:63
@@ -514,8 +514,8 @@ msgstr "ID"
 #: nextcloudappstore/core/models.py:540
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
-"Ідентифікатор категорії, який використовується для визначення категорії, до "
-"якої завантажено програму"
+"Ідентифікатор категорії, який використовується для позначення категорій, до "
+"яких відноситься застосунок"
 
 #: nextcloudappstore/core/models.py:546
 msgid "Category name which will be presented to the user"
@@ -661,7 +661,7 @@ msgid ""
 "dropdowns for app generation, etc."
 msgstr ""
 "Лише одна версія може бути поточною. Це поле використовується для "
-"попереднього вибору спадних меню для створення програми тощо."
+"попереднього вибору спадних меню для створення застосунку тощо."
 
 #: nextcloudappstore/core/models.py:732
 msgid "Has a release"
@@ -1085,12 +1085,12 @@ msgstr "Мої застосунки"
 #: nextcloudappstore/core/templates/app/list.html:108
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr "Не знайдено програм для пошуку \"<em>%(query)s</em>\" в %(category)s."
+msgstr "Не знайдено застосунок для пошуку \"<em>%(query)s</em>\" у %(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:110
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "Не знайдено програм для пошуку \"<em>%(query)s</em>\"."
+msgstr "Не знайдено застосунок для пошуку \"<em>%(query)s</em>\"."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1105,10 +1105,10 @@ msgid ""
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Щоб дізнатися більше про те, як отримати сертифікат і створити підпис, "
+"Щоб дізнатися більше про те, як отримати сертифікат та створити підпис, "
 "перегляньте <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">посібник розробника програми</a>."
+"rel=\"noopener norefferer\">посібник розробника застосунків</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -1186,7 +1186,7 @@ msgid ""
 msgstr ""
 "Щоб дізнатися більше про те, як створити підпис, перегляньте <a "
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">посібник розробника програми</a>."
+"rel=\"noopener norefferer\">посібник розробника застосунків</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1299,7 +1299,7 @@ msgstr "Майстерня"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:4
 msgid "Apps including Nextcloud Dashboard widgets"
-msgstr "Програми, включаючи віджети Nextcloud Dashboard"
+msgstr "Застосунки включно з віджетами Nextcloud Dashboard"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:5
 msgid "Files"
@@ -1355,7 +1355,7 @@ msgstr "Організація роботи"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:18
 msgid "Time management, To-Do list and calendar apps"
-msgstr "Програми для керування часом, списку справ і календаря"
+msgstr "Застосунки для керування часом, списком справ та календарем"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:20
 msgid "Search related apps"
@@ -1370,8 +1370,8 @@ msgid ""
 "Apps that provide additional security mechanisms like authentication, "
 "authorization, encryption, etc."
 msgstr ""
-"Програми, які надають додаткові механізми безпеки, такі як автентифікація, "
-"авторизація, шифрування тощо."
+"Застосунки, які надають додаткові механізми безпеки, такі як автентифікація,"
+" авторизація, шифрування тощо."
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:23
 msgid "Social & communication"
@@ -1380,7 +1380,8 @@ msgstr "Соціальні комунікації"
 #: nextcloudappstore/core/templates/translation/db_translations.txt:24
 msgid "Messaging, contact management and social media apps"
 msgstr ""
-"Програми для обміну повідомленнями, керування контактами та соціальних мереж"
+"Застосунки для обміну повідомленнями, керування контактами та соціальни "
+"мереж"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:25
 msgid "Tools"
@@ -1457,7 +1458,8 @@ msgstr "Утримуйте Ctrl і клацніть, щоб вибрати кі�
 #: nextcloudappstore/scaffolding/forms.py:64
 #: nextcloudappstore/scaffolding/forms.py:98
 msgid "Short description of your app that will be rendered as short teaser"
-msgstr "Короткий опис вашої програми, який буде відображено як короткий тизер"
+msgstr ""
+"Короткий опис вашого застосунку, який буде показано як короткий підзаголовок"
 
 #: nextcloudappstore/scaffolding/forms.py:69
 msgid "Full description of what your app does. Can contain Markdown."
@@ -1726,9 +1728,10 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"Щоб передати програму новому власнику, її потрібно спочатку розблокувати. "
-"Після цього користувач може отримати контроль над програмою, зареєструвавши "
-"її знову на сторінці реєстрації програми в меню розробника програми."
+"Щоб передати застосунок новому власникові, спочатку його потрібно "
+"розблокувати. Після цього користувач зможе отримати контроль над застосунок "
+"та зареєструвати його знову на сторінці реєстрації застосунків в меню "
+"розробника застосунків."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
 msgid "Ownership transfer status"
@@ -1756,4 +1759,4 @@ msgstr "Розблокувати передавання права власни�
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
-msgstr "Ви ще не завантажили жодної програми!"
+msgstr "Ви ще не завантажили жодного застосунку!"
