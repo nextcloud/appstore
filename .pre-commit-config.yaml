@@ -45,7 +45,7 @@ repos:
     -   id: isort
 
 -   repo: https://github.com/psf/black
-    rev: 23.12.1
+    rev: 24.1.1
     hooks:
     -   id: black
         exclude: nextcloudappstore/core/migrations
@@ -82,7 +82,7 @@ repos:
         - --per-file-ignores=__init__.py:F401,F403
 
 -   repo: https://github.com/PyCQA/bandit
-    rev: 1.7.6
+    rev: 1.7.7
     hooks:
     -   id: bandit
         files: nextcloudappstore
