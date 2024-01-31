@@ -26,6 +26,12 @@ class SignupFormRecaptcha(forms.Form):
 
 class DeleteAccountForm(forms.Form):
     email = EmailField(required=True, label=_("Your email address"))
+    passwd = CharField(
+        required=False,
+        widget=PasswordInput(),
+        label=_("Your password"),
+        help_text=_("*Required if the account is registered with a password"),
+    )
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user", None)
@@ -35,8 +41,14 @@ class DeleteAccountForm(forms.Form):
         email = self.cleaned_data.get("email")
         if self.user and self.user.email == email:
             return email
-        else:
-            raise forms.ValidationError(_("The given email address does not match your email address"))
+        raise forms.ValidationError(_("The given email address does not match your email address"))
+
+    def clean_passwd(self):
+        passwd = self.cleaned_data.get("passwd")
+        if self.user:
+            if self.user.socialaccount_set.name is not None or self.user.check_password(passwd):
+                return passwd
+        raise forms.ValidationError(_("Invalid password"))
 
 
 class AccountForm(forms.ModelForm):
