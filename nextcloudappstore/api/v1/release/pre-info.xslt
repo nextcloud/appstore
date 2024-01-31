@@ -152,8 +152,7 @@
     <xsl:template match="external-app">
         <external-app>
             <xsl:apply-templates select="docker-install"/>
-            <xsl:apply-templates select="scopes"/>
-            <xsl:copy-of select="protocol"/>
+            <xsl:copy-of select="scopes"/>
             <xsl:copy-of select="system"/>
         </external-app>
     </xsl:template>
@@ -164,13 +163,6 @@
             <xsl:copy-of select="image"/>
             <xsl:copy-of select="image-tag"/>
         </docker-install>
-    </xsl:template>
-
-    <xsl:template match="scopes">
-        <scopes>
-            <xsl:copy-of select="required"/>
-            <xsl:copy-of select="optional"/>
-        </scopes>
     </xsl:template>
 
 </xsl:stylesheet>

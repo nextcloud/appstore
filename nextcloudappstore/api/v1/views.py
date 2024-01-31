@@ -59,13 +59,13 @@ RELEASES_PREFETCH_LIST = [
 
 APP_PREFETCH_LIST = [
     *BASIC_PREFETCH_LIST,
-    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_proto__isnull=True) | Q(aa_proto=""))),
+    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_is_system__isnull=True))),
     *RELEASES_PREFETCH_LIST,
 ]
 
 AA_APP_PREFETCH_LIST = [
     *BASIC_PREFETCH_LIST,
-    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_proto__isnull=False) & ~Q(aa_proto=""))),
+    Prefetch("releases", queryset=AppRelease.objects.filter(Q(aa_is_system__isnull=False))),
     *RELEASES_PREFETCH_LIST,
     "releases__deploy_methods",
     "releases__api_scopes",
@@ -91,7 +91,7 @@ class NextcloudReleaseView(ListAPIView):
 class AppsView(ListAPIView):
     queryset = (
         App.objects.prefetch_related(*APP_PREFETCH_LIST)
-        .annotate(num_releases=Count("releases", filter=Q(releases__aa_proto__isnull=True) | Q(releases__aa_proto="")))
+        .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True)))
         .filter(Q(num_releases__gt=0) | Q(is_integration=True))
     )
     serializer_class = AppSerializer
@@ -100,9 +100,7 @@ class AppsView(ListAPIView):
 class AppApiAppsView(ListAPIView):
     queryset = (
         App.objects.prefetch_related(*AA_APP_PREFETCH_LIST)
-        .annotate(
-            num_releases=Count("releases", filter=Q(releases__aa_proto__isnull=False) & ~Q(releases__aa_proto=""))
-        )
+        .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=False)))
         .filter(num_releases__gt=0)
     )
     serializer_class = AppApiAppSerializer

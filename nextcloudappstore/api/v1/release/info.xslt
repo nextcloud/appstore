@@ -166,20 +166,12 @@
                 </image-tag>
             </docker-install>
             <scopes type="list">
-                <xsl:for-each select="scopes/required/value">
-                    <required>
+                <xsl:for-each select="scopes/value">
+                    <value type="string">
                         <xsl:value-of select="."/>
-                    </required>
-                </xsl:for-each>
-                <xsl:for-each select="scopes/optional/value">
-                    <optional>
-                        <xsl:value-of select="."/>
-                    </optional>
+                    </value>
                 </xsl:for-each>
             </scopes>
-            <protocol type="string">
-                <xsl:value-of select="protocol"/>
-            </protocol>
             <system type="boolean">
                 <xsl:value-of select="system"/>
             </system>
