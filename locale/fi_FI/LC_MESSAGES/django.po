@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 02:50+0000\n"
+"POT-Creation-Date: 2024-02-05 02:45+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 72d686daabd2f7212739b412929536be_e195df1 "
 "<a6caa6e567bfabba50a29e9a037273fb_1019631>, 2023\n"
@@ -317,7 +317,7 @@ msgstr "Sovelluksen arvostelu"
 msgid "Full name"
 msgstr "Koko nimi"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:90
 msgid "Email"
 msgstr "Sähköposti"
 
@@ -1537,15 +1537,29 @@ msgstr "Sukunimi"
 msgid "Your email address"
 msgstr "Sähköpostiosoitteesi"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:32
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "Unohditko salasanasi?"
+
+#: nextcloudappstore/user/forms.py:33
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:44
 msgid "The given email address does not match your email address"
 msgstr "Annettu sähköpostiosoite ei täsmää sähköpostiosoitteesi kanssa"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:51 nextcloudappstore/user/forms.py:84
+msgid "Invalid password"
+msgstr "Virheellinen salasana"
+
+#: nextcloudappstore/user/forms.py:57
 msgid "Confirm password"
 msgstr "Vahvista salasana"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:59
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1555,15 +1569,11 @@ msgstr ""
 "sähköpostiosoitettasi ja palauttaa salasanaasi. Tämä kenttä ei päivitä "
 "salasanaasi!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:75
 msgid "This email address is already associated with another account."
 msgstr "Tämä sähköpostiosoite on jo toisen tilin käytössä."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Virheellinen salasana"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:96
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 

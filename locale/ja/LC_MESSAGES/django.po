@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 02:50+0000\n"
+"POT-Creation-Date: 2024-02-05 02:45+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: devi, 2024\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/"
@@ -322,7 +322,7 @@ msgstr "評価"
 msgid "Full name"
 msgstr "氏名"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:90
 msgid "Email"
 msgstr "メール"
 
@@ -1558,15 +1558,29 @@ msgstr "姓"
 msgid "Your email address"
 msgstr "あなたのメールアドレス"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:32
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "パスワードをお忘れですか?"
+
+#: nextcloudappstore/user/forms.py:33
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:44
 msgid "The given email address does not match your email address"
 msgstr "入力されたメールアドレスは、あなたのメールアドレスと一致しません"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:51 nextcloudappstore/user/forms.py:84
+msgid "Invalid password"
+msgstr "無効なパスワード"
+
+#: nextcloudappstore/user/forms.py:57
 msgid "Confirm password"
 msgstr "パスワードを確認"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:59
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1576,15 +1590,11 @@ msgstr ""
 "うにするには、パスワードが必要です。 このフィールドはあなたのパスワードを更新"
 "しません！"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:75
 msgid "This email address is already associated with another account."
 msgstr "このメールアドレスは、既に他のアカウントで使われています。"
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "無効なパスワード"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:96
 msgid "Email address"
 msgstr "メールアドレス"
 

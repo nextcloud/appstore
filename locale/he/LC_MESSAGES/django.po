@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 02:50+0000\n"
+"POT-Creation-Date: 2024-02-05 02:45+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: buy online <buyonline600@gmail.com>, 2023\n"
 "Language-Team: Hebrew (https://app.transifex.com/nextcloud/teams/64236/he/)\n"
@@ -296,7 +296,7 @@ msgstr "דירוגים ליישומון"
 msgid "Full name"
 msgstr "שם מלא"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:90
 msgid "Email"
 msgstr "דוא״ל"
 
@@ -1465,15 +1465,29 @@ msgstr "שם משפחה"
 msgid "Your email address"
 msgstr "כתובת הדוא״ל שלך"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:32
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "לשכוח ססמה?"
+
+#: nextcloudappstore/user/forms.py:33
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:44
 msgid "The given email address does not match your email address"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:51 nextcloudappstore/user/forms.py:84
+msgid "Invalid password"
+msgstr "ססמה שגויה"
+
+#: nextcloudappstore/user/forms.py:57
 msgid "Confirm password"
 msgstr "אישור הססמה"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:59
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1482,15 +1496,11 @@ msgstr ""
 "הינך מוכרח לספק סיסמה על מנת למנוע ממשתמשים לא רצויים לשנות את כתובת הדוא\"ל "
 "שלך ולאפס את סיסמתך. שדה זה אינו מעדכן את סיסמתך!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:75
 msgid "This email address is already associated with another account."
 msgstr "כתובת הדוא״ל הזו כבר משויכת לחשבון אחר."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "ססמה שגויה"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:96
 msgid "Email address"
 msgstr "כתובת דוא״ל"
 

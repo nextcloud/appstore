@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 02:50+0000\n"
+"POT-Creation-Date: 2024-02-05 02:45+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2023\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
@@ -314,7 +314,7 @@ msgstr "Alkalmazás-értékelések"
 msgid "Full name"
 msgstr "Teljes név"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:90
 msgid "Email"
 msgstr "E-mail"
 
@@ -1548,15 +1548,29 @@ msgstr "Vezetéknév"
 msgid "Your email address"
 msgstr "Az Ön e-mail-címe"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:32
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "Elfelejtette a jelszavát?"
+
+#: nextcloudappstore/user/forms.py:33
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:44
 msgid "The given email address does not match your email address"
 msgstr "A megadott e-mail-cím nem egyezik az Ön e-mail-címével"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:51 nextcloudappstore/user/forms.py:84
+msgid "Invalid password"
+msgstr "Érvénytelen jelszó"
+
+#: nextcloudappstore/user/forms.py:57
 msgid "Confirm password"
 msgstr "Jelszó megerősítésa"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:59
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1566,15 +1580,11 @@ msgstr ""
 "számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező "
 "nem frissíti a jelszavát!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:75
 msgid "This email address is already associated with another account."
 msgstr "Ez az e-mail-cím már egy másik fiókhoz lett hozzárendelve."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Érvénytelen jelszó"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:96
 msgid "Email address"
 msgstr "E-mail-cím"
 

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 02:50+0000\n"
+"POT-Creation-Date: 2024-02-05 02:45+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Dachi Natsvlishvili <dachinat@gmail.com>, 2023\n"
 "Language-Team: Georgian (Georgia) (https://app.transifex.com/nextcloud/"
@@ -304,7 +304,7 @@ msgstr "აპლიკაციების რეიტინგები"
 msgid "Full name"
 msgstr "სრული სახელი"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:90
 msgid "Email"
 msgstr "ელ-ფოსტა"
 
@@ -1509,15 +1509,29 @@ msgstr "გვარი"
 msgid "Your email address"
 msgstr "თქვენი ელ-ფოსტის მისამართი"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:32
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "დაგავიწყდათ პაროლი?"
+
+#: nextcloudappstore/user/forms.py:33
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:44
 msgid "The given email address does not match your email address"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:51 nextcloudappstore/user/forms.py:84
+msgid "Invalid password"
+msgstr "არასწორი პაროლი"
+
+#: nextcloudappstore/user/forms.py:57
 msgid "Confirm password"
 msgstr "პაროლის დადასტურება"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:59
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1527,15 +1541,11 @@ msgstr ""
 "შეუძლიათ თქვენი ელ-ფოსტის მისამართის შეცვლა და პაროლის განახლება. ეს ველი არ "
 "განაახლებს თქვენს პაროლს!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:75
 msgid "This email address is already associated with another account."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "არასწორი პაროლი"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:96
 msgid "Email address"
 msgstr ""
 
