@@ -68,13 +68,12 @@ jobs:
       - name: Generate coverage report
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
-          make coverage venv_bin="" -o coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
+          make coverage venv_bin=""
 
       - name: Upload Codecov to artifacts
         uses: actions/upload-artifact@v4
         with:
           name: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
-          path: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
           if-no-files-found: error
 
   upload-codecov:
