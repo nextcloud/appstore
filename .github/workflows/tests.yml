@@ -74,6 +74,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
+          path: coverage.xml
           if-no-files-found: error
 
   upload-codecov:
