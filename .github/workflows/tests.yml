@@ -68,19 +68,34 @@ jobs:
       - name: Generate coverage report
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
-          make coverage venv_bin=""
+          make coverage venv_bin="" -o coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
 
-      - name: HTML coverage to artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload Codecov to artifacts
+        uses: actions/upload-artifact@v4
         with:
-          name: coverage_${{ matrix.python-version }}
-          path: ./htmlcov
+          name: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
+          path: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
           if-no-files-found: error
+
+  upload-codecov:
+    needs: [ test ]
+    permissions:
+      contents: none
+    runs-on: ubuntu-22.04
+    name: Upload Coverage
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Coverage Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: coverage
+          pattern: coverage_*
+          merge-multiple: true
 
       - name: Upload report to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
+          directory: coverage
           fail_ci_if_error: true
           verbose: true
