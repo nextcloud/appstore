@@ -4,6 +4,7 @@ from allauth.account.utils import (
     user_pk_to_url_str,
     user_username,
 )
+from allauth.socialaccount.models import SocialAccount
 from captcha.fields import CaptchaField
 from django import forms
 from django.contrib.auth import get_user_model
@@ -46,7 +47,8 @@ class DeleteAccountForm(forms.Form):
     def clean_passwd(self):
         passwd = self.cleaned_data.get("passwd")
         if self.user:
-            if self.user.socialaccount_set.name is not None or self.user.check_password(passwd):
+            social_user = SocialAccount.objects.filter(user_id=self.user, provider="github").first()
+            if social_user is not None or self.user.check_password(passwd):
                 return passwd
         raise forms.ValidationError(_("Invalid password"))
 
