@@ -19,15 +19,16 @@
 # Gu. He. <gudbrand.hegge@gmail.com>, 2023
 # armandg <geirawsm@pm.me>, 2023
 # Vegard Fladby <vegard.fladby@gmail.com>, 2024
+# Roger Knutsen, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:45+0000\n"
+"POT-Creation-Date: 2024-02-13 02:47+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Vegard Fladby <vegard.fladby@gmail.com>, 2024\n"
+"Last-Translator: Roger Knutsen, 2024\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://app.transifex.com/nextcloud/teams/64236/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -302,7 +303,7 @@ msgstr "Vurderingskommentar i Markdown"
 
 #: nextcloudappstore/core/models.py:291
 msgid "Appeal"
-msgstr ""
+msgstr "Appell"
 
 #: nextcloudappstore/core/models.py:295
 msgid "App rating"
@@ -396,23 +397,27 @@ msgstr "Endringlogg for utgivelse. Kan inneholde Markdown"
 
 #: nextcloudappstore/core/models.py:387
 msgid "AppAPI communication protocol"
-msgstr ""
+msgstr "AppAPI-kommunikasjonsprotokoll"
 
 #: nextcloudappstore/core/models.py:391
 msgid ""
 "If empty, then this is a release of a regular application; any other value "
 "indicates the application protocol for the AppAPI system"
 msgstr ""
+"Hvis det er tomt, er dette en utgivelse av en vanlig applikasjon; en hvilken"
+" som helst annen verdi indikerer applikasjonsprotokollen for AppAPI-systemet"
 
 #: nextcloudappstore/core/models.py:397
 msgid "AppAPI system app flag"
-msgstr ""
+msgstr "AppAPI-systemappappflagg"
 
 #: nextcloudappstore/core/models.py:399
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr ""
+"Om applikasjonen er systemomfattende (dvs. kan representere brukeren uten at"
+" han samhandler med applikasjonen)"
 
 #: nextcloudappstore/core/models.py:406 nextcloudappstore/core/models.py:456
 #: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:603
@@ -426,43 +431,44 @@ msgstr "App-utgivelser"
 
 #: nextcloudappstore/core/models.py:460
 msgid "Deploy Identifier"
-msgstr ""
+msgstr "Distributør-identifikator"
 
 #: nextcloudappstore/core/models.py:463
 msgid "Installer specific data"
-msgstr ""
+msgstr "Installasjonsspesifikke data"
 
 #: nextcloudappstore/core/models.py:464
 msgid "JSON data for AppAPI installer depending on installation type"
 msgstr ""
+"JSON-data for AppAPI-installasjonsprogram, avhengig av installasjonstype"
 
 #: nextcloudappstore/core/models.py:469
 msgid "AppAPI release Deploy method"
-msgstr ""
+msgstr "AppAPI-utgivelse distribueringsmetode"
 
 #: nextcloudappstore/core/models.py:470
 msgid "AppAPI release Deploy methods"
-msgstr ""
+msgstr "AppAPI-utgivelse distribueringsmetoder"
 
 #: nextcloudappstore/core/models.py:482
 msgid "Is scope optional"
-msgstr ""
+msgstr "Er omfang valgfritt"
 
 #: nextcloudappstore/core/models.py:483
 msgid "Is it possible for the application to work without this API group?"
-msgstr ""
+msgstr "Er det mulig for applikasjonen å fungere uten denne API-gruppen?"
 
 #: nextcloudappstore/core/models.py:486
 msgid "Name of the API scope"
-msgstr ""
+msgstr "Navn på API-omfanget"
 
 #: nextcloudappstore/core/models.py:490
 msgid "AppAPI release API Scope"
-msgstr ""
+msgstr "AppAPI-utgivelse API-omfang"
 
 #: nextcloudappstore/core/models.py:491
 msgid "AppAPI release API Scopes"
-msgstr ""
+msgstr "AppAPI-utgivelse API-omfang"
 
 #: nextcloudappstore/core/models.py:495
 msgid "Image URL"
@@ -595,7 +601,7 @@ msgstr "Overskrift"
 
 #: nextcloudappstore/core/models.py:653
 msgid "Excerpt"
-msgstr ""
+msgstr "Utdrag"
 
 #: nextcloudappstore/core/models.py:654
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
@@ -608,15 +614,15 @@ msgstr "Bilde"
 
 #: nextcloudappstore/core/models.py:656
 msgid "Show podcast"
-msgstr ""
+msgstr "Vis podkast"
 
 #: nextcloudappstore/core/models.py:659
 msgid "Nextcloud Podcast"
-msgstr ""
+msgstr "Nextcloud-podkast"
 
 #: nextcloudappstore/core/models.py:660
 msgid "Nextcloud Podcasts"
-msgstr ""
+msgstr "Nextcloud-podkaster"
 
 #: nextcloudappstore/core/models.py:684
 msgid "App release deletion"
@@ -628,11 +634,11 @@ msgstr "App-utgivelsesslettinger"
 
 #: nextcloudappstore/core/models.py:704
 msgid "App rating deletion"
-msgstr ""
+msgstr "App-vurderingssletting"
 
 #: nextcloudappstore/core/models.py:705
 msgid "App rating deletions"
-msgstr ""
+msgstr "Sletting av appvurderinger"
 
 #: nextcloudappstore/core/models.py:719
 #: nextcloudappstore/core/templates/app/detail.html:140
@@ -851,7 +857,7 @@ msgstr "Passordet ble endret."
 
 #: nextcloudappstore/core/templates/account/signup.html:12
 msgid "Create an account"
-msgstr ""
+msgstr "Opprett en konto"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -887,15 +893,15 @@ msgstr "Neste"
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid "Highest Nextcloud version"
-msgstr ""
+msgstr "Høyeste Nextcloud-versjon"
 
 #: nextcloudappstore/core/templates/app/detail.html:51
 msgid "Show all releases"
-msgstr ""
+msgstr "Vis alle utgivelser"
 
 #: nextcloudappstore/core/templates/app/detail.html:54
 msgid "Community rating"
-msgstr ""
+msgstr "Samfunnsvurdering"
 
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Author"
@@ -903,7 +909,7 @@ msgstr "Forfatter"
 
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Last updated"
-msgstr ""
+msgstr "Sist oppdatert"
 
 #: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
@@ -924,7 +930,7 @@ msgstr "Utviklerdokumentasjon"
 
 #: nextcloudappstore/core/templates/app/detail.html:106
 msgid "Interact"
-msgstr ""
+msgstr "Samhandle"
 
 #: nextcloudappstore/core/templates/app/detail.html:112
 msgid "Report problem"
@@ -946,11 +952,11 @@ msgstr "Utgivelser"
 
 #: nextcloudappstore/core/templates/app/detail.html:141
 msgid "Stable channel"
-msgstr ""
+msgstr "Stabil kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Nightly channel"
-msgstr ""
+msgstr "Nattlig kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:143
 msgid "All releases"
@@ -973,16 +979,16 @@ msgstr "Ok"
 #: nextcloudappstore/core/templates/app/detail.html:193
 #: nextcloudappstore/core/templates/app/detail.html:207
 msgid "Appeal for spam"
-msgstr ""
+msgstr "Appell for spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:198
 #: nextcloudappstore/core/templates/app/detail.html:211
 msgid "Cancel spam appeal"
-msgstr ""
+msgstr "Avbryt appell for spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:202
 msgid "Delete spam comment"
-msgstr ""
+msgstr "Slett spamkommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:222
 msgid "No comments found."
@@ -1002,7 +1008,7 @@ msgstr "Vurder integrering"
 
 #: nextcloudappstore/core/templates/app/detail.html:244
 msgid "Your comment"
-msgstr ""
+msgstr "Din kommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:249
 msgid ""
@@ -1010,6 +1016,9 @@ msgid ""
 "                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.\n"
 "                                    A rating without a comment still counts, but will not be listed below."
 msgstr ""
+"Vurderingskommentarer støtter bruk av <a rel=\"noopener noreferrer\" href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>.\n"
+"                            Ikke bruk vurderingskommentarer til innrapportering av feil eller funksjonsforespørsler. Verken utviklere eller brukere vil få nyss om kommentaren din.\n"
+"                            En vurdering uten kommentar vil bli talt, men ikke listet opp nedenfor."
 
 #: nextcloudappstore/core/templates/app/detail.html:256
 msgid "Update rating"
@@ -1021,7 +1030,7 @@ msgstr "Send vurdering"
 
 #: nextcloudappstore/core/templates/app/detail.html:269
 msgid "Switch language for the comments:"
-msgstr ""
+msgstr "Bytt språk for kommentarene:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -1059,7 +1068,7 @@ msgstr "Alfabetisk"
 
 #: nextcloudappstore/core/templates/app/list.html:48
 msgid "Latest release"
-msgstr ""
+msgstr "Siste utgivelse"
 
 #: nextcloudappstore/core/templates/app/list.html:54
 msgid "Rating (recent)"
@@ -1198,7 +1207,7 @@ msgstr "Nyeste app-utgivelser"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Contribute to the app store"
-msgstr ""
+msgstr "Bidra til appbutikken"
 
 #: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
@@ -1215,11 +1224,11 @@ msgstr "påkrevd felt"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Resources for developers"
-msgstr ""
+msgstr "Ressurser for utviklere"
 
 #: nextcloudappstore/core/templates/nav.html:22
 msgid "Develop for Nextcloud"
-msgstr ""
+msgstr "Utvikle for Nextcloud"
 
 #: nextcloudappstore/core/templates/nav.html:34
 msgid "Request translations"
@@ -1227,7 +1236,7 @@ msgstr "Be om oversettelser"
 
 #: nextcloudappstore/core/templates/nav.html:41
 msgid "Submit your app"
-msgstr ""
+msgstr "Send inn appen din"
 
 #: nextcloudappstore/core/templates/nav.html:91
 #, python-format
@@ -1492,23 +1501,23 @@ msgstr "Full beskrivelse av hva integreringen gjør. Kan inneholde Markdown."
 #: nextcloudappstore/templates/socialaccount/login.html:8
 #, python-format
 msgid "Connect %(provider)s"
-msgstr ""
+msgstr "Koble %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:10
 #, python-format
 msgid "You are about to connect a new third party account from %(provider)s."
-msgstr ""
+msgstr "Du er i ferd med å koble til en ny tredjepartskonto fra %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:12
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr ""
+msgstr "Logg på via %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid ""
 "You are about to sign in using a third party account from %(provider)s."
-msgstr ""
+msgstr "Du er i ferd med å logge på med en tredjepartskonto fra %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 msgid "Continue"
@@ -1532,7 +1541,7 @@ msgstr "Ditt passord"
 
 #: nextcloudappstore/user/forms.py:34
 msgid "*Required if the account is registered with a password"
-msgstr ""
+msgstr "*Kreves hvis kontoen er registrert med et passord"
 
 #: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
@@ -1612,19 +1621,19 @@ msgstr "Regenerer API-nøkkel"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:5
 msgid "Appeal commentaries"
-msgstr ""
+msgstr "Kommentarer til appell"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:9
 msgid "Comments Pending Appeal"
-msgstr ""
+msgstr "Kommentarer venter på appell"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:14
 msgid "Comment author"
-msgstr ""
+msgstr "Kommentar forfatter"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:25
 msgid "Go to"
-msgstr ""
+msgstr "Gå til"
 
 #: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
@@ -1660,7 +1669,7 @@ msgstr "Slett konto"
 
 #: nextcloudappstore/user/templates/user/base.html:59
 msgid "Appeal comments"
-msgstr ""
+msgstr "Appellkommentarer"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
