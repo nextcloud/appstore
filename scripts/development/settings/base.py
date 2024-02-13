@@ -14,6 +14,7 @@ INSTALLED_APPS.append("debug_toolbar")
 MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
 INTERNAL_IPS = ("127.0.0.1",)
 VALIDATE_CERTIFICATES = False
+ACCOUNT_ADAPTER = "nextcloudappstore.user.adapters.CustomAccountAdapter"
 
 FIXTURE_DIRS = (BASE_DIR / "core/tests/e2e/fixtures",)
 
