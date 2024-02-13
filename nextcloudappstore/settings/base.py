@@ -263,6 +263,9 @@ RATING_RECENT_DAY_RANGE = 90
 # for testing app uploads without cert validation set to false
 VALIDATE_CERTIFICATES = True
 
+# validate email during registration
+ACCOUNT_ADAPTER = "nextcloudappstore.user.adapters.CustomAccountAdapter"
+
 # certification hash algorithm
 CERTIFICATE_DIGEST = "sha512"
 
