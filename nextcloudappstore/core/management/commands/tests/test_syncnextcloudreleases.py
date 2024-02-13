@@ -28,22 +28,24 @@ class SyncNextcloudReleasesTest(TestCase):
         io = StringIO()
         call_command("syncnextcloudreleases", "--oldest-supported=11.0.0", "--print", stdout=io)
         expected = (
-            "\n".join([
-                "12.0.5",
-                "12.0.4",
-                "12.0.3",
-                "12.0.2",
-                "12.0.1",
-                "12.0.0",
-                "11.0.7",
-                "11.0.6",
-                "11.0.5",
-                "11.0.4",
-                "11.0.3",
-                "11.0.2",
-                "11.0.1",
-                "11.0.0",
-            ])
+            "\n".join(
+                [
+                    "12.0.5",
+                    "12.0.4",
+                    "12.0.3",
+                    "12.0.2",
+                    "12.0.1",
+                    "12.0.0",
+                    "11.0.7",
+                    "11.0.6",
+                    "11.0.5",
+                    "11.0.4",
+                    "11.0.3",
+                    "11.0.2",
+                    "11.0.1",
+                    "11.0.0",
+                ]
+            )
             + "\n"
         )
         self.assertEqual(0, NextcloudRelease.objects.count())
