@@ -42,6 +42,7 @@
 # RC, 2023
 # TVDavidsan, 2023
 # Ldm Public <ldmpub@gmail.com>, 2023
+# Ludovici t <ludovic.tourtelier@e-c.bzh>, 2024
 # Mordecai, 2024
 # 
 #, fuzzy
@@ -49,7 +50,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-21 03:06+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Mordecai, 2024\n"
 "Language-Team: French (https://app.transifex.com/nextcloud/teams/64236/fr/)\n"
@@ -341,7 +342,7 @@ msgstr "Évaluations de l'application"
 msgid "Full name"
 msgstr "Nom complet"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "E-mail"
 
@@ -1564,27 +1565,43 @@ msgstr ""
 msgid "Continue"
 msgstr "Continuer"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Prénom"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Nom de famille"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Votre adresse e-mail"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "Votre mot de passe"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr "*Obligatoire si le compte est enregistré avec un mot de passe"
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr "L'adresse e-mail fournie ne correspond pas à votre adresse e-mail"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Mot de passe incorrect"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Confirmer le mot de passe"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1594,15 +1611,11 @@ msgstr ""
 "modifier votre adresse e-mail et de réinitialiser votre mot de passe. Ce "
 "champ ne met pas à jour votre mot de passe !"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "Cette adresse e-mail est déjà associée à un autre compte."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Mot de passe incorrect"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Adresse e-mail"
 

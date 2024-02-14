@@ -7,17 +7,17 @@
 # Jurij Podgoršek <jurij.podgorsek@radiostudent.si>, 2020
 # Aljoša Čavlovič (ĐoKc) <aljosa.cavlovic@gmail.com>, 2020
 # Goran Kavrecic <goran.kavrecic@indea.si>, 2023
-# Matej Urbančič <>, 2023
 # Tilen Komel, 2023
+# Matej Urbančič <>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 02:45+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Tilen Komel, 2023\n"
+"Last-Translator: Matej Urbančič <>, 2024\n"
 "Language-Team: Slovenian (https://app.transifex.com/nextcloud/teams/64236/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -305,7 +305,7 @@ msgstr "Ocene programa"
 msgid "Full name"
 msgstr "Polno ime"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "Elektronski naslov"
 
@@ -1516,27 +1516,43 @@ msgstr "Vpisali se boste z računom tretje osebe iz %(provider)s."
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Ime"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Priimek"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Osebni elektronski naslov"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "Geslo"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr "Podan elektronski naslov se ne sklada z vašim naslovom."
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Neveljavno geslo"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Potrditev gesla"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1546,16 +1562,12 @@ msgstr ""
 "elektronskega naslova ali ponastavljanja gesla. To polje ni namenjeno "
 "spreminjanju gesla!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr ""
 "Uporabljen elektronski naslov je že povezan z drugim vpisanim računom."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Neveljavno geslo"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Elektronski naslov"
 

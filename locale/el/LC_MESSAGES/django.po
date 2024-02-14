@@ -17,17 +17,17 @@
 # Alexandros Kapetanios <alexandros@gnugr.org>, 2023
 # Salih Emin <cerebrux.gr@gmail.com>, 2023
 # Konstantinidis Konstantinos, 2023
-# Efstathios Iosifidis <iefstathios@gmail.com>, 2023
 # ΦΩΤΕΙΝΗ ΧΑΛΚΙΑ <photchalkia@gmail.com>, 2023
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 02:45+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: ΦΩΤΕΙΝΗ ΧΑΛΚΙΑ <photchalkia@gmail.com>, 2023\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2024\n"
 "Language-Team: Greek (https://app.transifex.com/nextcloud/teams/64236/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,7 +317,7 @@ msgstr "Αξιολογήσεις εφαρμογής"
 msgid "Full name"
 msgstr "Πλήρες όνομα"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "Ηλεκτρονική αλληλογραφία"
 
@@ -1523,28 +1523,44 @@ msgstr ""
 msgid "Continue"
 msgstr "Συνεχίστε"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Όνομα"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Επίθετο"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Η διεύθυνση ηλ. ταχυδρομείου σας"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "Το συνθηματικό σας"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr ""
 "Η διεύθυνση e-mail που δόθηκε δεν ταιριάζει με την δική σας διεύθυνση e-mail"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Λανθασμένο συνθηματικό"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Επιβεβαίωση συνθηματικού"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1554,15 +1570,11 @@ msgstr ""
 " ταχυδρομείου και η επαναφορά του συνθηματικού σας από μη εξουσιοδοτημένους "
 "χρήστες. Το συνθηματικό σας δεν θα ενημερωθεί από αυτό το πεδίο."
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "Αυτή η διεύθυνση e-mail είναι ήδη συσχετισμένη με άλλο λογαριασμό."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Λανθασμένο συνθηματικό"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Διεύθυνση αλληλογραφίας"
 

@@ -7,22 +7,23 @@
 # Rodrigo Romão <romao.rodrigo@gmail.com>, 2016
 # Rodrigues Santana <rodrigues@blupixel.com.br>, 2017
 # Javier Llamas <s_llamasj@globalhitss.com>, 2017
-# André Marcelo Alvarenga <alvarenga@kde.org>, 2020
 # Rodrigo Tavares, 2021
 # Mathias Maurilio <maurilio.1996.mathias@gmail.com>, 2023
 # Hermógenes Oliveira, 2023
 # Paulo Schopf, 2023
 # Flávio Veras <flaviove@gmail.com>, 2023
 # Leonardo Colman Lopes <leonardo.dev@colman.com.br>, 2023
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2024
+# Cauan Henrique Zorzenon <cauanzorzenon@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 02:45+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Leonardo Colman Lopes <leonardo.dev@colman.com.br>, 2023\n"
+"Last-Translator: Cauan Henrique Zorzenon <cauanzorzenon@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,7 +298,7 @@ msgstr "Comentário de classificação no Markdown"
 
 #: nextcloudappstore/core/models.py:291
 msgid "Appeal"
-msgstr ""
+msgstr "Apelar"
 
 #: nextcloudappstore/core/models.py:295
 msgid "App rating"
@@ -311,7 +312,7 @@ msgstr "Classificações do aplicativo"
 msgid "Full name"
 msgstr "Nome completo"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "E-mail"
 
@@ -1523,28 +1524,44 @@ msgstr "Você está conectando-se usando uma conta externa de%(provider)s."
 msgid "Continue"
 msgstr "Continuar"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Primeiro nome"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Ultimo nome"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Seu endereço de email "
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "Sua senha"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr ""
 "O endereço de e-mail fornecido não coincide com seu endereço de e-mail"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Senha inválida"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Confirmar senha"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1553,15 +1570,11 @@ msgstr ""
 "A senha é necessária para impedir que usuários não autorizados mudem seu "
 "e-mail ou resetem sua senha. Este campo não atualiza sua senha!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "Este endereço de e-mail já está associado a outra conta. "
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Senha inválida"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Endereço de e-mail"
 

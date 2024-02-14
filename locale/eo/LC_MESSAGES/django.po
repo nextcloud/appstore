@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-31 02:45+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: gpl34 <gpl@mac.com>, 2023\n"
 "Language-Team: Esperanto (https://app.transifex.com/nextcloud/teams/64236/"
@@ -306,7 +306,7 @@ msgstr "Aplikaĵa pritaksoj"
 msgid "Full name"
 msgstr "Plena nomo"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "Retpoŝtadreso"
 
@@ -1491,27 +1491,45 @@ msgstr ""
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Persona nomo"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Familia nomo"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Via retpoŝta adreso"
 
-#: nextcloudappstore/user/forms.py:39
-msgid "The given email address does not match your email address"
+#: nextcloudappstore/user/forms.py:33
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Your password"
+msgstr "Ĉu vi forgesis vian pasvorton?"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:45
+msgid "The given email address does not match your email address"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Nevalida pasvorto"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Konfirmi pasvorton"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1521,15 +1539,11 @@ msgstr ""
 "retpoŝtadreson kaj restarigas vian pasvorton. Tiu ĉi kampo ne ĝisdatigos "
 "vian pasvorton!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Nevalida pasvorto"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Retpoŝtadreso"
 

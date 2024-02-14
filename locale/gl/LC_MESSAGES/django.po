@@ -8,16 +8,16 @@
 # Xosé, 2020
 # Andy Scherzinger <info@andy-scherzinger.de>, 2022
 # Iván Gómez <cabaseira@gmail.com>, 2023
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2023
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 02:45+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2023\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,7 +307,7 @@ msgstr "Valoracións da aplicación"
 msgid "Full name"
 msgstr "Nome completo"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "Correo-e"
 
@@ -888,7 +888,7 @@ msgstr "Versión máis alta de Nextcloud"
 
 #: nextcloudappstore/core/templates/app/detail.html:51
 msgid "Show all releases"
-msgstr "Mostrar todas as publicacións"
+msgstr "Amosar todas as publicacións"
 
 #: nextcloudappstore/core/templates/app/detail.html:54
 msgid "Community rating"
@@ -1529,27 +1529,43 @@ msgstr "Está a piques de acceder cunha conta de terceiros de %(provider)s."
 msgid "Continue"
 msgstr "Continuar"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Nome"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Apelidos"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "O seu enderezo de correo"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "O seu contrasinal"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr "O enderezo de correo indicado non coincide co seu enderezo de correo"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Contrasinal incorrecto "
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Confirmar o contrasinal"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1559,15 +1575,11 @@ msgstr ""
 " seu enderezo de correo e que reinicien o seu contrasinal. Este campo non "
 "actualiza o seu contrasinal!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "Este enderezo de correo xa está asociado con outra conta."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Contrasinal incorrecto "
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Enderezo de correo"
 

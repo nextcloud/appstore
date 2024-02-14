@@ -18,7 +18,6 @@
 # 田邊 英樹 <hummingfrogs@gmail.com>, 2020
 # hiroshisuga <suga0330@gmail.com>, 2021
 # Kosugi_kun, 2022
-# 博麗霊夢, 2022
 # T.S, 2022
 # YANO Tetsu <tetuyano+transi@gmail.com>, 2023
 # a3ec1d22717e9410ffb05bc48254cc85_3b2ce10 <ba9aa80f4d5c73f5c8f30dd2347fba82_980913>, 2023
@@ -26,15 +25,16 @@
 # 御須 正人 <m-misu@begood-tech.com>, 2023
 # kaito, 2023
 # devi, 2024
+# 博麗霊夢, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-27 03:15+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: devi, 2024\n"
+"Last-Translator: 博麗霊夢, 2024\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/teams/64236/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,7 +317,7 @@ msgstr "評価"
 msgid "Full name"
 msgstr "氏名"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "メール"
 
@@ -1501,27 +1501,43 @@ msgstr "あなたは%(provider)sからのサードパーティのアカウント
 msgid "Continue"
 msgstr "続ける"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "名"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "姓"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "あなたのメールアドレス"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "あなたのパスワード"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr "入力されたメールアドレスは、あなたのメールアドレスと一致しません"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "無効なパスワード"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "パスワードを確認"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1530,15 +1546,11 @@ msgstr ""
 "権限のないユーザーが電子メールアドレスを変更してパスワードをリセットしないようにするには、パスワードが必要です。 "
 "このフィールドはあなたのパスワードを更新しません！"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "このメールアドレスは、既に他のアカウントで使われています。"
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "無効なパスワード"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "メールアドレス"
 

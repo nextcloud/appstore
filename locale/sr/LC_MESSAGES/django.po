@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 02:43+0000\n"
+"POT-Creation-Date: 2024-02-14 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Иван Пешић, 2024\n"
 "Language-Team: Serbian (https://app.transifex.com/nextcloud/teams/64236/sr/)\n"
@@ -305,7 +305,7 @@ msgstr "Оцене апликације"
 msgid "Full name"
 msgstr "Пуно име"
 
-#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:78
+#: nextcloudappstore/core/models.py:341 nextcloudappstore/user/forms.py:92
 msgid "Email"
 msgstr "Е-пошта"
 
@@ -1517,27 +1517,43 @@ msgstr ""
 msgid "Continue"
 msgstr "Настави"
 
-#: nextcloudappstore/user/forms.py:18
+#: nextcloudappstore/user/adapters.py:12
+msgid "Provided email address is not valid."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:19
 msgid "First name"
 msgstr "Име"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:20
 msgid "Last name"
 msgstr "Презиме"
 
-#: nextcloudappstore/user/forms.py:28
+#: nextcloudappstore/user/forms.py:29
 msgid "Your email address"
 msgstr "Адреса Ваше е-поште"
 
-#: nextcloudappstore/user/forms.py:39
+#: nextcloudappstore/user/forms.py:33
+msgid "Your password"
+msgstr "Ваша лозинка"
+
+#: nextcloudappstore/user/forms.py:34
+msgid "*Required if the account is registered with a password"
+msgstr "*Потребно је ако је налог био регистрован са лозинком"
+
+#: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
 msgstr "Наведена и-мејл адреса се не подудара са вашом и-мејл адресом"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+msgid "Invalid password"
+msgstr "Неисправна лозинка"
+
+#: nextcloudappstore/user/forms.py:59
 msgid "Confirm password"
 msgstr "Потврдите лозинку"
 
-#: nextcloudappstore/user/forms.py:47
+#: nextcloudappstore/user/forms.py:61
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1546,15 +1562,11 @@ msgstr ""
 "Лозинка је неопходна да заштити неовлашћене корисника да промене адресу Ваше"
 " е-поште и ресетују Вашу лозинку. Ово поље не ажурира Вашу лозинку!"
 
-#: nextcloudappstore/user/forms.py:63
+#: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
 msgstr "Ова и-мејл адреса је већ придружена неком другом налогу."
 
-#: nextcloudappstore/user/forms.py:72
-msgid "Invalid password"
-msgstr "Неисправна лозинка"
-
-#: nextcloudappstore/user/forms.py:84
+#: nextcloudappstore/user/forms.py:98
 msgid "Email address"
 msgstr "Адреса е-поште"
 
