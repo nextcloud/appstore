@@ -125,7 +125,7 @@ class DeployMethodSerializer(serializers.ModelSerializer):
 class ApiScopeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AppApiReleaseApiScope
-        fields = ("optional", "scope_name")
+        fields = ("scope_name",)
 
 
 class AppApiAppReleaseSerializer(AppReleaseSerializer):
@@ -152,7 +152,6 @@ class AppApiAppReleaseSerializer(AppReleaseSerializer):
             "signature",
             "translations",
             "signature_digest",
-            "aa_proto",
             "aa_is_system",
             "deploy_methods",
             "api_scopes",

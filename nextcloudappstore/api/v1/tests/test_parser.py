@@ -567,8 +567,7 @@ class ParserTest(TestCase):
             "image_tag": "1.0.0",
             "registry": "ghcr.io",
         }
-        assert r_ex_app["scopes"] == [{"required": "FILES"}, {"required": "NOTIFICATIONS"}, {"optional": "TALK"}]
-        assert r_ex_app["protocol"] == "https"
+        assert r_ex_app["scopes"] == [{"value": "FILES"}, {"value": "NOTIFICATIONS"}, {"value": "TALK"}]
         assert r_ex_app["system"] == "true"
 
     def test_appapi_minimal(self):
@@ -581,8 +580,7 @@ class ParserTest(TestCase):
             "image_tag": "latest",
             "registry": "ghcr.io",
         }
-        assert r_ex_app["scopes"] == [{"required": "FILES"}]
-        assert r_ex_app["protocol"] == "http"
+        assert r_ex_app["scopes"] == []
 
     def _get_contents(self, target):
         path = self.get_path(target)

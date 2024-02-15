@@ -164,8 +164,10 @@ class L10NImporter(ScalarImporter):
 
 class AppApiImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        obj.aa_proto = value["protocol"]
-        obj.aa_is_system = value.get("aa_is_system", False)
+        aa_system_flag = value.get("system", "false")
+        if aa_system_flag is None:
+            aa_system_flag = "false"
+        obj.aa_is_system = aa_system_flag.lower() == "true"
         for supported_deploy_types in ("docker_install",):
             if supported_deploy_types in value:
                 install_data = json.dumps(value[supported_deploy_types])
@@ -175,10 +177,7 @@ class AppApiImporter(ScalarImporter):
                     install_data=install_data,
                 )
         for scope in value.get("scopes", []):
-            scope_type = list(scope)[0]
-            AppApiReleaseApiScope.objects.get_or_create(
-                app_release=obj, optional=bool(scope_type != "required"), scope_name=scope[scope_type]
-            )
+            AppApiReleaseApiScope.objects.get_or_create(app_release=obj, scope_name=scope["value"])
 
 
 class AppReleaseImporter(Importer):

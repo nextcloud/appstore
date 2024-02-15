@@ -67,6 +67,7 @@ class ImporterTest(TestCase):
         self.assertEqual(0, release.shell_commands.count())
         self.assertEqual(1, release.licenses.count())
         self.assertEqual("agpl", release.licenses.all()[0].id)
+        self.assertEqual(None, release.aa_is_system)
 
     def test_full(self):
         Database.objects.create(id="sqlite")
@@ -119,6 +120,7 @@ class ImporterTest(TestCase):
             elif ex.id in ["curl", "SimpleXML", "iconv"]:
                 self.assertEqual("*", ex.releasedependencies.get().version_spec)
                 self.assertEqual("*", ex.releasedependencies.get().raw_version_spec)
+        self.assertEqual(None, release.aa_is_system)
 
     def test_release_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
@@ -229,13 +231,10 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual(0, release.databases.count())
         self.assertEqual(0, release.shell_commands.count())
         self.assertEqual("mit", release.licenses.all()[0].id)
-        self.assertEqual("http", release.aa_proto)
         self.assertEqual(False, release.aa_is_system)
         self.assertEqual(1, release.deploy_methods.count())
         all_scopes = release.api_scopes.all()
-        self.assertEqual(1, len(all_scopes))
-        self.assertEqual("FILES", all_scopes[0].scope_name)
-        self.assertEqual(False, all_scopes[0].optional)
+        self.assertEqual(0, len(all_scopes))
 
     def test_full(self):
         self._check_removed_translations()
@@ -275,17 +274,13 @@ class ImporterTestAA(ImporterTest):
         self._assert_all_empty(release, ["signature", "download"])
         self.assertEqual(1, release.licenses.count())
         self.assertEqual("agpl", release.licenses.all()[0].id)
-        self.assertEqual("https", release.aa_proto)
-        self.assertEqual(False, release.aa_is_system)
+        self.assertEqual(True, release.aa_is_system)
         self.assertEqual(1, release.deploy_methods.count())
         all_scopes = release.api_scopes.all()
         self.assertEqual(3, len(all_scopes))
         self.assertEqual("FILES", all_scopes[0].scope_name)
-        self.assertEqual(False, all_scopes[0].optional)
         self.assertEqual("NOTIFICATIONS", all_scopes[1].scope_name)
-        self.assertEqual(False, all_scopes[1].optional)
         self.assertEqual("TALK", all_scopes[2].scope_name)
-        self.assertEqual(True, all_scopes[2].optional)
 
     def test_release_no_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
