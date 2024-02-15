@@ -246,9 +246,7 @@
                             {% csrf_token %}
                             {% include 'form-fields.html' with form=rating_form %}
                             <p class="help-block">
-                                {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>.
-                                    Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment.
-                                    A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
+                                {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>. Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment. A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
                             </p>
                             <button type="submit" class="btn btn-primary">
                                 <span class="icon icon-star-plus icon-white"></span>
