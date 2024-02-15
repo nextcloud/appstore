@@ -2,12 +2,16 @@
 
 ## [Unreleased]
 
-## [4.7.0]  - 2024-02-06
+## [4.7.0]  - 2024-02-15
+
+### Added
+
+- Email validation during account registration. #1299
 
 ### Changed
 
 - AppAPI: removed `protocol` and reworked `scopes` in `info.xml`. #1288
-- django updated from `4.2.8` to `4.2.9` #1268
+- django updated from `4.2.8` to `4.2.9` #1268 #1295
 - jinja2 updated from `3.1.2` to `3.1.3` #1278
 - pillow updated from `10.0.1` to `10.2.0` #1283
 - follow-redirects updated from `1.15.2` to `1.15.5` #1286
