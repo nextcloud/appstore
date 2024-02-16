@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-15 02:56+0000\n"
+"POT-Creation-Date: 2024-02-16 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Gábor Baráth <dincsi@gmail.com>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
@@ -130,12 +130,12 @@ msgstr "Azonosító"
 msgid "app ID, identical to folder name"
 msgstr "alkalmazásazonosító, megegyezik a mappa nevével"
 
-#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:552
+#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:537
 msgid "Category"
 msgstr "Kategória"
 
-#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:546
-#: nextcloudappstore/core/models.py:569 nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:554 nextcloudappstore/core/models.py:574
 msgid "Name"
 msgstr "Név"
 
@@ -153,13 +153,13 @@ msgstr "Összefoglalás"
 msgid "Short text describing the app's purpose"
 msgstr "Az alkalmazás céljának rövid leírása"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 #: nextcloudappstore/scaffolding/forms.py:68
 #: nextcloudappstore/scaffolding/forms.py:117
 msgid "Description"
 msgstr "Leírás"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 msgid "Will be rendered as Markdown"
 msgstr "Markdownként lesz megjelenítve"
 
@@ -191,12 +191,12 @@ msgid "Forum"
 msgstr "Fórum"
 
 #: nextcloudappstore/core/models.py:97 nextcloudappstore/core/models.py:375
-#: nextcloudappstore/core/models.py:542
+#: nextcloudappstore/core/models.py:527
 msgid "Created at"
 msgstr "Létrehozva:"
 
 #: nextcloudappstore/core/models.py:98 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:543
+#: nextcloudappstore/core/models.py:528
 msgid "Updated at"
 msgstr "Frissítve:"
 
@@ -266,7 +266,7 @@ msgid "Used to approve integrations"
 msgstr "Az integrációk jóváhagyására szolgál"
 
 #: nextcloudappstore/core/models.py:126 nextcloudappstore/core/models.py:281
-#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:497
+#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:482
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "Alkalmazás"
@@ -330,15 +330,15 @@ msgstr "Verzió"
 msgid "Version follows Semantic Versioning"
 msgstr "A verzió szemantikus verziózást követ"
 
-#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:643
+#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:628
 msgid "PHP extension dependency"
 msgstr "PHP kiterjesztés függőség"
 
-#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:610
+#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:595
 msgid "Database dependency"
 msgstr "Adatbázis függőség"
 
-#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:558
 msgid "License"
 msgstr "Licenc"
 
@@ -392,23 +392,11 @@ msgstr "Változásnapló"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Kiadási változásnapló. Markdownt tartalmazhat"
 
-#: nextcloudappstore/core/models.py:387
-msgid "AppAPI communication protocol"
-msgstr "AppAPI kommunikációs protokoll"
-
-#: nextcloudappstore/core/models.py:391
-msgid ""
-"If empty, then this is a release of a regular application; any other value "
-"indicates the application protocol for the AppAPI system"
-msgstr ""
-"Ha üres, akkor ez egy szokásos alkalmazás kiadása; ha más értéke van, akkor "
-"az AppAPI rendszer alkalmazásprotokollját jelöli"
-
-#: nextcloudappstore/core/models.py:397
+#: nextcloudappstore/core/models.py:386
 msgid "AppAPI system app flag"
 msgstr "Az AppAPI rendszeralkalmazás-jelzője"
 
-#: nextcloudappstore/core/models.py:399
+#: nextcloudappstore/core/models.py:388
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
@@ -416,241 +404,232 @@ msgstr ""
 "A rendszeralkalmazás rendszerszintű-e (azaz megszemélyesítheti-e a "
 "felhasználót anélkül, hogy az kapcsolatba lépne az alkalmazással)"
 
-#: nextcloudappstore/core/models.py:406 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:603
-#: nextcloudappstore/core/models.py:634
+#: nextcloudappstore/core/models.py:396 nextcloudappstore/core/models.py:446
+#: nextcloudappstore/core/models.py:467 nextcloudappstore/core/models.py:588
+#: nextcloudappstore/core/models.py:619
 msgid "App release"
 msgstr "Alkalmazáskiadás"
 
-#: nextcloudappstore/core/models.py:407
+#: nextcloudappstore/core/models.py:397
 msgid "App releases"
 msgstr "Alkalmazáskiadások"
 
-#: nextcloudappstore/core/models.py:460
+#: nextcloudappstore/core/models.py:450
 msgid "Deploy Identifier"
 msgstr "Azonosító telepítése"
 
-#: nextcloudappstore/core/models.py:463
+#: nextcloudappstore/core/models.py:453
 msgid "Installer specific data"
 msgstr "Telepítőspecifikus adatok"
 
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:454
 msgid "JSON data for AppAPI installer depending on installation type"
 msgstr "Az AppAPI telepítő JSON adatai, a telepítés típusától függően"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:459
 msgid "AppAPI release Deploy method"
 msgstr "AppAPI kiadás telepítési módja"
 
-#: nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:460
 msgid "AppAPI release Deploy methods"
 msgstr "AppAPI kiadás telepítési módjai"
 
-#: nextcloudappstore/core/models.py:482
-msgid "Is scope optional"
-msgstr "A hatókör kötelező-e"
-
-#: nextcloudappstore/core/models.py:483
-msgid "Is it possible for the application to work without this API group?"
-msgstr ""
-"Lehetséges-e, hogy az alkalmazás enélkül az API csoport nélkül működjön?"
-
-#: nextcloudappstore/core/models.py:486
+#: nextcloudappstore/core/models.py:471
 msgid "Name of the API scope"
 msgstr "Az API hatókör neve"
 
-#: nextcloudappstore/core/models.py:490
+#: nextcloudappstore/core/models.py:475
 msgid "AppAPI release API Scope"
 msgstr "Az AppAPI kiadás API hatóköre"
 
-#: nextcloudappstore/core/models.py:491
+#: nextcloudappstore/core/models.py:476
 msgid "AppAPI release API Scopes"
 msgstr "Az AppAPI kiadás API hatókörei"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:480
 msgid "Image URL"
 msgstr "Kép URL"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:481
 msgid "Small thumbnail"
 msgstr "Kis bélyegkép"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:483
 msgid "Ordering"
 msgstr "Rendezés"
 
-#: nextcloudappstore/core/models.py:501
+#: nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:95
 #: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "Képernyőkép"
 
-#: nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:487
 msgid "Screenshots"
 msgstr "Képernyőképek"
 
-#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:526
+#: nextcloudappstore/core/models.py:506 nextcloudappstore/core/models.py:511
 msgid "Shell command"
 msgstr "Rendszerhéj-parancsok"
 
-#: nextcloudappstore/core/models.py:522
+#: nextcloudappstore/core/models.py:507
 msgid "Name of a required shell command, e.g. grep"
 msgstr "A szükséges rendszerhéj-parancs neve, például grep"
 
-#: nextcloudappstore/core/models.py:527
+#: nextcloudappstore/core/models.py:512
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Rendszerhéj-parancsok"
 
-#: nextcloudappstore/core/models.py:539 nextcloudappstore/core/models.py:565
-#: nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:524 nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:570
 msgid "Id"
 msgstr "Azonosító"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:525
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr "Kategóriaazonosító az alkalmazás feltöltési kategóriájához"
 
-#: nextcloudappstore/core/models.py:546
+#: nextcloudappstore/core/models.py:531
 msgid "Category name which will be presented to the user"
 msgstr "Kategórianév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
 msgstr "Kategóriák"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:551
 msgid "Key which is used to identify a license"
 msgstr "A licenc azonosításához használt kulcs"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:554
 msgid "License name which will be presented to the user"
 msgstr "Licencnév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:574
+#: nextcloudappstore/core/models.py:559
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licencek"
 
-#: nextcloudappstore/core/models.py:586
+#: nextcloudappstore/core/models.py:571
 msgid "Key which is used to identify a database"
 msgstr "Az adatbázis azonosításához használt kulcs"
 
-#: nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:574
 msgid "Database name which will be presented to the user"
 msgstr "Adatbázisnév, melyet a felhasználók látni fognak"
 
-#: nextcloudappstore/core/models.py:593 nextcloudappstore/core/models.py:605
+#: nextcloudappstore/core/models.py:578 nextcloudappstore/core/models.py:590
 msgid "Database"
 msgstr "Adatbázis"
 
-#: nextcloudappstore/core/models.py:594
+#: nextcloudappstore/core/models.py:579
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Adatbázisok"
 
-#: nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:591
 msgid "Database version requirement"
 msgstr "Adatbázis verzió követelmény"
 
-#: nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:592
 msgid "Database version requirement (raw)"
 msgstr "Adatbázis verzió követelmény (nyers)"
 
-#: nextcloudappstore/core/models.py:611
+#: nextcloudappstore/core/models.py:596
 msgid "Database dependencies"
 msgstr "Adatbázis függőségek"
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:605
 msgid "e.g. libxml"
 msgstr "pl. libxml"
 
-#: nextcloudappstore/core/models.py:620 nextcloudappstore/core/models.py:624
-#: nextcloudappstore/core/models.py:637
+#: nextcloudappstore/core/models.py:605 nextcloudappstore/core/models.py:609
+#: nextcloudappstore/core/models.py:622
 msgid "PHP extension"
 msgstr "PHP kiterjesztés"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:610
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP kiterjesztések"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:624
 msgid "Extension version requirement"
 msgstr "Kiterjesztés verzió követelmény"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:625
 msgid "Extension version requirement (raw)"
 msgstr "Kiterjesztés verzió követelmény (nyers)"
 
-#: nextcloudappstore/core/models.py:644
+#: nextcloudappstore/core/models.py:629
 msgid "PHP extension dependencies"
 msgstr "PHP kiterjesztés függőségek"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:637
 msgid "Heading"
 msgstr "Címsor"
 
-#: nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:638
 msgid "Excerpt"
 msgstr "Kivonat"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:639
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "Hivatkozás"
 
-#: nextcloudappstore/core/models.py:655
+#: nextcloudappstore/core/models.py:640
 msgid "Image"
 msgstr "Kép"
 
-#: nextcloudappstore/core/models.py:656
+#: nextcloudappstore/core/models.py:641
 msgid "Show podcast"
 msgstr "Podcast megjelenítése"
 
-#: nextcloudappstore/core/models.py:659
+#: nextcloudappstore/core/models.py:644
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud Podcast"
 
-#: nextcloudappstore/core/models.py:660
+#: nextcloudappstore/core/models.py:645
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud Podcastok"
 
-#: nextcloudappstore/core/models.py:684
+#: nextcloudappstore/core/models.py:669
 msgid "App release deletion"
 msgstr "Alkalmazás kiadás törlés"
 
-#: nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:670
 msgid "App release deletions"
 msgstr "Alkalmazás kiadás törlések"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:689
 msgid "App rating deletion"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:690
 msgid "App rating deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 #: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud verzió"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 msgid "e.g. 9.0.54"
 msgstr "pl. 9.0.54"
 
-#: nextcloudappstore/core/models.py:722
+#: nextcloudappstore/core/models.py:707
 msgid "Is current version"
 msgstr "Aktuális verzió"
 
-#: nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:709
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -658,11 +637,11 @@ msgstr ""
 "Csak egy aktuális verzió létezhet. Ez a mező a legördülők előzetes "
 "beállítására szolgál, mint az alkalmazás-előállítás, stb."
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:717
 msgid "Has a release"
 msgstr "Kiadással rendelkezik"
 
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:719
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded "
 "as an archive. If false, the release is either a pre-release, or not "
@@ -672,21 +651,21 @@ msgstr ""
 "csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető "
 "le."
 
-#: nextcloudappstore/core/models.py:744
+#: nextcloudappstore/core/models.py:729
 msgid "Version is supported"
 msgstr "Támogatott verzió"
 
-#: nextcloudappstore/core/models.py:745
+#: nextcloudappstore/core/models.py:730
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr "Igaz, ha a verzió hivatalosan támogatott (kivétel az üzleti támogatás)"
 
-#: nextcloudappstore/core/models.py:750
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud release"
 msgstr "Nextcloud kiadás"
 
-#: nextcloudappstore/core/models.py:751
+#: nextcloudappstore/core/models.py:736
 msgid "Nextcloud releases"
 msgstr "Nextcloud kiadások"
 
@@ -1784,3 +1763,20 @@ msgstr "Tulajdonjog-átadás feloldása"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Még nem töltött fel alkalmazást."
+
+#~ msgid "AppAPI communication protocol"
+#~ msgstr "AppAPI kommunikációs protokoll"
+
+#~ msgid ""
+#~ "If empty, then this is a release of a regular application; any other "
+#~ "value indicates the application protocol for the AppAPI system"
+#~ msgstr ""
+#~ "Ha üres, akkor ez egy szokásos alkalmazás kiadása; ha más értéke van, "
+#~ "akkor az AppAPI rendszer alkalmazásprotokollját jelöli"
+
+#~ msgid "Is scope optional"
+#~ msgstr "A hatókör kötelező-e"
+
+#~ msgid "Is it possible for the application to work without this API group?"
+#~ msgstr ""
+#~ "Lehetséges-e, hogy az alkalmazás enélkül az API csoport nélkül működjön?"

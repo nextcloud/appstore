@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-15 02:56+0000\n"
+"POT-Creation-Date: 2024-02-16 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Roger Knutsen, 2024\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://app.transifex.com/"
@@ -134,12 +134,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "app-ID, identisk med mappenavn"
 
-#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:552
+#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:537
 msgid "Category"
 msgstr "Kategori"
 
-#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:546
-#: nextcloudappstore/core/models.py:569 nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:554 nextcloudappstore/core/models.py:574
 msgid "Name"
 msgstr "Navn"
 
@@ -157,13 +157,13 @@ msgstr "Oppsummering"
 msgid "Short text describing the app's purpose"
 msgstr "Kort tekst som beskriver appens hensikt"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 #: nextcloudappstore/scaffolding/forms.py:68
 #: nextcloudappstore/scaffolding/forms.py:117
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 msgid "Will be rendered as Markdown"
 msgstr "Vil bli gjengitt som Markdown"
 
@@ -195,12 +195,12 @@ msgid "Forum"
 msgstr "Forum"
 
 #: nextcloudappstore/core/models.py:97 nextcloudappstore/core/models.py:375
-#: nextcloudappstore/core/models.py:542
+#: nextcloudappstore/core/models.py:527
 msgid "Created at"
 msgstr "Opprettet den"
 
 #: nextcloudappstore/core/models.py:98 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:543
+#: nextcloudappstore/core/models.py:528
 msgid "Updated at"
 msgstr "Oppdatert"
 
@@ -270,7 +270,7 @@ msgid "Used to approve integrations"
 msgstr "Brukt til å godkjenne integreringer"
 
 #: nextcloudappstore/core/models.py:126 nextcloudappstore/core/models.py:281
-#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:497
+#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:482
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "App"
@@ -334,15 +334,15 @@ msgstr "Versjon"
 msgid "Version follows Semantic Versioning"
 msgstr "Versjonsnummer følger Sematisk versjonering"
 
-#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:643
+#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:628
 msgid "PHP extension dependency"
 msgstr "Avhenginghet for PHP-utvidelse"
 
-#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:610
+#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:595
 msgid "Database dependency"
 msgstr "Database avhengighet"
 
-#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:558
 msgid "License"
 msgstr "Lisens"
 
@@ -396,23 +396,11 @@ msgstr "Endringslogg"
 msgid "The release changelog. Can contain Markdown"
 msgstr "Endringlogg for utgivelse. Kan inneholde Markdown"
 
-#: nextcloudappstore/core/models.py:387
-msgid "AppAPI communication protocol"
-msgstr "AppAPI-kommunikasjonsprotokoll"
-
-#: nextcloudappstore/core/models.py:391
-msgid ""
-"If empty, then this is a release of a regular application; any other value "
-"indicates the application protocol for the AppAPI system"
-msgstr ""
-"Hvis det er tomt, er dette en utgivelse av en vanlig applikasjon; en hvilken "
-"som helst annen verdi indikerer applikasjonsprotokollen for AppAPI-systemet"
-
-#: nextcloudappstore/core/models.py:397
+#: nextcloudappstore/core/models.py:386
 msgid "AppAPI system app flag"
 msgstr "AppAPI-systemappappflagg"
 
-#: nextcloudappstore/core/models.py:399
+#: nextcloudappstore/core/models.py:388
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
@@ -420,242 +408,234 @@ msgstr ""
 "Om applikasjonen er systemomfattende (dvs. kan representere brukeren uten at "
 "han samhandler med applikasjonen)"
 
-#: nextcloudappstore/core/models.py:406 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:603
-#: nextcloudappstore/core/models.py:634
+#: nextcloudappstore/core/models.py:396 nextcloudappstore/core/models.py:446
+#: nextcloudappstore/core/models.py:467 nextcloudappstore/core/models.py:588
+#: nextcloudappstore/core/models.py:619
 msgid "App release"
 msgstr "App-utgivelse"
 
-#: nextcloudappstore/core/models.py:407
+#: nextcloudappstore/core/models.py:397
 msgid "App releases"
 msgstr "App-utgivelser"
 
-#: nextcloudappstore/core/models.py:460
+#: nextcloudappstore/core/models.py:450
 msgid "Deploy Identifier"
 msgstr "Distributør-identifikator"
 
-#: nextcloudappstore/core/models.py:463
+#: nextcloudappstore/core/models.py:453
 msgid "Installer specific data"
 msgstr "Installasjonsspesifikke data"
 
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:454
 msgid "JSON data for AppAPI installer depending on installation type"
 msgstr ""
 "JSON-data for AppAPI-installasjonsprogram, avhengig av installasjonstype"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:459
 msgid "AppAPI release Deploy method"
 msgstr "AppAPI-utgivelse distribueringsmetode"
 
-#: nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:460
 msgid "AppAPI release Deploy methods"
 msgstr "AppAPI-utgivelse distribueringsmetoder"
 
-#: nextcloudappstore/core/models.py:482
-msgid "Is scope optional"
-msgstr "Er omfang valgfritt"
-
-#: nextcloudappstore/core/models.py:483
-msgid "Is it possible for the application to work without this API group?"
-msgstr "Er det mulig for applikasjonen å fungere uten denne API-gruppen?"
-
-#: nextcloudappstore/core/models.py:486
+#: nextcloudappstore/core/models.py:471
 msgid "Name of the API scope"
 msgstr "Navn på API-omfanget"
 
-#: nextcloudappstore/core/models.py:490
+#: nextcloudappstore/core/models.py:475
 msgid "AppAPI release API Scope"
 msgstr "AppAPI-utgivelse API-omfang"
 
-#: nextcloudappstore/core/models.py:491
+#: nextcloudappstore/core/models.py:476
 msgid "AppAPI release API Scopes"
 msgstr "AppAPI-utgivelse API-omfang"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:480
 msgid "Image URL"
 msgstr "Bildets URL"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:481
 msgid "Small thumbnail"
 msgstr "Lite miniatyrbilde"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:483
 msgid "Ordering"
 msgstr "Sortering"
 
-#: nextcloudappstore/core/models.py:501
+#: nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:95
 #: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "Skjermbilde"
 
-#: nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:487
 msgid "Screenshots"
 msgstr "Skjermbilder"
 
-#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:526
+#: nextcloudappstore/core/models.py:506 nextcloudappstore/core/models.py:511
 msgid "Shell command"
 msgstr "Shell kommando"
 
-#: nextcloudappstore/core/models.py:522
+#: nextcloudappstore/core/models.py:507
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Navn på påkrevd shell kommando, f.eks grep"
 
-#: nextcloudappstore/core/models.py:527
+#: nextcloudappstore/core/models.py:512
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Shell kommandoer"
 
-#: nextcloudappstore/core/models.py:539 nextcloudappstore/core/models.py:565
-#: nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:524 nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:570
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:525
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "Kategori-ID som brukes til å identifisere kategorien en app lastes opp til"
 
-#: nextcloudappstore/core/models.py:546
+#: nextcloudappstore/core/models.py:531
 msgid "Category name which will be presented to the user"
 msgstr "Kategorinavn som vil bli presentert brukeren"
 
-#: nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
 msgstr "Kategorier"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:551
 msgid "Key which is used to identify a license"
 msgstr "Nøkkel som brukes for å identifisere lisensen"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:554
 msgid "License name which will be presented to the user"
 msgstr "Lisensnavn som blir presentert til brukeren"
 
-#: nextcloudappstore/core/models.py:574
+#: nextcloudappstore/core/models.py:559
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Lisenser"
 
-#: nextcloudappstore/core/models.py:586
+#: nextcloudappstore/core/models.py:571
 msgid "Key which is used to identify a database"
 msgstr "Nøkkel som brukes for å identifisere en database"
 
-#: nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:574
 msgid "Database name which will be presented to the user"
 msgstr "Databasenavn som blir presentert til brukeren"
 
-#: nextcloudappstore/core/models.py:593 nextcloudappstore/core/models.py:605
+#: nextcloudappstore/core/models.py:578 nextcloudappstore/core/models.py:590
 msgid "Database"
 msgstr "Database"
 
-#: nextcloudappstore/core/models.py:594
+#: nextcloudappstore/core/models.py:579
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Databaser"
 
-#: nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:591
 msgid "Database version requirement"
 msgstr "Påkrevd databaseversjon"
 
-#: nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:592
 msgid "Database version requirement (raw)"
 msgstr "Påkrevd databaseversjon (rå)"
 
-#: nextcloudappstore/core/models.py:611
+#: nextcloudappstore/core/models.py:596
 msgid "Database dependencies"
 msgstr "Database avhengigheter"
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:605
 msgid "e.g. libxml"
 msgstr "f.eks libxml"
 
-#: nextcloudappstore/core/models.py:620 nextcloudappstore/core/models.py:624
-#: nextcloudappstore/core/models.py:637
+#: nextcloudappstore/core/models.py:605 nextcloudappstore/core/models.py:609
+#: nextcloudappstore/core/models.py:622
 msgid "PHP extension"
 msgstr "PHP-utvidelse"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:610
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP-utvidelser"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:624
 msgid "Extension version requirement"
 msgstr "Påkrevd versjon for utvidelse"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:625
 msgid "Extension version requirement (raw)"
 msgstr "Påkrevd versjon for utvidelse (rå)"
 
-#: nextcloudappstore/core/models.py:644
+#: nextcloudappstore/core/models.py:629
 msgid "PHP extension dependencies"
 msgstr "Avhengigheter for PHP-utvidelser"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:637
 msgid "Heading"
 msgstr "Overskrift"
 
-#: nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:638
 msgid "Excerpt"
 msgstr "Utdrag"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:639
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "Lenke"
 
-#: nextcloudappstore/core/models.py:655
+#: nextcloudappstore/core/models.py:640
 msgid "Image"
 msgstr "Bilde"
 
-#: nextcloudappstore/core/models.py:656
+#: nextcloudappstore/core/models.py:641
 msgid "Show podcast"
 msgstr "Vis podkast"
 
-#: nextcloudappstore/core/models.py:659
+#: nextcloudappstore/core/models.py:644
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud-podkast"
 
-#: nextcloudappstore/core/models.py:660
+#: nextcloudappstore/core/models.py:645
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud-podkaster"
 
-#: nextcloudappstore/core/models.py:684
+#: nextcloudappstore/core/models.py:669
 msgid "App release deletion"
 msgstr "App-utgivelsesletting"
 
-#: nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:670
 msgid "App release deletions"
 msgstr "App-utgivelsesslettinger"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:689
 msgid "App rating deletion"
 msgstr "App-vurderingssletting"
 
-#: nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:690
 msgid "App rating deletions"
 msgstr "Sletting av appvurderinger"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 #: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud versjon"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 msgid "e.g. 9.0.54"
 msgstr "f.eks 9.0.54"
 
-#: nextcloudappstore/core/models.py:722
+#: nextcloudappstore/core/models.py:707
 msgid "Is current version"
 msgstr "Er gjeldende versjon"
 
-#: nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:709
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -663,11 +643,11 @@ msgstr ""
 "Bare én versjon kan være den gjeldende. Dette feltet brukes til å "
 "forhåndsvelge rullegardinsmenyer for app-opprettelse osv."
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:717
 msgid "Has a release"
 msgstr "Har en programutgivelse"
 
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:719
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded "
 "as an archive. If false, the release is either a pre-release, or not "
@@ -677,11 +657,11 @@ msgstr ""
 "arkiv. Hvis ikke, er utgivelsen enten en forhåndsutgave, eller ikke lenger "
 "tilgjengelig for nedlasting."
 
-#: nextcloudappstore/core/models.py:744
+#: nextcloudappstore/core/models.py:729
 msgid "Version is supported"
 msgstr "Versjon er støttet"
 
-#: nextcloudappstore/core/models.py:745
+#: nextcloudappstore/core/models.py:730
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -689,11 +669,11 @@ msgstr ""
 "Riktig hvis denne versjonen fortsatt offisielt er støttet (med unntak av "
 "bedriftsstøtte)"
 
-#: nextcloudappstore/core/models.py:750
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud release"
 msgstr "Nexcloud-versjon"
 
-#: nextcloudappstore/core/models.py:751
+#: nextcloudappstore/core/models.py:736
 msgid "Nextcloud releases"
 msgstr "Nexcloud-utgivelser"
 
@@ -1781,3 +1761,20 @@ msgstr "Lås opp eierskapsoverføring"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "You have not uploaded any apps yet!"
 msgstr "Du har ikke lastet opp noen apper enda!"
+
+#~ msgid "AppAPI communication protocol"
+#~ msgstr "AppAPI-kommunikasjonsprotokoll"
+
+#~ msgid ""
+#~ "If empty, then this is a release of a regular application; any other "
+#~ "value indicates the application protocol for the AppAPI system"
+#~ msgstr ""
+#~ "Hvis det er tomt, er dette en utgivelse av en vanlig applikasjon; en "
+#~ "hvilken som helst annen verdi indikerer applikasjonsprotokollen for "
+#~ "AppAPI-systemet"
+
+#~ msgid "Is scope optional"
+#~ msgstr "Er omfang valgfritt"
+
+#~ msgid "Is it possible for the application to work without this API group?"
+#~ msgstr "Er det mulig for applikasjonen å fungere uten denne API-gruppen?"
