@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-14 02:48+0000\n"
+"POT-Creation-Date: 2024-02-16 02:48+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2024\n"
 "Language-Team: Chinese (Hong Kong) (https://app.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
@@ -116,12 +116,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "應用程式 ID，與資料夾名稱相同"
 
-#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:552
+#: nextcloudappstore/core/models.py:82 nextcloudappstore/core/models.py:537
 msgid "Category"
 msgstr "分類"
 
-#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:546
-#: nextcloudappstore/core/models.py:569 nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:84 nextcloudappstore/core/models.py:531
+#: nextcloudappstore/core/models.py:554 nextcloudappstore/core/models.py:574
 msgid "Name"
 msgstr "名稱"
 
@@ -139,13 +139,13 @@ msgstr "摘要"
 msgid "Short text describing the app's purpose"
 msgstr "簡短描述應用程式用途"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 #: nextcloudappstore/scaffolding/forms.py:68
 #: nextcloudappstore/scaffolding/forms.py:117
 msgid "Description"
 msgstr "描述"
 
-#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:548
+#: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
 msgid "Will be rendered as Markdown"
 msgstr "會以 Markdown 格式顯示"
 
@@ -177,12 +177,12 @@ msgid "Forum"
 msgstr "論壇"
 
 #: nextcloudappstore/core/models.py:97 nextcloudappstore/core/models.py:375
-#: nextcloudappstore/core/models.py:542
+#: nextcloudappstore/core/models.py:527
 msgid "Created at"
 msgstr "建立於"
 
 #: nextcloudappstore/core/models.py:98 nextcloudappstore/core/models.py:376
-#: nextcloudappstore/core/models.py:543
+#: nextcloudappstore/core/models.py:528
 msgid "Updated at"
 msgstr "更新於"
 
@@ -249,7 +249,7 @@ msgid "Used to approve integrations"
 msgstr "用於批准整合"
 
 #: nextcloudappstore/core/models.py:126 nextcloudappstore/core/models.py:281
-#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:497
+#: nextcloudappstore/core/models.py:357 nextcloudappstore/core/models.py:482
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "應用程式"
@@ -313,15 +313,15 @@ msgstr "版本"
 msgid "Version follows Semantic Versioning"
 msgstr "版本號遵從 Semantic Versioning"
 
-#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:643
+#: nextcloudappstore/core/models.py:360 nextcloudappstore/core/models.py:628
 msgid "PHP extension dependency"
 msgstr "需要的 PHP 擴充元件"
 
-#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:610
+#: nextcloudappstore/core/models.py:363 nextcloudappstore/core/models.py:595
 msgid "Database dependency"
 msgstr "需要的數據庫"
 
-#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:365 nextcloudappstore/core/models.py:558
 msgid "License"
 msgstr "授權"
 
@@ -375,291 +375,273 @@ msgstr "更新紀錄"
 msgid "The release changelog. Can contain Markdown"
 msgstr "新版本的修改紀錄，可以使用 Markdown 撰寫"
 
-#: nextcloudappstore/core/models.py:387
-msgid "AppAPI communication protocol"
-msgstr "AppAPI 通訊協定"
-
-#: nextcloudappstore/core/models.py:391
-msgid ""
-"If empty, then this is a release of a regular application; any other value "
-"indicates the application protocol for the AppAPI system"
-msgstr "如果留空，則這是一個常規應用程式的版本；任何其他值都表示 AppAPI 系統的應用程式協議"
-
-#: nextcloudappstore/core/models.py:397
+#: nextcloudappstore/core/models.py:386
 msgid "AppAPI system app flag"
 msgstr "AppAPI 系統應用程式標誌"
 
-#: nextcloudappstore/core/models.py:399
+#: nextcloudappstore/core/models.py:388
 msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr "該應用程式是否是系統級的（即可以在不需要用戶與應用程式互動的情況下模擬用戶）"
 
-#: nextcloudappstore/core/models.py:406 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:603
-#: nextcloudappstore/core/models.py:634
+#: nextcloudappstore/core/models.py:396 nextcloudappstore/core/models.py:446
+#: nextcloudappstore/core/models.py:467 nextcloudappstore/core/models.py:588
+#: nextcloudappstore/core/models.py:619
 msgid "App release"
 msgstr "應用程式版本"
 
-#: nextcloudappstore/core/models.py:407
+#: nextcloudappstore/core/models.py:397
 msgid "App releases"
 msgstr "應用程式版本"
 
-#: nextcloudappstore/core/models.py:460
+#: nextcloudappstore/core/models.py:450
 msgid "Deploy Identifier"
 msgstr "部署識別"
 
-#: nextcloudappstore/core/models.py:463
+#: nextcloudappstore/core/models.py:453
 msgid "Installer specific data"
 msgstr "安裝程式特定的資料"
 
-#: nextcloudappstore/core/models.py:464
+#: nextcloudappstore/core/models.py:454
 msgid "JSON data for AppAPI installer depending on installation type"
 msgstr "根據安裝類型，提供給 AppAPI 安裝程式的 JSON 資料"
 
-#: nextcloudappstore/core/models.py:469
+#: nextcloudappstore/core/models.py:459
 msgid "AppAPI release Deploy method"
 msgstr "AppAPI 發布的部署方法"
 
-#: nextcloudappstore/core/models.py:470
+#: nextcloudappstore/core/models.py:460
 msgid "AppAPI release Deploy methods"
 msgstr "AppAPI 發布的部署方法"
 
-#: nextcloudappstore/core/models.py:482
-msgid "Is scope optional"
-msgstr "範圍（scope）是否為非強制項？"
-
-#: nextcloudappstore/core/models.py:483
-msgid "Is it possible for the application to work without this API group?"
-msgstr "應用程式是否可以在沒有這個 API 群組的情況下運作？"
-
-#: nextcloudappstore/core/models.py:486
+#: nextcloudappstore/core/models.py:471
 msgid "Name of the API scope"
 msgstr "API範圍的名稱"
 
-#: nextcloudappstore/core/models.py:490
+#: nextcloudappstore/core/models.py:475
 msgid "AppAPI release API Scope"
 msgstr "AppAPI 發布的 API 範圍"
 
-#: nextcloudappstore/core/models.py:491
+#: nextcloudappstore/core/models.py:476
 msgid "AppAPI release API Scopes"
 msgstr "AppAPI 發布的 API 範圍"
 
-#: nextcloudappstore/core/models.py:495
+#: nextcloudappstore/core/models.py:480
 msgid "Image URL"
 msgstr "圖片連結"
 
-#: nextcloudappstore/core/models.py:496
+#: nextcloudappstore/core/models.py:481
 msgid "Small thumbnail"
 msgstr "小縮圖"
 
-#: nextcloudappstore/core/models.py:498
+#: nextcloudappstore/core/models.py:483
 msgid "Ordering"
 msgstr "排序"
 
-#: nextcloudappstore/core/models.py:501
+#: nextcloudappstore/core/models.py:486
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:95
 #: nextcloudappstore/core/templates/app/list.html:97
 msgid "Screenshot"
 msgstr "螢幕截圖"
 
-#: nextcloudappstore/core/models.py:502
+#: nextcloudappstore/core/models.py:487
 msgid "Screenshots"
 msgstr "螢幕截圖"
 
-#: nextcloudappstore/core/models.py:521 nextcloudappstore/core/models.py:526
+#: nextcloudappstore/core/models.py:506 nextcloudappstore/core/models.py:511
 msgid "Shell command"
 msgstr "命令列指令"
 
-#: nextcloudappstore/core/models.py:522
+#: nextcloudappstore/core/models.py:507
 msgid "Name of a required shell command, e.g. grep"
 msgstr "需要的命令列指令名稱，例如 grep"
 
-#: nextcloudappstore/core/models.py:527
+#: nextcloudappstore/core/models.py:512
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "命令列指令"
 
-#: nextcloudappstore/core/models.py:539 nextcloudappstore/core/models.py:565
-#: nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:524 nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:570
 msgid "Id"
 msgstr "ID"
 
-#: nextcloudappstore/core/models.py:540
+#: nextcloudappstore/core/models.py:525
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr "類別ID，用於標識應用上傳到的類別"
 
-#: nextcloudappstore/core/models.py:546
+#: nextcloudappstore/core/models.py:531
 msgid "Category name which will be presented to the user"
 msgstr "顯示給用戶的分類名稱"
 
-#: nextcloudappstore/core/models.py:553
+#: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
 #: nextcloudappstore/scaffolding/forms.py:57
 #: nextcloudappstore/scaffolding/forms.py:91
 msgid "Categories"
 msgstr "分類"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:551
 msgid "Key which is used to identify a license"
 msgstr "用來分辨軟體授權的關鍵字"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:554
 msgid "License name which will be presented to the user"
 msgstr "顯示給用戶的軟體授權名稱"
 
-#: nextcloudappstore/core/models.py:574
+#: nextcloudappstore/core/models.py:559
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "授權"
 
-#: nextcloudappstore/core/models.py:586
+#: nextcloudappstore/core/models.py:571
 msgid "Key which is used to identify a database"
 msgstr "用來分辨數據庫的關鍵字"
 
-#: nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:574
 msgid "Database name which will be presented to the user"
 msgstr "顯示給用戶的數據庫名稱"
 
-#: nextcloudappstore/core/models.py:593 nextcloudappstore/core/models.py:605
+#: nextcloudappstore/core/models.py:578 nextcloudappstore/core/models.py:590
 msgid "Database"
 msgstr "數據庫"
 
-#: nextcloudappstore/core/models.py:594
+#: nextcloudappstore/core/models.py:579
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "數據庫"
 
-#: nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:591
 msgid "Database version requirement"
 msgstr "數據庫版本需求"
 
-#: nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:592
 msgid "Database version requirement (raw)"
 msgstr "數據庫版本需求（原始）"
 
-#: nextcloudappstore/core/models.py:611
+#: nextcloudappstore/core/models.py:596
 msgid "Database dependencies"
 msgstr "數據庫相依元件"
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:605
 msgid "e.g. libxml"
 msgstr "例如 libxml"
 
-#: nextcloudappstore/core/models.py:620 nextcloudappstore/core/models.py:624
-#: nextcloudappstore/core/models.py:637
+#: nextcloudappstore/core/models.py:605 nextcloudappstore/core/models.py:609
+#: nextcloudappstore/core/models.py:622
 msgid "PHP extension"
 msgstr "PHP 擴充元件"
 
-#: nextcloudappstore/core/models.py:625
+#: nextcloudappstore/core/models.py:610
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP 擴充元件"
 
-#: nextcloudappstore/core/models.py:639
+#: nextcloudappstore/core/models.py:624
 msgid "Extension version requirement"
 msgstr "擴充元件版本需求"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:625
 msgid "Extension version requirement (raw)"
 msgstr "擴充元件版本需求（原始）"
 
-#: nextcloudappstore/core/models.py:644
+#: nextcloudappstore/core/models.py:629
 msgid "PHP extension dependencies"
 msgstr "需要的 PHP 擴充元件"
 
-#: nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:637
 msgid "Heading"
 msgstr "標題"
 
-#: nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:638
 msgid "Excerpt"
 msgstr "摘錄"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:639
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "連結"
 
-#: nextcloudappstore/core/models.py:655
+#: nextcloudappstore/core/models.py:640
 msgid "Image"
 msgstr "圖像"
 
-#: nextcloudappstore/core/models.py:656
+#: nextcloudappstore/core/models.py:641
 msgid "Show podcast"
 msgstr "顯示 podcast"
 
-#: nextcloudappstore/core/models.py:659
+#: nextcloudappstore/core/models.py:644
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud Podcast"
 
-#: nextcloudappstore/core/models.py:660
+#: nextcloudappstore/core/models.py:645
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud Podcasts"
 
-#: nextcloudappstore/core/models.py:684
+#: nextcloudappstore/core/models.py:669
 msgid "App release deletion"
 msgstr "應用程式版本刪除"
 
-#: nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:670
 msgid "App release deletions"
 msgstr "應用程式版本刪除"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:689
 msgid "App rating deletion"
 msgstr "應用程式評分刪除"
 
-#: nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:690
 msgid "App rating deletions"
 msgstr "應用程式評分刪除"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 #: nextcloudappstore/core/templates/app/detail.html:140
 #: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Nextcloud 版本"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:704
 msgid "e.g. 9.0.54"
 msgstr "如：9.0.54"
 
-#: nextcloudappstore/core/models.py:722
+#: nextcloudappstore/core/models.py:707
 msgid "Is current version"
 msgstr "是目前版本"
 
-#: nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:709
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr "只有一個版本可以是當前一個。此字段用於預選擇下拉菜單以生成應用程式等等。"
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:717
 msgid "Has a release"
 msgstr "有一份最新發行"
 
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:719
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr "如果為 true，則這是實際發佈的Nextcloud版本，可以下載為存檔。如果為 false，則該版本為預發行版本，或者不再可供下載。"
 
-#: nextcloudappstore/core/models.py:744
+#: nextcloudappstore/core/models.py:729
 msgid "Version is supported"
 msgstr "版本不支援"
 
-#: nextcloudappstore/core/models.py:745
+#: nextcloudappstore/core/models.py:730
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr "如果仍正式支持此版本，則為 True（不包括企業支持）"
 
-#: nextcloudappstore/core/models.py:750
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud release"
 msgstr "Nextcloud 已發佈新版本"
 
-#: nextcloudappstore/core/models.py:751
+#: nextcloudappstore/core/models.py:736
 msgid "Nextcloud releases"
 msgstr "Nextcloud 已發佈新版本"
 
