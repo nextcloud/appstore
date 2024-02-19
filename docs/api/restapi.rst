@@ -74,6 +74,8 @@ The following API routes are present:
 
 * :ref:`api-all-app-ratings`
 
+* :ref:`api-get-app-discover`
+
 .. _api-token:
 
 Get API Token
@@ -720,7 +722,7 @@ Before you can upload release you first need to register its app id. To do that 
 
 You can also use this route to register a new certificate for an app if you are the app owner. However keep in mind that this will delete all previous app releases, since their signatures are now invalid and not installable anymore.
 
-Find out more how to generate and request the certificate signature by following the :doc:`developer`.
+Find out more how to generate and request the certificate signature by following the :ref:`developer-guide`.
 
 .. note:: **DO NOT** post your private key which is stored in the **.key** file. The private certificate needs to be stored securely. If you are unsure whether a file is a private certificate or the public one: your private certificate's content starts with **-----BEGIN PRIVATE KEY-----**, whereas your public certificate's content starts with **-----BEGIN CERTIFICATE-----**
 
@@ -916,3 +918,12 @@ translations
     can contain 0 or any number of translated comments. If no comment is available for the currently chosen language, only the rating should be considered. Contains Markdown.
 rating
     range from 0.0 (worst) to 1.0 (best)
+
+.. _api-get-app-discover:
+
+Get the app discover data
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TBD
+
+For the specification of the data format see :ref:`app-discover`.

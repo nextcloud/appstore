@@ -1,3 +1,5 @@
+.. _developer-guide:
+
 App Developer Guide
 ===================
 
