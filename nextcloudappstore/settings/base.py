@@ -59,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "nextcloudappstore.urls"
+DISCOVER_PATH = os.path.join(BASE_DIR.parent, "discover.json")
+DISCOVER_SCHEME = os.path.join(BASE_DIR.parent, "docs/api/app-discover.schema.json")
 
 TEMPLATES = [
     {
@@ -122,6 +124,7 @@ REST_FRAMEWORK = {
         "app_upload": "100/day",
         "app_register": "100/day",
         "api_token_gen": "30/minute",
+        "discover_upload": "10/minute",  # TO-DO: change to 2 before merge
     },
 }
 
