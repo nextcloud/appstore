@@ -9,6 +9,7 @@ from nextcloudappstore.api.v1.views import (
     AppsView,
     AppView,
     CategoryView,
+    DiscoverView,
     NextcloudReleaseView,
     RegenerateAuthToken,
     SessionObtainAuthToken,
@@ -21,6 +22,7 @@ from nextcloudappstore.core.caching import (
     apps_last_modified,
     categories_etag,
     categories_last_modified,
+    discover_last_modified,
     nextcloud_release_etag,
 )
 from nextcloudappstore.core.versioning import SEMVER_REGEX
@@ -51,5 +53,10 @@ urlpatterns = [
         r"^categories.json$",
         condition(categories_etag, categories_last_modified)(CategoryView.as_view()),
         name="category",
+    ),
+    re_path(
+        r"^discover\.json$",
+        condition(last_modified_func=discover_last_modified)(DiscoverView.as_view()),
+        name="discover",
     ),
 ]

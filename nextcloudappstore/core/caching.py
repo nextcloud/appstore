@@ -1,6 +1,8 @@
 import datetime
+import os
 from typing import Any
 
+from django.conf import settings  # type: ignore
 from django.db.models import Max, QuerySet
 from semantic_version import Version
 
@@ -98,3 +100,11 @@ def nextcloud_release_etag(request: Any) -> str:
     release_num = len(releases)
     latest_release = str(max(releases)) if release_num > 0 else ""
     return "%d-%s" % (release_num, latest_release)
+
+
+def discover_last_modified(request: Any) -> datetime.datetime | None:
+    try:
+        mtime = os.path.getmtime(settings.DISCOVER_PATH)
+        return datetime.datetime.fromtimestamp(mtime)
+    except OSError:
+        return None
