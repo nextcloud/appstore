@@ -1,7 +1,6 @@
 import json
 import os
 
-import jsonschema
 import requests
 from django.conf import settings
 from django.db import transaction
@@ -9,6 +8,7 @@ from django.db.models import Count, Prefetch, Q
 from django.http import FileResponse, Http404
 from django.utils.decorators import method_decorator
 from django.views.decorators.gzip import gzip_page
+from jschon import JSON, JSONSchema, create_catalog
 from pymple import Container
 from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
@@ -353,6 +353,7 @@ class DiscoverView(APIView):
     discover_file = settings.DISCOVER_PATH
     throttle_classes = (PostThrottle,)
     throttle_scope = "discover_upload"
+    parser_classes = [parsers.MultiPartParser]
 
     def get_permissions(self):
         if self.request.method == "POST":
@@ -367,23 +368,25 @@ class DiscoverView(APIView):
         return file_response
 
     def post(self, request):
-        json_data = request.data
+        if "file" not in request.FILES:
+            return Response({"error": "No file provided."}, status=400)
+
+        catalog = create_catalog("2020-12")
         try:
-            with open(settings.DISCOVER_SCHEME) as schema_file:
-                schema = json.load(schema_file)
+            schema = JSONSchema.loadf(settings.DISCOVER_SCHEME, catalog=catalog)
         except OSError:
             return Response({"error": "Schema file not found."}, status=500)
         except json.JSONDecodeError:
             return Response({"error": "Invalid JSON schema."}, status=500)
 
-        try:
-            jsonschema.validate(instance=json_data, schema=schema)
-        except jsonschema.exceptions.ValidationError as e:
-            return Response({"error": "JSON validation error: " + str(e)}, status=400)
+        new_discover_data = request.FILES["file"].read()
+        result = schema.evaluate(JSON.loads(new_discover_data))
+        if not result.valid:
+            return Response({"errors": [error for error in result.output("detailed")["errors"]]}, status=400)
 
         try:
-            with open(self.discover_file, "w") as destination:
-                json.dump(json_data, destination)
+            with open(self.discover_file, "wb") as destination:
+                destination.write(new_discover_data)
         except OSError:
             return Response({"error": "Unable to save file."}, status=500)
         return Response({"message": "File saved successfully"}, status=200)
