@@ -125,7 +125,10 @@ REST_FRAMEWORK = {
     },
 }
 
-ACCOUNT_RATE_LIMITS = {"reset_password": "1/m"}
+ACCOUNT_RATE_LIMITS = {
+    "reset_password": "1/m/ip",
+    "login_failed": "10/h/ip",
+}
 
 SITE_ID = 1
 
@@ -357,7 +360,3 @@ NEXTCLOUD_FROM_EMAIL = "appstore@nextcloud.com"
 NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ["marketing-team@nextcloud.com"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
-
-# Account login bruteforce
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 3600  # 1 hour in seconds
