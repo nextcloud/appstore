@@ -47,7 +47,8 @@ initdb:
 	$(manage) setdefaultadminpassword --settings nextcloudappstore.settings.development
 
 .PHONY: docs
-docs:
+.PHONY: html
+docs html:
 	$(MAKE) -C $(CURDIR)/docs/ clean html
 
 .PHONY: update-dev-deps
