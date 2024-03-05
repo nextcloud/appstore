@@ -1,25 +1,32 @@
-{% extends "socialaccount/login.html" %}
+{% extends "user/base.html" %}
 {% load i18n %}
-{% load static %}
+{% load allauth %}
 
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
 {% block content %}
-<div class="central-form">
     {% if process == "connect" %}
-        <h4>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h4>
-
-        <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+        {% element h1 %}
+            {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
+        {% endelement %}
+        <p>
+            {% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}
+        </p>
     {% else %}
-        <h4>{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h4>
-
-        <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
+        {% element h1 %}
+            {% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}
+        {% endelement %}
+        <p>
+            {% blocktrans with provider.name as provider %}You are about to sign in using a third-party account from {{ provider }}.{% endblocktrans %}
+        </p>
     {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-        <button class="btn btn-primary" type="submit">
-            <span class="icon material-symbols-outlined">login</span>
-            {% trans "Continue" %}
-        </button>
-    </form>
-</div>
+    {% element form method="post" no_visible_fields=True %}
+        {% slot actions %}
+            {% csrf_token %}
+            {% element button type="submit" %}
+                {% trans "Continue" %}
+            {% endelement %}
+        {% endslot %}
+    {% endelement %}
 {% endblock content %}
