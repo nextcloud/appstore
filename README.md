@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/nextcloud/appstore.svg?branch=master)](https://travis-ci.org/nextcloud/appstore)
 [![codecov](https://codecov.io/gh/nextcloud/appstore/branch/master/graph/badge.svg?token=ABLI0g5G9q)](https://codecov.io/gh/nextcloud/appstore)
-[![Documentation Status](https://readthedocs.org/projects/nextcloudappstore/badge/?version=latest)](http://nextcloudappstore.readthedocs.io/en/latest/?badge=latest)
+[![Docs](https://github.com/nextcloud/appstore/actions/workflows/docs.yml/badge.svg)](https://nextcloud.github.io/appstore/)
 [![iRequirements Status](https://requires.io/github/nextcloud/appstore/requirements.svg?branch=master)](https://requires.io/github/nextcloud/appstore/requirements/?branch=master)
 [![Package.json Status](https://david-dm.org/nextcloud/appstore.svg)](https://david-dm.org/nextcloud/appstore)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/846/badge)](https://bestpractices.coreinfrastructure.org/projects/846)
@@ -13,7 +13,7 @@
 A new app store for Nextcloud apps built with Django. Up and running at [https://apps.nextcloud.com](https://apps.nextcloud.com). We **do not handle Nextcloud integration**. Nextcloud integration is handled in the [Nextcloud Server repository](https://github.com/nextcloud/server).
 
 ## Documentation
-Documentation including setup and API specification is [available on Read the Docs](https://nextcloudappstore.readthedocs.io/en/latest/)
+Documentation including setup and API specification is available [on the GitHub Pages](https://nextcloud.github.io/appstore/)
 
 ## Contributing
 If you want to help in developing the App Store, translating or filing bugs and feature requests, please consult the [contributing guidelines](https://github.com/nextcloud/appstore/blob/master/CONTRIBUTING.md)
