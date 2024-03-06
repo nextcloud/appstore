@@ -31,7 +31,7 @@ Look here if you want to upload your own apps or use the REST API
    :maxdepth: 2
 
    developer
-   restapi
+   api/index
 
 App Store Admin Documentation
 -----------------------------

@@ -1,0 +1,167 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/nextcloud/appstore/master/docs/api/app-discover.schema.json",
+	"title": "Apps Discover Data",
+	"description": "Catalog of elements to show on the Nextcloud appstore discover page",
+	"type": "array",
+	"items": {
+		"anyOf": [
+			{ "$ref": "#/$defs/postElement" },
+			{ "$ref": "#/$defs/showcaseElement" },
+			{ "$ref": "#/$defs/carouselElement" }
+		]
+	},
+
+	"$defs": {
+
+		"languageTag": {
+			"type": "string",
+			"pattern": "^[a-z]{2,3}(_[a-z]+)?$"
+		},
+
+		"localizedString": {
+			"type": "object",
+			"properties": {
+				"en": {
+					"type": "string"
+				}
+			},
+			"required": ["en"],
+			"patternProperties": {
+				"^[a-z]{2,3}(_[a-z]+)?$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+		"mediaContent": {
+			"type": "object",
+			"properties": {
+				"alt": { "type": "string" },
+				"src": {
+					"type": "string",
+					"format": "uri-reference"
+				},
+				"link": {
+					"type": "string",
+					"format": "uri-reference"
+				}
+			},
+			"required": ["src", "alt"]
+		},
+
+		"mediaObject": {
+			"type": "object",
+			"properties": {
+				"content": { "$ref": "#/$defs/mediaContent" },
+				"language": { "$ref": "#/$defs/languageTag" },
+				"alignment": {
+					"enum": [
+						"left",
+						"right",
+						"top"
+					]
+				}
+			},
+			"required": ["content"]
+		},
+
+		"genericElement": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string"
+				}
+			},
+			"required": ["type"]
+		},
+
+		"genericContainerElement": {
+			"$ref": "#/$defs/genericElement",
+			"type": "object",
+			"properties": {
+				"headline": { "$ref": "#/$defs/localizedString" },
+				"text": { "$ref": "#/$defs/localizedString" },
+				"link": {
+					"type": "string",
+					"format": "uri-reference"
+				},
+				"date": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"expiryDate": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+
+		"appElement": {
+			"$ref": "#/$defs/genericElement",
+			"type": "object",
+			"properties": {
+				"type": { "const": "app" },
+				"appId": { "type": "string" }
+			},
+			"requiredProperties": ["appId"],
+			"additionalProperties": false
+		},
+
+		"postElement": {
+			"$ref": "#/$defs/genericContainerElement",
+			"type": "object",
+			"properties": {
+				"type": { "const": "post" },
+				"media": {
+					"$comment": "Either a media object or an array of localized media objects",
+					"oneOf": [
+						{ "$ref": "#/$defs/mediaObject" },
+						{
+							"type": "array",
+							"items": {
+								"$ref": "#/$defs/mediaObject",
+								"required": ["language"]
+							}
+						}
+					]
+				}
+			}
+		},
+
+		"showcaseElement": {
+			"$ref": "#/$defs/genericContainerElement",
+			"type": "object",
+			"properties": {
+				"type": { "const": "showcase" },
+				"content": {
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{ "$ref": "#/$defs/appElement" },
+							{ "$ref": "#/$defs/postElement" }
+						],
+						"minItems": 2
+					}
+				}
+			},
+			"required": ["content"]
+		},
+
+		"carouselElement": {
+			"$ref": "#/$defs/genericContainerElement",
+			"type": "object",
+			"properties": {
+				"type": { "const": "carousel" },
+				"content": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/postElement",
+						"minItems": 2
+					}
+				}
+			},
+			"required": ["content"]
+		}
+
+	}
+}

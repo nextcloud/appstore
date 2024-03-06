@@ -1,10 +1,14 @@
+import json
+import os
+
 import requests
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Count, Prefetch, Q
-from django.http import Http404
+from django.http import FileResponse, Http404
 from django.utils.decorators import method_decorator
 from django.views.decorators.gzip import gzip_page
+from jschon import JSON, JSONSchema, create_catalog
 from pymple import Container
 from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
@@ -13,7 +17,7 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.generics import DestroyAPIView  # type: ignore
 from rest_framework.generics import ListAPIView, get_object_or_404
-from rest_framework.permissions import IsAuthenticated  # type: ignore
+from rest_framework.permissions import IsAdminUser, IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
 
@@ -343,3 +347,46 @@ class RegenerateAuthToken(APIView):
 
     def post(self, request, *args, **kwargs):
         return Response({"token": update_token(request.user.username).key})
+
+
+class DiscoverView(APIView):
+    discover_file = settings.DISCOVER_PATH
+    throttle_classes = (PostThrottle,)
+    throttle_scope = "discover_upload"
+    parser_classes = [parsers.MultiPartParser]
+
+    def get_permissions(self):
+        if self.request.method == "POST":
+            return [IsAuthenticated(), IsAdminUser()]
+        return []
+
+    def get(self, request, *args, **kwargs):
+        if not os.path.exists(self.discover_file):
+            return Response({"error": "File not found"}, status=404)
+
+        file_response = FileResponse(open(self.discover_file, "rb"))
+        return file_response
+
+    def post(self, request):
+        if "file" not in request.FILES:
+            return Response({"error": "No file provided."}, status=400)
+
+        catalog = create_catalog("2020-12")
+        try:
+            schema = JSONSchema.loadf(settings.DISCOVER_SCHEME, catalog=catalog)
+        except OSError:
+            return Response({"error": "Schema file not found."}, status=500)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON schema."}, status=500)
+
+        new_discover_data = request.FILES["file"].read()
+        result = schema.evaluate(JSON.loads(new_discover_data))
+        if not result.valid:
+            return Response({"errors": [error for error in result.output("detailed")["errors"]]}, status=400)
+
+        try:
+            with open(self.discover_file, "wb") as destination:
+                destination.write(new_discover_data)
+        except OSError:
+            return Response({"error": "Unable to save file."}, status=500)
+        return Response({"message": "File saved successfully"}, status=200)
