@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 02:48+0000\n"
+"POT-Creation-Date: 2024-03-06 07:07+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: devi, 2024\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/"
@@ -797,6 +797,8 @@ msgid "Register"
 msgstr "登録"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
+#: nextcloudappstore/core/templates/account/password_reset_done.html:7
+#: nextcloudappstore/core/templates/account/password_reset_done.html:11
 msgid "Password Reset"
 msgstr "パスワードのリセット"
 
@@ -815,6 +817,12 @@ msgstr "私のパスワードをリセットする"
 #: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr "パスワードをリセットする際に問題が発生した場合は、お問い合わせください"
+
+#: nextcloudappstore/core/templates/account/password_reset_done.html:17
+msgid ""
+"We have sent you an email. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -845,6 +853,21 @@ msgstr "パスワードが変更されました。"
 #: nextcloudappstore/core/templates/account/signup.html:12
 msgid "Create an account"
 msgstr "アカウント作成"
+
+#: nextcloudappstore/core/templates/account/verification_sent.html:6
+#: nextcloudappstore/core/templates/account/verification_sent.html:10
+#, fuzzy
+#| msgid "Your email address"
+msgid "Verify Your Email Address"
+msgstr "あなたのメールアドレス"
+
+#: nextcloudappstore/core/templates/account/verification_sent.html:13
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+msgstr ""
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -1496,31 +1519,49 @@ msgstr ""
 "あなたのインテグレーションが何をするかについてのすべての説明。 Markdownを含む"
 "ことができます。"
 
-#: nextcloudappstore/templates/socialaccount/login.html:8
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:5
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:9
+msgid "Third-Party Login Failure"
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
+msgid ""
+"An error occurred while attempting to login via your third-party account."
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/login.html:6
+msgid "Sign In"
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/login.html:11
 #, python-format
 msgid "Connect %(provider)s"
 msgstr "接続 %(provider)s"
 
-#: nextcloudappstore/templates/socialaccount/login.html:10
-#, python-format
-msgid "You are about to connect a new third party account from %(provider)s."
+#: nextcloudappstore/templates/socialaccount/login.html:14
+#, fuzzy, python-format
+#| msgid ""
+#| "You are about to connect a new third party account from %(provider)s."
+msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr ""
 "あなたは%(provider)sから新しいサードパーティのアカウントを接続しようとしてい"
 "ます。"
 
-#: nextcloudappstore/templates/socialaccount/login.html:12
+#: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr "%(provider)s 経由でサインイン"
 
-#: nextcloudappstore/templates/socialaccount/login.html:14
-#, python-format
-msgid "You are about to sign in using a third party account from %(provider)s."
+#: nextcloudappstore/templates/socialaccount/login.html:21
+#, fuzzy, python-format
+#| msgid ""
+#| "You are about to sign in using a third party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 "あなたは%(provider)sからのサードパーティのアカウントを使用してサインインしよ"
 "うとしています。"
 
-#: nextcloudappstore/templates/socialaccount/login.html:21
+#: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
 msgstr "続ける"
 

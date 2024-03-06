@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 02:48+0000\n"
+"POT-Creation-Date: 2024-03-06 07:07+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Gonçalo Heleno, 2023\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/nextcloud/"
@@ -778,6 +778,8 @@ msgid "Register"
 msgstr "Registar"
 
 #: nextcloudappstore/core/templates/account/password_reset.html:11
+#: nextcloudappstore/core/templates/account/password_reset_done.html:7
+#: nextcloudappstore/core/templates/account/password_reset_done.html:11
 msgid "Password Reset"
 msgstr "Restaurar palavra-passe"
 
@@ -794,6 +796,12 @@ msgstr "Restaurar a minha palavra-passe"
 #: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr "Por favor contacte-nos se tiver problemas a restaurar a palavra-passe"
+
+#: nextcloudappstore/core/templates/account/password_reset_done.html:17
+msgid ""
+"We have sent you an email. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -823,6 +831,21 @@ msgstr "A sua palavra-passe foi alterada."
 
 #: nextcloudappstore/core/templates/account/signup.html:12
 msgid "Create an account"
+msgstr ""
+
+#: nextcloudappstore/core/templates/account/verification_sent.html:6
+#: nextcloudappstore/core/templates/account/verification_sent.html:10
+#, fuzzy
+#| msgid "Your email address"
+msgid "Verify Your Email Address"
+msgstr "O seu endereço de email"
+
+#: nextcloudappstore/core/templates/account/verification_sent.html:13
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
 msgstr ""
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
@@ -1459,27 +1482,41 @@ msgstr ""
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/login.html:8
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:5
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:9
+msgid "Third-Party Login Failure"
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
+msgid ""
+"An error occurred while attempting to login via your third-party account."
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/login.html:6
+msgid "Sign In"
+msgstr ""
+
+#: nextcloudappstore/templates/socialaccount/login.html:11
 #, python-format
 msgid "Connect %(provider)s"
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/login.html:10
+#: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
-msgid "You are about to connect a new third party account from %(provider)s."
+msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/login.html:12
+#: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/login.html:14
+#: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid "You are about to sign in using a third party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/login.html:21
+#: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
 msgstr "Continuar"
 
