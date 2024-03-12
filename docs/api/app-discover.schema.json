@@ -14,11 +14,6 @@
 
 	"$defs": {
 
-		"languageTag": {
-			"type": "string",
-			"pattern": "^[a-z]{2,3}(_[a-z]+)?$"
-		},
-
 		"localizedString": {
 			"type": "object",
 			"properties": {
@@ -33,27 +28,57 @@
 			"additionalProperties": false
 		},
 
-		"mediaContent": {
+		"mediaSource": {
 			"type": "object",
 			"properties": {
-				"alt": { "type": "string" },
+				"mime": { "type": "string" },
 				"src": {
 					"type": "string",
 					"format": "uri-reference"
+				}
+			},
+			"required": ["src", "mime"]
+		},
+
+		"mediaContent": {
+			"type": "object",
+			"properties": {
+				"src": {
+					"oneOf": [
+						{ "$ref": "#/$defs/mediaSource" },
+						{
+							"type": "array",
+							"items": { "$ref": "#/$defs/mediaSource" }
+						}
+					]
 				},
+				"alt": { "type": "string" },
 				"link": {
 					"type": "string",
 					"format": "uri-reference"
 				}
 			},
-			"required": ["src", "alt"]
+			"required": ["alt", "src"]
+		},
+
+		"localizedMediaContent": {
+			"type": "object",
+			"properties": {
+				"en": {
+					"$ref": "#/$defs/mediaContent"
+				}
+			},
+			"required": ["en"],
+			"patternProperties": {
+				"^[a-z]{2,3}(_[a-z]+)?$": { "$ref": "#/$defs/mediaContent" }
+			},
+			"additionalProperties": false
 		},
 
 		"mediaObject": {
 			"type": "object",
 			"properties": {
-				"content": { "$ref": "#/$defs/mediaContent" },
-				"language": { "$ref": "#/$defs/languageTag" },
+				"content": { "$ref": "#/$defs/localizedMediaContent" },
 				"alignment": {
 					"enum": [
 						"start",
@@ -120,19 +145,7 @@
 			"type": "object",
 			"properties": {
 				"type": { "const": "post" },
-				"media": {
-					"$comment": "Either a media object or an array of localized media objects",
-					"oneOf": [
-						{ "$ref": "#/$defs/mediaObject" },
-						{
-							"type": "array",
-							"items": {
-								"$ref": "#/$defs/mediaObject",
-								"required": ["language"]
-							}
-						}
-					]
-				}
+				"media": { "$ref": "#/$defs/mediaObject" }
 			}
 		},
 
