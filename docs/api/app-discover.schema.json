@@ -79,6 +79,10 @@
 			"$ref": "#/$defs/genericElement",
 			"type": "object",
 			"properties": {
+				"id": {
+					"$comment": "A unique ID, using UUID v4 is recommended",
+					"type": "string"
+				},
 				"headline": { "$ref": "#/$defs/localizedString" },
 				"text": { "$ref": "#/$defs/localizedString" },
 				"link": {
