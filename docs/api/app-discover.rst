@@ -35,6 +35,10 @@ All content types are sharing a common interface
 	{
 		// The type of the element
 		"type": "post",
+		// ID to indentify this element
+		"id": "1d41a08e-4aa6-49b3-ad1b-ff2e83bcdc88",
+		// (optional) if set this element will be always shown on that specified position
+		"order": 1,
 		// (optional) if set the content will only be shown starting that date
 		"date": "2024-04-04T20:00:00Z",
 		// (optional) if set the content will only be shown UNTIL that date
@@ -61,6 +65,7 @@ Example 1: Post with image
 
 	{
 		"type": "post",
+		"id": "1d41a08e-4aa6-49b3-ad1b-ff2e83bcdc88",
 		"headline": {
 			"en": "Amazing wallpapers",
 			"de": "Bezaubernde Hintergründe"
@@ -71,10 +76,15 @@ Example 1: Post with image
 		},
 		"link": "https://example.com/wallpapers",
 		"media": {
-			"alignment": "right",
+			"alignment": "end",
 			"content": {
-				"src": "http://example.com/a.png",
-				"alt": "Amazing wallpaper"
+				"en": {
+					"src": {
+						"src": "http://example.com/a.png",
+						"mime": "image/png"
+					},
+					"alt": "Amazing wallpaper"
+				}
 			}
 		}
 	}
@@ -89,11 +99,17 @@ Example 2: Post with video
 
 	{
 		"type": "post",
+		"id": "1d41a08e-4aa6-49b3-ad1b-ff2e83bcdc88",
 		"media": {
 			"content": {
-				"src": "https://example.com/preview.webp", // the preview image (or animation)
-				"alt": "Some alternative text",
-				"link": "http://example.com/full-video" // the link to navigate to when pressing "Play video"
+				"en": {
+					"src": {
+						"src": "https://example.com/preview.webp", // the preview image (or animation)
+						"mime": "image/webp"
+					},
+					"alt": "Some alternative text",
+					"link": "http://example.com/full-video" // the link to navigate to when pressing "Play video"
+				}
 			}
 		}
 	}
@@ -112,22 +128,24 @@ For this use an array for ``media`` instead:
 	{
 		"type": "post",
 		// ...
-		"media": [
-			{
-				"language": "en",
-				"content": {
-					"src": "https://example.com/english.webp",
+		"media": {
+			"content": {
+				"en": {
+					"src": {
+						"src": "https://example.com/english.webp",
+						"mime": "image/webp"
+					},
 					"alt": "Some alternative text"
 				}
-			},
-			{
-				"language": "de",
-				"content": {
-					"src": "https://example.com/german.webp",
+				"de": {
+					"src": {
+						"src": "https://example.com/german.webp",
+						"mime": "image/webp"
+					},
 					"alt": "Ein Alternativtext"
 				}
 			}
-		]
+		}
 	}
 
 Showcase: ``type: "showcase"``
@@ -142,6 +160,7 @@ Example: Showcase with headline and apps
 
 	{
 		"type": "showcase",
+		// ...
 		"headline": {
 			"en": "5 top rated apps over all time"
 		},
@@ -175,8 +194,13 @@ Example: Showcase with headline and media entries
 				"type": "post",
 				"media": {
 					"content": {
-						"src": "http://example.com/first.png",
-						"alt": "Wallpaper..."
+						"en": {
+							"src": {
+								"src": "http://example.com/first.png",
+								"mime": "image/png"
+							},
+							"alt": "Wallpaper..."
+						}
 					}
 				}
 			},
@@ -184,8 +208,13 @@ Example: Showcase with headline and media entries
 				"type": "post",
 				"media": {
 					"content": {
-						"src": "http://example.com/second.png",
-						"alt": "Another Wallpaper..."
+						"en": {
+							"src": {
+								"src": "http://example.com/second.png",
+								"mime": "image/png"
+							},
+							"alt": "Another wallpaper..."
+						}
 					}
 				}
 			}
@@ -220,8 +249,13 @@ Example: Carousel with post content
 				},
 				"media": {
 					"content": {
-						"src": "http://example.com/nextcloud-office.png",
-						"alt": "..."
+						"en": {
+							"src": {
+								"src": "http://example.com/first.png",
+								"mime": "image/png"
+							},
+							"alt": "..."
+						}
 					}
 				}
 			},
@@ -250,9 +284,14 @@ Example: Carousel with headline and media content
 				"type": "post",
 				"media": {
 					"content": {
-						"src": "https://example.com/preview.webp", // the preview image (or animation)
-						"alt": "Some alternative text",
-						"link": "http://example.com/full-video" // the link to navigate to when pressing "Play video"
+						"en": {
+							"src": {
+								"src": "http://example.com/first.png",
+								"mime": "image/png"
+							},
+							"alt": "...",
+							"link": "..."
+						}
 					}
 				}
 			},
@@ -305,6 +344,10 @@ This element all other inherit from
 +----------------+---------------------------------------+-------------+-------------------------------------------------------------------------------------------------+
 |       ``type`` | string                                |  yes        |                                                                                                 |
 +----------------+---------------------------------------+-------------+-------------------------------------------------------------------------------------------------+
+|         ``id`` | string                                |  yes        |                                                                                                 |
++----------------+---------------------------------------+-------------+-------------------------------------------------------------------------------------------------+
+|      ``order`` | integer                               |             | For manual ordering. Elements without ``order`` are shuffled                                    |
++----------------+---------------------------------------+-------------+-------------------------------------------------------------------------------------------------+
 |   ``headline`` | :ref:`app-discover-localized-strings` |             |                                                                                                 |
 +----------------+---------------------------------------+-------------+-------------------------------------------------------------------------------------------------+
 |       ``text`` | :ref:`app-discover-localized-strings` |             |                                                                                                 |
@@ -319,7 +362,7 @@ This element all other inherit from
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 68-97
+   :lines: 93-130
 
 .. _app-discover-localized-strings:
 
@@ -343,7 +386,7 @@ Localized strings are objects with the language code as the key and the translat
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 22-35
+   :lines: 17-29
 
 .. _app-discover-media-object:
 
@@ -357,30 +400,53 @@ Media objects are used within the post element, they allow to embed video or ima
 +---------------+-----------------------------------+-------------+-------------------------------------------------------------------------------------------------+
 |   ``content`` | :ref:`app-discover-media-content` |  yes        | The content to show                                                                             |
 +---------------+-----------------------------------+-------------+-------------------------------------------------------------------------------------------------+
-|  ``language`` | string                            |             | For media sets this defines the language used within the media                                  |
-+---------------+-----------------------------------+-------------+-------------------------------------------------------------------------------------------------+
 | ``alignment`` | string                            |             | When combined with text this defined the media alignment. One of: ``left``, ``right``, ``top``  |
 +---------------+-----------------------------------+-------------+-------------------------------------------------------------------------------------------------+
+
+.. literalinclude:: ./app-discover.schema.json
+   :language: json
+   :linenos:
+   :lines: 78-91
 
 .. _app-discover-media-content:
 
 Media content
 """""""""""""
 
-+---------------+------------------+-------------+-------------------------------------------------------------------------------------------------+
-|     Property  | Type             | Is required | Notes                                                                                           |
-+---------------+------------------+-------------+-------------------------------------------------------------------------------------------------+
-|       ``src`` | URL              |  yes        | The media source (in case of videos the preview)                                                |
-+---------------+------------------+-------------+-------------------------------------------------------------------------------------------------+
-|       ``alt`` | string           |  yes        | The alternative text for the media                                                              |
-+---------------+------------------+-------------+-------------------------------------------------------------------------------------------------+
-|      ``link`` | URL              |             | In case of videos this is the link to navigate when pressing the play-video button              |
-+---------------+------------------+-------------+-------------------------------------------------------------------------------------------------+
+The media content is dictionary similar to :ref:`app-discover-localized-strings` but instead of strings its values are media content objects with following properties:
+
++---------------+-------------------------------------------------+-------------+------------------------------------------------------------------------------------+
+|     Property  | Type                                            | Is required | Notes                                                                              |
++---------------+-------------------------------------------------+-------------+------------------------------------------------------------------------------------+
+|       ``src`` | :ref:`app-discover-media-source` or array of it |  yes        | The media source, use an array for fallback options (source sets)                  |
++---------------+-------------------------------------------------+-------------+------------------------------------------------------------------------------------+
+|       ``alt`` | string                                          |  yes        | The alternative text for the media                                                 |
++---------------+-------------------------------------------------+-------------+------------------------------------------------------------------------------------+
+|      ``link`` | URL                                             |             | In case of videos this is the link to navigate when pressing the play-video button |
++---------------+-------------------------------------------------+-------------+------------------------------------------------------------------------------------+
 
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 36-67
+   :lines: 43-62
+
+.. _app-discover-media-source:
+
+Media source
+""""""""""""
+
++---------------+---------+-------------+------------------------------------------------------------------------------------+
+|     Property  | Type    | Is required | Notes                                                                              |
++---------------+---------+-------------+------------------------------------------------------------------------------------+
+|       ``src`` | URL     |  yes        | The URL of the media element                                                       |
++---------------+---------+-------------+------------------------------------------------------------------------------------+
+|      ``mime`` | string  |  yes        | The MIME type of the media element                                                 |
++---------------+---------+-------------+------------------------------------------------------------------------------------+
+
+.. literalinclude:: ./app-discover.schema.json
+   :language: json
+   :linenos:
+   :lines: 31-41
 
 .. _app-discover-app-element:
 
@@ -400,7 +466,7 @@ The app element is only used in ``showcase`` elements.
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 99-109
+   :lines: 132-142
 
 .. _app-discover-post-element:
 
@@ -420,7 +486,7 @@ The post element is the basic element for media or text entries, it inherits fro
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 110-130
+   :lines: 143-150
 
 The showcase-element
 ^^^^^^^^^^^^^^^^^^^^
@@ -438,7 +504,7 @@ The showcase elements allows to display multiple posts inside one element, it in
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 131-149
+   :lines: 152-169
 
 The carousel-element
 ^^^^^^^^^^^^^^^^^^^^
@@ -456,4 +522,4 @@ The carousel elements allows to display multiple posts inside carousel. It inher
 .. literalinclude:: ./app-discover.schema.json
    :language: json
    :linenos:
-   :lines: 150-165
+   :lines: 171-185
