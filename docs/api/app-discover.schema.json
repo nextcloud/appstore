@@ -83,6 +83,10 @@
 					"$comment": "A unique ID, using UUID v4 is recommended",
 					"type": "string"
 				},
+				"order": {
+					"$comment": "Optional order for fixed order of elements",
+					"type": "integer"
+				},
 				"headline": { "$ref": "#/$defs/localizedString" },
 				"text": { "$ref": "#/$defs/localizedString" },
 				"link": {
