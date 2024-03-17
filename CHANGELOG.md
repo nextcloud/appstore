@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+## [4.8.0]  - 2024-03-17
+
+### Added
+
+- App-discover API endpoint for `Nextcloud 29` #1302 #1313
+
+### Changed
+
+- follow-redirects updated from `1.15.5` to `1.15.6` #1315
+- jasmine-core updated from `5.1.1` to `5.1.2` #1309
+- karma updated from `6.4.2` to `6.4.3` #1310
+- karma-webpack updated from `5.0.0` to `5.0.1` #1318
+
+### Fixed
+
+- Broken templates after `django-allauth` update. #1304
+- Documentation hosting & building.
+
 ## [4.7.0]  - 2024-02-15
 
 ### Added

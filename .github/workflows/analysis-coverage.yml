@@ -14,6 +14,9 @@ jobs:
       matrix:
         python-version: ['3.10', '3.11']
         db-type: [postgres, sqlite]
+        exclude:
+          - python-version: '3.10'
+            db-type: 'sqlite'
 
     services:
       postgres:
