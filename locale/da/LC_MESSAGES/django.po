@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Michael Rønne <michaelfriberg@gmail.com>, 2016
 # Kenneth Gudbergsen <kenneth@gudbergsen.dk>, 2017
@@ -21,7 +21,8 @@
 # Thomas Nielsen <thsnielsen@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Martin Bonde <Martin@maboni.dk>, 2024
-#
+# Kevin Tobiasen, 2024
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -29,12 +30,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-13 03:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Martin Bonde <Martin@maboni.dk>, 2024\n"
+"Last-Translator: Kevin Tobiasen, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/nextcloud/teams/64236/da/)\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:14
@@ -93,16 +94,17 @@ msgstr "Offentligt certefikat"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 "Sædvanligvis lagret i ~/.nextcloud/certificates/APP_ID.crt, hvor APP_ID er "
 "din app's ID. Hvis du ikke har et certifikat skal først lave et certificate "
-"sign request (CSR) som skal tilføjes <a href=\"https://github.com/nextcloud/"
-"app-certificate-requests\" rel=\"noreferrer noopener\">certifikat lageret</"
-"a> (følg README). Du kan generere CSR'en ved at eksekvere følgende kommando:"
+"sign request (CSR) som skal tilføjes <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certifikat lageret</a> (følg README). Du kan "
+"generere CSR'en ved at eksekvere følgende kommando:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -256,8 +258,8 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Hvis slået til, kan en bruger prøve at registrere den samme app igen med det "
-"offentlige certifikat og signatur. Hvis han gør dette, vil appen blive "
+"Hvis slået til, kan en bruger prøve at registrere den samme app igen med det"
+" offentlige certifikat og signatur. Hvis han gør dette, vil appen blive "
 "overført til ham."
 
 #: nextcloudappstore/core/models.py:122
@@ -436,19 +438,19 @@ msgstr "AppAPI release Implementeringsmetode"
 
 #: nextcloudappstore/core/models.py:460
 msgid "AppAPI release Deploy methods"
-msgstr ""
+msgstr "AppAPI release Deploy methods"
 
 #: nextcloudappstore/core/models.py:471
 msgid "Name of the API scope"
-msgstr ""
+msgstr "API-scopets navn"
 
 #: nextcloudappstore/core/models.py:475
 msgid "AppAPI release API Scope"
-msgstr ""
+msgstr "AppAPI release API Scope"
 
 #: nextcloudappstore/core/models.py:476
 msgid "AppAPI release API Scopes"
-msgstr ""
+msgstr "AppAPI release API Scopes"
 
 #: nextcloudappstore/core/models.py:480
 msgid "Image URL"
@@ -581,7 +583,7 @@ msgstr "Overskrift"
 
 #: nextcloudappstore/core/models.py:638
 msgid "Excerpt"
-msgstr ""
+msgstr "Uddrag"
 
 #: nextcloudappstore/core/models.py:639
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
@@ -594,15 +596,15 @@ msgstr "Billede"
 
 #: nextcloudappstore/core/models.py:641
 msgid "Show podcast"
-msgstr ""
+msgstr "Vis podcast"
 
 #: nextcloudappstore/core/models.py:644
 msgid "Nextcloud Podcast"
-msgstr ""
+msgstr "Nextcloud Podcast"
 
 #: nextcloudappstore/core/models.py:645
 msgid "Nextcloud Podcasts"
-msgstr ""
+msgstr "Nextcloud Podcasts"
 
 #: nextcloudappstore/core/models.py:669
 msgid "App release deletion"
@@ -614,11 +616,11 @@ msgstr "App udgivelse slettelser"
 
 #: nextcloudappstore/core/models.py:689
 msgid "App rating deletion"
-msgstr ""
+msgstr "Sletning af appbedømmelse"
 
 #: nextcloudappstore/core/models.py:690
 msgid "App rating deletions"
-msgstr ""
+msgstr "Sletning af appbedømmelser"
 
 #: nextcloudappstore/core/models.py:704
 #: nextcloudappstore/core/templates/app/detail.html:140
@@ -648,8 +650,8 @@ msgstr "Har en udgivelse"
 
 #: nextcloudappstore/core/models.py:719
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Hvis aktiveret, er dette en aktuelle udgivet Nextcloud version, som kan "
@@ -665,8 +667,8 @@ msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
-"Sandt hvis denne version stadig er officielt supporteret (enterprise support "
-"ekskluderet)"
+"Sandt hvis denne version stadig er officielt supporteret (enterprise support"
+" ekskluderet)"
 
 #: nextcloudappstore/core/models.py:735
 msgid "Nextcloud release"
@@ -708,23 +710,19 @@ msgstr "For mange forsøg. Prøv igen om nogle få minutter."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Hilsen fra %(site_name)s!\n"
 "\n"
-"Du modtager denne e-mail, fordi brugeren %(user_display)shar knyttet denne e-"
-"mailadresse til deres konto på %(site_domain)s.\n"
+"Du modtager denne e-mail, fordi brugeren %(user_display)shar knyttet denne e-mailadresse til deres konto på %(site_domain)s.\n"
 "\n"
 "For at bekræfte, at dette er korrekt, gå til %(activate_url)s\n"
 "\n"
-"Hvis du ikke har en konto på %(site_domain)s, skal du blot ignorere denne "
-"besked.\n"
+"Hvis du ikke har en konto på %(site_domain)s, skal du blot ignorere denne besked.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -746,8 +744,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Bekræft venligst, at <a href=\"mailto:%(email)s\">%(email)s</a> er en e-"
-"mailadresse for brugeren %(user_display)s."
+"Bekræft venligst, at <a href=\"mailto:%(email)s\">%(email)s</a> er en "
+"e-mailadresse for brugeren %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -756,8 +754,8 @@ msgstr "Bekræft"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Dette link til bekræftelse via e-mail er udløbet eller er ugyldigt. Send "
 "venligst <a href=\"%(email_url)s\">en ny anmodning om e-mailbekræftelse</a>."
@@ -803,8 +801,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Glemt dit kodeord? Indtast din e-mailadresse nedenfor, og vi sender dig en e-"
-"mail, så du kan nulstille den."
+"Glemt dit kodeord? Indtast din e-mailadresse nedenfor, og vi sender dig en "
+"e-mail, så du kan nulstille den."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
@@ -819,6 +817,9 @@ msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
+"Vi har sendt dig en email. Hvis du ikke har modtaget den, så tjek din "
+"spammappe. Ellers kan du kontakte os, hvis du ikke har modtaget den inden "
+"for få minutter."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -835,8 +836,8 @@ msgstr "Skift adgangskode"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Linket til nulstilling af kodeord er ugyldigt, muligvis fordi det allerede "
 "er blevet brugt. Venligst anmod om et <a href=\"%(passwd_reset_url)s\">nyt "
@@ -848,12 +849,12 @@ msgstr "Din adgangskode er nu ændret."
 
 #: nextcloudappstore/core/templates/account/signup.html:12
 msgid "Create an account"
-msgstr ""
+msgstr "Opret en konto"
 
 #: nextcloudappstore/core/templates/account/verification_sent.html:6
 #: nextcloudappstore/core/templates/account/verification_sent.html:10
 msgid "Verify Your Email Address"
-msgstr ""
+msgstr "Bekræft din e-mailadresse "
 
 #: nextcloudappstore/core/templates/account/verification_sent.html:13
 msgid ""
@@ -862,6 +863,10 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
+"Vi har sendt dig en email for bekræftelse. Følg det tilsendte link for at "
+"færdiggøre tilmeldingen. Hvis du ikke kan se bekræftelsesmailen i din "
+"indbakke, skal du tjekke din spammappe. Kontakt os hvis du ikke har modtaget"
+" bekræftelsesmailen inden for få minutter."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -897,23 +902,23 @@ msgstr "Næste"
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid "Highest Nextcloud version"
-msgstr ""
+msgstr "Højeste Nextcloud version"
 
 #: nextcloudappstore/core/templates/app/detail.html:51
 msgid "Show all releases"
-msgstr ""
+msgstr "Vis alle udgivelser"
 
 #: nextcloudappstore/core/templates/app/detail.html:54
 msgid "Community rating"
-msgstr ""
+msgstr "Fællesskabsbedømmelse"
 
 #: nextcloudappstore/core/templates/app/detail.html:58
 msgid "Author"
-msgstr ""
+msgstr "Forfatter"
 
 #: nextcloudappstore/core/templates/app/detail.html:80
 msgid "Last updated"
-msgstr ""
+msgstr "Sidst opdateret"
 
 #: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Resources"
@@ -934,7 +939,7 @@ msgstr "Udvikler-dokumentation"
 
 #: nextcloudappstore/core/templates/app/detail.html:106
 msgid "Interact"
-msgstr ""
+msgstr "Interager"
 
 #: nextcloudappstore/core/templates/app/detail.html:112
 msgid "Report problem"
@@ -956,11 +961,11 @@ msgstr "Udgivelser"
 
 #: nextcloudappstore/core/templates/app/detail.html:141
 msgid "Stable channel"
-msgstr ""
+msgstr "Stabil kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:142
 msgid "Nightly channel"
-msgstr ""
+msgstr "Natlig kanal"
 
 #: nextcloudappstore/core/templates/app/detail.html:143
 msgid "All releases"
@@ -983,16 +988,16 @@ msgstr "OK"
 #: nextcloudappstore/core/templates/app/detail.html:193
 #: nextcloudappstore/core/templates/app/detail.html:207
 msgid "Appeal for spam"
-msgstr ""
+msgstr "Appeller for spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:198
 #: nextcloudappstore/core/templates/app/detail.html:211
 msgid "Cancel spam appeal"
-msgstr ""
+msgstr "Annuller spamappellering"
 
 #: nextcloudappstore/core/templates/app/detail.html:202
 msgid "Delete spam comment"
-msgstr ""
+msgstr "Slet spamkommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:222
 msgid "No comments found."
@@ -1012,16 +1017,22 @@ msgstr "Bedøm integration"
 
 #: nextcloudappstore/core/templates/app/detail.html:244
 msgid "Your comment"
-msgstr ""
+msgstr "Din kommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:249
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
-"rating comments to report bugs or request features. Neither developers nor "
-"users will be notified of your comment. A rating without a comment still "
-"counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Do not use rating comments to report bugs or request features. Neither "
+"developers nor users will be notified of your comment. A rating without a "
+"comment still counts, but will not be listed below."
 msgstr ""
+"Bedømmelseskommentarer understøtter <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Brug ikke bedømmelseskommentarer til rapportering af fejl eller anmodninger "
+"om funktioner. Hverken udviklere eller brugere vil blive orienteret om din "
+"kommentar. En bedømmelse uden en kommentar tæller stadig, men vil ikke blive"
+" vist forneden."
 
 #: nextcloudappstore/core/templates/app/detail.html:254
 msgid "Update rating"
@@ -1033,7 +1044,7 @@ msgstr "Indsend bedømmelse"
 
 #: nextcloudappstore/core/templates/app/detail.html:267
 msgid "Switch language for the comments:"
-msgstr ""
+msgstr "Skift sprog for kommentarerne:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:4
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:8
@@ -1071,7 +1082,7 @@ msgstr "Alfabetisk"
 
 #: nextcloudappstore/core/templates/app/list.html:48
 msgid "Latest release"
-msgstr ""
+msgstr "Seneste udgivelse"
 
 #: nextcloudappstore/core/templates/app/list.html:54
 msgid "Rating (recent)"
@@ -1100,19 +1111,19 @@ msgstr "Registér app"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "For mere information omhandlende rekvirering af certifikatet og hvordan man "
-"laver signaturen henvises der til <a href=\"http://nextcloudappstore."
-"readthedocs.io/en/latest/developer.html\" rel=\"noopener norefferer\">app "
-"developer guide</a>."
+"laver signaturen henvises der til <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Denne metode kan også benyttes til opdatering af eksisterende certifikater, "
@@ -1179,9 +1190,9 @@ msgstr "App udgivelse uploadet med succes."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "For mere information om hvordan man laver signaturen henvises der til <a "
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
@@ -1210,7 +1221,7 @@ msgstr "Seneste app udgivelser"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Contribute to the app store"
-msgstr ""
+msgstr "Bidrag til app store"
 
 #: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
@@ -1227,11 +1238,11 @@ msgstr "obligatorisk felt"
 
 #: nextcloudappstore/core/templates/nav.html:16
 msgid "Resources for developers"
-msgstr ""
+msgstr "Ressourcer til udviklere"
 
 #: nextcloudappstore/core/templates/nav.html:22
 msgid "Develop for Nextcloud"
-msgstr ""
+msgstr "Udvikl for Nextcloud"
 
 #: nextcloudappstore/core/templates/nav.html:34
 msgid "Request translations"
@@ -1239,7 +1250,7 @@ msgstr "Anmod om oversættelse"
 
 #: nextcloudappstore/core/templates/nav.html:41
 msgid "Submit your app"
-msgstr ""
+msgstr "Indsend din app"
 
 #: nextcloudappstore/core/templates/nav.html:91
 #, python-format
@@ -1279,8 +1290,7 @@ msgstr "Log ud"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "Du er i færd med at bruge din %(provider_name)s konto til at logge på\n"
 "           %(site_name)s. For at fuldføre, venligst udfyld følgende formular:"
@@ -1470,8 +1480,8 @@ msgid ""
 "developer program."
 msgstr ""
 "Jeg tilvælger opsamling af mine personlige data. Vi kan derefter kontakte "
-"dig for at tjekke ind med dig om dine planer eller bede om feedback om vores "
-"udviklerprogram."
+"dig for at tjekke ind med dig om dine planer eller bede om feedback om vores"
+" udviklerprogram."
 
 #: nextcloudappstore/scaffolding/forms.py:82
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1501,41 +1511,43 @@ msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:118
 msgid "Full description of what your integration does. Can contain Markdown."
-msgstr "Fuld beskrivelse af, hvad din integration gør. Kan indeholde Markdown."
+msgstr ""
+"Fuld beskrivelse af, hvad din integration gør. Kan indeholde Markdown."
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:5
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:9
 msgid "Third-Party Login Failure"
-msgstr ""
+msgstr "Tredjepartslogin Fejl"
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid ""
 "An error occurred while attempting to login via your third-party account."
-msgstr ""
+msgstr "Der opstod en fejl under loginforsøget via din tredjepartskonto. "
 
 #: nextcloudappstore/templates/socialaccount/login.html:6
 msgid "Sign In"
-msgstr ""
+msgstr "Log ind"
 
 #: nextcloudappstore/templates/socialaccount/login.html:11
 #, python-format
 msgid "Connect %(provider)s"
-msgstr ""
+msgstr "Forbind %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
-msgstr ""
+msgstr "Du er ved at tilslutte en ny tredjepartskonto fra %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr ""
+msgstr "Log ind via %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid "You are about to sign in using a third-party account from %(provider)s."
-msgstr ""
+msgid ""
+"You are about to sign in using a third-party account from %(provider)s."
+msgstr "Du er ved at logge ind via en tredjepartskonto fra %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
@@ -1543,7 +1555,7 @@ msgstr "Videre"
 
 #: nextcloudappstore/user/adapters.py:12
 msgid "Provided email address is not valid."
-msgstr ""
+msgstr "Angivne e-mailadresse er ikke gyldig."
 
 #: nextcloudappstore/user/forms.py:19
 msgid "First name"
@@ -1559,11 +1571,11 @@ msgstr "Din email adresse"
 
 #: nextcloudappstore/user/forms.py:33
 msgid "Your password"
-msgstr ""
+msgstr "Din adgangskode"
 
 #: nextcloudappstore/user/forms.py:34
 msgid "*Required if the account is registered with a password"
-msgstr ""
+msgstr "*Nødvendig hvis kontoen er registreret med et kodeord"
 
 #: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
@@ -1583,8 +1595,8 @@ msgid ""
 "address and resetting your password. This field does not update your "
 "password!"
 msgstr ""
-"Kodeord er påkrævet for at forhindre uautoriserede brugere i at ændre din e-"
-"mail adresse og nulstilling af dit kodeord. Dette felt opdaterer ikke dit "
+"Kodeord er påkrævet for at forhindre uautoriserede brugere i at ændre din "
+"e-mail adresse og nulstilling af dit kodeord. Dette felt opdaterer ikke dit "
 "kodeord!"
 
 #: nextcloudappstore/user/forms.py:77
@@ -1619,21 +1631,15 @@ msgstr "API nøgle"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                  Din API nøgle kan bruges til identifikation i Nextcloud "
-"app store\n"
-"                  <a href=\"https://nextcloudappstore.readthedocs.io/en/"
-"latest/restapi.html\">REST API</a>.\n"
-"                  Opbevar den forsvarligt. En ny nøgle kan genereres "
-"nedenfor, hvilket gør den eksisterende nøgle ugyldig."
+"                  Din API nøgle kan bruges til identifikation i Nextcloud app store\n"
+"                  <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                  Opbevar den forsvarligt. En ny nøgle kan genereres nedenfor, hvilket gør den eksisterende nøgle ugyldig."
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
 msgid "Your API token is:"
@@ -1649,19 +1655,19 @@ msgstr "Gendan API nøgle"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:5
 msgid "Appeal commentaries"
-msgstr ""
+msgstr "Appeller kommentarer"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:9
 msgid "Comments Pending Appeal"
-msgstr ""
+msgstr "Kommentarer Afventer Appel"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:14
 msgid "Comment author"
-msgstr ""
+msgstr "Kommentarforfatter"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:25
 msgid "Go to"
-msgstr ""
+msgstr "Gå til"
 
 #: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
@@ -1697,7 +1703,7 @@ msgstr "Slet konto"
 
 #: nextcloudappstore/user/templates/user/base.html:59
 msgid "Appeal comments"
-msgstr ""
+msgstr "Appeller kommentarer"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
@@ -1705,8 +1711,8 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
 msgstr ""
-"Sletning af din konto vil samtidig slette alle dine apps og releases. For at "
-"slette din konto skal du indsætte din e-mail adresse i feltet og vælge "
+"Sletning af din konto vil samtidig slette alle dine apps og releases. For at"
+" slette din konto skal du indsætte din e-mail adresse i feltet og vælge "
 "\"Slet konto\" knappen."
 
 #: nextcloudappstore/user/templates/user/integrations.html:9
@@ -1742,8 +1748,8 @@ msgstr "Skift af kodeord regenerer også din API token!"
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Det ser ud til, at du benytter en konto registreret hos en tredje-parts "
 "udbyder. Dit kodeord kan derfor <strong>ikke</strong> ændres fra denne side."
@@ -1759,8 +1765,8 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"For at overføre en app til en ny ejer skal du først låse app'en op. Derefter "
-"kan en bruger tage kontrol med app'en ved at registrere den igen på app "
+"For at overføre en app til en ny ejer skal du først låse app'en op. Derefter"
+" kan en bruger tage kontrol med app'en ved at registrere den igen på app "
 "opslags siden i app udvikler menuen."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:16
