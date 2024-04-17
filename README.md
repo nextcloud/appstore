@@ -17,7 +17,7 @@ We **do not handle Nextcloud integration**. Nextcloud integration is handled in 
 Documentation including setup and API specification is [available on Read the Docs](https://nextcloudappstore.readthedocs.io/en/latest/)
 
 ## Contributing
-If you want to help in developing the App Store, translating or filing bugs and feature requests, please consult the [contributing guidelines](https://github.com/nextcloud/appstore/blob/master/CONTRIBUTING.md)
+If you want to help in developing the App Store, translating or filing bugs and feature requests, please consult the [contributing guidelines](https://github.com/nextcloud/appstore/blob/master/.github/CONTRIBUTING.md)
 
 ## Security
 If you find security issues or bugs please follow the [official security process](https://nextcloud.com/security/).
