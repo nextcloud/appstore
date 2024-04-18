@@ -7,17 +7,17 @@
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2019
 # Xosé, 2020
 # Andy Scherzinger <info@andy-scherzinger.de>, 2022
-# Iván Gómez <cabaseira@gmail.com>, 2023
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024
+# Iván Gómez <cabaseira@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 02:59+0000\n"
+"POT-Creation-Date: 2024-04-18 02:50+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2024\n"
+"Last-Translator: Iván Gómez <cabaseira@gmail.com>, 2024\n"
 "Language-Team: Galician (https://app.transifex.com/nextcloud/teams/64236/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,7 +293,7 @@ msgstr "Comentario da valoración con sintaxe Markdown"
 
 #: nextcloudappstore/core/models.py:291
 msgid "Appeal"
-msgstr ""
+msgstr "Recurso"
 
 #: nextcloudappstore/core/models.py:295
 msgid "App rating"
@@ -605,11 +605,11 @@ msgstr "Eliminados das publicacións de versión da aplicación"
 
 #: nextcloudappstore/core/models.py:689
 msgid "App rating deletion"
-msgstr ""
+msgstr "Eliminación da valoración da aplicación"
 
 #: nextcloudappstore/core/models.py:690
 msgid "App rating deletions"
-msgstr ""
+msgstr "Eliminación das valoracións das aplicacións"
 
 #: nextcloudappstore/core/models.py:704
 #: nextcloudappstore/core/templates/app/detail.html:140
@@ -807,6 +807,9 @@ msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
+"Enviámosche un correo electrónico. Se non o recibiches, consulta o teu "
+"cartafol de spam. En caso contrario, póñase en contacto connosco se non o "
+"recibes nuns minutos."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -841,7 +844,7 @@ msgstr "Crear unha conta"
 #: nextcloudappstore/core/templates/account/verification_sent.html:6
 #: nextcloudappstore/core/templates/account/verification_sent.html:10
 msgid "Verify Your Email Address"
-msgstr ""
+msgstr "Verifica o Teu Enderezo de Correo Electrónico"
 
 #: nextcloudappstore/core/templates/account/verification_sent.html:13
 msgid ""
@@ -850,6 +853,11 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
+"Enviámosche un correo electrónico para a verificación. Siga a ligazón "
+"proporcionada para finalizar o proceso de rexistro. Se non ves o correo "
+"electrónico de verificación na túa caixa de entrada principal, revisa o teu "
+"cartafol de spam. Póñase en contacto connosco se non recibe o correo "
+"electrónico de verificación nuns minutos."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -971,16 +979,16 @@ msgstr "Aceptar"
 #: nextcloudappstore/core/templates/app/detail.html:193
 #: nextcloudappstore/core/templates/app/detail.html:207
 msgid "Appeal for spam"
-msgstr ""
+msgstr "Apelación ao spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:198
 #: nextcloudappstore/core/templates/app/detail.html:211
 msgid "Cancel spam appeal"
-msgstr ""
+msgstr "Cancelar a apelación de spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:202
 msgid "Delete spam comment"
-msgstr ""
+msgstr "Eliminar comentario de spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:222
 msgid "No comments found."
@@ -1010,6 +1018,12 @@ msgid ""
 "developers nor users will be notified of your comment. A rating without a "
 "comment still counts, but will not be listed below."
 msgstr ""
+"Os comentarios de valoración admiten <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Non use comentarios de valoración para informar de erros ou solicitar "
+"funcións. Nin os desenvolvedores nin os usuarios recibirán notificacións do "
+"teu comentario. Unha valoración sen comentarios tamén conta, pero non "
+"aparecerá a continuación."
 
 #: nextcloudappstore/core/templates/app/detail.html:254
 msgid "Update rating"
@@ -1506,16 +1520,17 @@ msgstr ""
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:5
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:9
 msgid "Third-Party Login Failure"
-msgstr ""
+msgstr "Produciuse un Erro no Inicio de Sesión de Terceiros"
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid ""
 "An error occurred while attempting to login via your third-party account."
 msgstr ""
+"Produciuse un erro ao tentar iniciar sesión coa túa conta de terceiros."
 
 #: nextcloudappstore/templates/socialaccount/login.html:6
 msgid "Sign In"
-msgstr ""
+msgstr "Rexístrate"
 
 #: nextcloudappstore/templates/socialaccount/login.html:11
 #, python-format
@@ -1526,6 +1541,7 @@ msgstr "Conectar con %(provider)s"
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr ""
+"Estás a piques de conectar unha nova conta de terceiros de %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
@@ -1537,6 +1553,7 @@ msgstr "Autenticarse mediante %(provider)s"
 msgid ""
 "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
+"Estás a piques de iniciar sesión cunha conta de terceiros de %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
@@ -1544,7 +1561,7 @@ msgstr "Continuar"
 
 #: nextcloudappstore/user/adapters.py:12
 msgid "Provided email address is not valid."
-msgstr ""
+msgstr "O enderezo de correo electrónico proporcionado non é válido."
 
 #: nextcloudappstore/user/forms.py:19
 msgid "First name"
@@ -1564,7 +1581,7 @@ msgstr "O seu contrasinal"
 
 #: nextcloudappstore/user/forms.py:34
 msgid "*Required if the account is registered with a password"
-msgstr ""
+msgstr "*Obrigatorio se a conta está rexistrada cun contrasinal"
 
 #: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
@@ -1645,19 +1662,19 @@ msgstr "Rexenerar o testemuño da API"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:5
 msgid "Appeal commentaries"
-msgstr ""
+msgstr "Comentarios de apelación"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:9
 msgid "Comments Pending Appeal"
-msgstr ""
+msgstr "Comentarios Pendentes de Apelación"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:14
 msgid "Comment author"
-msgstr ""
+msgstr "Autor do comentario"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:25
 msgid "Go to"
-msgstr ""
+msgstr "Ir a"
 
 #: nextcloudappstore/user/templates/user/base.html:20
 #: nextcloudappstore/user/templates/user/integrations.html:5
@@ -1693,7 +1710,7 @@ msgstr "Eliminar a conta"
 
 #: nextcloudappstore/user/templates/user/base.html:59
 msgid "Appeal comments"
-msgstr ""
+msgstr "Comentarios de apelación"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
