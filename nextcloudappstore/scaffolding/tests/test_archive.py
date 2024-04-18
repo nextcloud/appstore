@@ -19,13 +19,13 @@ class ArchiveTest(TestCase):
             "author_name": "author name",
             "author_email": "author email",
             "author_homepage": "author homepage",
-            "platform": "24",
+            "platform": "28",
             "issue_tracker": "https://test.com",
             "categories": ["tools"],
         }
 
     def test_build_files(self):
-        with self.settings(APP_SCAFFOLDING_PROFILES={24: {"owncloud_version": "9.2"}}):
+        with self.settings(APP_SCAFFOLDING_PROFILES={28: {"owncloud_version": "9.2"}}):
             expected = read_relative_file(__file__, "data/info.xml").strip()
             result = build_files(self.args)
             info = result["theapp/appinfo/info.xml"].strip()
@@ -41,7 +41,7 @@ class ArchiveTest(TestCase):
         self.assertDictEqual({}, result)
 
     def test_build_archive(self):
-        with self.settings(APP_SCAFFOLDING_PROFILES={24: {"owncloud_version": "9.2"}}):
+        with self.settings(APP_SCAFFOLDING_PROFILES={28: {"owncloud_version": "9.2"}}):
             result = build_archive(self.args)
             expected = read_relative_file(__file__, "data/info.xml").strip()
             with tarfile.open(fileobj=result, mode="r:gz") as f:
