@@ -25,7 +25,7 @@ Help us to maximize the effort we can spend fixing issues and adding new feature
 
 [template]: https://raw.githubusercontent.com/nextcloud/appstore/master/.github/issue_template.md
 [forum]: https://help.nextcloud.com/
-[irc]: https://webchat.freenode.net/?channels=nextcloud-dev
+[chat]: https://cloud.nextcloud.com/call/xs25tz5y
 
 ## Contributing to Source Code
 
