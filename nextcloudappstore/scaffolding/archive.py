@@ -41,7 +41,7 @@ def build_files(args: dict[str, str]) -> dict[str, str]:
         patterns['<author mail="example@example.com" homepage="https://example.com">Example</author>'] = (
             f'<author mail="{author_mail}">{author_name}</author>'
         )
-        patterns['"homepage": "https://example.com"'] = f'"homepage": ""'
+        patterns['"homepage": "https://example.com"'] = '"homepage": ""'
 
     base = resolve_file_relative_path(__file__, "app_template")
     result = {}
@@ -55,7 +55,7 @@ def build_files(args: dict[str, str]) -> dict[str, str]:
                 continue
 
             file_path = join(root, file)
-            rel_file_path = "{}/{}".format(id, relpath(file_path, base))
+            rel_file_path = f"{id}/{relpath(file_path, base)}"
             with open(file_path, encoding="utf-8") as f:
                 data = f.read()
                 for pattern, replacement in patterns.items():
