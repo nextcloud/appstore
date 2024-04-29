@@ -1,27 +1,26 @@
 <?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <!--
-    SPDX-FileCopyrightText: author name <author email>
-    SPDX-License-Identifier: CC0-1.0
-    -->
-    <id>theapp</id>
-    <name>The App</name>
-    <summary>a summary</summary>
-    <description><![CDATA[a description]]></description>
-    <version>0.0.1</version>
-    <licence>agpl</licence>
-    <author mail="author email" homepage="author homepage">author name</author>
-    <namespace>TheApp</namespace>
-    <category>tools</category>
-    <bugs>https://test.com</bugs>
-    <dependencies>
-        <nextcloud min-version="28" max-version="28"/>
-    </dependencies>
-    <navigations>
-        <navigation>
-            <name>The App</name>
-            <route>theapp.page.index</route>
-        </navigation>
-    </navigations>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>theapp</id>
+	<name>The App</name>
+	<summary>a summary</summary>
+	<description>a description</description>
+	<version>1.0.0</version>
+	<licence>agpl</licence>
+	<author mail="author email" homepage="author homepage">author name</author>
+	<namespace>TheApp</namespace>
+	<category>tools</category>
+	<bugs>https://test.com</bugs>
+	<dependencies>
+		<nextcloud min-version="29" max-version="29"/>
+	</dependencies>
+	<navigations>
+		<navigation>
+			<id>theapp</id>
+			<name>The App</name>
+			<route>theapp.page.index</route>
+			<icon>app.svg</icon>
+			<type>link</type>
+		</navigation>
+	</navigations>
 </info>
