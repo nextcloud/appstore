@@ -2,7 +2,7 @@ import re
 import tarfile
 from io import BytesIO
 from os import walk
-from os.path import isdir, join, relpath, basename
+from os.path import basename, isdir, join, relpath
 
 from nextcloudappstore.core.facades import resolve_file_relative_path
 
@@ -25,19 +25,22 @@ def build_files(args: dict[str, str]) -> dict[str, str]:
         "An example summary": summary,
         "An example description": description,
         "<category>customization</category>": "\n\t".join(
-            map(lambda category: f"<category>{category}</category>", categories)),
+            map(lambda category: f"<category>{category}</category>", categories)
+        ),
         "<bugs>https://example.com/bugs</bugs>": f"<bugs>{issue_tracker}</bugs>",
         '"name": "example"': f'"name": "{author_name}"',
         '"email": "example@example.com"': f'"email": "{author_mail}"',
     }
 
     if author_homepage is not None:
-        patterns[
-            '<author mail="example@example.com" homepage="https://example.com">Example</author>'] = f'<author mail="{author_mail}" homepage="{author_homepage}">{author_name}</author>'
+        patterns['<author mail="example@example.com" homepage="https://example.com">Example</author>'] = (
+            f'<author mail="{author_mail}" homepage="{author_homepage}">{author_name}</author>'
+        )
         patterns['"homepage": "https://example.com"'] = f'"homepage": "{author_homepage}"'
     else:
-        patterns[
-            '<author mail="example@example.com" homepage="https://example.com">Example</author>'] = f'<author mail="{author_mail}">{author_name}</author>'
+        patterns['<author mail="example@example.com" homepage="https://example.com">Example</author>'] = (
+            f'<author mail="{author_mail}">{author_name}</author>'
+        )
         patterns['"homepage": "https://example.com"'] = f'"homepage": ""'
 
     base = resolve_file_relative_path(__file__, "app_template")
