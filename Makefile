@@ -1,19 +1,11 @@
-poetry=poetry
-poetry_run=$(poetry) run
-python=$(poetry_run) python
-pyresttest=$(poetry_run) pyresttest
-coverage=$(poetry_run) coverage
 manage-script=$(CURDIR)/manage.py
 manage=$(poetry_run) $(manage-script)
-db=sqlite
-npm=npm
-prod_version=27.0.0
 
 .PHONY: test
 test:
-	$(npm) test
-	$(coverage) run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development -v 2
-	$(coverage) report --fail-under 90
+	npm test
+	poetry run coverage run --source=nextcloudappstore $(manage-script) test --settings nextcloudappstore.settings.development -v 2
+	poetry run coverage report --fail-under 90
 
 .PHONY: resetup
 resetup:
@@ -29,11 +21,11 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	rm -f db.sqlite3
-	$(npm) install
-	$(npm) run build
-	$(poetry) install
+	npm install
+	npm run build
+	poetry install
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
-	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
+	cat $(CURDIR)/scripts/development/settings/sqlite.py >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(MAKE) initdb
 	$(MAKE) l10n
 
@@ -53,12 +45,12 @@ docs html:
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	$(poetry) upgrade
-	$(npm) install --upgrade
+	poetry upgrade
+	npm install --upgrade
 
 .PHONY: authors
 authors:
-	$(python) $(CURDIR)/scripts/generate_authors.py
+	poetry run python $(CURDIR)/scripts/generate_authors.py
 
 .PHONY: clean
 clean:
@@ -69,11 +61,11 @@ clean:
 
 .PHONY: test-data
 test-data: test-user
-	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" $(python) -m development.testdata
+	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" poetry run python -m development.testdata
 
 .PHONY: prod-data
 prod-data:
-	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" $(python) -m development.proddata $(prod_version)
+	PYTHONPATH="${PYTHONPATH}:$(CURDIR)/scripts/" poetry run python -m development.proddata 27.0.0
 
 .PHONY: l10n
 l10n:
@@ -82,7 +74,7 @@ l10n:
 
 .PHONY: coverage
 coverage:
-	$(coverage) xml
+	poetry run coverage xml
 
 .PHONY: test-user
 test-user:
