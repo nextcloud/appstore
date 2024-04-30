@@ -694,8 +694,7 @@ class AppRatingDeleteLog(Model):
 
 
 class NextcloudReleaseManager(Manager):
-    def get_current(self):
-        return self.get_queryset().filter(is_current=True)[:1]
+    pass
 
 
 class NextcloudRelease(Model):
@@ -735,14 +734,6 @@ class NextcloudRelease(Model):
         verbose_name = _("Nextcloud release")
         verbose_name_plural = _("Nextcloud releases")
         ordering = ("-version",)
-
-    @staticmethod
-    def get_current_main():
-        current = NextcloudRelease.objects.get_current()
-        if len(current) > 0:
-            return current[0].version.split(".")[0]
-        else:
-            return None
 
     def __str__(self):
         return self.version
