@@ -7,7 +7,7 @@ from django.http import Http404, HttpResponse
 from django.urls import reverse
 from django.views.generic import FormView
 
-from nextcloudappstore.core.models import App, NextcloudRelease, Screenshot
+from nextcloudappstore.core.models import App, Screenshot
 from nextcloudappstore.scaffolding.archive import build_archive
 from nextcloudappstore.scaffolding.forms import (
     AppScaffoldingForm,
@@ -20,7 +20,7 @@ class AppScaffoldingView(FormView):
     form_class = AppScaffoldingForm
 
     def get_initial(self):
-        init = {"platform": NextcloudRelease.get_current_main(), "categories": ("tools",)}
+        init = {"categories": ("tools",)}
         if self.request.user.is_authenticated:
             user = self.request.user
             init["author_name"] = f"{user.first_name} {user.last_name}"

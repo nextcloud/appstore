@@ -1,6 +1,5 @@
 import re
 import uuid
-from os import listdir
 
 import requests
 from django.conf import settings
@@ -14,22 +13,16 @@ from django.forms import (
     TextInput,
     URLField,
 )
-from django.forms.fields import CharField, ChoiceField, EmailField, HiddenInput
+from django.forms.fields import CharField, EmailField, HiddenInput
 from django.utils.functional import lazy
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _  # type: ignore
 
-from nextcloudappstore.core.facades import resolve_file_relative_path
 from nextcloudappstore.core.models import App, Category, Screenshot
 
 
 def get_categories():
     return [(cat.id, cat.name) for cat in Category.objects.all()]
-
-
-def get_versions():
-    tpls = listdir(resolve_file_relative_path(__file__, "app-templates"))
-    return sorted(((v, v) for v in tpls), reverse=True)
 
 
 def validate_id(input: str) -> None:
@@ -45,7 +38,6 @@ class AppScaffoldingForm(Form):
         validators=[validate_id],
         widget=TextInput(attrs={"placeholder": "The app name must be camel case e.g. MyApp"}),
     )
-    platform = ChoiceField(choices=lazy(get_versions, list), required=True, label=_("Nextcloud version"))
     author_name = CharField(max_length=80, label=_("Author's full name"))
     author_email = EmailField(label=_("Author's email"), required=True)
     author_homepage = URLField(label=_("Author's homepage"), required=False)
