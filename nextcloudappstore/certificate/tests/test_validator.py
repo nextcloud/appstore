@@ -94,7 +94,7 @@ class ValidatorTest(TestCase):
             self.validator.validate_certificate(cert, chain, crl)
 
     def _read_cert(self, file: str) -> str:
-        return read_relative_file(__file__, "data/certificates/%s" % file)
+        return read_relative_file(__file__, f"data/certificates/{file}")
 
     def _read_bin_file(self, rel_path: str) -> bytes:
         target_path = resolve_file_relative_path(__file__, rel_path)

@@ -13,7 +13,7 @@ def escape_tpl_string(string):
 
 class Command(BaseCommand):
     translation_file = "core/templates/translation/db_translations.txt"
-    help = "Goes through all translated database models (hardcoded) and creates translations in %s" % translation_file
+    help = f"Goes through all translated database models (hardcoded) and creates translations in {translation_file}"
     translated_fields = ((Category, ("name", "description")),)
     source_lang = "en"
 
@@ -24,11 +24,10 @@ class Command(BaseCommand):
         with open(target_file, "w") as f:
             f.write(content)
 
-        msg = "Exported translations to %s" % target_file
-        self.stdout.write(self.style.SUCCESS(msg))
+        self.stdout.write(self.style.SUCCESS(f"Exported translations to {target_file}"))
 
     def _create_translations(self, model, fields):
         objs = model.objects.language(self.source_lang).all()
         strings = flatmap(lambda o: [getattr(o, f) for f in fields], objs)
         strings = map(escape_tpl_string, strings)
-        return list(map(lambda s: '{%% trans "%s" %%}' % s, strings))
+        return list(map(lambda s: f'{{%% trans "{s}" %%}}', strings))

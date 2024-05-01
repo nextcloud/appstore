@@ -15,14 +15,9 @@ from nextcloudappstore.core.models import App, AppRating
 
 RATING_CHOICES = ((0.0, _("Bad")), (0.5, _("OK")), (1.0, _("Good")))
 
-REGISTER_SIGN_CMD = (
-    ' echo -n "APP_ID" | openssl dgst -%s -sign ~/.nextcloud/certificates/APP_ID.key | openssl base64'
-    % settings.CERTIFICATE_DIGEST
-)
-RELEASE_SIGN_CMD = (
-    " openssl dgst -%s -sign ~/.nextcloud/certificates/APP_ID.key /path/to/app.tar.gz | openssl base64"
-    % settings.CERTIFICATE_DIGEST
-)
+S_APP_ID_KEY = "-sign ~/.nextcloud/certificates/APP_ID.key"
+REGISTER_SIGN_CMD = f' echo -n "APP_ID" | openssl dgst -{settings.CERTIFICATE_DIGEST} {S_APP_ID_KEY} | openssl base64'
+RELEASE_SIGN_CMD = f" openssl dgst -{settings.CERTIFICATE_DIGEST} {S_APP_ID_KEY} /path/to/app.tar.gz | openssl base64"
 CREATE_CERT_CMD = ' openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "/CN=APP_ID"'
 
 

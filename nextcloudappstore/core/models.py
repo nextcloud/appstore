@@ -342,7 +342,7 @@ class AppAuthor(Model):
 
     def __str__(self) -> str:
         if self.mail:
-            mail = "<%s>" % self.mail
+            mail = f"<{self.mail}>"
         else:
             mail = ""
         return f"{self.name} {mail}"

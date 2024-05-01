@@ -75,8 +75,7 @@ class AppReleaseDownloader:
             it's definitely the best we can do now given security circumstances
             """
             filename = url[url.rfind("/") + 1 :]
-            msg = "%s is not a valid tar.gz archive " % filename
-            raise UnsupportedAppArchiveException(msg)
+            raise UnsupportedAppArchiveException(f"{filename} is not a valid tar.gz archive ")
         return ReleaseDownload(file.name)
 
     def _stream_to_file(self, file: Any, max_size: int, req: requests.Response) -> None:

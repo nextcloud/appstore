@@ -15,8 +15,7 @@ class ApiTest(TestCase):
     def _login(self, user="test", password="test"):
         credentials = f"{user}:{password}"
         base64_credentials = base64.b64encode(credentials.encode(HTTP_HEADER_ENCODING)).decode(HTTP_HEADER_ENCODING)
-        auth = "Basic %s" % base64_credentials
-        self.api_client.credentials(HTTP_AUTHORIZATION=auth)
+        self.api_client.credentials(HTTP_AUTHORIZATION=f"Basic {base64_credentials}")
 
     def _login_token(self, user="test"):
         token = "Token " + Token.objects.get(user__username=user).key

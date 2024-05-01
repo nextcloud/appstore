@@ -13,7 +13,7 @@ def get_git_authors() -> list[str]:
 
 
 def append_git_author(line: str, result_list: list[dict]) -> None:
-    ignore = ["nextcloud bot", "[bot]"]
+    ignore = ["nextcloud bot", "[bot]", "nextcloud-command", "nextcloud command bot"]
     format_regex = r"^\s*(?P<commit_count>\d+)\s*(?P<name>.*?)\s*<(" r"?P<email>[^\s]+)>$"
     result = re.search(format_regex, line)
     if result:
@@ -27,7 +27,7 @@ def append_git_author(line: str, result_list: list[dict]) -> None:
         else:
             result_list.append({"commits": result.group("commit_count"), "name": name, "email": result.group("email")})
     else:
-        raise ValueError("Could not extract authors from line %s" % line)
+        raise ValueError(f"Could not extract authors from line {line}")
 
 
 def to_markdown(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
@@ -47,7 +47,7 @@ def to_rst(authors: Iterator[dict[str, str]]) -> tuple[str, str]:
 def get_authors_file(suffix: str) -> str:
     directory = dirname(realpath(__file__))
     directory = join(directory, pardir)
-    return join(directory, "AUTHORS.%s" % suffix)
+    return join(directory, f"AUTHORS.{suffix}")
 
 
 def main() -> None:

@@ -65,7 +65,7 @@ def pad_max_version(version: str) -> str:
     elif len(parts) == 3:
         parts[2] += 1
     else:
-        raise ValueError("Could not parse version %s" % version)
+        raise ValueError(f"Could not parse version {version}")
     return ".".join([str(part) for part in parts])
 
 
@@ -103,9 +103,9 @@ def to_raw_spec(min_version: str, max_version: str) -> str:
     if max_version == "*" and min_version == "*":
         return "*"
     elif max_version == "*":
-        return ">=%s" % min_version
+        return f">={min_version}"
     elif min_version == "*":
-        return "<=%s" % max_version
+        return f"<={max_version}"
     else:
         return f">={min_version},<={max_version}"
 
@@ -121,9 +121,9 @@ def to_spec(min_version: str, max_version: str) -> str:
     if max_version == "*" and min_version == "*":
         return "*"
     elif max_version == "*":
-        return ">=%s" % min_version
+        return f">={min_version}"
     elif min_version == "*":
-        return "<%s" % max_version
+        return f"<{max_version}"
     else:
         return f">={min_version},<{max_version}"
 
