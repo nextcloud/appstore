@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-21 02:53+0000\n"
+"POT-Creation-Date: 2024-05-01 02:51+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Julio C. Ortega, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/nextcloud/teams/64236/es/)\n"
@@ -150,8 +150,8 @@ msgid "Rendered app name for users"
 msgstr "Nombre de la app para los usuarios"
 
 #: nextcloudappstore/core/models.py:86
-#: nextcloudappstore/scaffolding/forms.py:63
-#: nextcloudappstore/scaffolding/forms.py:97
+#: nextcloudappstore/scaffolding/forms.py:55
+#: nextcloudappstore/scaffolding/forms.py:89
 msgid "Summary"
 msgstr "Resumen"
 
@@ -160,8 +160,8 @@ msgid "Short text describing the app's purpose"
 msgstr "Descripción corta del propósito de la app"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
-#: nextcloudappstore/scaffolding/forms.py:68
-#: nextcloudappstore/scaffolding/forms.py:117
+#: nextcloudappstore/scaffolding/forms.py:60
+#: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Descripción"
 
@@ -182,8 +182,8 @@ msgid "Developer documentation URL"
 msgstr "URL de documentación de desarrollador"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Issue tracker URL"
 msgstr "URL de seguidor de problemas"
 
@@ -504,8 +504,8 @@ msgstr "Nombre de la categoría que se mostrará al usuario"
 
 #: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
-#: nextcloudappstore/scaffolding/forms.py:57
-#: nextcloudappstore/scaffolding/forms.py:91
+#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Categorías"
 
@@ -622,21 +622,20 @@ msgstr "Eliminación de calificación de la aplicación"
 msgid "App rating deletions"
 msgstr "Eliminaciones de calificación de las aplicaciones"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 #: nextcloudappstore/core/templates/app/detail.html:140
-#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Versión de Nextcloud"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 msgid "e.g. 9.0.54"
 msgstr "p.ej. 9.0.54"
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:706
 msgid "Is current version"
 msgstr "Es la versión actual"
 
-#: nextcloudappstore/core/models.py:709
+#: nextcloudappstore/core/models.py:708
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -644,11 +643,11 @@ msgstr ""
 "Solo una versión puede ser la actual. Este campo se usa para preseleccionar "
 "menús desplegables para generación de la app, etc."
 
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:716
 msgid "Has a release"
 msgstr "Tiene una versión publicada"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:718
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -658,11 +657,11 @@ msgstr ""
 "puede descargarse como un archivo. Si es falso, la versión es una versión "
 "preliminar o ya no está disponible para su descarga."
 
-#: nextcloudappstore/core/models.py:729
+#: nextcloudappstore/core/models.py:728
 msgid "Version is supported"
 msgstr "Versión soportada"
 
-#: nextcloudappstore/core/models.py:730
+#: nextcloudappstore/core/models.py:729
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -670,11 +669,11 @@ msgstr ""
 "Verdadero si esta versión está soportada oficialmente (excepto soporte a "
 "nivel empresarial)"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:734
 msgid "Nextcloud release"
 msgstr "Versión de Nextcloud"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud releases"
 msgstr "Versiones de Nextcloud"
 
@@ -1436,49 +1435,49 @@ msgstr "Muy positivo"
 msgid "Enter a valid HTTPS URL"
 msgstr "Introduce una URL válida HTTPS"
 
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be camel case e.g. MyApp"
 msgstr "El nombre de la app debe estar en nomenclatura camel, p.ej. MiApp"
 
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Nombre de la app"
 
-#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's full name"
 msgstr "Nombre completo del autor"
 
-#: nextcloudappstore/scaffolding/forms.py:50
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Author's email"
 msgstr "Email del autor"
 
-#: nextcloudappstore/scaffolding/forms.py:51
-#: nextcloudappstore/scaffolding/forms.py:83
+#: nextcloudappstore/scaffolding/forms.py:43
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Author's homepage"
 msgstr "Página web del autor"
 
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Bug reports and feature requests"
 msgstr "Informes de errores y peticiones de características"
 
-#: nextcloudappstore/scaffolding/forms.py:59
-#: nextcloudappstore/scaffolding/forms.py:93
+#: nextcloudappstore/scaffolding/forms.py:51
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Mantén Ctrl y pincha para seleccionar múltiples ítems"
 
-#: nextcloudappstore/scaffolding/forms.py:64
-#: nextcloudappstore/scaffolding/forms.py:98
+#: nextcloudappstore/scaffolding/forms.py:56
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Breve descripción de la app que se representa como avance corto"
 
-#: nextcloudappstore/scaffolding/forms.py:69
+#: nextcloudappstore/scaffolding/forms.py:61
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
 "Descripción larga de lo que hace tu app. Puede contener sintaxis Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:65
 msgid ""
 "I opt in for the collection of my personal data. We could then reach out to "
 "you to check in with you about your plans or to ask for feedback on our "
@@ -1488,25 +1487,25 @@ msgstr ""
 "contacto con Ud. para conocer acerca de sus planes o para tener su "
 "retroalimentación acerca de nuestro programa de desarrolladores."
 
-#: nextcloudappstore/scaffolding/forms.py:82
+#: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "Nombre de la integración"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "Screenshot URL"
 msgstr "URL de la captura de pantalla"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "URL for integration screenshot"
 msgstr "URL para la captura de pantalla de la integración"
 
-#: nextcloudappstore/scaffolding/forms.py:105
+#: nextcloudappstore/scaffolding/forms.py:97
 msgid "Screenshot thumbnail URL"
 msgstr "URL de la miniatura de la captura de pantalla"
 
-#: nextcloudappstore/scaffolding/forms.py:108
+#: nextcloudappstore/scaffolding/forms.py:100
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1514,7 +1513,7 @@ msgstr ""
 "La URL para la captura de pantalla en menores dimensiones. Debe usarse en "
 "combinación con una captura más grande."
 
-#: nextcloudappstore/scaffolding/forms.py:118
+#: nextcloudappstore/scaffolding/forms.py:110
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Descripción completa de lo que hace tu integración. Puede contener Markdown."

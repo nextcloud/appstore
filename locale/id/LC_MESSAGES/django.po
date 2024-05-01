@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 02:59+0000\n"
+"POT-Creation-Date: 2024-05-01 02:51+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Linerly <linerly@proton.me>, 2023\n"
 "Language-Team: Indonesian (https://app.transifex.com/nextcloud/teams/64236/id/)\n"
@@ -145,8 +145,8 @@ msgid "Rendered app name for users"
 msgstr "Nama aplikasi yang ditampilkan untuk pengguna"
 
 #: nextcloudappstore/core/models.py:86
-#: nextcloudappstore/scaffolding/forms.py:63
-#: nextcloudappstore/scaffolding/forms.py:97
+#: nextcloudappstore/scaffolding/forms.py:55
+#: nextcloudappstore/scaffolding/forms.py:89
 msgid "Summary"
 msgstr "Kesimpulan"
 
@@ -155,8 +155,8 @@ msgid "Short text describing the app's purpose"
 msgstr "Deskripsi pendek kegunaan aplikasi"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
-#: nextcloudappstore/scaffolding/forms.py:68
-#: nextcloudappstore/scaffolding/forms.py:117
+#: nextcloudappstore/scaffolding/forms.py:60
+#: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Deskripsi"
 
@@ -177,8 +177,8 @@ msgid "Developer documentation URL"
 msgstr "URL dokumentasi pengembang"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Issue tracker URL"
 msgstr "URL pelacak isu"
 
@@ -500,8 +500,8 @@ msgstr "Nama kategori yang akan ditampilkan ke pengguna"
 
 #: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
-#: nextcloudappstore/scaffolding/forms.py:57
-#: nextcloudappstore/scaffolding/forms.py:91
+#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Kategori"
 
@@ -618,21 +618,20 @@ msgstr ""
 msgid "App rating deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 #: nextcloudappstore/core/templates/app/detail.html:140
-#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Versi Nextcloud"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 msgid "e.g. 9.0.54"
 msgstr "mis. 9.0.54"
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:706
 msgid "Is current version"
 msgstr "Versi saat ini"
 
-#: nextcloudappstore/core/models.py:709
+#: nextcloudappstore/core/models.py:708
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -640,11 +639,11 @@ msgstr ""
 "Hanya satu versi yang dapat menjadi versi terkini. Bidang ini digunakan "
 "untuk memilih dropdown terlebih dahulu untuk pembuatan aplikasi, dll."
 
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:716
 msgid "Has a release"
 msgstr "Mempunyai rilis"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:718
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -654,11 +653,11 @@ msgstr ""
 "sebagai arsip. Bila salah, rilis ini mungkin ialah pre-release atau tidak "
 "lagi tersedia untuk diunduh."
 
-#: nextcloudappstore/core/models.py:729
+#: nextcloudappstore/core/models.py:728
 msgid "Version is supported"
 msgstr "Versi didukung"
 
-#: nextcloudappstore/core/models.py:730
+#: nextcloudappstore/core/models.py:729
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -666,11 +665,11 @@ msgstr ""
 "Benar jika versi ini masih didukung secara resmi (tidak termasuk dukungan "
 "perusahaan)"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:734
 msgid "Nextcloud release"
 msgstr "Rilis Nextcloud"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud releases"
 msgstr "Rilis Nextcloud"
 
@@ -1417,51 +1416,51 @@ msgstr "Sangat positif"
 msgid "Enter a valid HTTPS URL"
 msgstr "Masukkan URL HTTPS yang valid"
 
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be camel case e.g. MyApp"
 msgstr "Nama aplikasi harus dalam kata kapital, misalnya AplikasiSaya"
 
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Nama aplikasi"
 
-#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's full name"
 msgstr "Nama lengkap pembuat"
 
-#: nextcloudappstore/scaffolding/forms.py:50
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Author's email"
 msgstr "Surel pembuat"
 
-#: nextcloudappstore/scaffolding/forms.py:51
-#: nextcloudappstore/scaffolding/forms.py:83
+#: nextcloudappstore/scaffolding/forms.py:43
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Author's homepage"
 msgstr "Laman beranda pembuat"
 
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Bug reports and feature requests"
 msgstr "Laporan kutu dan permintaan fitur"
 
-#: nextcloudappstore/scaffolding/forms.py:59
-#: nextcloudappstore/scaffolding/forms.py:93
+#: nextcloudappstore/scaffolding/forms.py:51
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "Tahan Ctrl dan klik untuk memilih beberapa entri"
 
-#: nextcloudappstore/scaffolding/forms.py:64
-#: nextcloudappstore/scaffolding/forms.py:98
+#: nextcloudappstore/scaffolding/forms.py:56
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
 "Deskripsi singkat tentang aplikasi Anda yang akan ditampilkan sebagai "
 "penampilan singkat"
 
-#: nextcloudappstore/scaffolding/forms.py:69
+#: nextcloudappstore/scaffolding/forms.py:61
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr ""
 "Deskripsi lengkap tentang fungsi aplikasi Anda. Dapat berisi Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:65
 msgid ""
 "I opt in for the collection of my personal data. We could then reach out to "
 "you to check in with you about your plans or to ask for feedback on our "
@@ -1471,25 +1470,25 @@ msgstr ""
 "menghubungi Anda untuk menanyakan rencana Anda atau meminta masukan mengenai"
 " program pengembang kami."
 
-#: nextcloudappstore/scaffolding/forms.py:82
+#: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "Nama integrasi"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "Screenshot URL"
 msgstr "URL tangkapan layar"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "URL for integration screenshot"
 msgstr "URL untuk tangkapan layar integrasi"
 
-#: nextcloudappstore/scaffolding/forms.py:105
+#: nextcloudappstore/scaffolding/forms.py:97
 msgid "Screenshot thumbnail URL"
 msgstr "URL gambar kecil tangkapan layar"
 
-#: nextcloudappstore/scaffolding/forms.py:108
+#: nextcloudappstore/scaffolding/forms.py:100
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1497,7 +1496,7 @@ msgstr ""
 "URL untuk tangkapan layar integrasi dalam dimensi yang lebih kecil. Harus "
 "digunakan dengan tangkapan layar yang lebih besar."
 
-#: nextcloudappstore/scaffolding/forms.py:118
+#: nextcloudappstore/scaffolding/forms.py:110
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Deskripsi lengkap tentang fungsi integrasi Anda. Dapat berisi Markdown."

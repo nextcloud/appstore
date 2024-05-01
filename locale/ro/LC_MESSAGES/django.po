@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 02:59+0000\n"
+"POT-Creation-Date: 2024-05-01 02:51+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Liviu Milies, 2023\n"
 "Language-Team: Romanian (https://app.transifex.com/nextcloud/teams/64236/ro/)\n"
@@ -149,8 +149,8 @@ msgid "Rendered app name for users"
 msgstr "Numele aplicației afișat utilizatorilor"
 
 #: nextcloudappstore/core/models.py:86
-#: nextcloudappstore/scaffolding/forms.py:63
-#: nextcloudappstore/scaffolding/forms.py:97
+#: nextcloudappstore/scaffolding/forms.py:55
+#: nextcloudappstore/scaffolding/forms.py:89
 msgid "Summary"
 msgstr "Rezumat"
 
@@ -159,8 +159,8 @@ msgid "Short text describing the app's purpose"
 msgstr "Scurt text cu descrierea scopului aplicației"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
-#: nextcloudappstore/scaffolding/forms.py:68
-#: nextcloudappstore/scaffolding/forms.py:117
+#: nextcloudappstore/scaffolding/forms.py:60
+#: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Descriere"
 
@@ -181,8 +181,8 @@ msgid "Developer documentation URL"
 msgstr "URL-ul documentației pentru dezvoltator"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Issue tracker URL"
 msgstr "URL-ul de raportare a erorilor"
 
@@ -504,8 +504,8 @@ msgstr "Numele categoriei afișat utilizatorilor"
 
 #: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
-#: nextcloudappstore/scaffolding/forms.py:57
-#: nextcloudappstore/scaffolding/forms.py:91
+#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Categorii"
 
@@ -622,21 +622,20 @@ msgstr ""
 msgid "App rating deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 #: nextcloudappstore/core/templates/app/detail.html:140
-#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "Versiunea Nextcloud"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 msgid "e.g. 9.0.54"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:706
 msgid "Is current version"
 msgstr "Este versiunea actuală"
 
-#: nextcloudappstore/core/models.py:709
+#: nextcloudappstore/core/models.py:708
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -644,11 +643,11 @@ msgstr ""
 "Doar o versiune poate fi curentă. Acest câmp se folosește pentru pre-"
 "selectarea listelor pentru generarea aplicației etc"
 
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:716
 msgid "Has a release"
 msgstr "Are o versiune"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:718
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -658,11 +657,11 @@ msgstr ""
 "descărcată ca arhivă. Dacă e fals, versiunea este pre-release sau nu mai "
 "este disponibilă pentru descărcare."
 
-#: nextcloudappstore/core/models.py:729
+#: nextcloudappstore/core/models.py:728
 msgid "Version is supported"
 msgstr "Versiunea este acceptată"
 
-#: nextcloudappstore/core/models.py:730
+#: nextcloudappstore/core/models.py:729
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -670,11 +669,11 @@ msgstr ""
 "Adevărat, dacă versiunea este încă acceptată oficial (excluzând suportul "
 "pentru versiunea enterprise)"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:734
 msgid "Nextcloud release"
 msgstr "Versiunea Nextcloud"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud releases"
 msgstr "Versiunile Nextcloud"
 
@@ -1419,48 +1418,48 @@ msgstr "Foarte pozitivă"
 msgid "Enter a valid HTTPS URL"
 msgstr "Introduceți un URL HTTPS valid"
 
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be camel case e.g. MyApp"
 msgstr "Numele aplicației trebuie să fie camel case de ex. MyApp"
 
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "Numele aplicației"
 
-#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's full name"
 msgstr "Numele complet al autorului"
 
-#: nextcloudappstore/scaffolding/forms.py:50
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Author's email"
 msgstr "Emailul autorului"
 
-#: nextcloudappstore/scaffolding/forms.py:51
-#: nextcloudappstore/scaffolding/forms.py:83
+#: nextcloudappstore/scaffolding/forms.py:43
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Author's homepage"
 msgstr "Pagina autorului"
 
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Bug reports and feature requests"
 msgstr "Raportare erori și solicitare funcționalități"
 
-#: nextcloudappstore/scaffolding/forms.py:59
-#: nextcloudappstore/scaffolding/forms.py:93
+#: nextcloudappstore/scaffolding/forms.py:51
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "țineți Ctrl și dați click pentru selecții multiple"
 
-#: nextcloudappstore/scaffolding/forms.py:64
-#: nextcloudappstore/scaffolding/forms.py:98
+#: nextcloudappstore/scaffolding/forms.py:56
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "Scurtă descriere a aplicației, care va fi afișată ca scurtă reclamă"
 
-#: nextcloudappstore/scaffolding/forms.py:69
+#: nextcloudappstore/scaffolding/forms.py:61
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr "Descrierea completă a ceea ce face aplicația. Poate conține Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:65
 msgid ""
 "I opt in for the collection of my personal data. We could then reach out to "
 "you to check in with you about your plans or to ask for feedback on our "
@@ -1470,25 +1469,25 @@ msgstr ""
 "apoi pentru a vă verifica planurile sau pentru a vă cere feedback cu privire"
 " la programul nostru pentru dezvoltatori."
 
-#: nextcloudappstore/scaffolding/forms.py:82
+#: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "Numele integrării"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "Screenshot URL"
 msgstr "URL-ul capturii de ecran"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "URL for integration screenshot"
 msgstr "URL-ul pentru captura de ecran a integrării"
 
-#: nextcloudappstore/scaffolding/forms.py:105
+#: nextcloudappstore/scaffolding/forms.py:97
 msgid "Screenshot thumbnail URL"
 msgstr "URL-ul miniaturii capturii"
 
-#: nextcloudappstore/scaffolding/forms.py:108
+#: nextcloudappstore/scaffolding/forms.py:100
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1496,7 +1495,7 @@ msgstr ""
 "URL-ul pentru captura integrării, de dimensiuni reduse. Trebuie folosită în "
 "combinație cu o captură mai mare."
 
-#: nextcloudappstore/scaffolding/forms.py:118
+#: nextcloudappstore/scaffolding/forms.py:110
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 "Descrierea completă a ceea ce face integrarea. Poate conține Markdown."

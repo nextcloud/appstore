@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-17 02:49+0000\n"
+"POT-Creation-Date: 2024-05-01 02:51+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Ali <alimahwer@yahoo.com>, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/nextcloud/teams/64236/ar/)\n"
@@ -139,8 +139,8 @@ msgid "Rendered app name for users"
 msgstr "اسم التطبيق الذي سيظهر للمستخدمين"
 
 #: nextcloudappstore/core/models.py:86
-#: nextcloudappstore/scaffolding/forms.py:63
-#: nextcloudappstore/scaffolding/forms.py:97
+#: nextcloudappstore/scaffolding/forms.py:55
+#: nextcloudappstore/scaffolding/forms.py:89
 msgid "Summary"
 msgstr "مُلخَّص"
 
@@ -149,8 +149,8 @@ msgid "Short text describing the app's purpose"
 msgstr "نص قصير يشرح وظيفة التطبيق"
 
 #: nextcloudappstore/core/models.py:88 nextcloudappstore/core/models.py:533
-#: nextcloudappstore/scaffolding/forms.py:68
-#: nextcloudappstore/scaffolding/forms.py:117
+#: nextcloudappstore/scaffolding/forms.py:60
+#: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "الوصف"
 
@@ -171,8 +171,8 @@ msgid "Developer documentation URL"
 msgstr "عنوان توثيق المُطوّر Developer documentation URL"
 
 #: nextcloudappstore/core/models.py:94
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Issue tracker URL"
 msgstr "عنوان مُتابعة الأخطاء Issue tracker URL"
 
@@ -491,8 +491,8 @@ msgstr "اسم الفئة الذي سيُعرض على المستخدم"
 
 #: nextcloudappstore/core/models.py:538
 #: nextcloudappstore/core/templates/app/detail.html:83
-#: nextcloudappstore/scaffolding/forms.py:57
-#: nextcloudappstore/scaffolding/forms.py:91
+#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "التصنيفات"
 
@@ -609,21 +609,20 @@ msgstr "حذف تقييم التطبيق"
 msgid "App rating deletions"
 msgstr "تقييمات محذوفة"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 #: nextcloudappstore/core/templates/app/detail.html:140
-#: nextcloudappstore/scaffolding/forms.py:48
 msgid "Nextcloud version"
 msgstr "إصدار ناكست كلاود"
 
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:703
 msgid "e.g. 9.0.54"
 msgstr "مثلا 9.0.54"
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:706
 msgid "Is current version"
 msgstr "في الإصدار الحالي"
 
-#: nextcloudappstore/core/models.py:709
+#: nextcloudappstore/core/models.py:708
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -631,11 +630,11 @@ msgstr ""
 "نسخة واحدة فقط يمكن أن تكون النسخة الحالية. يُستخدم هذا الحقل لتحديد القوائم"
 " المنسدلة مسبقًا لإنشاء التطبيق، و غيرها."
 
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:716
 msgid "Has a release"
 msgstr "له إصدار"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:718
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded"
 " as an archive. If false, the release is either a pre-release, or not "
@@ -645,11 +644,11 @@ msgstr ""
 " كان الإصدار خاطئًا ، فإن الإصدار إما إن يكون إصداراً تجريبياً pre-release "
 "أو لم يعُد متوفراً للتنزيل."
 
-#: nextcloudappstore/core/models.py:729
+#: nextcloudappstore/core/models.py:728
 msgid "Version is supported"
 msgstr "الإصدار مدعومٌ"
 
-#: nextcloudappstore/core/models.py:730
+#: nextcloudappstore/core/models.py:729
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -657,11 +656,11 @@ msgstr ""
 "صحيح إذا كان هذا الإصدار لا يزال مدعومًا رسميًا (باستثناء دعم النسخة "
 "المؤسسية Enterprise support)"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:734
 msgid "Nextcloud release"
 msgstr "إصدار نكست كلاود"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:735
 msgid "Nextcloud releases"
 msgstr "إصدارات نكست كلاود"
 
@@ -1414,50 +1413,50 @@ msgstr "إيجابي جدّاً"
 msgid "Enter a valid HTTPS URL"
 msgstr "أدخل عنوان HTTPS URL صالح"
 
-#: nextcloudappstore/scaffolding/forms.py:38
+#: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be camel case e.g. MyApp"
 msgstr ""
 "اسم التطبيق يجب أن يكون على \"شكل الجَمَل\" camel case بالنسبة للحروف "
 "الإنجليزية الصغيرة و الكبيرة. مثال: MyApp"
 
-#: nextcloudappstore/scaffolding/forms.py:44
+#: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/transfer-apps.html:15
 msgid "App name"
 msgstr "إسم التطبيق"
 
-#: nextcloudappstore/scaffolding/forms.py:49
+#: nextcloudappstore/scaffolding/forms.py:41
 msgid "Author's full name"
 msgstr "الاسم الكامل للمؤلّف"
 
-#: nextcloudappstore/scaffolding/forms.py:50
+#: nextcloudappstore/scaffolding/forms.py:42
 msgid "Author's email"
 msgstr "إيميل المؤلّف"
 
-#: nextcloudappstore/scaffolding/forms.py:51
-#: nextcloudappstore/scaffolding/forms.py:83
+#: nextcloudappstore/scaffolding/forms.py:43
+#: nextcloudappstore/scaffolding/forms.py:75
 msgid "Author's homepage"
 msgstr "الصفحة الرئيسية للمؤلف"
 
-#: nextcloudappstore/scaffolding/forms.py:53
-#: nextcloudappstore/scaffolding/forms.py:85
+#: nextcloudappstore/scaffolding/forms.py:45
+#: nextcloudappstore/scaffolding/forms.py:77
 msgid "Bug reports and feature requests"
 msgstr "بلاغات الأخطاء و طلبات التحسينات"
 
-#: nextcloudappstore/scaffolding/forms.py:59
-#: nextcloudappstore/scaffolding/forms.py:93
+#: nextcloudappstore/scaffolding/forms.py:51
+#: nextcloudappstore/scaffolding/forms.py:85
 msgid "Hold down Ctrl and click to select multiple entries"
 msgstr "إستمر في الضغط على Ctrl و إضغط لاختيار مداخل متعددة"
 
-#: nextcloudappstore/scaffolding/forms.py:64
-#: nextcloudappstore/scaffolding/forms.py:98
+#: nextcloudappstore/scaffolding/forms.py:56
+#: nextcloudappstore/scaffolding/forms.py:90
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr "وصف قصير لتطبيقك سيتم عرضه على شكل إعلان تشويقي قصير"
 
-#: nextcloudappstore/scaffolding/forms.py:69
+#: nextcloudappstore/scaffolding/forms.py:61
 msgid "Full description of what your app does. Can contain Markdown."
 msgstr "وصف مُفصّل لما يقوم به تطبيقك. يُمكن أن يكون بصيغة ماركداون Markdown."
 
-#: nextcloudappstore/scaffolding/forms.py:73
+#: nextcloudappstore/scaffolding/forms.py:65
 msgid ""
 "I opt in for the collection of my personal data. We could then reach out to "
 "you to check in with you about your plans or to ask for feedback on our "
@@ -1466,25 +1465,25 @@ msgstr ""
 "أوافق على جمع بياناتي الشخصية. يمكننا بعد ذلك التواصل معك بشأن خططك أو لطلب "
 "تعليقاتٍ على برنامج المطورين لدينا."
 
-#: nextcloudappstore/scaffolding/forms.py:82
+#: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
 #: nextcloudappstore/user/templates/user/integrations.html:36
 msgid "Integration name"
 msgstr "اسم المُكاملة"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "Screenshot URL"
 msgstr "عنوان URL  لِلَقْطَة الشاشة"
 
-#: nextcloudappstore/scaffolding/forms.py:101
+#: nextcloudappstore/scaffolding/forms.py:93
 msgid "URL for integration screenshot"
 msgstr "عنوان URL لِلَقْطَة شاشة المُكاملة"
 
-#: nextcloudappstore/scaffolding/forms.py:105
+#: nextcloudappstore/scaffolding/forms.py:97
 msgid "Screenshot thumbnail URL"
 msgstr "عنوان URL الصورة المُصغّرة thumbnail لِلَقْطَة الشاشة"
 
-#: nextcloudappstore/scaffolding/forms.py:108
+#: nextcloudappstore/scaffolding/forms.py:100
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
@@ -1492,7 +1491,7 @@ msgstr ""
 "عنوان URL لِلَقْطَة شاشة المُكاملة بحجم صغير. يُمكن استخدامها مع لقطة شاشة "
 "أكبر."
 
-#: nextcloudappstore/scaffolding/forms.py:118
+#: nextcloudappstore/scaffolding/forms.py:110
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr "وصف تفصيلي لما يقوم به التطبيق. يُمكن أن يحوي ماركداون Markdown."
 
