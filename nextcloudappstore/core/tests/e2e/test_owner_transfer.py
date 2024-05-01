@@ -32,7 +32,7 @@ class AppTransferTestTest(BaseStoreTest, AppDevSteps):
         self.login("admin", "admin")
         self.go_to("user:account-transfer-apps")
         news_transfer_url = reverse("user:account-transfer-app", kwargs={"pk": "news"})
-        self.by_css('form[action="%s"] button' % news_transfer_url).click()
+        self.by_css(f'form[action="{news_transfer_url}"] button').click()
         self.logout()
 
         # try to register unlocked app
@@ -43,5 +43,5 @@ class AppTransferTestTest(BaseStoreTest, AppDevSteps):
             self.wait_for(".global-success-msg", lambda el: self.assertTrue(el.is_displayed()))
 
         self.go_to("user:account-transfer-apps")
-        el = self.by_css('form[action="%s"] button' % news_transfer_url)
+        el = self.by_css(f'form[action="{news_transfer_url}"] button')
         self.assertTrue(el.is_displayed())

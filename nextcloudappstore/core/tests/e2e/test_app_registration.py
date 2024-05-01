@@ -56,9 +56,7 @@ class AppRegistrationTest(BaseStoreTest, AppDevSteps):
             self.wait_for(".global-success-msg", validate_success_msg)
 
     def read_cert(self, name: str) -> str:
-        path = "data/%s" % name
-        return read_relative_file(__file__, path)
+        return read_relative_file(__file__, f"data/{name}")
 
     def cert_path(self, name: str) -> str:
-        path = "data/%s" % name
-        return resolve_file_relative_path(__file__, path)
+        return resolve_file_relative_path(__file__, f"data/{name}")

@@ -113,7 +113,7 @@ class BaseStoreTest(StaticLiveServerTestCase):
 
     def findNavigationLink(self, url_name: str, kwargs: dict[str, str] = None):
         route = reverse(url_name, kwargs=kwargs)
-        return self.by_css('#navbar-wrapper a[href="%s"]' % route)
+        return self.by_css(f'#navbar-wrapper a[href="{route}"]')
 
     @staticmethod
     def _url_to_be(url: str) -> Callable[[Any], bool]:

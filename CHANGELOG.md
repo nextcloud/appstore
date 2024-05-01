@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [4.8.1]  - 2024-05-10
+
+### Changed
+
+- `App templates` now generated from GitHub repo template. #1368 by @provokateurin
+- redis dependency updated from `5.0.3` to `5.0.4` #1363
+- sqlparse dependency updated from `0.4.4` to `0.5.0` #1353
+- dnspython dependency updated from `2.5.0` to `2.6.1` #1351
+- pillow dependency updated from `10.2.0` to `10.3.0` #1346
+
 ## [4.8.0]  - 2024-03-17
 
 ### Added

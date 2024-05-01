@@ -82,4 +82,4 @@ class GitHubTest(TestCase):
         return json.loads(self._read("tags_page_%d.json" % page))
 
     def _read(self, path: str) -> str:
-        return read_relative_file(__file__, "data/%s" % path)
+        return read_relative_file(__file__, f"data/{path}")

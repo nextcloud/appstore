@@ -78,8 +78,7 @@ class GunZipAppMetadataExtractor:
             unwanted. To mitigate the issue we now get only the filename
             and include that in the error message
             """
-            msg = "%s is not a valid tar.gz archive " % Path(archive_path).name
-            raise UnsupportedAppArchiveException(msg)
+            raise UnsupportedAppArchiveException(f"{Path(archive_path).name} is not a valid tar.gz archive ")
 
         try:
             with tarfile.open(archive_path, "r:gz") as tar:  # type: ignore
@@ -92,10 +91,10 @@ class GunZipAppMetadataExtractor:
 
     def _parse_archive(self, tar: Any) -> AppMetaData:
         app_id = find_app_id(tar, self.app_folder_regex)
-        info = get_contents("%s/appinfo/info.xml" % app_id, tar, self.config.max_file_size)
-        database = get_contents("%s/appinfo/database.xml" % app_id, tar, self.config.max_file_size, "")
+        info = get_contents(f"{app_id}/appinfo/info.xml", tar, self.config.max_file_size)
+        database = get_contents(f"{app_id}/appinfo/database.xml", tar, self.config.max_file_size, "")
         changelog = {
-            "en": get_contents("%s/CHANGELOG.md" % app_id, tar, self.config.max_file_size, "")
+            "en": get_contents(f"{app_id}/CHANGELOG.md", tar, self.config.max_file_size, "")
         }  # type: dict[str, str]
 
         for code, _ in self.config.languages:
@@ -125,8 +124,7 @@ def get_contents(path: str, tar: Any, max_file_size: int, default: Any = None) -
     if member is None:
         if default is not None:
             return default
-        msg = "Path %s does not exist in package" % path
-        raise InvalidAppPackageStructureException(msg)
+        raise InvalidAppPackageStructureException(f"Path {path} does not exist in package")
     return stream_read_utf8(tar, member, max_file_size)
 
 
@@ -182,9 +180,9 @@ def element_to_dict(element: Any) -> dict:
     elif type == "list":
         return {key: list(map(element_to_dict, element.iterchildren()))}
     elif type == "min-version":
-        return {key: pad_min_version(element.text), "raw_%s" % key: raw_version(element.text)}
+        return {key: pad_min_version(element.text), f"raw_{key}": raw_version(element.text)}
     elif type == "max-version":
-        return {key: pad_max_version(element.text), "raw_%s" % key: raw_version(element.text)}
+        return {key: pad_max_version(element.text), f"raw_{key}": raw_version(element.text)}
     elif len(list(element)) > 0:
         contents = {}
         for child in element.iterchildren():
@@ -220,8 +218,7 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str, xslt: str) -> dict:
     try:
         doc = lxml.etree.fromstring(bytes(xml, encoding="utf-8"), parser)
     except lxml.etree.XMLSyntaxError as e:
-        msg = "info.xml contains malformed xml: %s" % e
-        raise XMLSyntaxError(msg)
+        raise XMLSyntaxError(f"info.xml contains malformed xml: {e}")
     for _ in doc.iter(lxml.etree.Entity):  # type: ignore
         raise InvalidAppMetadataXmlException("Must not contain entities")
     pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
@@ -231,8 +228,7 @@ def parse_app_metadata(xml: str, schema: str, pre_xslt: str, xslt: str) -> dict:
     try:
         schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
-        msg = "info.xml did not validate: %s" % e
-        raise InvalidAppMetadataXmlException(msg)
+        raise InvalidAppMetadataXmlException(f"info.xml did not validate: {e}")
     transform = lxml.etree.XSLT(lxml.etree.XML(xslt))  # type: ignore
     transformed_doc = transform(pre_transformed_doc)  # type: ignore
     mapped = element_to_dict(transformed_doc.getroot())  # type: ignore
@@ -254,8 +250,7 @@ def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
     try:
         doc = lxml.etree.fromstring(bytes(xml, encoding="utf-8"), parser)
     except lxml.etree.XMLSyntaxError as e:
-        msg = "database.xml contains malformed xml: %s" % e
-        raise XMLSyntaxError(msg)
+        raise XMLSyntaxError(f"database.xml contains malformed xml: {e}")
     for _ in doc.iter(lxml.etree.Entity):  # type: ignore
         raise InvalidAppMetadataXmlException("Must not contain entities")
     pre_transform = lxml.etree.XSLT(lxml.etree.XML(pre_xslt))  # type: ignore
@@ -265,8 +260,7 @@ def validate_database(xml: str, schema: str, pre_xslt: str) -> None:
     try:
         schema.assertValid(pre_transformed_doc)  # type: ignore
     except lxml.etree.DocumentInvalid as e:
-        msg = "database.xml did not validate: %s" % e
-        raise InvalidAppMetadataXmlException(msg)
+        raise InvalidAppMetadataXmlException(f"database.xml did not validate: {e}")
 
 
 def validate_english_present(info: dict) -> None:
@@ -280,8 +274,7 @@ def validate_english_present(info: dict) -> None:
     translated_fields = ["name", "summary", "description"]
     for field in translated_fields:
         if "en" not in app[field]:
-            msg = 'At least one element "%s" with lang "en" required' % field
-            raise InvalidAppMetadataXmlException(msg)
+            raise InvalidAppMetadataXmlException(f'At least one element "{field}" with lang "en" required')
 
 
 def fix_partial_translations(info: dict) -> None:
@@ -407,6 +400,5 @@ def find_member(tar: Any, path: str) -> Any:
 
     for member in filter(lambda m: m is not None, checked_members):
         if member.issym() or member.islnk():
-            msg = "Symlinks and hard links can not be used for %s" % member
-            raise ForbiddenLinkException(msg)
+            raise ForbiddenLinkException(f"Symlinks and hard links can not be used for {member}")
     return check_member(path)

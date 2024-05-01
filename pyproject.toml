@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nextcloudappstore"
-version = "4.8.0"
+version = "4.8.1"
 description = "App store for Nextcloud apps"
 authors = ["Alexander Piskun <bigcat88@icloud.com>"]
 
@@ -74,9 +74,9 @@ profile = "black"
 [tool.ruff]
 line-length = 120
 target-version = "py310"
-select = ["E", "F", "UP"]
+lint.select = ["E", "F", "UP"]
 
-[tool.ruff.extend-per-file-ignores]
+[tool.ruff.lint.extend-per-file-ignores]
 "**/tests/**/__init__.py" = ["F403"]
 "nextcloudappstore/core/migrations/**/*.py" = ["E501", "F401"]
 "scripts/development/settings/**/*.py" = ["F403", "F405", "F821"]

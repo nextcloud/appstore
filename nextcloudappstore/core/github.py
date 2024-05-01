@@ -11,10 +11,10 @@ class GitHubClient:
     def __init__(self, base_url: str, api_token: str = None) -> None:
         self.base_url = base_url.rstrip("/")
         self.api_token = api_token
-        self.headers = None if self.api_token else {"Authorization": "token %s" % self.api_token}
+        self.headers = None if self.api_token else {"Authorization": f"token {self.api_token}"}
 
     def get_tags(self, page: int, size: int = 100):
-        url = "%s/repos/nextcloud/server/tags" % self.base_url
+        url = f"{self.base_url}/repos/nextcloud/server/tags"
         params = (("per_page", size), ("page", page))
         response = requests.get(url, params=params, headers=self.headers, timeout=21)
         response.raise_for_status()

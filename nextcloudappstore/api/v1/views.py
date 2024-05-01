@@ -263,7 +263,7 @@ class AppReleaseView(DestroyAPIView):
         try:
             app = App.objects.get(pk=app_id)
         except App.DoesNotExist:
-            raise ValidationError("App %s does not exist, you need to registerit first" % app_id)
+            raise ValidationError(f"App {app_id} does not exist, you need to registerit first")
 
         # if an app release does not exist, it must be checked if the
         # user is allowed to create it first

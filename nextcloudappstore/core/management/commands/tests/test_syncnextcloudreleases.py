@@ -57,4 +57,4 @@ class SyncNextcloudReleasesTest(TestCase):
         return json.loads(self._read("tags_page_%d.json" % page))
 
     def _read(self, path: str) -> str:
-        return read_relative_file(__file__, "../../../tests/data/%s" % path)
+        return read_relative_file(__file__, f"../../../tests/data/{path}")

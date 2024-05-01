@@ -58,4 +58,4 @@ class RatingTest(TestCase):
 
     def create_user(self, id):
         user_id = "test%i" % id
-        return get_user_model().objects.create_user(username=user_id, password=user_id, email="%s@test.com" % user_id)
+        return get_user_model().objects.create_user(username=user_id, password=user_id, email=f"{user_id}@test.com")

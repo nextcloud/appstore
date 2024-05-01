@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 if issubclass(model, TranslatableModel):
                     self._import_translations(model, fields, language_code)
                 else:
-                    raise CommandError('Model "%s" is not translatable' % model.__name__)
+                    raise CommandError(f'Model "{model.__name__}" is not translatable')
         self.stdout.write(self.style.SUCCESS("Imported db translations"))
 
     def _import_translations(self, model, fields, language_code):
