@@ -1,8 +1,16 @@
+[build-system]
+build-backend = "poetry.masonry.api"
+requires = [
+  "poetry>=1.6.1",
+]
+
 [tool.poetry]
 name = "nextcloudappstore"
 version = "4.8.1"
 description = "App store for Nextcloud apps"
-authors = ["Alexander Piskun <bigcat88@icloud.com>"]
+authors = [
+  "Alexander Piskun <bigcat88@icloud.com>",
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -25,8 +33,12 @@ pem = "^23.0.0"
 django-simple-captcha = "^0.6.0"
 uWSGI = "^2.0.20"
 newrelic = "^7.2.4"
-psycopg = {extras = ["binary"], version = "^3.1.10"}
-redis = {version = "^5.0.0", extras = ["hiredis"]}
+psycopg = { extras = [
+  "binary",
+], version = "^3.1.10" }
+redis = { version = "^5.0.0", extras = [
+  "hiredis",
+] }
 email-validator = "^2.1.0-post.0"
 jschon = "^0.11.1"
 
@@ -49,11 +61,38 @@ selenium = "*"
 types-requests = "^2.26.3"
 types-pyOpenSSL = "^23.0.0"
 
-[build-system]
-build-backend = "poetry.masonry.api"
-requires = [
-  "poetry>=1.6.1",
+[tool.black]
+line-length = 120
+target-versions = [
+  "py310",
 ]
+preview = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+lint.select = [
+  "E",
+  "F",
+  "UP",
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"**/tests/**/__init__.py" = [
+  "F403",
+]
+"nextcloudappstore/core/migrations/**/*.py" = [
+  "E501",
+  "F401",
+]
+"scripts/development/settings/**/*.py" = [
+  "F403",
+  "F405",
+  "F821",
+]
+
+[tool.isort]
+profile = "black"
 
 [tool.mypy]
 ignore_missing_imports = false
@@ -62,21 +101,3 @@ warn_no_return = true
 strict_optional = true
 check_untyped_defs = true
 show_error_codes = true
-
-[tool.black]
-line-length = 120
-target-versions = ["py310"]
-preview = true
-
-[tool.isort]
-profile = "black"
-
-[tool.ruff]
-line-length = 120
-target-version = "py310"
-lint.select = ["E", "F", "UP"]
-
-[tool.ruff.lint.extend-per-file-ignores]
-"**/tests/**/__init__.py" = ["F403"]
-"nextcloudappstore/core/migrations/**/*.py" = ["E501", "F401"]
-"scripts/development/settings/**/*.py" = ["F403", "F405", "F821"]
