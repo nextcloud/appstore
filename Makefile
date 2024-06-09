@@ -1,5 +1,5 @@
 manage-script=$(CURDIR)/manage.py
-manage=$(poetry_run) $(manage-script)
+manage=poetry run $(manage-script)
 
 .PHONY: test
 test:
