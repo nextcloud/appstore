@@ -1,5 +1,6 @@
 manage-script=$(CURDIR)/manage.py
 manage=poetry run $(manage-script)
+db=sqlite
 
 .PHONY: test
 test:
@@ -25,7 +26,7 @@ dev-setup:
 	npm run build
 	poetry install
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
-	cat $(CURDIR)/scripts/development/settings/sqlite.py >> $(CURDIR)/nextcloudappstore/settings/development.py
+	cat $(CURDIR)/scripts/development/settings/$(db).py >> $(CURDIR)/nextcloudappstore/settings/development.py
 	$(MAKE) initdb
 	$(MAKE) l10n
 
