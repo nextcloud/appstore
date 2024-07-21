@@ -136,6 +136,7 @@
             <xsl:copy-of select="lib"/>
             <xsl:copy-of select="owncloud"/>
             <xsl:copy-of select="nextcloud"/>
+            <xsl:copy-of select="backend"/>
         </dependencies>
     </xsl:template>
 
