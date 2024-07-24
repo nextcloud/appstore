@@ -8,22 +8,32 @@
     <h1>{% trans "Transfer Apps" %}</h1>
     <section>
         <p>{% trans 'To transfer an app to a new owner you must first unlock the app. A user can then take control of the app by registering it again on the app register page in the app developer menu.' %}</p>
+        <p>{% trans 'Don\'t have a new owner yet? You can mark the app as orphaned to indicate that you are looking for a new owner. Once the transfer is complete, the app will be automatically marked as un-orphaned/maintained again.' %}</p>
 
         {% if apps %}
             <table class="table table-striped">
                 <tr>
                     <th>{% trans 'App name' %}</th>
                     <th>{% trans 'Ownership transfer status' %}</th>
+                    <th>{% trans 'App status' %}</th>
                     <th>{% trans 'Change ownership transfer status' %}</th>
+                    <th>{% trans 'Change app status' %}</th>
                 </tr>
                 {% for app in apps %}
                     <tr>
                         <td>{{ app.name }}</td>
                         <td class="{% if app.ownership_transfer_enabled %}bg-success{% else %}bg-danger{% endif %}">
                             {% if app.ownership_transfer_enabled %}
-                                {% trans 'Unlocked for transfer' %}
+                                {% trans 'Unlocked' %}
                             {% else %}
-                                {% trans 'Locked, no transfer possible' %}
+                                {% trans 'Locked' %}
+                            {% endif %}
+                        </td>
+                        <td class="{% if app.is_orphan %}bg-danger{% else %}bg-success{% endif %}">
+                            {% if app.is_orphan %}
+                                {% trans 'Orphaned' %}
+                            {% else %}
+                                {% trans 'Maintained' %}
                             {% endif %}
                         </td>
                         <td>
@@ -33,6 +43,16 @@
                                     <button class="btn btn-primary btn-block" type="submit">{% trans 'Lock ownership transfer' %}</button>
                                 {% else %}
                                     <button class="btn btn-primary btn-block" type="submit">{% trans 'Unlock ownership transfer' %}</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{% url 'user:account-orphan-app' pk=app.id %}" method="post">
+                                {% csrf_token %}
+                                {% if app.is_orphan %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as maintained' %}</button>
+                                {% else %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as orphaned' %}</button>
                                 {% endif %}
                             </form>
                         </td>
