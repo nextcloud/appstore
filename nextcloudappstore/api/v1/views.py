@@ -176,6 +176,7 @@ class AppRegisterView(APIView):
             if app.ownership_transfer_enabled:
                 app.owner = request.user
                 app.ownership_transfer_enabled = False
+                app.is_orphan = False
             elif app.owner != request.user:
                 msg = "Only the app owner is allowed to update the certificate"
                 raise PermissionDenied(msg)
