@@ -30,7 +30,10 @@ class TransferAppsView(LoginRequiredMixin, TemplateView):
 
     def post(self, request, pk):
         app = get_object_or_404(App, pk=pk, owner=self.request.user)
-        app.ownership_transfer_enabled = not app.ownership_transfer_enabled
+        if "transfer" in request.path:
+            app.ownership_transfer_enabled = not app.ownership_transfer_enabled
+        if "orphan" in request.path:
+            app.is_orphan = not app.is_orphan
         app.save()
         return redirect(reverse("user:account-transfer-apps"))
 

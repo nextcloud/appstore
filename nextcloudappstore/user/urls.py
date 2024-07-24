@@ -25,6 +25,7 @@ urlpatterns = [
     ),
     re_path(r"^transfer-apps/?$", TransferAppsView.as_view(), name="account-transfer-apps"),
     re_path(r"^transfer-apps/(?P<pk>[a-z0-9_]+)/?$", TransferAppsView.as_view(), name="account-transfer-app"),
+    re_path(r"^orphan-apps/(?P<pk>[a-z0-9_]+)/?$", TransferAppsView.as_view(), name="account-orphan-app"),
     re_path(r"^password/?$", PasswordView.as_view(), name="account-password"),
     re_path(r"^token/?$", APITokenView.as_view(), name="account-api-token"),
     re_path(r"^delete/?$", DeleteAccountView.as_view(), name="account-deletion"),
