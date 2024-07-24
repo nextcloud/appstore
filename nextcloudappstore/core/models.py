@@ -263,7 +263,7 @@ class App(TranslatableModel):
         release_versions = list(self.latest_releases_by_platform_v().keys())
         if not release_versions:
             return True
-        max_release_version = Version(pad_max_inc_version(release_versions[0]))
+        max_release_version = max(map(lambda v: Version(pad_max_inc_version(v)), release_versions))
         min_recent_version = Version(pad_min_version("27"))  # current Nextcloud version - 2
         return max_release_version < min_recent_version
 
