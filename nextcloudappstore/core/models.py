@@ -104,6 +104,7 @@ class App(TranslatableModel):
     )
     authors = ManyToManyField("AppAuthor", blank=True, related_name="apps", verbose_name=_("App authors"))
     is_featured = BooleanField(verbose_name=_("Featured"), default=False)
+    is_orphan = BooleanField(verbose_name=_("Orphan"), default=False)
     rating_recent = FloatField(verbose_name=_("Recent rating"), default=0.5)
     rating_overall = FloatField(verbose_name=_("Overall rating"), default=0.5)
     rating_num_recent = IntegerField(verbose_name=_("Number of recently submitted ratings"), default=0)
