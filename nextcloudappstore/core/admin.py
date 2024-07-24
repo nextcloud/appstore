@@ -70,6 +70,7 @@ class AppAdmin(TranslatableAdmin):
         "summary",
         "is_featured",
         "ownership_transfer_enabled",
+        "is_orphan",
         "is_integration",
         "approved",
     )
@@ -81,6 +82,7 @@ class AppAdmin(TranslatableAdmin):
         "is_featured",
         "last_release",
         "ownership_transfer_enabled",
+        "is_orphan",
         "is_integration",
         "approved",
     )
