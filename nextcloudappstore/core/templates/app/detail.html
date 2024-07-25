@@ -48,7 +48,9 @@
         </div>
     {% endif %}
     <div class="header-wrap">
-        <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+        <h1>{{ object.name }}</h1>
+        {% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+        {% if object.is_orphan %}<span class="tag tag-danger">{% trans "Orphan / Looking for Maintainer" %}</span>{% endif %}
     </div>
     <div class="app-meta col-md-4 col-sm-12">
         <section>
