@@ -254,6 +254,19 @@ class App(TranslatableModel):
             reverse=True,
         )
 
+    def is_outdated(self):
+        """Checks if an app has been released in last 3 recent platform versions
+
+        :return: True if not compatible, otherwise false
+        """
+
+        release_versions = list(self.latest_releases_by_platform_v().keys())
+        if not release_versions:
+            return True
+        max_release_version = max(map(lambda v: Version(pad_max_inc_version(v)), release_versions))
+        min_recent_version = Version(pad_min_version("27"))  # current Nextcloud version - 2
+        return max_release_version < min_recent_version
+
     def _latest(self, releases):
         try:
             return max(releases, key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified))
