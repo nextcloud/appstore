@@ -142,6 +142,7 @@ class AppDetailView(DetailView):
         context["categories"] = Category.objects.prefetch_related("translations").all()
         context["latest_releases_by_platform_v"] = self.object.latest_releases_by_platform_v()
         context["is_integration"] = self.object.is_integration
+        context["is_outdated"] = self.object.is_outdated()
         return context
 
 
