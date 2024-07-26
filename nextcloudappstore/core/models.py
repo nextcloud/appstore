@@ -4,6 +4,7 @@ from itertools import chain
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import FloatField  # type: ignore
 from django.db.models import (
     CASCADE,
@@ -53,6 +54,47 @@ class AppManager(TranslatableManager):
         )
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
+
+    def search_relevant(self, terms, lang, maintainer, category_id, is_featured):
+        queryset = (
+            self.get_queryset()
+            .active_translations(lang)
+            .language(lang)
+            .distinct()
+            .filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
+        )
+
+        if maintainer:
+            try:
+                user = User.objects.get_by_natural_key(maintainer)
+                queryset = queryset.filter(Q(owner=user) | Q(co_maintainers=user))
+            except ObjectDoesNotExist:
+                return queryset.none()
+        if category_id:
+            queryset = queryset.filter(categories__id=category_id)
+        if is_featured == "true":
+            queryset = queryset.filter(is_featured=True)
+
+        if not terms:
+            return queryset.order_by("-is_featured", "-rating_num_recent", "-last_release")
+
+        predicates_name = map(lambda t: Q(translations__name__icontains=t), terms)
+        predicates_summary = map(lambda t: Q(translations__summary__icontains=t), terms)
+        predicates_description = map(lambda t: Q(translations__description__icontains=t), terms)
+
+        query_name_exact = Q(translations__name__iexact=" ".join(terms))
+        query_name = reduce(lambda x, y: x & y, predicates_name, Q())
+        query_summary = reduce(lambda x, y: x & y, predicates_summary, Q())
+        query_description = reduce(lambda x, y: x & y, predicates_description, Q())
+
+        qs1 = queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release")
+        qs2 = queryset.filter(query_name).order_by("-rating_overall", "-last_release")
+        qs3 = queryset.filter(query_summary).order_by("-rating_overall", "-last_release")
+        qs4 = queryset.filter(query_description).order_by("-rating_overall", "-last_release")
+
+        # All filters must be run before calling union
+        # https://stackoverflow.com/questions/49260393/django-filter-a-queryset-made-of-unions-not-working
+        return qs1.union(qs2, qs3, qs4).order_by("-is_featured")
 
     def get_compatible(self, platform_version, inclusive=False, prefetch=None, select=None):
         qs = App.objects
