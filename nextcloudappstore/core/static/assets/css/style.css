@@ -62,6 +62,11 @@ body {
     border-radius: 3px;
 }
 
+.tag-danger {
+    color: var(--color-error);
+    border: 1px solid var(--color-error-hover);
+}
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -234,7 +239,7 @@ body {
     align-items: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 991px) {
     .banner {
         max-height: 100%;
     }
@@ -1120,4 +1125,14 @@ form .form-group input[type=checkbox] {
 
 .account-content {
     margin-bottom: 60px;
+}
+
+.transfer-apps th:not(:first-child),
+.transfer-apps td:not(:first-child) {
+    text-align: center;
+}
+
+.transfer-apps form {
+    display: flex;
+    justify-content: center;
 }

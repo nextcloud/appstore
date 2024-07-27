@@ -39,8 +39,18 @@
             </div>
         </section>
     {% endif %}
+    {% if object.is_outdated %}
+        <div class="alert alert-warning" role="alert">
+            <strong>
+                {% trans "This app hasn’t been tested with the latest 3 major releases of Nextcloud." %}
+            </strong>
+            {% trans "It may no longer be maintained or supported and may have compatibility issues when used with more recent versions of Nextcloud." %}
+        </div>
+    {% endif %}
     <div class="header-wrap">
-        <h1>{{ object.name }}</h1>{% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+        <h1>{{ object.name }}</h1>
+        {% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
+        {% if object.is_orphan %}<span class="tag tag-danger">{% trans "Orphan / Looking for Maintainer" %}</span>{% endif %}
     </div>
     <div class="app-meta col-md-4 col-sm-12">
         <section>
