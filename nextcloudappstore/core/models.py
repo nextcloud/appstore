@@ -5,9 +5,10 @@ from itertools import chain
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.db.models import FloatField  # type: ignore
-from django.db.models import (
+from django.db.models import (  # type: ignore
     CASCADE,
     BooleanField,
+    Case,
     CharField,
     DateTimeField,
     EmailField,
@@ -19,6 +20,7 @@ from django.db.models import (
     Q,
     TextField,
     URLField,
+    When,
 )
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
@@ -53,6 +55,48 @@ class AppManager(TranslatableManager):
         )
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
+
+    def search_relevant(self, terms, lang):
+        queryset = self.get_queryset().active_translations(lang).language(lang).distinct()
+
+        if not terms:
+            return queryset.order_by("-is_featured", "-rating_num_recent", "-last_release")
+
+        # Format ordered list of app IDs for order_by method
+        # https://stackoverflow.com/a/73473882
+        def generate_sorting(ordered_list, field_name):
+            conditions_list = []
+            for index, field_value in enumerate(ordered_list):
+                condition = {field_name: field_value}
+                conditions_list.append(When(**condition, then=index))
+
+            return Case(*conditions_list, default=len(conditions_list))
+
+        predicates_name = map(lambda t: Q(translations__name__icontains=t), terms)
+        predicates_summary = map(lambda t: Q(translations__summary__icontains=t), terms)
+        predicates_description = map(lambda t: Q(translations__description__icontains=t), terms)
+
+        query_name_exact = Q(translations__name__iexact=" ".join(terms))
+        query_name = reduce(lambda x, y: x & y, predicates_name, Q())
+        query_summary = reduce(lambda x, y: x & y, predicates_summary, Q())
+        query_description = reduce(lambda x, y: x & y, predicates_description, Q())
+
+        ids_name_exact = list(
+            queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_name = list(
+            queryset.filter(query_name).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_summary = list(
+            queryset.filter(query_summary).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_description = list(
+            queryset.filter(query_description).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+
+        ids = list(dict.fromkeys(ids_name_exact + ids_name + ids_summary + ids_description))
+        id_sort = generate_sorting(ids, "id")
+        return queryset.filter(id__in=ids).order_by(id_sort)
 
     def get_compatible(self, platform_version, inclusive=False, prefetch=None, select=None):
         qs = App.objects

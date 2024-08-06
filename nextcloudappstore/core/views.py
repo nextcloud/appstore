@@ -188,7 +188,7 @@ class CategoryAppListView(ListView):
     allow_empty = True
 
     def get_queryset(self):
-        order_by = self.request.GET.get("order_by", "rating_overall")
+        order_by = self.request.GET.get("order_by", "relevance")
         ordering = self.request.GET.get("ordering", "desc")
         is_featured = self.request.GET.get("is_featured", False)
         maintainer = self.request.GET.get("maintainer", False)
@@ -197,7 +197,7 @@ class CategoryAppListView(ListView):
         if self.kwargs.get("is_featured_category", False):
             is_featured = "true"
 
-        allowed_order_by = {"name", "last_release", "rating_overall", "rating_recent"}
+        allowed_order_by = {"name", "last_release", "rating_overall", "rating_recent", "relevance"}
         if order_by in allowed_order_by:
             if order_by == "name":
                 order_by = "translations__name"
@@ -208,11 +208,13 @@ class CategoryAppListView(ListView):
 
         lang = get_language_info(get_language())["code"]
         category_id = self.kwargs["id"]
-        queryset = (
-            App.objects.search(self.search_terms, lang)
-            .order_by(*sort_columns)
-            .filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
-        )
+
+        if order_by == "relevance":
+            queryset = App.objects.search_relevant(self.search_terms, lang)
+        else:
+            queryset = App.objects.search(self.search_terms, lang).order_by(*sort_columns)
+        queryset = queryset.filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
+
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)

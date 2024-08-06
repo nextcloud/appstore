@@ -44,6 +44,8 @@
     --original-icon-comment-question-white: url('../img/icons/detail/comment-question-white.svg');
     --original-icon-feature-search-dark: url('../img/icons/detail/feature-search.svg');
     --original-icon-feature-search-white: url('../img/icons/detail/feature-search-white.svg');
+    --original-icon-relevance-dark: url('../img/icons/list/relevance.svg');
+    --original-icon-relevance-white: url('../img/icons/list/relevance-white.svg');
     --original-icon-rocket-launch-dark: url('../img/icons/list/rocket-launch.svg');
     --original-icon-rocket-launch-white: url('../img/icons/list/rocket-launch-white.svg');
     --original-icon-sort-alphabetical-variant-dark: url('../img/icons/list/sort-alphabetical-variant.svg');
@@ -103,6 +105,8 @@ body {
     --icon-comment-question-white: var(--original-icon-comment-question-white);
     --icon-feature-search-dark: var(--original-icon-feature-search-dark);
     --icon-feature-search-white: var(--original-icon-feature-search-white);
+    --icon-relevance-dark: var(--original-icon-relevance-dark);
+    --icon-relevance-white: var(--original-icon-relevance-white);
     --icon-rocket-launch-dark: var(--original-icon-rocket-launch-dark);
     --icon-rocket-launch-white: var(--original-icon-rocket-launch-white);
     --icon-sort-alphabetical-variant-dark: var(--original-icon-sort-alphabetical-variant-dark);
@@ -300,6 +304,14 @@ body .icon-feature-search.icon-white {
     background-image: var(--icon-feature-search-white);
 }
 
+body .icon-relevance,
+body .icon-relevance-dark {
+    background-image: var(--icon-relevance-dark);
+}
+body .icon-relevance-white,
+body .icon-relevance.icon-white {
+    background-image: var(--icon-relevance-white);
+}
 body .icon-rocket-launch,
 body .icon-rocket-launch-dark {
     background-image: var(--icon-rocket-launch-dark);

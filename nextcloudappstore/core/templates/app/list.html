@@ -14,9 +14,15 @@
 <div class="row row-no-gutters">
     <div class="col-md-12">
         <ul class="nav-tabs nav sorting">
-            <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}active{% endif %}">
+            <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'relevance' %}active{% endif %}">
+                <a href="{{ request.url }}?order_by=relevance&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
+                    <span class="icon icon-relevance {% if not request.GET.order_by or request.GET.order_by == 'relevance' %}icon-white{% endif %}"></span>
+                    {% trans 'Relevance' %}
+                </a>
+            </li>
+            <li role="presentation" class="{% if request.GET.order_by == 'rating_overall' %}active{% endif %}">
                 <a href="{{ request.url }}?order_by=rating_overall&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
-                    <span class="icon icon-star-plus {% if not request.GET.order_by or request.GET.order_by == 'rating_overall' %}icon-white{% endif %}"></span>
+                    <span class="icon icon-star-plus {% if request.GET.order_by == 'rating_overall' %}icon-white{% endif %}"></span>
                     {% trans 'Rating' %}
                 </a>
             </li>
