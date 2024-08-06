@@ -210,14 +210,11 @@ class CategoryAppListView(ListView):
         category_id = self.kwargs["id"]
 
         if order_by == "relevance":
-            queryset = App.objects.search_relevant(self.search_terms, lang, maintainer, category_id, is_featured)
-            return queryset.prefetch_related("screenshots", "translations")
+            queryset = App.objects.search_relevant(self.search_terms, lang)
+        else:
+            queryset = App.objects.search(self.search_terms, lang).order_by(*sort_columns)
+        queryset = queryset.filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
 
-        queryset = (
-            App.objects.search(self.search_terms, lang)
-            .order_by(*sort_columns)
-            .filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
-        )
         if maintainer:
             try:
                 user = User.objects.get_by_natural_key(maintainer)

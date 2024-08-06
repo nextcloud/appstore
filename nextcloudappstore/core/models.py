@@ -4,7 +4,6 @@ from itertools import chain
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
-from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import FloatField  # type: ignore
 from django.db.models import (  # type: ignore
     CASCADE,
@@ -57,25 +56,8 @@ class AppManager(TranslatableManager):
         query = reduce(lambda x, y: x & y, predicates, Q())
         return queryset.filter(query)
 
-    def search_relevant(self, terms, lang, maintainer, category_id, is_featured):
-        queryset = (
-            self.get_queryset()
-            .active_translations(lang)
-            .language(lang)
-            .distinct()
-            .filter(Q(releases__gt=0) | (Q(is_integration=True) & Q(approved=True)))
-        )
-
-        if maintainer:
-            try:
-                user = User.objects.get_by_natural_key(maintainer)
-                queryset = queryset.filter(Q(owner=user) | Q(co_maintainers=user))
-            except ObjectDoesNotExist:
-                return queryset.none()
-        if category_id:
-            queryset = queryset.filter(categories__id=category_id)
-        if is_featured == "true":
-            queryset = queryset.filter(is_featured=True)
+    def search_relevant(self, terms, lang):
+        queryset = self.get_queryset().active_translations(lang).language(lang).distinct()
 
         if not terms:
             return queryset.order_by("-is_featured", "-rating_num_recent", "-last_release")
