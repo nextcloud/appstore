@@ -13,18 +13,18 @@
 # Lajos Seyler <lajos.seyler@gmail.com>, 2023
 # Tiri Gor <gortiri@freemail.hu>, 2023
 # Főnyedi Áron <sajtman@gmail.com>, 2023
-# Balázs Meskó <meskobalazs@mailbox.org>, 2023
 # Gábor Baráth <dincsi@gmail.com>, 2024
 # Falu <info@falu.me>, 2024
+# Balázs Meskó <meskobalazs@mailbox.org>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 02:50+0000\n"
+"POT-Creation-Date: 2024-08-06 02:53+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Falu <info@falu.me>, 2024\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
 "teams/64236/hu_HU/)\n"
 "Language: hu_HU\n"
@@ -221,7 +221,7 @@ msgstr "Kiemelt"
 
 #: nextcloudappstore/core/models.py:107
 msgid "Orphan"
-msgstr ""
+msgstr "Elárvult"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Recent rating"
@@ -1780,7 +1780,10 @@ msgstr ""
 "regisztrációs oldalon, az alkalmazásfejlesztői menüben."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
-msgid "Don\\"
+msgid ""
+"Don't have a new owner yet? You can mark the app as orphaned to indicate "
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
@@ -1788,20 +1791,16 @@ msgid "Ownership transfer status"
 msgstr "Tulajdonjog-átadás állapota"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:18
-#, fuzzy
-#| msgid "App authors"
 msgid "App status"
-msgstr "Alkalmazásszerzők"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "Change ownership transfer status"
 msgstr "Tulajdonjog-átadási állapot módosítása"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
-#, fuzzy
-#| msgid "Change Password"
 msgid "Change app status"
-msgstr "Jelszó módosítása"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:27
 msgid "Unlocked"
@@ -1809,17 +1808,15 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:29
 msgid "Locked"
-msgstr ""
+msgstr "Zárolt"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:34
 msgid "Orphaned"
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:36
-#, fuzzy
-#| msgid "Co-Maintainers"
 msgid "Maintained"
-msgstr "Társkarbantartók"
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "Lock ownership transfer"
@@ -1840,9 +1837,3 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:63
 msgid "You have not uploaded any apps yet!"
 msgstr "Még nem töltött fel alkalmazást."
-
-#~ msgid "Unlocked for transfer"
-#~ msgstr "Átadáshoz feloldva"
-
-#~ msgid "Locked, no transfer possible"
-#~ msgstr "Zárolva, az átadás nem lehetséges"

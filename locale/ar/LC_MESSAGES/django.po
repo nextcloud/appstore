@@ -16,6 +16,7 @@
 # omv nas <myomv100@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Ahmad Aldakhil <adakhil@gmail.com>, 2023
+# Mohammed Ahbabi <upsociale@gmail.com>, 2024
 # Ali <alimahwer@yahoo.com>, 2024
 # 
 #, fuzzy
@@ -23,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 02:50+0000\n"
+"POT-Creation-Date: 2024-08-03 03:39+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Ali <alimahwer@yahoo.com>, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/nextcloud/teams/64236/ar/)\n"
@@ -216,7 +217,7 @@ msgstr "مُميّزة"
 
 #: nextcloudappstore/core/models.py:107
 msgid "Orphan"
-msgstr ""
+msgstr "يتيم"
 
 #: nextcloudappstore/core/models.py:108
 msgid "Recent rating"
@@ -892,16 +893,20 @@ msgstr "التالي"
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
+"هذا التطبيق لم يتم اختباره مع الإصدارات الرئيسية الـ 3 الأخيرة من نكست "
+"كلاود."
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
 msgstr ""
+"يمكن ألّا يكون مدعوماً و مُصاناً بعدُ و يمكن أن يحتوي على إشكاليات في "
+"التوافق مع الإصدارات الأخيرة من نكست كلاود."
 
 #: nextcloudappstore/core/templates/app/detail.html:53
 msgid "Orphan / Looking for Maintainer"
-msgstr ""
+msgstr "بدون راع / لا أحد قائم على صيانته"
 
 #: nextcloudappstore/core/templates/app/detail.html:57
 msgid "Highest Nextcloud version"
@@ -1769,8 +1774,14 @@ msgstr ""
 "التطبيق في قائمة مُطوّر التطبيق."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
-msgid "Don\\"
+msgid ""
+"Don't have a new owner yet? You can mark the app as orphaned to indicate "
+"that you are looking for a new owner. Once the transfer is complete, the app"
+" will be automatically marked as un-orphaned/maintained again."
 msgstr ""
+"ليس لديك مالك جديد حتى الآن؟ يمكنك تمييز التطبيق بأنه \"بلا راعٍ\" للإشارة "
+"إلى أنك تبحث عن مالك جديد. بمجرد اكتمال النقل سيتم تمييز التطبيق تلقائيًا "
+"على أنه \"له راعٍ/مُصانٌ\" مرة أخرى."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Ownership transfer status"
@@ -1778,7 +1789,7 @@ msgstr "حالة نقل الملكية"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:18
 msgid "App status"
-msgstr ""
+msgstr "حالة التطبيق"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "Change ownership transfer status"
@@ -1786,23 +1797,23 @@ msgstr "عدّل حالة نقل الملكية"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Change app status"
-msgstr ""
+msgstr "تغيير حالة التطبيق"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:27
 msgid "Unlocked"
-msgstr ""
+msgstr "غير مقفل"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:29
 msgid "Locked"
-msgstr ""
+msgstr "مقفل"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:34
 msgid "Orphaned"
-msgstr ""
+msgstr "لا راعي له"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:36
 msgid "Maintained"
-msgstr ""
+msgstr "مُصان"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "Lock ownership transfer"
@@ -1814,11 +1825,11 @@ msgstr "فك قفل نقل الملكية"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:53
 msgid "Mark as maintained"
-msgstr ""
+msgstr "تمييز كـ\"مُصان\""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:55
 msgid "Mark as orphaned"
-msgstr ""
+msgstr "تمييز كـ\"بلا راع\""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:63
 msgid "You have not uploaded any apps yet!"
