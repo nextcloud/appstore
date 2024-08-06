@@ -6,9 +6,10 @@ from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import FloatField  # type: ignore
-from django.db.models import (
+from django.db.models import (  # type: ignore
     CASCADE,
     BooleanField,
+    Case,
     CharField,
     DateTimeField,
     EmailField,
@@ -20,6 +21,7 @@ from django.db.models import (
     Q,
     TextField,
     URLField,
+    When,
 )
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
@@ -78,6 +80,16 @@ class AppManager(TranslatableManager):
         if not terms:
             return queryset.order_by("-is_featured", "-rating_num_recent", "-last_release")
 
+        # Format ordered list of app IDs for order_by method
+        # https://stackoverflow.com/a/73473882
+        def generate_sorting(ordered_list, field_name):
+            conditions_list = []
+            for index, field_value in enumerate(ordered_list):
+                condition = {field_name: field_value}
+                conditions_list.append(When(**condition, then=index))
+
+            return Case(*conditions_list, default=len(conditions_list))
+
         predicates_name = map(lambda t: Q(translations__name__icontains=t), terms)
         predicates_summary = map(lambda t: Q(translations__summary__icontains=t), terms)
         predicates_description = map(lambda t: Q(translations__description__icontains=t), terms)
@@ -87,14 +99,22 @@ class AppManager(TranslatableManager):
         query_summary = reduce(lambda x, y: x & y, predicates_summary, Q())
         query_description = reduce(lambda x, y: x & y, predicates_description, Q())
 
-        qs1 = queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release")
-        qs2 = queryset.filter(query_name).order_by("-rating_overall", "-last_release")
-        qs3 = queryset.filter(query_summary).order_by("-rating_overall", "-last_release")
-        qs4 = queryset.filter(query_description).order_by("-rating_overall", "-last_release")
+        ids_name_exact = list(
+            queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_name = list(
+            queryset.filter(query_name).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_summary = list(
+            queryset.filter(query_summary).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_description = list(
+            queryset.filter(query_description).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
 
-        # All filters must be run before calling union
-        # https://stackoverflow.com/questions/49260393/django-filter-a-queryset-made-of-unions-not-working
-        return qs1.union(qs2, qs3, qs4).order_by("-is_featured")
+        ids = list(dict.fromkeys(ids_name_exact + ids_name + ids_summary + ids_description))
+        id_sort = generate_sorting(ids, "id")
+        return queryset.filter(id__in=ids).order_by(id_sort)
 
     def get_compatible(self, platform_version, inclusive=False, prefetch=None, select=None):
         qs = App.objects
