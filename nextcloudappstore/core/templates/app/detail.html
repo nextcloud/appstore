@@ -135,6 +135,18 @@
                 {% trans 'Ask questions or discuss' %}
             </a>
         </section>
+        {% if object.is_enterprise_supported %}
+        <section class="support-section">
+            <h5>{% trans 'Need Enterprise Support?' %}</h5>
+            <a rel="noreferrer noopener"
+               href="https://nextcloud.com/get-a-quote/?utm_source=apps.nextcloud.com&utm_campaign={{ object.id }}"
+               class="btn btn-default btn-light">
+                <span class="icon icon-send"></span>
+                {% trans 'Request quote' %}
+            </a>
+            {% trans 'Recommended for large Nextcloud installations only.' %}
+        </section>
+        {% endif %}
     </div>
 
     <section class="app-description markdown loading"></section>
