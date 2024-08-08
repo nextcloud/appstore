@@ -1,0 +1,46 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head-title %}{% trans 'Enterprise App Support' %} - {% endblock %}
+
+{% block account-content %}
+    <h1>{% trans 'Enterprise App Support' %}</h1>
+    <section>
+        <p>{% trans "If an app is available to receive enterprise support, you can mark the app as such here. This will add a 'Request quote' button to the app's details page in the App Store and in Nextcloud Apps. Such support can only be requested for large Nextcloud installations." %}</p>
+
+        {% if apps %}
+            <table class="table table-striped transfer-apps">
+                <tr>
+                    <th>{% trans 'App name' %}</th>
+                    <th>{% trans 'Support status' %}</th>
+                    <th>{% trans 'Change support status' %}</th>
+                </tr>
+                {% for app in apps %}
+                    <tr>
+                        <td>{{ app.name }}</td>
+                        <td class="{% if app.is_enterprise_supported %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if app.is_enterprise_supported %}
+                                {% trans 'Supported' %}
+                            {% else %}
+                                {% trans 'Unsupported' %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form action="{% url 'user:account-enterprise-app' pk=app.id %}" method="post">
+                                {% csrf_token %}
+                                {% if app.is_enterprise_supported %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as unsupported' %}</button>
+                                {% else %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as supported' %}</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="alert alert-info">{% trans 'You have not uploaded any apps yet!' %}</p>
+        {% endif %}
+    </section>
+{% endblock %}
