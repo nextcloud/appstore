@@ -1771,22 +1771,21 @@ test = ["cython", "html5lib", "pytest", "pytest-cov", "typed-ast"]
 
 [[package]]
 name = "sphinx-issues"
-version = "3.0.1"
+version = "4.1.0"
 description = "A Sphinx extension for linking to your project's issue tracker"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "sphinx-issues-3.0.1.tar.gz", hash = "sha256:b7c1dc1f4808563c454d11c1112796f8c176cdecfee95f0fd2302ef98e21e3d6"},
-    {file = "sphinx_issues-3.0.1-py3-none-any.whl", hash = "sha256:8b25dc0301159375468f563b3699af7a63720fd84caf81c1442036fcd418b20c"},
+    {file = "sphinx_issues-4.1.0-py3-none-any.whl", hash = "sha256:d779dddff441175c9fddb7a4018eca38f9f6cdb1e0a2fe31d93b4f89587c7ba1"},
+    {file = "sphinx_issues-4.1.0.tar.gz", hash = "sha256:a67f7ef31d164b420b2f21b6c9b020baeb4a014afd4045f5be314c984e8ee520"},
 ]
 
 [package.dependencies]
 sphinx = "*"
 
 [package.extras]
-dev = ["flake8 (==3.9.2)", "flake8-bugbear (==20.11.1)", "pre-commit (>=2.7,<3.0)", "pytest (>=6.2.0)", "tox"]
-lint = ["flake8 (==3.9.2)", "flake8-bugbear (==20.11.1)", "pre-commit (>=2.7,<3.0)"]
-tests = ["pytest (>=6.2.0)"]
+dev = ["pre-commit (>=3.6,<4.0)", "sphinx-issues[tests]", "tox"]
+tests = ["pytest"]
 
 [[package]]
 name = "sphinx-rtd-theme"
@@ -2096,4 +2095,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f244ff85047cc29cee9ce513e78c267d94f3cd513cbbfd1eda214e04f93cf2d4"
+content-hash = "ede17c675372b3b204e044d6b0490b265aaa7585f5241dfbabfb9a288b3e6687"
