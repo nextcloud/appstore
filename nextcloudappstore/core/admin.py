@@ -72,6 +72,7 @@ class AppAdmin(TranslatableAdmin):
         "ownership_transfer_enabled",
         "is_orphan",
         "is_integration",
+        "is_enterprise_supported",
         "approved",
     )
     list_filter = (
@@ -84,6 +85,7 @@ class AppAdmin(TranslatableAdmin):
         "ownership_transfer_enabled",
         "is_orphan",
         "is_integration",
+        "is_enterprise_supported",
         "approved",
     )
     ordering = ("id",)

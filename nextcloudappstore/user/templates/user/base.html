@@ -26,6 +26,12 @@
                     {% trans 'Transfer app ownership' %}
                 </a>
             </li>
+            <li class="{% if acc_page == 'account-enterprise-apps' %}active{% endif %}">
+                <a href="{% url 'user:account-enterprise-apps' %}">
+                    <span class="icon material-symbols-outlined">enterprise</span>
+                    {% trans 'Enterprise support' %}
+                </a>
+            </li>
             <li class="{% if acc_page == 'account-change-language' %}active{% endif %}">
                 <a href="{% url 'user:account-change-language' %}">
                     <span class="icon material-symbols-outlined">translate</span>

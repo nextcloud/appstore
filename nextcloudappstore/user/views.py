@@ -44,6 +44,22 @@ class TransferAppsView(LoginRequiredMixin, TemplateView):
         return context
 
 
+class EnterpriseAppsView(LoginRequiredMixin, TemplateView):
+    template_name = "user/enterprise-apps.html"
+
+    def post(self, request, pk):
+        app = get_object_or_404(App, pk=pk, owner=self.request.user)
+        app.is_enterprise_supported = not app.is_enterprise_supported
+        app.save()
+        return redirect(reverse("user:account-enterprise-apps"))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["apps"] = App.objects.filter(owner=self.request.user)
+        context["acc_page"] = "account-enterprise-apps"
+        return context
+
+
 class ChangeLanguageView(LoginRequiredMixin, TemplateView):
     template_name = "user/set-language.html"
 
