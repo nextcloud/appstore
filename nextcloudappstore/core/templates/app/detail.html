@@ -135,6 +135,19 @@
                 {% trans 'Ask questions or discuss' %}
             </a>
         </section>
+        {% if object.donations.all %}
+        <section class="donate-section">
+            <h5>{% trans 'Donate' %}</h5>
+            {% for donation in object.donations.all %}
+                <a rel="noreferrer noopener"
+                       href="{{ donation.url }}"
+                       class="btn btn-default btn-light">
+                    <span class="icon icon-donate-{{ donation.type }}"></span>
+                    {{ donation.title }}
+                </a>
+            {% endfor %}
+        </section>
+        {% endif %}
         {% if object.is_enterprise_supported %}
         <section class="support-section">
             <h5>{% trans 'Need Enterprise Support?' %}</h5>
