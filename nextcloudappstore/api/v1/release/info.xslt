@@ -101,6 +101,39 @@
 
             <!-- optional elements need defaults -->
 
+            <donations type="list">
+                <xsl:for-each select="donation">
+                    <donation>
+                        <url>
+                            <xsl:value-of select="."/>
+                        </url>
+                        <xsl:choose>
+                            <xsl:when test="donation/@title">
+                                <title>
+                                    <xsl:value-of select="donation/@title"/>
+                                </title>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <title>Donate to support this app</title>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="donation/@type">
+                                <type>
+                                    <xsl:value-of select="donation/@type"/>
+                                </type>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <type>other</type>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <ordering type="int">
+                            <xsl:value-of select="position()"/>
+                        </ordering>
+                    </donation>
+                </xsl:for-each>
+            </donations>
+
             <xsl:if test="documentation/admin[starts-with(., 'https://')]">
                 <admin-docs>
                     <xsl:value-of select="documentation/admin"/>

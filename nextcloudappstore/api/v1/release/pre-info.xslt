@@ -32,6 +32,7 @@
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
             <xsl:copy-of select="screenshot"/>
+            <xsl:copy-of select="donation"/>
             <xsl:apply-templates select="dependencies"/>
             <xsl:copy-of select="background-jobs"/>
             <xsl:apply-templates select="repair-steps"/>
