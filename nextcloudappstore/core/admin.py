@@ -12,6 +12,7 @@ from nextcloudappstore.core.models import (
     Category,
     Database,
     DatabaseDependency,
+    Donation,
     License,
     NextcloudRelease,
     PhpExtension,
@@ -133,6 +134,13 @@ class PodcastAdmin(admin.ModelAdmin):
 class ScreenshotAdmin(admin.ModelAdmin):
     ordering = ("app", "ordering")
     list_display = ("url", "small_thumbnail", "app", "ordering")
+    list_filter = ("app__id",)
+
+
+@admin.register(Donation)
+class DonationAdmin(admin.ModelAdmin):
+    ordering = ("app", "ordering")
+    list_display = ("url", "type", "title", "app", "ordering")
     list_filter = ("app__id",)
 
 
