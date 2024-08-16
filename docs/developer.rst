@@ -5,6 +5,8 @@ App Developer Guide
 
 Note: Documentation and a tutorial about App Development itself (vs "app development and the App Store") is found at
 `https://docs.nextcloud.com/server/stable/developer_manual/app_development/index.html <https://docs.nextcloud.com/server/stable/developer_manual/app_development/index.html>`_.
+Information regarding app monetization and payment can be found at
+`https://docs.nextcloud.com/server/latest/developer_manual/app_publishing_maintenance/monetizing.html <https://docs.nextcloud.com/server/latest/developer_manual/app_publishing_maintenance/monetizing.html>`_.
 
 Most of today's developers publish their source code on GitHub, BitBucket, GitLab or on their own GitLab instance. These tools typically also provide a way to release new versions based on Git tags or by uploading custom archives.
 
