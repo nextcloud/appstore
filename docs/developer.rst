@@ -211,6 +211,8 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <repository>https://github.com/nextcloud/news</repository>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
+        <donation type="paypal" title="Donate via PayPal">https://paypal.com/example-link</donation>
+        <donation>https://github.com/sponsors/example</donation>
         <dependencies>
             <php min-version="5.6" min-int-size="64"/>
             <database min-version="9.4">pgsql</database>
@@ -399,6 +401,12 @@ screenshot
     * must contain an HTTPS URL to an image
     * can contain a **small-thumbnail** attribute which must contain an https url to an image. This image will be used as small preview (e.g. on the app list overview). Keep it small so it renders fast
     * will be rendered on the app list and detail page in the given order
+donation
+    * optional
+    * can occur multiple times containing different donation URLs
+    * can contain a **title** attribute which must be a string, defaults to **Donate to support this app**
+    * can contain a **type** attribute, **paypal**, **stripe**, and **other** are allowed values, defaults to **other**
+    * will be rendered on the app detail page in the given order
 dependencies/php
     * optional
     * can contain a **min-version** attribute (maximum 3 digits separated by dots)

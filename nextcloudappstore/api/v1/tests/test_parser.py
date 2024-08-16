@@ -43,6 +43,7 @@ class ParserTest(TestCase):
                 "issue_tracker": "https://github.com/nextcloud/news/issues",
                 "screenshots": [],
                 "categories": [{"category": {"id": "multimedia"}}],
+                "donations": [],
                 "release": {
                     "databases": [],
                     "licenses": [{"license": {"id": "agpl"}}],
@@ -504,6 +505,7 @@ class ParserTest(TestCase):
                     {"screenshot": {"url": "https://example.com/1.png", "small_thumbnail": None, "ordering": 1}},
                     {"screenshot": {"url": "https://example.com/2.jpg", "small_thumbnail": None, "ordering": 2}},
                 ],
+                "donations": [],
             }
         }
         self.assertDictEqual(expected, result)

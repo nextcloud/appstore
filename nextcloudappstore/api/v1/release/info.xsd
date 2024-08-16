@@ -36,6 +36,8 @@
                             maxOccurs="1"/>
                 <xs:element name="screenshot" type="screenshot" minOccurs="0"
                             maxOccurs="10"/>
+                <xs:element name="donation" type="url" minOccurs="0"
+                            maxOccurs="10"/>
                 <xs:element name="dependencies" type="dependencies"
                             minOccurs="1" maxOccurs="1"/>
                 <xs:element name="background-jobs" type="jobs"
@@ -402,6 +404,23 @@
             <xs:element name="personal-section" type="php-class" minOccurs="0"
                         maxOccurs="unbounded"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="donate-platform">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="paypal"/>
+            <xs:enumeration value="stripe"/>
+            <xs:enumeration value="other"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="donation">
+        <xs:simpleContent>
+            <xs:extension base="secure-url">
+                <xs:attribute name="title" type="limited-string" use="optional"/>
+                <xs:attribute name="type" type="donate-platform" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <xs:complexType name="activity">

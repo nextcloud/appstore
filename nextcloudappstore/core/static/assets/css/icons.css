@@ -44,6 +44,12 @@
     --original-icon-comment-question-white: url('../img/icons/detail/comment-question-white.svg');
     --original-icon-feature-search-dark: url('../img/icons/detail/feature-search.svg');
     --original-icon-feature-search-white: url('../img/icons/detail/feature-search-white.svg');
+    --original-icon-donate-paypal-dark: url('../img/icons/detail/donate-paypal.svg');
+    --original-icon-donate-paypal-white: url('../img/icons/detail/donate-paypal-white.svg');
+    --original-icon-donate-stripe-dark: url('../img/icons/detail/donate-stripe.svg');
+    --original-icon-donate-stripe-white: url('../img/icons/detail/donate-stripe-white.svg');
+    --original-icon-donate-other-dark: url('../img/icons/detail/donate-other.svg');
+    --original-icon-donate-other-white: url('../img/icons/detail/donate-other-white.svg');
     --original-icon-send-dark: url('../img/icons/detail/send.svg');
     --original-icon-send-white: url('../img/icons/detail/send-white.svg');
     --original-icon-relevance-dark: url('../img/icons/list/relevance.svg');
@@ -107,6 +113,12 @@ body {
     --icon-comment-question-white: var(--original-icon-comment-question-white);
     --icon-feature-search-dark: var(--original-icon-feature-search-dark);
     --icon-feature-search-white: var(--original-icon-feature-search-white);
+    --icon-donate-paypal-dark: var(--original-icon-donate-paypal-dark);
+    --icon-donate-paypal-white: var(--original-icon-donate-paypal-white);
+    --icon-donate-stripe-dark: var(--original-icon-donate-stripe-dark);
+    --icon-donate-stripe-white: var(--original-icon-donate-stripe-white);
+    --icon-donate-other-dark: var(--original-icon-donate-other-dark);
+    --icon-donate-other-white: var(--original-icon-donate-other-white);
     --icon-send-dark: var(--original-icon-send-dark);
     --icon-send-white: var(--original-icon-send-white);
     --icon-relevance-dark: var(--original-icon-relevance-dark);
@@ -306,6 +318,30 @@ body .icon-feature-search-dark {
 body .icon-feature-search-white,
 body .icon-feature-search.icon-white {
     background-image: var(--icon-feature-search-white);
+}
+body .icon-donate-paypal,
+body .icon-donate-paypal-dark {
+    background-image: var(--icon-donate-paypal-dark);
+}
+body .icon-donate-paypal-white,
+body .icon-donate-paypal.icon-white {
+    background-image: var(--icon-donate-paypal-white);
+}
+body .icon-donate-stripe,
+body .icon-donate-stripe-dark {
+    background-image: var(--icon-donate-stripe-dark);
+}
+body .icon-donate-stripe-white,
+body .icon-donate-stripe.icon-white {
+    background-image: var(--icon-donate-stripe-white);
+}
+body .icon-donate-other,
+body .icon-donate-other-dark {
+    background-image: var(--icon-donate-other-dark);
+}
+body .icon-donate-other-white,
+body .icon-donate-other.icon-white {
+    background-image: var(--icon-donate-other-white);
 }
 body .icon-send,
 body .icon-send-dark {

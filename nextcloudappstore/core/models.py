@@ -557,6 +557,22 @@ class Screenshot(Model):
         return self.url
 
 
+class Donation(Model):
+    url = URLField(max_length=256, verbose_name=_("Donation URL"))
+    type = CharField(max_length=256, verbose_name=_("Donation Type"), default="other")
+    title = CharField(max_length=256, verbose_name=_("Donation Title"), default="Donate to support this app")
+    app = ForeignKey("App", on_delete=CASCADE, verbose_name=_("App"), related_name="donations")
+    ordering = IntegerField(verbose_name=_("Ordering"))
+
+    class Meta:
+        verbose_name = _("Donation")
+        verbose_name_plural = _("Donations")
+        ordering = ["ordering"]
+
+    def __str__(self) -> str:
+        return self.url
+
+
 class ShellCommand(Model):
     name = CharField(
         max_length=256,

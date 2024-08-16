@@ -15,6 +15,7 @@ from nextcloudappstore.core.models import (
     Category,
     Database,
     DatabaseDependency,
+    Donation,
     License,
     PhpExtension,
     PhpExtensionDependency,
@@ -144,6 +145,21 @@ class ScreenshotsImporter(ScalarImporter):
         obj.screenshots.set(list(shots))
 
 
+class DonationsImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        def create_donation(img: dict[str, str]) -> Donation:
+            return Donation.objects.create(
+                url=img["url"],
+                app=obj,
+                ordering=img["ordering"],
+                title=img["title"],
+                type=img["type"],
+            )
+
+        shots = map(lambda val: create_donation(val["donation"]), value)
+        obj.donations.set(list(shots))
+
+
 class CategoryImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
         def map_categories(cat: dict) -> Category:
@@ -251,6 +267,7 @@ class AppImporter(Importer):
         self,
         release_importer: AppReleaseImporter,
         screenshots_importer: ScreenshotsImporter,
+        donations_importer: DonationsImporter,
         attribute_importer: StringAttributeImporter,
         l10n_importer: L10NImporter,
         category_importer: CategoryImporter,
@@ -261,6 +278,7 @@ class AppImporter(Importer):
             {
                 "release": release_importer,
                 "screenshots": screenshots_importer,
+                "donations": donations_importer,
                 "user_docs": attribute_importer,
                 "admin_docs": attribute_importer,
                 "website": attribute_importer,
@@ -294,6 +312,7 @@ class AppImporter(Importer):
         if self._should_update_everything(value):
             # clear all relations
             obj.screenshots.all().delete()
+            obj.donations.all().delete()
             obj.authors.all().delete()
             obj.categories.clear()
             for translation in obj.translations.all():

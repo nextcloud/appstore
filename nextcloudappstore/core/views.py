@@ -24,7 +24,7 @@ from nextcloudappstore.core.forms import (
     AppRegisterForm,
     AppReleaseUploadForm,
 )
-from nextcloudappstore.core.models import App, AppRating, Category, Podcast
+from nextcloudappstore.core.models import App, AppRating, Category, Donation, Podcast
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -139,10 +139,13 @@ class AppDetailView(DetailView):
                 context["user_has_rated_app"] = True
             except AppRating.DoesNotExist:
                 pass
+
+        context["donations"] = Donation.objects.filter(app=context["app"])
         context["categories"] = Category.objects.prefetch_related("translations").all()
         context["latest_releases_by_platform_v"] = self.object.latest_releases_by_platform_v()
         context["is_integration"] = self.object.is_integration
         context["is_outdated"] = self.object.is_outdated()
+
         return context
 
 
