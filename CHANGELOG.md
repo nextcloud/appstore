@@ -2,6 +2,29 @@
 
 ## [Unreleased]
 
+## [4.9.0]  - 2024-08-19
+
+### Added
+
+- `donation` XML attribute and donation button display for apps. #1452
+- Option to add enterprise support request button to apps. #1449
+- Link to documentation for monetization features. #1453
+- Relevance sorting option. #1426
+- Ability to mark apps as orphaned/unmaintained. #1421
+- Warning banner for apps without a release on recent Nextcloud versions. #1419
+
+### Changed
+
+- Multiple dependency updates. #1379 #1386 #1382 #1388 #1389 #1390 #1391 #1392
+  #1393 #1400 #1401 #1404 #1409 #1412 #1414 #1415 #1417 #1428 #1430 #1431 #1433
+  #1438 #1448
+
+### Fixed
+
+- Escape characters in translation string. #1425 #1441
+- Adjust banner height on medium browser width. #1423
+- Cleanup Makefile variables. #1367
+
 ## [4.8.1]  - 2024-05-10
 
 ### Changed
