@@ -36,7 +36,7 @@ Then change into the directory::
 
     cd ~/.nextcloud/certificates/
 
-and generate your private certificate and CSR::
+and generate your private key and CSR::
 
     openssl req -nodes -newkey rsa:4096 -keyout APP_ID.key -out APP_ID.csr -subj "/CN=APP_ID"
 
