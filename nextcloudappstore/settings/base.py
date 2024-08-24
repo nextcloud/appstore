@@ -136,7 +136,7 @@ ACCOUNT_RATE_LIMITS = {
 SITE_ID = 1
 
 # Allauth configuration
-# http://django-allauth.readthedocs.io/en/latest/configuration.html
+# https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_LOGOUT_ON_GET = True
