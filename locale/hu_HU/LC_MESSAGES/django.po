@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # H P <bashman@hpacc.hu>, 2018
 # Ako <akos.keresztes@gmail.com>, 2018
@@ -17,21 +17,20 @@
 # Lajos Seyler <lajos.seyler@gmail.com>, 2024
 # miles teg <varota@gmail.com>, 2024
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 02:58+0000\n"
+"POT-Creation-Date: 2024-08-17 02:56+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
-"Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
-"teams/64236/hu_HU/)\n"
-"Language: hu_HU\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/teams/64236/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:14
@@ -90,17 +89,17 @@ msgstr "Nyilvános tanúsítvány"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 "Általában itt található: ~/.nextcloud/certificates/APP_ID.crt, ahol az "
 "APP_ID az Ön alkalmazásazonsítója. Ha nincs tanúsítványa, akkor előbb "
-"készítenie kell egy kérést (CSR) , amelyet be kell küldenie a <a href="
-"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
-"noopener\">tanúsítványtárba</a> (kövesse a README fájlt). A CSR-t a "
-"következő paranccsal állíthatja elő:"
+"készítenie kell egy kérést (CSR) , amelyet be kell küldenie a <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">tanúsítványtárba</a> (kövesse a README fájlt). A"
+" CSR-t a következő paranccsal állíthatja elő:"
 
 #: nextcloudappstore/core/forms.py:54
 msgid "Signature over your app's ID"
@@ -262,9 +261,9 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Ha be van kapcsolva, akkor egy másik felhasználó regisztrálhatja ugyanazt az "
-"alkalmazást a nyilvános tanúsítvánnyal és aláírással. Ha megteszi, akkor az "
-"alkalmazás átkerül hozzá."
+"Ha be van kapcsolva, akkor egy másik felhasználó regisztrálhatja ugyanazt az"
+" alkalmazást a nyilvános tanúsítvánnyal és aláírással. Ha megteszi, akkor az"
+" alkalmazás átkerül hozzá."
 
 #: nextcloudappstore/core/models.py:168
 msgid "Integration (i.e. Outlook plugin)"
@@ -672,13 +671,13 @@ msgstr "Kiadással rendelkezik"
 
 #: nextcloudappstore/core/models.py:793
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ha igaz, ez egy tényleges Nextcloud kiadás, amelyet le lehet tölteni "
-"csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető "
-"le."
+"csomagként. Ha hamis, akkor ez egy egy előzetes kiadás vagy már nem tölthető"
+" le."
 
 #: nextcloudappstore/core/models.py:803
 msgid "Version is supported"
@@ -688,7 +687,8 @@ msgstr "Támogatott verzió"
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
-msgstr "Igaz, ha a verzió hivatalosan támogatott (kivétel az üzleti támogatás)"
+msgstr ""
+"Igaz, ha a verzió hivatalosan támogatott (kivétel az üzleti támogatás)"
 
 #: nextcloudappstore/core/models.py:809
 msgid "Nextcloud release"
@@ -730,23 +730,19 @@ msgstr "Túl sok próbálkozás. Próbálja újra néhány perc múlva."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Üdvözöli a(z) %(site_name)s!\n"
 "\n"
-"Azért kapta ezt az e-mailt, mert %(user_display)s felhasználó ezt a címet "
-"hozzákötötte a fiókjához itt: %(site_domain)s.\n"
+"Azért kapta ezt az e-mailt, mert %(user_display)s felhasználó ezt a címet hozzákötötte a fiókjához itt: %(site_domain)s.\n"
 "\n"
 "A megerősítéshez látogasson el ide: %(activate_url)s\n"
 "\n"
-"Ha nincs itt fiókja itt: %(site_domain)s, hagyja figyelmen kívül ezt a "
-"levelet.\n"
+"Ha nincs itt fiókja itt: %(site_domain)s, hagyja figyelmen kívül ezt a levelet.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -778,11 +774,11 @@ msgstr "Megerősítés"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ez az e-mail-cím igazoló hivatkozás lejárt vagy érvénytelen. <a href="
-"\"%(email_url)s\">Küldjön egy új e-mail-cím megerősítő kérést</a>."
+"Ez az e-mail-cím igazoló hivatkozás lejárt vagy érvénytelen. <a "
+"href=\"%(email_url)s\">Küldjön egy új e-mail-cím megerősítő kérést</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:12
@@ -825,8 +821,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Elfelejtette a jelszavát? Adja meg az e-mail-címét, és küldünk egy e-mailt a "
-"visszaállítási információkkal."
+"Elfelejtette a jelszavát? Adja meg az e-mail-címét, és küldünk egy e-mailt a"
+" visszaállítási információkkal."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
@@ -835,16 +831,17 @@ msgstr "Jelszó visszaállítása"
 #: nextcloudappstore/core/templates/account/password_reset.html:31
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
-"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó visszaállítással "
-"kapcsolatban"
+"Lépjen velünk kapcsolatba, ha bármi problémája van a jelszó visszaállítással"
+" kapcsolatban"
 
 #: nextcloudappstore/core/templates/account/password_reset_done.html:17
 msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
-"Küldtünk egy email. Ha nem kapta meg kérem ellenőrizze a spam könyvtárat."
-"Egyébként, ha nem kapja meg pár percen belül, vegye fel velünk a kapcsolatot."
+"Küldtünk egy email. Ha nem kapta meg kérem ellenőrizze a spam "
+"könyvtárat.Egyébként, ha nem kapja meg pár percen belül, vegye fel velünk a "
+"kapcsolatot."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -861,12 +858,12 @@ msgstr "Jelszó módosítása"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "A jelszó visszaállító hivatkozás hibás volt, lehetséges, hogy azért, mert "
-"már fel lett használva. Igényeljen újból egy <a href=\"%(passwd_reset_url)s"
-"\">jelszó visszaállítást</a>."
+"már fel lett használva. Igényeljen újból egy <a "
+"href=\"%(passwd_reset_url)s\">jelszó visszaállítást</a>."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
 msgid "Your password is now changed."
@@ -888,8 +885,8 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
-"Küldtünk egy ellenőrző emailt. A megadott hivatkozást követve véglegesítheti "
-"a feliratkozást. Ha nem látja az ellenörző emailt a bejövő levelek közt, "
+"Küldtünk egy ellenőrző emailt. A megadott hivatkozást követve véglegesítheti"
+" a feliratkozást. Ha nem látja az ellenörző emailt a bejövő levelek közt, "
 "kérem ellenőrizze a spam könyvtárat. Ha nem kapja meg pár percen belül az "
 "ellenörző emailt, vegye fel velünk a kapcsolatot."
 
@@ -1080,15 +1077,15 @@ msgstr "Az Ön hozzászólása:"
 
 #: nextcloudappstore/core/templates/app/detail.html:284
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
-"rating comments to report bugs or request features. Neither developers nor "
-"users will be notified of your comment. A rating without a comment still "
-"counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Do not use rating comments to report bugs or request features. Neither "
+"developers nor users will be notified of your comment. A rating without a "
+"comment still counts, but will not be listed below."
 msgstr ""
-"Az értékelő hozzászólások támogatják a <a rel=\"noopener noreferrer\" href="
-"\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. Ne "
-"használja az értékelő hozzászólásokat hibabejelentésre vagy funkciók "
+"Az értékelő hozzászólások támogatják a <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Ne használja az értékelő hozzászólásokat hibabejelentésre vagy funkciók "
 "kérésére. Sem a fejlesztők, sem a felhasználók nem értesülnek a "
 "hozzászólásáról. A hozzászólás nélküli értékelések is számítanak, de nem "
 "lesznek megjelenítve alul."
@@ -1176,23 +1173,23 @@ msgstr "Alkalmazás regisztrálása"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "A tanúsítványigénylés és az aláírás beszerzéséhez szükséges információkért "
-"nézze meg az <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
-"developer.html\" rel=\"noopener norefferer\">alkalmazásfejlesztői "
-"dokumentációt</a>."
+"nézze meg az <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">alkalmazásfejlesztői dokumentációt</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Ez az űrlap a meglévő tanúsítványok frissítésére is alkalmas, habár ezt csak "
-"az alkalmazástulajdonos teheti meg. A tanúsítvány frissítése törli a már "
+"Ez az űrlap a meglévő tanúsítványok frissítésére is alkalmas, habár ezt csak"
+" az alkalmazástulajdonos teheti meg. A tanúsítvány frissítése törli a már "
 "feltöltött kiadásokat."
 
 #: nextcloudappstore/core/templates/app/register.html:19
@@ -1254,13 +1251,13 @@ msgstr "Alkalmazáskiadás sikeresen feltöltve."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Az aláírás-ellenőrzés megvalósításáról többet a <a href=\"https://"
-"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
-"norefferer\">fejlesztői dokumentációban</a> olvashat."
+"Az aláírás-ellenőrzés megvalósításáról többet a <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">fejlesztői dokumentációban</a> olvashat."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1354,12 +1351,10 @@ msgstr "Kijelentkezés"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "A(z) %(provider_name)s szolgáltató fiókját készül használni az ide történő\n"
-"            bejelentkezéshez: %(site_name)s. Befejező lépésként töltse ki az "
-"alábbi űrlapot:"
+"            bejelentkezéshez: %(site_name)s. Befejező lépésként töltse ki az alábbi űrlapot:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1537,7 +1532,8 @@ msgstr "Több elem kiválasztásához tartsa lenyomva a Ctrl-t"
 #: nextcloudappstore/scaffolding/forms.py:90
 msgid "Short description of your app that will be rendered as short teaser"
 msgstr ""
-"Az alkalmazása rövid leírása, amely egy rövid ismertetőként lesz megjelenítve"
+"Az alkalmazása rövid leírása, amely egy rövid ismertetőként lesz "
+"megjelenítve"
 
 #: nextcloudappstore/scaffolding/forms.py:61
 msgid "Full description of what your app does. Can contain Markdown."
@@ -1549,8 +1545,8 @@ msgid ""
 "you to check in with you about your plans or to ask for feedback on our "
 "developer program."
 msgstr ""
-"A személyes adataim gyűjtését választom. Ezután elérhetjük, hogy megosszuk a "
-"terveinket, és a visszajelzését kérjünk a fejlesztői programunkról."
+"A személyes adataim gyűjtését választom. Ezután elérhetjük, hogy megosszuk a"
+" terveinket, és a visszajelzését kérjünk a fejlesztői programunkról."
 
 #: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1613,7 +1609,8 @@ msgstr "Bejelentkezés %(provider)s segítségével"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid "You are about to sign in using a third-party account from %(provider)s."
+msgid ""
+"You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 "Arra készül, hogy egy külső %(provider)s-fiók segítségével jelentkezzen be."
 
@@ -1664,8 +1661,8 @@ msgid ""
 "password!"
 msgstr ""
 "Jelszó szükséges ahhoz, hogy megakadályozza az illetéktelen felhasználók "
-"számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező "
-"nem frissíti a jelszavát!"
+"számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező"
+" nem frissíti a jelszavát!"
 
 #: nextcloudappstore/user/forms.py:77
 msgid "This email address is already associated with another account."
@@ -1699,21 +1696,15 @@ msgstr "API token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Az API token hitelesítésre használható a Nextcloud "
-"alkalmazástár\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>-jának hívásakor.\n"
-"                Tartsa titokban. Lent kérhet új tokent, a régit "
-"használhatatlanná téve.\n"
+"                Az API token hitelesítésre használható a Nextcloud alkalmazástár\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>-jának hívásakor.\n"
+"                Tartsa titokban. Lent kérhet új tokent, a régit használhatatlanná téve.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1871,11 +1862,11 @@ msgstr "A jelszó módosítása az API tokent is újra előállítja!"
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Úgy tűnik, hogy egy harmadik félen keresztül regisztrált fiókot használ. Így "
-"a jelszava <strong>nem</strong> változtatható meg ezen a lapon."
+"Úgy tűnik, hogy egy harmadik félen keresztül regisztrált fiókot használ. Így"
+" a jelszava <strong>nem</strong> változtatható meg ezen a lapon."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1895,8 +1886,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app "
-"will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app"
+" will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 "Nincs már tulajdonosa? Megjellheti az alakalmazást mint elhagyott jelezve, "
 "hogy egy új tulajdonosra van szükség. Amint az átküldés sikerül, az "
