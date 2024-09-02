@@ -8,6 +8,7 @@ describe('Ratings and comments', () => {
             lastName: 'jones',
         };
         const data = [{
+            appeal: false,
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
@@ -18,8 +19,8 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
-            appeal: false,
         }, {
+            appeal: true,
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
@@ -30,8 +31,8 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
-            appeal: true,
         }, {
+            appeal: true,
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
@@ -42,15 +43,14 @@ describe('Ratings and comments', () => {
                 },
             },
             user,
-            appeal: true,
         }, {
+            appeal: false,
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
             relativeRatedAt: '',
             translations: {},
             user,
-            appeal: false,
         }];
         const result = filterEmptyComments(data, 'de');
         expect(result.length).toBe(1);
@@ -58,6 +58,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse ratings', () => {
         const data = {
+            appeal: false,
             id: 66,
             ratedAt: '2017-03-22T16:54:37.168975Z',
             rating: 0.5,
@@ -71,7 +72,6 @@ describe('Ratings and comments', () => {
                 firstName: ' Tom',
                 lastName: 'Jones',
             },
-            appeal: false,
         };
 
         const result = convertRating(data, 'de');
@@ -84,6 +84,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse ratings with empty user names', () => {
         const data = {
+            appeal: true,
             id: 66,
             ratedAt: '2017-03-22T16:54:32.168975Z',
             rating: 1.0,
@@ -97,7 +98,6 @@ describe('Ratings and comments', () => {
                 firstName: '',
                 lastName: ' ',
             },
-            appeal: true,
         };
 
         const result = convertRating(data, 'de');
@@ -109,6 +109,7 @@ describe('Ratings and comments', () => {
 
     it('convert and parse bad rating', () => {
         const data = {
+            appeal: false,
             id: 66,
             ratedAt: '2017-03-22T16:54:32.168975Z',
             rating: 0.0,
@@ -122,7 +123,6 @@ describe('Ratings and comments', () => {
                 firstName: '',
                 lastName: ' ',
             },
-            appeal: false,
         };
 
         const result = convertRating(data, 'de');
