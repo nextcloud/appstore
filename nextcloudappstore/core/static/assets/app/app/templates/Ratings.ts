@@ -18,14 +18,14 @@ export function renderRating(template: HTMLTemplateElement,
 }
 
 export function renderRatingActions(template: HTMLTemplateElement,
-                             rating: IRating, lang: string, fallbackLang: string): HTMLElement {
+                                    rating: IRating, lang: string, fallbackLang: string): HTMLElement {
     const root = render(template, {});
     if (!rating.appeal) {
         // Remove these buttons from template if comment has no appeal for spam
         const buttonsToRemove = [
             'button.comment-actions__delete',
             'button.comment-actions__appeal_cancel',
-            'button.comment-actions__appeal_cancel_admin'
+            'button.comment-actions__appeal_cancel_admin',
         ];
         buttonsToRemove.forEach((buttonSelector) => {
             try {
