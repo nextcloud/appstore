@@ -73,17 +73,27 @@ class AppManager(TranslatableManager):
 
             return Case(*conditions_list, default=len(conditions_list))
 
+        predicates_id = map(lambda t: Q(id__icontains=t), terms)
         predicates_name = map(lambda t: Q(translations__name__icontains=t), terms)
         predicates_summary = map(lambda t: Q(translations__summary__icontains=t), terms)
         predicates_description = map(lambda t: Q(translations__description__icontains=t), terms)
 
-        query_name_exact = Q(translations__name__iexact=" ".join(terms))
+        terms_string = " ".join(terms)
+        query_id_exact = Q(id__iexact=terms_string)
+        query_name_exact = Q(translations__name__iexact=terms_string)
+        query_id = reduce(lambda x, y: x & y, predicates_id, Q())
         query_name = reduce(lambda x, y: x & y, predicates_name, Q())
         query_summary = reduce(lambda x, y: x & y, predicates_summary, Q())
         query_description = reduce(lambda x, y: x & y, predicates_description, Q())
 
+        ids_id_exact = list(
+            queryset.filter(query_id_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
         ids_name_exact = list(
             queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_id = list(
+            queryset.filter(query_id).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
         )
         ids_name = list(
             queryset.filter(query_name).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
@@ -95,7 +105,7 @@ class AppManager(TranslatableManager):
             queryset.filter(query_description).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
         )
 
-        ids = list(dict.fromkeys(ids_name_exact + ids_name + ids_summary + ids_description))
+        ids = list(dict.fromkeys(ids_id_exact + ids_name_exact + ids_id + ids_name + ids_summary + ids_description))
         id_sort = generate_sorting(ids, "id")
         return queryset.filter(id__in=ids).order_by(id_sort)
 
