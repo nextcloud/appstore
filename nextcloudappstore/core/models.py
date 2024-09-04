@@ -4,6 +4,7 @@ from itertools import chain
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.core.cache import cache
 from django.db.models import FloatField  # type: ignore
 from django.db.models import (  # type: ignore
     CASCADE,
@@ -211,7 +212,13 @@ class App(TranslatableModel):
         :return dict with all compatible stable releases for each platform
                 version.
         """
-        return self._get_grouped_releases(self.compatible_releases)
+        cache_key = self.id + "_releases_by_platform_v_" + str(self.last_release)
+        r = cache.get(cache_key)
+        if r is not None:
+            return r
+        r = self._get_grouped_releases(self.compatible_releases)
+        cache.add(cache_key, r, 5 * 60)
+        return r
 
     def unstable_releases_by_platform_v(self):
         """Looks up all compatible unstable releases for each platform version.
@@ -224,7 +231,13 @@ class App(TranslatableModel):
         :return dict with all compatible unstable releases for each platform
                 version.
         """
-        return self._get_grouped_releases(self.compatible_unstable_releases)
+        cache_key = self.id + "_unstable_releases_by_platform_v_" + str(self.last_release)
+        r = cache.get(cache_key)
+        if r is not None:
+            return r
+        r = self._get_grouped_releases(self.compatible_unstable_releases)
+        cache.add(cache_key, r, 5 * 60)
+        return r
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest stable and unstable release for each platform
