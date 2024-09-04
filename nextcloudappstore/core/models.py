@@ -30,7 +30,7 @@ from packaging.version import InvalidVersion
 from packaging.version import parse as parse_version
 from parler.models import TranslatableManager  # type: ignore
 from parler.models import TranslatableModel, TranslatedFields
-from semantic_version import Spec, Version
+from semantic_version import SimpleSpec, Version
 
 from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
@@ -280,7 +280,7 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(lambda r: r.is_compatible(platform_version, inclusive) and not r.is_unstable, self.releases.all()),
+            filter(lambda r: (not r.is_unstable) and r.is_compatible(platform_version, inclusive), self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True,
         )
@@ -295,7 +295,7 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(lambda r: r.is_compatible(platform_version, inclusive) and r.is_unstable, self.releases.all()),
+            filter(lambda r: r.is_unstable and r.is_compatible(platform_version, inclusive), self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True,
         )
@@ -477,12 +477,10 @@ class AppRelease(TranslatableModel):
         """
 
         min_version = Version(pad_min_version(platform_version))
-        spec = Spec(self.platform_version_spec)
+        spec = SimpleSpec(self.platform_version_spec)
         if inclusive:
-            max_version = Version(pad_max_inc_version(platform_version))
-            return min_version in spec or max_version in spec
-        else:
-            return min_version in spec
+            return min_version in spec or Version(pad_max_inc_version(platform_version)) in spec
+        return min_version in spec
 
     @property
     def is_unstable(self):

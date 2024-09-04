@@ -144,7 +144,8 @@ class AppDetailView(DetailView):
         context["categories"] = Category.objects.prefetch_related("translations").all()
         context["latest_releases_by_platform_v"] = self.object.latest_releases_by_platform_v()
         context["is_integration"] = self.object.is_integration
-        context["is_outdated"] = self.object.is_outdated()
+        context["is_outdated"] = False  # self.object.is_outdated()
+        # this is greatly impact performance, more then 30% load on evety page serving.
 
         return context
 
