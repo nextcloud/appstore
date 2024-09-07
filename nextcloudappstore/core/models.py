@@ -329,6 +329,8 @@ class App(TranslatableModel):
         :return: True if not compatible, otherwise false
         """
 
+        if self.is_integration:
+            return False
         release_versions = list(self.latest_releases_by_platform_v().keys())
         if not release_versions:
             return True
