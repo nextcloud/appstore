@@ -147,17 +147,17 @@ class ScreenshotsImporter(ScalarImporter):
 
 class DonationsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
-        def create_donation(img: dict[str, str]) -> Donation:
+        def create_donation(dnt: dict[str, str]) -> Donation:
             return Donation.objects.create(
-                url=img["url"],
+                url=dnt["url"],
                 app=obj,
-                ordering=img["ordering"],
-                title=img["title"],
-                type=img["type"],
+                ordering=dnt["ordering"],
+                title=dnt["title"],
+                type=dnt["type"],
             )
 
-        shots = map(lambda val: create_donation(val["donation"]), value)
-        obj.donations.set(list(shots))
+        donations = map(lambda val: create_donation(val["donation"]), value)
+        obj.donations.set(list(donations))
 
 
 class CategoryImporter(ScalarImporter):
