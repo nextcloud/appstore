@@ -108,9 +108,9 @@
                             <xsl:value-of select="."/>
                         </url>
                         <xsl:choose>
-                            <xsl:when test="donation/@title">
+                            <xsl:when test="@title">
                                 <title>
-                                    <xsl:value-of select="donation/@title"/>
+                                    <xsl:value-of select="@title"/>
                                 </title>
                             </xsl:when>
                             <xsl:otherwise>
@@ -118,9 +118,9 @@
                             </xsl:otherwise>
                         </xsl:choose>
                         <xsl:choose>
-                            <xsl:when test="donation/@type">
+                            <xsl:when test="@type">
                                 <type>
-                                    <xsl:value-of select="donation/@type"/>
+                                    <xsl:value-of select="@type"/>
                                 </type>
                             </xsl:when>
                             <xsl:otherwise>
