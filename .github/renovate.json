@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base",
+        "config:recommended",
         ":disableDependencyDashboard"
     ],
     "labels": [
@@ -15,5 +15,5 @@
         "Dockerfile"
     ],
     "schedule": ["every weekend"],
-    "prConcurrentLimit": 5
+    "prConcurrentLimit": 4
 }
