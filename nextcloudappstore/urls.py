@@ -17,6 +17,7 @@ from nextcloudappstore.core.views import (
     AppReleasesView,
     AppUploadView,
     CategoryAppListView,
+    CustomSignupView,
     app_description,
 )
 from nextcloudappstore.scaffolding.views import (
@@ -46,6 +47,7 @@ urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path("captcha/", include("captcha.urls")),
+    path("accounts/signup/", CustomSignupView.as_view(), name="account_signup"),
 ]
 
 urlpatterns += i18n_patterns(

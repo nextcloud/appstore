@@ -1,7 +1,10 @@
 import json
 from urllib.parse import urlencode
 
+import redis
+from allauth.account.views import SignupView
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -304,3 +307,33 @@ class AppRegisterView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["form"] = AppRegisterForm()
         return context
+
+
+class CustomSignupView(SignupView):
+    def form_valid(self, form):
+        email = form.cleaned_data["email"].lower()
+        if self.email_exists(email):
+            if not self.should_send_account_exists_email(email):
+                # Skip sending the email
+                messages.info(self.request, "An account with this email already exists.")
+                return redirect("account_login")
+        # Proceed with the default behavior
+        return super().form_valid(form)
+
+    @staticmethod
+    def email_exists(email):
+        return User.objects.filter(email__iexact=email).exists()
+
+    @staticmethod
+    def should_send_account_exists_email(email):
+        try:
+            redis_client = redis.StrictRedis(host="localhost", port=6379, db=0)
+            key = f"account_exists_email_sent:{email}"
+            if redis_client.exists(key):
+                return False  # Email already sent within the rate limit period
+            else:
+                redis_client.set(key, "1", ex=86400)  # Set key to expire in 86400 seconds (1 day)
+                return True
+        except redis.exceptions.RedisError:
+            # Redis is not available, proceed to send the email
+            return True
