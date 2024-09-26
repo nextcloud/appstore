@@ -413,17 +413,6 @@ test = ["certifi", "pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-co
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
-name = "defusedxml"
-version = "0.7.1"
-description = "XML bomb protection for Python stdlib modules"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-files = [
-    {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
-    {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
-]
-
-[[package]]
 name = "django"
 version = "4.2.16"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -445,24 +434,23 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-allauth"
-version = "0.61.1"
+version = "0.63.6"
 description = "Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "django-allauth-0.61.1.tar.gz", hash = "sha256:5b4ae515ea74f54f0041210692eee10c309ad15ddbbd03d3620693c75e3f7945"},
+    {file = "django_allauth-0.63.6.tar.gz", hash = "sha256:f15f49defb09e0604dad5214e53a69a1f723cb03176bb115c8930bcd19b91749"},
 ]
 
 [package.dependencies]
 Django = ">=3.2"
-pyjwt = {version = ">=1.7", extras = ["crypto"]}
-python3-openid = ">=3.0.8"
-requests = ">=2.0.0"
-requests-oauthlib = ">=0.3.0"
 
 [package.extras]
 mfa = ["qrcode (>=7.0.0)"]
+openid = ["python3-openid (>=3.0.8)"]
 saml = ["python3-saml (>=1.15.0,<2.0.0)"]
+socialaccount = ["pyjwt[crypto] (>=1.7)", "requests (>=2.0.0)", "requests-oauthlib (>=0.3.0)"]
+steam = ["python3-openid (>=3.0.8)"]
 
 [[package]]
 name = "django-braces"
@@ -1121,22 +1109,6 @@ files = [
 infinite-tracing = ["grpcio", "protobuf (<4)"]
 
 [[package]]
-name = "oauthlib"
-version = "3.2.2"
-description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "oauthlib-3.2.2-py3-none-any.whl", hash = "sha256:8139f29aac13e25d502680e9e19963e83f16838d48a0d71c287fe40e7067fbca"},
-    {file = "oauthlib-3.2.2.tar.gz", hash = "sha256:9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"},
-]
-
-[package.extras]
-rsa = ["cryptography (>=3.0.0)"]
-signals = ["blinker (>=1.4.0)"]
-signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
-
-[[package]]
 name = "outcome"
 version = "1.2.0"
 description = "Capture the outcome of Python function calls."
@@ -1391,26 +1363,6 @@ files = [
 plugins = ["importlib-metadata"]
 
 [[package]]
-name = "pyjwt"
-version = "2.8.0"
-description = "JSON Web Token implementation in Python"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "PyJWT-2.8.0-py3-none-any.whl", hash = "sha256:59127c392cc44c2da5bb3192169a91f429924e17aff6534d70fdc02ab3e04320"},
-    {file = "PyJWT-2.8.0.tar.gz", hash = "sha256:57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de"},
-]
-
-[package.dependencies]
-cryptography = {version = ">=3.4.0", optional = true, markers = "extra == \"crypto\""}
-
-[package.extras]
-crypto = ["cryptography (>=3.4.0)"]
-dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
-docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
-tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
-
-[[package]]
 name = "pymple"
 version = "0.1.3"
 description = "A simple Inversion of Control container"
@@ -1507,24 +1459,6 @@ pytest = ">=7.0.0"
 [package.extras]
 docs = ["sphinx", "sphinx-rtd-theme"]
 testing = ["Django", "django-configurations (>=2.0)"]
-
-[[package]]
-name = "python3-openid"
-version = "3.2.0"
-description = "OpenID support for modern servers and consumers."
-optional = false
-python-versions = "*"
-files = [
-    {file = "python3-openid-3.2.0.tar.gz", hash = "sha256:33fbf6928f401e0b790151ed2b5290b02545e8775f982485205a066f874aaeaf"},
-    {file = "python3_openid-3.2.0-py3-none-any.whl", hash = "sha256:6626f771e0417486701e0b4daff762e7212e820ca5b29fcc0d05f6f8736dfa6b"},
-]
-
-[package.dependencies]
-defusedxml = "*"
-
-[package.extras]
-mysql = ["mysql-connector-python"]
-postgresql = ["psycopg2"]
 
 [[package]]
 name = "pyyaml"
@@ -1625,24 +1559,6 @@ urllib3 = ">=1.21.1,<3"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
-
-[[package]]
-name = "requests-oauthlib"
-version = "1.3.1"
-description = "OAuthlib authentication support for Requests."
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-files = [
-    {file = "requests-oauthlib-1.3.1.tar.gz", hash = "sha256:75beac4a47881eeb94d5ea5d6ad31ef88856affe2332b9aafb52c6452ccf0d7a"},
-    {file = "requests_oauthlib-1.3.1-py2.py3-none-any.whl", hash = "sha256:2577c501a2fb8d05a304c09d090d6e47c306fef15809d102b327cf8364bddab5"},
-]
-
-[package.dependencies]
-oauthlib = ">=3.0.0"
-requests = ">=2.0.0"
-
-[package.extras]
-rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
 
 [[package]]
 name = "responses"
@@ -2116,4 +2032,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f244ff85047cc29cee9ce513e78c267d94f3cd513cbbfd1eda214e04f93cf2d4"
+content-hash = "075558d4a7873171a0e518955a1a05384c5f4d4d809fb8618773d59cfa307e04"
