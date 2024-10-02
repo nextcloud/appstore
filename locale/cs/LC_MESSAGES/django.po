@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 06:17+0000\n"
+"POT-Creation-Date: 2024-10-02 02:56+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2024\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
@@ -222,7 +222,7 @@ msgstr "Osiřelé"
 
 #: nextcloudappstore/core/models.py:163
 msgid "Enterprise supported"
-msgstr ""
+msgstr "Podporováno pro podniky"
 
 #: nextcloudappstore/core/models.py:164
 msgid "Recent rating"
@@ -305,7 +305,7 @@ msgstr "Hodnotící komentář (lze použít Markdown formátovací značky)"
 
 #: nextcloudappstore/core/models.py:375
 msgid "Appeal"
-msgstr ""
+msgstr "Nahlásit"
 
 #: nextcloudappstore/core/models.py:379
 msgid "App rating"
@@ -476,19 +476,19 @@ msgstr "Snímky obrazovky"
 
 #: nextcloudappstore/core/models.py:584
 msgid "Donation URL"
-msgstr ""
+msgstr "URL adresa pro podpoření vývoje darem"
 
 #: nextcloudappstore/core/models.py:585
 msgid "Donation Type"
-msgstr ""
+msgstr "Typ darování"
 
 #: nextcloudappstore/core/models.py:586
 msgid "Donation Title"
-msgstr ""
+msgstr "Nadpis darování"
 
 #: nextcloudappstore/core/models.py:591
 msgid "Donation"
-msgstr ""
+msgstr "Darován"
 
 #: nextcloudappstore/core/models.py:592
 msgid "Donations"
@@ -834,6 +834,9 @@ msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
+"Poslali jsme vám e-mail. Pokud jste ho neobdrželi, zkontrolujte složku s "
+"nevyžádanou poštou. Pokud ani přesto do několika minut neobdržíte, obraťte "
+"se na nás."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 msgid "Bad API Token"
@@ -867,7 +870,7 @@ msgstr "Vytvořit účet"
 #: nextcloudappstore/core/templates/account/verification_sent.html:6
 #: nextcloudappstore/core/templates/account/verification_sent.html:10
 msgid "Verify Your Email Address"
-msgstr ""
+msgstr "Ověřte svou e-mailovou adresu"
 
 #: nextcloudappstore/core/templates/account/verification_sent.html:13
 msgid ""
@@ -876,6 +879,10 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
+"Poslali jsme vám e-mail pro vaše ověření. Klikněte na v něm poskytnutý odkaz"
+" a dokončete tak proces registrace. Pokud ověřovací e-mail nevidíte v "
+"příchozích e-mailech, podívejte se do složky pro nevyžádanou poštu. Pokud "
+"ověřovací e-mail nedorazí do několika minut, obraťte se na nás."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
@@ -913,12 +920,16 @@ msgstr "Další"
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
+"Tato aplikace nebyla vyzkoušena s nejnovějšími 3 hlavními vydáními "
+"Nextcloud."
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
 msgstr ""
+"Může být, že už není udržována nebo podporována a při použití s novějšími "
+"verzemi Nextcloud může mít problémy s kompatibilitou."
 
 #: nextcloudappstore/core/templates/app/detail.html:53
 msgid "Orphan / Looking for Maintainer"
@@ -983,15 +994,15 @@ msgstr "Přispět na vývoj"
 
 #: nextcloudappstore/core/templates/app/detail.html:153
 msgid "Need Enterprise Support?"
-msgstr ""
+msgstr "Potřebujete podporu pro podniky?"
 
 #: nextcloudappstore/core/templates/app/detail.html:158
 msgid "Request quote"
-msgstr ""
+msgstr "Vyžádat si nabídku"
 
 #: nextcloudappstore/core/templates/app/detail.html:160
 msgid "Recommended for large Nextcloud installations only."
-msgstr ""
+msgstr "Doporučeno pouze pro velké instalace Nexctcloud."
 
 #: nextcloudappstore/core/templates/app/detail.html:171
 #: nextcloudappstore/core/templates/app/releases.html:4
@@ -1028,16 +1039,16 @@ msgstr "OK"
 #: nextcloudappstore/core/templates/app/detail.html:228
 #: nextcloudappstore/core/templates/app/detail.html:242
 msgid "Appeal for spam"
-msgstr ""
+msgstr "Nahlásit jako spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:233
 #: nextcloudappstore/core/templates/app/detail.html:246
 msgid "Cancel spam appeal"
-msgstr ""
+msgstr "Zrušit nahlášení coby spamu"
 
 #: nextcloudappstore/core/templates/app/detail.html:237
 msgid "Delete spam comment"
-msgstr ""
+msgstr "Smazat spamový komentář"
 
 #: nextcloudappstore/core/templates/app/detail.html:257
 msgid "No comments found."
@@ -1067,6 +1078,12 @@ msgid ""
 "developers nor users will be notified of your comment. A rating without a "
 "comment still counts, but will not be listed below."
 msgstr ""
+"Komentáře hodnocení podporují <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>značky."
+" Nepoužívejte komentáře hodnocení k hlášení chyb, nebo žádostem o nové "
+"vlastnosti. Ani vývojáři, ani uživatelé nebudou na váš komentář upozorněni. "
+"Hodnocení bez komentáře se stále počítá, ale mezi těmi níže uvedenými se "
+"nezobrazí."
 
 #: nextcloudappstore/core/templates/app/detail.html:289
 msgid "Update rating"
@@ -1559,12 +1576,14 @@ msgstr ""
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:5
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:9
 msgid "Third-Party Login Failure"
-msgstr ""
+msgstr "Nezdar při přihlašování prostřednictvím třetí strany"
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid ""
 "An error occurred while attempting to login via your third-party account."
 msgstr ""
+"Došlo k chybě při pokusu o přihlášení prostřednictvím vašeho účtu u třetí "
+"strany."
 
 #: nextcloudappstore/templates/socialaccount/login.html:6
 msgid "Sign In"
@@ -1578,7 +1597,7 @@ msgstr "Připojit %(provider)s"
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
-msgstr ""
+msgstr "Chystáte se připojit nový účet třetí strany od %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
@@ -1589,7 +1608,7 @@ msgstr "Přihlásit se prostřednictvím %(provider)s"
 #, python-format
 msgid ""
 "You are about to sign in using a third-party account from %(provider)s."
-msgstr ""
+msgstr "Chystáte se přihlásit pomocí účtu třetí strany z %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
@@ -1597,7 +1616,7 @@ msgstr "Pokračovat"
 
 #: nextcloudappstore/user/adapters.py:12
 msgid "Provided email address is not valid."
-msgstr ""
+msgstr "Zadaná e-mailová adresa není platná."
 
 #: nextcloudappstore/user/forms.py:19
 msgid "First name"
@@ -1617,7 +1636,7 @@ msgstr "Vaše heslo"
 
 #: nextcloudappstore/user/forms.py:34
 msgid "*Required if the account is registered with a password"
-msgstr ""
+msgstr "*Vyžadováno pokud je účet zaregistrován pomocí hesla"
 
 #: nextcloudappstore/user/forms.py:45
 msgid "The given email address does not match your email address"
@@ -1697,15 +1716,15 @@ msgstr "Znovu vytvořit token do aplikačního program. rozhraní (API)"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:5
 msgid "Appeal commentaries"
-msgstr ""
+msgstr "Nahlásit komentáře"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:9
 msgid "Comments Pending Appeal"
-msgstr ""
+msgstr "Komentáře čekající na schválení"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:14
 msgid "Comment author"
-msgstr ""
+msgstr "Autor komentáře"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:25
 msgid "Go to"
@@ -1749,7 +1768,7 @@ msgstr "Smazat účet"
 
 #: nextcloudappstore/user/templates/user/base.html:65
 msgid "Appeal comments"
-msgstr ""
+msgstr "Schválit komentáře"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
@@ -1764,7 +1783,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:5
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
 msgid "Enterprise App Support"
-msgstr ""
+msgstr "Podpora aplikace pro velké zákazníky"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:10
 msgid ""
@@ -1773,14 +1792,19 @@ msgid ""
 "page in the App Store and in Nextcloud Apps. Such support can only be "
 "requested for large Nextcloud installations."
 msgstr ""
+"Pokud je k aplikaci k dispozici podpora pro velké zákazníky, je možné "
+"aplikaci ohledně tohoto označit. Toto přidá tlačítko „Vyžádat si nabídku“ na"
+" stránce o podrobnostech o aplikaci v katalogu aplikací a Nextcloud "
+"Aplikacích. Takovouto podporu je možné si vyžádat pouze v případě rozsáhlých"
+" instalací Nextcloud."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:16
 msgid "Support status"
-msgstr ""
+msgstr "Stav podpory"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:17
 msgid "Change support status"
-msgstr ""
+msgstr "Změnit stav podpory"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:24
 msgid "Supported"
@@ -1792,11 +1816,11 @@ msgstr "Nepodporováno"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:33
 msgid "Mark as unsupported"
-msgstr ""
+msgstr "Označit jako nepodporované"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:35
 msgid "Mark as supported"
-msgstr ""
+msgstr "Označit jako podporované"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:43
 #: nextcloudappstore/user/templates/user/transfer-apps.html:63
@@ -1864,6 +1888,9 @@ msgid ""
 "that you are looking for a new owner. Once the transfer is complete, the app"
 " will be automatically marked as un-orphaned/maintained again."
 msgstr ""
+"Nemá zatím ještě nového vlastníka? Aplikaci je možné označit jako osiřelou a"
+" dát tak na vědomí, že se hledá nový vlastník. Jakmile bude přenos dokončen,"
+" aplikace bude automaticky označena jako adoptovaná/udržovaná."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Ownership transfer status"
@@ -1871,7 +1898,7 @@ msgstr "Stav přenosu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:18
 msgid "App status"
-msgstr ""
+msgstr "Stav aplikace"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "Change ownership transfer status"
@@ -1879,11 +1906,11 @@ msgstr "Změnit stav převodu vlastnictví"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Change app status"
-msgstr ""
+msgstr "Změnit stav aplikace"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:27
 msgid "Unlocked"
-msgstr ""
+msgstr "Odemčeno"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:29
 msgid "Locked"
