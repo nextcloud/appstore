@@ -194,10 +194,7 @@ class App(TranslatableModel):
 
     @property
     def discussion_url(self):
-        if self.discussion:
-            return self.discussion
-        else:
-            return "{}/c/apps/{}".format(settings.DISCOURSE_URL, self.id.replace("_", "-"))
+        return self.discussion or settings.DISCOURSE_URL
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
