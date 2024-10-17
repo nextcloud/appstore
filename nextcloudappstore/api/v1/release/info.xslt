@@ -208,6 +208,26 @@
             <system type="boolean">
                 <xsl:value-of select="system"/>
             </system>
+            <environment-variables type="list">
+            <xsl:for-each select="environment-variables/variable">
+                <variable>
+                    <name>
+                        <xsl:value-of select="name"/>
+                    </name>
+                    <display-name>
+                        <xsl:value-of select="display-name"/>
+                    </display-name>
+                    <description>
+                        <xsl:value-of select="description"/>
+                    </description>
+                    <xsl:if test="default">
+                        <default>
+                            <xsl:value-of select="default"/>
+                        </default>
+                    </xsl:if>
+                </variable>
+            </xsl:for-each>
+        </environment-variables>
         </external-app>
     </xsl:template>
 

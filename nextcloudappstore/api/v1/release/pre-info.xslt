@@ -156,6 +156,7 @@
             <xsl:apply-templates select="docker-install"/>
             <xsl:copy-of select="scopes"/>
             <xsl:copy-of select="system"/>
+            <xsl:apply-templates select="environment-variables"/>
         </external-app>
     </xsl:template>
 
@@ -165,6 +166,21 @@
             <xsl:copy-of select="image"/>
             <xsl:copy-of select="image-tag"/>
         </docker-install>
+    </xsl:template>
+
+    <xsl:template match="environment-variables">
+        <environment-variables>
+            <xsl:apply-templates select="variable"/>
+        </environment-variables>
+    </xsl:template>
+
+    <xsl:template match="variable">
+        <variable>
+            <xsl:copy-of select="name"/>
+            <xsl:copy-of select="display-name"/>
+            <xsl:copy-of select="description"/>
+            <xsl:copy-of select="default"/>
+        </variable>
     </xsl:template>
 
 </xsl:stylesheet>

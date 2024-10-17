@@ -555,6 +555,26 @@ class AppApiReleaseApiScope(Model):
         verbose_name_plural = _("AppAPI release API Scopes")
 
 
+class AppApiEnvironmentVariable(Model):
+    app_release = ForeignKey(
+        "AppRelease",
+        on_delete=CASCADE,
+        verbose_name=_("App Release"),
+        related_name="environment_variables",
+        db_index=True,
+    )
+    env_name = CharField(max_length=64, verbose_name=_("Environment Variable Name"))
+    display_name = CharField(max_length=128, verbose_name=_("Display Name"))
+    description = TextField(verbose_name=_("Description"), blank=True)
+    default = CharField(max_length=256, verbose_name=_("Default Value"), blank=True)
+
+    class Meta:
+        db_table = "core_appapi_release_env_vars"
+        verbose_name = _("AppAPI Release Environment Variable")
+        verbose_name_plural = _("AppAPI Release Environment Variables")
+        unique_together = (("app_release", "env_name"),)
+
+
 class Screenshot(Model):
     url = URLField(max_length=256, verbose_name=_("Image URL"))
     small_thumbnail = URLField(max_length=256, verbose_name=_("Small thumbnail"), default="")

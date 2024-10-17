@@ -571,6 +571,23 @@ class ParserTest(TestCase):
         }
         assert r_ex_app["scopes"] == [{"value": "FILES"}, {"value": "NOTIFICATIONS"}, {"value": "TALK"}]
         assert r_ex_app["system"] == "true"
+        assert r_ex_app["environment_variables"] == [
+            {
+                "variable": {
+                    "name": "SOME_VALUE1",
+                    "display_name": "Display name 1",
+                    "description": "Some useful description of it",
+                }
+            },
+            {
+                "variable": {
+                    "name": "SOME_VALUE2",
+                    "display_name": "Display name 2",
+                    "description": "Example of second variable with the 'default' value",
+                    "default": "0",
+                }
+            },
+        ]
 
     def test_appapi_minimal(self):
         xml = self._get_contents("data/infoxmls/app_api_minimal.xml")
@@ -583,6 +600,7 @@ class ParserTest(TestCase):
             "registry": "ghcr.io",
         }
         assert r_ex_app["scopes"] == []
+        assert r_ex_app["environment_variables"] == []
 
     def _get_contents(self, target):
         path = self.get_path(target)

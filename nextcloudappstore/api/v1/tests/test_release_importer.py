@@ -235,6 +235,8 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual(1, release.deploy_methods.count())
         all_scopes = release.api_scopes.all()
         self.assertEqual(0, len(all_scopes))
+        all_deploy_env_vars = release.environment_variables.all()
+        self.assertEqual(0, len(all_deploy_env_vars))
 
     def test_full(self):
         self._check_removed_translations()
@@ -281,6 +283,10 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual("FILES", all_scopes[0].scope_name)
         self.assertEqual("NOTIFICATIONS", all_scopes[1].scope_name)
         self.assertEqual("TALK", all_scopes[2].scope_name)
+        all_deploy_env_vars = release.environment_variables.all()
+        self.assertEqual(2, len(all_deploy_env_vars))
+        self.assertEqual("SOME_VALUE1", all_deploy_env_vars[0].env_name)
+        self.assertEqual("SOME_VALUE2", all_deploy_env_vars[1].env_name)
 
     def test_release_no_update(self):
         result = parse_app_metadata(self.min, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)

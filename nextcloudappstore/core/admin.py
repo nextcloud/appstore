@@ -3,6 +3,7 @@ from parler.admin import TranslatableAdmin
 
 from nextcloudappstore.core.models import (
     App,
+    AppApiEnvironmentVariable,
     AppApiReleaseApiScope,
     AppApiReleaseDeployMethod,
     AppAuthor,
@@ -162,4 +163,9 @@ class AppApiReleaseApiScopeAdmin(admin.ModelAdmin):
 
 @admin.register(AppApiReleaseDeployMethod)
 class AppApiReleaseDeployMethodAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AppApiEnvironmentVariable)
+class AppApiEnvironmentVariable(admin.ModelAdmin):
     pass

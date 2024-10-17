@@ -682,11 +682,27 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="environment-variable">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="display-name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="default" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="environment-variables">
+        <xs:sequence>
+            <xs:element name="variable" type="environment-variable" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="external-app">
         <xs:sequence>
             <xs:element name="docker-install" type="docker-install" minOccurs="0" maxOccurs="1"/>
             <xs:element name="scopes" type="scopes" minOccurs="0" maxOccurs="1"/>
             <xs:element name="system" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="environment-variables" type="environment-variables" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 

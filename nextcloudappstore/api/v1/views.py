@@ -73,6 +73,7 @@ AA_APP_PREFETCH_LIST = [
     *RELEASES_PREFETCH_LIST,
     "releases__deploy_methods",
     "releases__api_scopes",
+    "releases__environment_variables",
 ]
 
 
