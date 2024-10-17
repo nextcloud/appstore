@@ -8,6 +8,7 @@ from semantic_version import Version  # type: ignore
 from nextcloudappstore.core.facades import any_match
 from nextcloudappstore.core.models import (
     App,
+    AppApiEnvironmentVariable,
     AppApiReleaseApiScope,
     AppApiReleaseDeployMethod,
     AppAuthor,
@@ -194,6 +195,15 @@ class AppApiImporter(ScalarImporter):
                 )
         for scope in value.get("scopes", []):
             AppApiReleaseApiScope.objects.get_or_create(app_release=obj, scope_name=scope["value"])
+        for env_var_struct in value.get("environment_variables", []):
+            env_var = env_var_struct["variable"]
+            AppApiEnvironmentVariable.objects.get_or_create(
+                app_release=obj,
+                env_name=env_var["name"],
+                display_name=env_var["display_name"],
+                description=env_var.get("description", ""),
+                default=env_var.get("default", ""),
+            )
 
 
 class AppReleaseImporter(Importer):
