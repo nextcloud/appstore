@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Pavel Kovář, 2016
 # Lukáš Tyrychtr <lukastyrychtr@mail.muni.cz>, 2017
@@ -14,21 +14,23 @@
 # Tomáš Marhoun <tmarhoun@gmail.com>, 2023
 # Jaroslav Lichtblau <l10n@lichtblau.cz>, 2023
 # Pavel Borecki <pavel.borecki@gmail.com>, 2024
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-03 02:55+0000\n"
+"POT-Creation-Date: 2024-10-18 03:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2024\n"
-"Language-Team: Czech (Czech Republic) (https://app.transifex.com/nextcloud/teams/64236/cs_CZ/)\n"
+"Language-Team: Czech (Czech Republic) (https://app.transifex.com/nextcloud/"
+"teams/64236/cs_CZ/)\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs_CZ\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -86,17 +88,17 @@ msgstr "Veřejný certifikát"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Obvykle je uložen v ~/.nextcloud/certificates/APP_ID.crt kde APP_ID je ID "
 "vaší aplikace. Pokud nemáte certifikát, musíte nejprve vytvořit žádost o "
-"podepsání certifikátu (CSR), která by měla být umístěna v <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">uložišti certifikátů</a>(postupujte podle "
-"README). CSR můžete vytvořit spuštěním následujícího příkazu:"
+"podepsání certifikátu (CSR), která by měla být umístěna v <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">uložišti certifikátů</a>(postupujte podle README). CSR můžete vytvořit "
+"spuštěním následujícího příkazu:"
 
 #: nextcloudappstore/core/forms.py:54
 msgid "Signature over your app's ID"
@@ -127,12 +129,12 @@ msgstr "Identifikátor"
 msgid "app ID, identical to folder name"
 msgstr "identif. aplikace – stejný jako název složky"
 
-#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:652
 msgid "Category"
 msgstr "Kategorie"
 
-#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:626
-#: nextcloudappstore/core/models.py:649 nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:646
+#: nextcloudappstore/core/models.py:669 nextcloudappstore/core/models.py:689
 msgid "Name"
 msgstr "Název"
 
@@ -150,13 +152,14 @@ msgstr "Souhrn"
 msgid "Short text describing the app's purpose"
 msgstr "Stručný text popisující účel aplikace"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:628
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:568
+#: nextcloudappstore/core/models.py:648
 #: nextcloudappstore/scaffolding/forms.py:60
 #: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Popis"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:628
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:648
 msgid "Will be rendered as Markdown"
 msgstr "Bude vykresleno jako Markdown"
 
@@ -188,12 +191,12 @@ msgid "Forum"
 msgstr "Diskuzní fórum"
 
 #: nextcloudappstore/core/models.py:152 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:642
 msgid "Created at"
 msgstr "Vytvořeno"
 
 #: nextcloudappstore/core/models.py:153 nextcloudappstore/core/models.py:457
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:643
 msgid "Updated at"
 msgstr "Aktualizováno"
 
@@ -270,8 +273,8 @@ msgid "Used to approve integrations"
 msgstr "Slouží ke schvalování napojení"
 
 #: nextcloudappstore/core/models.py:183 nextcloudappstore/core/models.py:362
-#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:561
-#: nextcloudappstore/core/models.py:584
+#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:581
+#: nextcloudappstore/core/models.py:604
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "Aplikace"
@@ -335,15 +338,15 @@ msgstr "Verze"
 msgid "Version follows Semantic Versioning"
 msgstr "Verze následují sémantické verzování"
 
-#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:723
+#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:743
 msgid "PHP extension dependency"
 msgstr "Potřebuje rozšíření pro PHP"
 
-#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:690
+#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:710
 msgid "Database dependency"
 msgstr "Potřebuje konkrétní variantu databázového stroje"
 
-#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:673
 msgid "License"
 msgstr "Licence"
 
@@ -406,12 +409,12 @@ msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr ""
-"Zda aplikace je celosystémová (tj. může vystupovat jako uživatel aniž by ten"
-" měl s aplikací interakci)"
+"Zda aplikace je celosystémová (tj. může vystupovat jako uživatel aniž by ten "
+"měl s aplikací interakci)"
 
 #: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:525
-#: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:683
-#: nextcloudappstore/core/models.py:714
+#: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:703
+#: nextcloudappstore/core/models.py:734
 msgid "App release"
 msgstr "Vydání aplikace"
 
@@ -451,209 +454,235 @@ msgstr "Rozsah API AppAPI vydání"
 msgid "AppAPI release API Scopes"
 msgstr "Rozsahy API AppAPI vydání"
 
-#: nextcloudappstore/core/models.py:559
+#: nextcloudappstore/core/models.py:562
+#, fuzzy
+#| msgid "App release"
+msgid "App Release"
+msgstr "Vydání aplikace"
+
+#: nextcloudappstore/core/models.py:566
+msgid "Environment Variable Name"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:567
+msgid "Display Name"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:569
+msgid "Default Value"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:573
+msgid "AppAPI Release Environment Variable"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:574
+msgid "AppAPI Release Environment Variables"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:579
 msgid "Image URL"
 msgstr "URL adresa obrázku"
 
-#: nextcloudappstore/core/models.py:560
+#: nextcloudappstore/core/models.py:580
 msgid "Small thumbnail"
 msgstr "Malý náhled"
 
-#: nextcloudappstore/core/models.py:562 nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:582 nextcloudappstore/core/models.py:605
 msgid "Ordering"
 msgstr "Řazení"
 
-#: nextcloudappstore/core/models.py:565
+#: nextcloudappstore/core/models.py:585
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:101
 #: nextcloudappstore/core/templates/app/list.html:103
 msgid "Screenshot"
 msgstr "Snímek obrazovky"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:586
 msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
-#: nextcloudappstore/core/models.py:581
+#: nextcloudappstore/core/models.py:601
 msgid "Donation URL"
 msgstr "URL adresa pro podpoření vývoje darem"
 
-#: nextcloudappstore/core/models.py:582
+#: nextcloudappstore/core/models.py:602
 msgid "Donation Type"
 msgstr "Typ darování"
 
-#: nextcloudappstore/core/models.py:583
+#: nextcloudappstore/core/models.py:603
 msgid "Donation Title"
 msgstr "Nadpis darování"
 
-#: nextcloudappstore/core/models.py:588
+#: nextcloudappstore/core/models.py:608
 msgid "Donation"
 msgstr "Darován"
 
-#: nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:609
 msgid "Donations"
 msgstr "Podpoření vývoje darem"
 
-#: nextcloudappstore/core/models.py:601 nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:621 nextcloudappstore/core/models.py:626
 msgid "Shell command"
 msgstr "Příkaz shellu"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:622
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Název požadovaného příkazu shellu, např. grep"
 
-#: nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:627
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Příkazy shellu"
 
-#: nextcloudappstore/core/models.py:619 nextcloudappstore/core/models.py:645
-#: nextcloudappstore/core/models.py:665
+#: nextcloudappstore/core/models.py:639 nextcloudappstore/core/models.py:665
+#: nextcloudappstore/core/models.py:685
 msgid "Id"
 msgstr "Identif."
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:640
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr "ID identifikující kategorii, do které je aplikace nahrávána"
 
-#: nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:646
 msgid "Category name which will be presented to the user"
 msgstr "Název kategorie, jak bude zobrazován uživateli"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:653
 #: nextcloudappstore/core/templates/app/detail.html:93
 #: nextcloudappstore/scaffolding/forms.py:49
 #: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Kategorie"
 
-#: nextcloudappstore/core/models.py:646
+#: nextcloudappstore/core/models.py:666
 msgid "Key which is used to identify a license"
 msgstr "Klíč, který slouží k identifikaci licence"
 
-#: nextcloudappstore/core/models.py:649
+#: nextcloudappstore/core/models.py:669
 msgid "License name which will be presented to the user"
 msgstr "Název licence zobrazený uživateli"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:674
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licence"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:686
 msgid "Key which is used to identify a database"
 msgstr "Klíč, který slouží k identifikaci databáze"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:689
 msgid "Database name which will be presented to the user"
 msgstr "Název databáze zobrazovaný uživateli"
 
-#: nextcloudappstore/core/models.py:673 nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:693 nextcloudappstore/core/models.py:705
 msgid "Database"
 msgstr "Databáze"
 
-#: nextcloudappstore/core/models.py:674
+#: nextcloudappstore/core/models.py:694
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Databáze"
 
-#: nextcloudappstore/core/models.py:686
+#: nextcloudappstore/core/models.py:706
 msgid "Database version requirement"
 msgstr "Požadavek na verzi databáze"
 
-#: nextcloudappstore/core/models.py:687
+#: nextcloudappstore/core/models.py:707
 msgid "Database version requirement (raw)"
 msgstr "Požadavek na verzi databáze (řetězec před zpracováním)"
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:711
 msgid "Database dependencies"
 msgstr "Závislosti databáze"
 
-#: nextcloudappstore/core/models.py:700
+#: nextcloudappstore/core/models.py:720
 msgid "e.g. libxml"
 msgstr "např. libxml"
 
-#: nextcloudappstore/core/models.py:700 nextcloudappstore/core/models.py:704
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:720 nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:737
 msgid "PHP extension"
 msgstr "Rozšíření pro PHP"
 
-#: nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:725
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "Rozšíření pro PHP"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:739
 msgid "Extension version requirement"
 msgstr "Požadavek na verzi rozšíření"
 
-#: nextcloudappstore/core/models.py:720
+#: nextcloudappstore/core/models.py:740
 msgid "Extension version requirement (raw)"
 msgstr "Požadavek na verzi rozšíření (řetězec před zpracováním)"
 
-#: nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:744
 msgid "PHP extension dependencies"
 msgstr "Potřebuje rozšíření pro PHP"
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:752
 msgid "Heading"
 msgstr "Nadpis"
 
-#: nextcloudappstore/core/models.py:733
+#: nextcloudappstore/core/models.py:753
 msgid "Excerpt"
 msgstr "Výňatek"
 
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:754
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "Odkaz"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:755
 msgid "Image"
 msgstr "Obrázek"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:756
 msgid "Show podcast"
 msgstr "Zobrazit podcast"
 
-#: nextcloudappstore/core/models.py:739
+#: nextcloudappstore/core/models.py:759
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud Podcast"
 
-#: nextcloudappstore/core/models.py:740
+#: nextcloudappstore/core/models.py:760
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud podcasty"
 
-#: nextcloudappstore/core/models.py:764
+#: nextcloudappstore/core/models.py:784
 msgid "App release deletion"
 msgstr "Vymazání vydání aplikace"
 
-#: nextcloudappstore/core/models.py:765
+#: nextcloudappstore/core/models.py:785
 msgid "App release deletions"
 msgstr "Vymazání vydání aplikace"
 
-#: nextcloudappstore/core/models.py:784
+#: nextcloudappstore/core/models.py:804
 msgid "App rating deletion"
 msgstr "Smazání hodnocení aplikace"
 
-#: nextcloudappstore/core/models.py:785
+#: nextcloudappstore/core/models.py:805
 msgid "App rating deletions"
 msgstr "Smazání hodnocení aplikace"
 
-#: nextcloudappstore/core/models.py:798
+#: nextcloudappstore/core/models.py:818
 #: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Nextcloud version"
 msgstr "Verze Nextcloud"
 
-#: nextcloudappstore/core/models.py:798
+#: nextcloudappstore/core/models.py:818
 msgid "e.g. 9.0.54"
 msgstr "např. 9.0.54"
 
-#: nextcloudappstore/core/models.py:801
+#: nextcloudappstore/core/models.py:821
 msgid "Is current version"
 msgstr "Je aktuální verze"
 
-#: nextcloudappstore/core/models.py:803
+#: nextcloudappstore/core/models.py:823
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -661,25 +690,25 @@ msgstr ""
 "Aktuální verze může být pouze jedno vybrané vydání. Tato kolonka slouží k "
 "předvýběru položek nabídky, atp."
 
-#: nextcloudappstore/core/models.py:811
+#: nextcloudappstore/core/models.py:831
 msgid "Has a release"
 msgstr "Má vydanou verzi"
 
-#: nextcloudappstore/core/models.py:813
+#: nextcloudappstore/core/models.py:833
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Pokud ano, tak jde o skutečně vydanou verzi Nextcloud, která může být "
 "stažena jako archiv. Pokud ne, jde buď o předběžnou verzi, nebo už ji nelze "
 "stáhnout."
 
-#: nextcloudappstore/core/models.py:823
+#: nextcloudappstore/core/models.py:843
 msgid "Version is supported"
 msgstr "Verze je podporovaná"
 
-#: nextcloudappstore/core/models.py:824
+#: nextcloudappstore/core/models.py:844
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -687,11 +716,11 @@ msgstr ""
 "Platí pokud je tato verze pořád ještě oficiálně podporována (netýká se "
 "komerční podpory pro podniky)"
 
-#: nextcloudappstore/core/models.py:829
+#: nextcloudappstore/core/models.py:849
 msgid "Nextcloud release"
 msgstr "Nextcloud vydání"
 
-#: nextcloudappstore/core/models.py:830
+#: nextcloudappstore/core/models.py:850
 msgid "Nextcloud releases"
 msgstr "Nextcloud vydání"
 
@@ -727,15 +756,18 @@ msgstr "Příliš mnoho pokusů. Zkuste to znovu za několik minut."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "%(site_name)s vás zdraví!\n"
 "\n"
-"Tento e-mail dostáváte proto, že uživatel %(user_display)s  připojil tuto e-mailovou adresu ke svému účtu na %(site_domain)s.\n"
+"Tento e-mail dostáváte proto, že uživatel %(user_display)s  připojil tuto e-"
+"mailovou adresu ke svému účtu na %(site_domain)s.\n"
 "\n"
 "Pro potvrzení, že je to správně, běžte na %(activate_url)s\n"
 "\n"
@@ -771,8 +803,8 @@ msgstr "Potvrdit"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Platnost odkazu v tomto potvrzovacím e-mailovu skončila, nebo není platný. "
 "Vytvořte <a href=\"%(email_url)s\">nový požadavek na potvrzení</a>."
@@ -818,8 +850,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Zapomněli jste své heslo? Zadejte níže svou e-mailovou adresu na kterou bude"
-" odeslán e-mail pro jeho resetování. "
+"Zapomněli jste své heslo? Zadejte níže svou e-mailovou adresu na kterou bude "
+"odeslán e-mail pro jeho resetování. "
 
 #: nextcloudappstore/core/templates/account/password_reset.html:24
 msgid "Reset My Password"
@@ -853,8 +885,8 @@ msgstr "Změnit heslo"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Odkaz na resetování hesla je neplatný, nejspíš protože byl už použit. "
 "Vyžádejte si <a href=\"%(passwd_reset_url)s\">nový reset hesla</a>."
@@ -879,8 +911,8 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
-"Poslali jsme vám e-mail pro vaše ověření. Klikněte na v něm poskytnutý odkaz"
-" a dokončete tak proces registrace. Pokud ověřovací e-mail nevidíte v "
+"Poslali jsme vám e-mail pro vaše ověření. Klikněte na v něm poskytnutý odkaz "
+"a dokončete tak proces registrace. Pokud ověřovací e-mail nevidíte v "
 "příchozích e-mailech, podívejte se do složky pro nevyžádanou poštu. Pokud "
 "ověřovací e-mail nedorazí do několika minut, obraťte se na nás."
 
@@ -920,8 +952,7 @@ msgstr "Další"
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
-"Tato aplikace nebyla vyzkoušena s nejnovějšími 3 hlavními vydáními "
-"Nextcloud."
+"Tato aplikace nebyla vyzkoušena s nejnovějšími 3 hlavními vydáními Nextcloud."
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid ""
@@ -1072,15 +1103,15 @@ msgstr "Váš komentář"
 
 #: nextcloudappstore/core/templates/app/detail.html:284
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
-"Komentáře hodnocení podporují <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>značky."
-" Nepoužívejte komentáře hodnocení k hlášení chyb, nebo žádostem o nové "
+"Komentáře hodnocení podporují <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>značky. "
+"Nepoužívejte komentáře hodnocení k hlášení chyb, nebo žádostem o nové "
 "vlastnosti. Ani vývojáři, ani uživatelé nebudou na váš komentář upozorněni. "
 "Hodnocení bez komentáře se stále počítá, ale mezi těmi níže uvedenými se "
 "nezobrazí."
@@ -1168,18 +1199,18 @@ msgstr "Zaregistrovat aplikaci"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"Více informací o tom, jak získat certifikát a vytvořit podpis naleznete v <a"
-" href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"Více informací o tom, jak získat certifikát a vytvořit podpis naleznete v <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">příručce pro vývojáře aplikací</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Tento formulář může být rovněž použit k aktualizaci certifikátu, což ale "
@@ -1245,13 +1276,13 @@ msgstr "Vydání aplikace úspěšně nahráno."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Pro více informací o tom, jak vytvořit podpis, prostudujte si <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">příručku pro vývojáře aplikací</a>."
+"Pro více informací o tom, jak vytvořit podpis, prostudujte si <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">příručku pro vývojáře aplikací</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1345,7 +1376,8 @@ msgstr "Odhlásit se"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Chystáte se použít svůj účet na %(provider_name)s k přihlášení k\n"
 "            %(site_name)s. Jako poslední krok, vyplňte následující formulář:"
@@ -1606,8 +1638,7 @@ msgstr "Přihlásit se prostřednictvím %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr "Chystáte se přihlásit pomocí účtu třetí strany z %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
@@ -1691,15 +1722,21 @@ msgstr "Token do aplikačního program. rozhraní (API)"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Klíč k aplikačnímu program. rozhraní (API) může být použit při volání\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a> obchodu s aplikacemi.\n"
-"                Ujistěte se, že zůstane utajen. Nový token může být vytvořen níže, což zneplatní ten stávající.\n"
+"                Klíč k aplikačnímu program. rozhraní (API) může být použit "
+"při volání\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a> obchodu s aplikacemi.\n"
+"                Ujistěte se, že zůstane utajen. Nový token může být vytvořen "
+"níže, což zneplatní ten stávající.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1793,10 +1830,10 @@ msgid ""
 "requested for large Nextcloud installations."
 msgstr ""
 "Pokud je k aplikaci k dispozici podpora pro velké zákazníky, je možné "
-"aplikaci ohledně tohoto označit. Toto přidá tlačítko „Vyžádat si nabídku“ na"
-" stránce o podrobnostech o aplikaci v katalogu aplikací a Nextcloud "
-"Aplikacích. Takovouto podporu je možné si vyžádat pouze v případě rozsáhlých"
-" instalací Nextcloud."
+"aplikaci ohledně tohoto označit. Toto přidá tlačítko „Vyžádat si nabídku“ na "
+"stránce o podrobnostech o aplikaci v katalogu aplikací a Nextcloud "
+"Aplikacích. Takovouto podporu je možné si vyžádat pouze v případě rozsáhlých "
+"instalací Nextcloud."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:16
 msgid "Support status"
@@ -1861,8 +1898,8 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Zdá se, že používáte účet registrovaný u třetí strany. Vaše heslo proto "
 "<strong>nelze</strong> změnit na této stránce."
@@ -1885,12 +1922,12 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
-"Nemá zatím ještě nového vlastníka? Aplikaci je možné označit jako osiřelou a"
-" dát tak na vědomí, že se hledá nový vlastník. Jakmile bude přenos dokončen,"
-" aplikace bude automaticky označena jako adoptovaná/udržovaná."
+"Nemá zatím ještě nového vlastníka? Aplikaci je možné označit jako osiřelou a "
+"dát tak na vědomí, že se hledá nový vlastník. Jakmile bude přenos dokončen, "
+"aplikace bude automaticky označena jako adoptovaná/udržovaná."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Ownership transfer status"

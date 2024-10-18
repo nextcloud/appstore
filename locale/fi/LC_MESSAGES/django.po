@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-17 03:04+0000\n"
+"POT-Creation-Date: 2024-10-18 03:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>, 2024\n"
 "Language-Team: Finnish (Finland) (https://app.transifex.com/nextcloud/"
@@ -132,12 +132,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "sovellus ID on identtinen kansion nimen kanssa"
 
-#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:632
+#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:652
 msgid "Category"
 msgstr "Kategoria"
 
-#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:626
-#: nextcloudappstore/core/models.py:649 nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:646
+#: nextcloudappstore/core/models.py:669 nextcloudappstore/core/models.py:689
 msgid "Name"
 msgstr "Nimi"
 
@@ -155,13 +155,14 @@ msgstr "Yhteenveto"
 msgid "Short text describing the app's purpose"
 msgstr "Lyhyt sovelluksen toimintaideaa kuvaava teksti"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:628
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:568
+#: nextcloudappstore/core/models.py:648
 #: nextcloudappstore/scaffolding/forms.py:60
 #: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Kuvaus"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:628
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:648
 msgid "Will be rendered as Markdown"
 msgstr "Käytetään Markdown-merkintäkieltä"
 
@@ -193,12 +194,12 @@ msgid "Forum"
 msgstr "Keskustelupalsta"
 
 #: nextcloudappstore/core/models.py:152 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:642
 msgid "Created at"
 msgstr "Luotu"
 
 #: nextcloudappstore/core/models.py:153 nextcloudappstore/core/models.py:457
-#: nextcloudappstore/core/models.py:623
+#: nextcloudappstore/core/models.py:643
 msgid "Updated at"
 msgstr "Päivitetty"
 
@@ -276,8 +277,8 @@ msgid "Used to approve integrations"
 msgstr "Käytetään integraatioiden hyväksyntään"
 
 #: nextcloudappstore/core/models.py:183 nextcloudappstore/core/models.py:362
-#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:561
-#: nextcloudappstore/core/models.py:584
+#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:581
+#: nextcloudappstore/core/models.py:604
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "Sovellus"
@@ -341,15 +342,15 @@ msgstr "Versio"
 msgid "Version follows Semantic Versioning"
 msgstr "Versionumerointi seuraa Semantic versioning -käytäntöä"
 
-#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:723
+#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:743
 msgid "PHP extension dependency"
 msgstr "PHP-laajennusriippuvuus"
 
-#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:690
+#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:710
 msgid "Database dependency"
 msgstr "Tietokannasta riippuvainen"
 
-#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:673
 msgid "License"
 msgstr "Lisenssi"
 
@@ -414,8 +415,8 @@ msgid ""
 msgstr ""
 
 #: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:525
-#: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:683
-#: nextcloudappstore/core/models.py:714
+#: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:703
+#: nextcloudappstore/core/models.py:734
 msgid "App release"
 msgstr "Sovelluksen julkaisu"
 
@@ -455,211 +456,237 @@ msgstr ""
 msgid "AppAPI release API Scopes"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:559
+#: nextcloudappstore/core/models.py:562
+#, fuzzy
+#| msgid "App release"
+msgid "App Release"
+msgstr "Sovelluksen julkaisu"
+
+#: nextcloudappstore/core/models.py:566
+msgid "Environment Variable Name"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:567
+msgid "Display Name"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:569
+msgid "Default Value"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:573
+msgid "AppAPI Release Environment Variable"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:574
+msgid "AppAPI Release Environment Variables"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:579
 msgid "Image URL"
 msgstr "Kuvan URL-osoite"
 
-#: nextcloudappstore/core/models.py:560
+#: nextcloudappstore/core/models.py:580
 msgid "Small thumbnail"
 msgstr "Pieni esikatselukuva"
 
-#: nextcloudappstore/core/models.py:562 nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:582 nextcloudappstore/core/models.py:605
 msgid "Ordering"
 msgstr "Järjestys"
 
-#: nextcloudappstore/core/models.py:565
+#: nextcloudappstore/core/models.py:585
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:101
 #: nextcloudappstore/core/templates/app/list.html:103
 msgid "Screenshot"
 msgstr "Kuvankaappaus"
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:586
 msgid "Screenshots"
 msgstr "Kuvankaappaukset"
 
-#: nextcloudappstore/core/models.py:581
+#: nextcloudappstore/core/models.py:601
 msgid "Donation URL"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:582
+#: nextcloudappstore/core/models.py:602
 msgid "Donation Type"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:583
+#: nextcloudappstore/core/models.py:603
 msgid "Donation Title"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:588
+#: nextcloudappstore/core/models.py:608
 msgid "Donation"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:589
+#: nextcloudappstore/core/models.py:609
 msgid "Donations"
 msgstr "Lahjoitukset"
 
-#: nextcloudappstore/core/models.py:601 nextcloudappstore/core/models.py:606
+#: nextcloudappstore/core/models.py:621 nextcloudappstore/core/models.py:626
 msgid "Shell command"
 msgstr "Komentorivin komento"
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:622
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Vaaditun komentorivikomennon nimi, esim. grep"
 
-#: nextcloudappstore/core/models.py:607
+#: nextcloudappstore/core/models.py:627
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Komentorivin komennot"
 
-#: nextcloudappstore/core/models.py:619 nextcloudappstore/core/models.py:645
-#: nextcloudappstore/core/models.py:665
+#: nextcloudappstore/core/models.py:639 nextcloudappstore/core/models.py:665
+#: nextcloudappstore/core/models.py:685
 msgid "Id"
 msgstr "ID"
 
-#: nextcloudappstore/core/models.py:620
+#: nextcloudappstore/core/models.py:640
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "Kategorian tunnusta (ID) käytetään tunnistamaan kategoria, johon ohjelma "
 "viedään"
 
-#: nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:646
 msgid "Category name which will be presented to the user"
 msgstr "Kategorian nimi, joka esitetään käyttäjälle"
 
-#: nextcloudappstore/core/models.py:633
+#: nextcloudappstore/core/models.py:653
 #: nextcloudappstore/core/templates/app/detail.html:93
 #: nextcloudappstore/scaffolding/forms.py:49
 #: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Kategoriat"
 
-#: nextcloudappstore/core/models.py:646
+#: nextcloudappstore/core/models.py:666
 msgid "Key which is used to identify a license"
 msgstr "Avain, jolla määritellään lisenssi"
 
-#: nextcloudappstore/core/models.py:649
+#: nextcloudappstore/core/models.py:669
 msgid "License name which will be presented to the user"
 msgstr "Lisenssin nimi, joka esitetään käyttäjälle"
 
-#: nextcloudappstore/core/models.py:654
+#: nextcloudappstore/core/models.py:674
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Lisenssit"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:686
 msgid "Key which is used to identify a database"
 msgstr "Avain, jolla määritellään tietokanta"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:689
 msgid "Database name which will be presented to the user"
 msgstr "Tietokannan nimi, joka näytetään käyttäjälle"
 
-#: nextcloudappstore/core/models.py:673 nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:693 nextcloudappstore/core/models.py:705
 msgid "Database"
 msgstr "Tietokanta"
 
-#: nextcloudappstore/core/models.py:674
+#: nextcloudappstore/core/models.py:694
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Tietokannat"
 
-#: nextcloudappstore/core/models.py:686
+#: nextcloudappstore/core/models.py:706
 msgid "Database version requirement"
 msgstr "Tietokannan versiovaatimus"
 
-#: nextcloudappstore/core/models.py:687
+#: nextcloudappstore/core/models.py:707
 msgid "Database version requirement (raw)"
 msgstr "Tietokannan versiovaatimus (raaka)"
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:711
 msgid "Database dependencies"
 msgstr "Tietokanta riippuvuus"
 
-#: nextcloudappstore/core/models.py:700
+#: nextcloudappstore/core/models.py:720
 msgid "e.g. libxml"
 msgstr "esim. libxml"
 
-#: nextcloudappstore/core/models.py:700 nextcloudappstore/core/models.py:704
-#: nextcloudappstore/core/models.py:717
+#: nextcloudappstore/core/models.py:720 nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:737
 msgid "PHP extension"
 msgstr "PHP-laajennus"
 
-#: nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:725
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "PHP-laajennukset"
 
-#: nextcloudappstore/core/models.py:719
+#: nextcloudappstore/core/models.py:739
 msgid "Extension version requirement"
 msgstr "Laajennuksen versio vaaditaan"
 
-#: nextcloudappstore/core/models.py:720
+#: nextcloudappstore/core/models.py:740
 msgid "Extension version requirement (raw)"
 msgstr "Laajennusversion vaatimus (raw)"
 
-#: nextcloudappstore/core/models.py:724
+#: nextcloudappstore/core/models.py:744
 msgid "PHP extension dependencies"
 msgstr "PHP-laajennusriippuvuudet"
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:752
 msgid "Heading"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:733
+#: nextcloudappstore/core/models.py:753
 msgid "Excerpt"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:754
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "Linkki"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:755
 msgid "Image"
 msgstr "Kuva"
 
-#: nextcloudappstore/core/models.py:736
+#: nextcloudappstore/core/models.py:756
 msgid "Show podcast"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:739
+#: nextcloudappstore/core/models.py:759
 msgid "Nextcloud Podcast"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:740
+#: nextcloudappstore/core/models.py:760
 msgid "Nextcloud Podcasts"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:764
+#: nextcloudappstore/core/models.py:784
 msgid "App release deletion"
 msgstr "Sovelluksen julkaisun poisto"
 
-#: nextcloudappstore/core/models.py:765
+#: nextcloudappstore/core/models.py:785
 msgid "App release deletions"
 msgstr "Sovelluksen julkaisuiden poistot"
 
-#: nextcloudappstore/core/models.py:784
+#: nextcloudappstore/core/models.py:804
 msgid "App rating deletion"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:785
+#: nextcloudappstore/core/models.py:805
 msgid "App rating deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:798
+#: nextcloudappstore/core/models.py:818
 #: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Nextcloud version"
 msgstr "Nextcloud-versio"
 
-#: nextcloudappstore/core/models.py:798
+#: nextcloudappstore/core/models.py:818
 msgid "e.g. 9.0.54"
 msgstr "esim. 9.0.54"
 
-#: nextcloudappstore/core/models.py:801
+#: nextcloudappstore/core/models.py:821
 msgid "Is current version"
 msgstr "On nykyinen versio"
 
-#: nextcloudappstore/core/models.py:803
+#: nextcloudappstore/core/models.py:823
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -667,11 +694,11 @@ msgstr ""
 "Vain yksi versio voi olla käytössä. Tätä kenttää käytetään sovelluksen "
 "luomisessa valikoiden esivalintaan, yms."
 
-#: nextcloudappstore/core/models.py:811
+#: nextcloudappstore/core/models.py:831
 msgid "Has a release"
 msgstr "On julkaisu"
 
-#: nextcloudappstore/core/models.py:813
+#: nextcloudappstore/core/models.py:833
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded "
 "as an archive. If false, the release is either a pre-release, or not "
@@ -680,11 +707,11 @@ msgstr ""
 "Jos tosi, tämä on julkaistu Nextcloud versio, joka voidaan ladata arkistona. "
 "Jos epätosi, julkaisu on joko esijulkaisu, tai se ei ole enää ladattavissa."
 
-#: nextcloudappstore/core/models.py:823
+#: nextcloudappstore/core/models.py:843
 msgid "Version is supported"
 msgstr "Versio on tuettu"
 
-#: nextcloudappstore/core/models.py:824
+#: nextcloudappstore/core/models.py:844
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -692,11 +719,11 @@ msgstr ""
 "Tosi, jos tämä versio on edelleen virallisesti tuettu (pois lukien "
 "yritystuki)"
 
-#: nextcloudappstore/core/models.py:829
+#: nextcloudappstore/core/models.py:849
 msgid "Nextcloud release"
 msgstr "Nextcloud-julkaisu"
 
-#: nextcloudappstore/core/models.py:830
+#: nextcloudappstore/core/models.py:850
 msgid "Nextcloud releases"
 msgstr "Nextcloud-julkaisut"
 
