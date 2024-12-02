@@ -509,7 +509,6 @@ class AppRelease(TranslatableModel):
         if self.is_nightly:
             return True
 
-        version = Version(self.version)
         return bool(Version(self.version).prerelease)
 
 
