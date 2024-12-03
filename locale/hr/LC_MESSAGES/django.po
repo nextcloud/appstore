@@ -2,28 +2,30 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Joas Schilling, 2019
 # Alen Vodopijevec <alen@irb.hr>, 2020
 # Denis Kranjčić <production@ciklopea.com>, 2024
 # Vladimir Ostović <vladimir.ostovic@ciklopea.com>, 2024
 # Marin Treselj <marin@pixelipo.com>, 2024
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-27 03:14+0000\n"
+"POT-Creation-Date: 2024-12-03 03:04+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Marin Treselj <marin@pixelipo.com>, 2024\n"
-"Language-Team: Croatian (https://app.transifex.com/nextcloud/teams/64236/hr/)\n"
+"Language-Team: Croatian (https://app.transifex.com/nextcloud/teams/64236/"
+"hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -81,17 +83,17 @@ msgstr "Javna vjerodajnica"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Obično se pohranjuje u ~/.nextcloud/certificates/APP_ID.crt gdje je APP_ID "
-"ID vaše aplikacije. Ako nemate vjerodajnicu, prvo morate izraditi zahtjev za"
-" potpisivanje vjerodajnice (CSR) koji treba biti objavljen u <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener“>repozitoriju vjerodajnica</a> (slijedite upute u "
-"datoteci README). CSR možete generirati izvršavanjem sljedeće naredbe:"
+"ID vaše aplikacije. Ako nemate vjerodajnicu, prvo morate izraditi zahtjev za "
+"potpisivanje vjerodajnice (CSR) koji treba biti objavljen u <a href="
+"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener“>repozitoriju vjerodajnica</a> (slijedite upute u datoteci README). "
+"CSR možete generirati izvršavanjem sljedeće naredbe:"
 
 #: nextcloudappstore/core/forms.py:54
 msgid "Signature over your app's ID"
@@ -122,12 +124,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "ID aplikacije, istovjetan nazivu mape"
 
-#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:652
+#: nextcloudappstore/core/models.py:137 nextcloudappstore/core/models.py:646
 msgid "Category"
 msgstr "Kategorija"
 
-#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:646
-#: nextcloudappstore/core/models.py:669 nextcloudappstore/core/models.py:689
+#: nextcloudappstore/core/models.py:139 nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:663 nextcloudappstore/core/models.py:683
 msgid "Name"
 msgstr "Naziv"
 
@@ -145,14 +147,14 @@ msgstr "Sažetak"
 msgid "Short text describing the app's purpose"
 msgstr "Kratki tekst koji opisuje svrhu aplikacije"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:568
-#: nextcloudappstore/core/models.py:648
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:562
+#: nextcloudappstore/core/models.py:642
 #: nextcloudappstore/scaffolding/forms.py:60
 #: nextcloudappstore/scaffolding/forms.py:109
 msgid "Description"
 msgstr "Opis"
 
-#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:648
+#: nextcloudappstore/core/models.py:143 nextcloudappstore/core/models.py:642
 msgid "Will be rendered as Markdown"
 msgstr "Bit će prikazano kao Markdown"
 
@@ -184,12 +186,12 @@ msgid "Forum"
 msgstr "Forum"
 
 #: nextcloudappstore/core/models.py:152 nextcloudappstore/core/models.py:456
-#: nextcloudappstore/core/models.py:642
+#: nextcloudappstore/core/models.py:636
 msgid "Created at"
 msgstr "Stvoreno"
 
 #: nextcloudappstore/core/models.py:153 nextcloudappstore/core/models.py:457
-#: nextcloudappstore/core/models.py:643
+#: nextcloudappstore/core/models.py:637
 msgid "Updated at"
 msgstr "Ažurirano"
 
@@ -254,8 +256,8 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Ako je omogućen, korisnik može ponovno pokušati registrirati istu aplikaciju"
-" s pomoću javne vjerodajnice i potpisa. Ako to učini, aplikacija će mu biti "
+"Ako je omogućen, korisnik može ponovno pokušati registrirati istu aplikaciju "
+"s pomoću javne vjerodajnice i potpisa. Ako to učini, aplikacija će mu biti "
 "prenesena."
 
 #: nextcloudappstore/core/models.py:179
@@ -267,8 +269,8 @@ msgid "Used to approve integrations"
 msgstr "Koristi se za odobravanje integracija"
 
 #: nextcloudappstore/core/models.py:183 nextcloudappstore/core/models.py:362
-#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:581
-#: nextcloudappstore/core/models.py:604
+#: nextcloudappstore/core/models.py:438 nextcloudappstore/core/models.py:575
+#: nextcloudappstore/core/models.py:598
 #: nextcloudappstore/user/templates/user/appeal-comments.html:13
 msgid "App"
 msgstr "Aplikacija"
@@ -332,15 +334,15 @@ msgstr "Inačica"
 msgid "Version follows Semantic Versioning"
 msgstr "Inačica slijedi semantičko označavanje inačica"
 
-#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:743
+#: nextcloudappstore/core/models.py:441 nextcloudappstore/core/models.py:737
 msgid "PHP extension dependency"
 msgstr "Ovisnost proširenja PHP-a"
 
-#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:710
+#: nextcloudappstore/core/models.py:444 nextcloudappstore/core/models.py:704
 msgid "Database dependency"
 msgstr "Ovisnost baze podataka"
 
-#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:673
+#: nextcloudappstore/core/models.py:446 nextcloudappstore/core/models.py:667
 msgid "License"
 msgstr "Licenca"
 
@@ -404,9 +406,9 @@ msgid ""
 "without him interacting with the application)"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:525
-#: nextcloudappstore/core/models.py:546 nextcloudappstore/core/models.py:703
-#: nextcloudappstore/core/models.py:734
+#: nextcloudappstore/core/models.py:477 nextcloudappstore/core/models.py:519
+#: nextcloudappstore/core/models.py:540 nextcloudappstore/core/models.py:697
+#: nextcloudappstore/core/models.py:728
 msgid "App release"
 msgstr "Izdanje aplikacije"
 
@@ -414,266 +416,266 @@ msgstr "Izdanje aplikacije"
 msgid "App releases"
 msgstr "Izdanja aplikacije"
 
-#: nextcloudappstore/core/models.py:529
+#: nextcloudappstore/core/models.py:523
 msgid "Deploy Identifier"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:532
+#: nextcloudappstore/core/models.py:526
 msgid "Installer specific data"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:533
+#: nextcloudappstore/core/models.py:527
 msgid "JSON data for AppAPI installer depending on installation type"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:538
+#: nextcloudappstore/core/models.py:532
 msgid "AppAPI release Deploy method"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:539
+#: nextcloudappstore/core/models.py:533
 msgid "AppAPI release Deploy methods"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:550
+#: nextcloudappstore/core/models.py:544
 msgid "Name of the API scope"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:554
+#: nextcloudappstore/core/models.py:548
 msgid "AppAPI release API Scope"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:555
+#: nextcloudappstore/core/models.py:549
 msgid "AppAPI release API Scopes"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:562
+#: nextcloudappstore/core/models.py:556
 msgid "App Release"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:566
+#: nextcloudappstore/core/models.py:560
 msgid "Environment Variable Name"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:567
+#: nextcloudappstore/core/models.py:561
 msgid "Display Name"
 msgstr "Ime"
 
-#: nextcloudappstore/core/models.py:569
+#: nextcloudappstore/core/models.py:563
 msgid "Default Value"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:573
+#: nextcloudappstore/core/models.py:567
 msgid "AppAPI Release Environment Variable"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:574
+#: nextcloudappstore/core/models.py:568
 msgid "AppAPI Release Environment Variables"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:579
+#: nextcloudappstore/core/models.py:573
 msgid "Image URL"
 msgstr "URL slike"
 
-#: nextcloudappstore/core/models.py:580
+#: nextcloudappstore/core/models.py:574
 msgid "Small thumbnail"
 msgstr "Mali umanjeni prikaz"
 
-#: nextcloudappstore/core/models.py:582 nextcloudappstore/core/models.py:605
+#: nextcloudappstore/core/models.py:576 nextcloudappstore/core/models.py:599
 msgid "Ordering"
 msgstr "Naručivanje"
 
-#: nextcloudappstore/core/models.py:585
+#: nextcloudappstore/core/models.py:579
 #: nextcloudappstore/core/templates/app/detail.html:31
 #: nextcloudappstore/core/templates/app/list.html:101
 #: nextcloudappstore/core/templates/app/list.html:103
 msgid "Screenshot"
 msgstr "Snimka zaslona"
 
-#: nextcloudappstore/core/models.py:586
+#: nextcloudappstore/core/models.py:580
 msgid "Screenshots"
 msgstr "Snimke zaslona"
 
-#: nextcloudappstore/core/models.py:601
+#: nextcloudappstore/core/models.py:595
 msgid "Donation URL"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:602
+#: nextcloudappstore/core/models.py:596
 msgid "Donation Type"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:603
+#: nextcloudappstore/core/models.py:597
 msgid "Donation Title"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:608
+#: nextcloudappstore/core/models.py:602
 msgid "Donation"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:609
+#: nextcloudappstore/core/models.py:603
 msgid "Donations"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:621 nextcloudappstore/core/models.py:626
+#: nextcloudappstore/core/models.py:615 nextcloudappstore/core/models.py:620
 msgid "Shell command"
 msgstr "Naredba ljuske"
 
-#: nextcloudappstore/core/models.py:622
+#: nextcloudappstore/core/models.py:616
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Naziv potrebne naredbe ljuske, npr. grep"
 
-#: nextcloudappstore/core/models.py:627
+#: nextcloudappstore/core/models.py:621
 #: nextcloudappstore/core/templates/app/releases.html:61
 msgid "Shell commands"
 msgstr "Naredbe ljuske"
 
-#: nextcloudappstore/core/models.py:639 nextcloudappstore/core/models.py:665
-#: nextcloudappstore/core/models.py:685
+#: nextcloudappstore/core/models.py:633 nextcloudappstore/core/models.py:659
+#: nextcloudappstore/core/models.py:679
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:640
+#: nextcloudappstore/core/models.py:634
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "ID kategorije za identifikaciju kategorije u koju je aplikacija otpremljena"
 
-#: nextcloudappstore/core/models.py:646
+#: nextcloudappstore/core/models.py:640
 msgid "Category name which will be presented to the user"
 msgstr "Naziv kategorije koji će biti prikazan korisniku"
 
-#: nextcloudappstore/core/models.py:653
+#: nextcloudappstore/core/models.py:647
 #: nextcloudappstore/core/templates/app/detail.html:93
 #: nextcloudappstore/scaffolding/forms.py:49
 #: nextcloudappstore/scaffolding/forms.py:83
 msgid "Categories"
 msgstr "Kategorije"
 
-#: nextcloudappstore/core/models.py:666
+#: nextcloudappstore/core/models.py:660
 msgid "Key which is used to identify a license"
 msgstr "Ključ koji se upotrebljava za identifikaciju licence"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:663
 msgid "License name which will be presented to the user"
 msgstr "Naziv licence koji će biti prikazan korisniku"
 
-#: nextcloudappstore/core/models.py:674
+#: nextcloudappstore/core/models.py:668
 #: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Licenses"
 msgstr "Licence"
 
-#: nextcloudappstore/core/models.py:686
+#: nextcloudappstore/core/models.py:680
 msgid "Key which is used to identify a database"
 msgstr "Ključ koji se upotrebljava za identifikaciju baze podataka"
 
-#: nextcloudappstore/core/models.py:689
+#: nextcloudappstore/core/models.py:683
 msgid "Database name which will be presented to the user"
 msgstr "Naziv baze podataka koji će biti prikazan korisniku"
 
-#: nextcloudappstore/core/models.py:693 nextcloudappstore/core/models.py:705
+#: nextcloudappstore/core/models.py:687 nextcloudappstore/core/models.py:699
 msgid "Database"
 msgstr "Baza podataka"
 
-#: nextcloudappstore/core/models.py:694
+#: nextcloudappstore/core/models.py:688
 #: nextcloudappstore/core/templates/app/releases.html:51
 msgid "Databases"
 msgstr "Baze podataka"
 
-#: nextcloudappstore/core/models.py:706
+#: nextcloudappstore/core/models.py:700
 msgid "Database version requirement"
 msgstr "Zahtjev inačice baze podataka"
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:701
 msgid "Database version requirement (raw)"
 msgstr "Zahtjev inačice baze podataka (neobrađeni)"
 
-#: nextcloudappstore/core/models.py:711
+#: nextcloudappstore/core/models.py:705
 msgid "Database dependencies"
 msgstr "Ovisnosti baze podataka"
 
-#: nextcloudappstore/core/models.py:720
+#: nextcloudappstore/core/models.py:714
 msgid "e.g. libxml"
 msgstr "npr. libxml"
 
-#: nextcloudappstore/core/models.py:720 nextcloudappstore/core/models.py:724
-#: nextcloudappstore/core/models.py:737
+#: nextcloudappstore/core/models.py:714 nextcloudappstore/core/models.py:718
+#: nextcloudappstore/core/models.py:731
 msgid "PHP extension"
 msgstr "Proširenje PHP-a"
 
-#: nextcloudappstore/core/models.py:725
+#: nextcloudappstore/core/models.py:719
 #: nextcloudappstore/core/templates/app/releases.html:75
 msgid "PHP extensions"
 msgstr "Proširenja PHP-a"
 
-#: nextcloudappstore/core/models.py:739
+#: nextcloudappstore/core/models.py:733
 msgid "Extension version requirement"
 msgstr "Zahtjev inačice proširenja"
 
-#: nextcloudappstore/core/models.py:740
+#: nextcloudappstore/core/models.py:734
 msgid "Extension version requirement (raw)"
 msgstr "Zahtjev inačice proširenja (neobrađen)"
 
-#: nextcloudappstore/core/models.py:744
+#: nextcloudappstore/core/models.py:738
 msgid "PHP extension dependencies"
 msgstr "Ovisnosti proširenja PHP-a"
 
-#: nextcloudappstore/core/models.py:752
+#: nextcloudappstore/core/models.py:746
 msgid "Heading"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:753
+#: nextcloudappstore/core/models.py:747
 msgid "Excerpt"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:754
+#: nextcloudappstore/core/models.py:748
 #: nextcloudappstore/user/templates/user/appeal-comments.html:15
 msgid "Link"
 msgstr "Poveznica"
 
-#: nextcloudappstore/core/models.py:755
+#: nextcloudappstore/core/models.py:749
 msgid "Image"
 msgstr "Slika"
 
-#: nextcloudappstore/core/models.py:756
+#: nextcloudappstore/core/models.py:750
 msgid "Show podcast"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:759
+#: nextcloudappstore/core/models.py:753
 msgid "Nextcloud Podcast"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:760
+#: nextcloudappstore/core/models.py:754
 msgid "Nextcloud Podcasts"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:784
+#: nextcloudappstore/core/models.py:778
 msgid "App release deletion"
 msgstr "Brisanje izdanja aplikacije"
 
-#: nextcloudappstore/core/models.py:785
+#: nextcloudappstore/core/models.py:779
 msgid "App release deletions"
 msgstr "Brisanja izdanja aplikacije"
 
-#: nextcloudappstore/core/models.py:804
+#: nextcloudappstore/core/models.py:798
 msgid "App rating deletion"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:805
+#: nextcloudappstore/core/models.py:799
 msgid "App rating deletions"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:818
+#: nextcloudappstore/core/models.py:812
 #: nextcloudappstore/core/templates/app/detail.html:175
 msgid "Nextcloud version"
 msgstr "Inačica Nextclouda"
 
-#: nextcloudappstore/core/models.py:818
+#: nextcloudappstore/core/models.py:812
 msgid "e.g. 9.0.54"
 msgstr "npr. 9.0.54"
 
-#: nextcloudappstore/core/models.py:821
+#: nextcloudappstore/core/models.py:815
 msgid "Is current version"
 msgstr "Trenutačna inačica"
 
-#: nextcloudappstore/core/models.py:823
+#: nextcloudappstore/core/models.py:817
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -681,36 +683,36 @@ msgstr ""
 "Samo jedna inačica može biti trenutna inačica. Ovo se polje upotrebljava za "
 "predodabir padajućih izbornika za generiranje aplikacija itd."
 
-#: nextcloudappstore/core/models.py:831
+#: nextcloudappstore/core/models.py:825
 msgid "Has a release"
 msgstr "Ima izdanje"
 
-#: nextcloudappstore/core/models.py:833
+#: nextcloudappstore/core/models.py:827
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ako je to točno, radi se o stvarnoj objavljenoj inačici Nextclouda koja se "
 "može preuzeti kao arhiva. Ako nije točno, izdanje je unaprijed objavljeno "
 "ili više nije dostupno za preuzimanje."
 
-#: nextcloudappstore/core/models.py:843
+#: nextcloudappstore/core/models.py:837
 msgid "Version is supported"
 msgstr "Inačica je podržana"
 
-#: nextcloudappstore/core/models.py:844
+#: nextcloudappstore/core/models.py:838
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
 "Točno ako je ova inačica i dalje službeno podržana (osim podrške za tvrtke)"
 
-#: nextcloudappstore/core/models.py:849
+#: nextcloudappstore/core/models.py:843
 msgid "Nextcloud release"
 msgstr "Izdanje Nextlouda"
 
-#: nextcloudappstore/core/models.py:850
+#: nextcloudappstore/core/models.py:844
 msgid "Nextcloud releases"
 msgstr "Izdanja Nextclouda"
 
@@ -746,15 +748,18 @@ msgstr ""
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Pozdrav od %(site_name)s!\n"
 "\n"
-"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu adresu e-pošte sa svojim računom %(site_domain)s.\n"
+"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu "
+"adresu e-pošte sa svojim računom %(site_domain)s.\n"
 "\n"
 "Ako biste potvrdili da je navedeno točno, posjetite %(activate_url)s\n"
 "\n"
@@ -790,11 +795,11 @@ msgstr "Potvrdi"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a "
-"href=\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
+"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a href="
+"\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:12
@@ -869,8 +874,8 @@ msgstr "Promijeni zaporku"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Poveznica za resetiranje zaporke nije važeća, vjerojatno jer je već "
 "iskorištena. Zatražite <a href=“%(passwd_reset_url)s“>novo resetiranje "
@@ -1081,11 +1086,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:284
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:289
@@ -1160,8 +1165,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/list.html:116
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr ""
-"Nije pronađena nijedna aplikacija pretraživanjem „<em>%(query)s</em>”."
+msgstr "Nije pronađena nijedna aplikacija pretraživanjem „<em>%(query)s</em>”."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1172,19 +1176,19 @@ msgstr "Registriraj aplikaciju"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "Za više informacija o tome kako dobiti vjerodajnicu i stvoriti potpis "
-"pogledajte <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">vodič za razvojne programere aplikacija</a>."
+"pogledajte <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">vodič za razvojne programere "
+"aplikacija</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Ovaj se obrazac može upotrijebiti i za ažuriranje postojećih vjerodajnica, "
@@ -1250,13 +1254,13 @@ msgstr "Izdanje aplikacije uspješno je otpremljeno."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Za više informacija o tome kako stvoriti potpis pogledajte <a "
-"href=“https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">vodič za razvojne programere aplikacija</a>."
+"Za više informacija o tome kako stvoriti potpis pogledajte <a href=“https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">vodič za razvojne programere aplikacija</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1350,7 +1354,8 @@ msgstr "Odjava"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Namjeravate upotrijebiti svoj račun %(provider_name)s za prijavu na\n"
 "                    %(site_name)s. Za kraj ispunite sljedeći obrazac:"
@@ -1603,8 +1608,7 @@ msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
@@ -1687,9 +1691,12 @@ msgstr "API Token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1844,8 +1851,8 @@ msgstr "Promjenom zaporke također će se ponovno generirati vaš API token!"
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Čini se da upotrebljavate račun registriran kod davatelja usluge treće "
 "strane. Zaporku stoga <strong>ne možete</strong> promijeniti na ovoj "
@@ -1870,8 +1877,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
