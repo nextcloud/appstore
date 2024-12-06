@@ -28,7 +28,7 @@ def get_categories():
 def validate_id(input: str) -> None:
     regex = r"^([A-Z][a-z]*)+$"
     if not re.match(regex, input):
-        raise ValidationError(_("The app name must be camel case e.g. MyApp"))
+        raise ValidationError(_("The app name must be pascal case e.g. MyApp"))
 
 
 class AppScaffoldingForm(Form):
@@ -36,7 +36,7 @@ class AppScaffoldingForm(Form):
         max_length=80,
         label=_("App name"),
         validators=[validate_id],
-        widget=TextInput(attrs={"placeholder": "The app name must be camel case e.g. MyApp"}),
+        widget=TextInput(attrs={"placeholder": "The app name must be pascal case e.g. MyApp"}),
     )
     author_name = CharField(max_length=80, label=_("Author's full name"))
     author_email = EmailField(label=_("Author's email"), required=True)
