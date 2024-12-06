@@ -11,6 +11,8 @@ from django.contrib.auth import get_user_model
 from django.forms import CharField, EmailField, PasswordInput
 from django.utils.translation import gettext_lazy as _
 
+from .odoo import subscribe_user_to_news
+
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
@@ -18,11 +20,23 @@ class SignupFormRecaptcha(forms.Form):
     captcha = CaptchaField()
     first_name = CharField(max_length=30, label=_("First name"))
     last_name = CharField(max_length=30, label=_("Last name"))
+    subscribe_to_news = forms.BooleanField(
+        label=_("I agree to receive app developer news and updates from Nextcloud by email (optional)"),
+        required=False,
+        initial=False,
+    )
 
     def signup(self, request, user):
         user.first_name = self.cleaned_data["first_name"]
         user.last_name = self.cleaned_data["last_name"]
         user.save()
+
+        # Set the subscription preference on the user's profile
+        user.profile.subscribe_to_news = self.cleaned_data["subscribe_to_news"]
+        user.profile.save()
+
+        if self.cleaned_data["subscribe_to_news"]:
+            subscribe_user_to_news(user)
 
 
 class DeleteAccountForm(forms.Form):
@@ -65,10 +79,24 @@ class AccountForm(forms.ModelForm):
             "password!"
         ),
     )
+    subscribe_to_news = forms.BooleanField(
+        label=_("I agree to receive app developer news and updates from Nextcloud by email (optional)"), required=False
+    )
 
     class Meta:
         model = get_user_model()
-        fields = ("first_name", "last_name", "email")
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
+        )
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.get("instance", None)
+        super().__init__(*args, **kwargs)
+        # Set initial value of subscribe_to_news based on user's profile
+        if self.user and hasattr(self.user, "profile"):
+            self.fields["subscribe_to_news"].initial = self.user.profile.subscribe_to_news
 
     def clean_email(self):
         value = self.cleaned_data["email"]
