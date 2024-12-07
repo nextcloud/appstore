@@ -363,3 +363,11 @@ NEXTCLOUD_FROM_EMAIL = "appstore@nextcloud.com"
 NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ["marketing-team@nextcloud.com"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
+# Do not fill in these values here, use the "development.py" or "production.py" files.
+ODOO_URL = ""
+ODOO_DB = ""
+ODOO_USERNAME = ""
+ODOO_PASSWORD = ""
+ODOO_MAILING_LIST_ID = 0
