@@ -88,7 +88,7 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
 
 
 class AccountView(LoginRequiredMixin, UpdateView):
-    """Display and allow changing of the user's name."""
+    """Display and allow changing of the user's name and subscription."""
 
     template_name = "user/account.html"
     template_name_suffix = ""
@@ -113,6 +113,11 @@ class AccountView(LoginRequiredMixin, UpdateView):
         if email.email != form.cleaned_data["email"]:
             email.email = form.cleaned_data["email"]
             email.save(update_fields=["email"])
+
+        # Update subscription preference
+        self.request.user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
+        self.request.user.profile.save()
+
         messages.success(self.request, "Account details saved.")
         self.request.session["account_update_failed_count"] = 0
         return super().form_valid(form)
