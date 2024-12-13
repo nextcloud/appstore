@@ -20,7 +20,9 @@ class Migration(migrations.Migration):
                 ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 (
                     "subscribe_to_news",
-                    models.BooleanField(default=True, help_text="User agrees to receive Nextcloud news and updates."),
+                    models.BooleanField(
+                        default=True, help_text="User has opted in to receive Nextcloud news and updates."
+                    ),
                 ),
                 (
                     "user",
