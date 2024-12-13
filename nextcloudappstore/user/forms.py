@@ -80,7 +80,8 @@ class AccountForm(forms.ModelForm):
         ),
     )
     subscribe_to_news = forms.BooleanField(
-        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"), required=False
+        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"),
+        required=False,
     )
 
     class Meta:
