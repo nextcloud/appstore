@@ -39,7 +39,7 @@ def handle_subscription_change(sender, instance, **kwargs):
         if old_value != new_value:
             if new_value:
                 # Logic to subscribe the user
-                subscribe_user_to_news(instance.user)
+                subscribe_user_to_news(instance.user.email, "")
             else:
                 # Logic to unsubscribe the user
-                unsubscribe_user_from_news(instance.user)
+                unsubscribe_user_from_news(instance.user.email)

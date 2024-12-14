@@ -21,7 +21,7 @@ class SignupFormRecaptcha(forms.Form):
     first_name = CharField(max_length=30, label=_("First name"))
     last_name = CharField(max_length=30, label=_("Last name"))
     subscribe_to_news = forms.BooleanField(
-        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"),
+        label=_("I would like to receive app developer news and updates from Nextcloud by email"),
         required=False,
         initial=False,
     )
@@ -36,7 +36,7 @@ class SignupFormRecaptcha(forms.Form):
         user.profile.save()
 
         if self.cleaned_data["subscribe_to_news"]:
-            subscribe_user_to_news(user)
+            subscribe_user_to_news(user.email, "")
 
 
 class DeleteAccountForm(forms.Form):
@@ -80,7 +80,7 @@ class AccountForm(forms.ModelForm):
         ),
     )
     subscribe_to_news = forms.BooleanField(
-        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"),
+        label=_("I would like to receive app developer news and updates from Nextcloud by email"),
         required=False,
     )
 
