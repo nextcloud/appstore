@@ -2,28 +2,30 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Joas Schilling, 2019
 # Alen Vodopijevec <alen@irb.hr>, 2020
 # Denis Kranjčić <production@ciklopea.com>, 2024
 # Vladimir Ostović <vladimir.ostovic@ciklopea.com>, 2024
 # Marin Treselj <marin@pixelipo.com>, 2024
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 03:04+0000\n"
+"POT-Creation-Date: 2024-12-14 03:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Marin Treselj <marin@pixelipo.com>, 2024\n"
-"Language-Team: Croatian (https://app.transifex.com/nextcloud/teams/64236/hr/)\n"
+"Language-Team: Croatian (https://app.transifex.com/nextcloud/teams/64236/"
+"hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -81,17 +83,17 @@ msgstr "Javna vjerodajnica"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Obično se pohranjuje u ~/.nextcloud/certificates/APP_ID.crt gdje je APP_ID "
-"ID vaše aplikacije. Ako nemate vjerodajnicu, prvo morate izraditi zahtjev za"
-" potpisivanje vjerodajnice (CSR) koji treba biti objavljen u <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener“>repozitoriju vjerodajnica</a> (slijedite upute u "
-"datoteci README). CSR možete generirati izvršavanjem sljedeće naredbe:"
+"ID vaše aplikacije. Ako nemate vjerodajnicu, prvo morate izraditi zahtjev za "
+"potpisivanje vjerodajnice (CSR) koji treba biti objavljen u <a href="
+"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener“>repozitoriju vjerodajnica</a> (slijedite upute u datoteci README). "
+"CSR možete generirati izvršavanjem sljedeće naredbe:"
 
 #: nextcloudappstore/core/forms.py:54
 msgid "Signature over your app's ID"
@@ -254,8 +256,8 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"Ako je omogućen, korisnik može ponovno pokušati registrirati istu aplikaciju"
-" s pomoću javne vjerodajnice i potpisa. Ako to učini, aplikacija će mu biti "
+"Ako je omogućen, korisnik može ponovno pokušati registrirati istu aplikaciju "
+"s pomoću javne vjerodajnice i potpisa. Ako to učini, aplikacija će mu biti "
 "prenesena."
 
 #: nextcloudappstore/core/models.py:179
@@ -316,7 +318,7 @@ msgstr "Ocjene aplikacije"
 msgid "Full name"
 msgstr "Puno ime"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:121
 msgid "Email"
 msgstr "E-pošta"
 
@@ -687,8 +689,8 @@ msgstr "Ima izdanje"
 
 #: nextcloudappstore/core/models.py:827
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ako je to točno, radi se o stvarnoj objavljenoj inačici Nextclouda koja se "
@@ -746,15 +748,18 @@ msgstr ""
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Pozdrav od %(site_name)s!\n"
 "\n"
-"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu adresu e-pošte sa svojim računom %(site_domain)s.\n"
+"Primili ste ovu poruku e-pošte jer je korisnik %(user_display)s povezao ovu "
+"adresu e-pošte sa svojim računom %(site_domain)s.\n"
 "\n"
 "Ako biste potvrdili da je navedeno točno, posjetite %(activate_url)s\n"
 "\n"
@@ -790,11 +795,11 @@ msgstr "Potvrdi"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a "
-"href=\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
+"Ova poveznica za potvrdu e-pošte je istekla ili je nevažeća. Izdajte <a href="
+"\"%(email_url)s\">novi zahtjev za potvrdu e-pošte</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:12
@@ -869,8 +874,8 @@ msgstr "Promijeni zaporku"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Poveznica za resetiranje zaporke nije važeća, vjerojatno jer je već "
 "iskorištena. Zatražite <a href=“%(passwd_reset_url)s“>novo resetiranje "
@@ -1081,11 +1086,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:284
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:289
@@ -1160,8 +1165,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/list.html:116
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr ""
-"Nije pronađena nijedna aplikacija pretraživanjem „<em>%(query)s</em>”."
+msgstr "Nije pronađena nijedna aplikacija pretraživanjem „<em>%(query)s</em>”."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1172,19 +1176,19 @@ msgstr "Registriraj aplikaciju"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "Za više informacija o tome kako dobiti vjerodajnicu i stvoriti potpis "
-"pogledajte <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">vodič za razvojne programere aplikacija</a>."
+"pogledajte <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">vodič za razvojne programere "
+"aplikacija</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Ovaj se obrazac može upotrijebiti i za ažuriranje postojećih vjerodajnica, "
@@ -1250,13 +1254,13 @@ msgstr "Izdanje aplikacije uspješno je otpremljeno."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Za više informacija o tome kako stvoriti potpis pogledajte <a "
-"href=“https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">vodič za razvojne programere aplikacija</a>."
+"Za više informacija o tome kako stvoriti potpis pogledajte <a href=“https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">vodič za razvojne programere aplikacija</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1350,7 +1354,8 @@ msgstr "Odjava"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Namjeravate upotrijebiti svoj račun %(provider_name)s za prijavu na\n"
 "                    %(site_name)s. Za kraj ispunite sljedeći obrazac:"
@@ -1603,8 +1608,7 @@ msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
@@ -1615,39 +1619,45 @@ msgstr "Nastavi"
 msgid "Provided email address is not valid."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "Ime"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "Prezime"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:83
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email (optional)"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "Vaša adresa e-pošte"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "Vaša lozinka"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr "Navedena adresa e-pošte ne odgovara vašoj adresi e-pošte"
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:115
 msgid "Invalid password"
 msgstr "Netočna zaporka"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "Potvrdi zaporku"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
 "Password is required to prevent unauthorized users from changing your email "
 "address and resetting your password. This field does not update your "
@@ -1657,11 +1667,11 @@ msgstr ""
 "mijenjanje adrese e-pošte i resetiranje zaporke. Ovo polje ne ažurira "
 "zaporku!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:106
 msgid "This email address is already associated with another account."
 msgstr "Ova adresa e-pošte već je povezana s drugim računom."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:127
 msgid "Email address"
 msgstr "Adresa e-pošte"
 
@@ -1687,9 +1697,12 @@ msgstr "API Token"
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1844,8 +1857,8 @@ msgstr "Promjenom zaporke također će se ponovno generirati vaš API token!"
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Čini se da upotrebljavate račun registriran kod davatelja usluge treće "
 "strane. Zaporku stoga <strong>ne možete</strong> promijeniti na ovoj "
@@ -1870,8 +1883,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
