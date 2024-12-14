@@ -9,7 +9,7 @@ from .odoo import subscribe_user_to_news, unsubscribe_user_from_news
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     subscribe_to_news = models.BooleanField(
-        default=True, help_text="User has opted in to receive Nextcloud news and updates."
+        default=False, help_text="User has opted in to receive Nextcloud news and updates."
     )
 
     def __str__(self):
