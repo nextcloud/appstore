@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-14 03:05+0000\n"
+"POT-Creation-Date: 2024-12-15 03:19+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/nextcloud/"
@@ -325,7 +325,7 @@ msgstr "Alkalmazás-értékelések"
 msgid "Full name"
 msgstr "Teljes név"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:121
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "E-mail"
 
@@ -1658,10 +1658,10 @@ msgstr "Utónév"
 msgid "Last name"
 msgstr "Vezetéknév"
 
-#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:83
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
 msgid ""
 "I would like to receive app developer news and updates from Nextcloud by "
-"email (optional)"
+"email"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:43
@@ -1680,7 +1680,7 @@ msgstr "*Szükséges, ha a fiók jelszóval lett létrehova"
 msgid "The given email address does not match your email address"
 msgstr "A megadott e-mail-cím nem egyezik az Ön e-mail-címével"
 
-#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:115
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "Érvénytelen jelszó"
 
@@ -1690,19 +1690,20 @@ msgstr "Jelszó megerősítésa"
 
 #: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"Jelszó szükséges ahhoz, hogy megakadályozza az illetéktelen felhasználók "
-"számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a mező "
-"nem frissíti a jelszavát!"
 
-#: nextcloudappstore/user/forms.py:106
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "Ez az e-mail-cím már egy másik fiókhoz lett hozzárendelve."
 
-#: nextcloudappstore/user/forms.py:127
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "E-mail-cím"
 
@@ -1980,3 +1981,12 @@ msgstr "Megjelölés karbantartottként"
 #: nextcloudappstore/user/templates/user/transfer-apps.html:55
 msgid "Mark as orphaned"
 msgstr "Megjelölés elárvultként"
+
+#~ msgid ""
+#~ "Password is required to prevent unauthorized users from changing your "
+#~ "email address and resetting your password. This field does not update "
+#~ "your password!"
+#~ msgstr ""
+#~ "Jelszó szükséges ahhoz, hogy megakadályozza az illetéktelen felhasználók "
+#~ "számára az e-mail-cím megváltoztatását és a jelszó-visszaállítást. Ez a "
+#~ "mező nem frissíti a jelszavát!"

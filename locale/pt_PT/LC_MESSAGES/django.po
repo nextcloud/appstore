@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-14 03:05+0000\n"
+"POT-Creation-Date: 2024-12-15 03:19+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: antonol68, 2024\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/nextcloud/"
@@ -330,7 +330,7 @@ msgstr "Avaliação da aplicação"
 msgid "Full name"
 msgstr "Nome completo"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:121
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "E-mail"
 
@@ -1639,10 +1639,10 @@ msgstr "Primeiro nome"
 msgid "Last name"
 msgstr "Último nome"
 
-#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:83
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
 msgid ""
 "I would like to receive app developer news and updates from Nextcloud by "
-"email (optional)"
+"email"
 msgstr ""
 
 #: nextcloudappstore/user/forms.py:43
@@ -1661,7 +1661,7 @@ msgstr ""
 msgid "The given email address does not match your email address"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:115
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "Palavra-passe inválida"
 
@@ -1671,19 +1671,20 @@ msgstr "Confirmar palavra-passe"
 
 #: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"É necessário usar palavra-passe para evitar que utilizadores não autorizados "
-"alterem o seu endereço de e-mail e redefinam a sua password. Este campo não "
-"actualiza a sua password!"
 
-#: nextcloudappstore/user/forms.py:106
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:127
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "Endereço de email"
 
@@ -1945,3 +1946,12 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:55
 msgid "Mark as orphaned"
 msgstr ""
+
+#~ msgid ""
+#~ "Password is required to prevent unauthorized users from changing your "
+#~ "email address and resetting your password. This field does not update "
+#~ "your password!"
+#~ msgstr ""
+#~ "É necessário usar palavra-passe para evitar que utilizadores não "
+#~ "autorizados alterem o seu endereço de e-mail e redefinam a sua password. "
+#~ "Este campo não actualiza a sua password!"
