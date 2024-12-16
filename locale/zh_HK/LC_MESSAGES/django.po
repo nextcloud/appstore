@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-13 03:06+0000\n"
+"POT-Creation-Date: 2024-12-16 03:09+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Café Tango, 2024\n"
 "Language-Team: Chinese (Hong Kong) (https://app.transifex.com/nextcloud/teams/64236/zh_HK/)\n"
@@ -307,7 +307,7 @@ msgstr "應用程式評價"
 msgid "Full name"
 msgstr "全名"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "電子郵件"
 
@@ -1579,50 +1579,60 @@ msgstr "繼續"
 msgid "Provided email address is not valid."
 msgstr "提供的電子郵件地址無效。"
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "名字"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "姓氏"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr "我希望通過電子郵件接收來自 Nextcloud 的應用程式開發者新聞和更新。"
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "您的電郵地址"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "您的密碼"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "*如果帳戶已註冊，則需要密碼"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr "您輸入的電郵地址與您設定的並不相符。"
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "無效的密碼"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "確認密碼"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
-msgstr "為防止未經授權的用戶更改您的電郵地址和重置密碼，必須輸入密碼。此字段不會更新您的密碼！"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
+msgstr "在更改您的名字、姓氏或電郵地址時，您需要提供此信息，以防止未經授權的更改。請注意，此欄位不會更新您的密碼！"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "此電郵地址已與另一個帳戶關聯。"
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr "更改這些欄位需要輸入密碼。"
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "電郵地址"
 

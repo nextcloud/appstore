@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-13 03:06+0000\n"
+"POT-Creation-Date: 2024-12-16 03:09+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Anders <anders@aasemartinsen.net>, 2024\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://app.transifex.com/"
@@ -329,7 +329,7 @@ msgstr "App-vurderinger"
 msgid "Full name"
 msgstr "Fullt navn"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "E-post"
 
@@ -1651,52 +1651,60 @@ msgstr "Fortsett"
 msgid "Provided email address is not valid."
 msgstr "Oppgitt e-postadresse er ikke gyldig."
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "Fornavn"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "Etternavn"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "Din e-postadresse"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "Ditt passord"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "*Kreves hvis kontoen er registrert med et passord"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr "Den oppgitte e-postadressen samsvarer ikke med e-postadressen din"
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "Ugyldig passord"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "Bekreft passord"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"Passord kreves for å forhindre andre brukere fra å endre din e-postadresse "
-"og tilbakestille passordet ditt. Dette feltet oppdaterer ikke passordet ditt!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "Denne e-postadressen er allerede knyttet til en annen konto."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "E-post adresse"
 

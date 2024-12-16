@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 03:04+0000\n"
+"POT-Creation-Date: 2024-12-15 03:19+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pràctiques bTactic <practiques@btactic.com>, 2024\n"
 "Language-Team: Catalan (https://app.transifex.com/nextcloud/teams/64236/ca/)\n"
@@ -325,7 +325,7 @@ msgstr "Valoracions de l'aplicació"
 msgid "Full name"
 msgstr "Nom complet"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "Adreça electrònica"
 
@@ -1664,56 +1664,63 @@ msgstr "Continuar"
 msgid "Provided email address is not valid."
 msgstr "L'adreça de correu electrònic proporcionada no és vàlida."
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "Nom"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "Cognoms"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "La vostra adreça de correu"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "Contrasenya"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "*Obligatori si el compte està registrat amb una contrasenya"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr ""
 "L'adreça de correu electrònic proporcionada no coincideix amb la vostra "
 "adreça de correu electrònic"
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "Confirma la contrasenya"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"Cal una contrasenya per evitar que els usuaris no autoritzats puguin canviar"
-" la vostra adreça de correu electrònic i restablir la vostra contrasenya. "
-"Aquest camp no modifica la vostra contrasenya!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr ""
 "Aquesta adreça de correu electrònic ja està associada amb un altre compte."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "Adreça de correu"
 

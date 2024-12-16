@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 03:04+0000\n"
+"POT-Creation-Date: 2024-12-15 03:19+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 전창훈 <chun.chang.hoon@gmail.com>, 2024\n"
 "Language-Team: Korean (https://app.transifex.com/nextcloud/teams/64236/ko/)\n"
@@ -321,7 +321,7 @@ msgstr "앱 평가"
 msgid "Full name"
 msgstr "전체 이름"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "이메일"
 
@@ -1600,52 +1600,60 @@ msgstr "계속"
 msgid "Provided email address is not valid."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "이름"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "성"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "내 이메일 주소"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "*암호로 계정을 등록할 때 필수"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr "제공된 이메일 주소가 귀하의 것과 일치하지 않습니다."
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "잘못된 암호"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "암호 확인"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"허용되지 않은 사용자가 이메일 주소를 변경하고 암호를 초기화하는 것을 방지하기 위해서 암호를 입력해야 합니다. 이 필드를 변경해도 내 "
-"암호를 변경하지 않습니다!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "다른 계정에서 이 이메일 주소를 사용하고 있습니다."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "이메일 주소"
 

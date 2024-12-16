@@ -21,7 +21,7 @@ class SignupFormRecaptcha(forms.Form):
     first_name = CharField(max_length=30, label=_("First name"))
     last_name = CharField(max_length=30, label=_("Last name"))
     subscribe_to_news = forms.BooleanField(
-        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"),
+        label=_("I would like to receive app developer news and updates from Nextcloud by email"),
         required=False,
         initial=False,
     )
@@ -36,7 +36,7 @@ class SignupFormRecaptcha(forms.Form):
         user.profile.save()
 
         if self.cleaned_data["subscribe_to_news"]:
-            subscribe_user_to_news(user)
+            subscribe_user_to_news(user.email, "")
 
 
 class DeleteAccountForm(forms.Form):
@@ -72,15 +72,14 @@ class AccountForm(forms.ModelForm):
         widget=PasswordInput(),
         label=_("Confirm password"),
         help_text=_(
-            "Password is required to prevent "
-            "unauthorized users from changing your "
-            "email address and resetting your "
-            "password. This field does not update your "
-            "password!"
+            "Required when changing your First Name, Last Name, or "
+            "Email Address to prevent unauthorized changes to critical account details. "
+            "This field does not update your password!"
         ),
+        required=False,
     )
     subscribe_to_news = forms.BooleanField(
-        label=_("I would like to receive app developer news and updates from Nextcloud by email (optional)"),
+        label=_("I would like to receive app developer news and updates from Nextcloud by email"),
         required=False,
     )
 
@@ -108,11 +107,52 @@ class AccountForm(forms.ModelForm):
         return value
 
     def clean_passwd(self):
-        value = self.cleaned_data["passwd"]
-        if self.instance.check_password(value):
-            return value
-        else:
+        value = self.cleaned_data.get("passwd")
+        # If password was entered, validate it
+        if value and not self.instance.check_password(value):
             raise forms.ValidationError(_("Invalid password"))
+        return value
+
+    def clean(self):
+        cleaned_data = super().clean()
+        email = cleaned_data.get("email")
+        first_name = cleaned_data.get("first_name")
+        last_name = cleaned_data.get("last_name")
+        subscribe_to_news = cleaned_data.get("subscribe_to_news")
+
+        changed_fields = []
+        if self.user:
+            if email and email != self.user.email:
+                changed_fields.append("email")
+            if first_name and first_name != self.user.first_name:
+                changed_fields.append("first_name")
+            if last_name and last_name != self.user.last_name:
+                changed_fields.append("last_name")
+            if (
+                hasattr(self.user, "profile")
+                and subscribe_to_news is not None
+                and subscribe_to_news != self.user.profile.subscribe_to_news
+            ):
+                changed_fields.append("subscribe_to_news")
+
+        if not changed_fields:
+            return cleaned_data
+
+        # If the only changed field is subscribe_to_news, we do not require password
+        if changed_fields == ["subscribe_to_news"]:
+            # Remove password-related errors if they exist
+            if "passwd" in self._errors:
+                del self._errors["passwd"]
+
+        else:
+            # If critical fields (email, first_name, last_name) changed,
+            # ensure password was provided and is correct.
+            # If no password provided or invalid, an error would be present from clean_passwd().
+            # Ensure that passwd was actually provided and is valid.
+            if not cleaned_data.get("passwd"):
+                self.add_error("passwd", _("Password is required to change these fields."))
+
+        return cleaned_data
 
 
 class CustomResetPasswordForm(forms.Form):

@@ -26,7 +26,7 @@ def is_odoo_config_valid():
     return all(required_fields)
 
 
-def subscribe_user_to_news(user):
+def subscribe_user_to_news(user_email: str, user_name: str):
     if not is_odoo_config_valid():
         print("Odoo configuration is invalid. Skipping subscription.")
         return
@@ -41,14 +41,14 @@ def subscribe_user_to_news(user):
         settings.ODOO_PASSWORD,
         "mailing.contact",
         "search",
-        [[("email", "=", user["email"])]],
+        [[("email", "=", user_email)]],
     )
 
     if not contact_ids:
         # Create a new contact if it doesn't exist
         contact_data = {
-            "name": user.get("name", user["email"]),  # Use name if provided, fallback to email
-            "email": user["email"],
+            "name": user_name if user_name else user_email,  # Use name if provided, fallback to email
+            "email": user_email,
         }
         contact_id = models.execute_kw(
             settings.ODOO_DB,
@@ -107,7 +107,7 @@ def subscribe_user_to_news(user):
         print(f"User's subscription updated to opt-in for mailing list {settings.ODOO_MAILING_LIST_ID}")
 
 
-def unsubscribe_user_from_news(user):
+def unsubscribe_user_from_news(user_email: str):
     if not is_odoo_config_valid():
         print("Odoo configuration is invalid. Skipping subscription.")
         return
@@ -121,11 +121,11 @@ def unsubscribe_user_from_news(user):
         settings.ODOO_PASSWORD,
         "mailing.contact",
         "search",
-        [[("email", "=", user["email"])]],
+        [[("email", "=", user_email)]],
     )
 
     if not contact_ids:
-        print(f"No contact found for email {user['email']} to unsubscribe")
+        print(f"No contact found for email {user_email} to unsubscribe")
         return
 
     contact_id = contact_ids[0]
@@ -159,4 +159,4 @@ def unsubscribe_user_from_news(user):
         [subscription_ids, {"opt_out": True}],
     )
 
-    print(f"User {user['email']} has been unsubscribed from mailing list {settings.ODOO_MAILING_LIST_ID}")
+    print(f"User {user_email} has been unsubscribed from mailing list {settings.ODOO_MAILING_LIST_ID}")

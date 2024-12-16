@@ -6,16 +6,15 @@
 # Translators:
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Keram, 2024
-# Joas Schilling, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 08:30+0000\n"
+"POT-Creation-Date: 2024-12-16 03:09+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Joas Schilling, 2024\n"
+"Last-Translator: Keram, 2024\n"
 "Language-Team: Uyghur (https://app.transifex.com/nextcloud/teams/64236/ug/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,9 +85,9 @@ msgid ""
 msgstr ""
 "ئادەتتە ~ / .nextcloud / گۇۋاھنامە / APP_ID.crt دا ساقلىنىدۇ ، بۇ يەردە "
 "APP_ID ئەپنىڭ كىملىكى. ئەگەر سىزدە گۇۋاھنامە بولمىسا ، ئالدى بىلەن گۇۋاھنامە"
-" ئىمزا تەلىپى (CSR) قۇرۇشىڭىز كېرەك ، بۇلارنى <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\"> گۇۋاھنامە ئامبىرى </a> (README غا ئەگىشىڭ). "
+" ئىمزا تەلىپى (CSR) قۇرۇشىڭىز كېرەك ، بۇلارنى <a href = "
+"\"https://github.com/nextcloud/app-certificate-requests\" rel = \"غا يوللاش "
+"كېرەك. noreferrer noopener \"> گۇۋاھنامە ئامبىرى </a> (README غا ئەگىشىڭ). "
 "تۆۋەندىكى بۇيرۇقنى ئىجرا قىلىش ئارقىلىق CSR ھاسىل قىلالايسىز:"
 
 #: nextcloudappstore/core/forms.py:54
@@ -105,7 +104,7 @@ msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
 msgstr ""
-"<b> مۇھىم </b>: تىلنى ئۆزگەرتىش نۆۋەتتىكى باھايىڭىزنى تازىلايدۇ. "
+"<b> مۇھىم </ b>: تىلنى ئۆزگەرتىش نۆۋەتتىكى باھايىڭىزنى تازىلايدۇ. "
 "ئۆزگەرتىشلەر ساقلانمايدۇ!"
 
 #: nextcloudappstore/core/forms.py:79
@@ -314,7 +313,7 @@ msgstr "ئەپ دەرىجىسى"
 msgid "Full name"
 msgstr "تولۇق ئىسمى"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "تورخەت"
 
@@ -753,13 +752,13 @@ msgid ""
 "\n"
 "If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
-"%(site_name)s دىن سالام!\n"
+"% (Site_name) s دىن سالام!\n"
 "\n"
-"سىز بۇ ئېلېكترونلۇق خەتنى تاپشۇرۇۋالىسىز ، چۈنكى ئىشلەتكۈچى%(user_display)s بۇ ئېلېكترونلۇق خەت ئادرېسىنى%(site_domain)s دىكى ھېساباتىغا ئۇلىغان.\n"
+"سىز بۇ ئېلېكترونلۇق خەتنى تاپشۇرۇۋالىسىز ، چۈنكى ئىشلەتكۈچى% (user_display) s بۇ ئېلېكترونلۇق خەت ئادرېسىنى% (site_domain) s دىكى ھېساباتىغا ئۇلىغان.\n"
 "\n"
-"بۇنىڭ توغرىلىقىنى جەزملەشتۈرۈش ئۈچۈن%(activate_url)s غا كىرىڭ\n"
+"بۇنىڭ توغرىلىقىنى جەزملەشتۈرۈش ئۈچۈن% (activate_url) s غا كىرىڭ\n"
 "\n"
-"ئەگەر%(site_domain)s دا ھېساباتىڭىز بولمىسا ، بۇ ئۇچۇرغا پەرۋا قىلماڭ.\n"
+"ئەگەر% (site_domain) s دا ھېساباتىڭىز بولمىسا ، بۇ ئۇچۇرغا پەرۋا قىلماڭ.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -767,8 +766,8 @@ msgid ""
 "Thank you from the %(site_name)s!\n"
 "%(site_domain)s"
 msgstr ""
-"%(site_name)s دىن رەھمەت!\n"
-"%(site_domain)s"
+"% (Site_name) s دىن رەھمەت!\n"
+"% (site_domain) s"
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:6
 #: nextcloudappstore/core/templates/account/email_confirm.html:11
@@ -781,8 +780,9 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"<a href=\"mailto:%(email)s\">%(email)s</a> نىڭ%(user_display)s نىڭ "
-"ئېلېكترونلۇق خەت ئادرېسى ئىكەنلىكىنى جەزملەشتۈرۈڭ."
+"<A href = \"خەت ساندۇقى:% (ئېلېكترونلۇق خەت) s\">% (ئېلېكترونلۇق خەت) s </a>"
+" نىڭ% (user_display) s نىڭ ئېلېكترونلۇق خەت ئادرېسى ئىكەنلىكىنى "
+"جەزملەشتۈرۈڭ."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:21
 msgid "Confirm"
@@ -795,8 +795,8 @@ msgid ""
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "بۇ ئېلېكترونلۇق خەت جەزملەشتۈرۈش ئۇلانمىسىنىڭ ۋاقتى توشقان ياكى ئىناۋەتسىز. "
-"<a href=\"%(email_url)s\"> يېڭى ئېلېكترونلۇق خەت جەزملەشتۈرۈش ئىلتىماسى </a>"
-" نى تارقىتىڭ."
+"<A href = \"% (email_url) s\"> يېڭى ئېلېكترونلۇق خەت جەزملەشتۈرۈش ئىلتىماسى "
+"</a> نى تارقىتىڭ."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:12
@@ -879,7 +879,7 @@ msgid ""
 "reset</a>."
 msgstr ""
 "پارولنى ئەسلىگە كەلتۈرۈش ئۇلىنىشى ئىناۋەتسىز ، ئۇ ئاللىبۇرۇن ئىشلىتىلگەن "
-"بولۇشى مۇمكىن.  <a href=\"%(passwd_reset_url)s\"> يېڭى پارولنى ئەسلىگە "
+"بولۇشى مۇمكىن.  <A href = \"% (passwd_reset_url) s\"> يېڭى پارولنى ئەسلىگە "
 "كەلتۈرۈش </a> نى تەلەپ قىلىڭ."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
@@ -930,7 +930,7 @@ msgstr "ئالاھىدە ئەپلەر"
 #: nextcloudappstore/core/templates/app/detail.html:17
 #, python-format
 msgid "Latest %(app_name)s releases"
-msgstr "ئەڭ يېڭى%(app_name)s ئېلان قىلىندى"
+msgstr "ئەڭ يېڭى% (app_name) ئېلان قىلىندى"
 
 #: nextcloudappstore/core/templates/app/detail.html:26
 msgid "Previous"
@@ -1101,9 +1101,9 @@ msgid ""
 "developers nor users will be notified of your comment. A rating without a "
 "comment still counts, but will not be listed below."
 msgstr ""
-"باھا باھالىرى <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\"> Markdown </a> "
-"نى قوللايدۇ. خاتالىق ياكى دوكلات ئىقتىدارلىرىنى دوكلات قىلىش ئۈچۈن باھا "
+"باھا باھالىرى <a rel = \"noopener noreferrer\" href = "
+"\"https://daringfireball.net/projects/markdown/syntax\"> Markdown </a> نى "
+"قوللايدۇ. خاتالىق ياكى دوكلات ئىقتىدارلىرىنى دوكلات قىلىش ئۈچۈن باھا "
 "باھالىرىنى ئىشلەتمەڭ. باھايىڭىزغا ئاچقۇچىلار ۋە ئىشلەتكۈچىلەرگە ئۇقتۇرۇش "
 "قىلىنمايدۇ. باھا يوق باھا يەنىلا ھېسابلىنىدۇ ، ئەمما تۆۋەندە كۆرسىتىلمەيدۇ."
 
@@ -1172,12 +1172,14 @@ msgstr "ئەپلىرىم"
 #: nextcloudappstore/core/templates/app/list.html:114
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr "%(category)s دىكى \"<em>%(query)s</em>\" نى ئىزدەيدىغان ئەپلەر تېپىلمىدى."
+msgstr ""
+"% (كاتېگورىيە) دىكى \"<em>% (سوئال) s </em>\" نى ئىزدەيدىغان ئەپلەر "
+"تېپىلمىدى."
 
 #: nextcloudappstore/core/templates/app/list.html:116
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
-msgstr "ئىزدەش ئۈچۈن «<em>%(query)s</em>» تېپىلمىدى."
+msgstr "ئىزدەش ئۈچۈن «<em>% (سوئال) s </em>» تېپىلمىدى."
 
 #: nextcloudappstore/core/templates/app/register.html:5
 #: nextcloudappstore/core/templates/app/register.html:14
@@ -1193,9 +1195,9 @@ msgid ""
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "گۇۋاھنامىگە قانداق ئېرىشىش ۋە ئىمزا قۇرۇش توغرىسىدا تېخىمۇ كۆپ ئۇچۇرغا "
-"ئېرىشىش ئۈچۈن ، <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\"> ئەپ ئاچقۇچىلار قوللانمىسىنى كۆرۈڭ. </a>."
+"ئېرىشىش ئۈچۈن ، <a href = "
+"\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel = "
+"\"noopener norefferer\"> ئەپ ئاچقۇچىلار قوللانمىسىنى كۆرۈڭ. </a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
@@ -1270,9 +1272,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"ئىمزا قانداق قۇرۇش توغرىسىدا تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش ئۈچۈن <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\"> ئەپ ئاچقۇچىلار قوللانمىسى </a> نى كۆرۈڭ."
+"ئىمزا قانداق قۇرۇش توغرىسىدا تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىش ئۈچۈن <a href = "
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel = "
+"\"noopener norefferer\"> ئەپ ئاچقۇچىلار قوللانمىسى </a> نى كۆرۈڭ."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1331,7 +1333,7 @@ msgstr "ئەپىڭىزنى يوللاڭ"
 #: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
-msgstr "%(category)s دىكى ئىزدەش"
+msgstr "% (كاتېگورىيە) دىكى ئىزدەش"
 
 #: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
@@ -1368,8 +1370,8 @@ msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
 "            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"كىرىش ئۈچۈن%(provider_name)s ھېساباتىڭىزنى ئىشلەتمەكچى بولۇۋاتىسىز\n"
-"            %(site_name)s. ئاخىرقى باسقۇچ سۈپىتىدە تۆۋەندىكى جەدۋەلنى تولدۇرۇڭ:"
+"كىرىش ئۈچۈن% (تەمىنلىگۈچى_ ئىسمى) ھېساباتىڭىزنى ئىشلەتمەكچى بولۇۋاتىسىز\n"
+"            % (site_name) s. ئاخىرقى باسقۇچ سۈپىتىدە تۆۋەندىكى جەدۋەلنى تولدۇرۇڭ:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1612,25 +1614,26 @@ msgstr "تىزىملىتىڭ"
 #: nextcloudappstore/templates/socialaccount/login.html:11
 #, python-format
 msgid "Connect %(provider)s"
-msgstr "%(provider)s لەرنى ئۇلاڭ"
+msgstr "% (تەمىنلىگۈچى) لەرنى ئۇلاڭ"
 
 #: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr ""
-"سىز%(provider)s لەردىن يېڭى ئۈچىنچى تەرەپ ھېساباتىنى ئۇلىماقچى بولۇۋاتىسىز."
+"سىز% (تەمىنلىگۈچى) لەردىن يېڭى ئۈچىنچى تەرەپ ھېساباتىنى ئۇلىماقچى "
+"بولۇۋاتىسىز."
 
 #: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr "Via%(provider)s ئارقىلىق تىزىملىتىڭ"
+msgstr "Via% (تەمىنلىگۈچى) ئارقىلىق تىزىملىتىڭ"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
 msgid ""
 "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
-"سىز%(provider)s دىن ئۈچىنچى تەرەپ ھېساباتىنى ئىشلىتىپ تىزىملاتماقچى "
+"سىز% (تەمىنلىگۈچى) s دىن ئۈچىنچى تەرەپ ھېساباتىنى ئىشلىتىپ تىزىملاتماقچى "
 "بولۇۋاتىسىز."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
@@ -1641,55 +1644,62 @@ msgstr "داۋاملاشتۇر"
 msgid "Provided email address is not valid."
 msgstr "تەمىنلەنگەن ئېلېكترونلۇق خەت ئادرېسى ئىناۋەتلىك ئەمەس."
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "ئاتى"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "فامىلىسى"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "تورخەت ئادرېسىڭىز"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "پارولىڭىز"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "* ھېسابات پارول بىلەن تىزىملاتقان بولسا تەلەپ قىلىنىدۇ"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr ""
 "بېرىلگەن ئېلېكترونلۇق خەت ئادرېسىڭىز ئېلېكترونلۇق خەت ئادرېسىڭىزغا ماس "
 "كەلمەيدۇ"
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "Invalid Password"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "پارولنى جەزملەشتۈرۈڭ"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"رۇخسەتسىز ئىشلەتكۈچىلەرنىڭ ئېلېكترونلۇق خەت ئادرېسىڭىزنى ئۆزگەرتىپ "
-"پارولىڭىزنى قايتا ئورنىتىشىنىڭ ئالدىنى ئېلىش ئۈچۈن پارول تەلەپ قىلىنىدۇ. بۇ "
-"ساھە پارولىڭىزنى يېڭىلىمايدۇ!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "بۇ ئېلېكترونلۇق خەت ئادرېسى باشقا ھېسابات بىلەن باغلانغان."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "ئېلخەت ئادرېسى"
 
@@ -1724,7 +1734,7 @@ msgid ""
 msgstr ""
 "\n"
 "                API بەلگىسىنى Nextcloud ئەپ دۇكىنىغا تېلېفون قىلغاندا دەلىللەشكە ئىشلىتىشكە بولىدۇ\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\"> REST API </a>.\n"
+"                <a href = \"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\"> REST API </a>.\n"
 "                ئۇنى مەخپىي تۇتۇشقا كاپالەتلىك قىلىڭ. تۆۋەندە يېڭى بەلگە ھاسىل قىلىپ ، كونا بەلگە ئىناۋەتسىز بولىدۇ.\n"
 "            "
 
@@ -1888,7 +1898,7 @@ msgid ""
 " password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "سىز ئۈچىنچى تەرەپ تەمىنلىگۈچىگە تىزىملاتقان ھېساباتنى ئىشلىتىۋاتقاندەك "
-"قىلىسىز. شۇڭا پارولىڭىزنى <strong>بۇ</strong> بەتتىن ئۆزگەرتىشكە بولىدۇ."
+"قىلىسىز. شۇڭا پارولىڭىزنى <strong> </ strong> بۇ بەتتىن ئۆزگەرتىشكە بولىدۇ."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8

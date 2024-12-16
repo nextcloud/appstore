@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-13 03:06+0000\n"
+"POT-Creation-Date: 2024-12-16 03:09+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: buy online <buyonline600@gmail.com>, 2023\n"
 "Language-Team: Hebrew (https://app.transifex.com/nextcloud/teams/64236/he/)\n"
@@ -308,7 +308,7 @@ msgstr "דירוגים ליישומון"
 msgid "Full name"
 msgstr "שם מלא"
 
-#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:92
+#: nextcloudappstore/core/models.py:422 nextcloudappstore/user/forms.py:161
 msgid "Email"
 msgstr "דוא״ל"
 
@@ -1577,54 +1577,62 @@ msgstr "להמשך"
 msgid "Provided email address is not valid."
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:19
+#: nextcloudappstore/user/forms.py:21
 msgid "First name"
 msgstr "שם פרט"
 
-#: nextcloudappstore/user/forms.py:20
+#: nextcloudappstore/user/forms.py:22
 msgid "Last name"
 msgstr "שם משפחה"
 
-#: nextcloudappstore/user/forms.py:29
+#: nextcloudappstore/user/forms.py:24 nextcloudappstore/user/forms.py:82
+msgid ""
+"I would like to receive app developer news and updates from Nextcloud by "
+"email"
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "כתובת הדוא״ל שלך"
 
-#: nextcloudappstore/user/forms.py:33
+#: nextcloudappstore/user/forms.py:47
 #, fuzzy
 #| msgid "Forgot password?"
 msgid "Your password"
 msgstr "לשכוח ססמה?"
 
-#: nextcloudappstore/user/forms.py:34
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr ""
 
-#: nextcloudappstore/user/forms.py:53 nextcloudappstore/user/forms.py:86
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:113
 msgid "Invalid password"
 msgstr "ססמה שגויה"
 
-#: nextcloudappstore/user/forms.py:59
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "אישור הססמה"
 
-#: nextcloudappstore/user/forms.py:61
+#: nextcloudappstore/user/forms.py:75
 msgid ""
-"Password is required to prevent unauthorized users from changing your email "
-"address and resetting your password. This field does not update your "
-"password!"
+"Required when changing your First Name, Last Name, or Email Address to "
+"prevent unauthorized changes to critical account details. This field does "
+"not update your password!"
 msgstr ""
-"הינך מוכרח לספק סיסמה על מנת למנוע ממשתמשים לא רצויים לשנות את כתובת הדוא\"ל "
-"שלך ולאפס את סיסמתך. שדה זה אינו מעדכן את סיסמתך!"
 
-#: nextcloudappstore/user/forms.py:77
+#: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
 msgstr "כתובת הדוא״ל הזו כבר משויכת לחשבון אחר."
 
-#: nextcloudappstore/user/forms.py:98
+#: nextcloudappstore/user/forms.py:153
+msgid "Password is required to change these fields."
+msgstr ""
+
+#: nextcloudappstore/user/forms.py:167
 msgid "Email address"
 msgstr "כתובת דוא״ל"
 
@@ -1901,6 +1909,14 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:55
 msgid "Mark as orphaned"
 msgstr ""
+
+#~ msgid ""
+#~ "Password is required to prevent unauthorized users from changing your "
+#~ "email address and resetting your password. This field does not update "
+#~ "your password!"
+#~ msgstr ""
+#~ "הינך מוכרח לספק סיסמה על מנת למנוע ממשתמשים לא רצויים לשנות את כתובת הדוא"
+#~ "\"ל שלך ולאפס את סיסמתך. שדה זה אינו מעדכן את סיסמתך!"
 
 #~ msgid "Unlocked for transfer"
 #~ msgstr "שוחרר לטובת העברה"
