@@ -20,7 +20,9 @@ class UserProfile(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
+        profile = UserProfile.objects.create(user=instance)
+        profile._skip_subscription_check = True  # Dynamically add the flag
+        profile.save()
 
 
 @receiver(post_save, sender=User)
@@ -31,6 +33,9 @@ def save_user_profile(sender, instance, **kwargs):
 # Detect changes to subscribe_to_news and trigger actions
 @receiver(pre_save, sender=UserProfile)
 def handle_subscription_change(sender, instance, **kwargs):
+    if hasattr(instance, "_skip_subscription_check") and instance._skip_subscription_check:
+        return
+
     if instance.pk:  # Ensure this is an update, not a creation
         # Fetch the old value of subscribe_to_news
         old_value = UserProfile.objects.filter(pk=instance.pk).values_list("subscribe_to_news", flat=True).first()
