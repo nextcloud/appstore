@@ -11,8 +11,6 @@ from django.contrib.auth import get_user_model
 from django.forms import CharField, EmailField, PasswordInput
 from django.utils.translation import gettext_lazy as _
 
-from .odoo import subscribe_user_to_news
-
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
@@ -34,9 +32,6 @@ class SignupFormRecaptcha(forms.Form):
         # Set the subscription preference on the user's profile
         user.profile.subscribe_to_news = self.cleaned_data["subscribe_to_news"]
         user.profile.save()
-
-        if self.cleaned_data["subscribe_to_news"]:
-            subscribe_user_to_news(user.email, "")
 
 
 class DeleteAccountForm(forms.Form):
