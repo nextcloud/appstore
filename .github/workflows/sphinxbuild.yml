@@ -8,7 +8,7 @@ on:
 
 jobs:
   appstore_docs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
@@ -27,7 +27,6 @@ jobs:
     - name: Pack  the results in local tar file
       shell: bash
       run: tar czf /tmp/documentation.tar.gz -C docs/_build/html .
-
     - name: Upload static documentation
       uses: actions/upload-artifact@v4.4.0
       with:
