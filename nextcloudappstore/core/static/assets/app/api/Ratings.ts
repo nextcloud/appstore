@@ -76,16 +76,16 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
     }
     const translation = rating.translations[lang] || {comment: ''};
     return {
-        id: rating.id,
+        appeal: rating.appeal,
         comment: translation.comment,
         fullUserName: fullName.trim(),
+        id: rating.id,
         ratedAt: rating.ratedAt,
         rating: {
             name: createRatingName(rating.rating),
             value: rating.rating,
         },
         relativeRatedAt: rating.relativeRatedAt,
-        appeal: rating.appeal,
     };
 }
 
@@ -124,22 +124,22 @@ export function findUserComment(result: IRatings): Maybe<string> {
 
 export function appealRating(url: string, token: string, rating: IRating, appeal = true) {
     return pageRequest({
-        url,
         data: {
             appeal: +appeal,
             comment_id: rating.id,
         },
         method: HttpMethod.POST,
+        url,
     }, token);
 }
 
 export function deleteRating(url: string, token: string, rating: IRating, admin = false) {
     return pageRequest({
-        url,
         data: {
-            decision: +!admin,
             comment_id: rating.id,
+            decision: +!admin,
         },
         method: HttpMethod.POST,
+        url,
     }, token);
 }

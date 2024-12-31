@@ -1,3 +1,4 @@
+from allauth.account.signals import email_confirmed
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
@@ -8,6 +9,9 @@ from django.utils.translation import gettext as _
 from rest_framework.authtoken.models import Token
 
 from nextcloudappstore.user.facades import update_token
+from nextcloudappstore.user.models import UserProfile
+
+from .odoo import subscribe_user_to_news
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL, dispatch_uid="create_token")
@@ -39,3 +43,18 @@ def password_changed_signal(sender, instance, **kwargs):
             send_mail(mail_subect, mail_message, settings.DEFAULT_FROM_EMAIL, [user.email], False)
     except User.DoesNotExist:
         pass
+
+
+@receiver(email_confirmed)
+def handle_email_confirmation(request, email_address, **kwargs):
+    user = email_address.user
+    try:
+        # Get the user's profile
+        user_profile = UserProfile.objects.get(user=user)
+        # Check if the user has opted in for news
+        if user_profile.subscribe_to_news:
+            subscribe_user_to_news(email_address.email, "")
+    except UserProfile.DoesNotExist:
+        print(f"UserProfile not found for user: {user.id}")
+    except Exception as e:
+        print(f"An error occurred: {e}")

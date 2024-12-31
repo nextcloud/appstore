@@ -4,6 +4,7 @@ from itertools import chain
 
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
+from django.core.cache import cache
 from django.db.models import FloatField  # type: ignore
 from django.db.models import (  # type: ignore
     CASCADE,
@@ -30,7 +31,7 @@ from packaging.version import InvalidVersion
 from packaging.version import parse as parse_version
 from parler.models import TranslatableManager  # type: ignore
 from parler.models import TranslatableModel, TranslatedFields
-from semantic_version import Spec, Version
+from semantic_version import SimpleSpec, Version
 
 from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
@@ -72,17 +73,27 @@ class AppManager(TranslatableManager):
 
             return Case(*conditions_list, default=len(conditions_list))
 
+        predicates_id = map(lambda t: Q(id__icontains=t), terms)
         predicates_name = map(lambda t: Q(translations__name__icontains=t), terms)
         predicates_summary = map(lambda t: Q(translations__summary__icontains=t), terms)
         predicates_description = map(lambda t: Q(translations__description__icontains=t), terms)
 
-        query_name_exact = Q(translations__name__iexact=" ".join(terms))
+        terms_string = " ".join(terms)
+        query_id_exact = Q(id__iexact=terms_string)
+        query_name_exact = Q(translations__name__iexact=terms_string)
+        query_id = reduce(lambda x, y: x & y, predicates_id, Q())
         query_name = reduce(lambda x, y: x & y, predicates_name, Q())
         query_summary = reduce(lambda x, y: x & y, predicates_summary, Q())
         query_description = reduce(lambda x, y: x & y, predicates_description, Q())
 
+        ids_id_exact = list(
+            queryset.filter(query_id_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
         ids_name_exact = list(
             queryset.filter(query_name_exact).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
+        )
+        ids_id = list(
+            queryset.filter(query_id).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
         )
         ids_name = list(
             queryset.filter(query_name).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
@@ -94,7 +105,7 @@ class AppManager(TranslatableManager):
             queryset.filter(query_description).order_by("-rating_overall", "-last_release").values_list("id", flat=True)
         )
 
-        ids = list(dict.fromkeys(ids_name_exact + ids_name + ids_summary + ids_description))
+        ids = list(dict.fromkeys(ids_id_exact + ids_name_exact + ids_id + ids_name + ids_summary + ids_description))
         id_sort = generate_sorting(ids, "id")
         return queryset.filter(id__in=ids).order_by(id_sort)
 
@@ -183,10 +194,7 @@ class App(TranslatableModel):
 
     @property
     def discussion_url(self):
-        if self.discussion:
-            return self.discussion
-        else:
-            return "{}/c/apps/{}".format(settings.DISCOURSE_URL, self.id.replace("_", "-"))
+        return self.discussion or settings.DISCOURSE_URL
 
     def _get_grouped_releases(self, get_release_func):
         releases = NextcloudRelease.objects.all()
@@ -211,7 +219,13 @@ class App(TranslatableModel):
         :return dict with all compatible stable releases for each platform
                 version.
         """
-        return self._get_grouped_releases(self.compatible_releases)
+        cache_key = self.id + "_releases_by_platform_v_" + str(self.last_release)
+        r = cache.get(cache_key)
+        if r is not None:
+            return r
+        r = self._get_grouped_releases(self.compatible_releases)
+        cache.add(cache_key, r, 5 * 60)
+        return r
 
     def unstable_releases_by_platform_v(self):
         """Looks up all compatible unstable releases for each platform version.
@@ -224,7 +238,13 @@ class App(TranslatableModel):
         :return dict with all compatible unstable releases for each platform
                 version.
         """
-        return self._get_grouped_releases(self.compatible_unstable_releases)
+        cache_key = self.id + "_unstable_releases_by_platform_v_" + str(self.last_release)
+        r = cache.get(cache_key)
+        if r is not None:
+            return r
+        r = self._get_grouped_releases(self.compatible_unstable_releases)
+        cache.add(cache_key, r, 5 * 60)
+        return r
 
     def latest_releases_by_platform_v(self):
         """Looks up the latest stable and unstable release for each platform
@@ -280,7 +300,7 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(lambda r: r.is_compatible(platform_version, inclusive) and not r.is_unstable, self.releases.all()),
+            filter(lambda r: (not r.is_unstable) and r.is_compatible(platform_version, inclusive), self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True,
         )
@@ -295,7 +315,7 @@ class App(TranslatableModel):
         """
 
         return sorted(
-            filter(lambda r: r.is_compatible(platform_version, inclusive) and r.is_unstable, self.releases.all()),
+            filter(lambda r: r.is_unstable and r.is_compatible(platform_version, inclusive), self.releases.all()),
             key=lambda r: AppSemVer(r.version, r.is_nightly, r.last_modified),
             reverse=True,
         )
@@ -306,6 +326,8 @@ class App(TranslatableModel):
         :return: True if not compatible, otherwise false
         """
 
+        if self.is_integration:
+            return False
         release_versions = list(self.latest_releases_by_platform_v().keys())
         if not release_versions:
             return True
@@ -477,25 +499,17 @@ class AppRelease(TranslatableModel):
         """
 
         min_version = Version(pad_min_version(platform_version))
-        spec = Spec(self.platform_version_spec)
+        spec = SimpleSpec(self.platform_version_spec)
         if inclusive:
-            max_version = Version(pad_max_inc_version(platform_version))
-            return min_version in spec or max_version in spec
-        else:
-            return min_version in spec
+            return min_version in spec or Version(pad_max_inc_version(platform_version)) in spec
+        return min_version in spec
 
     @property
     def is_unstable(self):
-        return (
-            self.is_nightly
-            or "-dev" in self.version
-            or "-a" in self.version
-            or "-alpha" in self.version
-            or "-b" in self.version
-            or "-beta" in self.version
-            or "-rc" in self.version
-            or "-RC" in self.version
-        )
+        if self.is_nightly:
+            return True
+
+        return bool(Version(self.version).prerelease)
 
 
 class AppApiReleaseDeployMethod(Model):
@@ -533,6 +547,26 @@ class AppApiReleaseApiScope(Model):
         db_table = "core_appapi_release_api_scopes"
         verbose_name = _("AppAPI release API Scope")
         verbose_name_plural = _("AppAPI release API Scopes")
+
+
+class AppApiEnvironmentVariable(Model):
+    app_release = ForeignKey(
+        "AppRelease",
+        on_delete=CASCADE,
+        verbose_name=_("App Release"),
+        related_name="environment_variables",
+        db_index=True,
+    )
+    env_name = CharField(max_length=64, verbose_name=_("Environment Variable Name"))
+    display_name = CharField(max_length=128, verbose_name=_("Display Name"))
+    description = TextField(verbose_name=_("Description"), blank=True)
+    default = CharField(max_length=256, verbose_name=_("Default Value"), blank=True)
+
+    class Meta:
+        db_table = "core_appapi_release_env_vars"
+        verbose_name = _("AppAPI Release Environment Variable")
+        verbose_name_plural = _("AppAPI Release Environment Variables")
+        unique_together = (("app_release", "env_name"),)
 
 
 class Screenshot(Model):

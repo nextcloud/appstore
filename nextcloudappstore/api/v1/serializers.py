@@ -6,6 +6,7 @@ from rest_framework.fields import DateTimeField, SerializerMethodField
 
 from nextcloudappstore.core.models import (
     App,
+    AppApiEnvironmentVariable,
     AppApiReleaseApiScope,
     AppApiReleaseDeployMethod,
     AppAuthor,
@@ -128,9 +129,16 @@ class ApiScopeSerializer(serializers.ModelSerializer):
         fields = ("scope_name",)
 
 
+class AppApiEnvironmentVariableSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppApiEnvironmentVariable
+        fields = ("env_name", "display_name", "description", "default")
+
+
 class AppApiAppReleaseSerializer(AppReleaseSerializer):
     deploy_methods = DeployMethodSerializer(many=True, read_only=True)
     api_scopes = ApiScopeSerializer(many=True, read_only=True)
+    environment_variables = AppApiEnvironmentVariableSerializer(many=True, read_only=True)
 
     class Meta:
         model = AppRelease
@@ -155,6 +163,7 @@ class AppApiAppReleaseSerializer(AppReleaseSerializer):
             "aa_is_system",
             "deploy_methods",
             "api_scopes",
+            "environment_variables",
         )
 
 
