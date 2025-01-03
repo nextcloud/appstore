@@ -328,6 +328,8 @@ class App(TranslatableModel):
 
         if self.is_integration:
             return False
+        if self.id in ['activity','admin_audit','app_api','bruteforcesettings','circles','cloud_federation_api','comments','contactsinteraction','dashboard','dav','encryption','federatedfilesharing','federation','files','files_downloadlimit','files_external','files_pdfviewer','files_reminders','files_sharing','files_trashbin','files_versions','firstrunwizard','logreader','lookup_server_connector','nextcloud_announcements','notifications','oauth2','password_policy','photos','privacy','profile','provisioning_api','recommendations','related_resources','serverinfo','settings','sharebymail','support','survey_client','suspicious_login','systemtags','text','theming','twofactor_backupcodes','twofactor_nextcloud_notification','twofactor_totp','updatenotification','user_ldap','user_status','viewer','weather_status','webhook_listeners','workflowengine']:
+            return False
         release_versions = list(self.latest_releases_by_platform_v().keys())
         if not release_versions:
             return True
