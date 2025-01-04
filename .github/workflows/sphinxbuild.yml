@@ -28,7 +28,7 @@ jobs:
       shell: bash
       run: tar czf /tmp/documentation.tar.gz -C docs/_build/html .
     - name: Upload static documentation
-      uses: actions/upload-artifact@v4.4.0
+      uses: actions/upload-artifact@v4.5.0
       with:
         name: Appstore docs.zip
         path: "/tmp/documentation.tar.gz"
