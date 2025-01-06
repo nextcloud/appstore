@@ -46,7 +46,7 @@ class ParserTest(TestCase):
                 "donations": [],
                 "release": {
                     "databases": [],
-                    "licenses": [{"license": {"id": "agpl"}}],
+                    "licenses": [{"license": {"id": "AGPL-3.0-or-later"}}],
                     "min_int_size": 32,
                     "php_extensions": [],
                     "php_max_version": "*",

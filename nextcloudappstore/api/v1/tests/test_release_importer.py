@@ -66,7 +66,7 @@ class ImporterTest(TestCase):
         self.assertEqual(0, release.shell_commands.count())
         self.assertEqual(0, release.shell_commands.count())
         self.assertEqual(1, release.licenses.count())
-        self.assertEqual("agpl", release.licenses.all()[0].id)
+        self.assertEqual("AGPL-3.0-or-later", release.licenses.all()[0].id)
         self.assertEqual(None, release.aa_is_system)
 
     def test_full(self):
@@ -230,7 +230,7 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual(0, release.php_extensions.count())
         self.assertEqual(0, release.databases.count())
         self.assertEqual(0, release.shell_commands.count())
-        self.assertEqual("mit", release.licenses.all()[0].id)
+        self.assertEqual("MIT", release.licenses.all()[0].id)
         self.assertEqual(False, release.aa_is_system)
         self.assertEqual(1, release.deploy_methods.count())
         all_scopes = release.api_scopes.all()
@@ -275,7 +275,7 @@ class ImporterTestAA(ImporterTest):
         self.assertEqual("*", release.raw_php_version_spec)
         self._assert_all_empty(release, ["signature", "download"])
         self.assertEqual(1, release.licenses.count())
-        self.assertEqual("agpl", release.licenses.all()[0].id)
+        self.assertEqual("AGPL-3.0-or-later", release.licenses.all()[0].id)
         self.assertEqual(True, release.aa_is_system)
         self.assertEqual(1, release.deploy_methods.count())
         all_scopes = release.api_scopes.all()

@@ -335,7 +335,25 @@ version
     * must be a `semantic version <http://semver.org/>`_ without build metadata, e.g. 9.0.1 or 9.1.0-alpha.1
 licence
     * required
-    * must contain **agpl**, **mpl*** and/or **apache** as the only valid values. These refer to the AGPLv3, MPL 2.0 and Apache License 2.0
+    * can occur multiple times with different licenses
+    * must contain one of the following licenses (see the `SPDX License List <https://spdx.org/licenses/>`_ for details):
+
+        * **AGPL-3.0-only**
+        * **AGPL-3.0-or-later**
+        * **Apache-2.0**
+        * **GPL-3.0-only**
+        * **GPL-3.0-or-later**
+        * **MIT**
+        * **MPL-2.0**
+
+    * (deprecated) the following shorthand aliases are also used:
+
+        * **agpl** (AGPL-3.0)
+        * **apache** (Apache-2.0)
+        * **gpl3** (GPL-3.0)
+        * **mit** (MIT)
+        * **mpl** (MPL-2.0)
+
 author
     * required
     * can occur multiple times with different authors
