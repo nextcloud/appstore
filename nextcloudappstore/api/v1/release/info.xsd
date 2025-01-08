@@ -369,6 +369,7 @@
 
     <xs:simpleType name="licence">
         <xs:restriction base="xs:string">
+            <!-- Requires Nextcloud minVersion >= 31 -->
             <xs:enumeration value="AGPL-3.0-only"/>
             <xs:enumeration value="AGPL-3.0-or-later"/>
             <xs:enumeration value="Apache-2.0"/>
