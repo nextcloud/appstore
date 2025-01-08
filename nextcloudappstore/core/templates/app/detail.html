@@ -39,7 +39,14 @@
             </div>
         </section>
     {% endif %}
-    {% if object.is_outdated %}
+    {% if object.is_server_bundled %}
+        <div class="alert alert-info" role="alert">
+            <strong>
+                {% trans "This app has become part of the Nextcloud Server release packages." %}
+            </strong>
+            {% trans "It is no longer actively distributed via the app store, but when updating the Nextcloud Server the app will be updated to the latest version automatically." %}
+        </div>
+    {% elif object.is_outdated %}
         <div class="alert alert-warning" role="alert">
             <strong>
                 {% trans "This app hasn’t been tested with the latest 3 major releases of Nextcloud." %}
