@@ -320,14 +320,12 @@ class App(TranslatableModel):
             reverse=True,
         )
 
-    def is_outdated(self):
-        """Checks if an app has been released in last 3 recent platform versions
+    def is_server_bundled(self):
+        """Checks if an app bundled with the Nextcloud Server
 
-        :return: True if not compatible, otherwise false
+        :return: True if bundled, otherwise false
         """
 
-        if self.is_integration:
-            return False
         if self.id in [
             "activity",
             "admin_audit",
@@ -383,6 +381,18 @@ class App(TranslatableModel):
             "webhook_listeners",
             "workflowengine",
         ]:
+            return True
+        return False
+
+    def is_outdated(self):
+        """Checks if an app has been released in last 3 recent platform versions
+
+        :return: True if not compatible, otherwise false
+        """
+
+        if self.is_integration:
+            return False
+        if self.is_server_bundled():
             return False
         release_versions = list(self.latest_releases_by_platform_v().keys())
         if not release_versions:
