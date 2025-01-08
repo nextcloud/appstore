@@ -55,9 +55,9 @@ class ImporterTest(TestCase):
         release = app.releases.all()[0]
         self.assertEqual(settings.CERTIFICATE_DIGEST, release.signature_digest)
         self.assertEqual("8.8.2", release.version)
-        self.assertEqual(">=11.0.0,<13.0.0", release.platform_version_spec)
+        self.assertEqual(">=31.0.0,<33.0.0", release.platform_version_spec)
         self.assertEqual("*", release.php_version_spec)
-        self.assertEqual(">=11,<=12", release.raw_platform_version_spec)
+        self.assertEqual(">=31,<=32", release.raw_platform_version_spec)
         self.assertEqual("*", release.raw_php_version_spec)
         self.assertEqual(32, release.min_int_size)
         self._assert_all_empty(release, ["signature", "download"])
@@ -269,9 +269,9 @@ class ImporterTestAA(ImporterTest):
         release = app.releases.all()[0]
         self.assertEqual(settings.CERTIFICATE_DIGEST, release.signature_digest)
         self.assertEqual("2.0.0", release.version)
-        self.assertEqual(">=28.0.0,<29.0.0", release.platform_version_spec)
+        self.assertEqual(">=31.0.0,<32.0.0", release.platform_version_spec)
         self.assertEqual("*", release.php_version_spec)
-        self.assertEqual(">=28,<=28", release.raw_platform_version_spec)
+        self.assertEqual(">=31,<=31", release.raw_platform_version_spec)
         self.assertEqual("*", release.raw_php_version_spec)
         self._assert_all_empty(release, ["signature", "download"])
         self.assertEqual(1, release.licenses.count())
