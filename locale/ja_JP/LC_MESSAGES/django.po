@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 03:09+0000\n"
+"POT-Creation-Date: 2025-01-10 03:05+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Yuichi Naito, 2024\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/"
@@ -1537,9 +1537,17 @@ msgstr "好意的"
 msgid "Very positive"
 msgstr "非常に好意的"
 
-#: nextcloudappstore/core/validators.py:6
+#: nextcloudappstore/core/validators.py:10
 msgid "Enter a valid HTTPS URL"
 msgstr "有効なHTTPS URLを入力してください"
+
+#: nextcloudappstore/core/validators.py:25
+msgid "URL contains invalid (control) characters."
+msgstr ""
+
+#: nextcloudappstore/core/validators.py:29
+msgid "URL must end with .tar.gz"
+msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be pascal case e.g. MyApp"
