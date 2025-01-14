@@ -7,7 +7,7 @@ usability.
 
 The basic ideas that form the foundation of the store include:
 
-* Be free and open: The App Store is available under the AGPLv3 or later which offers a strong copyleft so developers can profit from changes made in other versions
+* Be free and open: The App Store is available under the AGPL-3.0-or-later license which offers strong copyleft so developers can profit from changes made in other versions
 
 * Be easy to use: The App Store should be easy to use and be built in a way that users can quickly discover the most loved apps. Registration should be as easy as possible and connect users and developers by using e.g. GitHub or BitBucket logins
 

@@ -16,7 +16,21 @@
             <xsl:copy-of select="version"/>
             <xsl:for-each select="licence">
                 <licence>
-                    <xsl:value-of select="translate(., $uppercase, $lowercase)"/>
+                    <!--
+                        convert deprecated shorthand aliases to full SPDX identifiers where possible,
+                        leave agpl/gpl3 aliases as is for now (A/GPL-3.0 are also deprecated and thus not added to list of valid licenses)
+                    -->
+                    <xsl:variable name="licenseAlias" select="translate(., $uppercase, $lowercase)"/>
+                    <xsl:choose>
+                        <xsl:when test="$licenseAlias = 'agpl'">agpl</xsl:when>
+                        <xsl:when test="$licenseAlias = 'apache'">Apache-2.0</xsl:when>
+                        <xsl:when test="$licenseAlias = 'gpl3'">gpl3</xsl:when>
+                        <xsl:when test="$licenseAlias = 'mit'">MIT</xsl:when>
+                        <xsl:when test="$licenseAlias = 'mpl'">MPL-2.0</xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="."/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </licence>
             </xsl:for-each>
             <xsl:copy-of select="author"/>
