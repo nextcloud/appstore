@@ -361,15 +361,15 @@ This route will return all releases to display inside Nextcloud's apps admin are
                         "grep"
                     ],
                     "phpVersionSpec": ">=5.6.0",
-                    "platformVersionSpec": ">=9.0.0 <9.2.0",
+                    "platformVersionSpec": ">=31.0.0 <33.0.0",
                     "rawPhpVersionSpec": ">=5.6",
-                    "rawPlatformVersionSpec": ">=10 <=10",
+                    "rawPlatformVersionSpec": ">=31 <=32",
                     "minIntSize": 64,
                     "isNightly": false,
                     "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
                     "created": "2016-06-25T16:08:56.796646Z",
                     "licenses": [
-                        "agpl"
+                        "AGPL-3.0-or-later"
                     ],
                     "lastModified": "2016-06-25T16:49:25.319425Z",
                     "signature": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5",
@@ -572,15 +572,15 @@ This route will return all releases to display inside Nextcloud's apps admin are
                         "grep"
                     ],
                     "phpVersionSpec": ">=5.6.0",
-                    "platformVersionSpec": ">=9.0.0 <9.2.0",
+                    "platformVersionSpec": ">=31.0.0 <33.0.0",
                     "rawPhpVersionSpec": ">=5.6",
-                    "rawPlatformVersionSpec": ">=10 <=10",
+                    "rawPlatformVersionSpec": ">=31 <=32",
                     "minIntSize": 64,
                     "isNightly": false,
                     "download": "https://github.com/owncloud/news/releases/download/8.8.0/news.tar.gz",
                     "created": "2016-06-25T16:08:56.796646Z",
                     "licenses": [
-                        "agpl"
+                        "AGPL-3.0-or-later"
                     ],
                     "lastModified": "2016-06-25T16:49:25.319425Z",
                     "signature": "909377e1a695bbaa415c10ae087ae1cc48e88066d20a5a7a8beed149e9fad3d5",
