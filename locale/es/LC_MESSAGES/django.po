@@ -18,20 +18,20 @@
 # Miguel de Dios Matias <tres.14159@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Julio C. Ortega, 2024
-# Next Cloud <nextcloud.translator.es@cgj.es>, 2024
-# castillo92, 2024
+# Castillo, 2024
 # Javier San Juan <javier.sj@trantor.es>, 2024
 # Javier O, 2024
 # Paúl Sanz <registro@polkillas.net>, 2024
+# Next Cloud <nextcloud.translator.es@cgj.es>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 03:05+0000\n"
+"POT-Creation-Date: 2025-01-24 03:06+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Paúl Sanz <registro@polkillas.net>, 2024\n"
+"Last-Translator: Next Cloud <nextcloud.translator.es@cgj.es>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/nextcloud/teams/64236/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -464,7 +464,7 @@ msgstr "Ámbitos API para lanzamientos AppAPI"
 
 #: nextcloudappstore/core/models.py:622
 msgid "App Release"
-msgstr ""
+msgstr "Versión de la app"
 
 #: nextcloudappstore/core/models.py:626
 msgid "Environment Variable Name"
@@ -480,11 +480,11 @@ msgstr "Valor por defecto"
 
 #: nextcloudappstore/core/models.py:633
 msgid "AppAPI Release Environment Variable"
-msgstr ""
+msgstr "Variable de Entorno del Lanzamiento AppAPI"
 
 #: nextcloudappstore/core/models.py:634
 msgid "AppAPI Release Environment Variables"
-msgstr ""
+msgstr "Variables de Entorno del Lanzamiento AppAPI"
 
 #: nextcloudappstore/core/models.py:639
 msgid "Image URL"
@@ -958,7 +958,7 @@ msgstr "Siguiente"
 
 #: nextcloudappstore/core/templates/app/detail.html:45
 msgid "This app has become part of the Nextcloud Server release packages."
-msgstr ""
+msgstr "Esta aplicación ha pasado a ser parte del paquete servidor Nextcloud."
 
 #: nextcloudappstore/core/templates/app/detail.html:47
 msgid ""
@@ -966,6 +966,9 @@ msgid ""
 "the Nextcloud Server the app will be updated to the latest version "
 "automatically."
 msgstr ""
+"Ya no se distribuye a través de la tienda de apps, pero al actualizar el "
+"servidor Nextcloud la aplicación se actualizará a la última versión "
+"automáticamente."
 
 #: nextcloudappstore/core/templates/app/detail.html:52
 msgid ""
@@ -1052,7 +1055,7 @@ msgstr "Solicita presupuesto"
 
 #: nextcloudappstore/core/templates/app/detail.html:167
 msgid "Recommended for large Nextcloud installations only."
-msgstr ""
+msgstr "Recomendada solo para instalaciones de Nextcloud grandes."
 
 #: nextcloudappstore/core/templates/app/detail.html:178
 #: nextcloudappstore/core/templates/app/releases.html:4
@@ -1540,15 +1543,16 @@ msgstr "Introduce una URL válida HTTPS"
 
 #: nextcloudappstore/core/validators.py:25
 msgid "URL contains invalid (control) characters."
-msgstr ""
+msgstr "La URL contiene caracteres (de control) inválidos."
 
 #: nextcloudappstore/core/validators.py:29
 msgid "URL must end with .tar.gz"
-msgstr ""
+msgstr "La URL debe terminar con .tar.gz"
 
 #: nextcloudappstore/scaffolding/forms.py:31
 msgid "The app name must be pascal case e.g. MyApp"
 msgstr ""
+"El nombre de la aplicación debe seguir el estilo Pascal, por ejemplo MiApp"
 
 #: nextcloudappstore/scaffolding/forms.py:37
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:15
@@ -1689,6 +1693,8 @@ msgid ""
 "I would like to receive app developer news and updates from Nextcloud by "
 "email"
 msgstr ""
+"Quiero recibir noticias y actualizaciones sobre el desarrollo de apps de "
+"Nextcloud por correo"
 
 #: nextcloudappstore/user/forms.py:38
 msgid "Your email address"
@@ -1721,6 +1727,9 @@ msgid ""
 "prevent unauthorized changes to critical account details. This field does "
 "not update your password!"
 msgstr ""
+"Obligatorio al cambiar tu nombre, apellidos o dirección de correo "
+"electrónico para impedir modificaciones no autorizadas a datos críticos de "
+"tu cuenta. ¡Este campo no actualiza tu contraseña!"
 
 #: nextcloudappstore/user/forms.py:100
 msgid "This email address is already associated with another account."
@@ -1728,7 +1737,7 @@ msgstr "Este email está asociado a otra cuenta."
 
 #: nextcloudappstore/user/forms.py:148
 msgid "Password is required to change these fields."
-msgstr ""
+msgstr "Tu contraseña es obligatoria para cambiar estos campos."
 
 #: nextcloudappstore/user/forms.py:162
 msgid "Email address"
@@ -1850,7 +1859,7 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:5
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
 msgid "Enterprise App Support"
-msgstr ""
+msgstr "Soporte de App Empresarial"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:10
 msgid ""
@@ -1859,14 +1868,18 @@ msgid ""
 "page in the App Store and in Nextcloud Apps. Such support can only be "
 "requested for large Nextcloud installations."
 msgstr ""
+"Si una aplicación puede recibir soporte empresarial, puedes indicarlo aquí. "
+"Esto añade un botón 'Solicita presupuesto' a la página de la aplicación en "
+"la App Store y en Nextcloud Apps. Este soporte solo puede ser solicitado "
+"para instalaciones de Nextcloud grandes."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:16
 msgid "Support status"
-msgstr ""
+msgstr "Estado de soporte"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:17
 msgid "Change support status"
-msgstr ""
+msgstr "Cambiar estado de soporte"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:24
 msgid "Supported"
@@ -1878,11 +1891,11 @@ msgstr "No soportado"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:33
 msgid "Mark as unsupported"
-msgstr ""
+msgstr "Marcar como no soportada"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:35
 msgid "Mark as supported"
-msgstr ""
+msgstr "Marcar como soportada"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:43
 #: nextcloudappstore/user/templates/user/transfer-apps.html:63
@@ -1950,6 +1963,10 @@ msgid ""
 "that you are looking for a new owner. Once the transfer is complete, the app"
 " will be automatically marked as un-orphaned/maintained again."
 msgstr ""
+"¿No tienes un nuevo propietario aún? Puedes marcar la aplicación como "
+"huérfana para indicar que estás buscando un nuevo propietario. Cuando se "
+"complete la transferencia, la aplicación se marcará como no-"
+"huérfana/mantenida de nuevo."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
 msgid "Ownership transfer status"
@@ -1957,7 +1974,7 @@ msgstr "Estado de la transferencia de propiedad"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:18
 msgid "App status"
-msgstr ""
+msgstr "Estado de la app"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "Change ownership transfer status"
@@ -1965,11 +1982,11 @@ msgstr "Cambiar el estado de la transferencia de propiedad"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Change app status"
-msgstr ""
+msgstr "Cambiar estado de la aplicación"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:27
 msgid "Unlocked"
-msgstr ""
+msgstr "Desbloqueado"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:29
 msgid "Locked"
@@ -1977,11 +1994,11 @@ msgstr "Bloqueado"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:34
 msgid "Orphaned"
-msgstr ""
+msgstr "Huérfana"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:36
 msgid "Maintained"
-msgstr ""
+msgstr "Mantenida"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:43
 msgid "Lock ownership transfer"
@@ -1993,8 +2010,8 @@ msgstr "Desbloquear la transferencia de propiedad"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:53
 msgid "Mark as maintained"
-msgstr ""
+msgstr "Marcar como mantenida"
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:55
 msgid "Mark as orphaned"
-msgstr ""
+msgstr "Marcar como huérfana"
