@@ -1,3 +1,4 @@
+from allauth.account.models import EmailAddress
 from allauth.account.signals import email_confirmed
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -49,6 +50,11 @@ def password_changed_signal(sender, instance, **kwargs):
 def handle_email_confirmation(request, email_address, **kwargs):
     user = email_address.user
     try:
+        # Mark the new email address as the user's primary email
+        email_address.set_as_primary()
+        # Delete any other email addresses belonging to the user
+        EmailAddress.objects.filter(user=user).exclude(primary=True).delete()
+
         # Get the user's profile
         user_profile = UserProfile.objects.get(user=user)
         # Check if the user has opted in for news
