@@ -353,7 +353,7 @@ def stream_read_file(tarfile: Any, path: str, max_size: int) -> bytes:
     while True:
         size += 1024
         if size > max_size:
-            msg = "file %s was bigger than allowed %i bytes" % (path, max_size)
+            msg = f"file {path} was bigger than allowed {max_size} bytes"
             raise MaxFileSizeExceeded(msg)
         chunk = file.read(1024)
         if not chunk:
