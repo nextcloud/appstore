@@ -79,7 +79,7 @@ Next install the required libraries::
 
     pip install --upgrade wheel
     pip install --upgrade pip
-    pip install poetry==1.4.2
+    pip install poetry==1.8.2
     poetry install
 
 Adjusting Default Settings

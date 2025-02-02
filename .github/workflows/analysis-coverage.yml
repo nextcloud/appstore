@@ -12,11 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.10', '3.11']
         db-type: [postgres, sqlite]
-        exclude:
-          - python-version: '3.10'
-            db-type: 'sqlite'
 
     services:
       postgres:
@@ -40,13 +36,13 @@ jobs:
       - name: Install dependencies
         run: sudo apt install gettext netcat-openbsd xvfb redis-server
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.12"
 
       - name: Install poetry
-        run: pip install poetry==1.6.1
+        run: pip install poetry==1.8.2
 
       - uses: browser-actions/setup-firefox@latest
         with:
@@ -78,7 +74,7 @@ jobs:
       - name: Upload Codecov to artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: coverage_${{ matrix.python-version }}_${{ matrix.db-type }}.xml
+          name: coverage_${{ matrix.db-type }}.xml
           path: coverage.xml
           if-no-files-found: error
 
