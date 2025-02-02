@@ -5,7 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/nextcloudappstore/badge/?version=latest)](http://nextcloudappstore.readthedocs.io/en/latest/?badge=latest)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/nextcloud/appstore)](https://img.shields.io/librariesio/github/nextcloud/appstore)
 
-![PythonVersion](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+![PythonVersion](https://img.shields.io/badge/python-3.12-blue)
 [![License](https://img.shields.io/badge/license-AGPLv3+-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/846/badge)](https://bestpractices.coreinfrastructure.org/projects/846)
 
