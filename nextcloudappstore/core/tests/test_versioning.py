@@ -34,8 +34,8 @@ class VersioningTest(TestCase):
 
     def test_pad_inc_maximum(self):
         self.assertEqual("*", pad_max_inc_version(""))
-        self.assertEqual("9.%i.%i" % (maxsize, maxsize), pad_max_inc_version("9"))
-        self.assertEqual("9.0.%i" % maxsize, pad_max_inc_version("9.0"))
+        self.assertEqual(f"9.{maxsize}.{maxsize}", pad_max_inc_version("9"))
+        self.assertEqual(f"9.0.{maxsize}", pad_max_inc_version("9.0"))
         self.assertEqual("9.0.0", pad_max_inc_version("9.0.0"))
 
     def test_to_spec(self):

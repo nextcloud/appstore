@@ -79,7 +79,7 @@ class GitHubTest(TestCase):
         )
 
     def _get_tags(self, page: int, size: int = 100) -> dict[Any, Any]:
-        return json.loads(self._read("tags_page_%d.json" % page))
+        return json.loads(self._read(f"tags_page_{page}.json"))
 
     def _read(self, path: str) -> str:
         return read_relative_file(__file__, f"data/{path}")

@@ -87,7 +87,7 @@ class AppReleaseDownloader:
                 file.write(chunk)
                 size += len(chunk)
                 if size > max_size:
-                    msg = "Downloaded archive is bigger than the allowed %i bytes" % max_size
+                    msg = f"Downloaded archive is bigger than the allowed {max_size} bytes"
                     raise MaximumDownloadSizeExceededException(msg)
             finished = True
         finally:

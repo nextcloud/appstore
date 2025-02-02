@@ -99,7 +99,7 @@ def nextcloud_release_etag(request: Any) -> str:
     releases = [Version(rel.version) for rel in NextcloudRelease.objects.all()]
     release_num = len(releases)
     latest_release = str(max(releases)) if release_num > 0 else ""
-    return "%d-%s" % (release_num, latest_release)
+    return f"{release_num}-{latest_release}"
 
 
 def discover_last_modified(request: Any) -> datetime.datetime | None:

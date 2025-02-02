@@ -81,7 +81,7 @@ def pad_max_inc_version(version: str) -> str:
         return "*"
 
     while version.count(".") < 2:
-        version += ".%i" % maxsize
+        version += f".{maxsize}"
     return version
 
 
