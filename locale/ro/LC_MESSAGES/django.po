@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # 71d45c7c1a9179c8a452e884483fb30c_8a14ce5, 2019
 # Attila Zs <zati81@outlook.com>, 2019
@@ -22,23 +22,21 @@
 # Andrei Ternauciuc <andrei.ternauciuc@gmail.com>, 2023
 # daf9a3bef94549192358462a8bb20263_a023b71 <69530ed134884b79b067e9214de553f8_465041>, 2023
 # Liviu Milies, 2023
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 03:07+0000\n"
+"POT-Creation-Date: 2025-01-30 03:17+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Liviu Milies, 2023\n"
-"Language-Team: Romanian (https://app.transifex.com/nextcloud/teams/64236/"
-"ro/)\n"
-"Language: ro\n"
+"Language-Team: Romanian (https://app.transifex.com/nextcloud/teams/64236/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1));\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: nextcloudappstore/core/feeds.py:14
 msgid "Newest app releases"
@@ -96,17 +94,17 @@ msgstr "Certificat public"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
-"De obicei stocat în ~/.nextcloud/certificates/APP_ID.crt unde APP_ID este ID-"
-"ul aplicației respective. Dacă nu aveți un certificat, va trebui să creați "
-"mai întâi o solicitarea de semnătură de certificat  (CSR), care va trebui "
-"postată în <a href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">depozitul de certificate</a> (urmăriți README). "
-"Puteți genera CSR executând comanda:"
+"De obicei stocat în ~/.nextcloud/certificates/APP_ID.crt unde APP_ID este "
+"ID-ul aplicației respective. Dacă nu aveți un certificat, va trebui să "
+"creați mai întâi o solicitarea de semnătură de certificat  (CSR), care va "
+"trebui postată în <a href=\"https://github.com/nextcloud/app-certificate-"
+"requests\" rel=\"noreferrer noopener\">depozitul de certificate</a> "
+"(urmăriți README). Puteți genera CSR executând comanda:"
 
 #: nextcloudappstore/core/forms.py:54
 msgid "Signature over your app's ID"
@@ -705,8 +703,8 @@ msgstr "Are o versiune"
 
 #: nextcloudappstore/core/models.py:893
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Dacă e adevărat, aceasta este o versiune stabilă a Nextcloud care poate fi "
@@ -765,18 +763,15 @@ msgstr "Prea multe încercări. Încercați din nou în câteva minute."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Salutări de la  %(site_name)s!\n"
 "\n"
-"Ați primit acest email deoarece utilizatorul %(user_display)s și-a asociat "
-"această adresă de email la contul său la %(site_domain)s.\n"
+"Ați primit acest email deoarece utilizatorul %(user_display)s și-a asociat această adresă de email la contul său la %(site_domain)s.\n"
 "\n"
 "Pentru confirmare, accesați %(activate_url)s\n"
 "\n"
@@ -812,11 +807,11 @@ msgstr "Confirmă"
 #: nextcloudappstore/core/templates/account/email_confirm.html:28
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Acest link de confirmare a expirat sau e invalid. Vă rugăm <a href="
-"\"%(email_url)s\">să solicitați un nou email de confirmare</a>."
+"Acest link de confirmare a expirat sau e invalid. Vă rugăm <a "
+"href=\"%(email_url)s\">să solicitați un nou email de confirmare</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:5
 #: nextcloudappstore/core/templates/account/login.html:12
@@ -891,8 +886,8 @@ msgstr "Schimbă parola"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Linkul de resetare parolă este invalid, probabil pentru că a fost deja "
 "folosit. Solicitați o <a href=\"%(passwd_reset_url)s\">nouă resetare a "
@@ -1114,11 +1109,11 @@ msgstr "Comentariul dumneavoastră"
 
 #: nextcloudappstore/core/templates/app/detail.html:291
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
-"rating comments to report bugs or request features. Neither developers nor "
-"users will be notified of your comment. A rating without a comment still "
-"counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Do not use rating comments to report bugs or request features. Neither "
+"developers nor users will be notified of your comment. A rating without a "
+"comment still counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:296
@@ -1203,19 +1198,19 @@ msgstr "Înregistrează aplicația"
 #: nextcloudappstore/core/templates/app/register.html:16
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 " Pentru mai multe informații despre cum să obțineți certificatul și pentru "
-"crearea semnăturii, vedeți <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">ghidul "
-"dezvoltatorilor de aplicații</a>."
+"crearea semnăturii, vedeți <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">ghidul dezvoltatorilor de aplicații</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:17
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Această formă poate fi folosită și pentru actualizarea certificatelor "
@@ -1282,13 +1277,13 @@ msgstr "Versiunea a fost încărcată."
 
 #: nextcloudappstore/core/templates/app/upload.html:16
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-" Pentru mai multe informații despre cum se creează semnătura vedeți <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">ghidul dezvoltatorului de aplicații</a>."
+" Pentru mai multe informații despre cum se creează semnătura vedeți <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">ghidul dezvoltatorului de aplicații</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:25
 msgid "Upload"
@@ -1382,11 +1377,9 @@ msgstr "Ieșire"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
-"Intenționați să vă folosiți contul %(provider_name)s pentru autentificare "
-"la \n"
+"Intenționați să vă folosiți contul %(provider_name)s pentru autentificare la \n"
 "            %(site_name)s. Ca ultim pas, completați forma următoare:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1582,8 +1575,8 @@ msgid ""
 "developer program."
 msgstr ""
 "Optez pentru colectarea datelor mele personale. Vom putea să vă contactăm "
-"apoi pentru a vă verifica planurile sau pentru a vă cere feedback cu privire "
-"la programul nostru pentru dezvoltatori."
+"apoi pentru a vă verifica planurile sau pentru a vă cere feedback cu privire"
+" la programul nostru pentru dezvoltatori."
 
 #: nextcloudappstore/scaffolding/forms.py:74
 #: nextcloudappstore/user/templates/user/integrations.html:13
@@ -1613,7 +1606,8 @@ msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:110
 msgid "Full description of what your integration does. Can contain Markdown."
-msgstr "Descrierea completă a ceea ce face integrarea. Poate conține Markdown."
+msgstr ""
+"Descrierea completă a ceea ce face integrarea. Poate conține Markdown."
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:5
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:9
@@ -1646,7 +1640,8 @@ msgstr "Autentificare via %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
-msgid "You are about to sign in using a third-party account from %(provider)s."
+msgid ""
+"You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
@@ -1738,21 +1733,15 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/api-token.html:15
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Token-ul API poate fi folosit pentru autentificare când "
-"apelați Nextcloud App Store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Asigurați-vă că îl păstrați în siguranță. Un nou token poate "
-"fi generat mai jos, invalidând vechiul token.\n"
+"                Token-ul API poate fi folosit pentru autentificare când apelați Nextcloud App Store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Asigurați-vă că îl păstrați în siguranță. Un nou token poate fi generat mai jos, invalidând vechiul token.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:22
@@ -1829,8 +1818,8 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
 msgstr ""
-"Prin ștergerea contului vă veți șterge toate versiunile aplicațiilor. Pentru "
-"a vă șterge contul, introduceți adresa de mail și apăsați pe butonul "
+"Prin ștergerea contului vă veți șterge toate versiunile aplicațiilor. Pentru"
+" a vă șterge contul, introduceți adresa de mail și apăsați pe butonul "
 "\"Șterge contul\"."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:5
@@ -1907,8 +1896,8 @@ msgstr "Modificând parola vi se va regenera și tokenul API!"
 
 #: nextcloudappstore/user/templates/user/password.html:22
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Se pare că folosiți un cont înregistrat la un provider terț. De aceea, "
 "parola <strong>nu</strong> se poate modifica din această pagină."
@@ -1932,8 +1921,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app "
-"will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app"
+" will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:17
