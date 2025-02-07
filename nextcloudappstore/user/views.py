@@ -109,16 +109,23 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return super().form_invalid(form)
 
     def form_valid(self, form):
-        email = EmailAddress.objects.get_primary(user=self.request.user)
-        if email.email != form.cleaned_data["email"]:
-            email.email = form.cleaned_data["email"]
-            email.save(update_fields=["email"])
+        message = "Account details saved."
+
+        user = self.request.user
+        current_email = EmailAddress.objects.get_primary(user=user).email
+        new_email = form.cleaned_data["email"]
+        if new_email != current_email:
+            # Delete other unconfirmed email addresses
+            EmailAddress.objects.filter(user=user).exclude(primary=True).delete()
+            # Add new email address, send confirmation email
+            EmailAddress.objects.add_email(self.request, user, new_email, confirm=True)
+            message += f" Please verify your email address from the confirmation email sent to {new_email}."
 
         # Update subscription preference
-        self.request.user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
-        self.request.user.profile.save()
+        user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
+        user.profile.save()
 
-        messages.success(self.request, "Account details saved.")
+        messages.success(self.request, message)
         self.request.session["account_update_failed_count"] = 0
         return super().form_valid(form)
 
