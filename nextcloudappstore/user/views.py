@@ -7,12 +7,15 @@ from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView, UpdateView
 
 from nextcloudappstore.core.models import App, AppRating
 from nextcloudappstore.user.forms import AccountForm, DeleteAccountForm
 
 
+@method_decorator(never_cache, name="dispatch")
 class IntegrationsView(LoginRequiredMixin, TemplateView):
     template_name = "user/integrations.html"
 
@@ -25,6 +28,7 @@ class IntegrationsView(LoginRequiredMixin, TemplateView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class TransferAppsView(LoginRequiredMixin, TemplateView):
     template_name = "user/transfer-apps.html"
 
@@ -44,6 +48,7 @@ class TransferAppsView(LoginRequiredMixin, TemplateView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class EnterpriseAppsView(LoginRequiredMixin, TemplateView):
     template_name = "user/enterprise-apps.html"
 
@@ -60,6 +65,7 @@ class EnterpriseAppsView(LoginRequiredMixin, TemplateView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class ChangeLanguageView(LoginRequiredMixin, TemplateView):
     template_name = "user/set-language.html"
 
@@ -69,6 +75,7 @@ class ChangeLanguageView(LoginRequiredMixin, TemplateView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class DeleteAccountView(LoginRequiredMixin, TemplateView):
     template_name = "user/delete-account.html"
 
@@ -87,6 +94,7 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
         return redirect(reverse_lazy("home"))
 
 
+@method_decorator(never_cache, name="dispatch")
 class AccountView(LoginRequiredMixin, UpdateView):
     """Display and allow changing of the user's name and subscription."""
 
@@ -133,6 +141,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
 
+@method_decorator(never_cache, name="dispatch")
 class PasswordView(LoginRequiredMixin, PasswordChangeView):
     """Allow the user to change their password."""
 
@@ -145,6 +154,7 @@ class PasswordView(LoginRequiredMixin, PasswordChangeView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class APITokenView(LoginRequiredMixin, TemplateView):
     """Display the user's API token, and allow it to be regenerated."""
 
@@ -156,6 +166,7 @@ class APITokenView(LoginRequiredMixin, TemplateView):
         return context
 
 
+@method_decorator(never_cache, name="dispatch")
 class AppealCommentsView(LoginRequiredMixin, TemplateView):
     template_name = "user/appeal-comments.html"
 
