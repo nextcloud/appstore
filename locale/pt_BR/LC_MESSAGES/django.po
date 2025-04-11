@@ -7,12 +7,10 @@
 # Rodrigo Romão <romao.rodrigo@gmail.com>, 2016
 # Rodrigues Santana <rodrigues@blupixel.com.br>, 2017
 # Javier Llamas <s_llamasj@globalhitss.com>, 2017
-# Rodrigo Tavares, 2021
 # Mathias Maurilio <maurilio.1996.mathias@gmail.com>, 2023
 # Hermógenes Oliveira, 2023
 # Leonardo Colman Lopes <leonardo.dev@colman.com.br>, 2023
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2024
-# Cauan Henrique Zorzenon <cauanzorzenon1@protonmail.com>, 2024
 # Mateus Souza, 2024
 # Flávio Veras <flaviove@gmail.com>, 2024
 # Jeann Cavalcante <wjeann@gmail.com>, 2024
@@ -24,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-07 03:14+0000\n"
+"POT-Creation-Date: 2025-04-09 03:15+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: F Bausch, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/nextcloud/teams/64236/pt_BR/)\n"
@@ -311,7 +309,7 @@ msgstr "Comentário de classificação no Markdown"
 
 #: nextcloudappstore/core/models.py:438
 msgid "Appeal"
-msgstr "Apelar"
+msgstr "Reclamar"
 
 #: nextcloudappstore/core/models.py:442
 msgid "App rating"
@@ -530,7 +528,7 @@ msgstr "Comando shell"
 
 #: nextcloudappstore/core/models.py:682
 msgid "Name of a required shell command, e.g. grep"
-msgstr "Nome de um comando shell necessário, ex. grep"
+msgstr "Nome de um comando shell necessário, por exemplo, grep"
 
 #: nextcloudappstore/core/models.py:687
 #: nextcloudappstore/core/templates/app/releases.html:61
@@ -923,11 +921,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/admin/base_site.html:4
 msgid "Nextcloud App Store admin"
-msgstr "Administrar a loja de aplicativos Nextcloud"
+msgstr "Administrar a Loja de Aplicativos Nextcloud"
 
 #: nextcloudappstore/core/templates/admin/base_site.html:11
 msgid "Nextcloud App Store administration"
-msgstr "Administração da loja de aplicativos Nextcloud"
+msgstr "Administração da Loja de Aplicativos Nextcloud"
 
 #: nextcloudappstore/core/templates/app/base.html:13
 #: nextcloudappstore/core/templates/app/list.html:6
@@ -1092,12 +1090,12 @@ msgstr "Ok"
 #: nextcloudappstore/core/templates/app/detail.html:235
 #: nextcloudappstore/core/templates/app/detail.html:249
 msgid "Appeal for spam"
-msgstr "Apelo por spam"
+msgstr "Reclamação por spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:240
 #: nextcloudappstore/core/templates/app/detail.html:253
 msgid "Cancel spam appeal"
-msgstr "Cancelar contestação de spam"
+msgstr "Cancelar reclamação por spam"
 
 #: nextcloudappstore/core/templates/app/detail.html:244
 msgid "Delete spam comment"
@@ -1131,12 +1129,13 @@ msgid ""
 "developers nor users will be notified of your comment. A rating without a "
 "comment still counts, but will not be listed below."
 msgstr ""
-"Suporte para comentários de classificação <a rel=\"noopener noreferrer\" "
+"Os comentários de avaliação são compatíveis com <a rel=\"noopener "
+"noreferrer\" "
 "href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Não use comentários de classificação para relatar bugs ou solicitar "
-"recursos. Nem os desenvolvedores nem os usuários serão notificados do seu "
-"comentário. Uma avaliação sem comentário ainda conta, mas não será listada "
-"abaixo."
+"Não use comentários de avaliação para relatar bugs ou solicitar recursos. "
+"Nem os desenvolvedores nem os usuários serão notificados sobre o seu "
+"comentário. Uma avaliação sem um comentário ainda conta, mas não será "
+"listada abaixo."
 
 #: nextcloudappstore/core/templates/app/detail.html:296
 msgid "Update rating"
@@ -1317,8 +1316,8 @@ msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
-"Loja de Aplicativos Nextcloud - Envie seus aplicativos e instale novos em "
-"seu Nextcloud"
+"A Loja de Aplicativos Nextcloud - Faça upload de seus aplicativos e instale "
+"novos aplicativos em seu Nextcloud"
 
 #: nextcloudappstore/core/templates/base.html:9
 msgid "The Nextcloud Community"
@@ -1331,7 +1330,7 @@ msgstr "Últimas versões de aplicativos"
 
 #: nextcloudappstore/core/templates/base.html:48
 msgid "Contribute to the app store"
-msgstr "Contribua com a App Store"
+msgstr "Contribuir para a loja de aplicativos"
 
 #: nextcloudappstore/core/templates/base.html:54
 msgid "Privacy and legal"
@@ -1639,13 +1638,13 @@ msgstr "Descrição completa do que sua integração faz. Pode conter Markdown."
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:5
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:9
 msgid "Third-Party Login Failure"
-msgstr "Falha no Login de Terceiros"
+msgstr "Falha no Login via Terceiros"
 
 #: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid ""
 "An error occurred while attempting to login via your third-party account."
 msgstr ""
-"Ocorreu um erro ao tentar fazer login através de sua conta de terceiros."
+"Ocorreu um erro ao tentar fazer login por meio de sua conta de terceiros."
 
 #: nextcloudappstore/templates/socialaccount/login.html:6
 msgid "Sign In"
@@ -1660,20 +1659,20 @@ msgstr "Conectar %(provider)s"
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr ""
-"Você está prestes a conectar uma nova conta de terceiros de%(provider)s."
+"Você está prestes a conectar uma nova conta de terceiros de %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:18
 #, python-format
 msgid "Sign In Via %(provider)s"
-msgstr "Conectar Usando %(provider)s"
+msgstr "Entrar Via %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
 msgid ""
 "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
-"Você está prestes a fazer login usando uma conta de terceiros "
-"do%(provider)s."
+"Você está prestes a fazer login usando uma conta de terceiros de "
+"%(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:28
 msgid "Continue"
@@ -1685,7 +1684,7 @@ msgstr "O endereço de e-mail fornecido não é válido."
 
 #: nextcloudappstore/user/forms.py:19
 msgid "First name"
-msgstr "Primeiro nome"
+msgstr "Prenome"
 
 #: nextcloudappstore/user/forms.py:20
 msgid "Last name"
@@ -1696,7 +1695,7 @@ msgid ""
 "I would like to receive app developer news and updates from Nextcloud by "
 "email"
 msgstr ""
-"Gostaria de receber notícias e atualizações da Nextcloud para "
+"Gostaria de receber notícias e atualizações do Nextcloud para "
 "desenvolvedores de aplicativos por e-mail"
 
 #: nextcloudappstore/user/forms.py:38
@@ -1730,9 +1729,9 @@ msgid ""
 "prevent unauthorized changes to critical account details. This field does "
 "not update your password!"
 msgstr ""
-"Necessário ao alterar seu nome, sobrenome ou endereço de e-mail para evitar "
-"alterações não autorizadas em detalhes críticos da conta. Esse campo não "
-"atualiza sua senha!"
+"Obrigatório ao alterar seu Prenome, Sobrenome ou Endereço de E-mail para "
+"evitar alterações não autorizadas em detalhes críticos da conta. Esse campo "
+"não atualiza sua senha!"
 
 #: nextcloudappstore/user/forms.py:100
 msgid "This email address is already associated with another account."
@@ -1756,7 +1755,7 @@ msgid ""
 "not you."
 msgstr ""
 "Sua senha da loja de aplicativos Nextcloud foi alterada. Entre em contato "
-"com o suporte se não foi você."
+"com o suporte se não for você."
 
 #: nextcloudappstore/user/templates/user/account.html:15
 msgid "Save"
@@ -1776,8 +1775,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"                O token da API pode ser usado para autenticação ao chamar a loja de aplicativos Nextcloud\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                O token da API pode ser usado para autenticação ao chamar a <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">API REST</a> \n"
+"                da loja de aplicativos Nextcloud.\n"
 "                Certifique-se de mantê-lo em segredo. Um novo token pode ser gerado abaixo, tornando o token antigo inválido.\n"
 "            "
 
@@ -1795,11 +1794,11 @@ msgstr "Regerando token de API"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:5
 msgid "Appeal commentaries"
-msgstr "Comentários de apelação"
+msgstr "Comentários de reclamação"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:9
 msgid "Comments Pending Appeal"
-msgstr "Comentários com Apelação Pendente"
+msgstr "Comentários de Reclamações Pendentes"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:14
 msgid "Comment author"
@@ -1847,7 +1846,7 @@ msgstr "Excluir conta"
 
 #: nextcloudappstore/user/templates/user/base.html:65
 msgid "Appeal comments"
-msgstr "Comentários de apelação"
+msgstr "Comentários de reclamação"
 
 #: nextcloudappstore/user/templates/user/delete-account.html:10
 msgid ""
@@ -1855,14 +1854,14 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
 msgstr ""
-"Excluir sua conta excluirá todos os seus aplicativos e versões também. Para "
-"excluir sua conta, insira seu endereço de e-mail no campo de entrada e "
-"clique no botão \"Excluir conta\"."
+"A exclusão de sua conta excluirá todos os seus aplicativos e versões também."
+" Para excluir sua conta, insira seu endereço de e-mail no campo de entrada e"
+" clique no botão \"Excluir conta\"."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:5
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
 msgid "Enterprise App Support"
-msgstr "Suporte a aplicativos empresariais"
+msgstr "Suporte a Aplicativos Empresarial"
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:10
 msgid ""
@@ -1872,10 +1871,10 @@ msgid ""
 "requested for large Nextcloud installations."
 msgstr ""
 "Se um aplicativo estiver disponível para receber suporte empresarial, você "
-"poderá marcá-lo como tal aqui. Isso adicionará um botão ‘Solicitar "
-"orçamento’ à página de detalhes do aplicativo na App Store e nos aplicativos"
-" Nextcloud. Esse suporte só pode ser solicitado para grandes instalações do "
-"Nextcloud."
+"poderá marcá-lo como tal aqui. Isso adicionará um botão 'Solicitar "
+"orçamento' à página de detalhes do aplicativo na Loja de Aplicativos e nos "
+"Aplicativos Nextcloud. Esse suporte só pode ser solicitado para grandes "
+"instalações do Nextcloud."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:16
 msgid "Support status"
