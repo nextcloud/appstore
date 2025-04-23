@@ -392,6 +392,7 @@ category
        * **social**
        * **tools**
        * **workflow**
+       * **ai**
 
     * old categories are migrated:
 
