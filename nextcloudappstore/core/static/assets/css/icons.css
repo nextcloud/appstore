@@ -31,6 +31,8 @@
     --original-icon-category-workflow-white: url('../img/icons/categories/clipboard-flow-white.svg');
     --original-icon-category-featured-dark: url('../img/icons/categories/featured.svg');
     --original-icon-category-featured-white: url('../img/icons/categories/featured-white.svg');
+    --original-icon-category-ai-dark:   url('../img/icons/categories/ai.svg');
+    --original-icon-category-ai-white:  url('../img/icons/categories/ai-white.svg');
 
     --original-icon-source-fork-dark: url('../img/icons/footer/source-fork.svg');
     --original-icon-source-fork-white: url('../img/icons/footer/source-fork-white.svg');
@@ -100,6 +102,8 @@ body {
     --icon-category-security-white: var(--original-icon-category-security-white);
     --icon-category-tools-dark: var(--original-icon-category-tools-dark);
     --icon-category-tools-white: var(--original-icon-category-tools-white);
+    --icon-category-ai-dark:   var(--original-icon-category-ai-dark);
+    --icon-category-ai-white:  var(--original-icon-category-ai-white);
 
     --icon-source-fork-dark: var(--original-icon-source-fork-dark);
     --icon-source-fork-white: var(--original-icon-source-fork-white);
@@ -268,6 +272,14 @@ body .icon-category-tools-dark {
 body .icon-category-tools-white,
 body .icon-category-tools.icon-white {
     background-image: var(--icon-category-tools-white);
+}
+body .icon-category-ai,
+body .icon-category-ai-dark {
+    background-image: var(--icon-category-ai-dark);
+}
+body .icon-category-ai-white,
+body .icon-category-ai.icon-white {
+    background-image: var(--icon-category-ai-white);
 }
 
 body .icon-source-fork,
