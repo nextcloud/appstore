@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 export function getOrDefault<K, V>(map: Map<K, V>, key: K, defaultValue: V): V {
     const value = map.get(key);
     if (value === undefined) {

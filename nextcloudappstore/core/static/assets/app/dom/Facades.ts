@@ -2,6 +2,11 @@
  * shortcuts for unreasonably long DOM methods
  */
 
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {Maybe} from '../Utils';
 import {DomElementDoesNotExist} from './DomElementDoesNotExist';
 

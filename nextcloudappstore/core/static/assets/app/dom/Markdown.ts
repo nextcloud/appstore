@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import hljs from 'highlight.js';
 import * as markdownit from 'markdown-it';
 import {noReferrerLinks} from './Templating';

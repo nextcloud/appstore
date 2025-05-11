@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+#
 # File has to be run from inside your top level cloned folder, e.g.
 #
 #     bash scripts/maintenance/update.sh apache
