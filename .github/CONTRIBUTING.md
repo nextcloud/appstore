@@ -1,3 +1,7 @@
+<!--
+  - SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 ## Submitting issues
 
 If you have questions about how to install or use the App Store, please direct these to our [forum][forum]. We are also available on [IRC][irc].

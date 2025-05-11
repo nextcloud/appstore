@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2023 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -10,6 +12,7 @@ repos:
           (?x)^(
             \.tx/.*|
             \.idea/.*|
+            LICENSES/.*|
             locale/.*|
             nextcloudappstore/core/static/.*|
             nextcloudappstore/core/templates/.*|
@@ -21,6 +24,7 @@ repos:
           (?x)^(
             \.tx/.*|
             \.idea/.*|
+            LICENSES/.*|
             locale/.*|
             nextcloudappstore/core/static/.*|
             nextcloudappstore/core/templates/.*|
@@ -32,6 +36,7 @@ repos:
           (?x)^(
             \.tx/.*|
             \.idea/.*|
+            LICENSES/.*|
             locale/.*|
             nextcloudappstore/core/static/.*|
             nextcloudappstore/core/templates/.*|
