@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {apiRequest, HttpMethod, ITokenData} from '../../api/Request';
 import {AjaxForm} from '../../forms/AjaxForm';
 import {HtmlForm} from '../../forms/HtmlForm';

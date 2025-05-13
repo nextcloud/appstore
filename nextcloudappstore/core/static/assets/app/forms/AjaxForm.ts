@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {IErrorMessages, parseJSONError} from '../api/ErrorParser';
 import {Translator} from '../l10n/Translator';
 import {Maybe} from '../Utils';
