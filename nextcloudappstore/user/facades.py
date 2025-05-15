@@ -1,3 +1,8 @@
+"""
+SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
 from allauth.account.models import EmailAddress
 from django.contrib.auth import get_user_model
 from django.db import transaction

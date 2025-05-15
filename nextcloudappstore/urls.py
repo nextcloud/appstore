@@ -1,3 +1,8 @@
+"""
+SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
 from allauth.account.views import signup
 from allauth.socialaccount.views import signup as social_signup
 from csp.decorators import csp_update

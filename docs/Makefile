@@ -1,5 +1,7 @@
 # Makefile for Sphinx documentation
 #
+# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 # You can set these variables from the command line.
 SPHINXOPTS    =

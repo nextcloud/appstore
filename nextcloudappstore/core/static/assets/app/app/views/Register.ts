@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {idOrThrow, ready} from '../../dom/Facades';
 import {scanForm} from '../../forms/HtmlForm';
 import {CertValidator} from '../../forms/validators/CertValidator';

@@ -1,3 +1,8 @@
+"""
+SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
 from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
 from django.contrib import messages
