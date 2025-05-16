@@ -1,3 +1,8 @@
+"""
+SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 

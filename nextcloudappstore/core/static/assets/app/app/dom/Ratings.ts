@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {fetchRatings, findUserComment} from '../../api/Ratings';
 import {idOrThrow, queryAll, queryOrThrow, ready} from '../../dom/Facades';
 import {renderEmptyRatings, renderRating, renderRatingActions} from '../templates/Ratings';

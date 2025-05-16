@@ -1,3 +1,8 @@
+"""
+SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from parler_rest.fields import TranslatedFieldsField
 from rest_framework import serializers

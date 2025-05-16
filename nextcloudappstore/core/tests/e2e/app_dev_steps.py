@@ -1,3 +1,9 @@
+"""
+SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+"""
+
+
 class AppDevSteps:
     def register_app(self, cert, sig):
         self.go_to_app_register()

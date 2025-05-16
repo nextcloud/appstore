@@ -1,6 +1,8 @@
 @ECHO OFF
 
 REM Command file for Sphinx documentation
+REM SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+REM SPDX-License-Identifier: AGPL-3.0-or-later
 
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build

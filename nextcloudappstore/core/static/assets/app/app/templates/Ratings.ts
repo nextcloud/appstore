@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import {appealRating, deleteRating, IRating} from '../../api/Ratings';
 import {renderMd} from '../../dom/Markdown';
 import {render, Unescaped} from '../../dom/Templating';

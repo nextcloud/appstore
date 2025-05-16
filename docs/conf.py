@@ -3,6 +3,9 @@
 # nextcloudappstore documentation build configuration file, created by
 # sphinx-quickstart on Sat Jun 18 23:44:17 2016.
 #
+# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
 # This file is execfile()d with the current directory set to its
 # containing dir.
 #
