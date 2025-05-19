@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <!--
+      - SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
+      - SPDX-License-Identifier: AGPL-3.0-or-later
+    -->
     <xsl:template match="/info">
         <info>
             <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />

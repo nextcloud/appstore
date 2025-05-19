@@ -1,6 +1,9 @@
 {% extends 'app/base.html' %}
 {% load i18n sort_by_version static app_rating app_rating_class humanize %}
 
+{# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
 {% block head-title %}{{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'assets/css/img-slider.css' %}" charset="utf-8">
