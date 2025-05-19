@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 
+{# SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
 {% block head-title %}{% if integration_page == 'developer-integration' %}{% trans 'Register integration' %}{% elif integration_page == 'account-integration-moderate' %}{% trans 'Moderate integration' %}{% else %}{% trans 'Edit integration' %}{% endif %} - {% endblock %}
 
 {% block content %}

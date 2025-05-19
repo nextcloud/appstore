@@ -1,5 +1,7 @@
 {% load css_class field_type i18n %}
 {% csrf_token %}
+{# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
 {% if form.non_field_errors  %}
     {% for error in form.non_field_errors %}
         <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>

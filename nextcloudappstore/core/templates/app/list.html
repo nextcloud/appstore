@@ -3,6 +3,9 @@
 {% load i18n %}
 {% load static %}
 
+{# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
 {% block head-title %}{% if current_category %}{{ current_category.name }} - {% elif is_featured_category %}{% trans 'Featured apps' %} - {% else %}{% trans 'All apps' %} - {% endif %}{% endblock %}
 {% block head %}
     <script defer src="{% static 'public/app/list.js' %}" type="text/javascript"></script>
