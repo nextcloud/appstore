@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Lukas Reschke <lukas@statuscode.ch>, 2017
 # 한영빈 (Youngbin Han) <sukso96100@gmail.com>, 2017
@@ -19,20 +19,20 @@
 # Shinjo Park <kde@peremen.name>, 2024
 # 전창훈 <chun.chang.hoon@gmail.com>, 2024
 # 이상오, 2024
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-17 03:12+0000\n"
+"POT-Creation-Date: 2025-05-20 03:13+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 이상오, 2024\n"
 "Language-Team: Korean (https://app.transifex.com/nextcloud/teams/64236/ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: nextcloudappstore/core/feeds.py:19
@@ -48,12 +48,12 @@ msgid "Changes"
 msgstr "변경 사항"
 
 #: nextcloudappstore/core/feeds.py:49
-#: nextcloudappstore/core/templates/app/releases.html:86
+#: nextcloudappstore/core/templates/app/releases.html:89
 msgid "Download"
 msgstr "다운로드"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:217
+#: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Bad"
 msgstr "나쁨"
 
@@ -62,7 +62,7 @@ msgid "OK"
 msgstr "괜찮음"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:211
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Good"
 msgstr "좋음"
 
@@ -71,7 +71,7 @@ msgid "Download link (tar.gz)"
 msgstr "다운로드 링크(tar.gz)"
 
 #: nextcloudappstore/core/forms.py:35 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/templates/app/releases.html:40
+#: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Signature"
 msgstr "서명"
 
@@ -91,22 +91,23 @@ msgstr "공개 인증서"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
-"~/.nextcloud/certificates/APP_ID.crt 파일에 저장되며, APP_ID는 내 앱 ID입니다. 만약 인증서가 "
-"없으면 인증서 서명 요청(CSR)을 만들어서 <a href=\"https://github.com/nextcloud/app-"
-"certificate-requests\" rel=\"noreferrer noopener\">인증서 저장소</a>에 업로드해야 "
-"합니다(README 참조). 다음 명령을 실행해서 CSR을 생성할 수 있습니다:"
+"~/.nextcloud/certificates/APP_ID.crt 파일에 저장되며, APP_ID는 내 앱 ID입니"
+"다. 만약 인증서가 없으면 인증서 서명 요청(CSR)을 만들어서 <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener\">"
+"인증서 저장소</a>에 업로드해야 합니다(README 참조). 다음 명령을 실행해서 CSR"
+"을 생성할 수 있습니다:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
 msgstr "내 앱 ID에 대한 서명"
 
 #: nextcloudappstore/core/forms.py:78
-#: nextcloudappstore/user/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:16
 msgid "Language"
 msgstr "언어"
 
@@ -114,7 +115,9 @@ msgstr "언어"
 msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
-msgstr "<b>중요</b>: 언어를 변경하면 현재 댓글을 삭제합니다. 변경 사항이 저장되지 않습니다!"
+msgstr ""
+"<b>중요</b>: 언어를 변경하면 현재 댓글을 삭제합니다. 변경 사항이 저장되지 않"
+"습니다!"
 
 #: nextcloudappstore/core/forms.py:84
 msgid "Comment"
@@ -181,7 +184,7 @@ msgid "Issue tracker URL"
 msgstr "이슈 트래커 URL"
 
 #: nextcloudappstore/core/models.py:155 nextcloudappstore/core/models.py:492
-#: nextcloudappstore/core/templates/app/detail.html:108
+#: nextcloudappstore/core/templates/app/detail.html:111
 msgid "Homepage"
 msgstr "홈페이지"
 
@@ -204,7 +207,7 @@ msgid "App owner"
 msgstr "앱 소유자"
 
 #: nextcloudappstore/core/models.py:163
-#: nextcloudappstore/core/templates/app/detail.html:85
+#: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Co-Maintainers"
 msgstr "공동 관리자"
 
@@ -213,8 +216,8 @@ msgid "App authors"
 msgstr "앱 제작자"
 
 #: nextcloudappstore/core/models.py:166
-#: nextcloudappstore/core/templates/app/detail.html:59
-#: nextcloudappstore/core/templates/app/list.html:67
+#: nextcloudappstore/core/templates/app/detail.html:62
+#: nextcloudappstore/core/templates/app/list.html:70
 msgid "Featured"
 msgstr "추천"
 
@@ -247,7 +250,7 @@ msgid "Last release at"
 msgstr "마지막 릴리스:"
 
 #: nextcloudappstore/core/models.py:174
-#: nextcloudappstore/core/templates/app/releases.html:39
+#: nextcloudappstore/core/templates/app/releases.html:42
 msgid "Certificate"
 msgstr "인증서"
 
@@ -260,8 +263,8 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"이 옵션을 사용하면 같은 앱을 공개 인증서와 서명을 사용하여 다시 등록할 수 있습니다. 그렇게 하면 등록한 사용자에게 앱 소유권이 "
-"넘어갑니다."
+"이 옵션을 사용하면 같은 앱을 공개 인증서와 서명을 사용하여 다시 등록할 수 있"
+"습니다. 그렇게 하면 등록한 사용자에게 앱 소유권이 넘어갑니다."
 
 #: nextcloudappstore/core/models.py:184
 msgid "Integration (i.e. Outlook plugin)"
@@ -274,13 +277,13 @@ msgstr "통합을 위해 사용됨"
 #: nextcloudappstore/core/models.py:188 nextcloudappstore/core/models.py:433
 #: nextcloudappstore/core/models.py:509 nextcloudappstore/core/models.py:646
 #: nextcloudappstore/core/models.py:669
-#: nextcloudappstore/user/templates/user/appeal-comments.html:13
+#: nextcloudappstore/user/templates/user/appeal-comments.html:16
 msgid "App"
 msgstr "앱"
 
 #: nextcloudappstore/core/models.py:189
-#: nextcloudappstore/core/templates/app/detail.html:4
-#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/detail.html:7
+#: nextcloudappstore/core/templates/app/releases.html:7
 msgid "Apps"
 msgstr "앱"
 
@@ -289,7 +292,7 @@ msgid "User"
 msgstr "사용자"
 
 #: nextcloudappstore/core/models.py:435
-#: nextcloudappstore/core/templates/app/list.html:26
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Rating"
 msgstr "평가"
 
@@ -370,7 +373,7 @@ msgid "Platform version requirement (raw)"
 msgstr "플랫폼 버전 요구 사항(raw)"
 
 #: nextcloudappstore/core/models.py:524
-#: nextcloudappstore/core/templates/app/releases.html:69
+#: nextcloudappstore/core/templates/app/releases.html:72
 msgid "Minimum Integer bits"
 msgstr "최소 정수 비트"
 
@@ -391,7 +394,7 @@ msgid "Signature hashing algorithm"
 msgstr "서명 해시 알고리즘"
 
 #: nextcloudappstore/core/models.py:533
-#: nextcloudappstore/core/templates/app/releases.html:29
+#: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Changelog"
 msgstr "변경 기록"
 
@@ -488,9 +491,9 @@ msgid "Ordering"
 msgstr "주문"
 
 #: nextcloudappstore/core/models.py:650
-#: nextcloudappstore/core/templates/app/detail.html:31
-#: nextcloudappstore/core/templates/app/list.html:101
-#: nextcloudappstore/core/templates/app/list.html:103
+#: nextcloudappstore/core/templates/app/detail.html:34
+#: nextcloudappstore/core/templates/app/list.html:104
+#: nextcloudappstore/core/templates/app/list.html:106
 msgid "Screenshot"
 msgstr "스크린샷"
 
@@ -527,7 +530,7 @@ msgid "Name of a required shell command, e.g. grep"
 msgstr "필요한 셸 명령입니다. 예: grep"
 
 #: nextcloudappstore/core/models.py:692
-#: nextcloudappstore/core/templates/app/releases.html:61
+#: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Shell commands"
 msgstr "셸 명령"
 
@@ -545,7 +548,7 @@ msgid "Category name which will be presented to the user"
 msgstr "사용자가 볼 분류 이름"
 
 #: nextcloudappstore/core/models.py:718
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:103
 #: nextcloudappstore/scaffolding/forms.py:54
 #: nextcloudappstore/scaffolding/forms.py:88
 msgid "Categories"
@@ -560,7 +563,7 @@ msgid "License name which will be presented to the user"
 msgstr "사용자가 볼 라이선스 이름"
 
 #: nextcloudappstore/core/models.py:739
-#: nextcloudappstore/core/templates/app/releases.html:32
+#: nextcloudappstore/core/templates/app/releases.html:35
 msgid "Licenses"
 msgstr "라이선스"
 
@@ -577,7 +580,7 @@ msgid "Database"
 msgstr "데이터베이스"
 
 #: nextcloudappstore/core/models.py:759
-#: nextcloudappstore/core/templates/app/releases.html:51
+#: nextcloudappstore/core/templates/app/releases.html:54
 msgid "Databases"
 msgstr "데이터베이스"
 
@@ -603,7 +606,7 @@ msgid "PHP extension"
 msgstr "PHP 확장"
 
 #: nextcloudappstore/core/models.py:790
-#: nextcloudappstore/core/templates/app/releases.html:75
+#: nextcloudappstore/core/templates/app/releases.html:78
 msgid "PHP extensions"
 msgstr "PHP 확장"
 
@@ -628,7 +631,7 @@ msgid "Excerpt"
 msgstr "발췌"
 
 #: nextcloudappstore/core/models.py:819
-#: nextcloudappstore/user/templates/user/appeal-comments.html:15
+#: nextcloudappstore/user/templates/user/appeal-comments.html:18
 msgid "Link"
 msgstr "링크"
 
@@ -665,7 +668,7 @@ msgid "App rating deletions"
 msgstr "앱 등급 삭제"
 
 #: nextcloudappstore/core/models.py:883
-#: nextcloudappstore/core/templates/app/detail.html:182
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Nextcloud version"
 msgstr "Nextcloud 버전"
 
@@ -682,7 +685,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
-"하나의 버전만 현재 버전으로 지정할 수 있습니다. 이 필드는 앱 생성 등에 사용할 드롭다운 목록에서 미리 선택하는 데 사용합니다."
+"하나의 버전만 현재 버전으로 지정할 수 있습니다. 이 필드는 앱 생성 등에 사용"
+"할 드롭다운 목록에서 미리 선택하는 데 사용합니다."
 
 #: nextcloudappstore/core/models.py:896
 msgid "Has a release"
@@ -690,12 +694,12 @@ msgstr "릴리스에 포함됨"
 
 #: nextcloudappstore/core/models.py:898
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"이 값이 참이면 압축 파일로 다운로드할 수 있는 Nextcloud 버전임을 의미합니다. 이 값이 거짓이면 미리 보기 릴리스이거나 더 이상"
-" 다운로드할 수 없습니다."
+"이 값이 참이면 압축 파일로 다운로드할 수 있는 Nextcloud 버전임을 의미합니다. "
+"이 값이 거짓이면 미리 보기 릴리스이거나 더 이상 다운로드할 수 없습니다."
 
 #: nextcloudappstore/core/models.py:908
 msgid "Version is supported"
@@ -715,30 +719,30 @@ msgstr "Nextcloud 릴리스"
 msgid "Nextcloud releases"
 msgstr "Nextcloud 릴리스"
 
-#: nextcloudappstore/core/templates/403.html:4
-#: nextcloudappstore/core/templates/403.html:8
-#: nextcloudappstore/core/templates/429.html:4
-#: nextcloudappstore/core/templates/429.html:8
+#: nextcloudappstore/core/templates/403.html:7
+#: nextcloudappstore/core/templates/403.html:11
+#: nextcloudappstore/core/templates/429.html:7
+#: nextcloudappstore/core/templates/429.html:11
 msgid "Forbidden"
 msgstr "거부됨"
 
-#: nextcloudappstore/core/templates/403.html:10
+#: nextcloudappstore/core/templates/403.html:13
 msgid "You are forbidden to access this page!"
 msgstr "이 페이지에 접근할 수 없습니다!"
 
-#: nextcloudappstore/core/templates/404.html:4
+#: nextcloudappstore/core/templates/404.html:7
 msgid "Not Found"
 msgstr "찾을 수 없음"
 
-#: nextcloudappstore/core/templates/404.html:8
+#: nextcloudappstore/core/templates/404.html:11
 msgid "Page not found"
 msgstr "페이지를 찾을 수 없음"
 
-#: nextcloudappstore/core/templates/404.html:10
+#: nextcloudappstore/core/templates/404.html:13
 msgid "The page you are looking for does not exist!"
 msgstr "찾고 있는 페이지가 존재하지 않습니다!"
 
-#: nextcloudappstore/core/templates/429.html:10
+#: nextcloudappstore/core/templates/429.html:13
 msgid "Too many tries. Try again in a few minutes."
 msgstr "너무 많이 시도했습니다. 몇분 후 다시 시도하십시오."
 
@@ -747,19 +751,24 @@ msgstr "너무 많이 시도했습니다. 몇분 후 다시 시도하십시오."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "안녕하세요. %(site_name)s입니다.\n"
 "\n"
-"%(user_display)s님이 %(site_domain)s에 등록된 자신의 계정에 이 이메일 주소를 등록했습니다.\n"
+"%(user_display)s님이 %(site_domain)s에 등록된 자신의 계정에 이 이메일 주소를 "
+"등록했습니다.\n"
 "\n"
-"이 이메일 주소를 등록한 사실이 맞다면, %(activate_url)s(으)로 이동하여 메일 주소를 인증해 주십시오.\n"
+"이 이메일 주소를 등록한 사실이 맞다면, %(activate_url)s(으)로 이동하여 메일 "
+"주소를 인증해 주십시오.\n"
 "\n"
-"%(site_domain)s에 이 이메일 주소를 등록하지 않으셨다면, 이 메시지를 무시하셔도 좋습니다.\n"
+"%(site_domain)s에 이 이메일 주소를 등록하지 않으셨다면, 이 메시지를 무시하셔"
+"도 좋습니다.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -770,598 +779,609 @@ msgstr ""
 "%(site_name)s에서 감사 인사를 드립니다!\n"
 "%(site_domain)s"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:6
-#: nextcloudappstore/core/templates/account/email_confirm.html:11
+#: nextcloudappstore/core/templates/account/email_confirm.html:9
+#: nextcloudappstore/core/templates/account/email_confirm.html:14
 msgid "Confirm Email Address"
 msgstr "이메일 주소 인증"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:17
+#: nextcloudappstore/core/templates/account/email_confirm.html:20
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"<a href=\"mailto:%(email)s\">%(email)s</a>이(가) 사용자 %(user_display)s님의 이메일 "
-"주소가 맞는지 인증하여 주십시오."
+"<a href=\"mailto:%(email)s\">%(email)s</a>이(가) 사용자 %(user_display)s님의 "
+"이메일 주소가 맞는지 인증하여 주십시오."
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:21
+#: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
 msgstr "확인"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:28
+#: nextcloudappstore/core/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"이 이메일 인증 링크는 만료되었거나 유효하지 않습니다. <a href=\"%(email_url)s\">이메일 인증을 다시 "
-"시도하십시오.</a>"
+"이 이메일 인증 링크는 만료되었거나 유효하지 않습니다. <a href=\"%(email_url)s"
+"\">이메일 인증을 다시 시도하십시오.</a>"
 
-#: nextcloudappstore/core/templates/account/login.html:5
-#: nextcloudappstore/core/templates/account/login.html:12
-#: nextcloudappstore/core/templates/account/login.html:21
-#: nextcloudappstore/core/templates/account/password_reset.html:7
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:128
+#: nextcloudappstore/core/templates/account/login.html:8
+#: nextcloudappstore/core/templates/account/login.html:15
+#: nextcloudappstore/core/templates/account/login.html:24
+#: nextcloudappstore/core/templates/account/password_reset.html:10
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:10
+#: nextcloudappstore/core/templates/nav.html:130
 msgid "Log in"
 msgstr "로그인"
 
-#: nextcloudappstore/core/templates/account/login.html:25
+#: nextcloudappstore/core/templates/account/login.html:28
 msgid "Forgot password?"
 msgstr "암호를 잊으셨나요?"
 
-#: nextcloudappstore/core/templates/account/login.html:35
-#: nextcloudappstore/core/templates/account/signup.html:29
+#: nextcloudappstore/core/templates/account/login.html:38
+#: nextcloudappstore/core/templates/account/signup.html:32
 msgid "Log in with GitHub"
 msgstr "GitHub 계정으로 로그인"
 
-#: nextcloudappstore/core/templates/account/login.html:40
-#: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:21
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:17
-#: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:134
-#: nextcloudappstore/core/templates/socialaccount/signup.html:5
-#: nextcloudappstore/core/templates/socialaccount/signup.html:13
-#: nextcloudappstore/core/templates/socialaccount/signup.html:21
+#: nextcloudappstore/core/templates/account/login.html:43
+#: nextcloudappstore/core/templates/account/signup.html:8
+#: nextcloudappstore/core/templates/account/signup.html:24
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:20
+#: nextcloudappstore/core/templates/app/register.html:31
+#: nextcloudappstore/core/templates/nav.html:136
+#: nextcloudappstore/core/templates/socialaccount/signup.html:8
+#: nextcloudappstore/core/templates/socialaccount/signup.html:16
+#: nextcloudappstore/core/templates/socialaccount/signup.html:24
 msgid "Register"
 msgstr "등록"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:11
-#: nextcloudappstore/core/templates/account/password_reset_done.html:7
-#: nextcloudappstore/core/templates/account/password_reset_done.html:11
+#: nextcloudappstore/core/templates/account/password_reset.html:14
+#: nextcloudappstore/core/templates/account/password_reset_done.html:10
+#: nextcloudappstore/core/templates/account/password_reset_done.html:14
 msgid "Password Reset"
 msgstr "암호 재설정"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:16
+#: nextcloudappstore/core/templates/account/password_reset.html:19
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
-msgstr "암호가 기억나지 않습니까? 아래에 이메일 주소를 입력하여 암호 초기화 메일을 받으십시오."
+msgstr ""
+"암호가 기억나지 않습니까? 아래에 이메일 주소를 입력하여 암호 초기화 메일을 받"
+"으십시오."
 
-#: nextcloudappstore/core/templates/account/password_reset.html:24
+#: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Reset My Password"
 msgstr "내 암호 재설정"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:31
+#: nextcloudappstore/core/templates/account/password_reset.html:34
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr "암호를 재설정하는 데 문제가 있으면 연락해 주십시오"
 
-#: nextcloudappstore/core/templates/account/password_reset_done.html:17
+#: nextcloudappstore/core/templates/account/password_reset_done.html:20
 msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
-msgstr "이메일을 보냈습니다. 이메일을 받지 못했다면 스팸 폴더를 확인해 주세요. 수 분 이내에 받지 못하면 저희에게 연락해 주세요."
+msgstr ""
+"이메일을 보냈습니다. 이메일을 받지 못했다면 스팸 폴더를 확인해 주세요. 수 분 "
+"이내에 받지 못하면 저희에게 연락해 주세요."
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:14
 msgid "Bad API Token"
 msgstr "잘못된 API 토큰"
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:17
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:14
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
+#: nextcloudappstore/user/templates/user/password.html:11
+#: nextcloudappstore/user/templates/user/password.html:20
 msgid "Change Password"
 msgstr "암호 변경"
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:18
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
-"암호 변경 링크가 잘못되었거나 이미 사용되었을 수도 있습니다. <a href=\"%(passwd_reset_url)s\">새 암호 초기화"
-" 요청</a> 링크를 클릭하십시오."
+"암호 변경 링크가 잘못되었거나 이미 사용되었을 수도 있습니다. <a href="
+"\"%(passwd_reset_url)s\">새 암호 초기화 요청</a> 링크를 클릭하십시오."
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:46
 msgid "Your password is now changed."
 msgstr "암호가 변경되었습니다."
 
-#: nextcloudappstore/core/templates/account/signup.html:12
+#: nextcloudappstore/core/templates/account/signup.html:15
 msgid "Create an account"
 msgstr "계정 만들기"
 
-#: nextcloudappstore/core/templates/account/verification_sent.html:6
-#: nextcloudappstore/core/templates/account/verification_sent.html:10
+#: nextcloudappstore/core/templates/account/verification_sent.html:9
+#: nextcloudappstore/core/templates/account/verification_sent.html:13
 msgid "Verify Your Email Address"
 msgstr "이메일 주소 확인"
 
-#: nextcloudappstore/core/templates/account/verification_sent.html:13
+#: nextcloudappstore/core/templates/account/verification_sent.html:16
 msgid ""
 "We have sent an email to you for verification. Follow the link provided to "
 "finalize the signup process. If you do not see the verification email in "
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
-"확인을 위해 이메일을 보냈습니다. 제공된 링크를 통해 가입 과정을 끝내세요. 수신함에 확인 메일이 보이지 않는다면, 스팸 폴더를 "
-"확인하세요. 수 분 이내에 확인 메일을 받지 못하면 저희에게 연락해 주세요."
+"확인을 위해 이메일을 보냈습니다. 제공된 링크를 통해 가입 과정을 끝내세요. 수"
+"신함에 확인 메일이 보이지 않는다면, 스팸 폴더를 확인하세요. 수 분 이내에 확"
+"인 메일을 받지 못하면 저희에게 연락해 주세요."
 
-#: nextcloudappstore/core/templates/admin/base_site.html:4
+#: nextcloudappstore/core/templates/admin/base_site.html:7
 msgid "Nextcloud App Store admin"
 msgstr "Nextcloud 앱 스토어 관리"
 
-#: nextcloudappstore/core/templates/admin/base_site.html:11
+#: nextcloudappstore/core/templates/admin/base_site.html:14
 msgid "Nextcloud App Store administration"
 msgstr "Nextcloud 앱 스토어 관리"
 
-#: nextcloudappstore/core/templates/app/base.html:13
-#: nextcloudappstore/core/templates/app/list.html:6
+#: nextcloudappstore/core/templates/app/base.html:16
+#: nextcloudappstore/core/templates/app/list.html:9
 msgid "All apps"
 msgstr "모든 앱"
 
-#: nextcloudappstore/core/templates/app/base.html:19
-#: nextcloudappstore/core/templates/app/list.html:6
+#: nextcloudappstore/core/templates/app/base.html:22
+#: nextcloudappstore/core/templates/app/list.html:9
 msgid "Featured apps"
 msgstr "추천 앱 - "
 
-#: nextcloudappstore/core/templates/app/detail.html:16
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:19
+#: nextcloudappstore/core/templates/app/detail.html:20
 #, python-format
 msgid "Latest %(app_name)s releases"
 msgstr "마지막 %(app_name)s 릴리스"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:29
 msgid "Previous"
 msgstr "이전"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:39
 msgid "Next"
 msgstr "다음"
 
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:48
 msgid "This app has become part of the Nextcloud Server release packages."
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:47
+#: nextcloudappstore/core/templates/app/detail.html:50
 msgid ""
 "It is no longer actively distributed via the app store, but when updating "
 "the Nextcloud Server the app will be updated to the latest version "
 "automatically."
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:52
+#: nextcloudappstore/core/templates/app/detail.html:55
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr "Nextcloud의 최신 3개 메이저 릴리즈에서 테스트되지 못했습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:54
+#: nextcloudappstore/core/templates/app/detail.html:57
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
-msgstr "더이상 유지 및 지원되고 있지 않을 수 있으며, 최신 버전의 Nextcloud에서 사용하면 호환성 문제가 생길 수 있습니다."
+msgstr ""
+"더이상 유지 및 지원되고 있지 않을 수 있으며, 최신 버전의 Nextcloud에서 사용하"
+"면 호환성 문제가 생길 수 있습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:60
+#: nextcloudappstore/core/templates/app/detail.html:63
 msgid "Orphan / Looking for Maintainer"
 msgstr "고아 / 유지 관리자 찾고 있음"
 
-#: nextcloudappstore/core/templates/app/detail.html:64
+#: nextcloudappstore/core/templates/app/detail.html:67
 msgid "Highest Nextcloud version"
 msgstr "가장 높은 Nextcloud 버전"
 
-#: nextcloudappstore/core/templates/app/detail.html:68
+#: nextcloudappstore/core/templates/app/detail.html:71
 msgid "Show all releases"
 msgstr "모든 릴리즈 표시"
 
-#: nextcloudappstore/core/templates/app/detail.html:71
+#: nextcloudappstore/core/templates/app/detail.html:74
 msgid "Community rating"
 msgstr "커뮤니티 등급"
 
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:78
 msgid "Author"
 msgstr "저자"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:100
 msgid "Last updated"
 msgstr "마지막 업데이트"
 
-#: nextcloudappstore/core/templates/app/detail.html:105
+#: nextcloudappstore/core/templates/app/detail.html:108
 msgid "Resources"
 msgstr "자원"
 
-#: nextcloudappstore/core/templates/app/detail.html:111
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "User documentation"
 msgstr "사용자 문서"
 
-#: nextcloudappstore/core/templates/app/detail.html:114
+#: nextcloudappstore/core/templates/app/detail.html:117
 msgid "Admin documentation"
 msgstr "관리 문서"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
-#: nextcloudappstore/core/templates/nav.html:28
+#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/nav.html:30
 msgid "Developer documentation"
 msgstr "개발자 문서"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:126
 msgid "Interact"
 msgstr "상호작용"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Report problem"
 msgstr "문제 보고"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Request feature"
 msgstr "기능 요청"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "질문 및 토론"
 
-#: nextcloudappstore/core/templates/app/detail.html:147
+#: nextcloudappstore/core/templates/app/detail.html:150
 msgid "Donate"
 msgstr "기부하기"
 
-#: nextcloudappstore/core/templates/app/detail.html:160
+#: nextcloudappstore/core/templates/app/detail.html:163
 msgid "Need Enterprise Support?"
 msgstr "엔터프라이즈 지원이 필요하신가요?"
 
-#: nextcloudappstore/core/templates/app/detail.html:165
+#: nextcloudappstore/core/templates/app/detail.html:168
 msgid "Request quote"
 msgstr "견적 요청"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:170
 msgid "Recommended for large Nextcloud installations only."
 msgstr "대규모 Nextcloud 설치에만 권장"
 
-#: nextcloudappstore/core/templates/app/detail.html:178
-#: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/app/releases.html:12
+#: nextcloudappstore/core/templates/app/detail.html:181
+#: nextcloudappstore/core/templates/app/releases.html:7
+#: nextcloudappstore/core/templates/app/releases.html:15
 msgid "Releases"
 msgstr "릴리스"
 
-#: nextcloudappstore/core/templates/app/detail.html:183
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Stable channel"
 msgstr "안정판 채널"
 
-#: nextcloudappstore/core/templates/app/detail.html:184
+#: nextcloudappstore/core/templates/app/detail.html:187
 msgid "Nightly channel"
 msgstr "Nightly 채널"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:188
 msgid "All releases"
 msgstr "모든 릴리스"
 
-#: nextcloudappstore/core/templates/app/detail.html:193
-#: nextcloudappstore/core/templates/app/releases.html:23
-#: nextcloudappstore/core/templates/app/releases.html:86
+#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/releases.html:26
+#: nextcloudappstore/core/templates/app/releases.html:89
 msgid "nightly"
 msgstr "Nightly"
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:196
 msgid "Unstable"
 msgstr "불안정판"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:217
 msgid "Ok"
 msgstr "확인"
 
-#: nextcloudappstore/core/templates/app/detail.html:235
-#: nextcloudappstore/core/templates/app/detail.html:249
+#: nextcloudappstore/core/templates/app/detail.html:238
+#: nextcloudappstore/core/templates/app/detail.html:252
 msgid "Appeal for spam"
 msgstr "스팸으로 보고"
 
-#: nextcloudappstore/core/templates/app/detail.html:240
-#: nextcloudappstore/core/templates/app/detail.html:253
+#: nextcloudappstore/core/templates/app/detail.html:243
+#: nextcloudappstore/core/templates/app/detail.html:256
 msgid "Cancel spam appeal"
 msgstr "스팸 보고 취소"
 
-#: nextcloudappstore/core/templates/app/detail.html:244
+#: nextcloudappstore/core/templates/app/detail.html:247
 msgid "Delete spam comment"
 msgstr "스팸 댓글 삭제"
 
-#: nextcloudappstore/core/templates/app/detail.html:264
+#: nextcloudappstore/core/templates/app/detail.html:267
 msgid "No comments found."
 msgstr "댓글이 없습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:273
+#: nextcloudappstore/core/templates/app/detail.html:276
 msgid "Comments"
 msgstr "댓글"
 
-#: nextcloudappstore/core/templates/app/detail.html:280
+#: nextcloudappstore/core/templates/app/detail.html:283
 msgid "Rate app"
 msgstr "앱 평가하기"
 
-#: nextcloudappstore/core/templates/app/detail.html:280
+#: nextcloudappstore/core/templates/app/detail.html:283
 msgid "Rate integration"
 msgstr "통합 평가"
 
-#: nextcloudappstore/core/templates/app/detail.html:286
+#: nextcloudappstore/core/templates/app/detail.html:289
 msgid "Your comment"
 msgstr "내 댓글"
 
-#: nextcloudappstore/core/templates/app/detail.html:291
+#: nextcloudappstore/core/templates/app/detail.html:294
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
-"앱을 평가할 때 <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> "
-"문법을 사용할 수 있습니다. 앱 평가 기능을 사용하여 버그를 보고하거나 기능을 요청하지 마십시오. 개발자나 다른 사용자에게 알림이 가지 "
-"않습니다. 댓글을 달지 않은 평가도 집계되지만 아래에 표시되지 않습니다."
+"앱을 평가할 때 <a rel=\"noopener noreferrer\" href=\"https://daringfireball."
+"net/projects/markdown/syntax\">Markdown</a> 문법을 사용할 수 있습니다. 앱 평"
+"가 기능을 사용하여 버그를 보고하거나 기능을 요청하지 마십시오. 개발자나 다른 "
+"사용자에게 알림이 가지 않습니다. 댓글을 달지 않은 평가도 집계되지만 아래에 표"
+"시되지 않습니다."
 
-#: nextcloudappstore/core/templates/app/detail.html:296
+#: nextcloudappstore/core/templates/app/detail.html:299
 msgid "Update rating"
 msgstr "평가 업데이트"
 
-#: nextcloudappstore/core/templates/app/detail.html:298
+#: nextcloudappstore/core/templates/app/detail.html:301
 msgid "Submit rating"
 msgstr "평가 제출"
 
-#: nextcloudappstore/core/templates/app/detail.html:309
+#: nextcloudappstore/core/templates/app/detail.html:312
 msgid "Switch language for the comments:"
 msgstr "댓글 언어 변경:"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:69
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
+#: nextcloudappstore/core/templates/nav.html:71
 msgid "Register integration"
 msgstr "통합 등록"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
 msgid "Moderate integration"
 msgstr "중재 통합"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
 msgid "Edit integration"
 msgstr "통합 편집"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:19
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:22
 msgid "Update"
 msgstr "업데이트"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:27
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:30
 msgid "Approve"
 msgstr "승인"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:28
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:31
 msgid "Reject"
 msgstr "거절"
 
-#: nextcloudappstore/core/templates/app/list.html:20
+#: nextcloudappstore/core/templates/app/list.html:23
 msgid "Relevance"
 msgstr "관련된"
 
-#: nextcloudappstore/core/templates/app/list.html:33
-#: nextcloudappstore/core/templates/app/list.html:40
-#: nextcloudappstore/core/templates/app/list.html:47
+#: nextcloudappstore/core/templates/app/list.html:36
+#: nextcloudappstore/core/templates/app/list.html:43
+#: nextcloudappstore/core/templates/app/list.html:50
 msgid "Alphabetically"
 msgstr "가나다순"
 
-#: nextcloudappstore/core/templates/app/list.html:54
+#: nextcloudappstore/core/templates/app/list.html:57
 msgid "Latest release"
 msgstr "최신 릴리즈"
 
-#: nextcloudappstore/core/templates/app/list.html:60
+#: nextcloudappstore/core/templates/app/list.html:63
 msgid "Rating (recent)"
 msgstr "평가(최근)"
 
-#: nextcloudappstore/core/templates/app/list.html:74
+#: nextcloudappstore/core/templates/app/list.html:77
 msgid "My apps"
 msgstr "내 앱"
 
-#: nextcloudappstore/core/templates/app/list.html:114
+#: nextcloudappstore/core/templates/app/list.html:117
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr "%(category)s 분류에서 \"<em>%(query)s</em>\" 앱을 찾을 수 없습니다."
 
-#: nextcloudappstore/core/templates/app/list.html:116
+#: nextcloudappstore/core/templates/app/list.html:119
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "\"<em>%(query)s</em>\" 앱을 찾을 수 없습니다."
 
-#: nextcloudappstore/core/templates/app/register.html:5
-#: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/app/register.html:8
+#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr "앱 등록"
 
-#: nextcloudappstore/core/templates/app/register.html:16
+#: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"인증서를 발행하고 서명을 만드는 방법에 대해서 더 알아 보려면 <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
+"인증서를 발행하고 서명을 만드는 방법에 대해서 더 알아 보려면 <a href="
+"\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
 
-#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"이 폼을 사용하여 기존 인증서를 업데이트할 수도 있으나, 앱 소유자만 업데이트가 가능합니다. 앱 인증서를 업데이트하면 모든 과거 버전을 "
-"삭제합니다!"
+"이 폼을 사용하여 기존 인증서를 업데이트할 수도 있으나, 앱 소유자만 업데이트"
+"가 가능합니다. 앱 인증서를 업데이트하면 모든 과거 버전을 삭제합니다!"
 
-#: nextcloudappstore/core/templates/app/register.html:19
+#: nextcloudappstore/core/templates/app/register.html:22
 msgid "Not a public certificate"
 msgstr "공개 인증서가 아님"
 
-#: nextcloudappstore/core/templates/app/register.html:20
+#: nextcloudappstore/core/templates/app/register.html:23
 msgid "App registered."
 msgstr "앱을 등록했습니다."
 
-#: nextcloudappstore/core/templates/app/releases.html:13
+#: nextcloudappstore/core/templates/app/releases.html:16
 msgid "App details"
 msgstr "앱 정보"
 
-#: nextcloudappstore/core/templates/app/releases.html:26
+#: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Release Details"
 msgstr "릴리스 정보"
 
-#: nextcloudappstore/core/templates/app/releases.html:27
+#: nextcloudappstore/core/templates/app/releases.html:30
 msgid "Updated"
 msgstr "업데이트됨"
 
-#: nextcloudappstore/core/templates/app/releases.html:41
+#: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Signature digest"
 msgstr "서명 다이제스트"
 
-#: nextcloudappstore/core/templates/app/releases.html:44
+#: nextcloudappstore/core/templates/app/releases.html:47
 msgid "Dependencies"
 msgstr "의존성"
 
-#: nextcloudappstore/core/templates/app/releases.html:46
+#: nextcloudappstore/core/templates/app/releases.html:49
 msgid "Required Nextcloud versions"
 msgstr "필요한 Nextcloud 버전"
 
-#: nextcloudappstore/core/templates/app/releases.html:71
+#: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP"
 msgstr "PHP"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:4
-#: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:47
+#: nextcloudappstore/core/templates/app/scaffold.html:7
+#: nextcloudappstore/core/templates/app/scaffold.html:11
+#: nextcloudappstore/core/templates/nav.html:49
 msgid "Generate app"
 msgstr "앱 생성"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:15
+#: nextcloudappstore/core/templates/app/scaffold.html:18
 msgid "Generate and download"
 msgstr "생성하고 다운로드"
 
-#: nextcloudappstore/core/templates/app/upload.html:5
-#: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:61
+#: nextcloudappstore/core/templates/app/upload.html:8
+#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/nav.html:63
 msgid "Upload app release"
 msgstr "앱 릴리스 업데이트"
 
-#: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
+#: nextcloudappstore/core/templates/app/upload.html:21
 msgid "App release successfully uploaded."
 msgstr "앱 릴리스를 업로드했습니다."
 
-#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:19
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"서명을 만드는 방법에 대해서 더 알아 보려면 <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
+"서명을 만드는 방법에 대해서 더 알아 보려면 <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">앱 개발자 가이드</a>를 참조하십시오."
 
-#: nextcloudappstore/core/templates/app/upload.html:25
+#: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
 msgstr "업로드"
 
-#: nextcloudappstore/core/templates/base.html:8
+#: nextcloudappstore/core/templates/base.html:10
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
-msgstr "Nextcloud 앱 스토어 - 앱을 업로드하거나 Nextcloud에 새로운 앱을 설치하세요."
+msgstr ""
+"Nextcloud 앱 스토어 - 앱을 업로드하거나 Nextcloud에 새로운 앱을 설치하세요."
 
-#: nextcloudappstore/core/templates/base.html:9
+#: nextcloudappstore/core/templates/base.html:11
 msgid "The Nextcloud Community"
 msgstr "Nextcloud 커뮤니티"
 
-#: nextcloudappstore/core/templates/base.html:21
-#: nextcloudappstore/core/templates/base.html:22
+#: nextcloudappstore/core/templates/base.html:23
+#: nextcloudappstore/core/templates/base.html:24
 msgid "Latest app releases"
 msgstr "마지막 앱 릴리스"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Contribute to the app store"
 msgstr "앱 스토어에 기여하기"
 
-#: nextcloudappstore/core/templates/base.html:54
+#: nextcloudappstore/core/templates/base.html:56
 msgid "Privacy and legal"
 msgstr "법적 고지 및 개인 정보 취급 방침"
 
-#: nextcloudappstore/core/templates/base.html:60
+#: nextcloudappstore/core/templates/base.html:62
 msgid "Legal notice"
 msgstr "법적 고지"
 
-#: nextcloudappstore/core/templates/form-fields.html:23
-#: nextcloudappstore/user/templates/user/set-language.html:13
+#: nextcloudappstore/core/templates/form-fields.html:25
+#: nextcloudappstore/user/templates/user/set-language.html:16
 msgid "required field"
 msgstr "필요한 필드"
 
-#: nextcloudappstore/core/templates/nav.html:16
+#: nextcloudappstore/core/templates/nav.html:18
 msgid "Resources for developers"
 msgstr "개발자를 위한 자원"
 
-#: nextcloudappstore/core/templates/nav.html:22
+#: nextcloudappstore/core/templates/nav.html:24
 msgid "Develop for Nextcloud"
 msgstr "Nextcloud를 위해 개발"
 
-#: nextcloudappstore/core/templates/nav.html:34
+#: nextcloudappstore/core/templates/nav.html:36
 msgid "Request translations"
 msgstr "번역 요청"
 
-#: nextcloudappstore/core/templates/nav.html:41
+#: nextcloudappstore/core/templates/nav.html:43
 msgid "Submit your app"
 msgstr "앱을 제출하세요"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 #, python-format
 msgid "Search in %(category)s"
 msgstr "%(category)s 안에서 검색"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 msgid "Search in featured apps"
 msgstr "추천 앱에서 검색"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 msgid "Search in all apps"
 msgstr "모든 앱에서 검색"
 
-#: nextcloudappstore/core/templates/nav.html:99
+#: nextcloudappstore/core/templates/nav.html:101
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "검색"
 
-#: nextcloudappstore/core/templates/nav.html:107
+#: nextcloudappstore/core/templates/nav.html:109
 msgid "Admin"
 msgstr "관리자"
 
-#: nextcloudappstore/core/templates/nav.html:115
-#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/core/templates/nav.html:117
 #: nextcloudappstore/user/templates/user/account.html:8
-#: nextcloudappstore/user/templates/user/base.html:5
-#: nextcloudappstore/user/templates/user/base.html:14
+#: nextcloudappstore/user/templates/user/account.html:11
+#: nextcloudappstore/user/templates/user/base.html:8
+#: nextcloudappstore/user/templates/user/base.html:17
 msgid "Account"
 msgstr "계정"
 
-#: nextcloudappstore/core/templates/nav.html:121
+#: nextcloudappstore/core/templates/nav.html:123
 msgid "Log out"
 msgstr "로그아웃"
 
-#: nextcloudappstore/core/templates/socialaccount/signup.html:15
+#: nextcloudappstore/core/templates/socialaccount/signup.html:18
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "내 %(provider_name)s 계정을 사용하여\n"
-"            %(site_name)s에 로그인합니다. 마지막 단계로 다음 항목을 입력해 주십시오:"
+"            %(site_name)s에 로그인합니다. 마지막 단계로 다음 항목을 입력해 주"
+"십시오:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1514,8 +1534,8 @@ msgid "The app name must be pascal case e.g. MyApp"
 msgstr ""
 
 #: nextcloudappstore/scaffolding/forms.py:42
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:15
-#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:18
+#: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "App name"
 msgstr "앱 이름"
 
@@ -1557,11 +1577,12 @@ msgid ""
 "you to check in with you about your plans or to ask for feedback on our "
 "developer program."
 msgstr ""
-"내 개인정보를 수집하는 데 동의합니다. 요금제에 대해 확인하거나 개발자 프로그램에 피드백을 요청하기 위해 연락을 드릴 수 있습니다."
+"내 개인정보를 수집하는 데 동의합니다. 요금제에 대해 확인하거나 개발자 프로그"
+"램에 피드백을 요청하기 위해 연락을 드릴 수 있습니다."
 
 #: nextcloudappstore/scaffolding/forms.py:79
-#: nextcloudappstore/user/templates/user/integrations.html:13
-#: nextcloudappstore/user/templates/user/integrations.html:36
+#: nextcloudappstore/user/templates/user/integrations.html:16
+#: nextcloudappstore/user/templates/user/integrations.html:39
 msgid "Integration name"
 msgstr "통합 이름"
 
@@ -1581,48 +1602,49 @@ msgstr "스크린샷 썸네일 URL"
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
-msgstr "더 작은 크기의 통합 스크린샷 URL입니다. 더 큰 스크린샷과 함께 사용해야 합니다."
+msgstr ""
+"더 작은 크기의 통합 스크린샷 URL입니다. 더 큰 스크린샷과 함께 사용해야 합니"
+"다."
 
 #: nextcloudappstore/scaffolding/forms.py:115
 msgid "Full description of what your integration does. Can contain Markdown."
 msgstr ""
 
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:5
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:9
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:7
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid "Third-Party Login Failure"
 msgstr "외부 계정 로그인 실패"
 
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:13
 msgid ""
 "An error occurred while attempting to login via your third-party account."
 msgstr "외부 계정으로 로그인 중 오류가 발생했습니다."
 
-#: nextcloudappstore/templates/socialaccount/login.html:6
+#: nextcloudappstore/templates/socialaccount/login.html:9
 msgid "Sign In"
 msgstr "로그인"
 
-#: nextcloudappstore/templates/socialaccount/login.html:11
+#: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid "Connect %(provider)s"
 msgstr "%(provider)s 연결"
 
-#: nextcloudappstore/templates/socialaccount/login.html:14
+#: nextcloudappstore/templates/socialaccount/login.html:17
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr "%(provider)s의 외부 계정을 연결하려 합니다."
 
-#: nextcloudappstore/templates/socialaccount/login.html:18
+#: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr "%(provider)s(으)로 로그인"
 
-#: nextcloudappstore/templates/socialaccount/login.html:21
+#: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr "%(provider)s의 외부 계정을 사용해서 로그인 하려 합니다."
 
-#: nextcloudappstore/templates/socialaccount/login.html:28
+#: nextcloudappstore/templates/socialaccount/login.html:31
 msgid "Continue"
 msgstr "계속"
 
@@ -1674,8 +1696,8 @@ msgid ""
 "prevent unauthorized changes to critical account details. This field does "
 "not update your password!"
 msgstr ""
-"중요한 계정 정보가 무단으로 변경되는 것을 막기 위해 이름, 성, 이메일을 변경할 때 필요합니다. 이 입력란은 당신의 암호를 변경하지 "
-"않습니다!"
+"중요한 계정 정보가 무단으로 변경되는 것을 막기 위해 이름, 성, 이메일을 변경"
+"할 때 필요합니다. 이 입력란은 당신의 암호를 변경하지 않습니다!"
 
 #: nextcloudappstore/user/forms.py:105
 msgid "This email address is already associated with another account."
@@ -1697,255 +1719,268 @@ msgstr "Nextcloud 앱스토어 암호가 변경됨"
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
-msgstr "귀하의 Nextcloud 앱스토어 암호가 변경되었습니다. 변경한 사실이 없다면, 지원에 문의하십시오."
+msgstr ""
+"귀하의 Nextcloud 앱스토어 암호가 변경되었습니다. 변경한 사실이 없다면, 지원"
+"에 문의하십시오."
 
-#: nextcloudappstore/user/templates/user/account.html:15
+#: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
 msgstr "저장"
 
-#: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
+#: nextcloudappstore/user/templates/user/api-token.html:15
 msgid "API Token"
 msgstr "API 토큰"
 
-#: nextcloudappstore/user/templates/user/api-token.html:15
+#: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                API 토큰은 Nextcloud 앱 스토어를 호출할 시 인증 목적으로 사용됩니다.\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                토큰의 보안에 유의하십시오. 새로운 토큰은 아래에서 생성할 수 있으며, 이 경우 기존의 토큰은 무효 처리됩니다."
+"                API 토큰은 Nextcloud 앱 스토어를 호출할 시 인증 목적으로 사용"
+"됩니다.\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                토큰의 보안에 유의하십시오. 새로운 토큰은 아래에서 생성할 수 "
+"있으며, 이 경우 기존의 토큰은 무효 처리됩니다."
 
-#: nextcloudappstore/user/templates/user/api-token.html:22
+#: nextcloudappstore/user/templates/user/api-token.html:25
 msgid "Your API token is:"
 msgstr "내 API 토큰:"
 
-#: nextcloudappstore/user/templates/user/api-token.html:27
+#: nextcloudappstore/user/templates/user/api-token.html:30
 msgid "New API token generated."
 msgstr "새 API 토큰을 만들었습니다."
 
-#: nextcloudappstore/user/templates/user/api-token.html:32
+#: nextcloudappstore/user/templates/user/api-token.html:35
 msgid "Regenerate API token"
 msgstr "API 토큰 재생성"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:5
+#: nextcloudappstore/user/templates/user/appeal-comments.html:8
 msgid "Appeal commentaries"
 msgstr ""
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:9
+#: nextcloudappstore/user/templates/user/appeal-comments.html:12
 msgid "Comments Pending Appeal"
 msgstr ""
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:14
+#: nextcloudappstore/user/templates/user/appeal-comments.html:17
 msgid "Comment author"
 msgstr "댓글 작성자"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:25
+#: nextcloudappstore/user/templates/user/appeal-comments.html:28
 msgid "Go to"
 msgstr "다음으로 이동"
 
-#: nextcloudappstore/user/templates/user/base.html:20
-#: nextcloudappstore/user/templates/user/integrations.html:5
+#: nextcloudappstore/user/templates/user/base.html:23
+#: nextcloudappstore/user/templates/user/integrations.html:8
 msgid "Integrations"
 msgstr "통합"
 
-#: nextcloudappstore/user/templates/user/base.html:26
+#: nextcloudappstore/user/templates/user/base.html:29
 msgid "Transfer app ownership"
 msgstr "앱 소유권 전송"
 
-#: nextcloudappstore/user/templates/user/base.html:32
+#: nextcloudappstore/user/templates/user/base.html:35
 msgid "Enterprise support"
 msgstr "엔터프라이즈 지원"
 
-#: nextcloudappstore/user/templates/user/base.html:38
-#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/base.html:41
 #: nextcloudappstore/user/templates/user/set-language.html:7
-#: nextcloudappstore/user/templates/user/set-language.html:29
+#: nextcloudappstore/user/templates/user/set-language.html:10
+#: nextcloudappstore/user/templates/user/set-language.html:32
 msgid "Change language"
 msgstr "언어 변경"
 
-#: nextcloudappstore/user/templates/user/base.html:45
-#: nextcloudappstore/user/templates/user/password.html:5
+#: nextcloudappstore/user/templates/user/base.html:48
+#: nextcloudappstore/user/templates/user/password.html:8
 msgid "Password"
 msgstr "암호"
 
-#: nextcloudappstore/user/templates/user/base.html:52
+#: nextcloudappstore/user/templates/user/base.html:55
 msgid "API token"
 msgstr "API 토큰"
 
-#: nextcloudappstore/user/templates/user/base.html:58
-#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/base.html:61
 #: nextcloudappstore/user/templates/user/delete-account.html:8
-#: nextcloudappstore/user/templates/user/delete-account.html:17
+#: nextcloudappstore/user/templates/user/delete-account.html:11
+#: nextcloudappstore/user/templates/user/delete-account.html:20
 msgid "Delete account"
 msgstr "계정 삭제"
 
-#: nextcloudappstore/user/templates/user/base.html:65
+#: nextcloudappstore/user/templates/user/base.html:68
 msgid "Appeal comments"
 msgstr ""
 
-#: nextcloudappstore/user/templates/user/delete-account.html:10
+#: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
 msgstr ""
-"계정을 삭제할 경우 귀하의 모든 앱과 릴리즈 또한 사라집니다. 계정을 삭제하기 위해, 아래 입력 칸에 이메일 주소를 입력하고, \"계정 "
-"삭제\" 버튼을 클릭하십시오."
+"계정을 삭제할 경우 귀하의 모든 앱과 릴리즈 또한 사라집니다. 계정을 삭제하기 "
+"위해, 아래 입력 칸에 이메일 주소를 입력하고, \"계정 삭제\" 버튼을 클릭하십시"
+"오."
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:5
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:11
 msgid "Enterprise App Support"
 msgstr ""
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:10
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:13
 msgid ""
 "If an app is available to receive enterprise support, you can mark the app "
 "as such here. This will add a 'Request quote' button to the app's details "
 "page in the App Store and in Nextcloud Apps. Such support can only be "
 "requested for large Nextcloud installations."
 msgstr ""
-"앱이 엔터프라이즈 지원을 받을 수 있다면 이곳에서 그 앱을 표시할 수 있습니다. 그러면 Nextcloud 앱 및 앱 스토어 내의 해당 "
-"앱의 상세 페이지에 '견적 요청' 버튼이 생깁니다. 엔터프라이즈 지원은 대규모 Nextcloud 설치에만 필요합니다."
+"앱이 엔터프라이즈 지원을 받을 수 있다면 이곳에서 그 앱을 표시할 수 있습니다. "
+"그러면 Nextcloud 앱 및 앱 스토어 내의 해당 앱의 상세 페이지에 '견적 요청' 버"
+"튼이 생깁니다. 엔터프라이즈 지원은 대규모 Nextcloud 설치에만 필요합니다."
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:16
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:19
 msgid "Support status"
 msgstr "지원 상태"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:17
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:20
 msgid "Change support status"
 msgstr "지원 상태 변경"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:24
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:27
 msgid "Supported"
 msgstr "지원됨"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:26
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:29
 msgid "Unsupported"
 msgstr "지원되지 않습니다."
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:33
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:36
 msgid "Mark as unsupported"
 msgstr "지원되지 않는 것으로 표시"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:35
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:38
 msgid "Mark as supported"
 msgstr "지원되는 것으로 표시"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:43
-#: nextcloudappstore/user/templates/user/transfer-apps.html:63
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:46
+#: nextcloudappstore/user/templates/user/transfer-apps.html:66
 msgid "You have not uploaded any apps yet!"
 msgstr "앱을 업로드하지 않았습니다!"
 
-#: nextcloudappstore/user/templates/user/integrations.html:9
+#: nextcloudappstore/user/templates/user/integrations.html:12
 msgid "Pending approval"
 msgstr "승인 대기중"
 
-#: nextcloudappstore/user/templates/user/integrations.html:14
-#: nextcloudappstore/user/templates/user/integrations.html:37
+#: nextcloudappstore/user/templates/user/integrations.html:17
+#: nextcloudappstore/user/templates/user/integrations.html:40
 msgid "Actions"
 msgstr "동작"
 
-#: nextcloudappstore/user/templates/user/integrations.html:22
+#: nextcloudappstore/user/templates/user/integrations.html:25
 msgid "View"
 msgstr "보기"
 
-#: nextcloudappstore/user/templates/user/integrations.html:31
+#: nextcloudappstore/user/templates/user/integrations.html:34
 msgid "Your integrations"
 msgstr "나의 통합"
 
-#: nextcloudappstore/user/templates/user/integrations.html:45
+#: nextcloudappstore/user/templates/user/integrations.html:48
 msgid "Edit"
 msgstr "편집"
 
-#: nextcloudappstore/user/templates/user/integrations.html:52
+#: nextcloudappstore/user/templates/user/integrations.html:55
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
 msgstr "아직 아무런 통합에 동의하지 않았거나 승인 대기 중입니다."
 
-#: nextcloudappstore/user/templates/user/password.html:10
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Changing your password will also regenerate your API token!"
 msgstr "암호를 변경하면 API 토큰을 다시 생성합니다!"
 
-#: nextcloudappstore/user/templates/user/password.html:22
+#: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"제3사 공급자를 통한 계정을 사용하고 있는 것 같습니다. 따라서 이 페이지에서 암호를 변경할 수 <strong>없습니다</strong>."
+"제3사 공급자를 통한 계정을 사용하고 있는 것 같습니다. 따라서 이 페이지에서 암"
+"호를 변경할 수 <strong>없습니다</strong>."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
+#: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid "Transfer Apps"
 msgstr "앱 전송"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+#: nextcloudappstore/user/templates/user/transfer-apps.html:13
 msgid ""
 "To transfer an app to a new owner you must first unlock the app. A user can "
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"앱을 새로운 소유자에게 전송하려면 먼저 잠금을 해제해야 합니다. 그 후 다른 사용자가 앱 개발자 메뉴의 앱 등록 페이지에서 앱을 다시 "
-"등록하면 소유권을 넘겨받습니다."
+"앱을 새로운 소유자에게 전송하려면 먼저 잠금을 해제해야 합니다. 그 후 다른 사"
+"용자가 앱 개발자 메뉴의 앱 등록 페이지에서 앱을 다시 등록하면 소유권을 넘겨받"
+"습니다."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:11
+#: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
-"새 소유자가 아직 없나요? 앱을 고아로 표시하여 새 소유자를 찾고 있다는 것을 나타낼 수 있습니다. 소유자 이전이 완료되면 앱은 자동으로"
-" 고아가 아니며 유지 관리되고 있는 것으로 표시됩니다."
+"새 소유자가 아직 없나요? 앱을 고아로 표시하여 새 소유자를 찾고 있다는 것을 나"
+"타낼 수 있습니다. 소유자 이전이 완료되면 앱은 자동으로 고아가 아니며 유지 관"
+"리되고 있는 것으로 표시됩니다."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+#: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Ownership transfer status"
 msgstr "소유권 전송 상태"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:18
+#: nextcloudappstore/user/templates/user/transfer-apps.html:21
 msgid "App status"
 msgstr "앱 상태"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:19
+#: nextcloudappstore/user/templates/user/transfer-apps.html:22
 msgid "Change ownership transfer status"
 msgstr "소유권 전송 상태 전환"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:20
+#: nextcloudappstore/user/templates/user/transfer-apps.html:23
 msgid "Change app status"
 msgstr "앱 상태 변경"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:27
+#: nextcloudappstore/user/templates/user/transfer-apps.html:30
 msgid "Unlocked"
 msgstr "잠금 해제됨"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:29
+#: nextcloudappstore/user/templates/user/transfer-apps.html:32
 msgid "Locked"
 msgstr "잠긴"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:34
+#: nextcloudappstore/user/templates/user/transfer-apps.html:37
 msgid "Orphaned"
 msgstr "고아"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:36
+#: nextcloudappstore/user/templates/user/transfer-apps.html:39
 msgid "Maintained"
 msgstr "유지 관리됨"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+#: nextcloudappstore/user/templates/user/transfer-apps.html:46
 msgid "Lock ownership transfer"
 msgstr "소유권 전송 잠금"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:45
+#: nextcloudappstore/user/templates/user/transfer-apps.html:48
 msgid "Unlock ownership transfer"
 msgstr "소유권 전송 잠금 해제"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:53
+#: nextcloudappstore/user/templates/user/transfer-apps.html:56
 msgid "Mark as maintained"
 msgstr "유지 관리되는 것으로 표시"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:55
+#: nextcloudappstore/user/templates/user/transfer-apps.html:58
 msgid "Mark as orphaned"
 msgstr "고아로 표시"

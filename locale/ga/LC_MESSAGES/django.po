@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # The Knotty Celt, 2024
 # Aindriú Mac Giolla Eoin, 2025
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-17 03:12+0000\n"
+"POT-Creation-Date: 2025-05-20 03:13+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin, 2025\n"
 "Language-Team: Irish (https://app.transifex.com/nextcloud/teams/64236/ga/)\n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ga\n"
-"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : "
+"4);\n"
 
 #: nextcloudappstore/core/feeds.py:19
 msgid "Newest app releases"
@@ -35,12 +36,12 @@ msgid "Changes"
 msgstr "Athruithe"
 
 #: nextcloudappstore/core/feeds.py:49
-#: nextcloudappstore/core/templates/app/releases.html:86
+#: nextcloudappstore/core/templates/app/releases.html:89
 msgid "Download"
 msgstr "Íoslódáil"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:217
+#: nextcloudappstore/core/templates/app/detail.html:220
 msgid "Bad"
 msgstr "Dona"
 
@@ -49,7 +50,7 @@ msgid "OK"
 msgstr "Ceart go leor"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:211
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Good"
 msgstr "Maith"
 
@@ -58,7 +59,7 @@ msgid "Download link (tar.gz)"
 msgstr "Nasc íoslódála (tar.gz)"
 
 #: nextcloudappstore/core/forms.py:35 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/templates/app/releases.html:40
+#: nextcloudappstore/core/templates/app/releases.html:43
 msgid "Signature"
 msgstr "Sínithe"
 
@@ -78,25 +79,25 @@ msgstr "Teastas poiblí"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
 "Sa bhreis, coimeádta go minic in ~/.nextcloud/certificates/APP_ID.crt áit a "
 "bhfuil APP_ID mar ID do do chuid aipí. Má tá tú gan teastas agat, caithfidh "
 "tú iarraidh é a dhearadh trí chéim iarratais ar shínithe teastais (CSR) a "
-"chur chun cinn, áit a gcuirfear é ar an <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">dearnála teastais</a> (lean an README). Is "
-"féidir leat an CSR a ghiniúint trí an t-ordú seo a rith:"
+"chur chun cinn, áit a gcuirfear é ar an <a href=\"https://github.com/"
+"nextcloud/app-certificate-requests\" rel=\"noreferrer noopener\">dearnála "
+"teastais</a> (lean an README). Is féidir leat an CSR a ghiniúint trí an t-"
+"ordú seo a rith:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
 msgstr "Síniú thar ID d'aip"
 
 #: nextcloudappstore/core/forms.py:78
-#: nextcloudappstore/user/templates/user/set-language.html:13
+#: nextcloudappstore/user/templates/user/set-language.html:16
 msgid "Language"
 msgstr "Teanga"
 
@@ -173,7 +174,7 @@ msgid "Issue tracker URL"
 msgstr "URL rianaithe eisiúna"
 
 #: nextcloudappstore/core/models.py:155 nextcloudappstore/core/models.py:492
-#: nextcloudappstore/core/templates/app/detail.html:108
+#: nextcloudappstore/core/templates/app/detail.html:111
 msgid "Homepage"
 msgstr "Leathanach baile"
 
@@ -196,7 +197,7 @@ msgid "App owner"
 msgstr "Úinéir aip"
 
 #: nextcloudappstore/core/models.py:163
-#: nextcloudappstore/core/templates/app/detail.html:85
+#: nextcloudappstore/core/templates/app/detail.html:88
 msgid "Co-Maintainers"
 msgstr "Comhchoimeádaithe"
 
@@ -205,8 +206,8 @@ msgid "App authors"
 msgstr "Údair aip"
 
 #: nextcloudappstore/core/models.py:166
-#: nextcloudappstore/core/templates/app/detail.html:59
-#: nextcloudappstore/core/templates/app/list.html:67
+#: nextcloudappstore/core/templates/app/detail.html:62
+#: nextcloudappstore/core/templates/app/list.html:70
 msgid "Featured"
 msgstr "Feiceálach"
 
@@ -239,7 +240,7 @@ msgid "Last release at"
 msgstr "Eisiúint deiridh ag"
 
 #: nextcloudappstore/core/models.py:174
-#: nextcloudappstore/core/templates/app/releases.html:39
+#: nextcloudappstore/core/templates/app/releases.html:42
 msgid "Certificate"
 msgstr "Teastas"
 
@@ -267,13 +268,13 @@ msgstr "Úsáidtear é chun comhtháthú a cheadú"
 #: nextcloudappstore/core/models.py:188 nextcloudappstore/core/models.py:433
 #: nextcloudappstore/core/models.py:509 nextcloudappstore/core/models.py:646
 #: nextcloudappstore/core/models.py:669
-#: nextcloudappstore/user/templates/user/appeal-comments.html:13
+#: nextcloudappstore/user/templates/user/appeal-comments.html:16
 msgid "App"
 msgstr "Aip"
 
 #: nextcloudappstore/core/models.py:189
-#: nextcloudappstore/core/templates/app/detail.html:4
-#: nextcloudappstore/core/templates/app/releases.html:4
+#: nextcloudappstore/core/templates/app/detail.html:7
+#: nextcloudappstore/core/templates/app/releases.html:7
 msgid "Apps"
 msgstr "Feidhmchláir"
 
@@ -282,7 +283,7 @@ msgid "User"
 msgstr "Úsáideoir"
 
 #: nextcloudappstore/core/models.py:435
-#: nextcloudappstore/core/templates/app/list.html:26
+#: nextcloudappstore/core/templates/app/list.html:29
 msgid "Rating"
 msgstr "Rátáil"
 
@@ -363,7 +364,7 @@ msgid "Platform version requirement (raw)"
 msgstr "Riachtanas leagan ardáin (amh)"
 
 #: nextcloudappstore/core/models.py:524
-#: nextcloudappstore/core/templates/app/releases.html:69
+#: nextcloudappstore/core/templates/app/releases.html:72
 msgid "Minimum Integer bits"
 msgstr "Giotán slánuimhir íosta"
 
@@ -384,7 +385,7 @@ msgid "Signature hashing algorithm"
 msgstr "Algartam hashing Síniú"
 
 #: nextcloudappstore/core/models.py:533
-#: nextcloudappstore/core/templates/app/releases.html:29
+#: nextcloudappstore/core/templates/app/releases.html:32
 msgid "Changelog"
 msgstr "Loga athrú"
 
@@ -484,9 +485,9 @@ msgid "Ordering"
 msgstr "Ordú"
 
 #: nextcloudappstore/core/models.py:650
-#: nextcloudappstore/core/templates/app/detail.html:31
-#: nextcloudappstore/core/templates/app/list.html:101
-#: nextcloudappstore/core/templates/app/list.html:103
+#: nextcloudappstore/core/templates/app/detail.html:34
+#: nextcloudappstore/core/templates/app/list.html:104
+#: nextcloudappstore/core/templates/app/list.html:106
 msgid "Screenshot"
 msgstr "gabháil scáileáin"
 
@@ -523,7 +524,7 @@ msgid "Name of a required shell command, e.g. grep"
 msgstr "Ainm ordú blaosc riachtanach, e.g. grep"
 
 #: nextcloudappstore/core/models.py:692
-#: nextcloudappstore/core/templates/app/releases.html:61
+#: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Shell commands"
 msgstr "Orduithe Shell"
 
@@ -543,7 +544,7 @@ msgid "Category name which will be presented to the user"
 msgstr "Ainm na catagóire a thabharfar don úsáideoir"
 
 #: nextcloudappstore/core/models.py:718
-#: nextcloudappstore/core/templates/app/detail.html:100
+#: nextcloudappstore/core/templates/app/detail.html:103
 #: nextcloudappstore/scaffolding/forms.py:54
 #: nextcloudappstore/scaffolding/forms.py:88
 msgid "Categories"
@@ -558,7 +559,7 @@ msgid "License name which will be presented to the user"
 msgstr "Ainm an cheadúnais a thaispeánfar don úsáideoir"
 
 #: nextcloudappstore/core/models.py:739
-#: nextcloudappstore/core/templates/app/releases.html:32
+#: nextcloudappstore/core/templates/app/releases.html:35
 msgid "Licenses"
 msgstr "Ceadúnais"
 
@@ -575,7 +576,7 @@ msgid "Database"
 msgstr "Bunachar Sonraí"
 
 #: nextcloudappstore/core/models.py:759
-#: nextcloudappstore/core/templates/app/releases.html:51
+#: nextcloudappstore/core/templates/app/releases.html:54
 msgid "Databases"
 msgstr "Bunachair shonraí"
 
@@ -601,7 +602,7 @@ msgid "PHP extension"
 msgstr "Síneadh PHP"
 
 #: nextcloudappstore/core/models.py:790
-#: nextcloudappstore/core/templates/app/releases.html:75
+#: nextcloudappstore/core/templates/app/releases.html:78
 msgid "PHP extensions"
 msgstr "Síntí PHP"
 
@@ -626,7 +627,7 @@ msgid "Excerpt"
 msgstr "Sliocht"
 
 #: nextcloudappstore/core/models.py:819
-#: nextcloudappstore/user/templates/user/appeal-comments.html:15
+#: nextcloudappstore/user/templates/user/appeal-comments.html:18
 msgid "Link"
 msgstr "Nasc"
 
@@ -663,7 +664,7 @@ msgid "App rating deletions"
 msgstr "Scriosadh rátálacha aip"
 
 #: nextcloudappstore/core/models.py:883
-#: nextcloudappstore/core/templates/app/detail.html:182
+#: nextcloudappstore/core/templates/app/detail.html:185
 msgid "Nextcloud version"
 msgstr "Leagan Nextcloud"
 
@@ -689,8 +690,8 @@ msgstr "Tá scaoileadh"
 
 #: nextcloudappstore/core/models.py:898
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Más fíor, is leagan Nextcloud iarbhír é seo ar féidir a íoslódáil mar "
@@ -717,30 +718,30 @@ msgstr "Nextcloud scaoileadh"
 msgid "Nextcloud releases"
 msgstr "Scaoileann Nextcloud"
 
-#: nextcloudappstore/core/templates/403.html:4
-#: nextcloudappstore/core/templates/403.html:8
-#: nextcloudappstore/core/templates/429.html:4
-#: nextcloudappstore/core/templates/429.html:8
+#: nextcloudappstore/core/templates/403.html:7
+#: nextcloudappstore/core/templates/403.html:11
+#: nextcloudappstore/core/templates/429.html:7
+#: nextcloudappstore/core/templates/429.html:11
 msgid "Forbidden"
 msgstr "Toirmiscthe"
 
-#: nextcloudappstore/core/templates/403.html:10
+#: nextcloudappstore/core/templates/403.html:13
 msgid "You are forbidden to access this page!"
 msgstr "Tá cosc ​​ort rochtain a fháil ar an leathanach seo!"
 
-#: nextcloudappstore/core/templates/404.html:4
+#: nextcloudappstore/core/templates/404.html:7
 msgid "Not Found"
 msgstr "Gan Aimsiú"
 
-#: nextcloudappstore/core/templates/404.html:8
+#: nextcloudappstore/core/templates/404.html:11
 msgid "Page not found"
 msgstr "Ní bhfuarthas an leathanach"
 
-#: nextcloudappstore/core/templates/404.html:10
+#: nextcloudappstore/core/templates/404.html:13
 msgid "The page you are looking for does not exist!"
 msgstr "Níl an leathanach atá á lorg agat ann!"
 
-#: nextcloudappstore/core/templates/429.html:10
+#: nextcloudappstore/core/templates/429.html:13
 msgid "Too many tries. Try again in a few minutes."
 msgstr "An iomarca iarracht. Bain triail eile as i gceann cúpla bomaite."
 
@@ -749,19 +750,24 @@ msgstr "An iomarca iarracht. Bain triail eile as i gceann cúpla bomaite."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Beannachtaí ó %(site_name)s!\n"
 "\n"
-"Tá an ríomhphost seo á fháil agat toisc gur cheangail úsáideoir %(user_display)s an seoladh ríomhphoist seo lena chuntas ag %(site_domain)s.\n"
+"Tá an ríomhphost seo á fháil agat toisc gur cheangail úsáideoir "
+"%(user_display)s an seoladh ríomhphoist seo lena chuntas ag "
+"%(site_domain)s.\n"
 "\n"
 "Chun a dhearbhú go bhfuil sé seo ceart, téigh go dtí %(activate_url)s\n"
 "\n"
-"Mura bhfuil cuntas agat ag %(site_domain)s, déan neamhaird den teachtaireacht seo.\n"
+"Mura bhfuil cuntas agat ag %(site_domain)s, déan neamhaird den "
+"teachtaireacht seo.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -772,71 +778,71 @@ msgstr ""
 "Go raibh maith agat as %(site_name)s!\n"
 "%(site_domain)s"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:6
-#: nextcloudappstore/core/templates/account/email_confirm.html:11
+#: nextcloudappstore/core/templates/account/email_confirm.html:9
+#: nextcloudappstore/core/templates/account/email_confirm.html:14
 msgid "Confirm Email Address"
 msgstr "Deimhnigh Seoladh Ríomhphoist"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:17
+#: nextcloudappstore/core/templates/account/email_confirm.html:20
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Deimhnigh le do thoil gur seoladh ríomhphoist é  <a "
-"href=\"mailto:%(email)s\">%(email)s</a> d’úsáideoir%(user_display)s."
+"Deimhnigh le do thoil gur seoladh ríomhphoist é  <a href=\"mailto:%(email)s"
+"\">%(email)s</a> d’úsáideoir%(user_display)s."
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:21
+#: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
 msgstr "Deimhnigh"
 
-#: nextcloudappstore/core/templates/account/email_confirm.html:28
+#: nextcloudappstore/core/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Chuaigh an nasc deimhnithe ríomhphoist seo in éag nó tá sé neamhbhailí.  "
 "Eisigh <a href=\"%(email_url)s\">iarratas deimhnithe ríomhphoist nua le do "
 "thoil</a>."
 
-#: nextcloudappstore/core/templates/account/login.html:5
-#: nextcloudappstore/core/templates/account/login.html:12
-#: nextcloudappstore/core/templates/account/login.html:21
-#: nextcloudappstore/core/templates/account/password_reset.html:7
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:7
-#: nextcloudappstore/core/templates/nav.html:128
+#: nextcloudappstore/core/templates/account/login.html:8
+#: nextcloudappstore/core/templates/account/login.html:15
+#: nextcloudappstore/core/templates/account/login.html:24
+#: nextcloudappstore/core/templates/account/password_reset.html:10
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:10
+#: nextcloudappstore/core/templates/nav.html:130
 msgid "Log in"
 msgstr "Logáil isteach"
 
-#: nextcloudappstore/core/templates/account/login.html:25
+#: nextcloudappstore/core/templates/account/login.html:28
 msgid "Forgot password?"
 msgstr "Dearmad ar pasfhocal?"
 
-#: nextcloudappstore/core/templates/account/login.html:35
-#: nextcloudappstore/core/templates/account/signup.html:29
+#: nextcloudappstore/core/templates/account/login.html:38
+#: nextcloudappstore/core/templates/account/signup.html:32
 msgid "Log in with GitHub"
 msgstr "Logáil isteach le GitHub"
 
-#: nextcloudappstore/core/templates/account/login.html:40
-#: nextcloudappstore/core/templates/account/signup.html:5
-#: nextcloudappstore/core/templates/account/signup.html:21
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:17
-#: nextcloudappstore/core/templates/app/register.html:28
-#: nextcloudappstore/core/templates/nav.html:134
-#: nextcloudappstore/core/templates/socialaccount/signup.html:5
-#: nextcloudappstore/core/templates/socialaccount/signup.html:13
-#: nextcloudappstore/core/templates/socialaccount/signup.html:21
+#: nextcloudappstore/core/templates/account/login.html:43
+#: nextcloudappstore/core/templates/account/signup.html:8
+#: nextcloudappstore/core/templates/account/signup.html:24
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:20
+#: nextcloudappstore/core/templates/app/register.html:31
+#: nextcloudappstore/core/templates/nav.html:136
+#: nextcloudappstore/core/templates/socialaccount/signup.html:8
+#: nextcloudappstore/core/templates/socialaccount/signup.html:16
+#: nextcloudappstore/core/templates/socialaccount/signup.html:24
 msgid "Register"
 msgstr "Clár"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:11
-#: nextcloudappstore/core/templates/account/password_reset_done.html:7
-#: nextcloudappstore/core/templates/account/password_reset_done.html:11
+#: nextcloudappstore/core/templates/account/password_reset.html:14
+#: nextcloudappstore/core/templates/account/password_reset_done.html:10
+#: nextcloudappstore/core/templates/account/password_reset_done.html:14
 msgid "Password Reset"
 msgstr "Athshocrú Pasfhocal"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:16
+#: nextcloudappstore/core/templates/account/password_reset.html:19
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
@@ -844,17 +850,17 @@ msgstr ""
 "Dearmad déanta agat ar do phasfhocal? Cuir isteach do sheoladh ríomhphoist "
 "thíos, agus seolfaimid ríomhphost chugat a ligeann duit é a athshocrú."
 
-#: nextcloudappstore/core/templates/account/password_reset.html:24
+#: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Reset My Password"
 msgstr "Athshocraigh Mo Phasfhocal"
 
-#: nextcloudappstore/core/templates/account/password_reset.html:31
+#: nextcloudappstore/core/templates/account/password_reset.html:34
 msgid "Please contact us if you have any trouble resetting your password"
 msgstr ""
 "Déan teagmháil linn le do thoil má tá aon deacracht agat do phasfhocal a "
 "athshocrú"
 
-#: nextcloudappstore/core/templates/account/password_reset_done.html:17
+#: nextcloudappstore/core/templates/account/password_reset_done.html:20
 msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
@@ -863,42 +869,42 @@ msgstr ""
 "d’fhillteán turscair. Seachas sin déan teagmháil linn mura bhfaigheann tú é "
 "i gceann cúpla bomaite."
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:14
 msgid "Bad API Token"
 msgstr "Droch Chomhartha API"
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:40
-#: nextcloudappstore/user/templates/user/password.html:8
-#: nextcloudappstore/user/templates/user/password.html:17
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:14
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
+#: nextcloudappstore/user/templates/user/password.html:11
+#: nextcloudappstore/user/templates/user/password.html:20
 msgid "Change Password"
 msgstr "Athraigh do phasfhocal"
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:18
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Bhí an nasc athshocraithe pasfhocail neamhbhailí, b'fhéidir toisc gur "
-"úsáideadh cheana é.  Iarr le do thoil <a "
-"href=\"%(passwd_reset_url)s\">phasfhocal nua a athshocrú1</a>."
+"úsáideadh cheana é.  Iarr le do thoil <a href=\"%(passwd_reset_url)s"
+"\">phasfhocal nua a athshocrú1</a>."
 
-#: nextcloudappstore/core/templates/account/password_reset_from_key.html:43
+#: nextcloudappstore/core/templates/account/password_reset_from_key.html:46
 msgid "Your password is now changed."
 msgstr "Tá do phasfhocal athraithe anois."
 
-#: nextcloudappstore/core/templates/account/signup.html:12
+#: nextcloudappstore/core/templates/account/signup.html:15
 msgid "Create an account"
 msgstr "Cruthaigh cuntas"
 
-#: nextcloudappstore/core/templates/account/verification_sent.html:6
-#: nextcloudappstore/core/templates/account/verification_sent.html:10
+#: nextcloudappstore/core/templates/account/verification_sent.html:9
+#: nextcloudappstore/core/templates/account/verification_sent.html:13
 msgid "Verify Your Email Address"
 msgstr "Fíoraigh Do Sheoladh Ríomhphoist"
 
-#: nextcloudappstore/core/templates/account/verification_sent.html:13
+#: nextcloudappstore/core/templates/account/verification_sent.html:16
 msgid ""
 "We have sent an email to you for verification. Follow the link provided to "
 "finalize the signup process. If you do not see the verification email in "
@@ -911,43 +917,43 @@ msgstr ""
 "teagmháil linn le do thoil mura bhfaigheann tú an ríomhphost fíorúcháin "
 "laistigh de chúpla nóiméad."
 
-#: nextcloudappstore/core/templates/admin/base_site.html:4
+#: nextcloudappstore/core/templates/admin/base_site.html:7
 msgid "Nextcloud App Store admin"
 msgstr "Riarthóir Nextcloud Siopa Aip"
 
-#: nextcloudappstore/core/templates/admin/base_site.html:11
+#: nextcloudappstore/core/templates/admin/base_site.html:14
 msgid "Nextcloud App Store administration"
 msgstr "Riarachán Nextcloud Siopa Aip"
 
-#: nextcloudappstore/core/templates/app/base.html:13
-#: nextcloudappstore/core/templates/app/list.html:6
+#: nextcloudappstore/core/templates/app/base.html:16
+#: nextcloudappstore/core/templates/app/list.html:9
 msgid "All apps"
 msgstr "Gach aip"
 
-#: nextcloudappstore/core/templates/app/base.html:19
-#: nextcloudappstore/core/templates/app/list.html:6
+#: nextcloudappstore/core/templates/app/base.html:22
+#: nextcloudappstore/core/templates/app/list.html:9
 msgid "Featured apps"
 msgstr "Aipeanna faoi thrácht"
 
-#: nextcloudappstore/core/templates/app/detail.html:16
-#: nextcloudappstore/core/templates/app/detail.html:17
+#: nextcloudappstore/core/templates/app/detail.html:19
+#: nextcloudappstore/core/templates/app/detail.html:20
 #, python-format
 msgid "Latest %(app_name)s releases"
 msgstr "Na %(app_name)s eisiúint is déanaí"
 
-#: nextcloudappstore/core/templates/app/detail.html:26
+#: nextcloudappstore/core/templates/app/detail.html:29
 msgid "Previous"
 msgstr "Roimhe Seo"
 
-#: nextcloudappstore/core/templates/app/detail.html:36
+#: nextcloudappstore/core/templates/app/detail.html:39
 msgid "Next"
 msgstr "Ar aghaidh"
 
-#: nextcloudappstore/core/templates/app/detail.html:45
+#: nextcloudappstore/core/templates/app/detail.html:48
 msgid "This app has become part of the Nextcloud Server release packages."
 msgstr "Tá an aip seo anois mar chuid de phacáistí eisiúna Nextcloud Server."
 
-#: nextcloudappstore/core/templates/app/detail.html:47
+#: nextcloudappstore/core/templates/app/detail.html:50
 msgid ""
 "It is no longer actively distributed via the app store, but when updating "
 "the Nextcloud Server the app will be updated to the latest version "
@@ -957,438 +963,439 @@ msgstr ""
 "nuair a nuashonrófar an Freastalaí Nextcloud déanfar an aip a nuashonrú go "
 "dtí an leagan is déanaí go huathoibríoch."
 
-#: nextcloudappstore/core/templates/app/detail.html:52
+#: nextcloudappstore/core/templates/app/detail.html:55
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
 "Níor tástáladh an aip seo leis na 3 eisiúint mhóra is déanaí de Nextcloud."
 
-#: nextcloudappstore/core/templates/app/detail.html:54
+#: nextcloudappstore/core/templates/app/detail.html:57
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
 msgstr ""
-"Seans nach ndéanfar é a chothabháil nó a thacú a thuilleadh agus d’fhéadfadh"
-" go mbeadh fadhbanna comhoiriúnachta aige nuair a úsáidtear é le leaganacha "
+"Seans nach ndéanfar é a chothabháil nó a thacú a thuilleadh agus d’fhéadfadh "
+"go mbeadh fadhbanna comhoiriúnachta aige nuair a úsáidtear é le leaganacha "
 "níos déanaí de Nextcloud."
 
-#: nextcloudappstore/core/templates/app/detail.html:60
+#: nextcloudappstore/core/templates/app/detail.html:63
 msgid "Orphan / Looking for Maintainer"
 msgstr "Dílleachta / Ag Lorg Cothaitheoir"
 
-#: nextcloudappstore/core/templates/app/detail.html:64
+#: nextcloudappstore/core/templates/app/detail.html:67
 msgid "Highest Nextcloud version"
 msgstr "Leagan Nextcloud is airde"
 
-#: nextcloudappstore/core/templates/app/detail.html:68
+#: nextcloudappstore/core/templates/app/detail.html:71
 msgid "Show all releases"
 msgstr "Taispeáin gach eagrán"
 
-#: nextcloudappstore/core/templates/app/detail.html:71
+#: nextcloudappstore/core/templates/app/detail.html:74
 msgid "Community rating"
 msgstr "Rátáil phobail"
 
-#: nextcloudappstore/core/templates/app/detail.html:75
+#: nextcloudappstore/core/templates/app/detail.html:78
 msgid "Author"
 msgstr "Údar"
 
-#: nextcloudappstore/core/templates/app/detail.html:97
+#: nextcloudappstore/core/templates/app/detail.html:100
 msgid "Last updated"
 msgstr "Nuashonraithe is déanaí"
 
-#: nextcloudappstore/core/templates/app/detail.html:105
+#: nextcloudappstore/core/templates/app/detail.html:108
 msgid "Resources"
 msgstr "Acmhainní"
 
-#: nextcloudappstore/core/templates/app/detail.html:111
+#: nextcloudappstore/core/templates/app/detail.html:114
 msgid "User documentation"
 msgstr "Doiciméadú úsáideora"
 
-#: nextcloudappstore/core/templates/app/detail.html:114
+#: nextcloudappstore/core/templates/app/detail.html:117
 msgid "Admin documentation"
 msgstr "Doiciméadúchán riaracháin"
 
-#: nextcloudappstore/core/templates/app/detail.html:117
-#: nextcloudappstore/core/templates/nav.html:28
+#: nextcloudappstore/core/templates/app/detail.html:120
+#: nextcloudappstore/core/templates/nav.html:30
 msgid "Developer documentation"
 msgstr "Doiciméadú forbróra"
 
-#: nextcloudappstore/core/templates/app/detail.html:123
+#: nextcloudappstore/core/templates/app/detail.html:126
 msgid "Interact"
 msgstr "Idirghníomhú"
 
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/templates/app/detail.html:132
 msgid "Report problem"
 msgstr "Tuairiscigh fadhb"
 
-#: nextcloudappstore/core/templates/app/detail.html:135
+#: nextcloudappstore/core/templates/app/detail.html:138
 msgid "Request feature"
 msgstr "Iarr gné"
 
-#: nextcloudappstore/core/templates/app/detail.html:142
+#: nextcloudappstore/core/templates/app/detail.html:145
 msgid "Ask questions or discuss"
 msgstr "Cuir ceisteanna nó pléigh"
 
-#: nextcloudappstore/core/templates/app/detail.html:147
+#: nextcloudappstore/core/templates/app/detail.html:150
 msgid "Donate"
 msgstr "Síntiúis"
 
-#: nextcloudappstore/core/templates/app/detail.html:160
+#: nextcloudappstore/core/templates/app/detail.html:163
 msgid "Need Enterprise Support?"
 msgstr "Tacaíocht Fiontraíochta de dhíth?"
 
-#: nextcloudappstore/core/templates/app/detail.html:165
+#: nextcloudappstore/core/templates/app/detail.html:168
 msgid "Request quote"
 msgstr "Iarr ceanglófar"
 
-#: nextcloudappstore/core/templates/app/detail.html:167
+#: nextcloudappstore/core/templates/app/detail.html:170
 msgid "Recommended for large Nextcloud installations only."
 msgstr "Moltar do shuiteálacha móra Nextcloud amháin."
 
-#: nextcloudappstore/core/templates/app/detail.html:178
-#: nextcloudappstore/core/templates/app/releases.html:4
-#: nextcloudappstore/core/templates/app/releases.html:12
+#: nextcloudappstore/core/templates/app/detail.html:181
+#: nextcloudappstore/core/templates/app/releases.html:7
+#: nextcloudappstore/core/templates/app/releases.html:15
 msgid "Releases"
 msgstr "Scaoileadh"
 
-#: nextcloudappstore/core/templates/app/detail.html:183
+#: nextcloudappstore/core/templates/app/detail.html:186
 msgid "Stable channel"
 msgstr "Cainéal cobhsaí"
 
-#: nextcloudappstore/core/templates/app/detail.html:184
+#: nextcloudappstore/core/templates/app/detail.html:187
 msgid "Nightly channel"
 msgstr "Cainéal oíche"
 
-#: nextcloudappstore/core/templates/app/detail.html:185
+#: nextcloudappstore/core/templates/app/detail.html:188
 msgid "All releases"
 msgstr "Gach eisiúint"
 
-#: nextcloudappstore/core/templates/app/detail.html:193
-#: nextcloudappstore/core/templates/app/releases.html:23
-#: nextcloudappstore/core/templates/app/releases.html:86
+#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/releases.html:26
+#: nextcloudappstore/core/templates/app/releases.html:89
 msgid "nightly"
 msgstr "Gach oíche"
 
-#: nextcloudappstore/core/templates/app/detail.html:193
+#: nextcloudappstore/core/templates/app/detail.html:196
 msgid "Unstable"
 msgstr "Éagobhsaí"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:217
 msgid "Ok"
 msgstr "Ceart go leor"
 
-#: nextcloudappstore/core/templates/app/detail.html:235
-#: nextcloudappstore/core/templates/app/detail.html:249
+#: nextcloudappstore/core/templates/app/detail.html:238
+#: nextcloudappstore/core/templates/app/detail.html:252
 msgid "Appeal for spam"
 msgstr "Achomharc i leith turscair"
 
-#: nextcloudappstore/core/templates/app/detail.html:240
-#: nextcloudappstore/core/templates/app/detail.html:253
+#: nextcloudappstore/core/templates/app/detail.html:243
+#: nextcloudappstore/core/templates/app/detail.html:256
 msgid "Cancel spam appeal"
 msgstr "Cealaigh an t-achomharc turscair"
 
-#: nextcloudappstore/core/templates/app/detail.html:244
+#: nextcloudappstore/core/templates/app/detail.html:247
 msgid "Delete spam comment"
 msgstr "Scrios trácht turscair"
 
-#: nextcloudappstore/core/templates/app/detail.html:264
+#: nextcloudappstore/core/templates/app/detail.html:267
 msgid "No comments found."
 msgstr "Níor aimsíodh aon trácht."
 
-#: nextcloudappstore/core/templates/app/detail.html:273
+#: nextcloudappstore/core/templates/app/detail.html:276
 msgid "Comments"
 msgstr "Tuairimí"
 
-#: nextcloudappstore/core/templates/app/detail.html:280
+#: nextcloudappstore/core/templates/app/detail.html:283
 msgid "Rate app"
 msgstr "Aip rátáil"
 
-#: nextcloudappstore/core/templates/app/detail.html:280
+#: nextcloudappstore/core/templates/app/detail.html:283
 msgid "Rate integration"
 msgstr "Comhtháthú rátaí"
 
-#: nextcloudappstore/core/templates/app/detail.html:286
+#: nextcloudappstore/core/templates/app/detail.html:289
 msgid "Your comment"
 msgstr "Do thuairim"
 
-#: nextcloudappstore/core/templates/app/detail.html:291
+#: nextcloudappstore/core/templates/app/detail.html:294
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
-"Tacaíonn tuairimí rátála le <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Ná húsáid tuairimí rátála chun fabhtanna a thuairisciú nó chun gnéithe a "
-"iarraidh. Ní chuirfear do thuairimí in iúl d’fhorbróirí ná d’úsáideoirí. Tá "
-"rátáil gan trácht fós san áireamh, ach ní bheidh sé liostaithe thíos"
+"Tacaíonn tuairimí rátála le <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Ná húsáid "
+"tuairimí rátála chun fabhtanna a thuairisciú nó chun gnéithe a iarraidh. Ní "
+"chuirfear do thuairimí in iúl d’fhorbróirí ná d’úsáideoirí. Tá rátáil gan "
+"trácht fós san áireamh, ach ní bheidh sé liostaithe thíos"
 
-#: nextcloudappstore/core/templates/app/detail.html:296
+#: nextcloudappstore/core/templates/app/detail.html:299
 msgid "Update rating"
 msgstr "Nuashonraigh rátáil"
 
-#: nextcloudappstore/core/templates/app/detail.html:298
+#: nextcloudappstore/core/templates/app/detail.html:301
 msgid "Submit rating"
 msgstr "Cuir rátáil isteach"
 
-#: nextcloudappstore/core/templates/app/detail.html:309
+#: nextcloudappstore/core/templates/app/detail.html:312
 msgid "Switch language for the comments:"
 msgstr "Athraigh teanga le haghaidh na dtuairimí:"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:69
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
+#: nextcloudappstore/core/templates/nav.html:71
 msgid "Register integration"
 msgstr "Comhtháthú a chlárú"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
 msgid "Moderate integration"
 msgstr "Comhtháthú measartha"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:4
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:8
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:7
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:11
 msgid "Edit integration"
 msgstr "Cuir comhtháthú in eagar"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:19
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:22
 msgid "Update"
 msgstr "Nuashonrú"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:27
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:30
 msgid "Approve"
 msgstr "Cheadaigh"
 
-#: nextcloudappstore/core/templates/app/integration_scaffold.html:28
+#: nextcloudappstore/core/templates/app/integration_scaffold.html:31
 msgid "Reject"
 msgstr "Diúltaigh"
 
-#: nextcloudappstore/core/templates/app/list.html:20
+#: nextcloudappstore/core/templates/app/list.html:23
 msgid "Relevance"
 msgstr "Ábharthacht"
 
-#: nextcloudappstore/core/templates/app/list.html:33
-#: nextcloudappstore/core/templates/app/list.html:40
-#: nextcloudappstore/core/templates/app/list.html:47
+#: nextcloudappstore/core/templates/app/list.html:36
+#: nextcloudappstore/core/templates/app/list.html:43
+#: nextcloudappstore/core/templates/app/list.html:50
 msgid "Alphabetically"
 msgstr "In ord aibítre"
 
-#: nextcloudappstore/core/templates/app/list.html:54
+#: nextcloudappstore/core/templates/app/list.html:57
 msgid "Latest release"
 msgstr "Eisiúint is déanaí"
 
-#: nextcloudappstore/core/templates/app/list.html:60
+#: nextcloudappstore/core/templates/app/list.html:63
 msgid "Rating (recent)"
 msgstr "Rátáil (le déanaí)"
 
-#: nextcloudappstore/core/templates/app/list.html:74
+#: nextcloudappstore/core/templates/app/list.html:77
 msgid "My apps"
 msgstr "Mo chuid aipeanna"
 
-#: nextcloudappstore/core/templates/app/list.html:114
+#: nextcloudappstore/core/templates/app/list.html:117
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
 msgstr ""
 "Níor aimsíodh aipeanna le haghaidh cuardaigh \"1%(query)s1\" i %(category)s."
 
-#: nextcloudappstore/core/templates/app/list.html:116
+#: nextcloudappstore/core/templates/app/list.html:119
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\"."
 msgstr "Níor aimsíodh aipeanna don chuardach \"1%(query)s1\"."
 
-#: nextcloudappstore/core/templates/app/register.html:5
-#: nextcloudappstore/core/templates/app/register.html:14
-#: nextcloudappstore/core/templates/nav.html:55
+#: nextcloudappstore/core/templates/app/register.html:8
+#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
 msgstr "Clárú aip"
 
-#: nextcloudappstore/core/templates/app/register.html:16
+#: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"Le haghaidh tuilleadh faisnéise ar conas an deimhniú a fháil agus an síniú a"
-" chruthú, seiceáil an <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\"> d’fhorbróirí aip</a>."
+"Le haghaidh tuilleadh faisnéise ar conas an deimhniú a fháil agus an síniú a "
+"chruthú, seiceáil an <a href=\"http://nextcloudappstore.readthedocs.io/en/"
+"latest/developer.html\" rel=\"noopener norefferer\"> d’fhorbróirí aip</a>."
 
-#: nextcloudappstore/core/templates/app/register.html:17
+#: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 
-#: nextcloudappstore/core/templates/app/register.html:19
+#: nextcloudappstore/core/templates/app/register.html:22
 msgid "Not a public certificate"
 msgstr "Ní deimhniú poiblí é"
 
-#: nextcloudappstore/core/templates/app/register.html:20
+#: nextcloudappstore/core/templates/app/register.html:23
 msgid "App registered."
 msgstr "Cláraíodh an aip."
 
-#: nextcloudappstore/core/templates/app/releases.html:13
+#: nextcloudappstore/core/templates/app/releases.html:16
 msgid "App details"
 msgstr "Sonraí an aip"
 
-#: nextcloudappstore/core/templates/app/releases.html:26
+#: nextcloudappstore/core/templates/app/releases.html:29
 msgid "Release Details"
 msgstr "Sonraí Eisiúna"
 
-#: nextcloudappstore/core/templates/app/releases.html:27
+#: nextcloudappstore/core/templates/app/releases.html:30
 msgid "Updated"
 msgstr "Nuashonraithe"
 
-#: nextcloudappstore/core/templates/app/releases.html:41
+#: nextcloudappstore/core/templates/app/releases.html:44
 msgid "Signature digest"
 msgstr "Achoimre sínithe"
 
-#: nextcloudappstore/core/templates/app/releases.html:44
+#: nextcloudappstore/core/templates/app/releases.html:47
 msgid "Dependencies"
 msgstr "Spleáchais"
 
-#: nextcloudappstore/core/templates/app/releases.html:46
+#: nextcloudappstore/core/templates/app/releases.html:49
 msgid "Required Nextcloud versions"
 msgstr "Leaganacha Nextcloud riachtanach"
 
-#: nextcloudappstore/core/templates/app/releases.html:71
+#: nextcloudappstore/core/templates/app/releases.html:74
 msgid "PHP"
 msgstr "PHP"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:4
-#: nextcloudappstore/core/templates/app/scaffold.html:8
-#: nextcloudappstore/core/templates/nav.html:47
+#: nextcloudappstore/core/templates/app/scaffold.html:7
+#: nextcloudappstore/core/templates/app/scaffold.html:11
+#: nextcloudappstore/core/templates/nav.html:49
 msgid "Generate app"
 msgstr "Gin aip"
 
-#: nextcloudappstore/core/templates/app/scaffold.html:15
+#: nextcloudappstore/core/templates/app/scaffold.html:18
 msgid "Generate and download"
 msgstr "Gin agus íoslódáil"
 
-#: nextcloudappstore/core/templates/app/upload.html:5
-#: nextcloudappstore/core/templates/app/upload.html:13
-#: nextcloudappstore/core/templates/nav.html:61
+#: nextcloudappstore/core/templates/app/upload.html:8
+#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/nav.html:63
 msgid "Upload app release"
 msgstr "Íoslódáil an aip a scaoileadh"
 
-#: nextcloudappstore/core/templates/app/upload.html:15
 #: nextcloudappstore/core/templates/app/upload.html:18
+#: nextcloudappstore/core/templates/app/upload.html:21
 msgid "App release successfully uploaded."
 msgstr "D'éirigh le heisiúint an aip a uaslódáil."
 
-#: nextcloudappstore/core/templates/app/upload.html:16
+#: nextcloudappstore/core/templates/app/upload.html:19
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Le haghaidh tuilleadh eolais ar conas an síniú a chruthú féach ar an <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">aip forbróir treoir</a>."
+"Le haghaidh tuilleadh eolais ar conas an síniú a chruthú féach ar an <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">aip forbróir treoir</a>."
 
-#: nextcloudappstore/core/templates/app/upload.html:25
+#: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
 msgstr "Uaslódáil"
 
-#: nextcloudappstore/core/templates/base.html:8
+#: nextcloudappstore/core/templates/base.html:10
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
 msgstr ""
-"The Nextcloud Siopa Aip - Uaslódáil do chuid aipeanna agus suiteáil aipeanna"
-" nua ar do Nextcloud"
+"The Nextcloud Siopa Aip - Uaslódáil do chuid aipeanna agus suiteáil aipeanna "
+"nua ar do Nextcloud"
 
-#: nextcloudappstore/core/templates/base.html:9
+#: nextcloudappstore/core/templates/base.html:11
 msgid "The Nextcloud Community"
 msgstr "Pobal Nextcloud"
 
-#: nextcloudappstore/core/templates/base.html:21
-#: nextcloudappstore/core/templates/base.html:22
+#: nextcloudappstore/core/templates/base.html:23
+#: nextcloudappstore/core/templates/base.html:24
 msgid "Latest app releases"
 msgstr "Na heisiúintí aip is déanaí"
 
-#: nextcloudappstore/core/templates/base.html:48
+#: nextcloudappstore/core/templates/base.html:50
 msgid "Contribute to the app store"
 msgstr "Cur leis an siopa aip"
 
-#: nextcloudappstore/core/templates/base.html:54
+#: nextcloudappstore/core/templates/base.html:56
 msgid "Privacy and legal"
 msgstr "Príobháideacht agus dlíthiúil"
 
-#: nextcloudappstore/core/templates/base.html:60
+#: nextcloudappstore/core/templates/base.html:62
 msgid "Legal notice"
 msgstr "Fógra dlíthiúil"
 
-#: nextcloudappstore/core/templates/form-fields.html:23
-#: nextcloudappstore/user/templates/user/set-language.html:13
+#: nextcloudappstore/core/templates/form-fields.html:25
+#: nextcloudappstore/user/templates/user/set-language.html:16
 msgid "required field"
 msgstr "Réimse riachtanach"
 
-#: nextcloudappstore/core/templates/nav.html:16
+#: nextcloudappstore/core/templates/nav.html:18
 msgid "Resources for developers"
 msgstr "Acmhainní d'fhorbróirí"
 
-#: nextcloudappstore/core/templates/nav.html:22
+#: nextcloudappstore/core/templates/nav.html:24
 msgid "Develop for Nextcloud"
 msgstr "Forbair do Nextcloud"
 
-#: nextcloudappstore/core/templates/nav.html:34
+#: nextcloudappstore/core/templates/nav.html:36
 msgid "Request translations"
 msgstr "Iarr aistriúcháin"
 
-#: nextcloudappstore/core/templates/nav.html:41
+#: nextcloudappstore/core/templates/nav.html:43
 msgid "Submit your app"
 msgstr "Cuir isteach d'aip"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 #, python-format
 msgid "Search in %(category)s"
 msgstr "Cuardaigh isteach %(category)s"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 msgid "Search in featured apps"
 msgstr "Cuardaigh in aipeanna faoi thrácht"
 
-#: nextcloudappstore/core/templates/nav.html:91
+#: nextcloudappstore/core/templates/nav.html:93
 msgid "Search in all apps"
 msgstr "Cuardaigh i ngach feidhmchlár"
 
-#: nextcloudappstore/core/templates/nav.html:99
+#: nextcloudappstore/core/templates/nav.html:101
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "Cuardach"
 
-#: nextcloudappstore/core/templates/nav.html:107
+#: nextcloudappstore/core/templates/nav.html:109
 msgid "Admin"
 msgstr "Riarachán"
 
-#: nextcloudappstore/core/templates/nav.html:115
-#: nextcloudappstore/user/templates/user/account.html:5
+#: nextcloudappstore/core/templates/nav.html:117
 #: nextcloudappstore/user/templates/user/account.html:8
-#: nextcloudappstore/user/templates/user/base.html:5
-#: nextcloudappstore/user/templates/user/base.html:14
+#: nextcloudappstore/user/templates/user/account.html:11
+#: nextcloudappstore/user/templates/user/base.html:8
+#: nextcloudappstore/user/templates/user/base.html:17
 msgid "Account"
 msgstr "Cuntas"
 
-#: nextcloudappstore/core/templates/nav.html:121
+#: nextcloudappstore/core/templates/nav.html:123
 msgid "Log out"
 msgstr "Logáil Amach"
 
-#: nextcloudappstore/core/templates/socialaccount/signup.html:15
+#: nextcloudappstore/core/templates/socialaccount/signup.html:18
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Tá tú ar tí do chuntas%(provider_name)s a úsáid chun logáil isteach\n"
-"            %(site_name)s. Mar chéim dheiridh, comhlánaigh an fhoirm seo a leanas le do thoil:"
+"            %(site_name)s. Mar chéim dheiridh, comhlánaigh an fhoirm seo a "
+"leanas le do thoil:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1544,8 +1551,8 @@ msgid "The app name must be pascal case e.g. MyApp"
 msgstr "Ní mór ainm na haipe a bheith mar chás pascal m.sh. MyApp"
 
 #: nextcloudappstore/scaffolding/forms.py:42
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:15
-#: nextcloudappstore/user/templates/user/transfer-apps.html:16
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:18
+#: nextcloudappstore/user/templates/user/transfer-apps.html:19
 msgid "App name"
 msgstr "Ainm aip"
 
@@ -1592,8 +1599,8 @@ msgstr ""
 "aiseolas a iarraidh ar ár gclár forbróra."
 
 #: nextcloudappstore/scaffolding/forms.py:79
-#: nextcloudappstore/user/templates/user/integrations.html:13
-#: nextcloudappstore/user/templates/user/integrations.html:36
+#: nextcloudappstore/user/templates/user/integrations.html:16
+#: nextcloudappstore/user/templates/user/integrations.html:39
 msgid "Integration name"
 msgstr "Ainm comhtháthú"
 
@@ -1623,46 +1630,44 @@ msgstr ""
 "Cur síos iomlán ar cad a dhéanann do chomhtháthú. Is féidir Markdown a "
 "bheith ann."
 
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:5
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:9
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:7
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
 msgid "Third-Party Login Failure"
 msgstr "Teip Logála Isteach Tríú Páirtí"
 
-#: nextcloudappstore/templates/socialaccount/authentication_error.html:11
+#: nextcloudappstore/templates/socialaccount/authentication_error.html:13
 msgid ""
 "An error occurred while attempting to login via your third-party account."
 msgstr ""
 "Tharla earráid agus iarracht á déanamh logáil isteach trí do chuntas tríú "
 "páirtí."
 
-#: nextcloudappstore/templates/socialaccount/login.html:6
+#: nextcloudappstore/templates/socialaccount/login.html:9
 msgid "Sign In"
 msgstr "Sínigh isteach"
 
-#: nextcloudappstore/templates/socialaccount/login.html:11
+#: nextcloudappstore/templates/socialaccount/login.html:14
 #, python-format
 msgid "Connect %(provider)s"
 msgstr "Ceangail %(provider)s"
 
-#: nextcloudappstore/templates/socialaccount/login.html:14
+#: nextcloudappstore/templates/socialaccount/login.html:17
 #, python-format
 msgid "You are about to connect a new third-party account from %(provider)s."
 msgstr "Tá tú ar tí cuntas nua tríú páirtí a nascadh ó  %(provider)s."
 
-#: nextcloudappstore/templates/socialaccount/login.html:18
+#: nextcloudappstore/templates/socialaccount/login.html:21
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr "Sínigh Isteach Trí%(provider)s"
 
-#: nextcloudappstore/templates/socialaccount/login.html:21
+#: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
-"Tá tú ar tí síniú isteach ag baint úsáid as cuntas tríú páirtí "
-"ó%(provider)s."
+"Tá tú ar tí síniú isteach ag baint úsáid as cuntas tríú páirtí ó%(provider)s."
 
-#: nextcloudappstore/templates/socialaccount/login.html:28
+#: nextcloudappstore/templates/socialaccount/login.html:31
 msgid "Continue"
 msgstr "Leanúint ar aghaidh"
 
@@ -1745,98 +1750,104 @@ msgstr ""
 "Tá do phasfhocal siopa aip Nextcloud athraithe. Déan teagmháil le tacaíocht "
 "mura tusa a bhí ann."
 
-#: nextcloudappstore/user/templates/user/account.html:15
+#: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
 msgstr "Sábháil"
 
-#: nextcloudappstore/user/templates/user/api-token.html:9
 #: nextcloudappstore/user/templates/user/api-token.html:12
+#: nextcloudappstore/user/templates/user/api-token.html:15
 msgid "API Token"
 msgstr "Comhartha API"
 
-#: nextcloudappstore/user/templates/user/api-token.html:15
+#: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Is féidir an comhartha API a úsáid le haghaidh fíordheimhnithe agus glaoch ar an siopa aip Nextcloud\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Bí cinnte é a choinneáil faoi rún. Is féidir comhartha nua a ghiniúint thíos, rud a fhágann go bhfuil an seanchomhartha neamhbhailí.\n"
+"                Is féidir an comhartha API a úsáid le haghaidh "
+"fíordheimhnithe agus glaoch ar an siopa aip Nextcloud\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Bí cinnte é a choinneáil faoi rún. Is féidir comhartha nua a "
+"ghiniúint thíos, rud a fhágann go bhfuil an seanchomhartha neamhbhailí.\n"
 "            "
 
-#: nextcloudappstore/user/templates/user/api-token.html:22
+#: nextcloudappstore/user/templates/user/api-token.html:25
 msgid "Your API token is:"
 msgstr "Is é do chomhartha API:"
 
-#: nextcloudappstore/user/templates/user/api-token.html:27
+#: nextcloudappstore/user/templates/user/api-token.html:30
 msgid "New API token generated."
 msgstr "Gineadh comhartha API nua."
 
-#: nextcloudappstore/user/templates/user/api-token.html:32
+#: nextcloudappstore/user/templates/user/api-token.html:35
 msgid "Regenerate API token"
 msgstr "Athghin comhartha API"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:5
+#: nextcloudappstore/user/templates/user/appeal-comments.html:8
 msgid "Appeal commentaries"
 msgstr "Tráchtairí achomhairc"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:9
+#: nextcloudappstore/user/templates/user/appeal-comments.html:12
 msgid "Comments Pending Appeal"
 msgstr "Tuairimí ar Feitheamh Achomharc"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:14
+#: nextcloudappstore/user/templates/user/appeal-comments.html:17
 msgid "Comment author"
 msgstr "Údar tuairimí"
 
-#: nextcloudappstore/user/templates/user/appeal-comments.html:25
+#: nextcloudappstore/user/templates/user/appeal-comments.html:28
 msgid "Go to"
 msgstr "Téigh"
 
-#: nextcloudappstore/user/templates/user/base.html:20
-#: nextcloudappstore/user/templates/user/integrations.html:5
+#: nextcloudappstore/user/templates/user/base.html:23
+#: nextcloudappstore/user/templates/user/integrations.html:8
 msgid "Integrations"
 msgstr "Comhtháthaithe"
 
-#: nextcloudappstore/user/templates/user/base.html:26
+#: nextcloudappstore/user/templates/user/base.html:29
 msgid "Transfer app ownership"
 msgstr "Aistrigh úinéireacht aip"
 
-#: nextcloudappstore/user/templates/user/base.html:32
+#: nextcloudappstore/user/templates/user/base.html:35
 msgid "Enterprise support"
 msgstr "Tacaíocht fiontraíochta"
 
-#: nextcloudappstore/user/templates/user/base.html:38
-#: nextcloudappstore/user/templates/user/set-language.html:4
+#: nextcloudappstore/user/templates/user/base.html:41
 #: nextcloudappstore/user/templates/user/set-language.html:7
-#: nextcloudappstore/user/templates/user/set-language.html:29
+#: nextcloudappstore/user/templates/user/set-language.html:10
+#: nextcloudappstore/user/templates/user/set-language.html:32
 msgid "Change language"
 msgstr "Athrú teanga"
 
-#: nextcloudappstore/user/templates/user/base.html:45
-#: nextcloudappstore/user/templates/user/password.html:5
+#: nextcloudappstore/user/templates/user/base.html:48
+#: nextcloudappstore/user/templates/user/password.html:8
 msgid "Password"
 msgstr "Pasfhocal"
 
-#: nextcloudappstore/user/templates/user/base.html:52
+#: nextcloudappstore/user/templates/user/base.html:55
 msgid "API token"
 msgstr "Comhartha API"
 
-#: nextcloudappstore/user/templates/user/base.html:58
-#: nextcloudappstore/user/templates/user/delete-account.html:5
+#: nextcloudappstore/user/templates/user/base.html:61
 #: nextcloudappstore/user/templates/user/delete-account.html:8
-#: nextcloudappstore/user/templates/user/delete-account.html:17
+#: nextcloudappstore/user/templates/user/delete-account.html:11
+#: nextcloudappstore/user/templates/user/delete-account.html:20
 msgid "Delete account"
 msgstr "Scrios cuntas"
 
-#: nextcloudappstore/user/templates/user/base.html:65
+#: nextcloudappstore/user/templates/user/base.html:68
 msgid "Appeal comments"
 msgstr "Tuairimí achomhairc"
 
-#: nextcloudappstore/user/templates/user/delete-account.html:10
+#: nextcloudappstore/user/templates/user/delete-account.html:13
 msgid ""
 "Deleting your account will delete all your apps and releases as well. To "
 "delete your account, insert your email address into the input field and "
@@ -1846,12 +1857,12 @@ msgstr ""
 "freisin. Chun do chuntas a scriosadh, cuir do sheoladh ríomhphoist isteach "
 "sa réimse ionchuir agus cliceáil ar an gcnaipe \"Scrios cuntas\"."
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:5
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:11
 msgid "Enterprise App Support"
 msgstr "Tacaíocht Aip Fiontraíochta"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:10
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:13
 msgid ""
 "If an app is available to receive enterprise support, you can mark the app "
 "as such here. This will add a 'Request quote' button to the app's details "
@@ -1864,148 +1875,148 @@ msgstr ""
 "Apps. Ní féidir tacaíocht den sórt sin a iarraidh ach amháin le haghaidh "
 "suiteálacha móra Nextcloud."
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:16
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:19
 msgid "Support status"
 msgstr "Stádas tacaíochta"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:17
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:20
 msgid "Change support status"
 msgstr "Athraigh stádas tacaíochta"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:24
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:27
 msgid "Supported"
 msgstr "Tacaithe"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:26
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:29
 msgid "Unsupported"
 msgstr "Gan tacaíocht"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:33
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:36
 msgid "Mark as unsupported"
 msgstr "Marcáil mar nach dtacaítear leis"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:35
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:38
 msgid "Mark as supported"
 msgstr "Marcáil mar thacaíocht"
 
-#: nextcloudappstore/user/templates/user/enterprise-apps.html:43
-#: nextcloudappstore/user/templates/user/transfer-apps.html:63
+#: nextcloudappstore/user/templates/user/enterprise-apps.html:46
+#: nextcloudappstore/user/templates/user/transfer-apps.html:66
 msgid "You have not uploaded any apps yet!"
 msgstr "Níl aon aip uaslódáilte agat fós!"
 
-#: nextcloudappstore/user/templates/user/integrations.html:9
+#: nextcloudappstore/user/templates/user/integrations.html:12
 msgid "Pending approval"
 msgstr "Le ceadú"
 
-#: nextcloudappstore/user/templates/user/integrations.html:14
-#: nextcloudappstore/user/templates/user/integrations.html:37
+#: nextcloudappstore/user/templates/user/integrations.html:17
+#: nextcloudappstore/user/templates/user/integrations.html:40
 msgid "Actions"
 msgstr "Gníomhartha"
 
-#: nextcloudappstore/user/templates/user/integrations.html:22
+#: nextcloudappstore/user/templates/user/integrations.html:25
 msgid "View"
 msgstr "Amharc"
 
-#: nextcloudappstore/user/templates/user/integrations.html:31
+#: nextcloudappstore/user/templates/user/integrations.html:34
 msgid "Your integrations"
 msgstr "Do chomhtháthú"
 
-#: nextcloudappstore/user/templates/user/integrations.html:45
+#: nextcloudappstore/user/templates/user/integrations.html:48
 msgid "Edit"
 msgstr "Cuir in eagar"
 
-#: nextcloudappstore/user/templates/user/integrations.html:52
+#: nextcloudappstore/user/templates/user/integrations.html:55
 msgid ""
 "You have not submitted any integration yet or they are pending approval!"
 msgstr ""
 "Níl aon chomhtháthú curtha isteach agat go fóill nó tá siad ar feitheamh "
 "ceadú!"
 
-#: nextcloudappstore/user/templates/user/password.html:10
+#: nextcloudappstore/user/templates/user/password.html:13
 msgid "Changing your password will also regenerate your API token!"
 msgstr ""
 "Má athraítear do phasfhocal, déanfar do chomhartha API a athghiniúint "
 "freisin!"
 
-#: nextcloudappstore/user/templates/user/password.html:22
+#: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Is cosúil go bhfuil tú ag baint úsáide as cuntas atá cláraithe le soláthraí "
 "tríú páirtí.  Mar sin is féidir do phasfhocal <strong>a athrú </strong> ón "
 "leathanach seo."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:5
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
+#: nextcloudappstore/user/templates/user/transfer-apps.html:11
 msgid "Transfer Apps"
 msgstr "Aipeanna a Aistriú"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:10
+#: nextcloudappstore/user/templates/user/transfer-apps.html:13
 msgid ""
 "To transfer an app to a new owner you must first unlock the app. A user can "
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
 "Chun aip a aistriú chuig úinéir nua ní mór duit an aip a dhíghlasáil ar "
-"dtús. Is féidir le húsáideoir ansin smacht a ghlacadh ar an aip trína chlárú"
-" arís ar leathanach clárúcháin na haipe i roghchlár forbróir na haipe."
+"dtús. Is féidir le húsáideoir ansin smacht a ghlacadh ar an aip trína chlárú "
+"arís ar leathanach clárúcháin na haipe i roghchlár forbróir na haipe."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:11
+#: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 "Nach bhfuil úinéir nua agat fós? Is féidir leat an aip a mharcáil mar "
 "dhílleachtaí lena chur in iúl go bhfuil úinéir nua á lorg agat. Nuair a "
 "bheidh an t-aistriú críochnaithe, beidh an app a mharcáil go huathoibríoch "
 "mar neamh-dílleachtaithe / chothabháil arís."
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:17
+#: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Ownership transfer status"
 msgstr "Stádas aistrithe úinéireachta"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:18
+#: nextcloudappstore/user/templates/user/transfer-apps.html:21
 msgid "App status"
 msgstr "Stádas an aip"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:19
+#: nextcloudappstore/user/templates/user/transfer-apps.html:22
 msgid "Change ownership transfer status"
 msgstr "Athraigh stádas aistrithe úinéireachta"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:20
+#: nextcloudappstore/user/templates/user/transfer-apps.html:23
 msgid "Change app status"
 msgstr "Athraigh stádas an aip"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:27
+#: nextcloudappstore/user/templates/user/transfer-apps.html:30
 msgid "Unlocked"
 msgstr "Díghlasáilte"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:29
+#: nextcloudappstore/user/templates/user/transfer-apps.html:32
 msgid "Locked"
 msgstr "Faoi ghlas"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:34
+#: nextcloudappstore/user/templates/user/transfer-apps.html:37
 msgid "Orphaned"
 msgstr "Dílleachtaí"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:36
+#: nextcloudappstore/user/templates/user/transfer-apps.html:39
 msgid "Maintained"
 msgstr "Chothabháil"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:43
+#: nextcloudappstore/user/templates/user/transfer-apps.html:46
 msgid "Lock ownership transfer"
 msgstr "Glasáil aistriú úinéireachta"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:45
+#: nextcloudappstore/user/templates/user/transfer-apps.html:48
 msgid "Unlock ownership transfer"
 msgstr "Díghlasáil aistriú úinéireachta"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:53
+#: nextcloudappstore/user/templates/user/transfer-apps.html:56
 msgid "Mark as maintained"
 msgstr "Marcáil mar a chothabháil"
 
-#: nextcloudappstore/user/templates/user/transfer-apps.html:55
+#: nextcloudappstore/user/templates/user/transfer-apps.html:58
 msgid "Mark as orphaned"
 msgstr "Marcáil mar dhílleachtaí"
