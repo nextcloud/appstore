@@ -4,6 +4,7 @@
 -->
 # Nextcloud App Store
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/appstore)](https://api.reuse.software/info/github.com/nextcloud/appstore)
 [![Analysis & Coverage](https://github.com/nextcloud/appstore/actions/workflows/analysis-coverage.yml/badge.svg)](https://github.com/nextcloud/appstore/actions/workflows/analysis-coverage.yml)
 [![codecov](https://codecov.io/gh/nextcloud/appstore/branch/master/graph/badge.svg?token=ABLI0g5G9q)](https://codecov.io/gh/nextcloud/appstore)
 [![Documentation Status](https://readthedocs.org/projects/nextcloudappstore/badge/?version=latest)](http://nextcloudappstore.readthedocs.io/en/latest/?badge=latest)
