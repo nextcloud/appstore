@@ -12,12 +12,21 @@ from os.path import basename, isdir, join, relpath
 from nextcloudappstore.core.facades import resolve_file_relative_path
 
 
+def escape_xml_value(arg: str) -> str:
+    xml_escape_chars = r"[\&\"'<>]"
+    if not re.search(xml_escape_chars, arg):
+        return arg
+
+    # Sanitize inner CDATA sections and wrap entire string in CDATA section
+    return "<![CDATA[" + re.sub("]]>", "]]&gt;", arg) + "]]>"
+
+
 def build_files(args: dict[str, str]) -> dict[str, str]:
     id = args["name"].lower()
     name = " ".join(re.findall(r"[A-Z][^A-Z]*", args["name"]))
-    summary = args["summary"]
-    description = args["description"]
-    author_name = args["author_name"]
+    summary = escape_xml_value(args["summary"])
+    description = escape_xml_value(args["description"])
+    author_name = escape_xml_value(args["author_name"])
     author_mail = args["author_email"]
     author_homepage = args["author_homepage"]
     namespace = args["name"]
