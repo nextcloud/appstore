@@ -6,6 +6,46 @@
 
 ## [Unreleased]
 
+## [4.10.0]  - 2024-05-30
+
+### Added
+
+- REUSE compliance. #1603 #1604 #1607 #1608 #1614
+- AI category. #1594 #1596
+- SPDX identifiers for currently supported licenses as `licence` XML values
+  (for apps targeting Nextcloud versions 31 or later). #1560
+- Note marking bundled apps as shipped. #1561
+- Check if app is in hardcoded bundled list. #1558
+- Odoo integration (newsletter mailing list). #1518 #1523 #1524 #1525 #1527
+- Search by app ID. #1469
+- Cache for `60 sec` for `latest_releases_by_platform_v` method. #1468
+
+### Changed
+
+- Use default password reset form from allauth. #1613
+- Allow `scopes` be not present in `external-app`. #1497
+- Default `discussion` URLs for apps. #1496
+- Update dashboard icon. #1461
+- Multiple dependency updates. #1340 #1364 #1366 #1427 #1429 #1435 #1436 #1439
+  #1442 #1463 #1476 #1477 #1478 #1480 #1481 #1491 #1520 #1522 #1530 #1531 #1532
+  #1537 #1539 #1545 #1546 #1548 #1551 #1564 #1567 #1573 #1576 #1578 #1600
+- Multiple documentation updates. #1457 #1612
+
+### Fixed
+
+- Wrap XML values containing escape characters in CDATA sections. #1618
+- Password reset from email token success page style. #1617
+- Top navigation bar layout for large viewport width. #1611
+- Clear browser cache for user account pages after logout. #1572
+- Send confirmation email for and verify updated email addresses. #1571
+- Validation for "Download link (tar.gz)" field. #1562
+- Typo in app name hint. #1517
+- Unstable version handling. #1515
+- Donation type and attribute. #1487 #1492
+- Consider "integrations" always up to date. #1470
+- Optimized viewing of app store pages. #1467
+- Broken doc links. #1459
+
 ## [4.9.0]  - 2024-08-19
 
 ### Added
