@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Lukas Reschke <lukas@statuscode.ch>, 2017
 # 한영빈 (Youngbin Han) <sukso96100@gmail.com>, 2017
@@ -18,20 +18,20 @@
 # Shinjo Park <kde@peremen.name>, 2024
 # 전창훈 <chun.chang.hoon@gmail.com>, 2024
 # 이상오, 2024
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 03:18+0000\n"
+"POT-Creation-Date: 2025-05-31 03:08+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 이상오, 2024\n"
 "Language-Team: Korean (https://app.transifex.com/nextcloud/teams/64236/ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: nextcloudappstore/core/feeds.py:19
@@ -90,15 +90,16 @@ msgstr "공개 인증서"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
+"\">certificate repository</a> (follow the README). You can generate the CSR "
+"by executing the following command:"
 msgstr ""
-"~/.nextcloud/certificates/APP_ID.crt 파일에 저장되며, APP_ID는 내 앱 ID입니다. 만약 인증서가 "
-"없으면 인증서 서명 요청(CSR)을 만들어서 <a href=\"https://github.com/nextcloud/app-"
-"certificate-requests\" rel=\"noreferrer noopener\">인증서 저장소</a>에 업로드해야 "
-"합니다(README 참조). 다음 명령을 실행해서 CSR을 생성할 수 있습니다:"
+"~/.nextcloud/certificates/APP_ID.crt 파일에 저장되며, APP_ID는 내 앱 ID입니"
+"다. 만약 인증서가 없으면 인증서 서명 요청(CSR)을 만들어서 <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener\">"
+"인증서 저장소</a>에 업로드해야 합니다(README 참조). 다음 명령을 실행해서 CSR"
+"을 생성할 수 있습니다:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -113,7 +114,9 @@ msgstr "언어"
 msgid ""
 "<b>Important</b>: Changing the language will clear your current comment. "
 "Changes will not be saved!"
-msgstr "<b>중요</b>: 언어를 변경하면 현재 댓글을 삭제합니다. 변경 사항이 저장되지 않습니다!"
+msgstr ""
+"<b>중요</b>: 언어를 변경하면 현재 댓글을 삭제합니다. 변경 사항이 저장되지 않"
+"습니다!"
 
 #: nextcloudappstore/core/forms.py:84
 msgid "Comment"
@@ -259,8 +262,8 @@ msgid ""
 "If enabled, a user can try to register the same app again using the public "
 "certificate and signature. If he does, the app will be transferred to him."
 msgstr ""
-"이 옵션을 사용하면 같은 앱을 공개 인증서와 서명을 사용하여 다시 등록할 수 있습니다. 그렇게 하면 등록한 사용자에게 앱 소유권이 "
-"넘어갑니다."
+"이 옵션을 사용하면 같은 앱을 공개 인증서와 서명을 사용하여 다시 등록할 수 있"
+"습니다. 그렇게 하면 등록한 사용자에게 앱 소유권이 넘어갑니다."
 
 #: nextcloudappstore/core/models.py:184
 msgid "Integration (i.e. Outlook plugin)"
@@ -681,7 +684,8 @@ msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
 msgstr ""
-"하나의 버전만 현재 버전으로 지정할 수 있습니다. 이 필드는 앱 생성 등에 사용할 드롭다운 목록에서 미리 선택하는 데 사용합니다."
+"하나의 버전만 현재 버전으로 지정할 수 있습니다. 이 필드는 앱 생성 등에 사용"
+"할 드롭다운 목록에서 미리 선택하는 데 사용합니다."
 
 #: nextcloudappstore/core/models.py:896
 msgid "Has a release"
@@ -689,12 +693,12 @@ msgstr "릴리스에 포함됨"
 
 #: nextcloudappstore/core/models.py:898
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
-"이 값이 참이면 압축 파일로 다운로드할 수 있는 Nextcloud 버전임을 의미합니다. 이 값이 거짓이면 미리 보기 릴리스이거나 더 이상"
-" 다운로드할 수 없습니다."
+"이 값이 참이면 압축 파일로 다운로드할 수 있는 Nextcloud 버전임을 의미합니다. "
+"이 값이 거짓이면 미리 보기 릴리스이거나 더 이상 다운로드할 수 없습니다."
 
 #: nextcloudappstore/core/models.py:908
 msgid "Version is supported"
@@ -746,19 +750,24 @@ msgstr "너무 많이 시도했습니다. 몇분 후 다시 시도하십시오."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "안녕하세요. %(site_name)s입니다.\n"
 "\n"
-"%(user_display)s님이 %(site_domain)s에 등록된 자신의 계정에 이 이메일 주소를 등록했습니다.\n"
+"%(user_display)s님이 %(site_domain)s에 등록된 자신의 계정에 이 이메일 주소를 "
+"등록했습니다.\n"
 "\n"
-"이 이메일 주소를 등록한 사실이 맞다면, %(activate_url)s(으)로 이동하여 메일 주소를 인증해 주십시오.\n"
+"이 이메일 주소를 등록한 사실이 맞다면, %(activate_url)s(으)로 이동하여 메일 "
+"주소를 인증해 주십시오.\n"
 "\n"
-"%(site_domain)s에 이 이메일 주소를 등록하지 않으셨다면, 이 메시지를 무시하셔도 좋습니다.\n"
+"%(site_domain)s에 이 이메일 주소를 등록하지 않으셨다면, 이 메시지를 무시하셔"
+"도 좋습니다.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -780,8 +789,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"<a href=\"mailto:%(email)s\">%(email)s</a>이(가) 사용자 %(user_display)s님의 이메일 "
-"주소가 맞는지 인증하여 주십시오."
+"<a href=\"mailto:%(email)s\">%(email)s</a>이(가) 사용자 %(user_display)s님의 "
+"이메일 주소가 맞는지 인증하여 주십시오."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
@@ -790,11 +799,11 @@ msgstr "확인"
 #: nextcloudappstore/core/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"이 이메일 인증 링크는 만료되었거나 유효하지 않습니다. <a href=\"%(email_url)s\">이메일 인증을 다시 "
-"시도하십시오.</a>"
+"이 이메일 인증 링크는 만료되었거나 유효하지 않습니다. <a href=\"%(email_url)s"
+"\">이메일 인증을 다시 시도하십시오.</a>"
 
 #: nextcloudappstore/core/templates/account/login.html:8
 #: nextcloudappstore/core/templates/account/login.html:15
@@ -835,7 +844,9 @@ msgstr "암호 재설정"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
-msgstr "암호가 기억나지 않습니까? 아래에 이메일 주소를 입력하여 암호 초기화 메일을 받으십시오."
+msgstr ""
+"암호가 기억나지 않습니까? 아래에 이메일 주소를 입력하여 암호 초기화 메일을 받"
+"으십시오."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Reset My Password"
@@ -849,7 +860,9 @@ msgstr "암호를 재설정하는 데 문제가 있으면 연락해 주십시오
 msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
-msgstr "이메일을 보냈습니다. 이메일을 받지 못했다면 스팸 폴더를 확인해 주세요. 수 분 이내에 받지 못하면 저희에게 연락해 주세요."
+msgstr ""
+"이메일을 보냈습니다. 이메일을 받지 못했다면 스팸 폴더를 확인해 주세요. 수 분 "
+"이내에 받지 못하면 저희에게 연락해 주세요."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
@@ -868,11 +881,11 @@ msgstr "잘못된 API 토큰"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
-"암호 변경 링크가 잘못되었거나 이미 사용되었을 수도 있습니다. <a href=\"%(passwd_reset_url)s\">새 암호 초기화"
-" 요청</a> 링크를 클릭하십시오."
+"암호 변경 링크가 잘못되었거나 이미 사용되었을 수도 있습니다. <a href="
+"\"%(passwd_reset_url)s\">새 암호 초기화 요청</a> 링크를 클릭하십시오."
 
 #: nextcloudappstore/core/templates/account/signup.html:15
 msgid "Create an account"
@@ -890,8 +903,9 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
-"확인을 위해 이메일을 보냈습니다. 제공된 링크를 통해 가입 과정을 끝내세요. 수신함에 확인 메일이 보이지 않는다면, 스팸 폴더를 "
-"확인하세요. 수 분 이내에 확인 메일을 받지 못하면 저희에게 연락해 주세요."
+"확인을 위해 이메일을 보냈습니다. 제공된 링크를 통해 가입 과정을 끝내세요. 수"
+"신함에 확인 메일이 보이지 않는다면, 스팸 폴더를 확인하세요. 수 분 이내에 확"
+"인 메일을 받지 못하면 저희에게 연락해 주세요."
 
 #: nextcloudappstore/core/templates/admin/base_site.html:7
 msgid "Nextcloud App Store admin"
@@ -945,7 +959,9 @@ msgstr "Nextcloud의 최신 3개 메이저 릴리즈에서 테스트되지 못�
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
-msgstr "더이상 유지 및 지원되고 있지 않을 수 있으며, 최신 버전의 Nextcloud에서 사용하면 호환성 문제가 생길 수 있습니다."
+msgstr ""
+"더이상 유지 및 지원되고 있지 않을 수 있으며, 최신 버전의 Nextcloud에서 사용하"
+"면 호환성 문제가 생길 수 있습니다."
 
 #: nextcloudappstore/core/templates/app/detail.html:63
 msgid "Orphan / Looking for Maintainer"
@@ -1088,16 +1104,17 @@ msgstr "내 댓글"
 
 #: nextcloudappstore/core/templates/app/detail.html:294
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
-"앱을 평가할 때 <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> "
-"문법을 사용할 수 있습니다. 앱 평가 기능을 사용하여 버그를 보고하거나 기능을 요청하지 마십시오. 개발자나 다른 사용자에게 알림이 가지 "
-"않습니다. 댓글을 달지 않은 평가도 집계되지만 아래에 표시되지 않습니다."
+"앱을 평가할 때 <a rel=\"noopener noreferrer\" href=\"https://daringfireball."
+"net/projects/markdown/syntax\">Markdown</a> 문법을 사용할 수 있습니다. 앱 평"
+"가 기능을 사용하여 버그를 보고하거나 기능을 요청하지 마십시오. 개발자나 다른 "
+"사용자에게 알림이 가지 않습니다. 댓글을 달지 않은 평가도 집계되지만 아래에 표"
+"시되지 않습니다."
 
 #: nextcloudappstore/core/templates/app/detail.html:299
 msgid "Update rating"
@@ -1180,22 +1197,22 @@ msgstr "앱 등록"
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
-"인증서를 발행하고 서명을 만드는 방법에 대해서 더 알아 보려면 <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
+"인증서를 발행하고 서명을 만드는 방법에 대해서 더 알아 보려면 <a href="
+"\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"이 폼을 사용하여 기존 인증서를 업데이트할 수도 있으나, 앱 소유자만 업데이트가 가능합니다. 앱 인증서를 업데이트하면 모든 과거 버전을 "
-"삭제합니다!"
+"이 폼을 사용하여 기존 인증서를 업데이트할 수도 있으나, 앱 소유자만 업데이트"
+"가 가능합니다. 앱 인증서를 업데이트하면 모든 과거 버전을 삭제합니다!"
 
 #: nextcloudappstore/core/templates/app/register.html:22
 msgid "Not a public certificate"
@@ -1256,13 +1273,13 @@ msgstr "앱 릴리스를 업로드했습니다."
 
 #: nextcloudappstore/core/templates/app/upload.html:19
 msgid ""
-"For more information on how to create the signature check out the <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a href="
+"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
+"\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"서명을 만드는 방법에 대해서 더 알아 보려면 <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">앱 개발자 가이드</a>를 참조하십시오."
+"서명을 만드는 방법에 대해서 더 알아 보려면 <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">앱 개발자 가이드</a>를 참조하십시오."
 
 #: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
@@ -1272,7 +1289,8 @@ msgstr "업로드"
 msgid ""
 "The Nextcloud App Store - Upload your apps and install new apps onto your "
 "Nextcloud"
-msgstr "Nextcloud 앱 스토어 - 앱을 업로드하거나 Nextcloud에 새로운 앱을 설치하세요."
+msgstr ""
+"Nextcloud 앱 스토어 - 앱을 업로드하거나 Nextcloud에 새로운 앱을 설치하세요."
 
 #: nextcloudappstore/core/templates/base.html:11
 msgid "The Nextcloud Community"
@@ -1354,10 +1372,12 @@ msgstr "로그아웃"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "내 %(provider_name)s 계정을 사용하여\n"
-"            %(site_name)s에 로그인합니다. 마지막 단계로 다음 항목을 입력해 주십시오:"
+"            %(site_name)s에 로그인합니다. 마지막 단계로 다음 항목을 입력해 주"
+"십시오:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1553,7 +1573,8 @@ msgid ""
 "you to check in with you about your plans or to ask for feedback on our "
 "developer program."
 msgstr ""
-"내 개인정보를 수집하는 데 동의합니다. 요금제에 대해 확인하거나 개발자 프로그램에 피드백을 요청하기 위해 연락을 드릴 수 있습니다."
+"내 개인정보를 수집하는 데 동의합니다. 요금제에 대해 확인하거나 개발자 프로그"
+"램에 피드백을 요청하기 위해 연락을 드릴 수 있습니다."
 
 #: nextcloudappstore/scaffolding/forms.py:79
 #: nextcloudappstore/user/templates/user/integrations.html:16
@@ -1577,7 +1598,9 @@ msgstr "스크린샷 썸네일 URL"
 msgid ""
 "URL for integration screenshot in smaller dimensions. Must be used in "
 "combination with a larger screenshot."
-msgstr "더 작은 크기의 통합 스크린샷 URL입니다. 더 큰 스크린샷과 함께 사용해야 합니다."
+msgstr ""
+"더 작은 크기의 통합 스크린샷 URL입니다. 더 큰 스크린샷과 함께 사용해야 합니"
+"다."
 
 #: nextcloudappstore/scaffolding/forms.py:115
 msgid "Full description of what your integration does. Can contain Markdown."
@@ -1614,8 +1637,7 @@ msgstr "%(provider)s(으)로 로그인"
 
 #: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr "%(provider)s의 외부 계정을 사용해서 로그인 하려 합니다."
 
 #: nextcloudappstore/templates/socialaccount/login.html:31
@@ -1670,8 +1692,8 @@ msgid ""
 "prevent unauthorized changes to critical account details. This field does "
 "not update your password!"
 msgstr ""
-"중요한 계정 정보가 무단으로 변경되는 것을 막기 위해 이름, 성, 이메일을 변경할 때 필요합니다. 이 입력란은 당신의 암호를 변경하지 "
-"않습니다!"
+"중요한 계정 정보가 무단으로 변경되는 것을 막기 위해 이름, 성, 이메일을 변경"
+"할 때 필요합니다. 이 입력란은 당신의 암호를 변경하지 않습니다!"
 
 #: nextcloudappstore/user/forms.py:102
 msgid "This email address is already associated with another account."
@@ -1689,7 +1711,9 @@ msgstr "Nextcloud 앱스토어 암호가 변경됨"
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
-msgstr "귀하의 Nextcloud 앱스토어 암호가 변경되었습니다. 변경한 사실이 없다면, 지원에 문의하십시오."
+msgstr ""
+"귀하의 Nextcloud 앱스토어 암호가 변경되었습니다. 변경한 사실이 없다면, 지원"
+"에 문의하십시오."
 
 #: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
@@ -1703,15 +1727,21 @@ msgstr "API 토큰"
 #: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                API 토큰은 Nextcloud 앱 스토어를 호출할 시 인증 목적으로 사용됩니다.\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                토큰의 보안에 유의하십시오. 새로운 토큰은 아래에서 생성할 수 있으며, 이 경우 기존의 토큰은 무효 처리됩니다."
+"                API 토큰은 Nextcloud 앱 스토어를 호출할 시 인증 목적으로 사용"
+"됩니다.\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                토큰의 보안에 유의하십시오. 새로운 토큰은 아래에서 생성할 수 "
+"있으며, 이 경우 기존의 토큰은 무효 처리됩니다."
 
 #: nextcloudappstore/user/templates/user/api-token.html:25
 msgid "Your API token is:"
@@ -1787,8 +1817,9 @@ msgid ""
 "delete your account, insert your email address into the input field and "
 "click the \"Delete account\" button."
 msgstr ""
-"계정을 삭제할 경우 귀하의 모든 앱과 릴리즈 또한 사라집니다. 계정을 삭제하기 위해, 아래 입력 칸에 이메일 주소를 입력하고, \"계정 "
-"삭제\" 버튼을 클릭하십시오."
+"계정을 삭제할 경우 귀하의 모든 앱과 릴리즈 또한 사라집니다. 계정을 삭제하기 "
+"위해, 아래 입력 칸에 이메일 주소를 입력하고, \"계정 삭제\" 버튼을 클릭하십시"
+"오."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:8
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:11
@@ -1802,8 +1833,9 @@ msgid ""
 "page in the App Store and in Nextcloud Apps. Such support can only be "
 "requested for large Nextcloud installations."
 msgstr ""
-"앱이 엔터프라이즈 지원을 받을 수 있다면 이곳에서 그 앱을 표시할 수 있습니다. 그러면 Nextcloud 앱 및 앱 스토어 내의 해당 "
-"앱의 상세 페이지에 '견적 요청' 버튼이 생깁니다. 엔터프라이즈 지원은 대규모 Nextcloud 설치에만 필요합니다."
+"앱이 엔터프라이즈 지원을 받을 수 있다면 이곳에서 그 앱을 표시할 수 있습니다. "
+"그러면 Nextcloud 앱 및 앱 스토어 내의 해당 앱의 상세 페이지에 '견적 요청' 버"
+"튼이 생깁니다. 엔터프라이즈 지원은 대규모 Nextcloud 설치에만 필요합니다."
 
 #: nextcloudappstore/user/templates/user/enterprise-apps.html:19
 msgid "Support status"
@@ -1866,10 +1898,11 @@ msgstr "암호를 변경하면 API 토큰을 다시 생성합니다!"
 
 #: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"제3사 공급자를 통한 계정을 사용하고 있는 것 같습니다. 따라서 이 페이지에서 암호를 변경할 수 <strong>없습니다</strong>."
+"제3사 공급자를 통한 계정을 사용하고 있는 것 같습니다. 따라서 이 페이지에서 암"
+"호를 변경할 수 <strong>없습니다</strong>."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
@@ -1882,17 +1915,19 @@ msgid ""
 "then take control of the app by registering it again on the app register "
 "page in the app developer menu."
 msgstr ""
-"앱을 새로운 소유자에게 전송하려면 먼저 잠금을 해제해야 합니다. 그 후 다른 사용자가 앱 개발자 메뉴의 앱 등록 페이지에서 앱을 다시 "
-"등록하면 소유권을 넘겨받습니다."
+"앱을 새로운 소유자에게 전송하려면 먼저 잠금을 해제해야 합니다. 그 후 다른 사"
+"용자가 앱 개발자 메뉴의 앱 등록 페이지에서 앱을 다시 등록하면 소유권을 넘겨받"
+"습니다."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
-"새 소유자가 아직 없나요? 앱을 고아로 표시하여 새 소유자를 찾고 있다는 것을 나타낼 수 있습니다. 소유자 이전이 완료되면 앱은 자동으로"
-" 고아가 아니며 유지 관리되고 있는 것으로 표시됩니다."
+"새 소유자가 아직 없나요? 앱을 고아로 표시하여 새 소유자를 찾고 있다는 것을 나"
+"타낼 수 있습니다. 소유자 이전이 완료되면 앱은 자동으로 고아가 아니며 유지 관"
+"리되고 있는 것으로 표시됩니다."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Ownership transfer status"
