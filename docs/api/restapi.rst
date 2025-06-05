@@ -266,7 +266,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
 * **Url**: GET /api/v1/platform/{**platform-version**}/apps.json
 * **Url parameters**:
 
-  * **platform-version**: semantic version, digits only: Returns all the apps and their releases that work on this version. If an app has no working releases, the app will be excluded
+  * **platform-version**: semantic version, core digits only: Returns all the apps and their releases that work on this version. If an app has no working releases, the app will be excluded
 
 * **Authentication**: None
 
@@ -466,7 +466,7 @@ changelog
     The translated release changelog in Markdown. Can be empty for all languages
 
 version
-    A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
+    A semantic version without any build identifiers (e.g. 1.3.0 for stable releases, 1.2.1-alpha.1 for beta releases)
 
 
 
@@ -677,7 +677,7 @@ changelog
     The translated release changelog in Markdown. Can be empty for all languages
 
 version
-    A semantic version without build metadata (e.g. 1.3.0, 1.2.1-alpha.1)
+    A semantic version without any build identifiers (e.g. 1.3.0 for stable releases, 1.2.1-alpha.1 for beta releases)
 
 
 
@@ -798,7 +798,7 @@ Only app owners or co-maintainers are allowed to delete an app release. The owne
 * **Url parameters**:
 
  * **app-id**: app id, lower case ASCII characters and underscores are allowed
- * **app-version**: app version, semantic version, digits only
+ * **app-version**: app version, semantic version without any build identifiers
 
 * **Authentication**: Basic, Token
 
@@ -827,7 +827,7 @@ Only app owners or co-maintainers are allowed to delete a nightly app release. T
 * **Url parameters**:
 
  * **app-id**: app id, lower case ASCII characters and underscores are allowed
- * **app-version**: app version, semantic version, digits only
+ * **app-version**: app version, semantic version without any build identifiers
 
 * **Authentication**: Basic, Token
 

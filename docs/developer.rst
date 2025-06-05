@@ -333,6 +333,7 @@ description
 version
     * required
     * must be a `semantic version <http://semver.org/>`_ without build metadata, e.g. 9.0.1 or 9.1.0-alpha.1
+    * versions with one or more pre-release identifiers (e.g. ``-alpha.1``) are automatically detected and handled as beta versions (for beta release channels)
 licence
     * required
     * can occur multiple times with different licenses
