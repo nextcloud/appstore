@@ -57,6 +57,8 @@
     --original-icon-donate-stripe-white: url('../img/icons/detail/donate-stripe-white.svg');
     --original-icon-donate-other-dark: url('../img/icons/detail/donate-other.svg');
     --original-icon-donate-other-white: url('../img/icons/detail/donate-other-white.svg');
+    --original-icon-mail-dark: url('../img/icons/detail/mail.svg');
+    --original-icon-mail-white: url('../img/icons/detail/mail-white.svg');
     --original-icon-send-dark: url('../img/icons/detail/send.svg');
     --original-icon-send-white: url('../img/icons/detail/send-white.svg');
     --original-icon-relevance-dark: url('../img/icons/list/relevance.svg');
@@ -128,6 +130,8 @@ body {
     --icon-donate-stripe-white: var(--original-icon-donate-stripe-white);
     --icon-donate-other-dark: var(--original-icon-donate-other-dark);
     --icon-donate-other-white: var(--original-icon-donate-other-white);
+    --icon-mail-dark: var(--original-icon-mail-dark);
+    --icon-mail-white: var(--original-icon-mail-white);
     --icon-send-dark: var(--original-icon-send-dark);
     --icon-send-white: var(--original-icon-send-white);
     --icon-relevance-dark: var(--original-icon-relevance-dark);
@@ -359,6 +363,14 @@ body .icon-donate-other-dark {
 body .icon-donate-other-white,
 body .icon-donate-other.icon-white {
     background-image: var(--icon-donate-other-white);
+}
+body .icon-mail,
+body .icon-mail-dark {
+    background-image: var(--icon-mail-dark);
+}
+body .icon-mail-white,
+body .icon-mail.icon-white {
+    background-image: var(--icon-mail-white);
 }
 body .icon-send,
 body .icon-send-dark {
