@@ -776,7 +776,8 @@ form .text-danger {
     max-width: 100%;
 }
 
-.app-meta p {
+.app-meta p,
+.app-meta ul.authors {
     padding-bottom: 15px;
 }
 
@@ -799,10 +800,12 @@ form .text-danger {
     content: "";
 }
 
-.app-meta .resources ul  {
+.app-meta ul.authors,
+.app-meta .resources ul {
     padding-left: 20px;
 }
 
+.app-meta ul.authors li:before,
 .app-meta .resources ul li:before {
     width: 5px;
     height: 5px;

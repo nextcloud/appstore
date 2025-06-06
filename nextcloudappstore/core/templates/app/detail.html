@@ -74,8 +74,27 @@
             <h5>{% trans "Community rating" %}</h5>
             <img class="app-score-image" src="/static/assets/img/rating/s{{ object.rating_overall|app_rating_img }}.svg" alt="">
 
+            {% if object.authors.all %}
+            <h5>{% trans "Authors" %}</h5>
+            <ul class="authors">
+                {% for a in object.authors.all %}
+                <li>
+                    {% if a.homepage %}
+                        <a href="{{ a.homepage }}" rel="noopener noreferrer">{{ a.name }}</a>
+                    {% else %}
+                        {{ a.name }}
+                    {% endif %}
+                    {% if a.mail %}
+                        <a rel="noreferrer noopener" href="mailto:{{ a.mail }}">
+                            <span class="icon icon-mail"></span>
+                        </a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             {% if object.owner %}
-            <h5>{% trans "Author" %}</h5>
+            <h5>{% trans "Owner" %}</h5>
             <p>
                 {% if object.owner.first_name or object.owner.last_name %}
                     {{ object.owner.first_name }} {{ object.owner.last_name }}
