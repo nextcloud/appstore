@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Niklas Olofsson <niklas@olofsson.cc>, 2019
 # carlbacker, 2020
@@ -19,21 +19,20 @@
 # Max Bäckström, 2024
 # Martin H <pilino+transifex@posteo.de>, 2025
 # Magnus Höglund, 2025
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 03:13+0000\n"
+"POT-Creation-Date: 2025-06-07 03:07+0000\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Magnus Höglund, 2025\n"
-"Language-Team: Swedish (https://app.transifex.com/nextcloud/teams/64236/"
-"sv/)\n"
-"Language: sv\n"
+"Language-Team: Swedish (https://app.transifex.com/nextcloud/teams/64236/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:19
@@ -92,17 +91,17 @@ msgstr "Offentligt certifikat"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer noopener"
-"\">certificate repository</a> (follow the README). You can generate the CSR "
-"by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
 "Vanligtvis lagrat i ~/.nextcloud/certificates/APP_ID.crt där APP_ID är din "
 "apps ID. Om du inte har ett certifikat behöver du skapa en "
-"certifikatsigneringsbegäran (CSR) först som ska läggas upp på <a href="
-"\"https://github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
-"noopener\">certifikat-arkivet</a> (följ README). Du kan skapa CSR'n genom "
-"att exekvera följande kommando:"
+"certifikatsigneringsbegäran (CSR) först som ska läggas upp på <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certifikat-arkivet</a> (följ README). Du kan "
+"skapa CSR'n genom att exekvera följande kommando:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -700,8 +699,8 @@ msgstr "Har en version"
 
 #: nextcloudappstore/core/models.py:898
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Om det är sant är detta en faktisk släppt Nextcloud-version som kan hämtas "
@@ -759,23 +758,19 @@ msgstr "För många försök. Försök igen om några minuter."
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 "Hej!\n"
 "\n"
-"Du får det här e-postmeddelandet eftersom användaren %(user_display)s har "
-"kopplat denna e-postadress till sitt konto på %(site_domain)s\n"
+"Du får det här e-postmeddelandet eftersom användaren %(user_display)s har kopplat denna e-postadress till sitt konto på %(site_domain)s\n"
 "\n"
 "För att bekräfta detta är korrekt, gå till %(activate_url)s\n"
 "\n"
-"Om du inte har ett konto på %(site_domain)s så kan du ignorera detta "
-"meddelande.\n"
+"Om du inte har ett konto på %(site_domain)s så kan du ignorera detta meddelande.\n"
 "\n"
 "Med vänliga hälsningar,\n"
 "%(site_name)s\n"
@@ -800,8 +795,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Vänligen bekräfta att <a href=\"mailto:%(email)s\">%(email)s</a> är en e-"
-"postadress för användaren %(user_display)s."
+"Vänligen bekräfta att <a href=\"mailto:%(email)s\">%(email)s</a> är en "
+"e-postadress för användaren %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
@@ -810,11 +805,11 @@ msgstr "Bekräfta"
 #: nextcloudappstore/core/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Denna e-postaktiveringslänk har upphört eller är felaktig. Vänligen <a href="
-"\"%(email_url)s\">begär en ny e-postaktiveringslänk</a>."
+"Denna e-postaktiveringslänk har upphört eller är felaktig. Vänligen <a "
+"href=\"%(email_url)s\">begär en ny e-postaktiveringslänk</a>."
 
 #: nextcloudappstore/core/templates/account/login.html:8
 #: nextcloudappstore/core/templates/account/login.html:15
@@ -856,8 +851,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"Har du glömt ditt lösenord? Ange din e-postadress nedan så skickar vi ett e-"
-"postmeddelande med information om hur du återställer det."
+"Har du glömt ditt lösenord? Ange din e-postadress nedan så skickar vi ett "
+"e-postmeddelande med information om hur du återställer det."
 
 #: nextcloudappstore/core/templates/account/password_reset.html:27
 msgid "Reset My Password"
@@ -894,8 +889,8 @@ msgstr "Felaktigt API-token"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Länken för lösenordsåterställning var ogiltig, möjligen eftersom den redan "
 "har använts. Begär en <a href=\"%(passwd_reset_url)s\"> ny "
@@ -969,7 +964,8 @@ msgstr ""
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
-"Den här appen har inte testats med de senaste 3 stora utgåvorna av Nextcloud."
+"Den här appen har inte testats med de senaste 3 stora utgåvorna av "
+"Nextcloud."
 
 #: nextcloudappstore/core/templates/app/detail.html:57
 msgid ""
@@ -1124,11 +1120,11 @@ msgstr "Din kommentar"
 
 #: nextcloudappstore/core/templates/app/detail.html:313
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
-"rating comments to report bugs or request features. Neither developers nor "
-"users will be notified of your comment. A rating without a comment still "
-"counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Do not use rating comments to report bugs or request features. Neither "
+"developers nor users will be notified of your comment. A rating without a "
+"comment still counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:318
@@ -1196,8 +1192,7 @@ msgstr "Mina appar"
 #: nextcloudappstore/core/templates/app/list.html:117
 #, python-format
 msgid "No apps found for search \"<em>%(query)s</em>\" in %(category)s."
-msgstr ""
-"Inga appar hittade med sökningen \"<em>%(query)s</em>\" i %(category)s."
+msgstr "Inga appar hittade med sökningen \"<em>%(query)s</em>\" i %(category)s."
 
 #: nextcloudappstore/core/templates/app/list.html:119
 #, python-format
@@ -1213,9 +1208,9 @@ msgstr "Registrera app"
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 "För mer information hur man får certifikatet och skapar signaturen, se <a "
 "href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
@@ -1223,8 +1218,8 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Detta formulär kan också användas för att uppdatera befintliga certifikat, "
@@ -1290,13 +1285,13 @@ msgstr "Uppladdning av din appversion lyckades."
 
 #: nextcloudappstore/core/templates/app/upload.html:19
 msgid ""
-"For more information on how to create the signature check out the <a href="
-"\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel="
-"\"noopener norefferer\">app developer guide</a>."
+"For more information on how to create the signature check out the <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"För mer information om hur du skapar signaturen se <a href=\"https://"
-"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
-"norefferer\">apputvecklarguiden</a>."
+"För mer information om hur du skapar signaturen se <a "
+"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">apputvecklarguiden</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
@@ -1390,12 +1385,10 @@ msgstr "Logga ut"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 "Du är på väg att använda %(provider_name)s konto för att logga in\n"
-"            %(site_name)s. Som ett sista steg, vänligen fullfölj detta "
-"formulär:"
+"            %(site_name)s. Som ett sista steg, vänligen fullfölj detta formulär:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1658,7 +1651,8 @@ msgstr "Logga in via %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid "You are about to sign in using a third-party account from %(provider)s."
+msgid ""
+"You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:31
@@ -1746,21 +1740,15 @@ msgstr "API-token"
 #: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"               API-token kan användas för autentisering när man kontaktar "
-"Nextcloud appbutiken\n"
-"              <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API </a>.\n"
-"               Se till att hålla det hemligt. En ny token kan skapas nedan, "
-"vilket gör den gamla token ogiltig."
+"               API-token kan användas för autentisering när man kontaktar Nextcloud appbutiken\n"
+"              <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API </a>.\n"
+"               Se till att hålla det hemligt. En ny token kan skapas nedan, vilket gör den gamla token ogiltig."
 
 #: nextcloudappstore/user/templates/user/api-token.html:25
 msgid "Your API token is:"
@@ -1916,8 +1904,8 @@ msgstr "Ändra ditt lösenord kommer också att regenerera din API-token!"
 
 #: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Du verkar använda ett konto registrerat hos en tredjepartsleverantör. Ditt "
 "lösenord kan därför <strong>inte</strong> ändras från denna sida."
@@ -1940,8 +1928,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app "
-"will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app"
+" will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
