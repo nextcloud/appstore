@@ -360,7 +360,7 @@ author
     * can occur multiple times with different authors
     * can contain a **mail** attribute which must be an email
     * can contain a **homepage** which must be an URL
-    * will not (yet) be rendered on the App Store
+    * will be rendered on the app detail page
     * will be provided through the REST API
 documentation/user
     * optional
