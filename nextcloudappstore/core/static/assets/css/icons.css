@@ -43,8 +43,12 @@
     --original-icon-source-fork-white: url('../img/icons/footer/source-fork-white.svg');
     --original-icon-text-box-dark: url('../img/icons/footer/text-box.svg');
     --original-icon-text-box-white: url('../img/icons/footer/text-box-white.svg');
+    --original-icon-text-box-outline-dark: url('../img/icons/footer/text-box-outline.svg');
+    --original-icon-text-box-outline-white: url('../img/icons/footer/text-box-outline-white.svg');
     --original-icon-note-text-dark: url('../img/icons/footer/note-text.svg');
     --original-icon-note-text-white: url('../img/icons/footer/note-text-white.svg');
+    --original-icon-note-text-outline-dark: url('../img/icons/footer/note-text-outline.svg');
+    --original-icon-note-text-outline-white: url('../img/icons/footer/note-text-outline-white.svg');
     --original-icon-bug-dark: url('../img/icons/detail/bug.svg');
     --original-icon-bug-white: url('../img/icons/detail/bug-white.svg');
     --original-icon-comment-question-dark: url('../img/icons/detail/comment-question.svg');
@@ -63,14 +67,22 @@
     --original-icon-send-white: url('../img/icons/detail/send-white.svg');
     --original-icon-relevance-dark: url('../img/icons/list/relevance.svg');
     --original-icon-relevance-white: url('../img/icons/list/relevance-white.svg');
+    --original-icon-relevance-outline-dark: url('../img/icons/list/relevance-outline.svg');
+    --original-icon-relevance-outline-white: url('../img/icons/list/relevance-outline-white.svg');
     --original-icon-rocket-launch-dark: url('../img/icons/list/rocket-launch.svg');
     --original-icon-rocket-launch-white: url('../img/icons/list/rocket-launch-white.svg');
+    --original-icon-rocket-launch-outline-dark: url('../img/icons/list/rocket-launch-outline.svg');
+    --original-icon-rocket-launch-outline-white: url('../img/icons/list/rocket-launch-outline-white.svg');
     --original-icon-sort-alphabetical-variant-dark: url('../img/icons/list/sort-alphabetical-variant.svg');
     --original-icon-sort-alphabetical-variant-white: url('../img/icons/list/sort-alphabetical-variant-white.svg');
     --original-icon-star-plus-dark: url('../img/icons/list/star-plus.svg');
     --original-icon-star-plus-white: url('../img/icons/list/star-plus-white.svg');
+    --original-icon-star-plus-outline-dark: url('../img/icons/list/star-plus-outline.svg');
+    --original-icon-star-plus-outline-white: url('../img/icons/list/star-plus-outline-white.svg');
     --original-icon-timer-star-dark: url('../img/icons/list/timer-star.svg');
     --original-icon-timer-star-white: url('../img/icons/list/timer-star-white.svg');
+    --original-icon-timer-star-outline-dark: url('../img/icons/list/timer-star-outline.svg');
+    --original-icon-timer-star-outline-white: url('../img/icons/list/timer-star-outline-white.svg');
     --original-icon-creation-dark: url('../img/icons/resources/creation.svg');
     --original-icon-chevron-left-dark: url('../img/icons/detail/chevron-left.svg');
     --original-icon-chevron-right-dark: url('../img/icons/detail/chevron-right.svg');
@@ -116,8 +128,12 @@ body {
     --icon-source-fork-white: var(--original-icon-source-fork-white);
     --icon-text-box-dark: var(--original-icon-text-box-dark);
     --icon-text-box-white: var(--original-icon-text-box-white);
+    --icon-text-box-outline-dark: var(--original-icon-text-box-outline-dark);
+    --icon-text-box-outline-white: var(--original-icon-text-box-outline-white);
     --icon-note-text-dark: var(--original-icon-note-text-dark);
     --icon-note-text-white: var(--original-icon-note-text-white);
+    --icon-note-text-outline-dark: var(--original-icon-note-text-outline-dark);
+    --icon-note-text-outline-white: var(--original-icon-note-text-outline-white);
     --icon-bug-dark: var(--original-icon-bug-dark);
     --icon-bug-white: var(--original-icon-bug-white);
     --icon-comment-question-dark: var(--original-icon-comment-question-dark);
@@ -136,14 +152,22 @@ body {
     --icon-send-white: var(--original-icon-send-white);
     --icon-relevance-dark: var(--original-icon-relevance-dark);
     --icon-relevance-white: var(--original-icon-relevance-white);
+    --icon-relevance-outline-dark: var(--original-icon-relevance-outline-dark);
+    --icon-relevance-outline-white: var(--original-icon-relevance-outline-white);
     --icon-rocket-launch-dark: var(--original-icon-rocket-launch-dark);
     --icon-rocket-launch-white: var(--original-icon-rocket-launch-white);
+    --icon-rocket-launch-outline-dark: var(--original-icon-rocket-launch-outline-dark);
+    --icon-rocket-launch-outline-white: var(--original-icon-rocket-launch-outline-white);
     --icon-sort-alphabetical-variant-dark: var(--original-icon-sort-alphabetical-variant-dark);
     --icon-sort-alphabetical-variant-white: var(--original-icon-sort-alphabetical-variant-white);
     --icon-star-plus-dark: var(--original-icon-star-plus-dark);
     --icon-star-plus-white: var(--original-icon-star-plus-white);
+    --icon-star-plus-outline-dark: var(--original-icon-star-plus-outline-dark);
+    --icon-star-plus-outline-white: var(--original-icon-star-plus-outline-white);
     --icon-timer-star-dark: var(--original-icon-timer-star-dark);
     --icon-timer-star-white: var(--original-icon-timer-star-white);
+    --icon-timer-star-outline-dark: var(--original-icon-timer-star-outline-dark);
+    --icon-timer-star-outline-white: var(--original-icon-timer-star-outline-white);
     --icon-creation-dark: var(--original-icon-creation-dark);
     --icon-developer-board-dark: var(--original-icon-developer-board-dark);
     --icon-chevron-left-dark: var(--original-icon-chevron-left-dark);
@@ -307,6 +331,14 @@ body .icon-text-box-white,
 body .icon-text-box.icon-white {
     background-image: var(--icon-text-box-white);
 }
+body .icon-text-box-outline,
+body .icon-text-box-outline-dark {
+    background-image: var(--icon-text-box-outline-dark);
+}
+body .icon-text-box-outline-white,
+body .icon-text-box-outline.icon-white {
+    background-image: var(--icon-text-box-outline-white);
+}
 body .icon-note-text,
 body .icon-note-text-dark {
     background-image: var(--icon-note-text-dark);
@@ -314,6 +346,14 @@ body .icon-note-text-dark {
 body .icon-note-text-white,
 body .icon-note-text.icon-white {
     background-image: var(--icon-note-text-white);
+}
+body .icon-note-text-outline,
+body .icon-note-text-outline-dark {
+    background-image: var(--icon-note-text-outline-dark);
+}
+body .icon-note-text-outline-white,
+body .icon-note-text-outline.icon-white {
+    background-image: var(--icon-note-text-outline-white);
 }
 
 body .icon-bug,
@@ -389,6 +429,14 @@ body .icon-relevance-white,
 body .icon-relevance.icon-white {
     background-image: var(--icon-relevance-white);
 }
+body .icon-relevance-outline,
+body .icon-relevance-outline-dark {
+    background-image: var(--icon-relevance-outline-dark);
+}
+body .icon-relevance-outline-white,
+body .icon-relevance-outline.icon-white {
+    background-image: var(--icon-relevance-outline-white);
+}
 body .icon-rocket-launch,
 body .icon-rocket-launch-dark {
     background-image: var(--icon-rocket-launch-dark);
@@ -396,6 +444,14 @@ body .icon-rocket-launch-dark {
 body .icon-rocket-launch-white,
 body .icon-rocket-launch.icon-white {
     background-image: var(--icon-rocket-launch-white);
+}
+body .icon-rocket-launch-outline,
+body .icon-rocket-launch-outline-dark {
+    background-image: var(--icon-rocket-launch-outline-dark);
+}
+body .icon-rocket-launch-outline-white,
+body .icon-rocket-launch-outline.icon-white {
+    background-image: var(--icon-rocket-launch-outline-white);
 }
 body .icon-sort-alphabetical-variant,
 body .icon-sort-alphabetical-variant-dark {
@@ -413,6 +469,14 @@ body .icon-star-plus-white,
 body .icon-star-plus.icon-white {
     background-image: var(--icon-star-plus-white);
 }
+body .icon-star-plus-outline,
+body .icon-star-plus-outline-dark {
+    background-image: var(--icon-star-plus-outline-dark);
+}
+body .icon-star-plus-outline-white,
+body .icon-star-plus-outline.icon-white {
+    background-image: var(--icon-star-plus-outline-white);
+}
 body .icon-timer-star,
 body .icon-timer-star-dark {
     background-image: var(--icon-timer-star-dark);
@@ -420,6 +484,14 @@ body .icon-timer-star-dark {
 body .icon-timer-star-white,
 body .icon-timer-star.icon-white {
     background-image: var(--icon-timer-star-white);
+}
+body .icon-timer-star-outline,
+body .icon-timer-star-outline-dark {
+    background-image: var(--icon-timer-star-outline-dark);
+}
+body .icon-timer-star-outline-white,
+body .icon-timer-star-outline.icon-white {
+    background-image: var(--icon-timer-star-outline-white);
 }
 
 body .icon-creation,
