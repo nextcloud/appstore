@@ -6,6 +6,12 @@
 
 ## [Unreleased]
 
+## [4.11.1] - 2024-09-24
+
+### Changed
+
+- Use more outlined icons. #1653
+
 ## [4.11.0] - 2024-09-23
 
 ### Added
