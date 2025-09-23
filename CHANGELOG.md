@@ -6,7 +6,21 @@
 
 ## [Unreleased]
 
-## [4.10.0]  - 2024-05-30
+## [4.11.0] - 2024-09-23
+
+### Added
+
+- App authors display in sidebar on app details page. #1625
+
+### Changed
+
+- Use outlined icons in footer. #1650
+- Use filled/outlined icons for sorting options depending on selection. #1650
+- Update app template. #1622 #1643
+- Multiple dependency updates. #1331 #1541 #1627 #1630 #1633 #1642 #1644 #1647
+- Multiple documentation updates. #1624 #1636
+
+## [4.10.0] - 2024-05-30
 
 ### Added
 
@@ -46,7 +60,7 @@
 - Optimized viewing of app store pages. #1467
 - Broken doc links. #1459
 
-## [4.9.0]  - 2024-08-19
+## [4.9.0] - 2024-08-19
 
 ### Added
 
@@ -69,7 +83,7 @@
 - Adjust banner height on medium browser width. #1423
 - Cleanup Makefile variables. #1367
 
-## [4.8.1]  - 2024-05-10
+## [4.8.1] - 2024-05-10
 
 ### Changed
 
@@ -79,7 +93,7 @@
 - dnspython dependency updated from `2.5.0` to `2.6.1` #1351
 - pillow dependency updated from `10.2.0` to `10.3.0` #1346
 
-## [4.8.0]  - 2024-03-17
+## [4.8.0] - 2024-03-17
 
 ### Added
 
@@ -97,7 +111,7 @@
 - Broken templates after `django-allauth` update. #1304
 - Documentation hosting & building.
 
-## [4.7.0]  - 2024-02-15
+## [4.7.0] - 2024-02-15
 
 ### Added
 
@@ -111,7 +125,7 @@
 - pillow updated from `10.0.1` to `10.2.0` #1283
 - follow-redirects updated from `1.15.2` to `1.15.5` #1286
 
-## [4.6.0]  - 2024-01-02
+## [4.6.0] - 2024-01-02
 
 ### Added
 
@@ -121,7 +135,7 @@
 
 - lxml updated from `4.9.3` to `4.9.4`
 
-## [4.5.0]  - 2023-12-21
+## [4.5.0] - 2023-12-21
 
 ### Added
 
@@ -144,7 +158,7 @@
 - Allow `ExApp` without API scopes.
 - Allow uploading of GPLv3 licensed application releases.
 
-## [4.4.1]  - 2023-10-05
+## [4.4.1] - 2023-10-05
 
 ### Changed
 
@@ -155,7 +169,7 @@
 - Allow uploading of MIT licensed application releases. #1165
 - Adjusted Makefile in the app generation template. #1166
 
-## [4.4.0]  - 2023-10-03
+## [4.4.0] - 2023-10-03
 
 ### Added
 
@@ -169,7 +183,7 @@
 - Updated `highlight.js` dependency to last major version. #1063
 - Updated `django-allauth` from 0.54 to 0.57. #1152
 
-## [4.3.2]  - 2023-09-23
+## [4.3.2] - 2023-09-23
 
 ### Added
 
@@ -180,14 +194,14 @@
 
 - `/api/v1/apps.json` endpoint now ALWAYS return gzipped data. #1147
 
-## [4.3.1]  - 2023-09-19
+## [4.3.1] - 2023-09-19
 
 ### Changed
 
 - Replaced `psycopg2` with new `psycopg` package. #1143
 - Updated dependencies & packages. #1129
 
-## [4.3.0]  - 2023-09-07
+## [4.3.0] - 2023-09-07
 
 ### Changed
 
@@ -198,7 +212,7 @@
 
 - Bug in REST API for deleting releases when APP_ID contains number. #1127
 
-## [4.2.0]  - 2023-07-18
+## [4.2.0] - 2023-07-18
 
 ### Changed
 
@@ -212,7 +226,7 @@
 - Added `Password reset` rate limit configuration. #1077
 - Forced user logout after 15 failed attempts to change password. #1078
 
-## [4.1.0]  - 2023-05-18
+## [4.1.0] - 2023-05-18
 
 ### Added
 
@@ -223,7 +237,7 @@
 - Updated Python and JavaScript dependencies
 - Dropped Python 3.6 support
 
-## [4.0.0]  - 2018-11-10
+## [4.0.0] - 2018-11-10
 
 ### Added
 
@@ -245,7 +259,7 @@
 
 - Disable HMAC email validation so that an cooldown period is respected, #584
 
-## [3.4.0]  - 2018-05-18
+## [3.4.0] - 2018-05-18
 
 ### Added
 
@@ -256,7 +270,7 @@
 - Add quicknotes to CRL
 - Updated libraries
 
-## [3.3.0]  - 2018-02-18
+## [3.3.0] - 2018-02-18
 
 ### Added
 
@@ -264,7 +278,7 @@
 - Add support for personal setting tags in info.xml and ids instead of URLs for documentation
 - Add another flag to differentiate between supported and unreleased Nextcloud releases
 
-## [3.2.0]  - 2018-02-04
+## [3.2.0] - 2018-02-04
 
 ### Added
 
