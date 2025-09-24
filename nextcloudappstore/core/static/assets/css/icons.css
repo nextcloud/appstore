@@ -51,10 +51,16 @@
     --original-icon-note-text-outline-white: url('../img/icons/footer/note-text-outline-white.svg');
     --original-icon-bug-dark: url('../img/icons/detail/bug.svg');
     --original-icon-bug-white: url('../img/icons/detail/bug-white.svg');
+    --original-icon-bug-outline-dark: url('../img/icons/detail/bug-outline.svg');
+    --original-icon-bug-outline-white: url('../img/icons/detail/bug-outline-white.svg');
     --original-icon-comment-question-dark: url('../img/icons/detail/comment-question.svg');
     --original-icon-comment-question-white: url('../img/icons/detail/comment-question-white.svg');
+    --original-icon-comment-question-outline-dark: url('../img/icons/detail/comment-question-outline.svg');
+    --original-icon-comment-question-outline-white: url('../img/icons/detail/comment-question-outline-white.svg');
     --original-icon-feature-search-dark: url('../img/icons/detail/feature-search.svg');
     --original-icon-feature-search-white: url('../img/icons/detail/feature-search-white.svg');
+    --original-icon-feature-search-outline-dark: url('../img/icons/detail/feature-search-outline.svg');
+    --original-icon-feature-search-outline-white: url('../img/icons/detail/feature-search-outline-white.svg');
     --original-icon-donate-paypal-dark: url('../img/icons/detail/donate-paypal.svg');
     --original-icon-donate-paypal-white: url('../img/icons/detail/donate-paypal-white.svg');
     --original-icon-donate-stripe-dark: url('../img/icons/detail/donate-stripe.svg');
@@ -84,6 +90,7 @@
     --original-icon-timer-star-outline-dark: url('../img/icons/list/timer-star-outline.svg');
     --original-icon-timer-star-outline-white: url('../img/icons/list/timer-star-outline-white.svg');
     --original-icon-creation-dark: url('../img/icons/resources/creation.svg');
+    --original-icon-creation-outline-dark: url('../img/icons/resources/creation-outline.svg');
     --original-icon-chevron-left-dark: url('../img/icons/detail/chevron-left.svg');
     --original-icon-chevron-right-dark: url('../img/icons/detail/chevron-right.svg');
 }
@@ -136,10 +143,16 @@ body {
     --icon-note-text-outline-white: var(--original-icon-note-text-outline-white);
     --icon-bug-dark: var(--original-icon-bug-dark);
     --icon-bug-white: var(--original-icon-bug-white);
+    --icon-bug-outline-dark: var(--original-icon-bug-outline-dark);
+    --icon-bug-outline-white: var(--original-icon-bug-outline-white);
     --icon-comment-question-dark: var(--original-icon-comment-question-dark);
     --icon-comment-question-white: var(--original-icon-comment-question-white);
+    --icon-comment-question-outline-dark: var(--original-icon-comment-question-outline-dark);
+    --icon-comment-question-outline-white: var(--original-icon-comment-question-outline-white);
     --icon-feature-search-dark: var(--original-icon-feature-search-dark);
     --icon-feature-search-white: var(--original-icon-feature-search-white);
+    --icon-feature-search-outline-dark: var(--original-icon-feature-search-outline-dark);
+    --icon-feature-search-outline-white: var(--original-icon-feature-search-outline-white);
     --icon-donate-paypal-dark: var(--original-icon-donate-paypal-dark);
     --icon-donate-paypal-white: var(--original-icon-donate-paypal-white);
     --icon-donate-stripe-dark: var(--original-icon-donate-stripe-dark);
@@ -169,6 +182,7 @@ body {
     --icon-timer-star-outline-dark: var(--original-icon-timer-star-outline-dark);
     --icon-timer-star-outline-white: var(--original-icon-timer-star-outline-white);
     --icon-creation-dark: var(--original-icon-creation-dark);
+    --icon-creation-outline-dark: var(--original-icon-creation-outline-dark);
     --icon-developer-board-dark: var(--original-icon-developer-board-dark);
     --icon-chevron-left-dark: var(--original-icon-chevron-left-dark);
     --icon-chevron-right-dark: var(--original-icon-chevron-right-dark);
@@ -364,6 +378,14 @@ body .icon-bug-white,
 body .icon-bug.icon-white {
     background-image: var(--icon-bug-white);
 }
+body .icon-bug-outline,
+body .icon-bug-outline-dark {
+    background-image: var(--icon-bug-outline-dark);
+}
+body .icon-bug-outline-white,
+body .icon-bug-outline.icon-white {
+    background-image: var(--icon-bug-outline-white);
+}
 body .icon-comment-question,
 body .icon-comment-question-dark {
     background-image: var(--icon-comment-question-dark);
@@ -372,6 +394,14 @@ body .icon-comment-question-white,
 body .icon-comment-question.icon-white {
     background-image: var(--icon-comment-question-white);
 }
+body .icon-comment-question-outline,
+body .icon-comment-question-outline-dark {
+    background-image: var(--icon-comment-question-outline-dark);
+}
+body .icon-comment-question-outline-white,
+body .icon-comment-question-outline.icon-white {
+    background-image: var(--icon-comment-question-outline-white);
+}
 body .icon-feature-search,
 body .icon-feature-search-dark {
     background-image: var(--icon-feature-search-dark);
@@ -379,6 +409,14 @@ body .icon-feature-search-dark {
 body .icon-feature-search-white,
 body .icon-feature-search.icon-white {
     background-image: var(--icon-feature-search-white);
+}
+body .icon-feature-search-outline,
+body .icon-feature-search-outline-dark {
+    background-image: var(--icon-feature-search-outline-dark);
+}
+body .icon-feature-search-outline-white,
+body .icon-feature-search-outline.icon-white {
+    background-image: var(--icon-feature-search-outline-white);
 }
 body .icon-donate-paypal,
 body .icon-donate-paypal-dark {
@@ -497,6 +535,10 @@ body .icon-timer-star-outline.icon-white {
 body .icon-creation,
 body .icon-creation-dark {
     background-image: var(--icon-creation-dark);
+}
+body .icon-creation-outline,
+body .icon-creation-outline-dark {
+    background-image: var(--icon-creation-outline-dark);
 }
 
 body .icon-chevron-left,

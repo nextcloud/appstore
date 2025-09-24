@@ -147,20 +147,20 @@
                 <a rel="noreferrer noopener"
                        href="{{ object.issue_tracker }}"
                        class="btn btn-primary">
-                    <span class="icon icon-bug icon-white"></span>
+                    <span class="icon icon-bug-outline icon-white"></span>
                     {% trans 'Report problem' %}
                 </a>
                 <a rel="noreferrer noopener"
                        href="{{ object.issue_tracker }}"
                        class="btn btn-default btn-light">
-                    <span class="icon icon-feature-search"></span>
+                    <span class="icon icon-feature-search-outline"></span>
                     {% trans 'Request feature' %}
                 </a>
             {% endif %}
             <a rel="noreferrer noopener"
                href="{{ object.discussion_url }}"
                class="btn btn-default btn-light">
-                <span class="icon icon-comment-question"></span>
+                <span class="icon icon-comment-question-outline"></span>
                 {% trans 'Ask questions or discuss' %}
             </a>
         </section>
@@ -298,7 +298,7 @@
                 <button id="toggle-comment-button" aria-expanded="true"
                         data-toggle="collapse" data-target="#app-ratings"
                         class="btn btn-primary">
-                    <span class="icon icon-star-plus icon-white"></span>
+                    <span class="icon icon-star-plus-outline icon-white"></span>
                     {% if not object.is_integration %}{% trans 'Rate app' %}{% else %}{% trans 'Rate integration' %}{% endif %}
                 </button>
             {% endif %}
@@ -313,7 +313,7 @@
                                 {% blocktrans %}Rating comments support <a rel="noopener noreferrer" href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>. Do not use rating comments to report bugs or request features. Neither developers nor users will be notified of your comment. A rating without a comment still counts, but will not be listed below.{% endblocktrans %}
                             </p>
                             <button type="submit" class="btn btn-primary">
-                                <span class="icon icon-star-plus icon-white"></span>
+                                <span class="icon icon-star-plus-outline icon-white"></span>
                                 {% if rating_form.is_bound %}
                                     {% trans 'Update rating' %}
                                 {% else %}
