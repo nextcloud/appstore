@@ -6,13 +6,24 @@
 
 ## [Unreleased]
 
-## [4.11.1] - 2024-09-24
+## [4.11.2] - 2025-12-16
+
+### Changed
+
+- Update app template. #1671
+- Multiple dependency updates. #1665 #1670 #1672
+
+### Fixed
+
+- Bump minimum Nextcloud version for outdated app status check. #1673
+
+## [4.11.1] - 2025-09-24
 
 ### Changed
 
 - Use more outlined icons. #1653
 
-## [4.11.0] - 2024-09-23
+## [4.11.0] - 2025-09-23
 
 ### Added
 
@@ -26,7 +37,7 @@
 - Multiple dependency updates. #1331 #1541 #1627 #1630 #1633 #1642 #1644 #1647
 - Multiple documentation updates. #1624 #1636
 
-## [4.10.0] - 2024-05-30
+## [4.10.0] - 2025-05-30
 
 ### Added
 
