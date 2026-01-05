@@ -6,6 +6,17 @@
 
 ## [Unreleased]
 
+## [4.11.3] - 2026-01-05
+
+### Changed
+
+- Update app template. #1688
+- Multiple dependency updates. #1685
+
+### Fixed
+
+- Update app description only when uploaded app release is latest version. #1687
+
 ## [4.11.2] - 2025-12-16
 
 ### Changed
