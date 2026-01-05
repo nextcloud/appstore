@@ -70,14 +70,13 @@ def flatmap(f: Callable[[T], Iterable[U]], xs: Iterable[T]) -> Iterable[U]:
     return chain.from_iterable(map(f, xs))
 
 
-def any_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
+def all_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     """
     :param predicate: function to test items
     :param iterable: iterable
-    :return: true if a predicate returns true for at least one element in an
-     iterable
+    :return: true if a predicate returns true for all elements in an iterable
     """
-    return any(predicate(entry) for entry in iterable)
+    return all(predicate(entry) for entry in iterable)
 
 
 def distinct(iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:

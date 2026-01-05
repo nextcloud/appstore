@@ -10,7 +10,7 @@ from django.conf import settings  # type: ignore
 from django.utils import timezone
 from semantic_version import Version  # type: ignore
 
-from nextcloudappstore.core.facades import any_match
+from nextcloudappstore.core.facades import all_match
 from nextcloudappstore.core.models import (
     App,
     AppApiEnvironmentVariable,
@@ -375,7 +375,6 @@ class AppImporter(Importer):
         def is_newer_version(release: Any) -> bool:
             return uploaded_version >= Version(release.version)
 
-        # the main page should only be updated when stable and new releases
-        # are uploaded
-        is_latest_version = any_match(is_newer_version, releases)
+        # the main page should only be updated when newest stable release is uploaded
+        is_latest_version = all_match(is_newer_version, releases)
         return is_latest_version
