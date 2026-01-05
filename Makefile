@@ -24,7 +24,7 @@ initmigrations:
 .PHONY: dev-setup
 dev-setup:
 	rm -f db.sqlite3
-	npm install
+	npm ci
 	npm run build
 	poetry install
 	cp $(CURDIR)/scripts/development/settings/base.py $(CURDIR)/nextcloudappstore/settings/development.py
