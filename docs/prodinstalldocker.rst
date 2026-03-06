@@ -19,18 +19,17 @@ Docker is just another technology with its own upsides and downsides. Make an ed
 
 **Drawbacks**:
 
-* Knowledge of docker-compose required to change and optimize deployment
+* Knowledge of docker compose required to change and optimize deployment
 * Docker daemon `must run as root <https://askubuntu.com/a/477554>`_
 * Python bugfixes and security updates are not available through your package manager; they require a container rebuild and deployment
 * Much more complex setup due to another layer of abstraction
-
 
 General Information
 ===================
 
 This page will detail a setup with the following configuration
 
-* the host runs Ubuntu 16.04
+* the host runs Ubuntu 22.04 or newer
 * PostgreSQL and Nginx are run on the host
 
 If you want to run a different setup you need to provide your own **docker-compose.yml** and adjust your settings accordingly.
@@ -38,9 +37,9 @@ If you want to run a different setup you need to provide your own **docker-compo
 Building the Image
 ==================
 
-To build the Docker image install Git, Docker and docker-compose on your development machine, e.g.::
+To build the Docker image install Git, Docker and the docker compose plugin on your development machine, e.g.::
 
-    sudo apt-get install docker docker-compose git
+    sudo apt-get install docker.io docker-compose-v2 git
 
 and start the daemon::
 
@@ -52,7 +51,7 @@ Then clone the repository and build the image::
     git clone https://github.com/nextcloud/appstore
     cd appstore
     git checkout tags/VERSION
-    sudo docker-compose build production
+    sudo docker compose build production
 
 Export your container to be able to upload it to your production server::
 
@@ -71,9 +70,9 @@ Initial Setup
 =============
 These steps are only required for your initial setup.
 
-Install Docker and docker-compose on your production server, e.g.::
+Install Docker and the docker compose plugin on your production server, e.g.::
 
-    sudo apt-get install docker docker-compose
+    sudo apt-get install docker.io docker-compose-v2
 
 and start the daemon::
 
@@ -136,11 +135,11 @@ Install PostgreSQL on your host machine::
 
     sudo apt-get install postgresql
 
-To allow the container to connect to it open **/etc/postgresql/9.5/main/postgresql.conf** and modify/add the following section::
+To allow the container to connect to it open **/etc/postgresql/14/main/postgresql.conf** and modify/add the following section::
 
     listen_addresses = '127.0.0.1,172.17.0.1'
 
-Then whitelist your container IP in **/etc/postgresql/9.5/main/pg_hba.conf**::
+Then whitelist your container IP in **/etc/postgresql/14/main/pg_hba.conf**::
 
     host    nextcloudappstore nextcloudappstore 172.17.0.2/32       md5
 
@@ -237,7 +236,7 @@ Configuring New Relic (Optional)
 
 TBD
 
-Creating Docker-Compose Configuration
+Creating Docker Compose Configuration
 -------------------------------------
 
 Either create your own configuration or grab a copy of our `docker-compose.yml <https://github.com/nextcloud/appstore/blob/master/docker-compose.yml>`_ and modify it if necessary. Place the file in your designated directory::
@@ -254,7 +253,7 @@ First load the latest uploaded image::
 Then change into your server directory and start the container::
 
     cd /srv
-    sudo docker-compose up production
+    sudo docker compose up -d production
 
 The following directories will be created initially:
 
@@ -268,8 +267,8 @@ Creating an Admin User
 ----------------------
 To create the initial admin user and verify his email, run the following command::
 
-    sudo docker-compose exec production python manage.py createsuperuser --username admin --email admin@admin.com
-    sudo docker-compose exec production python manage.py verifyemail --username admin --email admin@admin.com
+    sudo docker compose exec production python manage.py createsuperuser --username admin --email admin@admin.com
+    sudo docker compose exec production python manage.py verifyemail --username admin --email admin@admin.com
 
 The first command will ask for the password.
 
@@ -287,14 +286,11 @@ GitHub is currently the only supported social login. In order to register the Ap
 
 Afterwards your **client id** and **client secret** are displayed. These need to be saved inside the database. To do that, either log into the admin interface, change your site's domain and add GitHub as a new social application or run the following command::
 
-    sudo docker-compose exec python manage.py setupsocial --github-client-id "CLIENT_ID" --github-secret "SECRET" --domain apps.nextcloud.com
+    sudo docker compose exec production python manage.py setupsocial --github-client-id "CLIENT_ID" --github-secret "SECRET" --domain apps.nextcloud.com
 
 .. note:: The above mentioned domains need to be changed if you want to run the App Store on a different server.
 
 .. note:: For local testing use localhost:8000 as domain name. Furthermore the confirmation mail will also be printed in your shell that was used to start the development server.
-
-
-.. _prod_install_release_sync_docker:
 
 Sync Nextcloud Releases from GitHub
 -----------------------------------
@@ -308,13 +304,13 @@ Before **3.2.0** releases were imported either manually or via the a shipped JSO
 
 You can run the command by giving it the oldest supported Nextcloud version::
 
-     sudo docker-compose exec python manage.py syncnextcloudreleases --oldest-supported="12.0.0"
+     sudo docker compose exec production python manage.py syncnextcloudreleases --oldest-supported="12.0.0"
 
 All existing versions prior to this release will be marked as not having a release, new versions will be imported and the latest version will be marked as current version.
 
 You can also do a test run and see what kind of versions would be imported::
 
-     sudo docker-compose exec python manage.py syncnextcloudreleases --oldest-supported="12.0.0" --print
+     sudo docker compose exec production python manage.py syncnextcloudreleases --oldest-supported="12.0.0" --print
 
 The GitHub API is rate limited to 60 requests per second. Depending on how far back your **oldest-supported** version goes a single command might fetch multiple pages of releases. If you want to run the command more than 10 times per hour it is recommended to `obtain and configure a GitHub OAuth2 token <https://help.github.com/articles/git-automation-with-oauth-tokens/>`_.
 
