@@ -16,7 +16,7 @@ RUN npm run build
 
 
 # --- Stage 2: Translations ---
-FROM python:3.10 as translations
+FROM python:3.12 as translations
 
 WORKDIR /srv
 
@@ -39,7 +39,7 @@ RUN python manage.py compilemessages --settings=nextcloudappstore.settings.base
 
 
 # --- Stage 3: Main App ---
-FROM python:3.10 as main
+FROM python:3.12 as main
 
 ARG platform=production
 ENV PYTHONUNBUFFERED=1
