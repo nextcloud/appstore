@@ -331,7 +331,7 @@ class App(TranslatableModel):
         :return: True if bundled, otherwise false
         """
 
-        if self.id in [
+        return self.id in [
             "activity",
             "admin_audit",
             "app_api",
@@ -381,13 +381,12 @@ class App(TranslatableModel):
             "updatenotification",
             "user_ldap",
             "user_status",
+            "users_picker",
             "viewer",
             "weather_status",
             "webhook_listeners",
             "workflowengine",
-        ]:
-            return True
-        return False
+        ]
 
     def is_outdated(self):
         """Checks if an app has been released in last 3 recent platform versions
