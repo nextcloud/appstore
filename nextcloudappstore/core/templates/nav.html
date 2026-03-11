@@ -8,11 +8,11 @@
             <div class="col-md-12 col-lg-6">
                 <div class="left-navbar-wrapper">
                     <a class="brand" href="/">
-                        <img class="logo" alt="Logo" src="{% static 'assets/img/logo-icon.svg' %}" title="nextcloud.com">
+                        <img class="logo" alt="Nextcloud" src="{% static 'assets/img/logo-icon.svg' %}">
                         <span class="site-title">App store</span>
                     </a>
                     <ul class="nav navbar-nav developer-nav">
-                        <li role="presentation" class="dropdown">
+                        <li class="dropdown">
                             <a class="dropdown-toggle nav-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="icon material-symbols-outlined">arrow_drop_down_circle</span>
                                 {% trans 'Resources for developers' %}
@@ -81,6 +81,7 @@
                 <div id="navbar-wrapper" class="navbar-wrapper">
                     <div class="search-form">
                         <form method="get"
+                              role="search"
                               action="{% if current_category %}{{ request.path }}
                               {% else %}{% url 'home' %}
                               {% endif %}">
@@ -88,7 +89,6 @@
                                 <span class="icon material-symbols-outlined" aria-hidden="true">search</span>
                                 <input type="search"
                                        name="search"
-                                       role="search"
                                        value="{{ search_query }}"
                                        placeholder="{% if current_category %}{% blocktrans with category=current_category.name %}Search in {{ category }}{% endblocktrans %}{% elif is_featured_category %}{% trans 'Search in featured apps' %}{% else %}{% trans 'Search in all apps' %}{% endif %}"
                                        class="form-control search-box">

@@ -17,53 +17,53 @@
 <div class="row row-no-gutters">
     <div class="col-md-12">
         <ul class="nav-tabs nav sorting">
-            <li role="presentation" class="{% if not request.GET.order_by or request.GET.order_by == 'relevance' %}active{% endif %}">
+            <li class="{% if not request.GET.order_by or request.GET.order_by == 'relevance' %}active{% endif %}">
                 <a href="{{ request.url }}?order_by=relevance&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                     <span class="icon icon-relevance{% if not request.GET.order_by or request.GET.order_by == 'relevance' %} icon-white{% else %}-outline{% endif %}"></span>
                     {% trans 'Relevance' %}
                 </a>
             </li>
-            <li role="presentation" class="{% if request.GET.order_by == 'rating_overall' %}active{% endif %}">
+            <li class="{% if request.GET.order_by == 'rating_overall' %}active{% endif %}">
                 <a href="{{ request.url }}?order_by=rating_overall&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                     <span class="icon icon-star-plus{% if request.GET.order_by == 'rating_overall' %} icon-white{% else %}-outline{% endif %}"></span>
                     {% trans 'Rating' %}
                 </a>
             </li>
             {% if request.GET.order_by == 'name' and request.GET.ordering == 'asc' %}
-                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                <li class="{% if request.GET.order_by == 'name' %}active{% endif %}">
                     <a href="{{ request.url }}?order_by=name&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                         <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}"></span>
                         {% trans 'Alphabetically' %}
                     </a>
                 </li>
             {% elif request.GET.order_by == 'name' and request.GET.ordering == 'desc' %}
-                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                <li class="{% if request.GET.order_by == 'name' %}active{% endif %}">
                     <a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                         <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}" style="transform: rotateZ(180deg)"></span>
                         {% trans 'Alphabetically' %}
                     </a>
                 </li>
             {% else %}
-                <li role="presentation" class="{% if request.GET.order_by == 'name' %}active{% endif %}">
+                <li class="{% if request.GET.order_by == 'name' %}active{% endif %}">
                     <a href="{{ request.url }}?order_by=name&amp;ordering=asc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                         <span class="icon icon-sort-alphabetical-variant {% if request.GET.order_by == 'name' %}icon-white{% endif %}"></span>
                         {% trans 'Alphabetically' %}
                     </a>
                 </li>
             {% endif %}
-            <li role="presentation" class="{% if request.GET.order_by == 'last_release' %}active{% endif %}">
+            <li class="{% if request.GET.order_by == 'last_release' %}active{% endif %}">
                 <a href="{{ request.url }}?order_by=last_release&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                     <span class="icon icon-rocket-launch{% if request.GET.order_by == 'last_release' %} icon-white{% else %}-outline{% endif %}"></span>
                     {% trans 'Latest release' %}
                 </a>
             </li>
-            <li role="presentation" class="{% if request.GET.order_by == 'rating_recent' %}active{% endif %}">
+            <li class="{% if request.GET.order_by == 'rating_recent' %}active{% endif %}">
                 <a href="{{ request.url }}?order_by=rating_recent&amp;ordering=desc{% if url_params.search_filters %}&amp;{{ url_params.search_filters }}{% endif %}">
                     <span class="icon icon-timer-star{% if request.GET.order_by == 'rating_recent' %} icon-white{% else %}-outline{% endif %}"></span>
                     {% trans 'Rating (recent)' %}
                 </a>
             </li>
-            <li role="presentation" class="filters">
+            <li class="filters">
                 <form method="get" action="{{ request.path }}" name="filter-form" id="filter-form">
                     {% if not is_featured_category %}
                         <label class="checkbox-group" for="featured-checkbox">
