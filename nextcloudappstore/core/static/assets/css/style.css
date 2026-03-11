@@ -593,8 +593,25 @@ form .text-danger {
     box-shadow: none;
 }
 
-.sorting {
+.sorting-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
     margin: 0 15px 15px 15px;
+}
+
+.sorting {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+form.filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-left: auto;
 }
 
 .sorting .glyphicon {
