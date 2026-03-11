@@ -3,6 +3,22 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
+    font-weight: bold;
+    border-radius: 0 0 var(--border-radius) 0;
+    z-index: 9999;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
 html,
 body {
     margin: 0;
@@ -730,10 +746,12 @@ form .text-danger {
     }
 }
 
-.app-meta h5 {
+.app-meta h2 {
     font-weight: 700;
     color: #000;
     font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .app-score-image {
@@ -933,9 +951,9 @@ address {
     font-weight: 700;
 }
 
-.interact-section h5,
-.donate-section h5,
-.support-section h5 {
+.interact-section h2,
+.donate-section h2,
+.support-section h2 {
     margin-bottom: 20px;
 }
 
