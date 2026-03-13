@@ -62,7 +62,7 @@
         {% if object.is_featured %}<span class="tag featured">{% trans "Featured" %}</span>{% endif %}
         {% if object.is_orphan %}<span class="tag tag-danger">{% trans "Orphan / Looking for Maintainer" %}</span>{% endif %}
     </div>
-    <div class="app-meta col-md-4 col-sm-12">
+    <aside class="app-meta col-md-4 col-sm-12" aria-label="{% trans 'App information' %}">
         <section>
             <h5>{% trans "Highest Nextcloud version" %}</h5>
             {% with latest_releases_by_platform_v|sort_by_version:'asc'|last as latest_release %}
@@ -189,7 +189,7 @@
             {% trans 'Recommended for large Nextcloud installations only.' %}
         </section>
         {% endif %}
-    </div>
+    </aside>
 
     <section class="app-description markdown loading"></section>
 
