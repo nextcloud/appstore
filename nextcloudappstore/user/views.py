@@ -5,6 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
+from allauth.decorators import rate_limit
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -100,6 +101,7 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
 
 
 @method_decorator(never_cache, name="dispatch")
+@method_decorator(rate_limit(action="reset_password"), name="dispatch")
 class AccountView(LoginRequiredMixin, UpdateView):
     """Display and allow changing of the user's name and subscription."""
 
