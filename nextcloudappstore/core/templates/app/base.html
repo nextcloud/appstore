@@ -9,15 +9,18 @@
 <div class="row">
     <div class="col-sm-4 col-md-3">
         {% if categories %}
+        <nav aria-label="{% trans 'App categories' %}">
         <ul id="sidebar" class="nav nav-pills nav-stacked">
             <li class="category-app-item {% if cat.id == current_category.id and not object and not is_featured_category %}active{% endif %}">
-                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                <a href="{% url 'home' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}"
+                   {% if not current_category and not object and not is_featured_category %}aria-current="page"{% endif %}>
                     <span class="icon icon-category-all {% if cat.id == current_category.id and not object and not is_featured_category %}icon-white{% endif %}"></span>
                     {% trans 'All apps' %}
                 </a>
             </li>
             <li class="{% if cat.id == current_category.id and not object and is_featured_category %}active{% endif %}">
-                <a href="{% url 'featured' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                <a href="{% url 'featured' %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}"
+                   {% if is_featured_category %}aria-current="page"{% endif %}>
                     <span class="icon icon-category-featured {% if cat.id == current_category.id and not object and is_featured_category %}icon-white{% endif %}"></span>
                     {% trans 'Featured apps' %}
                 </a>
@@ -25,13 +28,15 @@
 
             {% for cat in categories %}
                 <li class="category-app-item {% if cat.id == current_category.id %}active{% endif %}">
-                    <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}">
+                    <a href="{% url 'category-app-list' cat.id %}{% if url_params.filters_ordering %}?{{ url_params.filters_ordering }}{% endif %}"
+                       {% if cat.id == current_category.id %}aria-current="page"{% endif %}>
                         <span class="icon icon-category-{{ cat.id }} {% if cat.id == current_category.id %}icon-white{% endif %}"></span>
                         {{ cat.name }}
                     </a>
                 </li>
             {% endfor %}
         </ul>
+        </nav>
         {% endif %}
     </div>
     <div class="col-sm-8 col-md-9">

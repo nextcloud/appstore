@@ -28,9 +28,10 @@
 </head>
 
 <body>
+<a class="skip-to-content" href="#body">{% trans 'Skip to main content' %}</a>
 <div id="container">
     {% block navbar %}{% include 'nav.html' %}{% endblock %}
-    <div class="container" id="body">
+    <main class="container" id="body">
         <div class="messages">
             {% for message in messages %}
                 <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
@@ -40,7 +41,7 @@
             {% block messages %}{% endblock %}
         </div>
         {% block content %}{% endblock %}
-    </div>
+    </main>
     <footer class="navbar-default" id="footer">
         <div class="container">
             <ul class="nav navbar-nav">
