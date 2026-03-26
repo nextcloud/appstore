@@ -610,7 +610,23 @@ form .text-danger {
 }
 
 .sorting {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     margin: 0 15px 15px 15px;
+    padding: 0;
+}
+
+.sorting > li {
+    float: none;
+}
+
+.sorting li.filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-left: auto;
 }
 
 .sorting .glyphicon {
