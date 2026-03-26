@@ -43,7 +43,9 @@ jobs:
           submodules: true
 
       - name: Install dependencies
-        run: sudo apt install gettext netcat-openbsd xvfb redis-server
+        run: |
+          sudo apt update
+          sudo apt install -o Acquire::Retries=5 --fix-missing gettext netcat-openbsd xvfb redis-server
 
       - name: Set up Python
         uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
