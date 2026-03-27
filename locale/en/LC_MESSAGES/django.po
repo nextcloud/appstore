@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-10 22:19-0500\n"
+"POT-Creation-Date: 2026-03-27 02:25-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -471,6 +471,7 @@ msgid "Screenshot"
 msgstr ""
 
 #: nextcloudappstore/core/models.py:650
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Screenshots"
 msgstr ""
 
@@ -763,7 +764,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:15
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/password_reset.html:10
-#: nextcloudappstore/core/templates/nav.html:130
+#: nextcloudappstore/core/templates/nav.html:128
 msgid "Log in"
 msgstr ""
 
@@ -781,7 +782,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/signup.html:24
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:20
 #: nextcloudappstore/core/templates/app/register.html:31
-#: nextcloudappstore/core/templates/nav.html:136
+#: nextcloudappstore/core/templates/nav.html:134
 #: nextcloudappstore/core/templates/socialaccount/signup.html:8
 #: nextcloudappstore/core/templates/socialaccount/signup.html:16
 #: nextcloudappstore/core/templates/socialaccount/signup.html:24
@@ -860,12 +861,16 @@ msgstr ""
 msgid "Nextcloud App Store administration"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/base.html:16
+#: nextcloudappstore/core/templates/app/base.html:12
+msgid "App categories"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/base.html:18
 #: nextcloudappstore/core/templates/app/list.html:9
 msgid "All apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/base.html:22
+#: nextcloudappstore/core/templates/app/base.html:25
 #: nextcloudappstore/core/templates/app/list.html:9
 msgid "Featured apps"
 msgstr ""
@@ -876,12 +881,12 @@ msgstr ""
 msgid "Latest %(app_name)s releases"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:29
-msgid "Previous"
+#: nextcloudappstore/core/templates/app/detail.html:28
+msgid "Previous screenshot"
 msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:39
-msgid "Next"
+#: nextcloudappstore/core/templates/app/detail.html:38
+msgid "Next screenshot"
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:48
@@ -908,6 +913,10 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:63
 msgid "Orphan / Looking for Maintainer"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:65
+msgid "App information"
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:67
@@ -1072,7 +1081,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:7
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:11
-#: nextcloudappstore/core/templates/nav.html:71
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Register integration"
 msgstr ""
 
@@ -1234,15 +1243,19 @@ msgstr ""
 msgid "Latest app releases"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:31
+msgid "Skip to main content"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Contribute to the app store"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:56
+#: nextcloudappstore/core/templates/base.html:57
 msgid "Privacy and legal"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:62
+#: nextcloudappstore/core/templates/base.html:63
 msgid "Legal notice"
 msgstr ""
 
@@ -1267,29 +1280,29 @@ msgstr ""
 msgid "Submit your app"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in all apps"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:101
+#: nextcloudappstore/core/templates/nav.html:99
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:109
+#: nextcloudappstore/core/templates/nav.html:107
 msgid "Admin"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:117
+#: nextcloudappstore/core/templates/nav.html:115
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/account.html:11
 #: nextcloudappstore/user/templates/user/base.html:8
@@ -1297,7 +1310,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: nextcloudappstore/core/templates/nav.html:123
+#: nextcloudappstore/core/templates/nav.html:121
 msgid "Log out"
 msgstr ""
 

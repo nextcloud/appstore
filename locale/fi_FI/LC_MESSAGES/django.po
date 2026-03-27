@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-22 22:05-0500\n"
+"POT-Creation-Date: 2026-03-27 02:25-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Transifex Bot <>, 2025\n"
 "Language-Team: Finnish (Finland) (https://app.transifex.com/nextcloud/"
@@ -500,6 +500,7 @@ msgid "Screenshot"
 msgstr "Kuvankaappaus"
 
 #: nextcloudappstore/core/models.py:650
+#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Screenshots"
 msgstr "Kuvankaappaukset"
 
@@ -815,7 +816,7 @@ msgstr ""
 #: nextcloudappstore/core/templates/account/login.html:15
 #: nextcloudappstore/core/templates/account/login.html:24
 #: nextcloudappstore/core/templates/account/password_reset.html:10
-#: nextcloudappstore/core/templates/nav.html:130
+#: nextcloudappstore/core/templates/nav.html:128
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
@@ -833,7 +834,7 @@ msgstr "Kirjaudu sisään GitHub-tiliä käyttäen"
 #: nextcloudappstore/core/templates/account/signup.html:24
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:20
 #: nextcloudappstore/core/templates/app/register.html:31
-#: nextcloudappstore/core/templates/nav.html:136
+#: nextcloudappstore/core/templates/nav.html:134
 #: nextcloudappstore/core/templates/socialaccount/signup.html:8
 #: nextcloudappstore/core/templates/socialaccount/signup.html:16
 #: nextcloudappstore/core/templates/socialaccount/signup.html:24
@@ -925,12 +926,18 @@ msgstr "Nextcloud App Store -ylläpitäjä"
 msgid "Nextcloud App Store administration"
 msgstr "Nextcloud App Store -ylläpito"
 
-#: nextcloudappstore/core/templates/app/base.html:16
+#: nextcloudappstore/core/templates/app/base.html:12
+#, fuzzy
+#| msgid "Categories"
+msgid "App categories"
+msgstr "Kategoriat"
+
+#: nextcloudappstore/core/templates/app/base.html:18
 #: nextcloudappstore/core/templates/app/list.html:9
 msgid "All apps"
 msgstr "Kaikki sovellukset"
 
-#: nextcloudappstore/core/templates/app/base.html:22
+#: nextcloudappstore/core/templates/app/base.html:25
 #: nextcloudappstore/core/templates/app/list.html:9
 msgid "Featured apps"
 msgstr "Esitellyt sovellukset"
@@ -941,13 +948,17 @@ msgstr "Esitellyt sovellukset"
 msgid "Latest %(app_name)s releases"
 msgstr "Viimeisimmät %(app_name)s-julkaisut"
 
-#: nextcloudappstore/core/templates/app/detail.html:29
-msgid "Previous"
-msgstr "Edellinen"
+#: nextcloudappstore/core/templates/app/detail.html:28
+#, fuzzy
+#| msgid "Screenshot"
+msgid "Previous screenshot"
+msgstr "Kuvankaappaus"
 
-#: nextcloudappstore/core/templates/app/detail.html:39
-msgid "Next"
-msgstr "Seuraava"
+#: nextcloudappstore/core/templates/app/detail.html:38
+#, fuzzy
+#| msgid "Screenshot"
+msgid "Next screenshot"
+msgstr "Kuvankaappaus"
 
 #: nextcloudappstore/core/templates/app/detail.html:48
 msgid "This app has become part of the Nextcloud Server release packages."
@@ -977,6 +988,12 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/detail.html:63
 msgid "Orphan / Looking for Maintainer"
 msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:65
+#, fuzzy
+#| msgid "App rating"
+msgid "App information"
+msgstr "Sovelluksen arvosana"
 
 #: nextcloudappstore/core/templates/app/detail.html:67
 msgid "Highest Nextcloud version"
@@ -1140,7 +1157,7 @@ msgstr "Vaihda kommenttien kieli:"
 
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:7
 #: nextcloudappstore/core/templates/app/integration_scaffold.html:11
-#: nextcloudappstore/core/templates/nav.html:71
+#: nextcloudappstore/core/templates/nav.html:69
 msgid "Register integration"
 msgstr "Rekisteröi integraatio"
 
@@ -1314,15 +1331,19 @@ msgstr "Nextcloud-yhteisö"
 msgid "Latest app releases"
 msgstr "Viimeisimmät sovellusjulkaisut"
 
-#: nextcloudappstore/core/templates/base.html:50
+#: nextcloudappstore/core/templates/base.html:31
+msgid "Skip to main content"
+msgstr ""
+
+#: nextcloudappstore/core/templates/base.html:51
 msgid "Contribute to the app store"
 msgstr ""
 
-#: nextcloudappstore/core/templates/base.html:56
+#: nextcloudappstore/core/templates/base.html:57
 msgid "Privacy and legal"
 msgstr "Yksityisyys ja lainsäädäntö"
 
-#: nextcloudappstore/core/templates/base.html:62
+#: nextcloudappstore/core/templates/base.html:63
 msgid "Legal notice"
 msgstr "Lainopillinen huomautus"
 
@@ -1347,29 +1368,29 @@ msgstr "Pyydä käännöksiä"
 msgid "Submit your app"
 msgstr "Lähetä sovelluksesi"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 #, python-format
 msgid "Search in %(category)s"
 msgstr "Etsi %(category)s"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in featured apps"
 msgstr "Etsi esitellyistä sovelluksista"
 
-#: nextcloudappstore/core/templates/nav.html:93
+#: nextcloudappstore/core/templates/nav.html:91
 msgid "Search in all apps"
 msgstr "Etsi kaikista sovelluksista"
 
-#: nextcloudappstore/core/templates/nav.html:101
+#: nextcloudappstore/core/templates/nav.html:99
 #: nextcloudappstore/core/templates/translation/db_translations.txt:19
 msgid "Search"
 msgstr "Etsi"
 
-#: nextcloudappstore/core/templates/nav.html:109
+#: nextcloudappstore/core/templates/nav.html:107
 msgid "Admin"
 msgstr "Ylläpito"
 
-#: nextcloudappstore/core/templates/nav.html:117
+#: nextcloudappstore/core/templates/nav.html:115
 #: nextcloudappstore/user/templates/user/account.html:8
 #: nextcloudappstore/user/templates/user/account.html:11
 #: nextcloudappstore/user/templates/user/base.html:8
@@ -1377,7 +1398,7 @@ msgstr "Ylläpito"
 msgid "Account"
 msgstr "Tili"
 
-#: nextcloudappstore/core/templates/nav.html:123
+#: nextcloudappstore/core/templates/nav.html:121
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
@@ -1991,3 +2012,9 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:58
 msgid "Mark as orphaned"
 msgstr ""
+
+#~ msgid "Previous"
+#~ msgstr "Edellinen"
+
+#~ msgid "Next"
+#~ msgstr "Seuraava"
