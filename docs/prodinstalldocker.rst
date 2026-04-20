@@ -2,6 +2,13 @@
 Store Production Install (Docker)
 =================================
 
+.. warning::
+
+    Self-hosting the app store is not supported and we are not maintaining this part of the code or documentation.
+    As our code is open-source, you are welcome to reuse this part of the code if you find a way to make it work, but such usage of the app store is at your own risk.
+    If you have a Nextcloud Enterprise subscription and you have special needs regarding self-hosting the app store,
+    please contact your account manager to talk about the possibilities.
+
 The App Store can be installed using `Docker <https://www.docker.com/>`_. This is still work in progress and therefore not recommended for production.
 
 Benefits and Drawbacks
