@@ -339,30 +339,30 @@ licence
     * can occur multiple times with different licenses
     * must contain one of the following licenses (for apps targeting v31 or higher, see the `SPDX License List <https://spdx.org/licenses/>`_ for details):
 
-        * **0BSD**
-        * **AGPL-3.0-only**
-        * **AGPL-3.0-or-later**
-        * **Apache-2.0**
-        * **BSD-2-Clause**
-        * **BSD-3-Clause**
-        * **BSD-3-Clause-Clear**
-        * **CC0-1.0**
-        * **EUPL-1.2**
-        * **FSFAP**
-        * **GPL-2.0-or-later**
-        * **GPL-3.0-only**
-        * **GPL-3.0-or-later**
-        * **LGPL-2.1-only**
-        * **LGPL-2.1-or-later**
-        * **LGPL-3.0-only**
-        * **LGPL-3.0-or-later**
-        * **MIT**
-        * **MPL-2.0**
-        * **OLDAP-2.7**
-        * **PDDL-1.0**
-        * **SAX-PD**
-        * **Unlicense**
-        * **X11**
+        * `0BSD <https://spdx.org/licenses/0BSD.html>`_
+        * `AGPL-3.0-only <https://spdx.org/licenses/AGPL-3.0-only.html>`_
+        * `AGPL-3.0-or-later <https://spdx.org/licenses/AGPL-3.0-or-later.html>`_
+        * `Apache-2.0 <https://spdx.org/licenses/Apache-2.0.html>`_
+        * `BSD-2-Clause <https://spdx.org/licenses/BSD-2-Clause.html>`_
+        * `BSD-3-Clause <https://spdx.org/licenses/BSD-3-Clause.html>`_
+        * `BSD-3-Clause-Clear <https://spdx.org/licenses/BSD-3-Clause-Clear.html>`_
+        * `CC0-1.0 <https://spdx.org/licenses/CC0-1.0.html>`_
+        * `EUPL-1.2 <https://spdx.org/licenses/EUPL-1.2.html>`_
+        * `FSFAP <https://spdx.org/licenses/FSFAP.html>`_
+        * `GPL-2.0-or-later <https://spdx.org/licenses/GPL-2.0-or-later.html>`_
+        * `GPL-3.0-only <https://spdx.org/licenses/GPL-3.0-only.html>`_
+        * `GPL-3.0-or-later <https://spdx.org/licenses/GPL-3.0-or-later.html>`_
+        * `LGPL-2.1-only <https://spdx.org/licenses/LGPL-2.1-only.html>`_
+        * `LGPL-2.1-or-later <https://spdx.org/licenses/LGPL-2.1-or-later.html>`_
+        * `LGPL-3.0-only <https://spdx.org/licenses/LGPL-3.0-only.html>`_
+        * `LGPL-3.0-or-later <https://spdx.org/licenses/LGPL-3.0-or-later.html>`_
+        * `MIT <https://spdx.org/licenses/MIT.html>`_
+        * `MPL-2.0 <https://spdx.org/licenses/MPL-2.0.html>`_
+        * `OLDAP-2.7 <https://spdx.org/licenses/OLDAP-2.7.html>`_
+        * `PDDL-1.0 <https://spdx.org/licenses/PDDL-1.0.html>`_
+        * `SAX-PD <https://spdx.org/licenses/SAX-PD.html>`_
+        * `Unlicense <https://spdx.org/licenses/Unlicense.html>`_
+        * `X11 <https://spdx.org/licenses/X11.html>`_
 
     * (deprecated, for apps targeting v30 or lower) the following shorthand aliases are also used:
 
