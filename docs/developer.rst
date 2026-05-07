@@ -339,14 +339,30 @@ licence
     * can occur multiple times with different licenses
     * must contain one of the following licenses (for apps targeting v31 or higher, see the `SPDX License List <https://spdx.org/licenses/>`_ for details):
 
+        * **0BSD**
         * **AGPL-3.0-only**
         * **AGPL-3.0-or-later**
         * **Apache-2.0**
+        * **BSD-2-Clause**
+        * **BSD-3-Clause**
+        * **BSD-3-Clause-Clear**
         * **CC0-1.0**
+        * **EUPL-1.2**
+        * **FSFAP**
+        * **GPL-2.0-or-later**
         * **GPL-3.0-only**
         * **GPL-3.0-or-later**
+        * **LGPL-2.1-only**
+        * **LGPL-2.1-or-later**
+        * **LGPL-3.0-only**
+        * **LGPL-3.0-or-later**
         * **MIT**
         * **MPL-2.0**
+        * **OLDAP-2.7**
+        * **PDDL-1.0**
+        * **SAX-PD**
+        * **Unlicense**
+        * **X11**
 
     * (deprecated, for apps targeting v30 or lower) the following shorthand aliases are also used:
 
