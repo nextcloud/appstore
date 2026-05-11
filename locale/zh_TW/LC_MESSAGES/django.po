@@ -2,30 +2,30 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # miyorineko <miyorineko@protonmail.ch>, 2017
 # Jim Tsai <poormusic2001@gmail.com>, 2017
-# UitHub <loserfer1104@gmail.com>, 2017
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2020
 # 黃彥儒 <r1235613@gmail.com>, 2024
+# Yi Chi <chiyi4869@gmail.com>, 2026
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2026
+# Natashia Maxins <railroad1987@gmail.com>, 2026
+# UitHub <loserfer1104@gmail.com>, 2026
 # 黃柏諺 <s8321414@gmail.com>, 2026
-# Winston Yin <winstonyin@gmail.com>, 2026
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-10 22:14-0500\n"
+"POT-Creation-Date: 2026-03-27 02:25-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
-"Last-Translator: Winston Yin <winstonyin@gmail.com>, 2026\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/nextcloud/"
-"teams/64236/zh_TW/)\n"
-"Language: zh_TW\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/nextcloud/teams/64236/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: nextcloudappstore/core/feeds.py:19
@@ -84,11 +84,15 @@ msgstr ""
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a href=\"https://"
-"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
-"noopener\">certificate repository</a> (follow the README). You can generate "
-"the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
+"You can generate the CSR by executing the following command:"
 msgstr ""
+"通常儲存在 ~/.nextcloud/certificates/APP_ID.crt 中，其中 APP_ID 是您應用程式的 "
+"ID。如果您沒有憑證，您必須先建立憑證簽發請求 (CSR)，然後將其發佈於<a "
+"href=\"https://github.com/nextcloud/app-certificate-requests\" "
+"rel=\"noreferrer noopener\">憑證儲存庫</a>中（遵循讀我檔案）。您可以透過執行以下指令來生成 CSR："
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -278,7 +282,7 @@ msgstr ""
 #: nextcloudappstore/core/models.py:434
 #: nextcloudappstore/core/templates/app/list.html:29
 msgid "Rating"
-msgstr ""
+msgstr "評價"
 
 #: nextcloudappstore/core/models.py:434
 msgid "Rating from 0.0 (worst) to 1.0 (best)"
@@ -488,7 +492,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:665
 msgid "Donation URL"
-msgstr "捐款 URL"
+msgstr ""
 
 #: nextcloudappstore/core/models.py:666
 msgid "Donation Type"
@@ -550,7 +554,7 @@ msgstr ""
 #: nextcloudappstore/core/models.py:738
 #: nextcloudappstore/core/templates/app/releases.html:35
 msgid "Licenses"
-msgstr ""
+msgstr "授權"
 
 #: nextcloudappstore/core/models.py:750
 msgid "Key which is used to identify a database"
@@ -622,7 +626,7 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:819
 msgid "Image"
-msgstr ""
+msgstr "圖片"
 
 #: nextcloudappstore/core/models.py:820
 msgid "Show podcast"
@@ -677,8 +681,8 @@ msgstr ""
 
 #: nextcloudappstore/core/models.py:897
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded "
-"as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded"
+" as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 
@@ -732,13 +736,11 @@ msgstr ""
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this "
-"email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this "
-"message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
@@ -843,8 +845,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/account/signup.html:15
@@ -944,7 +946,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:78
 msgid "Authors"
-msgstr ""
+msgstr "作者"
 
 #: nextcloudappstore/core/templates/app/detail.html:97
 msgid "Owner"
@@ -1029,7 +1031,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:215
 msgid "Unstable"
-msgstr ""
+msgstr "不穩定"
 
 #: nextcloudappstore/core/templates/app/detail.html:236
 msgid "Ok"
@@ -1051,7 +1053,7 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:286
 msgid "No comments found."
-msgstr ""
+msgstr "無評論"
 
 #: nextcloudappstore/core/templates/app/detail.html:295
 msgid "Comments"
@@ -1071,11 +1073,11 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:313
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
-"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
-"rating comments to report bugs or request features. Neither developers nor "
-"users will be notified of your comment. A rating without a comment still "
-"counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" "
+"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
+"Do not use rating comments to report bugs or request features. Neither "
+"developers nor users will be notified of your comment. A rating without a "
+"comment still counts, but will not be listed below."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/detail.html:318
@@ -1154,20 +1156,20 @@ msgstr ""
 #: nextcloudappstore/core/templates/app/register.html:17
 #: nextcloudappstore/core/templates/nav.html:57
 msgid "Register app"
-msgstr ""
+msgstr "註冊應用程式"
 
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
-"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
-"a>."
+"signature, check out the <a "
+"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
+"rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the "
-"app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the"
+" app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 
@@ -1329,8 +1331,7 @@ msgstr ""
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following "
-"form:"
+"            %(site_name)s. As a final step, please complete the following form:"
 msgstr ""
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
@@ -1587,7 +1588,8 @@ msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid "You are about to sign in using a third-party account from %(provider)s."
+msgid ""
+"You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 
 #: nextcloudappstore/templates/socialaccount/login.html:31
@@ -1673,12 +1675,9 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling "
-"the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
-"restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated "
-"below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 
@@ -1831,8 +1830,8 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your "
-"password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your"
+" password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
@@ -1850,8 +1849,8 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app "
-"will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app"
+" will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
