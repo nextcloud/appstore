@@ -165,6 +165,7 @@ class App(TranslatableModel):
     authors = ManyToManyField("AppAuthor", blank=True, related_name="apps", verbose_name=_("App authors"))
     is_featured = BooleanField(verbose_name=_("Featured"), default=False)
     is_orphan = BooleanField(verbose_name=_("Orphan"), default=False)
+    is_deprecated = BooleanField(verbose_name=_("Deprecated"), default=False)
     is_enterprise_supported = BooleanField(verbose_name=_("Enterprise supported"), default=False)
     rating_recent = FloatField(verbose_name=_("Recent rating"), default=0.5)
     rating_overall = FloatField(verbose_name=_("Overall rating"), default=0.5)
