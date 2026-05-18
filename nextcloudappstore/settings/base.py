@@ -134,6 +134,9 @@ REST_FRAMEWORK = {
 ACCOUNT_RATE_LIMITS = {
     "reset_password": "1/m/ip",
     "login_failed": "10/h/ip",
+    # Shared by /account/ (custom AccountView) and allauth's /accounts/email/.
+    # Tighter than allauth's default (10/m/user) to mitigate confirmation-mail spam.
+    "manage_email": "3/h/user",
 }
 
 SITE_ID = 1
