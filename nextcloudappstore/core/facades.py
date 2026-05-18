@@ -66,11 +66,11 @@ T = TypeVar("T")
 U = TypeVar("U")
 
 
-def flatmap(f: Callable[[T], Iterable[U]], xs: Iterable[T]) -> Iterable[U]:
+def flatmap[T, U](f: Callable[[T], Iterable[U]], xs: Iterable[T]) -> Iterable[U]:
     return chain.from_iterable(map(f, xs))
 
 
-def all_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
+def all_match[T](predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     """
     :param predicate: function to test items
     :param iterable: iterable
@@ -79,7 +79,7 @@ def all_match(predicate: Callable[[T], bool], iterable: Iterable[T]) -> bool:
     return all(predicate(entry) for entry in iterable)
 
 
-def distinct(iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:
+def distinct[T, U](iterable: Iterable[T], criteria: Callable[[T], U]) -> Iterable[T]:
     """
     :param iterable:
     :param criteria: by default the object in the list. Pass a lambda to choose
