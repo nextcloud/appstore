@@ -24,5 +24,4 @@ class ChangeLanguageTest(BaseStoreTest):
         elem.submit()
 
         WebDriverWait(self.selenium, SELENIUM_WAIT_SEC).until(staleness_of(elem))
-        account_link = self.findNavigationLink("user:account")
-        self.assertEqual("person\nKonto", account_link.text)
+        self.assertEqual("de", self.by_css("html").get_attribute("lang"))
