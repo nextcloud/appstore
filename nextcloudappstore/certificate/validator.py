@@ -7,6 +7,10 @@ import logging
 from base64 import b64decode
 
 import pem
+from cryptography import x509 as crypto_x509
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives.asymmetric.rsa import RSAPublicKey
 from django.conf import settings  # type: ignore
 from OpenSSL.crypto import (
     FILETYPE_PEM,
@@ -15,8 +19,6 @@ from OpenSSL.crypto import (
     X509StoreContext,
     X509StoreFlags,
     load_certificate,
-    load_crl,
-    verify,
 )
 from rest_framework.exceptions import ValidationError
 
@@ -42,8 +44,8 @@ class CertificateAppIdMismatchException(ValidationError):
 
 class CertificateValidator:
     """
-    See https://pyopenssl.readthedocs.io/en/stable/api/crypto.html#signing
-    -and-verifying-signatures
+    Certificate validator that supports RSA certificates with SHA512 signatures.
+    Uses cryptography package instead of deprecated pyopenssl functions.
     """
 
     def __init__(self, config: CertificateConfiguration) -> None:
@@ -51,8 +53,7 @@ class CertificateValidator:
 
     def validate_signature(self, certificate: str, signature: str, data: bytes) -> None:
         """
-        Tests if a value is a valid certificate using the provided hash
-        algorithm
+        Tests if a value is a valid certificate using SHA512
         :param certificate: the certificate to use as string
         :param signature: the signature base64 encoded string to test
         :param data: the binary file content that was signed
@@ -61,8 +62,20 @@ class CertificateValidator:
         """
         cert = self._to_cert(certificate)
         err_msg = "Signature is invalid"
+
         try:
-            verify(cert, b64decode(signature.encode()), data, self.config.digest)
+            # Convert OpenSSL certificate to cryptography certificate
+            crypto_cert = crypto_x509.load_pem_x509_certificate(
+                cert.to_cryptography().public_bytes(serialization.Encoding.PEM)
+            )
+
+            # Type check to ensure we have an RSA public key
+            public_key = crypto_cert.public_key()
+            if not isinstance(public_key, RSAPublicKey):
+                raise InvalidSignatureException(f"{err_msg}: Only RSA keys are supported")
+
+            # Only SHA512 is supported for RSA keys
+            public_key.verify(b64decode(signature.encode()), data, padding.PKCS1v15(), hashes.SHA512())
         except Exception as e:
             raise InvalidSignatureException(f"{err_msg}: {str(e)}")
 
@@ -85,9 +98,10 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
 
         if crl:
-            parsed_crl = load_crl(FILETYPE_PEM, crl)
+            # Use cryptography to load CRL instead of deprecated OpenSSL load_crl
+            crypto_crl = crypto_x509.load_pem_x509_crl(crl.encode())
             store.set_flags(X509StoreFlags.CRL_CHECK)
-            store.add_crl(parsed_crl)
+            store.add_crl(crypto_crl)  # cryptography CRL is compatible with OpenSSL store
 
         ctx = X509StoreContext(store, cert)
         err_msg = "Certificate is invalid"
