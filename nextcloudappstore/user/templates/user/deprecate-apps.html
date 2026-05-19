@@ -1,0 +1,50 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
+{% block head-title %}{% trans 'Deprecate Apps' %} - {% endblock %}
+
+{% block account-content %}
+    <h1>{% trans 'Deprecate Apps' %}</h1>
+    <section>
+        <p>{% trans "If an app is superseded by another app, you can mark the prior app as deprecated here. This will add a warning banner to the app's details page in the App Store and in Nextcloud Apps." %}</p>
+        <!-- <p>{% trans "Optionally, you can also add the ID of the superseding app, which will add a link to such app to the warning banner." %}</p> -->
+
+        {% if apps %}
+            <table class="table table-striped deprecate-apps">
+                <tr>
+                    <th>{% trans 'App name' %}</th>
+                    <th>{% trans 'Status' %}</th>
+                    <th>{% trans 'Change status' %}</th>
+                </tr>
+                {% for app in apps %}
+                    <tr>
+                        <td>{{ app.name }}</td>
+                        <td class="{% if app.is_deprecated %}bg-danger{% else %}bg-success{% endif %}">
+                            {% if app.is_deprecated %}
+                                {% trans 'Deprecated' %}
+                            {% else %}
+                                {% trans 'Supported' %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form action="{% url 'user:account-deprecate-app' pk=app.id %}" method="post">
+                                {% csrf_token %}
+                                {% if app.is_deprecated %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as supported' %}</button>
+                                {% else %}
+                                    <button class="btn btn-primary btn-block" type="submit">{% trans 'Mark as deprecated' %}</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p class="alert alert-info">{% trans 'You have not uploaded any apps yet!' %}</p>
+        {% endif %}
+    </section>
+{% endblock %}

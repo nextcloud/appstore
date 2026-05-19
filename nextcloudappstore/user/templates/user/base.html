@@ -29,6 +29,12 @@
                     {% trans 'Transfer app ownership' %}
                 </a>
             </li>
+            <li class="{% if acc_page == 'account-deprecate-apps' %}active{% endif %}">
+                <a href="{% url 'user:account-deprecate-apps' %}">
+                    <span class="icon material-symbols-outlined">code_off</span>
+                    {% trans 'Deprecate apps' %}
+                </a>
+            </li>
             <li class="{% if acc_page == 'account-enterprise-apps' %}active{% endif %}">
                 <a href="{% url 'user:account-enterprise-apps' %}">
                     <span class="icon material-symbols-outlined">enterprise</span>

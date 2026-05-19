@@ -49,6 +49,13 @@
             </strong>
             {% trans "It is no longer actively distributed via the app store, but when updating the Nextcloud Server the app will be updated to the latest version automatically." %}
         </div>
+    {% elif object.is_deprecated %}
+        <div class="alert alert-warning" role="alert">
+            <strong>
+                {% trans "This app has been marked as deprecated." %}
+            </strong>
+            {% trans "It may no longer be maintained or supported and may have compatibility issues when used with more recent versions of Nextcloud." %}
+        </div>
     {% elif object.is_outdated %}
         <div class="alert alert-warning" role="alert">
             <strong>
