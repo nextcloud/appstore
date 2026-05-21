@@ -3,6 +3,7 @@ SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+from allauth.account.adapter import get_adapter
 from allauth.account.utils import (
     filter_users_by_email,
 )
@@ -96,7 +97,9 @@ class AccountForm(forms.ModelForm):
             self.fields["subscribe_to_news"].initial = self.user.profile.subscribe_to_news
 
     def clean_email(self):
-        value = self.cleaned_data["email"]
+        # Defer to the adapter so empty/invalid emails are rejected the same way
+        # allauth's AddEmailForm rejects them at /accounts/email/.
+        value = get_adapter().clean_email(self.cleaned_data["email"])
         users = filter_users_by_email(value)
         if [u for u in users if u.pk != self.instance.pk]:
             msg = _("This email address is already associated with another account.")
