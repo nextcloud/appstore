@@ -164,7 +164,7 @@ class AccountView(LoginRequiredMixin, UpdateView):
             user.profile.save(update_fields=["subscribe_to_news"])
             form.add_error("email", _("Too many email change attempts. Please try again later."))
             self.request.session["account_update_failed_count"] = 0
-            return self.render_to_response(self.get_context_data(form=form))
+            return self.render_to_response(self.get_context_data(form=form), status=429)
 
         message = "Account details saved."
         if email_changed:

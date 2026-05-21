@@ -83,7 +83,7 @@ class AccountEmailChangeRateLimitTest(TestCase):
             self.assertEqual(response.status_code, 302, f"iteration {i}")
 
         response = self._post(email="new4@nextcloud.com")
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 429)
         self.assertIn("email", response.context["form"].errors)
         self.assertFalse(EmailAddress.objects.filter(email="new4@nextcloud.com").exists())
 
