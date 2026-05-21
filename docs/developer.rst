@@ -438,6 +438,7 @@ repository
 screenshot
     * optional
     * must contain an HTTPS URL to an image
+    * each screenshot is limited to at most 2 MiB in size
     * can contain a **small-thumbnail** attribute which must contain an https url to an image. This image will be used as small preview (e.g. on the app list overview). Keep it small so it renders fast
     * will be rendered on the app list and detail page in the given order
 donation
