@@ -156,15 +156,20 @@ class AccountView(LoginRequiredMixin, UpdateView):
             # memory; refresh it so the profile pre_save signal handler
             # (signals.handle_subscription_change) does not leak that value to
             # Odoo via instance.user.email when subscribe_to_news flips.
-            user.refresh_from_db(fields=["email"])
             user.first_name = form.cleaned_data["first_name"]
             user.last_name = form.cleaned_data["last_name"]
             user.save(update_fields=["first_name", "last_name"])
             user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
             user.profile.save(update_fields=["subscribe_to_news"])
+            form.instance.email = current_email
             form.add_error("email", _("Too many email change attempts. Please try again later."))
             self.request.session["account_update_failed_count"] = 0
             return self.render_to_response(self.get_context_data(form=form), status=429)
+
+        # Persist only the fields that belong on the user model
+        user.first_name = form.cleaned_data["first_name"]
+        user.last_name = form.cleaned_data["last_name"]
+        user.save(update_fields=["first_name", "last_name"])
 
         message = "Account details saved."
         if email_changed:
@@ -176,11 +181,11 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
         # Update subscription preference
         user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
-        user.profile.save()
+        user.profile.save(update_fields=["subscribe_to_news"])
 
         messages.success(self.request, message)
         self.request.session["account_update_failed_count"] = 0
-        return super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_object(self, queryset=None):
         return self.request.user

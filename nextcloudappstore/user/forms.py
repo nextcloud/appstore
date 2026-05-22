@@ -122,7 +122,7 @@ class AccountForm(forms.ModelForm):
 
         changed_fields = []
         if self.user:
-            if email and email != self.user.email:
+            if email and email.lower() != self.user.email.lower():
                 changed_fields.append("email")
             if first_name and first_name != self.user.first_name:
                 changed_fields.append("first_name")
