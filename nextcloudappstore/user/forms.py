@@ -138,18 +138,12 @@ class AccountForm(forms.ModelForm):
         if not changed_fields:
             return cleaned_data
 
-        # If the only changed field is subscribe_to_news, we do not require password
-        if changed_fields == ["subscribe_to_news"]:
-            # Remove password-related errors if they exist
-            if "passwd" in self._errors:
-                del self._errors["passwd"]
-
-        else:
-            # If critical fields (email, first_name, last_name) changed,
-            # ensure password was provided and is correct.
-            # If no password provided or invalid, an error would be present from clean_passwd().
-            # Ensure that passwd was actually provided and is valid.
-            if not cleaned_data.get("passwd"):
-                self.add_error("passwd", _("Password is required to change these fields."))
+        # If critical fields (email, first_name, last_name) changed,
+        # ensure password was provided and is correct.
+        # If no password provided or invalid, an error would be present from clean_passwd().
+        # Ensure that passwd was actually provided and is valid.
+        critical_changed = any(field in changed_fields for field in ("email", "first_name", "last_name"))
+        if critical_changed and not cleaned_data.get("passwd"):
+            self.add_error("passwd", _("Password is required to change these fields."))
 
         return cleaned_data
