@@ -5,6 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 from allauth.account.models import EmailAddress
 from allauth.account.views import PasswordChangeView
+from allauth.core import ratelimit
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -13,6 +14,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView, UpdateView
 
@@ -139,12 +141,33 @@ class AccountView(LoginRequiredMixin, UpdateView):
         return super().form_invalid(form)
 
     def form_valid(self, form):
-        message = "Account details saved."
-
         user = self.request.user
+        # Compare case-insensitively: allauth stores EmailAddress.email lowercased
+        # and add_email() also lowercases. A case-only "change" is a no-op there,
+        # so it must not consume the rate-limit budget either.
         current_email = EmailAddress.objects.get_primary(user=user).email
         new_email = form.cleaned_data["email"]
-        if new_email != current_email:
+        email_changed = new_email.lower() != current_email.lower()
+
+        if email_changed and not ratelimit.consume(self.request, action="manage_email"):
+            # Persist name/subscription changes but skip the email change and
+            # surface an inline error. User.email is intentionally not updated.
+            # Construct_instance set user.email to the rejected new email in
+            # memory; refresh it so the profile pre_save signal handler
+            # (signals.handle_subscription_change) does not leak that value to
+            # Odoo via instance.user.email when subscribe_to_news flips.
+            user.refresh_from_db(fields=["email"])
+            user.first_name = form.cleaned_data["first_name"]
+            user.last_name = form.cleaned_data["last_name"]
+            user.save(update_fields=["first_name", "last_name"])
+            user.profile.subscribe_to_news = form.cleaned_data["subscribe_to_news"]
+            user.profile.save(update_fields=["subscribe_to_news"])
+            form.add_error("email", _("Too many email change attempts. Please try again later."))
+            self.request.session["account_update_failed_count"] = 0
+            return self.render_to_response(self.get_context_data(form=form), status=429)
+
+        message = "Account details saved."
+        if email_changed:
             # Delete other unconfirmed email addresses
             EmailAddress.objects.filter(user=user).exclude(primary=True).delete()
             # Add new email address, send confirmation email
