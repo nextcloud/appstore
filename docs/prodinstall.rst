@@ -3,10 +3,8 @@ Store Production Installation
 
 .. warning::
 
-    Self-hosting the app store is not supported and we are not maintaining this part of the documentation.
+    We no longer provide support (including enterprise support) for self-hosting the app store, nor maintain this part of the documentation.
     As our code is open-source, you are welcome to reuse this part if you find a way to make it work, but such usage of the app store is at your own risk.
-    If you have a Nextcloud Enterprise subscription and you have special needs regarding self-hosting the app store,
-    please contact your account manager to talk about the possibilities.
 
 There are two ways to install the store, both are mutually exclusive (means: don't mix and match). If you are looking for a development setup, proceed to :doc:`devinstall`, otherwise continue.
 
