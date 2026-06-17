@@ -30,7 +30,14 @@ from nextcloudappstore.core.forms import (
     AppReleaseUploadForm,
 )
 from nextcloudappstore.core.github import GitHubClient, get_download_counts
-from nextcloudappstore.core.models import App, AppRating, AppRelease, Category, Donation, Podcast
+from nextcloudappstore.core.models import (
+    App,
+    AppRating,
+    AppRelease,
+    Category,
+    Donation,
+    Podcast,
+)
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -324,6 +331,7 @@ class AppDownloadStatsView(LoginRequiredMixin, DetailView):
         app = self.object
         if not app.can_update(self.request.user):
             from django.core.exceptions import PermissionDenied
+
             raise PermissionDenied()
         releases = list(AppRelease.objects.filter(app=app).order_by("-last_modified"))
         client = GitHubClient(settings.GITHUB_API_BASE_URL, settings.GITHUB_API_TOKEN)

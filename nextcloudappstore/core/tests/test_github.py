@@ -108,9 +108,7 @@ class ParseGitHubReleaseUrlTest(TestCase):
         self.assertIsNone(parse_github_release_url("https://example.com/app.tar.gz"))
 
     def test_github_non_release_url_returns_none(self):
-        self.assertIsNone(
-            parse_github_release_url("https://github.com/owner/repo/files/123/app.tar.gz")
-        )
+        self.assertIsNone(parse_github_release_url("https://github.com/owner/repo/files/123/app.tar.gz"))
 
     def test_raw_githubusercontent_returns_none(self):
         self.assertIsNone(
@@ -149,9 +147,7 @@ class GetDownloadCountsTest(TestCase):
     def test_api_error_yields_none(self):
         import requests as req
 
-        release = self._make_release(
-            "1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz"
-        )
+        release = self._make_release("1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz")
         client = MagicMock(spec=GitHubClient)
         client.get_releases.side_effect = req.RequestException("error")
         result = get_download_counts([release], client)
@@ -159,12 +155,8 @@ class GetDownloadCountsTest(TestCase):
 
     def test_deduplicates_api_calls_per_repo(self):
         releases = [
-            self._make_release(
-                "2.0.0", "https://github.com/owner/repo/releases/download/v2.0.0/app.tar.gz"
-            ),
-            self._make_release(
-                "1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz"
-            ),
+            self._make_release("2.0.0", "https://github.com/owner/repo/releases/download/v2.0.0/app.tar.gz"),
+            self._make_release("1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz"),
         ]
         client = MagicMock(spec=GitHubClient)
         client.get_releases.return_value = [

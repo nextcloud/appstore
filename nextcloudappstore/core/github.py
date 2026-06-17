@@ -12,9 +12,7 @@ from semantic_version import Version
 
 from nextcloudappstore.core.models import NextcloudRelease
 
-_GITHUB_RELEASE_URL_RE = re.compile(
-    r"^https?://github\.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(.+)$"
-)
+_GITHUB_RELEASE_URL_RE = re.compile(r"^https?://github\.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(.+)$")
 
 
 def parse_github_release_url(url: str) -> tuple[str, str, str, str] | None:
