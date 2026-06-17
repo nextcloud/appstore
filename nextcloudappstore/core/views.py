@@ -29,7 +29,8 @@ from nextcloudappstore.core.forms import (
     AppRegisterForm,
     AppReleaseUploadForm,
 )
-from nextcloudappstore.core.models import App, AppRating, Category, Donation, Podcast
+from nextcloudappstore.core.github import GitHubClient, get_download_counts
+from nextcloudappstore.core.models import App, AppRating, AppRelease, Category, Donation, Podcast
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
 
@@ -308,4 +309,23 @@ class AppRegisterView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = AppRegisterForm()
+        return context
+
+
+class AppDownloadStatsView(LoginRequiredMixin, DetailView):
+    template_name = "app/downloads.html"
+    slug_field = "id"
+    slug_url_kwarg = "id"
+    queryset = App.objects.prefetch_related("translations")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.prefetch_related("translations").all()
+        app = self.object
+        if not app.can_update(self.request.user):
+            from django.core.exceptions import PermissionDenied
+            raise PermissionDenied()
+        releases = list(AppRelease.objects.filter(app=app).order_by("-last_modified"))
+        client = GitHubClient(settings.GITHUB_API_BASE_URL, settings.GITHUB_API_TOKEN)
+        context["download_stats"] = get_download_counts(releases, client)
         return context

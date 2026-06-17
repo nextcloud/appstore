@@ -1,0 +1,72 @@
+{% extends 'app/base.html' %}
+{% load i18n static humanize %}
+
+{# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
+{% block head-title %}{% trans 'Download Stats' %} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
+
+{% block apps %}
+    <h1>{{ object.name }} &mdash; {% trans 'Download Statistics' %}</h1>
+    <section>
+        <a href="{% url 'app-detail' object.id %}">&larr; {% trans 'App details' %}</a>
+    </section>
+
+    <section class="app-releases" style="margin-top: 1.5rem;">
+        <p class="text-muted">
+            {% blocktrans %}Download counts are retrieved live from GitHub and reflect the total number of times each release asset has been downloaded.{% endblocktrans %}
+        </p>
+
+        {% if download_stats %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{% trans 'Version' %}</th>
+                        <th>{% trans 'Channel' %}</th>
+                        <th>{% trans 'Downloads' %}</th>
+                        <th>{% trans 'Source' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in download_stats %}
+                    <tr>
+                        <td>{{ entry.version }}</td>
+                        <td>
+                            {% if entry.is_nightly %}
+                                <span class="label label-warning">{% trans 'Nightly' %}</span>
+                            {% else %}
+                                <span class="label label-success">{% trans 'Stable' %}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if entry.download_count is not None %}
+                                <strong>{{ entry.download_count|intcomma }}</strong>
+                            {% else %}
+                                <span class="text-muted">&mdash; {% trans 'not available' %}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ entry.download }}" rel="noopener noreferrer" class="text-muted small" style="word-break:break-all;">
+                                {{ entry.download }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% with total=download_stats|length %}
+            <p class="text-muted small">
+                {% blocktrans count counter=total %}{{ counter }} release listed.{% plural %}{{ counter }} releases listed.{% endblocktrans %}
+                {% trans 'Releases not hosted on GitHub show no count.' %}
+            </p>
+            {% endwith %}
+        {% else %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p class="text-center lead">{% trans 'No releases found for this app.' %}</p>
+                </div>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

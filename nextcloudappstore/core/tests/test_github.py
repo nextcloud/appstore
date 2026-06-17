@@ -12,7 +12,9 @@ from django.test import TestCase
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.github import (
     GitHubClient,
+    get_download_counts,
     get_supported_releases,
+    parse_github_release_url,
     sync_releases,
 )
 from nextcloudappstore.core.models import NextcloudRelease
@@ -88,3 +90,89 @@ class GitHubTest(TestCase):
 
     def _read(self, path: str) -> str:
         return read_relative_file(__file__, f"data/{path}")
+
+
+class ParseGitHubReleaseUrlTest(TestCase):
+    def test_standard_url(self):
+        url = "https://github.com/nextcloud-releases/spreed/releases/download/v29.0.0/spreed.tar.gz"
+        self.assertEqual(
+            ("nextcloud-releases", "spreed", "v29.0.0", "spreed.tar.gz"),
+            parse_github_release_url(url),
+        )
+
+    def test_http_url(self):
+        url = "http://github.com/owner/repo/releases/download/v1.0/app.tar.gz"
+        self.assertEqual(("owner", "repo", "v1.0", "app.tar.gz"), parse_github_release_url(url))
+
+    def test_non_github_url_returns_none(self):
+        self.assertIsNone(parse_github_release_url("https://example.com/app.tar.gz"))
+
+    def test_github_non_release_url_returns_none(self):
+        self.assertIsNone(
+            parse_github_release_url("https://github.com/owner/repo/files/123/app.tar.gz")
+        )
+
+    def test_raw_githubusercontent_returns_none(self):
+        self.assertIsNone(
+            parse_github_release_url("https://raw.githubusercontent.com/owner/repo/refs/tags/v1.0/build/app.tar.gz")
+        )
+
+
+class GetDownloadCountsTest(TestCase):
+    def _make_release(self, version, download, is_nightly=False):
+        r = MagicMock()
+        r.version = version
+        r.download = download
+        r.is_nightly = is_nightly
+        return r
+
+    def test_counts_from_github(self):
+        release = self._make_release(
+            "29.0.0", "https://github.com/nextcloud-releases/spreed/releases/download/v29.0.0/spreed.tar.gz"
+        )
+        client = MagicMock(spec=GitHubClient)
+        client.get_releases.return_value = [
+            {"tag_name": "v29.0.0", "assets": [{"name": "spreed.tar.gz", "download_count": 13832}]}
+        ]
+        result = get_download_counts([release], client)
+        self.assertEqual(1, len(result))
+        self.assertEqual(13832, result[0]["download_count"])
+        self.assertEqual("29.0.0", result[0]["version"])
+
+    def test_non_github_url_yields_none(self):
+        release = self._make_release("1.0.0", "https://example.com/app.tar.gz")
+        client = MagicMock(spec=GitHubClient)
+        result = get_download_counts([release], client)
+        self.assertIsNone(result[0]["download_count"])
+        client.get_releases.assert_not_called()
+
+    def test_api_error_yields_none(self):
+        import requests as req
+
+        release = self._make_release(
+            "1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz"
+        )
+        client = MagicMock(spec=GitHubClient)
+        client.get_releases.side_effect = req.RequestException("error")
+        result = get_download_counts([release], client)
+        self.assertIsNone(result[0]["download_count"])
+
+    def test_deduplicates_api_calls_per_repo(self):
+        releases = [
+            self._make_release(
+                "2.0.0", "https://github.com/owner/repo/releases/download/v2.0.0/app.tar.gz"
+            ),
+            self._make_release(
+                "1.0.0", "https://github.com/owner/repo/releases/download/v1.0.0/app.tar.gz"
+            ),
+        ]
+        client = MagicMock(spec=GitHubClient)
+        client.get_releases.return_value = [
+            {"tag_name": "v2.0.0", "assets": [{"name": "app.tar.gz", "download_count": 200}]},
+            {"tag_name": "v1.0.0", "assets": [{"name": "app.tar.gz", "download_count": 100}]},
+        ]
+        result = get_download_counts(releases, client)
+        # Only one API call for the same owner/repo
+        client.get_releases.assert_called_once_with("owner", "repo")
+        self.assertEqual(200, result[0]["download_count"])
+        self.assertEqual(100, result[1]["download_count"])
