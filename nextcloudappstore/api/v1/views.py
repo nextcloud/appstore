@@ -39,6 +39,7 @@ from nextcloudappstore.api.v1.serializers import (
 )
 from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.facades import read_file_contents
+from nextcloudappstore.core.github import GitHubClient, get_download_counts
 from nextcloudappstore.core.models import (
     App,
     AppRating,
@@ -397,3 +398,26 @@ class DiscoverView(APIView):
         except OSError:
             return Response({"error": "Unable to save file."}, status=500)
         return Response({"message": "File saved successfully"}, status=200)
+
+
+class AppDownloadStatsView(APIView):
+    """Return GitHub download counts for all releases of an app.
+
+    Only the app owner and co-maintainers may access this endpoint.
+    Releases not hosted on GitHub (or whose GitHub API call fails) have
+    download_count set to null.
+    """
+
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, pk):
+        app = get_object_or_404(App, pk=pk)
+        if not app.can_update(request.user):
+            raise PermissionDenied()
+        releases = list(AppRelease.objects.filter(app=app).order_by("-last_modified"))
+        client = GitHubClient(settings.GITHUB_API_BASE_URL, settings.GITHUB_API_TOKEN)
+        return Response(get_download_counts(releases, client))
