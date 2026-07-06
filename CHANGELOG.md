@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix broken `fa` translation entries breaking `compilemessages` and CI.
+
 ## [4.11.3] - 2026-01-05
 
 ### Changed
