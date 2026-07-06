@@ -8,6 +8,7 @@
 
 ### Fixed
 
+- Trust the reverse proxy's `X-Forwarded-For` header for login rate limiting, so failed-login limits apply per visitor instead of collapsing into a single site-wide bucket. #1813
 - Fix broken `fa` translation entries breaking `compilemessages` and CI. #1812
 - Reject app IDs longer than 32 characters during upload instead of letting Nextcloud server crash on install. #1809
 
