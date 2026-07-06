@@ -8,7 +8,8 @@
 
 ### Fixed
 
-- Fix broken `fa` translation entries breaking `compilemessages` and CI.
+- Fix broken `fa` translation entries breaking `compilemessages` and CI. #1812
+- Reject app IDs longer than 32 characters during upload instead of letting Nextcloud server crash on install. #1809
 
 ## [4.11.3] - 2026-01-05
 
