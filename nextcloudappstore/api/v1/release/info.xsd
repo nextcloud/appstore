@@ -310,6 +310,7 @@
     <xs:simpleType name="id">
         <xs:restriction base="limited-string">
             <xs:pattern value="[a-z]+[a-z0-9_]*[a-z0-9]+"/>
+            <xs:maxLength value="32"/>
         </xs:restriction>
     </xs:simpleType>
 

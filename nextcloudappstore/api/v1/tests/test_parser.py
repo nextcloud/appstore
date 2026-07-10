@@ -96,6 +96,11 @@ class ParserTest(TestCase):
         result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
         self.assertEqual("twofactor_u2f", result["app"]["id"])
 
+    def test_parse_too_long_id(self):
+        xml = self._get_contents("data/infoxmls/toolongid.xml")
+        with self.assertRaises(InvalidAppMetadataXmlException):
+            parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
+
     def test_parse_invalid_elements(self):
         xml = self._get_contents("data/infoxmls/invalid-elements.xml")
         with self.assertRaises(InvalidAppMetadataXmlException):
