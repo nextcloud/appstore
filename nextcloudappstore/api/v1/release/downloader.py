@@ -8,6 +8,7 @@ import tempfile
 from typing import Any
 
 import requests
+from requests_hardened import Config, Manager
 from rest_framework.exceptions import ValidationError  # type: ignore
 
 from nextcloudappstore.api.v1.release.parser import UnsupportedAppArchiveException
@@ -62,8 +63,19 @@ class AppReleaseDownloader:
         else:
             os.makedirs(target_directory, mode=0o700, exist_ok=True)
             file = tempfile.NamedTemporaryFile(dir=target_directory, delete=False)
+
         try:
-            with requests.Session() as session:
+            http_manager = Manager(
+                Config(
+                    default_timeout=(timeout, timeout),
+                    never_redirect=False,
+                    ip_filter_enable=True,
+                    ip_filter_allow_loopback_ips=False,
+                    user_agent_override=None,
+                )
+            )
+
+            with http_manager.get_session() as session:
                 session.max_redirects = max_redirects
                 req = session.get(url, stream=True, timeout=timeout)
                 req.raise_for_status()
