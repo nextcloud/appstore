@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 from allauth.account.models import EmailAddress
 from allauth.core import ratelimit
+from allauth.socialaccount.models import SocialAccount
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import RequestFactory, TestCase, override_settings
@@ -184,3 +185,70 @@ class AccountEmailChangeRateLimitTest(TestCase):
         email_url = reverse("account_email")
         r = self.client.post(email_url, {"email": "viaemail@nextcloud.com", "action_add": ""})
         self.assertEqual(r.status_code, 429)
+
+
+@override_settings(
+    ACCOUNT_RATE_LIMITS={
+        "reset_password": "1/m/ip",
+        "login_failed": "10/h/ip",
+        "manage_email": "3/h/user",
+    },
+)
+class GitHubOnlyAccountEditTest(TestCase):
+    """A user who signed up via GitHub has no usable password, so the
+    account edit form must not demand one to confirm critical changes."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls._validate_patcher = patch(
+            "nextcloudappstore.user.adapters.validate_email",
+            side_effect=_validate_email_no_dns,
+        )
+        cls._validate_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._validate_patcher.stop()
+        super().tearDownClass()
+
+    def setUp(self):
+        cache.clear()
+        self.user = create_user(username="githubuser", password="unused", email=PRIMARY_EMAIL)  # nosec
+        self.user.set_unusable_password()
+        self.user.save()
+        SocialAccount.objects.create(user=self.user, provider="github", uid="12345")
+        self.client.force_login(self.user)
+        self.url = reverse("user:account")
+
+    def test_can_change_name_without_password(self):
+        response = self.client.post(
+            self.url,
+            {
+                "first_name": "New",
+                "last_name": "Name",
+                "email": PRIMARY_EMAIL,
+                "subscribe_to_news": False,
+                "passwd": "",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        updated = get_user_model().objects.get(pk=self.user.pk)
+        self.assertEqual(updated.first_name, "New")
+        self.assertEqual(updated.last_name, "Name")
+
+    def test_can_change_email_without_password(self):
+        response = self.client.post(
+            self.url,
+            {
+                "first_name": "Test",
+                "last_name": "User",
+                "email": "newgithub@nextcloud.com",
+                "subscribe_to_news": False,
+                "passwd": "",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(
+            EmailAddress.objects.filter(user=self.user, email="newgithub@nextcloud.com", verified=False).exists()
+        )

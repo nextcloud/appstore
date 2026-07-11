@@ -108,8 +108,9 @@ class AccountForm(forms.ModelForm):
 
     def clean_passwd(self):
         value = self.cleaned_data.get("passwd")
-        # If password was entered, validate it
-        if value and not self.instance.check_password(value):
+        # If password was entered, validate it. Accounts without a usable
+        # password (e.g. GitHub-only login) have nothing to check against.
+        if value and self.instance.has_usable_password() and not self.instance.check_password(value):
             raise forms.ValidationError(_("Invalid password"))
         return value
 
@@ -144,7 +145,7 @@ class AccountForm(forms.ModelForm):
             if "passwd" in self._errors:
                 del self._errors["passwd"]
 
-        else:
+        elif self.instance.has_usable_password():
             # If critical fields (email, first_name, last_name) changed,
             # ensure password was provided and is correct.
             # If no password provided or invalid, an error would be present from clean_passwd().
