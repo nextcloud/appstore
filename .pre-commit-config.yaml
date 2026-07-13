@@ -45,7 +45,7 @@ repos:
           )$
 
 -   repo: https://github.com/PyCQA/isort
-    rev: 9.0.0a3
+    rev: 9.0.0b1
     hooks:
     -   id: isort
 
@@ -56,17 +56,17 @@ repos:
         exclude: nextcloudappstore/core/migrations
 
 -   repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.24.1
+    rev: v2.25.3
     hooks:
     -   id: pyproject-fmt
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.17
+    rev: v0.15.21
     hooks:
     -   id: ruff
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.1.0
+    rev: v2.3.0
     hooks:
      -  id: mypy
         files: nextcloudappstore/(api/v1/release|certificate)/
