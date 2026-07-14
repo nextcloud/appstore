@@ -165,6 +165,7 @@ class AppRegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         signature = serializer.validated_data["signature"].strip()
         certificate = serializer.validated_data["certificate"].strip()
+        is_enterprise_only = serializer.validated_data["is_enterprise_only"]
 
         container = Container()
 
@@ -190,7 +191,9 @@ class AppRegisterView(APIView):
             app.save()
             return Response(status=204)
         except App.DoesNotExist:
-            app = App.objects.create(id=app_id, owner=request.user, certificate=certificate)
+            app = App.objects.create(
+                id=app_id, owner=request.user, certificate=certificate, is_enterprise_only=is_enterprise_only
+            )
             app.set_current_language("en")
             app.description = app_id
             app.name = app_id
