@@ -81,6 +81,7 @@ class AppAdmin(TranslatableAdmin):
         "is_deprecated",
         "is_integration",
         "is_enterprise_supported",
+        "is_enterprise_only",
         "approved",
     )
     list_filter = (
@@ -95,6 +96,7 @@ class AppAdmin(TranslatableAdmin):
         "is_deprecated",
         "is_integration",
         "is_enterprise_supported",
+        "is_enterprise_only",
         "approved",
     )
     ordering = ("id",)
