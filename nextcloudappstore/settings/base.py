@@ -139,6 +139,12 @@ ACCOUNT_RATE_LIMITS = {
     "manage_email": "3/h/user",
 }
 
+# We run behind a single reverse proxy, which sets X-Forwarded-For. Without
+# this, allauth's rate limiting (e.g. ACCOUNT_RATE_LIMITS["login_failed"]
+# above) falls back to REMOTE_ADDR, which is the proxy's own address for
+# every request -- collapsing per-IP limits into a single site-wide bucket.
+ALLAUTH_TRUSTED_PROXY_COUNT = 1
+
 SITE_ID = 1
 
 # Allauth configuration
