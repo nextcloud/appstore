@@ -477,7 +477,9 @@ Get All Apps and Releases
 This route will return all releases to display inside Nextcloud's apps admin area.
 
 * **Url**: GET /api/v1/apps.json
-* **Url parameters**: None
+* **Query parameters**:
+
+  * **include_enterprise**: boolean: Whether or not to include apps marked as enterprise-only. Defaults to false
 
 * **Authentication**: None
 
