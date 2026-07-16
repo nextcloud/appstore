@@ -6,11 +6,35 @@
 
 ## [Unreleased]
 
+### Added
+
+- Mark apps as deprecated from the account settings. #1762
+- Allow all licenses compatible with AGPL-3.0-or-later to be specified in info.xml. #1747 #1754
+- Allow openmetrics and admin delegation settings to be specified in info.xml. #1695
+
+### Changed
+
+- Multiple dependency updates. #1536 #1538 #1543 #1557 #1682 #1698 #1716 #1731
+  #1739 #1745 #1750 #1751 #1752 #1755 #1760 #1766 #1767 #1769 #1776 #1779 #1781
+  #1782 #1786 #1798 #1800 #1817 #1819 #1820 #1821 #1822 #1823 #1824 #1825 #1826
+  #1829 #1831 #1834 #1836
+- users_picker app is now bundled into Nextcloud server. #1713
+- Multiple documentation updates. #1743 #1754 #1773 #1787
+- Update app template. #1741
+
 ### Fixed
 
-- Trust the reverse proxy's `X-Forwarded-For` header for login rate limiting, so failed-login limits apply per visitor instead of collapsing into a single site-wide bucket. #1813
+- Add IP filtering to app release URLs. #1838
+- Trust the reverse proxy's `X-Forwarded-For` header for login rate limiting,
+  so failed-login limits apply per visitor instead of collapsing into a single site-wide bucket. #1813
 - Fix broken `fa` translation entries breaking `compilemessages` and CI. #1812
+- Enforce 32 character limit on app IDs in info.xml. #1811
 - Reject app IDs longer than 32 characters during upload instead of letting Nextcloud server crash on install. #1809
+- Do not update password if notification email fails to send. #1808
+- Allow GitHub-only accounts to edit profile without a password. #1807
+- Rate-limit email notifications. #1771
+- Update default value of subscribe_to_news in database. #1761
+- Multiple accessibility fixes. #1720 #1721
 
 ## [4.11.3] - 2026-01-05
 
