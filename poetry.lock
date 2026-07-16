@@ -1821,6 +1821,21 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<8)"]
 
 [[package]]
+name = "requests-hardened"
+version = "1.2.2"
+description = "A library that overrides the default behaviors of the requests library, and adds new security features."
+optional = false
+python-versions = "<4.0,>=3.10"
+groups = ["main"]
+files = [
+    {file = "requests_hardened-1.2.2-py3-none-any.whl", hash = "sha256:0bf87b1c72fdb761b9643f8c91c059262bb825af55011fab55547397a401740c"},
+    {file = "requests_hardened-1.2.2.tar.gz", hash = "sha256:f9a479bf097a8debeade1643b4777669161ed98c8a4a12a4d19fa008bc6ae5ea"},
+]
+
+[package.dependencies]
+requests = ">=2.32.3,<3.0.0"
+
+[[package]]
 name = "responses"
 version = "0.26.2"
 description = "A utility library for mocking out the `requests` Python library."
@@ -2307,4 +2322,4 @@ h11 = ">=0.16.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = "~3.12"
-content-hash = "774b4f3c8e145e3d068020aa41e2cb35c083d4863aefbcb23e689dc5f78965a5"
+content-hash = "67f1e53d43f087eb5aa314c25b8f40483f992c0ea1c4675794e19fba7f407537"
