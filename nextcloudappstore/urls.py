@@ -28,6 +28,7 @@ from nextcloudappstore.scaffolding.views import (
     AppScaffoldingView,
     IntegrationScaffoldingView,
 )
+from nextcloudappstore.user.views import PasswordResetFromKeyView
 
 admin.site.login = login_required(admin.site.login)
 
@@ -36,6 +37,11 @@ urlpatterns = [
     path("featured", CategoryAppListView.as_view(), {"id": None, "is_featured_category": True}, name="featured"),
     path("signup/", csp_update(**settings.CSP_SIGNUP)(signup), name="account_signup"),
     path("social/signup/", csp_update(**settings.CSP_SIGNUP)(social_signup), name="socialaccount_signup"),
+    re_path(
+        r"^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$",
+        PasswordResetFromKeyView.as_view(),
+        name="account_reset_password_from_key",
+    ),
     path("", include("allauth.urls")),
     re_path(r"^categories/(?P<id>[\w]*)/?$", CategoryAppListView.as_view(), name="category-app-list"),
     re_path(r"^developer/apps/generate/?$", AppScaffoldingView.as_view(), name="app-scaffold"),
