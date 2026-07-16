@@ -106,6 +106,16 @@ class AppsView(ListAPIView):
     )
     serializer_class = AppSerializer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if not self._include_enterprise():
+            queryset = queryset.filter(is_enterprise_only=False)
+        return queryset
+
+    def _include_enterprise(self) -> bool:
+        value = self.request.query_params.get("include_enterprise")
+        return value is not None and value.lower() in ("true", "1")
+
 
 class AppApiAppsView(ListAPIView):
     queryset = (
