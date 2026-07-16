@@ -20,7 +20,7 @@
   #1829 #1831 #1834 #1836
 - users_picker app is now bundled into Nextcloud server. #1713
 - Multiple documentation updates. #1743 #1754 #1773 #1787
-- Update app template. #1741
+- Update app template. #1741 #1842
 
 ### Fixed
 
