@@ -8,6 +8,7 @@ from allauth.account.signals import email_confirmed
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
@@ -30,7 +31,11 @@ def post_save_create_token(sender, **kwargs):
 @receiver(pre_save, sender=get_user_model())
 def password_changed_signal(sender, instance, **kwargs):
     """
-    Regenerate token on password change
+    Notify the user by email and regenerate their token on password change.
+    This is a pre_save hook: raising here aborts the save, so the password
+    change is only persisted once the notification email is confirmed sent.
+    If it can't be sent (e.g. a mail outage), we'd rather block the change
+    than silently persist it without notifying the user.
     :param sender:
     :param instance:
     :param kwargs:
@@ -41,14 +46,23 @@ def password_changed_signal(sender, instance, **kwargs):
 
     try:
         user = get_user_model().objects.get(pk=instance.pk)
-        if user.password != instance.password and instance._password is not None:
-            # make sure we only send an email when user changed their
-            # password and _password is set and not when password hash
-            # was changed due to a new default hashing algorithm
-            update_token(user.username)
-            send_mail(mail_subect, mail_message, settings.DEFAULT_FROM_EMAIL, [user.email], False)
     except User.DoesNotExist:
-        pass
+        return
+
+    if user.password == instance.password or instance._password is None:
+        # only act when the user changed their password and _password is
+        # set, not when the password hash changed due to a new default
+        # hashing algorithm
+        return
+
+    try:
+        send_mail(mail_subect, mail_message, settings.DEFAULT_FROM_EMAIL, [user.email], False)
+    except Exception as exc:
+        raise ValidationError(
+            _("Could not send the password change notification email. Your password was not changed.")
+        ) from exc
+
+    update_token(user.username)
 
 
 @receiver(email_confirmed)

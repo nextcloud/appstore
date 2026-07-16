@@ -17,6 +17,7 @@ import os
 import pathlib
 
 from django.conf.global_settings import LANGUAGES
+from django.contrib.messages import constants as message_constants
 
 BASE_DIR = pathlib.Path(__file__).absolute().parent.parent
 
@@ -144,6 +145,15 @@ ACCOUNT_RATE_LIMITS = {
 # above) falls back to REMOTE_ADDR, which is the proxy's own address for
 # every request -- collapsing per-IP limits into a single site-wide bucket.
 ALLAUTH_TRUSTED_PROXY_COUNT = 1
+
+# Django's default ERROR tag is "error", but the Bootstrap classes this
+# project's templates build from ("alert alert-{{ message.tags }}") only
+# define alert-danger, not alert-error, so error messages rendered without
+# any styling. Map it to "danger" so messages.error() gets the same visual
+# treatment as messages.success()/.warning()/.info().
+MESSAGE_TAGS = {
+    message_constants.ERROR: "danger",
+}
 
 SITE_ID = 1
 

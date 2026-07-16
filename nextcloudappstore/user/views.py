@@ -4,11 +4,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
 from allauth.account.models import EmailAddress
-from allauth.account.views import PasswordChangeView
+from allauth.account.views import (
+    PasswordChangeView,
+)
+from allauth.account.views import (
+    PasswordResetFromKeyView as AllauthPasswordResetFromKeyView,
+)
 from allauth.core import ratelimit
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ValidationError
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
@@ -193,10 +199,32 @@ class PasswordView(LoginRequiredMixin, PasswordChangeView):
     template_name = "user/password.html"
     success_url = reverse_lazy("user:account-password")
 
+    def form_valid(self, form):
+        try:
+            return super().form_valid(form)
+        except ValidationError as exc:
+            # Raised by password_changed_signal when the change couldn't be
+            # persisted (e.g. the notification email failed to send). Show
+            # it as a warning instead of an unhandled error page.
+            messages.error(self.request, " ".join(exc.messages))
+            return self.form_invalid(form)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["acc_page"] = "password"
         return context
+
+
+class PasswordResetFromKeyView(AllauthPasswordResetFromKeyView):
+    """Same as allauth's view, but shows a friendly warning instead of an
+    unhandled error page if password_changed_signal aborts the save."""
+
+    def form_valid(self, form):
+        try:
+            return super().form_valid(form)
+        except ValidationError as exc:
+            messages.error(self.request, " ".join(exc.messages))
+            return self.form_invalid(form)
 
 
 @method_decorator(never_cache, name="dispatch")
