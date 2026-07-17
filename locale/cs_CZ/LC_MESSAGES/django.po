@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 22:40-0500\n"
+"POT-Creation-Date: 2026-07-16 22:28-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2026\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/nextcloud/"
@@ -1758,17 +1758,23 @@ msgstr "Tato e-mailová adresa je už spojena s jiným účtem."
 msgid "Password is required to change these fields."
 msgstr "Pro změnu těchto kolonek je zapotřebí hesla."
 
-#: nextcloudappstore/user/signals.py:39
+#: nextcloudappstore/user/signals.py:44
 msgid "Nextcloud app store password changed"
 msgstr "Heslo do katalogu aplikací pro Nextcloud bylo změněno"
 
-#: nextcloudappstore/user/signals.py:40
+#: nextcloudappstore/user/signals.py:45
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
 "Vaše heslo do katalogu aplikací pro Nextcloud bylo změněno. Obraťte se na "
 "podporu, pokud jste ho nezměnili vy."
+
+#: nextcloudappstore/user/signals.py:62
+msgid ""
+"Could not send the password change notification email. Your password was not "
+"changed."
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
@@ -2074,6 +2080,6 @@ msgstr "Označit jako udržované"
 msgid "Mark as orphaned"
 msgstr "Označit jako osiřelé"
 
-#: nextcloudappstore/user/views.py:165
+#: nextcloudappstore/user/views.py:171
 msgid "Too many email change attempts. Please try again later."
 msgstr ""

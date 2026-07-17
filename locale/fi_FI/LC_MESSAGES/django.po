@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-15 22:25-0500\n"
+"POT-Creation-Date: 2026-07-16 22:28-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Visa Uotila, 2026\n"
 "Language-Team: Finnish (Finland) (https://app.transifex.com/nextcloud/"
@@ -1756,17 +1756,23 @@ msgstr "Tämä sähköpostiosoite on jo toisen tilin käytössä."
 msgid "Password is required to change these fields."
 msgstr "Näiden kenttien muuttaminen edellyttää salasanaa."
 
-#: nextcloudappstore/user/signals.py:39
+#: nextcloudappstore/user/signals.py:44
 msgid "Nextcloud app store password changed"
 msgstr "Nextcloud sovelluskaupan salasana vaihdettu"
 
-#: nextcloudappstore/user/signals.py:40
+#: nextcloudappstore/user/signals.py:45
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
 "Nextcloud sovelluskaupan salasanasi on vaihdettu. Ota yhteys tukeen, mikäli "
 "et ole itse vaihtanut sitä."
+
+#: nextcloudappstore/user/signals.py:62
+msgid ""
+"Could not send the password change notification email. Your password was not "
+"changed."
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
@@ -2056,6 +2062,6 @@ msgstr ""
 msgid "Mark as orphaned"
 msgstr ""
 
-#: nextcloudappstore/user/views.py:165
+#: nextcloudappstore/user/views.py:171
 msgid "Too many email change attempts. Please try again later."
 msgstr ""

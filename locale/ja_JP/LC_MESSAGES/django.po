@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 22:40-0500\n"
+"POT-Creation-Date: 2026-07-16 22:28-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Katsuhiro Shimohata, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/"
@@ -1776,17 +1776,23 @@ msgstr "このメールアドレスは、既に他のアカウントで使われ
 msgid "Password is required to change these fields."
 msgstr "これらのフィールドを変更するにはパスワードが必要です。"
 
-#: nextcloudappstore/user/signals.py:39
+#: nextcloudappstore/user/signals.py:44
 msgid "Nextcloud app store password changed"
 msgstr "Nextcloudアプリストアのパスワード変更"
 
-#: nextcloudappstore/user/signals.py:40
+#: nextcloudappstore/user/signals.py:45
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
 "お客様のNextcloudアプリストアのパスワードが変更されました。ご本人でない場合"
 "は、サポートまでご連絡ください。"
+
+#: nextcloudappstore/user/signals.py:62
+msgid ""
+"Could not send the password change notification email. Your password was not "
+"changed."
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
@@ -2093,6 +2099,6 @@ msgstr "メンテナンス中としてマークする"
 msgid "Mark as orphaned"
 msgstr "孤立としてマークする"
 
-#: nextcloudappstore/user/views.py:165
+#: nextcloudappstore/user/views.py:171
 msgid "Too many email change attempts. Please try again later."
 msgstr "メールアドレスの変更の試行回数が多すぎます。後ほど再度お試しください。"

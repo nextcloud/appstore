@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-15 22:25-0500\n"
+"POT-Creation-Date: 2026-07-16 22:28-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: 1f0d56b49d6f775142d0f535306394e7_ac9f756, 2026\n"
 "Language-Team: Norwegian Bokmål (Norway) (https://app.transifex.com/"
@@ -1756,17 +1756,23 @@ msgstr "Denne e-postadressen er allerede knyttet til en annen konto."
 msgid "Password is required to change these fields."
 msgstr ""
 
-#: nextcloudappstore/user/signals.py:39
+#: nextcloudappstore/user/signals.py:44
 msgid "Nextcloud app store password changed"
 msgstr "Nextcloud-appbutikk-passord endret"
 
-#: nextcloudappstore/user/signals.py:40
+#: nextcloudappstore/user/signals.py:45
 msgid ""
 "Your Nextcloud app store password has changed. Contact support if this was "
 "not you."
 msgstr ""
 "Passordet ditt for Nextcloud-appbutikken er endret. Kontakt support hvis "
 "dette ikke var deg."
+
+#: nextcloudappstore/user/signals.py:62
+msgid ""
+"Could not send the password change notification email. Your password was not "
+"changed."
+msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:18
 msgid "Save"
@@ -2069,6 +2075,6 @@ msgstr "Merk som vedlikeholdt"
 msgid "Mark as orphaned"
 msgstr "Merk som foreldreløs"
 
-#: nextcloudappstore/user/views.py:165
+#: nextcloudappstore/user/views.py:171
 msgid "Too many email change attempts. Please try again later."
 msgstr ""
