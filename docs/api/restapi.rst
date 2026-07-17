@@ -268,6 +268,10 @@ This route will return all releases to display inside Nextcloud's apps admin are
 
   * **platform-version**: semantic version, core digits only: Returns all the apps and their releases that work on this version. If an app has no working releases, the app will be excluded
 
+* **Query parameters**:
+
+  * **include_enterprise**: boolean: Whether or not to include apps marked as enterprise-only. Defaults to false
+
 * **Authentication**: None
 
 * **Caching**: `ETag <https://en.wikipedia.org/wiki/HTTP_ETag>`_
