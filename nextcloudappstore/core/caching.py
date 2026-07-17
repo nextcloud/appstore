@@ -57,16 +57,20 @@ def apps_last_modified(request: Any, version: str) -> datetime.datetime | None:
     )
 
 
-def _include_enterprise(request: Any) -> bool:
+def include_enterprise(request: Any) -> bool:
     return request.GET.get("include_enterprise", "").lower() in ("true", "1")
+
+
+def filter_enterprise(queryset: QuerySet, request: Any) -> QuerySet:
+    """Filter out enterprise-only apps unless include_enterprise is set."""
+    if not include_enterprise(request):
+        queryset = queryset.filter(is_enterprise_only=False)
+    return queryset
 
 
 def _apps_for_request(request: Any) -> QuerySet:
     """App queryset scoped to the representation selected by include_enterprise."""
-    queryset = App.objects.all()
-    if not _include_enterprise(request):
-        queryset = queryset.filter(is_enterprise_only=False)
-    return queryset
+    return filter_enterprise(App.objects.all(), request)
 
 
 def apps_all_etag(request: Any) -> str:

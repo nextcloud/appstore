@@ -38,6 +38,7 @@ from nextcloudappstore.api.v1.serializers import (
     NextcloudReleaseSerializer,
 )
 from nextcloudappstore.certificate.validator import CertificateValidator
+from nextcloudappstore.core.caching import filter_enterprise, include_enterprise
 from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import (
     App,
@@ -82,19 +83,11 @@ AA_APP_PREFETCH_LIST = [
 ]
 
 
-def _include_enterprise(request) -> bool:
-    value = request.query_params.get("include_enterprise")
-    return value is not None and value.lower() in ("true", "1")
-
-
 class EnterpriseFilterMixin:
     """Filter out enterprise-only apps unless include_enterprise is set."""
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        if not _include_enterprise(self.request):
-            queryset = queryset.filter(is_enterprise_only=False)
-        return queryset
+        return filter_enterprise(super().get_queryset(), self.request)
 
 
 class CategoryView(ListAPIView):
@@ -143,7 +136,7 @@ class AppView(DestroyAPIView):
     def get(self, request, *args, **kwargs):
         version = self.kwargs["version"]
         working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
-        if not _include_enterprise(request):
+        if not include_enterprise(request):
             working_apps = [app for app in working_apps if not app.is_enterprise_only]
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
