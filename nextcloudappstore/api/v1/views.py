@@ -82,6 +82,21 @@ AA_APP_PREFETCH_LIST = [
 ]
 
 
+def _include_enterprise(request) -> bool:
+    value = request.query_params.get("include_enterprise")
+    return value is not None and value.lower() in ("true", "1")
+
+
+class EnterpriseFilterMixin:
+    """Filter out enterprise-only apps unless include_enterprise is set."""
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if not _include_enterprise(self.request):
+            queryset = queryset.filter(is_enterprise_only=False)
+        return queryset
+
+
 class CategoryView(ListAPIView):
     queryset = Category.objects.prefetch_related("translations").all()
     serializer_class = CategorySerializer
@@ -98,7 +113,7 @@ class NextcloudReleaseView(ListAPIView):
 
 
 @method_decorator(gzip_page, name="dispatch")
-class AppsView(ListAPIView):
+class AppsView(EnterpriseFilterMixin, ListAPIView):
     queryset = (
         App.objects.prefetch_related(*APP_PREFETCH_LIST)
         .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True)))
@@ -106,18 +121,8 @@ class AppsView(ListAPIView):
     )
     serializer_class = AppSerializer
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        if not self._include_enterprise():
-            queryset = queryset.filter(is_enterprise_only=False)
-        return queryset
 
-    def _include_enterprise(self) -> bool:
-        value = self.request.query_params.get("include_enterprise")
-        return value is not None and value.lower() in ("true", "1")
-
-
-class AppApiAppsView(ListAPIView):
+class AppApiAppsView(EnterpriseFilterMixin, ListAPIView):
     queryset = (
         App.objects.prefetch_related(*AA_APP_PREFETCH_LIST)
         .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=False)))
@@ -138,6 +143,8 @@ class AppView(DestroyAPIView):
     def get(self, request, *args, **kwargs):
         version = self.kwargs["version"]
         working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
+        if not _include_enterprise(request):
+            working_apps = [app for app in working_apps if not app.is_enterprise_only]
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
         return Response(data)

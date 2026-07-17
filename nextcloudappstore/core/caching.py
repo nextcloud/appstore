@@ -42,7 +42,7 @@ def get_last_modified(pairs: list[tuple[QuerySet, str]]) -> datetime.datetime | 
 def apps_etag(request: Any, version: str) -> str:
     return create_etag(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )
@@ -51,7 +51,7 @@ def apps_etag(request: Any, version: str) -> str:
 def apps_last_modified(request: Any, version: str) -> datetime.datetime | None:
     return get_last_modified(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )
