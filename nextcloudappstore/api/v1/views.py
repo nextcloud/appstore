@@ -38,6 +38,7 @@ from nextcloudappstore.api.v1.serializers import (
     NextcloudReleaseSerializer,
 )
 from nextcloudappstore.certificate.validator import CertificateValidator
+from nextcloudappstore.core.caching import filter_enterprise, include_enterprise
 from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import (
     App,
@@ -82,6 +83,13 @@ AA_APP_PREFETCH_LIST = [
 ]
 
 
+class EnterpriseFilterMixin:
+    """Filter out enterprise-only apps unless include_enterprise is set."""
+
+    def get_queryset(self):
+        return filter_enterprise(super().get_queryset(), self.request)
+
+
 class CategoryView(ListAPIView):
     queryset = Category.objects.prefetch_related("translations").all()
     serializer_class = CategorySerializer
@@ -98,7 +106,7 @@ class NextcloudReleaseView(ListAPIView):
 
 
 @method_decorator(gzip_page, name="dispatch")
-class AppsView(ListAPIView):
+class AppsView(EnterpriseFilterMixin, ListAPIView):
     queryset = (
         App.objects.prefetch_related(*APP_PREFETCH_LIST)
         .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True)))
@@ -107,7 +115,7 @@ class AppsView(ListAPIView):
     serializer_class = AppSerializer
 
 
-class AppApiAppsView(ListAPIView):
+class AppApiAppsView(EnterpriseFilterMixin, ListAPIView):
     queryset = (
         App.objects.prefetch_related(*AA_APP_PREFETCH_LIST)
         .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=False)))
@@ -128,6 +136,8 @@ class AppView(DestroyAPIView):
     def get(self, request, *args, **kwargs):
         version = self.kwargs["version"]
         working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
+        if not include_enterprise(request):
+            working_apps = [app for app in working_apps if not app.is_enterprise_only]
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
         return Response(data)
@@ -165,6 +175,7 @@ class AppRegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         signature = serializer.validated_data["signature"].strip()
         certificate = serializer.validated_data["certificate"].strip()
+        is_enterprise_only = serializer.validated_data["is_enterprise_only"]
 
         container = Container()
 
@@ -190,7 +201,9 @@ class AppRegisterView(APIView):
             app.save()
             return Response(status=204)
         except App.DoesNotExist:
-            app = App.objects.create(id=app_id, owner=request.user, certificate=certificate)
+            app = App.objects.create(
+                id=app_id, owner=request.user, certificate=certificate, is_enterprise_only=is_enterprise_only
+            )
             app.set_current_language("en")
             app.description = app_id
             app.name = app_id

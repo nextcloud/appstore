@@ -42,7 +42,7 @@ def get_last_modified(pairs: list[tuple[QuerySet, str]]) -> datetime.datetime | 
 def apps_etag(request: Any, version: str) -> str:
     return create_etag(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )
@@ -51,16 +51,32 @@ def apps_etag(request: Any, version: str) -> str:
 def apps_last_modified(request: Any, version: str) -> datetime.datetime | None:
     return get_last_modified(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )
 
 
+def include_enterprise(request: Any) -> bool:
+    return request.GET.get("include_enterprise", "").lower() in ("true", "1")
+
+
+def filter_enterprise(queryset: QuerySet, request: Any) -> QuerySet:
+    """Filter out enterprise-only apps unless include_enterprise is set."""
+    if not include_enterprise(request):
+        queryset = queryset.filter(is_enterprise_only=False)
+    return queryset
+
+
+def _apps_for_request(request: Any) -> QuerySet:
+    """App queryset scoped to the representation selected by include_enterprise."""
+    return filter_enterprise(App.objects.all(), request)
+
+
 def apps_all_etag(request: Any) -> str:
     return create_etag(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )
@@ -69,7 +85,7 @@ def apps_all_etag(request: Any) -> str:
 def apps_all_last_modified(request: Any) -> datetime.datetime | None:
     return get_last_modified(
         [
-            (App.objects.all(), "last_release"),
+            (_apps_for_request(request), "last_release"),
             (AppReleaseDeleteLog.objects.all(), "last_modified"),
         ]
     )

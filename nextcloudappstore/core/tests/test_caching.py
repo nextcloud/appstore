@@ -3,13 +3,19 @@ SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+import datetime
 from urllib.request import Request
 
 from django.contrib.auth.models import User
-from django.test import TestCase
+from django.test import RequestFactory, TestCase
+from django.utils import timezone
 
 from nextcloudappstore.core.caching import (
     app_ratings_etag,
+    apps_all_etag,
+    apps_all_last_modified,
+    apps_etag,
+    apps_last_modified,
     categories_etag,
     nextcloud_release_etag,
 )
@@ -40,3 +46,102 @@ class CachingTest(TestCase):
 
         etag = app_ratings_etag(Request("https://"))
         self.assertEqual(str(rating.last_modified), etag)
+
+
+class AppsCachingTestBase(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+        self.user = User.objects.create(username="hi")
+        self.t1 = timezone.now()
+        self.app = App.objects.create(id="news", owner=self.user, last_release=self.t1)
+
+    def _request(self, include_enterprise=None):
+        data = {"include_enterprise": include_enterprise} if include_enterprise is not None else {}
+        return self.factory.get("/apps.json", data)
+
+    def _create_enterprise_app(self):
+        t2 = self.t1 + datetime.timedelta(hours=1)
+        return App.objects.create(id="ent", owner=self.user, is_enterprise_only=True, last_release=t2)
+
+
+class AppsAllCachingTest(AppsCachingTestBase):
+    def test_etag_excludes_enterprise_only_apps_by_default(self):
+        self._create_enterprise_app()
+
+        default_etag = apps_all_etag(self._request())
+        self.assertEqual(str(self.t1), default_etag)
+
+    def test_etag_includes_enterprise_only_apps_when_requested(self):
+        ent = self._create_enterprise_app()
+
+        enterprise_etag = apps_all_etag(self._request("true"))
+        self.assertEqual(str(ent.last_release), enterprise_etag)
+
+    def test_enterprise_app_change_does_not_bust_default_etag(self):
+        default_before = apps_all_etag(self._request())
+        enterprise_before = apps_all_etag(self._request("true"))
+
+        self._create_enterprise_app()
+
+        default_after = apps_all_etag(self._request())
+        enterprise_after = apps_all_etag(self._request("true"))
+
+        self.assertEqual(default_before, default_after)
+        self.assertNotEqual(enterprise_before, enterprise_after)
+
+    def test_non_enterprise_app_change_busts_both_etags(self):
+        default_before = apps_all_etag(self._request())
+        enterprise_before = apps_all_etag(self._request("true"))
+
+        t2 = self.t1 + datetime.timedelta(hours=1)
+        self.app.last_release = t2
+        self.app.save()
+
+        default_after = apps_all_etag(self._request())
+        enterprise_after = apps_all_etag(self._request("true"))
+
+        self.assertNotEqual(default_before, default_after)
+        self.assertNotEqual(enterprise_before, enterprise_after)
+
+    def test_last_modified_excludes_enterprise_only_apps_by_default(self):
+        self._create_enterprise_app()
+
+        self.assertEqual(self.t1, apps_all_last_modified(self._request()))
+
+    def test_last_modified_includes_enterprise_only_apps_when_requested(self):
+        ent = self._create_enterprise_app()
+
+        self.assertEqual(ent.last_release, apps_all_last_modified(self._request("true")))
+
+
+class AppsPlatformCachingTest(AppsCachingTestBase):
+    """apps_etag/apps_last_modified back the /platform/{version}/apps.json route."""
+
+    def test_etag_excludes_enterprise_only_apps_by_default(self):
+        self._create_enterprise_app()
+
+        self.assertEqual(str(self.t1), apps_etag(self._request(), "9.1.1"))
+
+    def test_etag_includes_enterprise_only_apps_when_requested(self):
+        ent = self._create_enterprise_app()
+
+        self.assertEqual(str(ent.last_release), apps_etag(self._request("true"), "9.1.1"))
+
+    def test_enterprise_app_change_does_not_bust_default_etag(self):
+        default_before = apps_etag(self._request(), "9.1.1")
+        enterprise_before = apps_etag(self._request("true"), "9.1.1")
+
+        self._create_enterprise_app()
+
+        self.assertEqual(default_before, apps_etag(self._request(), "9.1.1"))
+        self.assertNotEqual(enterprise_before, apps_etag(self._request("true"), "9.1.1"))
+
+    def test_last_modified_excludes_enterprise_only_apps_by_default(self):
+        self._create_enterprise_app()
+
+        self.assertEqual(self.t1, apps_last_modified(self._request(), "9.1.1"))
+
+    def test_last_modified_includes_enterprise_only_apps_when_requested(self):
+        ent = self._create_enterprise_app()
+
+        self.assertEqual(ent.last_release, apps_last_modified(self._request("true"), "9.1.1"))

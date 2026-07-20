@@ -24,11 +24,18 @@ export class AppRegisterForm extends AjaxForm<object> {
         const values = form.fields;
         const certificate = new Maybe<FormField>(values.get('certificate'));
         const signature = new Maybe<FormField>(values.get('signature'));
+        const isEnterpriseOnly = new Maybe<FormField>(values.get('is_enterprise_only'));
         const data = {
             data: {
                 certificate: certificate
                     .map((field) => field.value.trim())
                     .orElse(''),
+                is_enterprise_only: isEnterpriseOnly
+                    .map((field) => {
+                        return field instanceof HTMLInputElement &&
+                            field.checked;
+                    })
+                    .orElse(false),
                 signature: signature
                     .map((field) => field.value.trim())
                     .orElse(''),

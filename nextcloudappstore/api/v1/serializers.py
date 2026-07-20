@@ -243,3 +243,4 @@ class AppReleaseDownloadSerializer(serializers.Serializer):
 class AppRegisterSerializer(serializers.Serializer):
     certificate = serializers.CharField()
     signature = serializers.CharField()
+    is_enterprise_only = serializers.BooleanField(required=False, default=False)

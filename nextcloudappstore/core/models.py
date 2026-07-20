@@ -167,6 +167,7 @@ class App(TranslatableModel):
     is_orphan = BooleanField(verbose_name=_("Orphan"), default=False)
     is_deprecated = BooleanField(verbose_name=_("Deprecated"), default=False)
     is_enterprise_supported = BooleanField(verbose_name=_("Enterprise supported"), default=False)
+    is_enterprise_only = BooleanField(verbose_name=_("Enterprise only"), default=False)
     rating_recent = FloatField(verbose_name=_("Recent rating"), default=0.5)
     rating_overall = FloatField(verbose_name=_("Overall rating"), default=0.5)
     rating_num_recent = IntegerField(verbose_name=_("Number of recently submitted ratings"), default=0)

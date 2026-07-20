@@ -8,7 +8,9 @@
 
 ### Added
 
-- Mark apps as deprecated from the account settings. #1762
+- Option to mark apps as enterprise-only on new app registration. #1840
+- Optional query parameter `include_enterprise` for app list retrieval endpoints. #1840
+- Option to mark apps as deprecated from the account settings. #1762
 - Allow all licenses compatible with AGPL-3.0-or-later to be specified in info.xml. #1747 #1754
 - Allow openmetrics and admin delegation settings to be specified in info.xml. #1695
 
