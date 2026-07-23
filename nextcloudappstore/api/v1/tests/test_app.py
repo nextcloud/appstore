@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+from unittest.mock import patch
+
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
@@ -31,21 +33,23 @@ class AppTest(ApiTest):
         self.assertIn("news", ids)
         self.assertNotIn("enterprise", ids)
 
-    def test_apps_excludes_enterprise_when_false(self):
+    def test_apps_excludes_enterprise_with_invalid_key(self):
         self._create_app_with_release("news")
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:apps")
-        response = self.api_client.get(url, {"include_enterprise": "false"})
+        with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=False):
+            response = self.api_client.get(url, {"subscription_key": "invalid"})
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
         self.assertNotIn("enterprise", ids)
 
-    def test_apps_includes_enterprise_when_requested(self):
+    def test_apps_includes_enterprise_with_valid_key(self):
         self._create_app_with_release("news")
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:apps")
-        response = self.api_client.get(url, {"include_enterprise": "true"})
+        with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
+            response = self.api_client.get(url, {"subscription_key": "valid"})
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
@@ -61,11 +65,12 @@ class AppTest(ApiTest):
         self.assertIn("news", ids)
         self.assertNotIn("enterprise", ids)
 
-    def test_platform_includes_enterprise_when_requested(self):
+    def test_platform_includes_enterprise_with_valid_key(self):
         self._create_app_with_release("news")
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:app", kwargs={"version": "9.1.1"})
-        response = self.api_client.get(url, {"include_enterprise": "true"})
+        with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
+            response = self.api_client.get(url, {"subscription_key": "valid"})
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
@@ -81,11 +86,12 @@ class AppTest(ApiTest):
         self.assertIn("news", ids)
         self.assertNotIn("enterprise", ids)
 
-    def test_appapi_includes_enterprise_when_requested(self):
+    def test_appapi_includes_enterprise_with_valid_key(self):
         self._create_app_with_release("news", aa_is_system=False)
         self._create_app_with_release("enterprise", is_enterprise_only=True, aa_is_system=False)
         url = reverse("api:v1:appapi_apps")
-        response = self.api_client.get(url, {"include_enterprise": "true"})
+        with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
+            response = self.api_client.get(url, {"subscription_key": "valid"})
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
