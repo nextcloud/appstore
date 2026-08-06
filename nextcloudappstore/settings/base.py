@@ -387,6 +387,11 @@ NEXTCLOUD_INTEGRATIONS_APPROVAL_EMAILS = ["marketing-team@nextcloud.com"]
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
+# Enterprise-only apps configuration
+ENABLE_ENTERPRISE_ONLY_APPS = False
+ENTERPRISE_KEY_VALIDATION_ENDPOINT = ""
+ENTERPRISE_KEY_VALIDATION_API_KEY = ""
+
 # Do not fill in these values here, use the "development.py" or "production.py" files.
 ODOO_URL = ""
 ODOO_DB = ""
