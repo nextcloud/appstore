@@ -17,6 +17,7 @@ from nextcloudappstore.core.caching import app_rating_etag
 from nextcloudappstore.core.feeds import AppReleaseAtomFeed, AppReleaseRssFeed
 from nextcloudappstore.core.views import (
     AppDetailView,
+    AppDownloadStatsView,
     AppRatingApi,
     AppRegisterView,
     AppReleasesView,
@@ -50,6 +51,7 @@ urlpatterns = [
     re_path(r"^developer/apps/new/?$", AppRegisterView.as_view(), name="app-register"),
     re_path(r"^apps/(?P<id>[\w_]+)/?$", AppDetailView.as_view(), name="app-detail"),
     re_path(r"^apps/(?P<id>[\w_]+)/releases/?$", AppReleasesView.as_view(), name="app-releases"),
+    re_path(r"^apps/(?P<id>[\w_]+)/downloads/?$", AppDownloadStatsView.as_view(), name="app-downloads"),
     re_path(r"^apps/(?P<id>[\w_]+)/description/?$", app_description, name="app-description"),
     re_path(r"^apps/(?P<id>[\w_]+)/ratings.json$", etag(app_rating_etag)(AppRatingApi.as_view()), name="app-ratings"),
     path("api/", include("nextcloudappstore.api.urls", namespace="api")),

@@ -148,6 +148,16 @@
             </ul>
         </section>
         {% endif %}
+        {% if request.user == object.owner or request.user in object.co_maintainers.all %}
+        <section class="interact-section">
+            <h2>{% trans "Developer" %}</h2>
+            <a href="{% url 'app-downloads' object.id %}"
+               class="btn btn-default btn-light">
+                <span class="icon icon-chart-bar"></span>
+                {% trans 'Download statistics' %}
+            </a>
+        </section>
+        {% endif %}
         <section class="interact-section">
             <h2>{% trans "Interact" %}</h2>
             {% if object.issue_tracker %}
