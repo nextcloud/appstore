@@ -304,6 +304,9 @@ MAX_DOWNLOAD_REDIRECTS = 10
 MAX_DOWNLOAD_SIZE = 30 * (1024**2)  # bytes
 ARCHIVE_FOLDER_BLACKLIST = {"No .git directories": r"\.git$"}
 
+# proxy server URL for caching app screenshots
+USERCONTENT_PROXY_URL = "https://usercontent.apps.nextcloud.com"
+
 # certificate location configuration
 NEXTCLOUD_CERTIFICATE_LOCATION = BASE_DIR / "certificate/nextcloud.crt"
 NEXTCLOUD_CRL_LOCATION = BASE_DIR / "certificate/nextcloud.crl"
