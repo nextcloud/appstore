@@ -270,7 +270,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
 
 * **Query parameters**:
 
-  * **include_enterprise**: boolean: Whether or not to include apps marked as enterprise-only. Defaults to false
+  * **subscription_key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
 
 * **Authentication**: None
 
@@ -483,7 +483,7 @@ This route will return all releases to display inside Nextcloud's apps admin are
 * **Url**: GET /api/v1/apps.json
 * **Query parameters**:
 
-  * **include_enterprise**: boolean: Whether or not to include apps marked as enterprise-only. Defaults to false
+  * **subscription_key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
 
 * **Authentication**: None
 
