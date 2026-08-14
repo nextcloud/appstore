@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Replace `include_enterprise` query parameter with `subscription_key` parameter for retrieval of enterprise-only apps. #1848
+
 ## [4.12.0] - 2026-08-05
 
 ### Added
