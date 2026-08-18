@@ -4,6 +4,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
 import json
+from base64 import urlsafe_b64encode
 from typing import Any  # type: ignore
 
 from django.conf import settings  # type: ignore
@@ -139,9 +140,13 @@ class StringAttributeImporter(ScalarImporter):
 
 class ScreenshotsImporter(ScalarImporter):
     def import_data(self, key: str, value: Any, obj: Any) -> None:
+        def get_proxy_url(url: str) -> str:
+            base64_url = urlsafe_b64encode(url.encode()).decode()
+            return f"{settings.USERCONTENT_PROXY_URL}/{base64_url}"
+
         def create_screenshot(img: dict[str, str]) -> Screenshot:
             return Screenshot.objects.create(
-                url=img["url"],
+                url=get_proxy_url(img["url"]),
                 app=obj,
                 ordering=img["ordering"],
                 small_thumbnail=none_to_empty_string(img["small_thumbnail"]),
