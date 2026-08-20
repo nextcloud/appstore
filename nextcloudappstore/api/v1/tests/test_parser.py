@@ -46,6 +46,7 @@ class ParserTest(TestCase):
                 "discussion": None,
                 "website": None,
                 "issue_tracker": "https://github.com/nextcloud/news/issues",
+                "videos": [],
                 "screenshots": [],
                 "categories": [{"category": {"id": "multimedia"}}],
                 "donations": [],
@@ -515,10 +516,32 @@ class ParserTest(TestCase):
                     {"screenshot": {"url": "https://example.com/1.png", "small_thumbnail": None, "ordering": 1}},
                     {"screenshot": {"url": "https://example.com/2.jpg", "small_thumbnail": None, "ordering": 2}},
                 ],
+                "videos": [],
                 "donations": [],
             }
         }
         self.assertDictEqual(expected, result)
+
+    def test_parse_videos(self):
+        xml = self._get_contents("data/infoxmls/videos.xml")
+        result = parse_app_metadata(xml, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
+        self.assertEqual(
+            [
+                {
+                    "video": {
+                        "url": "https://peertube.tv/w/dMWVlMwd9ecp5UVAOUhTDt",
+                        "ordering": 1,
+                    }
+                },
+                {
+                    "video": {
+                        "url": "https://peertube.tv/videos/embed/TpUpEIu3PkYqljmQw7T0jR",
+                        "ordering": 2,
+                    }
+                },
+            ],
+            result["app"]["videos"],
+        )
 
     def test_parse_changelog_empty(self):
         changelog = parse_changelog("", "9.0")

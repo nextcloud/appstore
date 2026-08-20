@@ -4,7 +4,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
 import json
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -60,12 +60,27 @@ class AppDetailView(DetailView):
     queryset = App.objects.prefetch_related(
         "releases",
         "screenshots",
+        "videos",
         "co_maintainers",
         "translations",
     ).select_related("owner")
     template_name = "app/detail.html"
     slug_field = "id"
     slug_url_kwarg = "id"
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super().render_to_response(context, **response_kwargs)
+        hosts = sorted(
+            {
+                f"{parsed.scheme}://{parsed.netloc}"
+                for video in self.object.videos.all()
+                for parsed in (urlparse(video.url),)
+                if parsed.scheme and parsed.netloc
+            }
+        )
+        if hosts:
+            response._csp_update = {"frame-src": hosts}
+        return response
 
     def post(self, request, id):
         post_data = json.loads(request.body) if request.content_type == "application/json" else request.POST

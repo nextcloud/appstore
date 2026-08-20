@@ -390,6 +390,11 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     "smallThumbnail": ""
                 }
             ],
+            "videos": [
+                {
+                    "url": "https://peertube.tv/videos/embed/dMWVlMwd9ecp5UVAOUhTDt"
+                }
+            ],
             "translations": {
                 "en": {
                     "name": "News",
@@ -415,6 +420,11 @@ screenshots
 
 smallThumbnail
     Small thumbnail which can be used as preview image. Guaranteed to be HTTPS. Not required, so if not present or an empty string, use the screenshot url instead.
+
+videos
+    PeerTube videos declared in the app's info.xml. Guaranteed to be HTTPS. Each entry has:
+
+    * **url**: Normalized PeerTube embed URL suitable for iframes
 
 download
     Download archive location, guaranteed to be HTTPS
@@ -603,6 +613,11 @@ This route will return all releases to display inside Nextcloud's apps admin are
                     "smallThumbnail": ""
                 }
             ],
+            "videos": [
+                {
+                    "url": "https://peertube.tv/videos/embed/dMWVlMwd9ecp5UVAOUhTDt"
+                }
+            ],
             "translations": {
                 "en": {
                     "name": "News",
@@ -628,6 +643,11 @@ screenshots
 
 smallThumbnail
     Small thumbnail which can be used as preview image. Guaranteed to be HTTPS. Not required, so if not present or an empty string, use the screenshot url instead.
+
+videos
+    PeerTube videos declared in the app's info.xml. Guaranteed to be HTTPS. Each entry has:
+
+    * **url**: Normalized PeerTube embed URL suitable for iframes
 
 download
     Download archive location, guaranteed to be HTTPS
@@ -789,6 +809,7 @@ If the app release version is the latest version, everything is updated. If it's
   * bugs
   * website
   * screenshot
+  * video
 
 
 For more information about validation and which **info.xml** fields are parsed, see :ref:`app-metadata`

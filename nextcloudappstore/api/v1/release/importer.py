@@ -11,6 +11,7 @@ from django.conf import settings  # type: ignore
 from django.utils import timezone
 from semantic_version import Version  # type: ignore
 
+from nextcloudappstore.api.v1.release.peertube import peertube_embed_url
 from nextcloudappstore.core.facades import all_match
 from nextcloudappstore.core.models import (
     App,
@@ -28,6 +29,7 @@ from nextcloudappstore.core.models import (
     PhpExtensionDependency,
     Screenshot,
     ShellCommand,
+    Video,
 )
 from nextcloudappstore.core.versioning import to_raw_spec, to_spec
 
@@ -154,6 +156,19 @@ class ScreenshotsImporter(ScalarImporter):
 
         shots = map(lambda val: create_screenshot(val["screenshot"]), value)
         obj.screenshots.set(list(shots))
+
+
+class VideosImporter(ScalarImporter):
+    def import_data(self, key: str, value: Any, obj: Any) -> None:
+        def create_video(data: dict[str, str]) -> Video:
+            return Video.objects.create(
+                url=peertube_embed_url(data["url"].strip()),
+                app=obj,
+                ordering=data["ordering"],
+            )
+
+        videos = map(lambda val: create_video(val["video"]), value)
+        obj.videos.set(list(videos))
 
 
 class DonationsImporter(ScalarImporter):
@@ -287,6 +302,7 @@ class AppImporter(Importer):
         self,
         release_importer: AppReleaseImporter,
         screenshots_importer: ScreenshotsImporter,
+        videos_importer: VideosImporter,
         donations_importer: DonationsImporter,
         attribute_importer: StringAttributeImporter,
         l10n_importer: L10NImporter,
@@ -298,6 +314,7 @@ class AppImporter(Importer):
             {
                 "release": release_importer,
                 "screenshots": screenshots_importer,
+                "videos": videos_importer,
                 "donations": donations_importer,
                 "user_docs": attribute_importer,
                 "admin_docs": attribute_importer,
@@ -332,6 +349,7 @@ class AppImporter(Importer):
         if self._should_update_everything(value):
             # clear all relations
             obj.screenshots.all().delete()
+            obj.videos.all().delete()
             obj.donations.all().delete()
             obj.authors.all().delete()
             obj.categories.clear()

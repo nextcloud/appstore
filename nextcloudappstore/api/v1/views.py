@@ -55,6 +55,7 @@ from nextcloudappstore.user.facades import update_token
 BASIC_PREFETCH_LIST = [
     "authors",
     "screenshots",
+    "videos",
     "categories",
     "translations",
 ]
