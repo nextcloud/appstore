@@ -8,6 +8,7 @@ from django.views.decorators.http import condition, etag
 
 from nextcloudappstore.api.v1.views import (
     AppApiAppsView,
+    AppDownloadStatsView,
     AppRatingView,
     AppRegisterView,
     AppReleaseView,
@@ -45,6 +46,7 @@ urlpatterns = [
     re_path(r"^appapi_apps\.json$", etag(apps_all_etag)(AppApiAppsView.as_view()), name="appapi_apps"),
     re_path(r"^apps/releases/?$", AppReleaseView.as_view(), name="app-release-create"),
     re_path(r"^apps/?$", AppRegisterView.as_view(), name="app-register"),
+    re_path(r"^apps/(?P<pk>[a-z0-9_]+)/downloads/?$", AppDownloadStatsView.as_view(), name="app-download-stats"),
     re_path(r"^apps/(?P<pk>[a-z0-9_]+)/?$", AppView.as_view(), name="app-delete"),
     re_path(r"^ratings.json$", etag(app_ratings_etag)(AppRatingView.as_view()), name="app-ratings"),
     re_path(
