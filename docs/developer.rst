@@ -211,6 +211,8 @@ A full blown example would look like this (needs to be utf-8 encoded):
         <discussion>https://your.forum.com</discussion>
         <bugs>https://github.com/nextcloud/news/issues</bugs>
         <repository>https://github.com/nextcloud/news</repository>
+        <video>https://peertube.tv/w/dMWVlMwd9ecp5UVAOUhTDt</video>
+        <video>https://peertube.tv/videos/embed/TpUpEIu3PkYqljmQw7T0jR</video>
         <screenshot small-thumbnail="https://example.com/1-small.png">https://example.com/1.png</screenshot>
         <screenshot>https://example.com/2.jpg</screenshot>
         <donation type="paypal" title="Donate via PayPal">https://paypal.com/example-link</donation>
@@ -435,6 +437,17 @@ repository
     * must contain an URL to the project's repository
     * can contain a **type** attribute, **git**, **mercurial**, **subversion** and **bzr** are allowed values, defaults to **git**
     * currently not used
+video
+    * optional
+    * can occur multiple times (up to 10)
+    * must contain an HTTPS URL to a PeerTube video in one of these forms:
+
+      * ``https://host/w/<id>``
+      * ``https://host/videos/watch/<id>``
+      * ``https://host/videos/embed/<id>``
+
+    * the store normalizes the URL to an embed URL and shows it in the app detail page gallery (before screenshots), in the given order
+    * other video hosts (for example YouTube) are not supported
 screenshot
     * optional
     * must contain an HTTPS URL to an image

@@ -49,6 +49,7 @@
             <xsl:copy-of select="discussion"/>
             <xsl:copy-of select="bugs"/>
             <xsl:copy-of select="repository"/>
+            <xsl:copy-of select="video"/>
             <xsl:copy-of select="screenshot"/>
             <xsl:copy-of select="donation"/>
             <xsl:apply-templates select="dependencies"/>

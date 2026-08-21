@@ -99,12 +99,16 @@ class ImporterTest(TestCase):
         )
         release = app.releases.all()[0]
         screenshots = app.screenshots.all()
+        videos = app.videos.all()
         extensions = release.php_extensions.all()
         databases = release.databases.all()
 
         self.assertEqual(2, screenshots.count())
         self.assertEqual("https://example.com/1-thumb.png", screenshots[0].small_thumbnail)
         self.assertEqual("", screenshots[1].small_thumbnail)
+        self.assertEqual(2, videos.count())
+        self.assertEqual("https://peertube.tv/videos/embed/dMWVlMwd9ecp5UVAOUhTDt", videos[0].url)
+        self.assertEqual("https://peertube.tv/videos/embed/TpUpEIu3PkYqljmQw7T0jR", videos[1].url)
         self.assertEqual(3, databases.count())
         self.assertEqual(4, extensions.count())
 

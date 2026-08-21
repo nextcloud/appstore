@@ -67,7 +67,7 @@
     line-height: 40px;
 }
 
-.carousel-inner:not(.fullscreen) {
+.carousel-inner:not(.fullscreen) .item.active:has(img) {
     cursor: zoom-in;
 }
 
@@ -75,8 +75,17 @@
     cursor: zoom-out;
 }
 
-.carousel-inner img {
+.carousel-inner img,
+.carousel-inner iframe {
     min-width: 100%;
+}
+
+.carousel-inner iframe {
+    display: block;
+    width: calc(100% - 140px);
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    margin: 0 70px;
 }
 
 @media screen and (max-width: 991px) {
