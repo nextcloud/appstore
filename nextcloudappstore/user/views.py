@@ -25,7 +25,11 @@ from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView, UpdateView
 
 from nextcloudappstore.core.models import App, AppRating
-from nextcloudappstore.user.forms import AccountForm, DeleteAccountForm, VideoPreferencesForm
+from nextcloudappstore.user.forms import (
+    AccountForm,
+    DeleteAccountForm,
+    VideoPreferencesForm,
+)
 
 
 @method_decorator(never_cache, name="dispatch")
