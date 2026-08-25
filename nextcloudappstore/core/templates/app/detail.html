@@ -34,9 +34,13 @@
                         {% for video in videos %}
                             <div class="item {% if forloop.first %}active{% endif %}">
                                 <iframe
+                                    {% if request.user.is_authenticated and request.user.profile.video_autoplay and forloop.first %}
+                                    src="{{ video.url | add:'?autoplay=1&loop=1&muted=1' }}"
+                                    {% else %}
                                     src="{{ video.url }}"
+                                    {% endif %}
                                     title="{% trans 'Video' %}"
-                                    allowfullscreen
+                                    allow="autoplay; fullscreen"
                                     sandbox="allow-same-origin allow-scripts allow-popups"
                                     loading="lazy"
                                     referrerpolicy="strict-origin-when-cross-origin"

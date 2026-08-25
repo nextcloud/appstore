@@ -1,0 +1,23 @@
+{% extends "user/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
+{% block head-title %}{% trans 'Video preferences' %} - {% endblock %}
+
+{% block account-content %}
+    <h1>{% trans "Video preferences" %}</h1>
+    <section>
+        <form action="{% url 'user:account-video-preferences' %}" method="post">
+            {% include 'form-fields.html' %}
+            <p>
+                <button class="btn btn-primary btn-block" type="submit">
+                    <span class="icon material-symbols-outlined">done</span>
+                    {% trans 'Save' %}
+                </button>
+            </p>
+        </form>
+    </section>
+{% endblock %}

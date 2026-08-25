@@ -17,6 +17,7 @@ from nextcloudappstore.user.views import (
     IntegrationsView,
     PasswordView,
     TransferAppsView,
+    VideoPreferencesView,
 )
 
 app_name = "user"
@@ -41,5 +42,6 @@ urlpatterns = [
     re_path(r"^token/?$", APITokenView.as_view(), name="account-api-token"),
     re_path(r"^delete/?$", DeleteAccountView.as_view(), name="account-deletion"),
     re_path(r"^change-language/?$", ChangeLanguageView.as_view(), name="account-change-language"),
+    re_path(r"^video-preferences/?$", VideoPreferencesView.as_view(), name="account-video-preferences"),
     re_path(r"^appeal-comments/?$", AppealCommentsView.as_view(), name="appeal-comments"),
 ]
