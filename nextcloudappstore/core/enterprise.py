@@ -40,7 +40,7 @@ def validate_subscription_key(subscription_key: str) -> bool:
 
 def enterprise_enabled(request) -> bool:
     if not hasattr(request, "_enterprise_enabled"):
-        subscription_key = request.GET.get("subscription_key", "")
+        subscription_key = request.headers.get("X-NC-Subscription-Key", "")
         request._enterprise_enabled = validate_subscription_key(subscription_key)
     return request._enterprise_enabled
 

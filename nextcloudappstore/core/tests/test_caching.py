@@ -57,8 +57,8 @@ class AppsCachingTestBase(TestCase):
         self.app = App.objects.create(id="news", owner=self.user, last_release=self.t1)
 
     def _request(self, subscription_key=None):
-        data = {"subscription_key": subscription_key} if subscription_key is not None else {}
-        return self.factory.get("/apps.json", data)
+        kwargs = {"HTTP_X_NC_SUBSCRIPTION_KEY": subscription_key} if subscription_key is not None else {}
+        return self.factory.get("/apps.json", **kwargs)
 
     def _create_enterprise_app(self):
         t2 = self.t1 + datetime.timedelta(hours=1)

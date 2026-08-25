@@ -38,7 +38,7 @@ class AppTest(ApiTest):
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:apps")
         with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=False):
-            response = self.api_client.get(url, {"subscription_key": "invalid"})
+            response = self.api_client.get(url, HTTP_X_NC_SUBSCRIPTION_KEY="invalid")
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
@@ -49,7 +49,7 @@ class AppTest(ApiTest):
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:apps")
         with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
-            response = self.api_client.get(url, {"subscription_key": "valid"})
+            response = self.api_client.get(url, HTTP_X_NC_SUBSCRIPTION_KEY="valid")
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
@@ -70,7 +70,7 @@ class AppTest(ApiTest):
         self._create_app_with_release("enterprise", is_enterprise_only=True)
         url = reverse("api:v1:app", kwargs={"version": "9.1.1"})
         with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
-            response = self.api_client.get(url, {"subscription_key": "valid"})
+            response = self.api_client.get(url, HTTP_X_NC_SUBSCRIPTION_KEY="valid")
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
@@ -91,7 +91,7 @@ class AppTest(ApiTest):
         self._create_app_with_release("enterprise", is_enterprise_only=True, aa_is_system=False)
         url = reverse("api:v1:appapi_apps")
         with patch("nextcloudappstore.core.enterprise.validate_subscription_key", return_value=True):
-            response = self.api_client.get(url, {"subscription_key": "valid"})
+            response = self.api_client.get(url, HTTP_X_NC_SUBSCRIPTION_KEY="valid")
         self.assertEqual(200, response.status_code)
         ids = [app["id"] for app in response.data]
         self.assertIn("news", ids)
