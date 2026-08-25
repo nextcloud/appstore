@@ -268,9 +268,9 @@ This route will return all releases to display inside Nextcloud's apps admin are
 
   * **platform-version**: semantic version, core digits only: Returns all the apps and their releases that work on this version. If an app has no working releases, the app will be excluded
 
-* **Query parameters**:
+* **Headers**:
 
-  * **subscription_key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
+  * **X-NC-Subscription-Key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
 
 * **Authentication**: None
 
@@ -491,9 +491,9 @@ Get All Apps and Releases
 This route will return all releases to display inside Nextcloud's apps admin area.
 
 * **Url**: GET /api/v1/apps.json
-* **Query parameters**:
+* **Headers**:
 
-  * **subscription_key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
+  * **X-NC-Subscription-Key**: string: Nextcloud Enterprise subscription key. If it is valid, enterprise-only apps will also be returned.
 
 * **Authentication**: None
 

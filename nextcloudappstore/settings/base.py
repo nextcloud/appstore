@@ -219,6 +219,7 @@ CORS_ALLOW_HEADERS = (
     "origin",
     "authorization",
     "if-none-match",
+    "x-nc-subscription-key",
 )
 CORS_EXPOSE_HEADERS = (
     "etag",
