@@ -14,6 +14,8 @@ from django.contrib.auth import get_user_model
 from django.forms import CharField, EmailField, PasswordInput
 from django.utils.translation import gettext_lazy as _
 
+from nextcloudappstore.user.models import UserProfile
+
 
 class SignupFormRecaptcha(forms.Form):
     """integrate a recaptcha field."""
@@ -154,3 +156,14 @@ class AccountForm(forms.ModelForm):
                 self.add_error("passwd", _("Password is required to change these fields."))
 
         return cleaned_data
+
+
+class VideoPreferencesForm(forms.ModelForm):
+    video_autoplay = forms.BooleanField(
+        label=_("Autoplay videos on app detail pages"),
+        required=False,
+    )
+
+    class Meta:
+        model = UserProfile
+        fields = ("video_autoplay",)

@@ -47,6 +47,12 @@
                     {% trans 'Change language' %}
                 </a>
             </li>
+            <li class="{% if acc_page == 'account-video-preferences' %}active{% endif %}">
+                <a href="{% url 'user:account-video-preferences' %}">
+                    <span class="icon material-symbols-outlined">videocam</span>
+                    {% trans 'Video preferences' %}
+                </a>
+            </li>
             {% if request.user.has_usable_password %}
                 <li class="{% if acc_page == 'password' %}active{% endif %}">
                     <a href="{% url 'user:account-password' %}">

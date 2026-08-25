@@ -26,6 +26,7 @@ from nextcloudappstore.core.models import (
     Podcast,
     Screenshot,
     ShellCommand,
+    Video,
 )
 
 
@@ -144,6 +145,13 @@ class PodcastAdmin(admin.ModelAdmin):
 class ScreenshotAdmin(admin.ModelAdmin):
     ordering = ("app", "ordering")
     list_display = ("url", "small_thumbnail", "app", "ordering")
+    list_filter = ("app__id",)
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    ordering = ("app", "ordering")
+    list_display = ("url", "app", "ordering")
     list_filter = ("app__id",)
 
 

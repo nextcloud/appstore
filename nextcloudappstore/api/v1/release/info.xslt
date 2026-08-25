@@ -87,6 +87,19 @@
                 </xsl:for-each>
             </authors>
 
+            <videos type="list">
+                <xsl:for-each select="video">
+                    <video>
+                        <url>
+                            <xsl:value-of select="."/>
+                        </url>
+                        <ordering type="int">
+                            <xsl:value-of select="position()"/>
+                        </ordering>
+                    </video>
+                </xsl:for-each>
+            </videos>
+
             <screenshots type="list">
                 <xsl:for-each select="screenshot">
                     <screenshot>

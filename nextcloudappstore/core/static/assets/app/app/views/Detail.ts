@@ -46,10 +46,14 @@ ready.then(() => {
         loadUserRatings(ratingUrl, urlParams.get('bad_comment_lang') || currentLang, fallbackLang, config);
     });
 
-    // fullscreen bindings
+    // fullscreen bindings (images only; skip iframe video slides)
     id('app-gallery-container', HTMLElement).ifPresent((gallery) => {
         const item = queryOrThrow('.carousel-inner', HTMLElement, gallery);
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (event: MouseEvent) => {
+            const target = event.target as HTMLElement | null;
+            if (target && (target.tagName === 'IFRAME' || target.closest('iframe'))) {
+                return;
+            }
             if (screenfull && screenfull.isEnabled) {
                 item.classList.toggle('fullscreen');
                 screenfull?.toggle(gallery);

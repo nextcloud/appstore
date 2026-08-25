@@ -22,6 +22,7 @@ from nextcloudappstore.core.models import (
     NextcloudRelease,
     PhpExtensionDependency,
     Screenshot,
+    Video,
 )
 from nextcloudappstore.core.validators import HttpsUrlValidator
 
@@ -178,10 +179,17 @@ class ScreenshotSerializer(serializers.ModelSerializer):
         fields = ("url", "small_thumbnail")
 
 
+class VideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Video
+        fields = ("url",)
+
+
 class AppSerializer(serializers.ModelSerializer):
     releases = AppReleaseSerializer(many=True, read_only=True)
     discussion = SerializerMethodField()
     screenshots = ScreenshotSerializer(many=True, read_only=True)
+    videos = VideoSerializer(many=True, read_only=True)
     authors = AuthorSerializer(many=True, read_only=True)
     translations = TranslatedFieldsField(shared_model=App)
     last_modified = DateTimeField(source="last_release")
@@ -200,6 +208,7 @@ class AppSerializer(serializers.ModelSerializer):
             "last_modified",
             "releases",
             "screenshots",
+            "videos",
             "translations",
             "is_featured",
             "authors",

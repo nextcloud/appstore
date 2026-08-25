@@ -25,7 +25,11 @@ from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView, UpdateView
 
 from nextcloudappstore.core.models import App, AppRating
-from nextcloudappstore.user.forms import AccountForm, DeleteAccountForm
+from nextcloudappstore.user.forms import (
+    AccountForm,
+    DeleteAccountForm,
+    VideoPreferencesForm,
+)
 
 
 @method_decorator(never_cache, name="dispatch")
@@ -190,6 +194,28 @@ class AccountView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+@method_decorator(never_cache, name="dispatch")
+class VideoPreferencesView(LoginRequiredMixin, UpdateView):
+    """Display and allow changing of the user's video preferences."""
+
+    template_name = "user/video-preferences.html"
+    template_name_suffix = ""
+    form_class = VideoPreferencesForm
+    success_url = reverse_lazy("user:account-video-preferences")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["acc_page"] = "account-video-preferences"
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, _("Video preferences saved."))
+        return super().form_valid(form)
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
 
 
 @method_decorator(never_cache, name="dispatch")

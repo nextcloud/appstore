@@ -16,6 +16,9 @@ class UserProfile(models.Model):
     subscribe_to_news = models.BooleanField(
         default=False, help_text="User has opted in to receive Nextcloud news and updates."
     )
+    video_autoplay = models.BooleanField(
+        default=False, help_text="User has opted in to autoplay videos on app detail pages."
+    )
 
     def __str__(self):
         return f"Profile of {self.user.username}"

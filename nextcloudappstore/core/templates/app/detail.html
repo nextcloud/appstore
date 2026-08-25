@@ -21,27 +21,47 @@
 {% endblock %}
 
 {% block apps %}
-    {% if object.screenshots.all %}
+    {% with videos=object.videos.all screenshots=object.screenshots.all %}
+    {% with media_count=videos.count|add:screenshots.count %}
+    {% if media_count %}
         <section id="app-gallery-container">
             <div id="app-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="inner-container">
-                    <a class="left carousel-control {% if object.screenshots.all|length < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="prev" aria-label="{% trans 'Previous screenshot' %}">
+                    <a class="left carousel-control {% if media_count < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="prev" aria-label="{% trans 'Previous' %}">
                         <span class="icon icon-chevron-left" aria-hidden="true"></span>
                     </a>
-                    <div class="carousel-inner" role="region" aria-label="{% trans 'Screenshots' %}">
-                        {% for screenshot in object.screenshots.all %}
+                    <div class="carousel-inner" role="region" aria-label="{% trans 'Screenshots and videos' %}">
+                        {% for video in videos %}
                             <div class="item {% if forloop.first %}active{% endif %}">
+                                <iframe
+                                    {% if request.user.is_authenticated and request.user.profile.video_autoplay and forloop.first %}
+                                    src="{{ video.url | add:'?autoplay=1&loop=1&muted=1' }}"
+                                    {% else %}
+                                    src="{{ video.url }}"
+                                    {% endif %}
+                                    title="{% trans 'Video' %}"
+                                    allow="autoplay; fullscreen"
+                                    sandbox="allow-same-origin allow-scripts allow-popups"
+                                    loading="lazy"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                ></iframe>
+                            </div>
+                        {% endfor %}
+                        {% for screenshot in screenshots %}
+                            <div class="item {% if not videos and forloop.first %}active{% endif %}">
                                 <img src="{{ screenshot.url }}" alt="{% trans 'Screenshot' %}">
                             </div>
                         {% endfor %}
                     </div>
-                    <a class="right carousel-control {% if object.screenshots.all|length < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="next" aria-label="{% trans 'Next screenshot' %}">
+                    <a class="right carousel-control {% if media_count < 2 %}hidden{% endif %}" href="#app-gallery" role="button" data-slide="next" aria-label="{% trans 'Next' %}">
                         <span class="icon icon-chevron-right" aria-hidden="true"></span>
                     </a>
                 </div>
             </div>
         </section>
     {% endif %}
+    {% endwith %}
+    {% endwith %}
     {% if object.is_server_bundled %}
         <div class="alert alert-info" role="alert">
             <strong>
