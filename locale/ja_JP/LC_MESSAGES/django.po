@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-22 22:41-0500\n"
+"POT-Creation-Date: 2026-08-25 23:40-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Katsuhiro Shimohata, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/nextcloud/"
@@ -73,7 +73,7 @@ msgid "Download"
 msgstr "ダウンロード"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:246
+#: nextcloudappstore/core/templates/app/detail.html:266
 msgid "Bad"
 msgstr "悪い"
 
@@ -82,7 +82,7 @@ msgid "OK"
 msgstr "OK"
 
 #: nextcloudappstore/core/forms.py:21
-#: nextcloudappstore/core/templates/app/detail.html:240
+#: nextcloudappstore/core/templates/app/detail.html:260
 msgid "Good"
 msgstr "良い"
 
@@ -160,12 +160,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "app ID, フォルダー名を一意に識別します"
 
-#: nextcloudappstore/core/models.py:142 nextcloudappstore/core/models.py:718
+#: nextcloudappstore/core/models.py:142 nextcloudappstore/core/models.py:732
 msgid "Category"
 msgstr "カテゴリー"
 
-#: nextcloudappstore/core/models.py:144 nextcloudappstore/core/models.py:712
-#: nextcloudappstore/core/models.py:735 nextcloudappstore/core/models.py:755
+#: nextcloudappstore/core/models.py:144 nextcloudappstore/core/models.py:726
+#: nextcloudappstore/core/models.py:749 nextcloudappstore/core/models.py:769
 msgid "Name"
 msgstr "名前"
 
@@ -184,13 +184,13 @@ msgid "Short text describing the app's purpose"
 msgstr "アプリの目的を説明する短い文章"
 
 #: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:634
-#: nextcloudappstore/core/models.py:714
+#: nextcloudappstore/core/models.py:728
 #: nextcloudappstore/scaffolding/forms.py:65
 #: nextcloudappstore/scaffolding/forms.py:114
 msgid "Description"
 msgstr "説明"
 
-#: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:714
+#: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:728
 msgid "Will be rendered as Markdown"
 msgstr "Markdownとしてレンダリングされます。"
 
@@ -213,7 +213,7 @@ msgid "Issue tracker URL"
 msgstr "課題管理 URL"
 
 #: nextcloudappstore/core/models.py:155 nextcloudappstore/core/models.py:493
-#: nextcloudappstore/core/templates/app/detail.html:137
+#: nextcloudappstore/core/templates/app/detail.html:157
 msgid "Homepage"
 msgstr "ホームページ"
 
@@ -222,12 +222,12 @@ msgid "Forum"
 msgstr "フォーラム"
 
 #: nextcloudappstore/core/models.py:157 nextcloudappstore/core/models.py:528
-#: nextcloudappstore/core/models.py:708
+#: nextcloudappstore/core/models.py:722
 msgid "Created at"
 msgstr "作成:"
 
 #: nextcloudappstore/core/models.py:158 nextcloudappstore/core/models.py:529
-#: nextcloudappstore/core/models.py:709
+#: nextcloudappstore/core/models.py:723
 msgid "Updated at"
 msgstr "更新"
 
@@ -236,7 +236,7 @@ msgid "App owner"
 msgstr "アプリの所有者"
 
 #: nextcloudappstore/core/models.py:163
-#: nextcloudappstore/core/templates/app/detail.html:114
+#: nextcloudappstore/core/templates/app/detail.html:134
 msgid "Co-Maintainers"
 msgstr "共同管理者"
 
@@ -245,7 +245,7 @@ msgid "App authors"
 msgstr "アプリの作者"
 
 #: nextcloudappstore/core/models.py:166
-#: nextcloudappstore/core/templates/app/detail.html:69
+#: nextcloudappstore/core/templates/app/detail.html:89
 #: nextcloudappstore/core/templates/app/list.html:70
 msgid "Featured"
 msgstr "注目"
@@ -314,7 +314,7 @@ msgstr "統合の認証に利用"
 
 #: nextcloudappstore/core/models.py:190 nextcloudappstore/core/models.py:434
 #: nextcloudappstore/core/models.py:510 nextcloudappstore/core/models.py:647
-#: nextcloudappstore/core/models.py:670
+#: nextcloudappstore/core/models.py:668 nextcloudappstore/core/models.py:684
 #: nextcloudappstore/user/templates/user/appeal-comments.html:16
 msgid "App"
 msgstr "アプリ"
@@ -378,15 +378,15 @@ msgstr "バージョン"
 msgid "Version follows Semantic Versioning"
 msgstr "セマンティックバージョニングによるVersion"
 
-#: nextcloudappstore/core/models.py:513 nextcloudappstore/core/models.py:809
+#: nextcloudappstore/core/models.py:513 nextcloudappstore/core/models.py:823
 msgid "PHP extension dependency"
 msgstr "PHP拡張の依存関係"
 
-#: nextcloudappstore/core/models.py:516 nextcloudappstore/core/models.py:776
+#: nextcloudappstore/core/models.py:516 nextcloudappstore/core/models.py:790
 msgid "Database dependency"
 msgstr "データベースの依存関係"
 
-#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:739
+#: nextcloudappstore/core/models.py:518 nextcloudappstore/core/models.py:753
 msgid "License"
 msgstr "利用許諾"
 
@@ -453,8 +453,8 @@ msgstr ""
 "ションと対話することなく、ユーザーになりすますことができるかどうか）"
 
 #: nextcloudappstore/core/models.py:549 nextcloudappstore/core/models.py:591
-#: nextcloudappstore/core/models.py:612 nextcloudappstore/core/models.py:769
-#: nextcloudappstore/core/models.py:800
+#: nextcloudappstore/core/models.py:612 nextcloudappstore/core/models.py:783
+#: nextcloudappstore/core/models.py:814
 msgid "App release"
 msgstr "アプリのリリース"
 
@@ -526,204 +526,219 @@ msgstr "画像URL"
 msgid "Small thumbnail"
 msgstr "小さいサムネイル"
 
-#: nextcloudappstore/core/models.py:648 nextcloudappstore/core/models.py:671
+#: nextcloudappstore/core/models.py:648 nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:685
 msgid "Ordering"
 msgstr "並べ替え"
 
 #: nextcloudappstore/core/models.py:651
-#: nextcloudappstore/core/templates/app/detail.html:34
+#: nextcloudappstore/core/templates/app/detail.html:52
 #: nextcloudappstore/core/templates/app/list.html:104
 #: nextcloudappstore/core/templates/app/list.html:106
 msgid "Screenshot"
 msgstr "スクリーンショット"
 
 #: nextcloudappstore/core/models.py:652
-#: nextcloudappstore/core/templates/app/detail.html:31
 msgid "Screenshots"
 msgstr "スクリーンショット"
 
 #: nextcloudappstore/core/models.py:667
+#, fuzzy
+#| msgid "Image URL"
+msgid "Embed URL"
+msgstr "画像URL"
+
+#: nextcloudappstore/core/models.py:672
+#: nextcloudappstore/core/templates/app/detail.html:42
+msgid "Video"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:673
+msgid "Videos"
+msgstr ""
+
+#: nextcloudappstore/core/models.py:681
 msgid "Donation URL"
 msgstr "寄付先URL"
 
-#: nextcloudappstore/core/models.py:668
+#: nextcloudappstore/core/models.py:682
 msgid "Donation Type"
 msgstr "寄付の種類"
 
-#: nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:683
 msgid "Donation Title"
 msgstr "寄付のタイトル"
 
-#: nextcloudappstore/core/models.py:674
+#: nextcloudappstore/core/models.py:688
 msgid "Donation"
 msgstr "寄付"
 
-#: nextcloudappstore/core/models.py:675
+#: nextcloudappstore/core/models.py:689
 msgid "Donations"
 msgstr "寄付"
 
-#: nextcloudappstore/core/models.py:687 nextcloudappstore/core/models.py:692
+#: nextcloudappstore/core/models.py:701 nextcloudappstore/core/models.py:706
 msgid "Shell command"
 msgstr "シェルコマンド"
 
-#: nextcloudappstore/core/models.py:688
+#: nextcloudappstore/core/models.py:702
 msgid "Name of a required shell command, e.g. grep"
 msgstr "必要なシェルコマンドの名前(例:grep)"
 
-#: nextcloudappstore/core/models.py:693
+#: nextcloudappstore/core/models.py:707
 #: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Shell commands"
 msgstr "シェルコマンド"
 
-#: nextcloudappstore/core/models.py:705 nextcloudappstore/core/models.py:731
-#: nextcloudappstore/core/models.py:751
+#: nextcloudappstore/core/models.py:719 nextcloudappstore/core/models.py:745
+#: nextcloudappstore/core/models.py:765
 msgid "Id"
 msgstr "ID"
 
-#: nextcloudappstore/core/models.py:706
+#: nextcloudappstore/core/models.py:720
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "カテゴリーIDは、アプリをどのカテゴリーにアップロードするか決めるために使いま"
 "す。"
 
-#: nextcloudappstore/core/models.py:712
+#: nextcloudappstore/core/models.py:726
 msgid "Category name which will be presented to the user"
 msgstr "ユーザーに提示されるカテゴリ名"
 
-#: nextcloudappstore/core/models.py:719
-#: nextcloudappstore/core/templates/app/detail.html:129
+#: nextcloudappstore/core/models.py:733
+#: nextcloudappstore/core/templates/app/detail.html:149
 #: nextcloudappstore/scaffolding/forms.py:54
 #: nextcloudappstore/scaffolding/forms.py:88
 msgid "Categories"
 msgstr "カテゴリ"
 
-#: nextcloudappstore/core/models.py:732
+#: nextcloudappstore/core/models.py:746
 msgid "Key which is used to identify a license"
 msgstr "ライセンスを識別するために使用されるキー"
 
-#: nextcloudappstore/core/models.py:735
+#: nextcloudappstore/core/models.py:749
 msgid "License name which will be presented to the user"
 msgstr "ユーザーに提示されるライセンス名"
 
-#: nextcloudappstore/core/models.py:740
+#: nextcloudappstore/core/models.py:754
 #: nextcloudappstore/core/templates/app/releases.html:35
 msgid "Licenses"
 msgstr "利用許諾"
 
-#: nextcloudappstore/core/models.py:752
+#: nextcloudappstore/core/models.py:766
 msgid "Key which is used to identify a database"
 msgstr "ライセンスを識別するために使用されるキー"
 
-#: nextcloudappstore/core/models.py:755
+#: nextcloudappstore/core/models.py:769
 msgid "Database name which will be presented to the user"
 msgstr "ユーザーに提示されるデータベース名"
 
-#: nextcloudappstore/core/models.py:759 nextcloudappstore/core/models.py:771
+#: nextcloudappstore/core/models.py:773 nextcloudappstore/core/models.py:785
 msgid "Database"
 msgstr "データベース"
 
-#: nextcloudappstore/core/models.py:760
+#: nextcloudappstore/core/models.py:774
 #: nextcloudappstore/core/templates/app/releases.html:54
 msgid "Databases"
 msgstr "データベース"
 
-#: nextcloudappstore/core/models.py:772
+#: nextcloudappstore/core/models.py:786
 msgid "Database version requirement"
 msgstr "データベースのバージョン要件"
 
-#: nextcloudappstore/core/models.py:773
+#: nextcloudappstore/core/models.py:787
 msgid "Database version requirement (raw)"
 msgstr "データベースバージョン要件 (raw)"
 
-#: nextcloudappstore/core/models.py:777
+#: nextcloudappstore/core/models.py:791
 msgid "Database dependencies"
 msgstr "データベースの依存関係"
 
-#: nextcloudappstore/core/models.py:786
+#: nextcloudappstore/core/models.py:800
 msgid "e.g. libxml"
 msgstr "例: libxml"
 
-#: nextcloudappstore/core/models.py:786 nextcloudappstore/core/models.py:790
-#: nextcloudappstore/core/models.py:803
+#: nextcloudappstore/core/models.py:800 nextcloudappstore/core/models.py:804
+#: nextcloudappstore/core/models.py:817
 msgid "PHP extension"
 msgstr "PHP拡張機能"
 
-#: nextcloudappstore/core/models.py:791
+#: nextcloudappstore/core/models.py:805
 #: nextcloudappstore/core/templates/app/releases.html:78
 msgid "PHP extensions"
 msgstr "PHP拡張機能"
 
-#: nextcloudappstore/core/models.py:805
+#: nextcloudappstore/core/models.py:819
 msgid "Extension version requirement"
 msgstr "拡張機能のバージョン要件"
 
-#: nextcloudappstore/core/models.py:806
+#: nextcloudappstore/core/models.py:820
 msgid "Extension version requirement (raw)"
 msgstr "エクステンションバージョン要件 (raw)"
 
-#: nextcloudappstore/core/models.py:810
+#: nextcloudappstore/core/models.py:824
 msgid "PHP extension dependencies"
 msgstr "PHP拡張機能の依存関係"
 
-#: nextcloudappstore/core/models.py:818
+#: nextcloudappstore/core/models.py:832
 msgid "Heading"
 msgstr "見出し"
 
-#: nextcloudappstore/core/models.py:819
+#: nextcloudappstore/core/models.py:833
 msgid "Excerpt"
 msgstr "抜粋"
 
-#: nextcloudappstore/core/models.py:820
+#: nextcloudappstore/core/models.py:834
 #: nextcloudappstore/user/templates/user/appeal-comments.html:18
 msgid "Link"
 msgstr "リンク"
 
-#: nextcloudappstore/core/models.py:821
+#: nextcloudappstore/core/models.py:835
 msgid "Image"
 msgstr "画像"
 
-#: nextcloudappstore/core/models.py:822
+#: nextcloudappstore/core/models.py:836
 msgid "Show podcast"
 msgstr "ポッドキャストを表示する"
 
-#: nextcloudappstore/core/models.py:825
+#: nextcloudappstore/core/models.py:839
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud ポッドキャスト"
 
-#: nextcloudappstore/core/models.py:826
+#: nextcloudappstore/core/models.py:840
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud ポッドキャスト"
 
-#: nextcloudappstore/core/models.py:850
+#: nextcloudappstore/core/models.py:864
 msgid "App release deletion"
 msgstr "アプリリリースの削除"
 
-#: nextcloudappstore/core/models.py:851
+#: nextcloudappstore/core/models.py:865
 msgid "App release deletions"
 msgstr "アプリリリースの削除"
 
-#: nextcloudappstore/core/models.py:870
+#: nextcloudappstore/core/models.py:884
 msgid "App rating deletion"
 msgstr "アプリの評価削除"
 
-#: nextcloudappstore/core/models.py:871
+#: nextcloudappstore/core/models.py:885
 msgid "App rating deletions"
 msgstr "アプリの評価削除"
 
-#: nextcloudappstore/core/models.py:884
-#: nextcloudappstore/core/templates/app/detail.html:211
+#: nextcloudappstore/core/models.py:898
+#: nextcloudappstore/core/templates/app/detail.html:231
 msgid "Nextcloud version"
 msgstr "Nextcloudのバージョン"
 
-#: nextcloudappstore/core/models.py:884
+#: nextcloudappstore/core/models.py:898
 msgid "e.g. 9.0.54"
 msgstr "例: 9.0.5.4"
 
-#: nextcloudappstore/core/models.py:887
+#: nextcloudappstore/core/models.py:901
 msgid "Is current version"
 msgstr "現在のバージョン"
 
-#: nextcloudappstore/core/models.py:889
+#: nextcloudappstore/core/models.py:903
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -731,11 +746,11 @@ msgstr ""
 "利用可能なバージョンは一つだけです。この値は、アプリのバージョンでドロップダ"
 "ウンのデフォルト値として使われます。"
 
-#: nextcloudappstore/core/models.py:897
+#: nextcloudappstore/core/models.py:911
 msgid "Has a release"
 msgstr "新しいリリースがあります"
 
-#: nextcloudappstore/core/models.py:899
+#: nextcloudappstore/core/models.py:913
 msgid ""
 "If true, this is an actual released Nextcloud version that can be downloaded "
 "as an archive. If false, the release is either a pre-release, or not "
@@ -745,22 +760,22 @@ msgstr ""
 "てダウンロードできます。 falseの場合、リリースはプレリリース版か、これ以上ダ"
 "ウンロードできません。"
 
-#: nextcloudappstore/core/models.py:909
+#: nextcloudappstore/core/models.py:923
 msgid "Version is supported"
 msgstr "対応しているバージョン"
 
-#: nextcloudappstore/core/models.py:910
+#: nextcloudappstore/core/models.py:924
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
 msgstr ""
 "このバージョンが正式にサポートされている場合はtrue（法人向けサポートを除く）"
 
-#: nextcloudappstore/core/models.py:915
+#: nextcloudappstore/core/models.py:929
 msgid "Nextcloud release"
 msgstr "Nextcloudのリリース"
 
-#: nextcloudappstore/core/models.py:916
+#: nextcloudappstore/core/models.py:930
 msgid "Nextcloud releases"
 msgstr "Nextcloudのリリース"
 
@@ -982,19 +997,25 @@ msgstr "注目のアプリ"
 msgid "Latest %(app_name)s releases"
 msgstr "最新%(app_name)s リリース"
 
-#: nextcloudappstore/core/templates/app/detail.html:28
-msgid "Previous screenshot"
-msgstr "前のスクリーンショット"
+#: nextcloudappstore/core/templates/app/detail.html:30
+msgid "Previous"
+msgstr ""
 
-#: nextcloudappstore/core/templates/app/detail.html:38
-msgid "Next screenshot"
-msgstr "次のスクリーンショット"
+#: nextcloudappstore/core/templates/app/detail.html:33
+#, fuzzy
+#| msgid "Screenshots"
+msgid "Screenshots and videos"
+msgstr "スクリーンショット"
 
-#: nextcloudappstore/core/templates/app/detail.html:48
+#: nextcloudappstore/core/templates/app/detail.html:56
+msgid "Next"
+msgstr ""
+
+#: nextcloudappstore/core/templates/app/detail.html:68
 msgid "This app has become part of the Nextcloud Server release packages."
 msgstr "このアプリはNextcloud Serverリリースパッケージの一部となりました。"
 
-#: nextcloudappstore/core/templates/app/detail.html:50
+#: nextcloudappstore/core/templates/app/detail.html:70
 msgid ""
 "It is no longer actively distributed via the app store, but when updating "
 "the Nextcloud Server the app will be updated to the latest version "
@@ -1003,12 +1024,12 @@ msgstr ""
 "アプリストアでの配布は終了していますが、Nextcloudサーバーをアップデートする"
 "と、アプリは自動的に最新バージョンにアップデートされます。"
 
-#: nextcloudappstore/core/templates/app/detail.html:55
+#: nextcloudappstore/core/templates/app/detail.html:75
 msgid "This app has been marked as deprecated."
 msgstr "このアプリは非推奨としてマークされています。"
 
-#: nextcloudappstore/core/templates/app/detail.html:57
-#: nextcloudappstore/core/templates/app/detail.html:64
+#: nextcloudappstore/core/templates/app/detail.html:77
+#: nextcloudappstore/core/templates/app/detail.html:84
 msgid ""
 "It may no longer be maintained or supported and may have compatibility "
 "issues when used with more recent versions of Nextcloud."
@@ -1016,160 +1037,160 @@ msgstr ""
 "メンテナンスまたはサポートが終了している可能性があり、新しいバージョンの"
 "Nextcloudで使用すると互換性の問題が発生する可能性があります。"
 
-#: nextcloudappstore/core/templates/app/detail.html:62
+#: nextcloudappstore/core/templates/app/detail.html:82
 msgid ""
 "This app hasn’t been tested with the latest 3 major releases of Nextcloud."
 msgstr ""
 "このアプリは、Nextcloudの最新3メジャーリリースではテストされていません。"
 
-#: nextcloudappstore/core/templates/app/detail.html:70
+#: nextcloudappstore/core/templates/app/detail.html:90
 msgid "Orphan / Looking for Maintainer"
 msgstr "孤立/メンテナーを探しています"
 
-#: nextcloudappstore/core/templates/app/detail.html:72
+#: nextcloudappstore/core/templates/app/detail.html:92
 msgid "App information"
 msgstr "アプリの情報"
 
-#: nextcloudappstore/core/templates/app/detail.html:74
+#: nextcloudappstore/core/templates/app/detail.html:94
 msgid "Highest Nextcloud version"
 msgstr "最新のNextcloudバージョン"
 
-#: nextcloudappstore/core/templates/app/detail.html:78
+#: nextcloudappstore/core/templates/app/detail.html:98
 msgid "Show all releases"
 msgstr "すべてのリリースを表示"
 
-#: nextcloudappstore/core/templates/app/detail.html:81
+#: nextcloudappstore/core/templates/app/detail.html:101
 msgid "Community rating"
 msgstr "コミュニティの評価"
 
-#: nextcloudappstore/core/templates/app/detail.html:85
+#: nextcloudappstore/core/templates/app/detail.html:105
 msgid "Authors"
 msgstr "作者"
 
-#: nextcloudappstore/core/templates/app/detail.html:104
+#: nextcloudappstore/core/templates/app/detail.html:124
 msgid "Owner"
 msgstr "作成者"
 
-#: nextcloudappstore/core/templates/app/detail.html:126
+#: nextcloudappstore/core/templates/app/detail.html:146
 msgid "Last updated"
 msgstr "最終更新"
 
-#: nextcloudappstore/core/templates/app/detail.html:134
+#: nextcloudappstore/core/templates/app/detail.html:154
 msgid "Resources"
 msgstr "リソース"
 
-#: nextcloudappstore/core/templates/app/detail.html:140
+#: nextcloudappstore/core/templates/app/detail.html:160
 msgid "User documentation"
 msgstr "ユーザードキュメント"
 
-#: nextcloudappstore/core/templates/app/detail.html:143
+#: nextcloudappstore/core/templates/app/detail.html:163
 msgid "Admin documentation"
 msgstr "管理者ドキュメント"
 
-#: nextcloudappstore/core/templates/app/detail.html:146
+#: nextcloudappstore/core/templates/app/detail.html:166
 #: nextcloudappstore/core/templates/nav.html:30
 msgid "Developer documentation"
 msgstr "開発者ドキュメント"
 
-#: nextcloudappstore/core/templates/app/detail.html:152
+#: nextcloudappstore/core/templates/app/detail.html:172
 msgid "Interact"
 msgstr "対話する"
 
-#: nextcloudappstore/core/templates/app/detail.html:158
+#: nextcloudappstore/core/templates/app/detail.html:178
 msgid "Report problem"
 msgstr "問題を報告する"
 
-#: nextcloudappstore/core/templates/app/detail.html:164
+#: nextcloudappstore/core/templates/app/detail.html:184
 msgid "Request feature"
 msgstr "新機能をリクエストする"
 
-#: nextcloudappstore/core/templates/app/detail.html:171
+#: nextcloudappstore/core/templates/app/detail.html:191
 msgid "Ask questions or discuss"
 msgstr "質問するか議論する"
 
-#: nextcloudappstore/core/templates/app/detail.html:176
+#: nextcloudappstore/core/templates/app/detail.html:196
 msgid "Donate"
 msgstr "寄付"
 
-#: nextcloudappstore/core/templates/app/detail.html:189
+#: nextcloudappstore/core/templates/app/detail.html:209
 msgid "Need Enterprise Support?"
 msgstr "法人向けサポートが必要ですか？"
 
-#: nextcloudappstore/core/templates/app/detail.html:194
+#: nextcloudappstore/core/templates/app/detail.html:214
 msgid "Request quote"
 msgstr "見積リクエスト"
 
-#: nextcloudappstore/core/templates/app/detail.html:196
+#: nextcloudappstore/core/templates/app/detail.html:216
 msgid "Recommended for large Nextcloud installations only."
 msgstr "大規模なNextcloudのインストールにのみおすすめします。"
 
-#: nextcloudappstore/core/templates/app/detail.html:207
+#: nextcloudappstore/core/templates/app/detail.html:227
 #: nextcloudappstore/core/templates/app/releases.html:7
 #: nextcloudappstore/core/templates/app/releases.html:15
 msgid "Releases"
 msgstr "リリース"
 
-#: nextcloudappstore/core/templates/app/detail.html:212
+#: nextcloudappstore/core/templates/app/detail.html:232
 msgid "Stable channel"
 msgstr "安定したチャネル"
 
-#: nextcloudappstore/core/templates/app/detail.html:213
+#: nextcloudappstore/core/templates/app/detail.html:233
 msgid "Nightly channel"
 msgstr "ナイトリーチャンネル"
 
-#: nextcloudappstore/core/templates/app/detail.html:214
+#: nextcloudappstore/core/templates/app/detail.html:234
 msgid "All releases"
 msgstr "すべてのリリース"
 
-#: nextcloudappstore/core/templates/app/detail.html:222
+#: nextcloudappstore/core/templates/app/detail.html:242
 #: nextcloudappstore/core/templates/app/releases.html:26
 #: nextcloudappstore/core/templates/app/releases.html:89
 msgid "nightly"
 msgstr "nightly"
 
-#: nextcloudappstore/core/templates/app/detail.html:222
+#: nextcloudappstore/core/templates/app/detail.html:242
 msgid "Unstable"
 msgstr "不安定版"
 
-#: nextcloudappstore/core/templates/app/detail.html:243
+#: nextcloudappstore/core/templates/app/detail.html:263
 msgid "Ok"
 msgstr "OK"
 
-#: nextcloudappstore/core/templates/app/detail.html:264
-#: nextcloudappstore/core/templates/app/detail.html:278
+#: nextcloudappstore/core/templates/app/detail.html:284
+#: nextcloudappstore/core/templates/app/detail.html:298
 msgid "Appeal for spam"
 msgstr "スパムの申し立て"
 
-#: nextcloudappstore/core/templates/app/detail.html:269
-#: nextcloudappstore/core/templates/app/detail.html:282
+#: nextcloudappstore/core/templates/app/detail.html:289
+#: nextcloudappstore/core/templates/app/detail.html:302
 msgid "Cancel spam appeal"
 msgstr "スパムの申し立てをキャンセルする"
 
-#: nextcloudappstore/core/templates/app/detail.html:273
+#: nextcloudappstore/core/templates/app/detail.html:293
 msgid "Delete spam comment"
 msgstr "スパムコメントを削除する"
 
-#: nextcloudappstore/core/templates/app/detail.html:293
+#: nextcloudappstore/core/templates/app/detail.html:313
 msgid "No comments found."
 msgstr "コメントはありません。"
 
-#: nextcloudappstore/core/templates/app/detail.html:302
+#: nextcloudappstore/core/templates/app/detail.html:322
 msgid "Comments"
 msgstr "コメント"
 
-#: nextcloudappstore/core/templates/app/detail.html:309
+#: nextcloudappstore/core/templates/app/detail.html:329
 msgid "Rate app"
 msgstr "アプリを評価"
 
-#: nextcloudappstore/core/templates/app/detail.html:309
+#: nextcloudappstore/core/templates/app/detail.html:329
 msgid "Rate integration"
 msgstr "インテグレーションを評価"
 
-#: nextcloudappstore/core/templates/app/detail.html:315
+#: nextcloudappstore/core/templates/app/detail.html:335
 msgid "Your comment"
 msgstr "あなたのコメント"
 
-#: nextcloudappstore/core/templates/app/detail.html:320
+#: nextcloudappstore/core/templates/app/detail.html:340
 msgid ""
 "Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
 "daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
@@ -1183,15 +1204,15 @@ msgstr ""
 "発者やユーザに通知されません。コメントなしの評価もカウントされますが、以下の"
 "リストには表示されません。"
 
-#: nextcloudappstore/core/templates/app/detail.html:325
+#: nextcloudappstore/core/templates/app/detail.html:345
 msgid "Update rating"
 msgstr "評価を更新"
 
-#: nextcloudappstore/core/templates/app/detail.html:327
+#: nextcloudappstore/core/templates/app/detail.html:347
 msgid "Submit rating"
 msgstr "評価を送信"
 
-#: nextcloudappstore/core/templates/app/detail.html:338
+#: nextcloudappstore/core/templates/app/detail.html:358
 msgid "Switch language for the comments:"
 msgstr "コメントの言語を切り替える："
 
@@ -1734,45 +1755,45 @@ msgstr "続ける"
 msgid "Provided email address is not valid."
 msgstr "メールアドレスが有効ではありません。"
 
-#: nextcloudappstore/user/forms.py:22
+#: nextcloudappstore/user/forms.py:24
 msgid "First name"
 msgstr "名前"
 
-#: nextcloudappstore/user/forms.py:23
+#: nextcloudappstore/user/forms.py:25
 msgid "Last name"
 msgstr "姓"
 
-#: nextcloudappstore/user/forms.py:25 nextcloudappstore/user/forms.py:80
+#: nextcloudappstore/user/forms.py:27 nextcloudappstore/user/forms.py:82
 msgid ""
 "I would like to receive app developer news and updates from Nextcloud by "
 "email"
 msgstr "Nextcloudからの開発者ニュースとアップデートをメールで受け取る"
 
-#: nextcloudappstore/user/forms.py:41
+#: nextcloudappstore/user/forms.py:43
 msgid "Your email address"
 msgstr "あなたのメールアドレス"
 
-#: nextcloudappstore/user/forms.py:45
+#: nextcloudappstore/user/forms.py:47
 msgid "Your password"
 msgstr "あなたのパスワード"
 
-#: nextcloudappstore/user/forms.py:46
+#: nextcloudappstore/user/forms.py:48
 msgid "*Required if the account is registered with a password"
 msgstr "*アカウントにパスワードが登録されている場合は必須です"
 
-#: nextcloudappstore/user/forms.py:57
+#: nextcloudappstore/user/forms.py:59
 msgid "The given email address does not match your email address"
 msgstr "入力されたメールアドレスは、あなたのメールアドレスと一致しません"
 
-#: nextcloudappstore/user/forms.py:65 nextcloudappstore/user/forms.py:114
+#: nextcloudappstore/user/forms.py:67 nextcloudappstore/user/forms.py:116
 msgid "Invalid password"
 msgstr "無効なパスワード"
 
-#: nextcloudappstore/user/forms.py:71
+#: nextcloudappstore/user/forms.py:73
 msgid "Confirm password"
 msgstr "パスワードを確認"
 
-#: nextcloudappstore/user/forms.py:73
+#: nextcloudappstore/user/forms.py:75
 msgid ""
 "Required when changing your First Name, Last Name, or Email Address to "
 "prevent unauthorized changes to critical account details. This field does "
@@ -1781,13 +1802,17 @@ msgstr ""
 "不正な変更を防ぐためアカウント情報の氏名やメールアドレスを変更する時に必要で"
 "す。このフィールドではパスワードを更新しません！"
 
-#: nextcloudappstore/user/forms.py:105
+#: nextcloudappstore/user/forms.py:107
 msgid "This email address is already associated with another account."
 msgstr "このメールアドレスは、既に他のアカウントで使われています。"
 
-#: nextcloudappstore/user/forms.py:154
+#: nextcloudappstore/user/forms.py:156
 msgid "Password is required to change these fields."
 msgstr "これらのフィールドを変更するにはパスワードが必要です。"
+
+#: nextcloudappstore/user/forms.py:163
+msgid "Autoplay videos on app detail pages"
+msgstr ""
 
 #: nextcloudappstore/user/signals.py:44
 msgid "Nextcloud app store password changed"
@@ -1810,6 +1835,7 @@ msgstr ""
 "せん。"
 
 #: nextcloudappstore/user/templates/user/account.html:18
+#: nextcloudappstore/user/templates/user/video-preferences.html:18
 msgid "Save"
 msgstr "保存"
 
@@ -1850,7 +1876,7 @@ msgid "Regenerate API token"
 msgstr "APIトークンの再生成"
 
 #: nextcloudappstore/user/templates/user/appeal-comments.html:8
-#: nextcloudappstore/user/templates/user/base.html:74
+#: nextcloudappstore/user/templates/user/base.html:80
 msgid "Appeal comments"
 msgstr "アピールコメント"
 
@@ -1892,16 +1918,22 @@ msgstr "法人向けサポート"
 msgid "Change language"
 msgstr "言語の変更"
 
-#: nextcloudappstore/user/templates/user/base.html:54
+#: nextcloudappstore/user/templates/user/base.html:53
+#: nextcloudappstore/user/templates/user/video-preferences.html:8
+#: nextcloudappstore/user/templates/user/video-preferences.html:11
+msgid "Video preferences"
+msgstr ""
+
+#: nextcloudappstore/user/templates/user/base.html:60
 #: nextcloudappstore/user/templates/user/password.html:8
 msgid "Password"
 msgstr "パスワード"
 
-#: nextcloudappstore/user/templates/user/base.html:61
+#: nextcloudappstore/user/templates/user/base.html:67
 msgid "API token"
 msgstr "APIトークン"
 
-#: nextcloudappstore/user/templates/user/base.html:67
+#: nextcloudappstore/user/templates/user/base.html:73
 #: nextcloudappstore/user/templates/user/delete-account.html:8
 #: nextcloudappstore/user/templates/user/delete-account.html:11
 #: nextcloudappstore/user/templates/user/delete-account.html:20
@@ -2108,6 +2140,16 @@ msgstr "メンテナンス中としてマークする"
 msgid "Mark as orphaned"
 msgstr "孤立としてマークする"
 
-#: nextcloudappstore/user/views.py:171
+#: nextcloudappstore/user/views.py:175
 msgid "Too many email change attempts. Please try again later."
 msgstr "メールアドレスの変更の試行回数が多すぎます。後ほど再度お試しください。"
+
+#: nextcloudappstore/user/views.py:214
+msgid "Video preferences saved."
+msgstr ""
+
+#~ msgid "Previous screenshot"
+#~ msgstr "前のスクリーンショット"
+
+#~ msgid "Next screenshot"
+#~ msgstr "次のスクリーンショット"
