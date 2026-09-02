@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Nextcloud Bot <bot@nextcloud.com>, 2026
 # Aleksandar Avramov <alex@energy-host.net>, 2026
@@ -11,21 +11,23 @@
 # Иван Пешић, 2026
 # Slobodan Simić <slsimic@gmail.com>, 2026
 # Branko Kokanovic <branko@kokanovic.org>, 2026
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-25 23:40-0500\n"
+"POT-Creation-Date: 2026-09-01 23:06-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: Branko Kokanovic <branko@kokanovic.org>, 2026\n"
-"Language-Team: Serbian (https://app.transifex.com/nextcloud/teams/64236/sr/)\n"
+"Language-Team: Serbian (https://app.transifex.com/nextcloud/teams/64236/"
+"sr/)\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: nextcloudappstore/core/feeds.py:19
 msgid "Newest app releases"
@@ -83,17 +85,17 @@ msgstr "Јавни сертификат"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener\">certificate repository</a> (follow the README). You can generate "
+"the CSR by executing the following command:"
 msgstr ""
 "Обично ускладиштен у ~/.nextcloud/certificates/APP_ID.crt где је APP_ID "
 "идентификација Ваше апликације. Ако немате сертификат, морате прво креирати "
 "захтев за потписивањем сертификата (CSR), који треба објавити на <a "
 "href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">репозиторијуму сертификата</a> (пратите README)."
-" Можете генерисати CSR извршавањем следеће команде:"
+"rel=\"noreferrer noopener\">репозиторијуму сертификата</a> (пратите README). "
+"Можете генерисати CSR извршавањем следеће команде:"
 
 #: nextcloudappstore/core/forms.py:59
 msgid "Signature over your app's ID"
@@ -723,8 +725,8 @@ msgstr "Има издање"
 
 #: nextcloudappstore/core/models.py:913
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Ако је тачно, ово је стварно издата Некстклауд верзија која може бити "
@@ -783,15 +785,18 @@ msgstr "Превише покушаја. Покушајте поново нак�
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Поздрав од %(site_name)s!\n"
 "\n"
-"Примили сте овај и-мејл јер је корисник %(user_display)s повезао свој налог на %(site_domain)s са овом и-мејл адресом.\n"
+"Примили сте овај и-мејл јер је корисник %(user_display)s повезао свој налог "
+"на %(site_domain)s са овом и-мејл адресом.\n"
 "\n"
 "Ако желите потврдити да је ово исправно, посетите %(activate_url)s\n"
 "\n"
@@ -817,8 +822,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Молимо вас потврдите да је <a href=\"mailto:%(email)s\">%(email)s</a> и-мејл"
-" адреса корисника %(user_display)s."
+"Молимо вас потврдите да је <a href=\"mailto:%(email)s\">%(email)s</a> и-мејл "
+"адреса корисника %(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
@@ -831,8 +836,8 @@ msgid ""
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Линк потврде у овој и-мејл поруци је истекао или није исправан. Молимо вас "
-"да <a href=\"%(email_url)s\">креирате нови захтев за потврду и-мејл "
-"адресе</a>."
+"да <a href=\"%(email_url)s\">креирате нови захтев за потврду и-мејл адресе</"
+"a>."
 
 #: nextcloudappstore/core/templates/account/login.html:8
 #: nextcloudappstore/core/templates/account/login.html:15
@@ -891,8 +896,8 @@ msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
-"Послали смо вам и-мејл. Ако га нисте примили, молимо вас да проверите фолдер"
-" непожељних порука. У супротном, контактирајте нас ако га не примите у року "
+"Послали смо вам и-мејл. Ако га нисте примили, молимо вас да проверите фолдер "
+"непожељних порука. У супротном, контактирајте нас ако га не примите у року "
 "од неколико минута."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
@@ -912,8 +917,8 @@ msgstr "Лош API токен"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Веза за ресетовање лозинке је неисправна, вероватно зато што је већ "
 "искоришћена. Затражите <a href=\"%(passwd_reset_url)s\">ново ресетовање "
@@ -935,8 +940,8 @@ msgid ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 msgstr ""
-"Послали смо вам и-мејл за потврду. Да бисте довршили процес отварања налога,"
-" следите линк који се налази у њему. Ако се мејл потврде не налази у вашем "
+"Послали смо вам и-мејл за потврду. Да бисте довршили процес отварања налога, "
+"следите линк који се налази у њему. Ако се мејл потврде не налази у вашем "
 "главном долазнпом сандучету, проверите фолдер за непожељену пошту. Молимо "
 "вас да нас контактирате ако не примите и-мејл за потврду у року од неколико "
 "минута."
@@ -1164,18 +1169,17 @@ msgstr "Ваш коментар"
 
 #: nextcloudappstore/core/templates/app/detail.html:340
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
-"Коментари на оцене подржавају <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a> "
-"синтаксу. Не користите коментаре на оцене да пријављујете грешке или да "
-"тражите нове функционалности. Ни програмери ни корисници неће бити "
-"обавештени о Вашем коментару. Оцена без коментара се исто рачуна, али неће "
-"бити излистана испод."
+"Коментари на оцене подржавају <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a> синтаксу. Не "
+"користите коментаре на оцене да пријављујете грешке или да тражите нове "
+"функционалности. Ни програмери ни корисници неће бити обавештени о Вашем "
+"коментару. Оцена без коментара се исто рачуна, али неће бити излистана испод."
 
 #: nextcloudappstore/core/templates/app/detail.html:345
 msgid "Update rating"
@@ -1260,24 +1264,24 @@ msgstr "Региструјте апликацију"
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "За више информација како да добавите сертификат и креирате потпис, "
-"погледајте <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
+"погледајте <a href=\"http://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">упутство за програмере "
+"апликација</a>."
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
-"Овај формулар се може користити и да ажурирате постојеће сертификате, али то"
-" може само власник апликације. Ажурирање сертификата апликације ће избрисати"
-" сва већ постављена издања!"
+"Овај формулар се може користити и да ажурирате постојеће сертификате, али то "
+"може само власник апликације. Ажурирање сертификата апликације ће избрисати "
+"сва већ постављена издања!"
 
 #: nextcloudappstore/core/templates/app/register.html:22
 msgid "Not a public certificate"
@@ -1342,9 +1346,9 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"За више информација како да направите потпис, погледајте <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">упутство за програмере апликација</a>."
+"За више информација како да направите потпис, погледајте <a href=\"https://"
+"nextcloudappstore.readthedocs.io/en/latest/developer.html\" rel=\"noopener "
+"norefferer\">упутство за програмере апликација</a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
@@ -1442,7 +1446,8 @@ msgstr "Одјави се"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
 "Управо ћете искористити Ваш %(provider_name)s налог да приступите сајту\n"
 "            %(site_name)s. Као последњи корак, попуните следећи формулар:"
@@ -1453,8 +1458,7 @@ msgstr "Прилагођавање"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:2
 msgid "Themes, layout and UX change apps"
-msgstr ""
-"Теме, распоред елемената и апликације које мењају кориснички интерфејс"
+msgstr "Теме, распоред елемената и апликације које мењају кориснички интерфејс"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:3
 msgid "Dashboard"
@@ -1713,10 +1717,8 @@ msgstr "Пријави се преко %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
-msgstr ""
-"Управо ћете се пријавити користећи налог треће стране од %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
+msgstr "Управо ћете се пријавити користећи налог треће стране од %(provider)s."
 
 #: nextcloudappstore/templates/socialaccount/login.html:31
 msgid "Continue"
@@ -1802,8 +1804,8 @@ msgstr ""
 
 #: nextcloudappstore/user/signals.py:62
 msgid ""
-"Could not send the password change notification email. Your password was not"
-" changed."
+"Could not send the password change notification email. Your password was not "
+"changed."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/account.html:18
@@ -1819,16 +1821,22 @@ msgstr "API токен"
 #: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                API жетон може да се користи за аутентификацију када се позива \n"
-"               <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>\n"
+"                API жетон може да се користи за аутентификацију када се "
+"позива \n"
+"               <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>\n"
 "                Nextcloud продавнице апликација.\n"
-"                Будите сигурни да је тајна. Испод може да се генерише нови жетон, чиме стари престаје да важи.\n"
+"                Будите сигурни да је тајна. Испод може да се генерише нови "
+"жетон, чиме стари престаје да важи.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:25
@@ -1921,14 +1929,14 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:13
 msgid ""
 "If an app is superseded by another app, you can mark the prior app as "
-"deprecated here. This will add a warning banner to the app's details page in"
-" the App Store and in Nextcloud Apps."
+"deprecated here. This will add a warning banner to the app's details page in "
+"the App Store and in Nextcloud Apps."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:14
 msgid ""
-"Optionally, you can also add the ID of the superseding app, which will add a"
-" link to such app to the warning banner."
+"Optionally, you can also add the ID of the superseding app, which will add a "
+"link to such app to the warning banner."
 msgstr ""
 
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:20
@@ -1971,8 +1979,8 @@ msgid ""
 "page in the App Store and in Nextcloud Apps. Such support can only be "
 "requested for large Nextcloud installations."
 msgstr ""
-"Ако апликација може примити подршку за предузећа, овде можете да је означите"
-" као такву. То ће у страницу детаља апликације у Продавници апликација и у "
+"Ако апликација може примити подршку за предузећа, овде можете да је означите "
+"као такву. То ће у страницу детаља апликације у Продавници апликација и у "
 "Nextcloud Apps да дода дугме ’Затражи понуду’. Оваква понуда може да се "
 "захтева само за велике Nextcloud инсталације."
 
@@ -2024,11 +2032,11 @@ msgstr "Промена лозинке ће поново генерисати В�
 
 #: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
-"Изгледа да користитите налог регистрован са другим провајдером. Ваша лозинка"
-" се због тога <strong>не</strong> може променити са ове стране."
+"Изгледа да користитите налог регистрован са другим провајдером. Ваша лозинка "
+"се због тога <strong>не</strong> може променити са ове стране."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
@@ -2048,12 +2056,12 @@ msgstr ""
 #: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
-"Још увек не постоји нови власник? Апликацију можете да означите као сироче и"
-" тако објавите да тражите новог власника. Када се трансфер изврши, "
-"апликација ће се аутоматски поново означити као одржавана."
+"Још увек не постоји нови власник? Апликацију можете да означите као сироче и "
+"тако објавите да тражите новог власника. Када се трансфер изврши, апликација "
+"ће се аутоматски поново означити као одржавана."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:20
 msgid "Ownership transfer status"
