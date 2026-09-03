@@ -6,10 +6,19 @@
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-09-10
+
+### Added
+
+- GitHub download statistics via API or app details page for app maintainers. #1796
+- Support for adding PeerTube videos to apps in info.xml. #1867
+- Display app videos next to screenshots in app details page. #1867
+- Account setting to toggle autoplay of app videos. #1867
+
 ### Changed
 
 - Retrieve app screenshots from proxy server instead of direct URLs specified by apps. #1862
-- Replace `include_enterprise` query parameter with `X-NC-Subscription-Key` header for retrieval of enterprise-only apps. #1848
+- Replace `include_enterprise` query parameter with `X-NC-Subscription-Key` header for retrieval of enterprise-only apps. #1848 #1870
 
 ## [4.12.0] - 2026-08-05
 
