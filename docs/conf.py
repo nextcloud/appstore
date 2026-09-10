@@ -60,7 +60,7 @@ project = "AppStore"
 copyright = str(datetime.now().year) + " Nextcloud GmbH"  # noqa
 author = "Nextclouders"
 
-version = "4.12.0"
+version = "5.0.0"
 # The full version, including alpha/beta/rc tags.
 release = version
 
