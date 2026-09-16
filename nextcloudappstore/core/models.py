@@ -173,6 +173,16 @@ class App(TranslatableModel):
     rating_num_recent = IntegerField(verbose_name=_("Number of recently submitted ratings"), default=0)
     rating_num_overall = IntegerField(verbose_name=_("Number of overall submitted ratings"), default=0)
     last_release = DateTimeField(editable=False, db_index=True, verbose_name=_("Last release at"), default=timezone.now)
+    release_date = DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_("Release date"),
+        help_text=_(
+            "Optional, app store administrators only. Shown as the last update date instead of the last release, "
+            "which integrations never set because they do not upload releases. Purely presentational: it is not "
+            "used for caching, ordering or the API."
+        ),
+    )
     certificate = TextField(verbose_name=_("Certificate"))
     ownership_transfer_enabled = BooleanField(
         verbose_name=_("Ownership transfer enabled"),
@@ -527,6 +537,15 @@ class AppRelease(TranslatableModel):
     download = URLField(max_length=256, blank=True, verbose_name=_("Archive download URL"))
     created = DateTimeField(auto_now_add=True, editable=False, verbose_name=_("Created at"))
     last_modified = DateTimeField(auto_now=True, editable=False, db_index=True, verbose_name=_("Updated at"))
+    release_date = DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_("Release date"),
+        help_text=_(
+            "Optional, app store administrators only. Shown instead of the upload timestamp where the two differ. "
+            "Purely presentational: it is not used for caching, ordering or the API."
+        ),
+    )
     signature = TextField(verbose_name=_("Signature"), help_text=_("A signature using the app's certificate"))
     signature_digest = CharField(max_length=256, verbose_name=_("Signature hashing algorithm"))
     translations = TranslatedFields(
