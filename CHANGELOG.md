@@ -9,6 +9,7 @@
 ### Added
 
 - Optional `release_date` on app releases, settable by app store administrators, shown in place of the upload timestamp where the two differ.
+- Optional `release_date` on apps, settable by app store administrators, shown as the last update date. Integrations never set a last release date, so they previously showed the date they were registered.
 
 ## [5.0.0] - 2026-09-10
 

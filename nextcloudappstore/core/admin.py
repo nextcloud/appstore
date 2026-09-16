@@ -73,6 +73,7 @@ class AppAdmin(TranslatableAdmin):
         "owner",
         "name",
         "last_release",
+        "release_date",
         "rating_recent",
         "rating_overall",
         "summary",

@@ -142,9 +142,9 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            {% if object.last_release %}
+            {% if object.release_date or object.last_release %}
             <h2>{% trans "Last updated" %}</h2>
-            <p>{{ object.last_release|naturaltime }}</p>
+            <p>{{ object.release_date|default:object.last_release|naturaltime }}</p>
             {% endif %}
             <h2>{% trans "Categories" %}</h2>
             <p>{{ object.categories.all|join:", " }}</p>
