@@ -50,7 +50,7 @@ class AppReleaseAdmin(admin.ModelAdmin):
 @admin.register(AppRelease)
 class AppReleaseAdmin(TranslatableAdmin):  # noqa
     inlines = (DatabaseDependencyInline, PhpExtensionDependencyInline)
-    list_display = ("app", "version", "is_nightly", "last_modified")
+    list_display = ("app", "version", "is_nightly", "last_modified", "release_date")
     list_filter = ("app__id", "is_nightly", "last_modified")
     ordering = ("-last_modified",)
     readonly_fields = ("signature_digest",)

@@ -27,7 +27,7 @@
                                 <div class="accordion-content">
                                     <table class="table table-condensed">
                                         <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
-                                        <tr><td>{% trans 'Updated' %}</td><td>{{ release.last_modified }}</td></tr>
+                                        <tr><td>{% trans 'Updated' %}</td><td>{{ release.release_date|default:release.last_modified }}</td></tr>
                                         {% if release.changelog %}
                                         <tr><td>{% trans 'Changelog' %}</td><td>{{ release.changelog|markdown }}</td></tr>
                                         {% endif %}

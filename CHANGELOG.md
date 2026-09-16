@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Optional `release_date` on app releases, settable by app store administrators, shown in place of the upload timestamp where the two differ.
+
 ## [5.0.0] - 2026-09-10
 
 ### Added
