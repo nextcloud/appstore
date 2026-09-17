@@ -17,6 +17,7 @@ from nextcloudappstore.api.v1.views import (
     CategoryView,
     DiscoverView,
     NextcloudReleaseView,
+    PlatformAppsView,
     RegenerateAuthToken,
     SessionObtainAuthToken,
 )
@@ -39,7 +40,7 @@ urlpatterns = [
     re_path(r"^platforms\.json$", etag(nextcloud_release_etag)(NextcloudReleaseView.as_view()), name="platforms"),
     re_path(
         r"^platform/(?P<version>\d+\.\d+\.\d+)/apps\.json$",
-        condition(apps_etag, apps_last_modified)(AppView.as_view()),
+        condition(apps_etag, apps_last_modified)(PlatformAppsView.as_view()),
         name="app",
     ),
     re_path(r"^apps\.json$", condition(apps_all_etag, apps_all_last_modified)(AppsView.as_view()), name="apps"),
