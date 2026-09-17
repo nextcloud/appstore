@@ -135,9 +135,13 @@ class AppView(DestroyAPIView):
     serializer_class = AppSerializer
     queryset = App.objects.all()
 
-    def get(self, request, *args, **kwargs):
-        version = self.kwargs["version"]
+        def get(self, request, *args, **kwargs):
+        version = self.kwargs.get("version")
+        if not version:
+            return Response(status=405)
+
         working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
+
         if not enterprise_enabled(request):
             working_apps = [app for app in working_apps if not app.is_enterprise_only]
         serializer = self.get_serializer(working_apps, many=True)
