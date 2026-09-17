@@ -17,6 +17,12 @@ class UpdateDeletePermission(BasePermission):
     authenticated users
     """
 
+    def has_permission(self, request, view):
+        """Gate write methods at the view level, before any object is fetched."""
+        if request.method in READ_METHODS:
+            return True
+        return bool(request.user and request.user.is_authenticated)
+
     def has_update_obj_permission(self, user, obj):
         return obj.can_update(user)
 

@@ -37,6 +37,12 @@ class MethodNotAllowedTest(ApiTest):
         self.assertIn("DELETE", allow)
         self.assertNotIn("GET", allow)
 
+    def test_an_unauthenticated_delete_is_refused_before_the_object_is_fetched(self):
+        """The view-level gate must run first, so a missing object cannot mask a missing login."""
+        url = reverse("api:v1:app-delete", kwargs={"pk": "nosuchapp"})
+
+        self.assertEqual(401, self.api_client.delete(url).status_code)
+
     def test_the_platform_listing_still_answers_get(self):
         """Guards the other half of the split: the listing must not move with the handler."""
         url = reverse("api:v1:app", kwargs={"version": "9.1.0"})
