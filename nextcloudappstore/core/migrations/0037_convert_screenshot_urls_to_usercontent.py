@@ -3,7 +3,7 @@
 
 from base64 import urlsafe_b64encode
 
-from django.db import migrations
+from django.db import migrations, models
 
 
 def convert_screenshot_urls_to_usercontent(apps, schema_editor):
@@ -27,6 +27,19 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        # Widen the column BEFORE rewriting the values. Proxying replaces the URL with
+        # USERCONTENT_PROXY_URL + '/' + urlsafe_b64encode(url), and base64 costs 4 bytes per 3,
+        # so a source URL longer than 162 characters no longer fits varchar(256) and the data
+        # migration below fails with "value too long for type character varying(256)".
+        # info.xsd caps a screenshot URL at 256 characters, so the widest possible result is
+        # 39 + 4 * ceil(256 / 3) = 383; 512 covers that with room to spare.
+        # On PostgreSQL, increasing a varchar length is a catalogue-only change, so this is
+        # effectively instant and does not rewrite the table.
+        migrations.AlterField(
+            model_name='screenshot',
+            name='url',
+            field=models.URLField(max_length=512, verbose_name='Image URL'),
+        ),
         migrations.RunPython(
             convert_screenshot_urls_to_usercontent,
             migrations.RunPython.noop,

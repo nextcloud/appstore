@@ -661,7 +661,10 @@ class AppApiEnvironmentVariable(Model):
 
 
 class Screenshot(Model):
-    url = URLField(max_length=256, verbose_name=_("Image URL"))
+    # Stores the usercontent proxy URL, not the source URL: the source is base64-encoded into the
+    # path, which costs 4 bytes per 3. info.xsd caps a screenshot URL at 256 characters, so the
+    # widest possible value is 39 + 4 * ceil(256 / 3) = 383. See migration 0037.
+    url = URLField(max_length=512, verbose_name=_("Image URL"))
     small_thumbnail = URLField(max_length=256, verbose_name=_("Small thumbnail"), default="")
     app = ForeignKey("App", on_delete=CASCADE, verbose_name=_("App"), related_name="screenshots")
     ordering = IntegerField(verbose_name=_("Ordering"))
