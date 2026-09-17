@@ -6,15 +6,11 @@
 
 ## [Unreleased]
 
-### Added
-
-- Optional `release_date` on app releases, settable by app store administrators, shown in place of the upload timestamp where the two differ.
-- Optional `release_date` on apps, settable by app store administrators, shown as the last update date. Integrations never set a last release date, so they previously showed the date they were registered.
-
-## [5.0.0] - 2026-09-10
+## [5.0.0] - 2026-09-17
 
 ### Added
 
+- Optional `release_date` on apps and app releases, settable by app store administrators, shown in place of the last update date or upload timestamp. #1895
 - GitHub download statistics via API or app details page for app maintainers. #1796
 - Support for adding PeerTube videos to apps in info.xml. #1867
 - Display app videos next to screenshots in app details page. #1867
@@ -24,6 +20,14 @@
 
 - Retrieve app screenshots from proxy server instead of direct URLs specified by apps. #1862
 - Replace `include_enterprise` query parameter with `X-NC-Subscription-Key` header for retrieval of enterprise-only apps. #1848 #1870
+- Multiple dependency updates. #1873 #1874 #1875
+- Documentation update. #1893
+
+### Fixed
+
+- Require authentication for write methods in UpdateDeletePermission. #1901
+- Return 405 instead of 500 for unsupported methods on app routes. #1899
+- Widen screenshot URL length ceiling. #1898
 
 ## [4.12.0] - 2026-08-05
 
