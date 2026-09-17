@@ -133,17 +133,20 @@ class AppView(DestroyAPIView):
     )
     permission_classes = (UpdateDeletePermission,)
     serializer_class = AppSerializer
-    queryset = App.objects.all()
+        queryset = App.objects.all()
 
-        def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         version = self.kwargs.get("version")
         if not version:
             return Response(status=405)
 
         working_apps = App.objects.get_compatible(version, prefetch=APP_PREFETCH_LIST)
-
         if not enterprise_enabled(request):
             working_apps = [app for app in working_apps if not app.is_enterprise_only]
+        serializer = self.get_serializer(working_apps, many=True)
+        data = self._filter_releases(serializer.data, version)
+        return Response(data)
+
         serializer = self.get_serializer(working_apps, many=True)
         data = self._filter_releases(serializer.data, version)
         return Response(data)
