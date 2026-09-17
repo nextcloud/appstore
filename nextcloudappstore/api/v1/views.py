@@ -21,7 +21,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.generics import DestroyAPIView  # type: ignore
-from rest_framework.generics import ListAPIView, get_object_or_404
+from rest_framework.generics import GenericAPIView, ListAPIView, get_object_or_404
 from rest_framework.permissions import IsAdminUser, IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView
@@ -126,12 +126,9 @@ class AppApiAppsView(EnterpriseFilterMixin, ListAPIView):
     serializer_class = AppApiAppSerializer
 
 
-class AppView(DestroyAPIView):
-    authentication_classes = (
-        authentication.TokenAuthentication,
-        authentication.BasicAuthentication,
-    )
-    permission_classes = (UpdateDeletePermission,)
+class PlatformAppsView(GenericAPIView):
+    """Apps compatible with one Nextcloud version, served at platform/<version>/apps.json."""
+
     serializer_class = AppSerializer
     queryset = App.objects.all()
 
@@ -161,6 +158,18 @@ class AppView(DestroyAPIView):
         for app in data:
             app["releases"] = list(filter(is_compatible, app["releases"]))
         return data
+
+
+class AppView(DestroyAPIView):
+    """Deleting an app, at apps/<id>. DELETE only: DRF answers anything else with 405."""
+
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
+    permission_classes = (UpdateDeletePermission,)
+    serializer_class = AppSerializer
+    queryset = App.objects.all()
 
 
 class AppRegisterView(APIView):
