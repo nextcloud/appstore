@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Vinux7 <vinux7@openmailbox.org>, 2024
 # Nick Pap, 2026
@@ -20,20 +20,20 @@
 # Efstathios Iosifidis <eiosifidis@gmail.com>, 2026
 # george k, 2026
 # theodoros bousios, 2026
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 23:46-0500\n"
+"POT-Creation-Date: 2026-09-17 23:22-0500\n"
 "PO-Revision-Date: 2016-09-05 12:43+0000\n"
 "Last-Translator: theodoros bousios, 2026\n"
 "Language-Team: Greek (https://app.transifex.com/nextcloud/teams/64236/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: nextcloudappstore/core/feeds.py:19
@@ -93,10 +93,10 @@ msgstr "Δημόσιο πιστοποιητικό"
 msgid ""
 "Usually stored in ~/.nextcloud/certificates/APP_ID.crt where APP_ID is your "
 "app's ID. If you do not have a certificate you need to create a certificate "
-"sign request (CSR) first, which should be posted on the <a "
-"href=\"https://github.com/nextcloud/app-certificate-requests\" "
-"rel=\"noreferrer noopener\">certificate repository</a> (follow the README). "
-"You can generate the CSR by executing the following command:"
+"sign request (CSR) first, which should be posted on the <a href=\"https://"
+"github.com/nextcloud/app-certificate-requests\" rel=\"noreferrer "
+"noopener\">certificate repository</a> (follow the README). You can generate "
+"the CSR by executing the following command:"
 msgstr ""
 "Συνήθως αποθηκεύεται στο ~/.nextcloud/certificates/APP_ID.crt όπου APP_ID "
 "είναι το αναγνωριστικό (ID) της εφαρμογής σας. Εάν δεν διαθέτετε "
@@ -145,12 +145,12 @@ msgstr "ID"
 msgid "app ID, identical to folder name"
 msgstr "Το ID της εφαρμογής, πανομοιότυπο με το όνομα του φακέλου"
 
-#: nextcloudappstore/core/models.py:142 nextcloudappstore/core/models.py:751
+#: nextcloudappstore/core/models.py:142 nextcloudappstore/core/models.py:754
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: nextcloudappstore/core/models.py:144 nextcloudappstore/core/models.py:745
-#: nextcloudappstore/core/models.py:768 nextcloudappstore/core/models.py:788
+#: nextcloudappstore/core/models.py:144 nextcloudappstore/core/models.py:748
+#: nextcloudappstore/core/models.py:771 nextcloudappstore/core/models.py:791
 msgid "Name"
 msgstr "Όνομα"
 
@@ -169,13 +169,13 @@ msgid "Short text describing the app's purpose"
 msgstr "Σύντομο κείμενο που περιγράφει τον σκοπό της εφαρμογής"
 
 #: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:653
-#: nextcloudappstore/core/models.py:747
+#: nextcloudappstore/core/models.py:750
 #: nextcloudappstore/scaffolding/forms.py:65
 #: nextcloudappstore/scaffolding/forms.py:114
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:747
+#: nextcloudappstore/core/models.py:148 nextcloudappstore/core/models.py:750
 msgid "Will be rendered as Markdown"
 msgstr "Θα αποδοθεί ως Markdown"
 
@@ -207,12 +207,12 @@ msgid "Forum"
 msgstr "Φόρουμ"
 
 #: nextcloudappstore/core/models.py:157 nextcloudappstore/core/models.py:538
-#: nextcloudappstore/core/models.py:741
+#: nextcloudappstore/core/models.py:744
 msgid "Created at"
 msgstr "Δημιουργήθηκε στις"
 
 #: nextcloudappstore/core/models.py:158 nextcloudappstore/core/models.py:539
-#: nextcloudappstore/core/models.py:742
+#: nextcloudappstore/core/models.py:745
 msgid "Updated at"
 msgstr "Ενημερώθηκε στις"
 
@@ -300,8 +300,7 @@ msgid ""
 msgstr ""
 "Εάν είναι ενεργοποιημένο, ένας χρήστης μπορεί να προσπαθήσει να καταχωρίσει "
 "ξανά την ίδια εφαρμογή χρησιμοποιώντας το δημόσιο πιστοποιητικό και την "
-"υπογραφή. Εάν το πράξει, η ιδιοκτησία της εφαρμογής θα μεταβιβαστεί σε "
-"αυτόν."
+"υπογραφή. Εάν το πράξει, η ιδιοκτησία της εφαρμογής θα μεταβιβαστεί σε αυτόν."
 
 #: nextcloudappstore/core/models.py:196
 msgid "Integration (i.e. Outlook plugin)"
@@ -312,8 +311,8 @@ msgid "Used to approve integrations"
 msgstr "Χρησιμοποιείται για την έγκριση ενσωματώσεων"
 
 #: nextcloudappstore/core/models.py:200 nextcloudappstore/core/models.py:444
-#: nextcloudappstore/core/models.py:520 nextcloudappstore/core/models.py:666
-#: nextcloudappstore/core/models.py:687 nextcloudappstore/core/models.py:703
+#: nextcloudappstore/core/models.py:520 nextcloudappstore/core/models.py:669
+#: nextcloudappstore/core/models.py:690 nextcloudappstore/core/models.py:706
 #: nextcloudappstore/user/templates/user/appeal-comments.html:16
 msgid "App"
 msgstr "Εφαρμογή"
@@ -381,15 +380,15 @@ msgstr ""
 "Η έκδοση ακολουθεί τη Σημασιολογική Ονοματοδοσία Εκδόσεων (Semantic "
 "Versioning)"
 
-#: nextcloudappstore/core/models.py:523 nextcloudappstore/core/models.py:842
+#: nextcloudappstore/core/models.py:523 nextcloudappstore/core/models.py:845
 msgid "PHP extension dependency"
 msgstr "Εξάρτηση επέκτασης PHP"
 
-#: nextcloudappstore/core/models.py:526 nextcloudappstore/core/models.py:809
+#: nextcloudappstore/core/models.py:526 nextcloudappstore/core/models.py:812
 msgid "Database dependency"
 msgstr "Εξάρτηση βάσης δεδομένων"
 
-#: nextcloudappstore/core/models.py:528 nextcloudappstore/core/models.py:772
+#: nextcloudappstore/core/models.py:528 nextcloudappstore/core/models.py:775
 msgid "License"
 msgstr "Άδεια χρήσης"
 
@@ -448,8 +447,7 @@ msgstr "Αρχείο καταγραφής αλλαγών"
 
 #: nextcloudappstore/core/models.py:553
 msgid "The release changelog. Can contain Markdown"
-msgstr ""
-"Το αρχείο αλλαγών της έκδοσης. Μπορεί να περιέχει μορφοποίηση Markdown"
+msgstr "Το αρχείο αλλαγών της έκδοσης. Μπορεί να περιέχει μορφοποίηση Markdown"
 
 #: nextcloudappstore/core/models.py:558
 msgid "AppAPI system app flag"
@@ -460,12 +458,12 @@ msgid ""
 "Whether the application is system-wide (i.e. can impersonate the user "
 "without him interacting with the application)"
 msgstr ""
-"Εάν η εφαρμογή εκτελείται σε επίπεδο συστήματος (δηλ. μπορεί να αναλάβει τον"
-" ρόλο του χρήστη χωρίς να απαιτείται αλληλεπίδρασή του με την εφαρμογή)"
+"Εάν η εφαρμογή εκτελείται σε επίπεδο συστήματος (δηλ. μπορεί να αναλάβει τον "
+"ρόλο του χρήστη χωρίς να απαιτείται αλληλεπίδρασή του με την εφαρμογή)"
 
 #: nextcloudappstore/core/models.py:568 nextcloudappstore/core/models.py:610
-#: nextcloudappstore/core/models.py:631 nextcloudappstore/core/models.py:802
-#: nextcloudappstore/core/models.py:833
+#: nextcloudappstore/core/models.py:631 nextcloudappstore/core/models.py:805
+#: nextcloudappstore/core/models.py:836
 msgid "App release"
 msgstr "Έκδοση εφαρμογής"
 
@@ -531,225 +529,225 @@ msgstr "Μεταβλητή περιβάλλοντος έκδοσης AppAPI"
 msgid "AppAPI Release Environment Variables"
 msgstr "Μεταβλητές περιβάλλοντος έκδοσης AppAPI"
 
-#: nextcloudappstore/core/models.py:664
+#: nextcloudappstore/core/models.py:667
 msgid "Image URL"
 msgstr "URL εικόνας"
 
-#: nextcloudappstore/core/models.py:665
+#: nextcloudappstore/core/models.py:668
 msgid "Small thumbnail"
 msgstr "Μικρή μικρογραφία"
 
-#: nextcloudappstore/core/models.py:667 nextcloudappstore/core/models.py:688
-#: nextcloudappstore/core/models.py:704
+#: nextcloudappstore/core/models.py:670 nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:707
 msgid "Ordering"
 msgstr "Ταξινόμηση"
 
-#: nextcloudappstore/core/models.py:670
+#: nextcloudappstore/core/models.py:673
 #: nextcloudappstore/core/templates/app/detail.html:52
 #: nextcloudappstore/core/templates/app/list.html:104
 #: nextcloudappstore/core/templates/app/list.html:106
 msgid "Screenshot"
 msgstr "Στιγμιότυπο οθόνης"
 
-#: nextcloudappstore/core/models.py:671
+#: nextcloudappstore/core/models.py:674
 msgid "Screenshots"
 msgstr "Στιγμιότυπα οθόνης"
 
-#: nextcloudappstore/core/models.py:686
+#: nextcloudappstore/core/models.py:689
 msgid "Embed URL"
 msgstr ""
 
-#: nextcloudappstore/core/models.py:691
+#: nextcloudappstore/core/models.py:694
 #: nextcloudappstore/core/templates/app/detail.html:42
 msgid "Video"
 msgstr "Βίντεο"
 
-#: nextcloudappstore/core/models.py:692
+#: nextcloudappstore/core/models.py:695
 msgid "Videos"
 msgstr "Βίντεο"
 
-#: nextcloudappstore/core/models.py:700
+#: nextcloudappstore/core/models.py:703
 msgid "Donation URL"
 msgstr "URL δωρεάς"
 
-#: nextcloudappstore/core/models.py:701
+#: nextcloudappstore/core/models.py:704
 msgid "Donation Type"
 msgstr "Τύπος δωρεάς"
 
-#: nextcloudappstore/core/models.py:702
+#: nextcloudappstore/core/models.py:705
 msgid "Donation Title"
 msgstr "Τίτλος δωρεάς"
 
-#: nextcloudappstore/core/models.py:707
+#: nextcloudappstore/core/models.py:710
 msgid "Donation"
 msgstr "Δωρεά"
 
-#: nextcloudappstore/core/models.py:708
+#: nextcloudappstore/core/models.py:711
 msgid "Donations"
 msgstr "Δωρεές"
 
-#: nextcloudappstore/core/models.py:720 nextcloudappstore/core/models.py:725
+#: nextcloudappstore/core/models.py:723 nextcloudappstore/core/models.py:728
 msgid "Shell command"
 msgstr "Εντολή κελύφους"
 
-#: nextcloudappstore/core/models.py:721
+#: nextcloudappstore/core/models.py:724
 msgid "Name of a required shell command, e.g. grep"
 msgstr "Το όνομα μιας απαιτούμενης εντολής κελύφους, π.χ. grep"
 
-#: nextcloudappstore/core/models.py:726
+#: nextcloudappstore/core/models.py:729
 #: nextcloudappstore/core/templates/app/releases.html:64
 msgid "Shell commands"
 msgstr "Εντολές κελύφους"
 
-#: nextcloudappstore/core/models.py:738 nextcloudappstore/core/models.py:764
-#: nextcloudappstore/core/models.py:784
+#: nextcloudappstore/core/models.py:741 nextcloudappstore/core/models.py:767
+#: nextcloudappstore/core/models.py:787
 msgid "Id"
 msgstr "Id"
 
-#: nextcloudappstore/core/models.py:739
+#: nextcloudappstore/core/models.py:742
 msgid "Category ID used to identify the category an app is uploaded to"
 msgstr ""
 "Το ID κατηγορίας που χρησιμοποιείται για την αναγνώριση της κατηγορίας στην "
 "οποία έχει μεταφορτωθεί μια εφαρμογή"
 
-#: nextcloudappstore/core/models.py:745
+#: nextcloudappstore/core/models.py:748
 msgid "Category name which will be presented to the user"
 msgstr "Το όνομα της κατηγορίας που θα εμφανίζεται στον χρήστη"
 
-#: nextcloudappstore/core/models.py:752
+#: nextcloudappstore/core/models.py:755
 #: nextcloudappstore/core/templates/app/detail.html:149
 #: nextcloudappstore/scaffolding/forms.py:54
 #: nextcloudappstore/scaffolding/forms.py:88
 msgid "Categories"
 msgstr "Κατηγορίες"
 
-#: nextcloudappstore/core/models.py:765
+#: nextcloudappstore/core/models.py:768
 msgid "Key which is used to identify a license"
 msgstr "Το κλειδί που χρησιμοποιείται για την αναγνώριση μιας άδειας χρήσης"
 
-#: nextcloudappstore/core/models.py:768
+#: nextcloudappstore/core/models.py:771
 msgid "License name which will be presented to the user"
 msgstr "Το όνομα της άδειας χρήσης που θα εμφανίζεται στον χρήστη"
 
-#: nextcloudappstore/core/models.py:773
+#: nextcloudappstore/core/models.py:776
 #: nextcloudappstore/core/templates/app/releases.html:35
 msgid "Licenses"
 msgstr "Άδειες χρήσης"
 
-#: nextcloudappstore/core/models.py:785
+#: nextcloudappstore/core/models.py:788
 msgid "Key which is used to identify a database"
 msgstr "Το κλειδί που χρησιμοποιείται για την αναγνώριση μιας βάσης δεδομένων"
 
-#: nextcloudappstore/core/models.py:788
+#: nextcloudappstore/core/models.py:791
 msgid "Database name which will be presented to the user"
 msgstr "Το όνομα της βάσης δεδομένων που θα εμφανίζεται στον χρήστη"
 
-#: nextcloudappstore/core/models.py:792 nextcloudappstore/core/models.py:804
+#: nextcloudappstore/core/models.py:795 nextcloudappstore/core/models.py:807
 msgid "Database"
 msgstr "Βάση δεδομένων"
 
-#: nextcloudappstore/core/models.py:793
+#: nextcloudappstore/core/models.py:796
 #: nextcloudappstore/core/templates/app/releases.html:54
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
-#: nextcloudappstore/core/models.py:805
+#: nextcloudappstore/core/models.py:808
 msgid "Database version requirement"
 msgstr "Απαίτηση έκδοσης βάσης δεδομένων"
 
-#: nextcloudappstore/core/models.py:806
+#: nextcloudappstore/core/models.py:809
 msgid "Database version requirement (raw)"
 msgstr "Απαίτηση έκδοσης βάσης δεδομένων (ανεπεξέργαστη)"
 
-#: nextcloudappstore/core/models.py:810
+#: nextcloudappstore/core/models.py:813
 msgid "Database dependencies"
 msgstr "Εξαρτήσεις βάσης δεδομένων"
 
-#: nextcloudappstore/core/models.py:819
+#: nextcloudappstore/core/models.py:822
 msgid "e.g. libxml"
 msgstr "π.χ. libxml"
 
-#: nextcloudappstore/core/models.py:819 nextcloudappstore/core/models.py:823
-#: nextcloudappstore/core/models.py:836
+#: nextcloudappstore/core/models.py:822 nextcloudappstore/core/models.py:826
+#: nextcloudappstore/core/models.py:839
 msgid "PHP extension"
 msgstr "Επέκταση PHP"
 
-#: nextcloudappstore/core/models.py:824
+#: nextcloudappstore/core/models.py:827
 #: nextcloudappstore/core/templates/app/releases.html:78
 msgid "PHP extensions"
 msgstr "Επεκτάσεις PHP"
 
-#: nextcloudappstore/core/models.py:838
+#: nextcloudappstore/core/models.py:841
 msgid "Extension version requirement"
 msgstr "Απαίτηση έκδοσης επέκτασης"
 
-#: nextcloudappstore/core/models.py:839
+#: nextcloudappstore/core/models.py:842
 msgid "Extension version requirement (raw)"
 msgstr "Απαίτηση έκδοσης επέκτασης (ανεπεξέργαστη)"
 
-#: nextcloudappstore/core/models.py:843
+#: nextcloudappstore/core/models.py:846
 msgid "PHP extension dependencies"
 msgstr "Εξαρτήσεις επεκτάσεων PHP"
 
-#: nextcloudappstore/core/models.py:851
+#: nextcloudappstore/core/models.py:854
 msgid "Heading"
 msgstr "Επικεφαλίδα"
 
-#: nextcloudappstore/core/models.py:852
+#: nextcloudappstore/core/models.py:855
 msgid "Excerpt"
 msgstr "Απόσπασμα"
 
-#: nextcloudappstore/core/models.py:853
+#: nextcloudappstore/core/models.py:856
 #: nextcloudappstore/user/templates/user/appeal-comments.html:18
 msgid "Link"
 msgstr "Σύνδεσμος"
 
-#: nextcloudappstore/core/models.py:854
+#: nextcloudappstore/core/models.py:857
 msgid "Image"
 msgstr "Εικόνα"
 
-#: nextcloudappstore/core/models.py:855
+#: nextcloudappstore/core/models.py:858
 msgid "Show podcast"
 msgstr "Εμφάνιση podcast"
 
-#: nextcloudappstore/core/models.py:858
+#: nextcloudappstore/core/models.py:861
 msgid "Nextcloud Podcast"
 msgstr "Nextcloud Podcast"
 
-#: nextcloudappstore/core/models.py:859
+#: nextcloudappstore/core/models.py:862
 msgid "Nextcloud Podcasts"
 msgstr "Nextcloud Podcasts"
 
-#: nextcloudappstore/core/models.py:883
+#: nextcloudappstore/core/models.py:886
 msgid "App release deletion"
 msgstr "Διαγραφή έκδοσης εφαρμογής"
 
-#: nextcloudappstore/core/models.py:884
+#: nextcloudappstore/core/models.py:887
 msgid "App release deletions"
 msgstr "Διαγραφές εκδόσεων εφαρμογής"
 
-#: nextcloudappstore/core/models.py:903
+#: nextcloudappstore/core/models.py:906
 msgid "App rating deletion"
 msgstr "Διαγραφή βαθμολογίας εφαρμογής"
 
-#: nextcloudappstore/core/models.py:904
+#: nextcloudappstore/core/models.py:907
 msgid "App rating deletions"
 msgstr "Διαγραφές βαθμολογιών εφαρμογής"
 
-#: nextcloudappstore/core/models.py:917
+#: nextcloudappstore/core/models.py:920
 #: nextcloudappstore/core/templates/app/detail.html:241
 msgid "Nextcloud version"
 msgstr "Έκδοση Nextcloud"
 
-#: nextcloudappstore/core/models.py:917
+#: nextcloudappstore/core/models.py:920
 msgid "e.g. 9.0.54"
 msgstr "πχ. 9.0.54"
 
-#: nextcloudappstore/core/models.py:920
+#: nextcloudappstore/core/models.py:923
 msgid "Is current version"
 msgstr "Είναι η τρέχουσα έκδοση"
 
-#: nextcloudappstore/core/models.py:922
+#: nextcloudappstore/core/models.py:925
 msgid ""
 "Only one version can be the current one. This field is used to pre-select "
 "dropdowns for app generation, etc."
@@ -758,26 +756,26 @@ msgstr ""
 "για την προεπιλογή στοιχείων σε αναπτυσσόμενα μενού κατά τη δημιουργία "
 "εφαρμογών, κ.λπ."
 
-#: nextcloudappstore/core/models.py:930
+#: nextcloudappstore/core/models.py:933
 msgid "Has a release"
 msgstr "Έχει κυκλοφορία"
 
-#: nextcloudappstore/core/models.py:932
+#: nextcloudappstore/core/models.py:935
 msgid ""
-"If true, this is an actual released Nextcloud version that can be downloaded"
-" as an archive. If false, the release is either a pre-release, or not "
+"If true, this is an actual released Nextcloud version that can be downloaded "
+"as an archive. If false, the release is either a pre-release, or not "
 "available for download anymore."
 msgstr ""
 "Εάν είναι αληθές, πρόκειται για μια κανονική έκδοση του Nextcloud που έχει "
-"κυκλοφορήσει και μπορεί να ληφθεί ως συμπιεσμένο αρχείο. Εάν είναι ψευδές, η"
-" έκδοση είναι είτε προ-κυκλοφορία (pre-release), είτε δεν είναι πλέον "
+"κυκλοφορήσει και μπορεί να ληφθεί ως συμπιεσμένο αρχείο. Εάν είναι ψευδές, η "
+"έκδοση είναι είτε προ-κυκλοφορία (pre-release), είτε δεν είναι πλέον "
 "διαθέσιμη για λήψη."
 
-#: nextcloudappstore/core/models.py:942
+#: nextcloudappstore/core/models.py:945
 msgid "Version is supported"
 msgstr "Η έκδοση υποστηρίζεται"
 
-#: nextcloudappstore/core/models.py:943
+#: nextcloudappstore/core/models.py:946
 msgid ""
 "True if this version is still officially supported (excluding enterprise "
 "support)"
@@ -785,11 +783,11 @@ msgstr ""
 "Αληθές εάν αυτή η έκδοση υποστηρίζεται ακόμη επίσημα (εξαιρουμένης της "
 "εταιρικής υποστήριξης)"
 
-#: nextcloudappstore/core/models.py:948
+#: nextcloudappstore/core/models.py:951
 msgid "Nextcloud release"
 msgstr "Κυκλοφορία Nextcloud"
 
-#: nextcloudappstore/core/models.py:949
+#: nextcloudappstore/core/models.py:952
 msgid "Nextcloud releases"
 msgstr "Κυκλοφορίες Nextcloud"
 
@@ -825,19 +823,23 @@ msgstr "Πάρα πολλές προσπάθειες. Δοκιμάστε ξαν�
 msgid ""
 "Greetings from the %(site_name)s!\n"
 "\n"
-"You're receiving this email because user %(user_display)s has linked this email address to their account at %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has linked this "
+"email address to their account at %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s\n"
 "\n"
-"If you do not have an account at %(site_domain)s, simply ignore this message.\n"
+"If you do not have an account at %(site_domain)s, simply ignore this "
+"message.\n"
 msgstr ""
 "Χαιρετισμούς από το %(site_name)s!\n"
 "\n"
-"Λαμβάνετε αυτό το email επειδή ο χρήστης %(user_display)s έχει συνδέσει αυτή τη διεύθυνση email με τον λογαριασμό του στο %(site_domain)s.\n"
+"Λαμβάνετε αυτό το email επειδή ο χρήστης %(user_display)s έχει συνδέσει αυτή "
+"τη διεύθυνση email με τον λογαριασμό του στο %(site_domain)s.\n"
 "\n"
 "Για να επιβεβαιώσετε ότι αυτό είναι σωστό, μεταβείτε στο %(activate_url)s\n"
 "\n"
-"Εάν δεν διαθέτετε λογαριασμό στο %(site_domain)s, απλώς αγνοήστε αυτό το μήνυμα.\n"
+"Εάν δεν διαθέτετε λογαριασμό στο %(site_domain)s, απλώς αγνοήστε αυτό το "
+"μήνυμα.\n"
 
 #: nextcloudappstore/core/templates/account/email/email_confirmation_message.txt:9
 #, python-format
@@ -859,9 +861,9 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Παρακαλούμε επιβεβαιώστε ότι η διεύθυνση <a "
-"href=\"mailto:%(email)s\">%(email)s</a> είναι μια διεύθυνση email για τον "
-"χρήστη %(user_display)s."
+"Παρακαλούμε επιβεβαιώστε ότι η διεύθυνση <a href=\"mailto:"
+"%(email)s\">%(email)s</a> είναι μια διεύθυνση email για τον χρήστη "
+"%(user_display)s."
 
 #: nextcloudappstore/core/templates/account/email_confirm.html:24
 msgid "Confirm"
@@ -934,9 +936,9 @@ msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
-"Σας έχουμε αποστείλει ένα email. Εάν δεν το έχετε λάβει, παρακαλούμε ελέγξτε"
-" τον φάκελο της ανεπιθύμητης αλληλογραφίας (spam). Διαφορετικά, "
-"επικοινωνήστε μαζί μας εάν δεν το λάβετε εντός λίγων λεπτών."
+"Σας έχουμε αποστείλει ένα email. Εάν δεν το έχετε λάβει, παρακαλούμε ελέγξτε "
+"τον φάκελο της ανεπιθύμητης αλληλογραφίας (spam). Διαφορετικά, επικοινωνήστε "
+"μαζί μας εάν δεν το λάβετε εντός λίγων λεπτών."
 
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:11
 #: nextcloudappstore/core/templates/account/password_reset_from_key.html:15
@@ -955,12 +957,12 @@ msgstr "Μη έγκυρο διακριτικό (Token) API"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 msgstr ""
 "Ο σύνδεσμος επαναφοράς συνθηματικού ήταν άκυρος, πιθανώς επειδή έχει ήδη "
-"χρησιμοποιηθεί. Παρακαλούμε ζητήστε μια <a href=\"%(passwd_reset_url)s\">νέα"
-" επαναφορά συνθηματικού</a>."
+"χρησιμοποιηθεί. Παρακαλούμε ζητήστε μια <a href=\"%(passwd_reset_url)s\">νέα "
+"επαναφορά συνθηματικού</a>."
 
 #: nextcloudappstore/core/templates/account/signup.html:15
 msgid "Create an account"
@@ -1218,19 +1220,18 @@ msgstr "Το σχόλιό σας"
 
 #: nextcloudappstore/core/templates/app/detail.html:350
 msgid ""
-"Rating comments support <a rel=\"noopener noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Do not use rating comments to report bugs or request features. Neither "
-"developers nor users will be notified of your comment. A rating without a "
-"comment still counts, but will not be listed below."
+"Rating comments support <a rel=\"noopener noreferrer\" href=\"https://"
+"daringfireball.net/projects/markdown/syntax\">Markdown</a>. Do not use "
+"rating comments to report bugs or request features. Neither developers nor "
+"users will be notified of your comment. A rating without a comment still "
+"counts, but will not be listed below."
 msgstr ""
 "Τα σχόλια βαθμολογίας υποστηρίζουν μορφοποίηση <a rel=\"noopener "
-"noreferrer\" "
-"href=\"https://daringfireball.net/projects/markdown/syntax\">Markdown</a>. "
-"Μη χρησιμοποιείτε τα σχόλια βαθμολογίας για αναφορά σφαλμάτων ή αιτήματα "
-"νέων λειτουργιών. Ούτε οι προγραμματιστές ούτε οι χρήστες θα λάβουν "
-"ειδοποίηση για το σχόλιό σας. Μια βαθμολογία χωρίς σχόλιο προσμετράται "
-"κανονικά, αλλά δεν θα εμφανίζεται στην παρακάτω λίστα."
+"noreferrer\" href=\"https://daringfireball.net/projects/markdown/"
+"syntax\">Markdown</a>. Μη χρησιμοποιείτε τα σχόλια βαθμολογίας για αναφορά "
+"σφαλμάτων ή αιτήματα νέων λειτουργιών. Ούτε οι προγραμματιστές ούτε οι "
+"χρήστες θα λάβουν ειδοποίηση για το σχόλιό σας. Μια βαθμολογία χωρίς σχόλιο "
+"προσμετράται κανονικά, αλλά δεν θα εμφανίζεται στην παρακάτω λίστα."
 
 #: nextcloudappstore/core/templates/app/detail.html:355
 msgid "Update rating"
@@ -1369,9 +1370,9 @@ msgstr "Καταχώριση εφαρμογής"
 #: nextcloudappstore/core/templates/app/register.html:19
 msgid ""
 "For more information on how to obtain the certificate and create the "
-"signature, check out the <a "
-"href=\"http://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">app developer guide</a>."
+"signature, check out the <a href=\"http://nextcloudappstore.readthedocs.io/"
+"en/latest/developer.html\" rel=\"noopener norefferer\">app developer guide</"
+"a>."
 msgstr ""
 "Για περισσότερες πληροφορίες σχετικά με τον τρόπο απόκτησης του "
 "πιστοποιητικού και της δημιουργίας της υπογραφής, ανατρέξτε στον <a "
@@ -1380,13 +1381,13 @@ msgstr ""
 
 #: nextcloudappstore/core/templates/app/register.html:20
 msgid ""
-"This form can also be used to update existing certificates, however only the"
-" app owner is allowed to do so. Updating an app certificate will delete all "
+"This form can also be used to update existing certificates, however only the "
+"app owner is allowed to do so. Updating an app certificate will delete all "
 "of its already uploaded releases!"
 msgstr ""
 "Αυτή η φόρμα μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση υπαρχόντων "
-"πιστοποιητικών, ωστόσο αυτό επιτρέπεται μόνο στον ιδιοκτήτη της εφαρμογής. Η"
-" ενημέρωση του πιστοποιητικού μιας εφαρμογής θα διαγράψει όλες τις ήδη "
+"πιστοποιητικών, ωστόσο αυτό επιτρέπεται μόνο στον ιδιοκτήτη της εφαρμογής. Η "
+"ενημέρωση του πιστοποιητικού μιας εφαρμογής θα διαγράψει όλες τις ήδη "
 "μεταφορτωμένες κυκλοφορίες της!"
 
 #: nextcloudappstore/core/templates/app/register.html:22
@@ -1448,10 +1449,10 @@ msgid ""
 "href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
 "rel=\"noopener norefferer\">app developer guide</a>."
 msgstr ""
-"Για περισσότερες πληροφορίες σχετικά με τον τρόπο δημιουργίας της υπογραφής,"
-" ανατρέξτε στον <a "
-"href=\"https://nextcloudappstore.readthedocs.io/en/latest/developer.html\" "
-"rel=\"noopener norefferer\">οδηγό προγραμματιστή εφαρμογών</a>."
+"Για περισσότερες πληροφορίες σχετικά με τον τρόπο δημιουργίας της υπογραφής, "
+"ανατρέξτε στον <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"developer.html\" rel=\"noopener norefferer\">οδηγό προγραμματιστή εφαρμογών</"
+"a>."
 
 #: nextcloudappstore/core/templates/app/upload.html:28
 msgid "Upload"
@@ -1549,10 +1550,13 @@ msgstr "Αποσύνδεση"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"            %(site_name)s. As a final step, please complete the following form:"
+"            %(site_name)s. As a final step, please complete the following "
+"form:"
 msgstr ""
-"Πρόκειται να χρησιμοποιήσετε τον λογαριασμό σας %(provider_name)s για να συνδεθείτε στο\n"
-"            %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την ακόλουθη φόρμα:"
+"Πρόκειται να χρησιμοποιήσετε τον λογαριασμό σας %(provider_name)s για να "
+"συνδεθείτε στο\n"
+"            %(site_name)s. Ως τελικό βήμα, παρακαλούμε συμπληρώστε την "
+"ακόλουθη φόρμα:"
 
 #: nextcloudappstore/core/templates/translation/db_translations.txt:1
 msgid "Customization"
@@ -1709,8 +1713,7 @@ msgstr "Το URL πρέπει να καταλήγει σε .tar.gz"
 
 #: nextcloudappstore/scaffolding/forms.py:36
 msgid "The app name must be pascal case e.g. MyApp"
-msgstr ""
-"Το όνομα της εφαρμογής πρέπει να είναι σε μορφή PascalCase, π.χ. MyApp"
+msgstr "Το όνομα της εφαρμογής πρέπει να είναι σε μορφή PascalCase, π.χ. MyApp"
 
 #: nextcloudappstore/scaffolding/forms.py:42
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:19
@@ -1835,8 +1838,7 @@ msgstr "Σύνδεση μέσω %(provider)s"
 
 #: nextcloudappstore/templates/socialaccount/login.html:24
 #, python-format
-msgid ""
-"You are about to sign in using a third-party account from %(provider)s."
+msgid "You are about to sign in using a third-party account from %(provider)s."
 msgstr ""
 "Πρόκειται να συνδεθείτε χρησιμοποιώντας έναν λογαριασμό τρίτου παρόχου από "
 "την υπηρεσία %(provider)s."
@@ -1896,8 +1898,8 @@ msgid ""
 "prevent unauthorized changes to critical account details. This field does "
 "not update your password!"
 msgstr ""
-"Απαιτείται κατά την αλλαγή του Ονόματος, του Επωνύμου ή της Διεύθυνσης email"
-" σας για την αποτροπή μη εξουσιοδοτημένων αλλαγών σε κρίσιμα στοιχεία του "
+"Απαιτείται κατά την αλλαγή του Ονόματος, του Επωνύμου ή της Διεύθυνσης email "
+"σας για την αποτροπή μη εξουσιοδοτημένων αλλαγών σε κρίσιμα στοιχεία του "
 "λογαριασμού. Αυτό το πεδίο ΔΕΝ ενημερώνει το συνθηματικό σας!"
 
 #: nextcloudappstore/user/forms.py:107
@@ -1926,8 +1928,8 @@ msgstr ""
 
 #: nextcloudappstore/user/signals.py:62
 msgid ""
-"Could not send the password change notification email. Your password was not"
-" changed."
+"Could not send the password change notification email. Your password was not "
+"changed."
 msgstr ""
 "Δεν ήταν δυνατή η αποστολή του email ειδοποίησης αλλαγής συνθηματικού. Το "
 "συνθηματικό σας δεν άλλαξε."
@@ -1945,15 +1947,21 @@ msgstr "Διακριτικό (Token) API"
 #: nextcloudappstore/user/templates/user/api-token.html:18
 msgid ""
 "\n"
-"                The API token can be used for authentication when calling the Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Make sure to keep it secret. A new token can be generated below, rendering the old token invalid.\n"
+"                The API token can be used for authentication when calling "
+"the Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Make sure to keep it secret. A new token can be generated "
+"below, rendering the old token invalid.\n"
 "            "
 msgstr ""
 "\n"
-"                Το διακριτικό API μπορεί να χρησιμοποιηθεί για τον έλεγχο ταυτότητας κατά την κλήση του Nextcloud app store\n"
-"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/restapi.html\">REST API</a>.\n"
-"                Φροντίστε να το διατηρήσετε μυστικό. Ένα νέο διακριτικό μπορεί να δημιουργηθεί παρακάτω, καθιστώντας το παλιό διακριτικό άκυρο.\n"
+"                Το διακριτικό API μπορεί να χρησιμοποιηθεί για τον έλεγχο "
+"ταυτότητας κατά την κλήση του Nextcloud app store\n"
+"                <a href=\"https://nextcloudappstore.readthedocs.io/en/latest/"
+"restapi.html\">REST API</a>.\n"
+"                Φροντίστε να το διατηρήσετε μυστικό. Ένα νέο διακριτικό "
+"μπορεί να δημιουργηθεί παρακάτω, καθιστώντας το παλιό διακριτικό άκυρο.\n"
 "            "
 
 #: nextcloudappstore/user/templates/user/api-token.html:25
@@ -2041,14 +2049,14 @@ msgid ""
 msgstr ""
 "Η διαγραφή του λογαριασμού σας θα διαγράψει επίσης όλες τις εφαρμογές και "
 "τις κυκλοφορίες σας. Για να διαγράψετε τον λογαριασμό σας, εισαγάγετε τη "
-"διεύθυνση email σας στο πεδίο εισαγωγής και κάντε κλικ στο κουμπί \"Διαγραφή"
-" λογαριασμού\"."
+"διεύθυνση email σας στο πεδίο εισαγωγής και κάντε κλικ στο κουμπί \"Διαγραφή "
+"λογαριασμού\"."
 
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:13
 msgid ""
 "If an app is superseded by another app, you can mark the prior app as "
-"deprecated here. This will add a warning banner to the app's details page in"
-" the App Store and in Nextcloud Apps."
+"deprecated here. This will add a warning banner to the app's details page in "
+"the App Store and in Nextcloud Apps."
 msgstr ""
 "Εάν μια εφαρμογή αντικαθίσταται από μια άλλη, μπορείτε να σημάνετε την "
 "προηγούμενη εφαρμογή ως υπό κατάργηση εδώ. Αυτό θα προσθέσει ένα "
@@ -2057,8 +2065,8 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/deprecate-apps.html:14
 msgid ""
-"Optionally, you can also add the ID of the superseding app, which will add a"
-" link to such app to the warning banner."
+"Optionally, you can also add the ID of the superseding app, which will add a "
+"link to such app to the warning banner."
 msgstr ""
 "Προαιρετικά, μπορείτε επίσης να προσθέσετε το ID της εφαρμογής "
 "αντικατάστασης, το οποίο θα προσθέσει έναν σύνδεσμο προς τη συγκεκριμένη "
@@ -2160,12 +2168,12 @@ msgstr ""
 
 #: nextcloudappstore/user/templates/user/password.html:25
 msgid ""
-"You seem to be using an account registered with a third-party provider. Your"
-" password can therefore <strong>not</strong> be changed from this page."
+"You seem to be using an account registered with a third-party provider. Your "
+"password can therefore <strong>not</strong> be changed from this page."
 msgstr ""
 "Φαίνεται ότι χρησιμοποιείτε έναν λογαριασμό που έχει δημιουργηθεί μέσω "
-"εξωτερικού παρόχου. Επομένως, το συνθηματικό σας <strong>δεν</strong> μπορεί"
-" να αλλάξει από αυτήν τη σελίδα."
+"εξωτερικού παρόχου. Επομένως, το συνθηματικό σας <strong>δεν</strong> μπορεί "
+"να αλλάξει από αυτήν τη σελίδα."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:8
 #: nextcloudappstore/user/templates/user/transfer-apps.html:11
@@ -2180,14 +2188,14 @@ msgid ""
 msgstr ""
 "Για να μεταφέρετε μια εφαρμογή σε έναν νέο ιδιοκτήτη, πρέπει πρώτα να την "
 "ξεκλειδώσετε. Στη συνέχεια, ένας χρήστης μπορεί να αναλάβει τον έλεγχο της "
-"εφαρμογής καταχωρίζοντάς την ξανά στη σελίδα καταχώρισης εφαρμογών στο μενού"
-" προγραμματιστών."
+"εφαρμογής καταχωρίζοντάς την ξανά στη σελίδα καταχώρισης εφαρμογών στο μενού "
+"προγραμματιστών."
 
 #: nextcloudappstore/user/templates/user/transfer-apps.html:14
 msgid ""
 "Don't have a new owner yet? You can mark the app as orphaned to indicate "
-"that you are looking for a new owner. Once the transfer is complete, the app"
-" will be automatically marked as un-orphaned/maintained again."
+"that you are looking for a new owner. Once the transfer is complete, the app "
+"will be automatically marked as un-orphaned/maintained again."
 msgstr ""
 "Δεν έχετε βρει ακόμα νέο ιδιοκτήτη; Μπορείτε να σημάνετε την εφαρμογή ως "
 "ορφανή για να υποδείξετε ότι αναζητάτε νέο ιδιοκτήτη. Μόλις ολοκληρωθεί η "
