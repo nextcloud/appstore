@@ -227,7 +227,10 @@ CORS_EXPOSE_HEADERS = (
     "content-type",
 )
 CSP_DEFAULT_SRC = ("'none'",)
-CSP_IMG_SRC = ("*",)
+CSP_IMG_SRC = (
+    "'self'",
+    "usercontent.apps.nextcloud.com",
+)
 CSP_FONT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'",)
 CSP_CONNECT_SRC = ("'self'",)
