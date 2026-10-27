@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+from unittest.mock import patch
+
 from django.test import tag
 
 from nextcloudappstore.core.tests.e2e.base import BaseStoreTest
@@ -20,7 +22,12 @@ class UserRegisterTest(BaseStoreTest):
         self.by_id("id_password1").send_keys("oalx77rkdf")
         self.by_id("id_password2").send_keys("oalx77rkdf")
 
-        with self.settings(ACCOUNT_EMAIL_VERIFICATION="optional"):
+        # The signup adapter checks email deliverability via DNS, which is
+        # unreliable in CI.
+        with (
+            self.settings(ACCOUNT_EMAIL_VERIFICATION="optional"),
+            patch("nextcloudappstore.user.adapters.validate_email"),
+        ):
             self.by_css('.auth-form button[type="submit"]').click()
 
             logout_link = self.findNavigationLink("account_logout")
