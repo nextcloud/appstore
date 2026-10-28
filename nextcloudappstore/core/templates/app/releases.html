@@ -1,5 +1,5 @@
 {% extends 'app/base.html' %}
-{% load i18n static sort_by_version version_spec markdown %}
+{% load i18n static version_spec markdown %}
 
 {# SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors #}
 {# SPDX-License-Identifier: AGPL-3.0-or-later #}
@@ -7,94 +7,112 @@
 {% block head-title %}{% trans 'Releases' %} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'assets/css/accordion.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'assets/css/releases.css' %}" charset="utf-8">
     <script defer src="{% static 'public/app/releases.js' %}" type="text/javascript"></script>
 {% endblock %}
 
 {% block apps %}
     <h1>{{ object.name }} - {% trans 'Releases' %}</h1>
-    <section><a href="{% url 'app-detail' object.id %}">&larr; {% trans 'App details' %}</a></section>
+    <div class="release-toolbar" id="releases">
+        <a href="{% url 'app-detail' object.id %}">&larr; {% trans 'App details' %}</a>
+        {% if platform_versions %}
+            <form class="form-inline release-filter" method="get" action="{% url 'app-releases' object.id %}#releases">
+                <label for="release-platform">{% trans 'Nextcloud version' %}</label>
+                <select class="form-control" id="release-platform" name="platform">
+                    {% for platform_v in platform_versions %}
+                        <option value="{{ platform_v }}"{% if platform_v == selected_platform %} selected{% endif %}>Nextcloud {{ platform_v }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        {% endif %}
+    </div>
+
     <section class="app-releases">
-        {% for platform_v, releases in releases_by_platform_v %}
-            {% if releases %}
-                <a name="{{ platform_v }}"></a>
-                <div class="accordion-item{% if request.GET.platform == platform_v %} open{% endif %}">
-                    <div class="accordion-title"><h4>Nextcloud {{ platform_v }}</h4></div>
-                    <div class="accordion-content">
-                        {% for release in releases %}
-                            <div class="accordion-item{% if forloop.first %} open{% endif %}{% if release.is_unstable %} unstable{% endif %}">
-                                <div class="accordion-title"><h5>{{ object.name }} {{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}) {% endif %}</h5></div>
-                                <div class="accordion-content">
-                                    <table class="table table-condensed">
-                                        <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
-                                        <tr><td>{% trans 'Updated' %}</td><td>{{ release.release_date|default:release.last_modified }}</td></tr>
-                                        {% if release.changelog %}
-                                        <tr><td>{% trans 'Changelog' %}</td><td>{{ release.changelog|markdown }}</td></tr>
-                                        {% endif %}
-                                        <tr>
-                                            <td>{% trans 'Licenses' %}</td>
-                                            <td>
-                                                {% for lic in release.licenses.all %}
-                                                    {{ lic.name }}{% if not forloop.last %}, {% endif %}
-                                                {% endfor %}
-                                            </td>
-                                        </tr>
-                                        <tr><td>{% trans 'Certificate' %}</td><td class="certificate">{{ object.certificate|linebreaksbr }}</td></tr>
-                                        <tr><td>{% trans 'Signature' %}</td><td class="certificate">{{ release.signature|linebreaksbr }}</td></tr>
-                                        <tr><td>{% trans 'Signature digest' %}</td><td class="certificate">{{ release.signature_digest}}</td></tr>
-                                    </table>
-                                    <table class="table table-condensed">
-                                        <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>
-                                        <tr>
-                                            <td>{% trans 'Required Nextcloud versions' %}</td>
-                                            <td>{{ release.platform_version_spec|version_spec }}</td>
-                                        </tr>
-                                        {% if release.databasedependencies.all %}
-                                        <tr>
-                                            <td>{% trans 'Databases' %}</td>
-                                            <td>
-                                                {% for dep in release.databasedependencies.all %}
-                                                    {{ dep.database.name }} {{ dep.version_spec|version_spec }}<br>
-                                                {% endfor %}
-                                            </td>
-                                        </tr>
-                                        {% endif %}
-                                        {% if release.shell_commands.all %}
-                                        <tr>
-                                            <td>{% trans 'Shell commands' %}</td>
-                                            <td>
-                                                {% for cmd in release.shell_commands.all %}
-                                                    {{ cmd.name }}{% if not forloop.last %}, {% endif %}
-                                                {% endfor %}
-                                            </td>
-                                        </tr>
-                                        {% endif %}
-                                        <tr><td>{% trans 'Minimum Integer bits' %}</td><td>{{ release.min_int_size }}</td></tr>
-                                        {% if release.php_version_spec|version_spec %}
-                                        <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec|version_spec }}</td></tr>
-                                        {% endif %}
-                                        {% if release.phpextensiondependencies.all %}
-                                        <tr>
-                                            <td>{% trans 'PHP extensions' %}</td>
-                                            <td>
-                                                {% for dep in release.phpextensiondependencies.all %}
-                                                    {{ dep.php_extension.id }} {{ dep.version_spec|version_spec }}<br>
-                                                {% endfor %}
-                                            </td>
-                                        </tr>
-                                        {% endif %}
-                                    </table>
-                                    <div class="center">
-                                        <a href="{{ release.download }}" rel="noopener noreferrer" class="release-download">
-                                            {% trans 'Download' %} {{ object.name }} {{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}) {% endif %}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
+        {% for release in releases %}
+            <article class="release{% if release.is_unstable %} release-unstable{% endif %}">
+                <h2 class="sr-only">{{ release.version }}</h2>
+                <a href="{{ release.download }}" rel="noopener noreferrer" class="btn {% if release.is_unstable %}btn-danger{% else %}btn-primary{% endif %} release-download">
+                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                    {% trans 'Download' %}<span class="sr-only"> {{ release.version }}</span>
+                </a>
+                <details{% if forloop.first %} open{% endif %}>
+                    <summary class="release-header">
+                        <span class="glyphicon glyphicon-chevron-right release-toggle" aria-hidden="true"></span>
+                        <span class="release-version">{{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}){% elif release.is_unstable %} ({% trans 'Unstable' %}){% endif %}</span>
+                    </summary>
+                    <div class="release-body">
+                        {% if release.is_unstable %}
+                            <p class="release-unstable-note">{% trans 'Unstable' %}</p>
+                        {% endif %}
+                        <table class="table table-condensed">
+                            <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
+                            <tr><td>{% trans 'Updated' %}</td><td>{{ release.release_date|default:release.last_modified }}</td></tr>
+                            {% if release.changelog %}
+                            <tr class="release-changelog"><td>{% trans 'Changelog' %}</td><td>{{ release.changelog|markdown }}</td></tr>
+                            {% endif %}
+                            <tr>
+                                <td>{% trans 'Licenses' %}</td>
+                                <td>
+                                    {% for lic in release.licenses.all %}
+                                        {{ lic.name }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed">
+                            <thead><tr><th>{% trans 'Dependencies' %}</th><th></th></tr></thead>
+                            <tr>
+                                <td>{% trans 'Required Nextcloud versions' %}</td>
+                                <td>{{ release.platform_version_spec|version_spec }}</td>
+                            </tr>
+                            {% if release.databasedependencies.all %}
+                            <tr>
+                                <td>{% trans 'Databases' %}</td>
+                                <td>
+                                    {% for dep in release.databasedependencies.all %}
+                                        {{ dep.database.name }} {{ dep.version_spec|version_spec }}<br>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if release.shell_commands.all %}
+                            <tr>
+                                <td>{% trans 'Shell commands' %}</td>
+                                <td>
+                                    {% for cmd in release.shell_commands.all %}
+                                        {{ cmd.name }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                            <tr><td>{% trans 'Minimum Integer bits' %}</td><td>{{ release.min_int_size }}</td></tr>
+                            {% if release.php_version_spec|version_spec %}
+                            <tr><td>{% trans 'PHP' %}</td><td>{{ release.php_version_spec|version_spec }}</td></tr>
+                            {% endif %}
+                            {% if release.phpextensiondependencies.all %}
+                            <tr>
+                                <td>{% trans 'PHP extensions' %}</td>
+                                <td>
+                                    {% for dep in release.phpextensiondependencies.all %}
+                                        {{ dep.php_extension.id }} {{ dep.version_spec|version_spec }}<br>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endif %}
+                        </table>
+                        <details class="release-signature">
+                            <summary>{% trans 'Certificate' %} / {% trans 'Signature' %}</summary>
+                            <table class="table table-condensed">
+                                <tr><td>{% trans 'Certificate' %}</td><td class="certificate">{{ object.certificate|linebreaksbr }}</td></tr>
+                                <tr><td>{% trans 'Signature' %}</td><td class="certificate">{{ release.signature|linebreaksbr }}</td></tr>
+                                <tr><td>{% trans 'Signature digest' %}</td><td class="certificate">{{ release.signature_digest}}</td></tr>
+                            </table>
+                        </details>
                     </div>
-                </div>
-            {% endif %}
+                </details>
+            </article>
+        {% empty %}
+            <p class="text-muted">{% trans 'No releases found for this app.' %}</p>
         {% endfor %}
     </section>
 {% endblock %}
