@@ -198,7 +198,18 @@ class AppReleasesView(DetailView):
         unstables = self.object.unstable_releases_by_platform_v()
         versions = set(list(releases.keys()) + list(unstables.keys()))
         all_releases = list(map(lambda v: (v, releases.get(v, []) + unstables.get(v, [])), versions))
-        context["releases_by_platform_v"] = self._sort_by_platform_v(all_releases)
+        releases_by_platform_v = {
+            platform_v: platform_releases
+            for platform_v, platform_releases in self._sort_by_platform_v(all_releases)
+            if platform_releases
+        }
+
+        selected_platform = self.request.GET.get("platform")
+        if selected_platform not in releases_by_platform_v:
+            selected_platform = next(iter(releases_by_platform_v), None)
+        context["platform_versions"] = list(releases_by_platform_v)
+        context["selected_platform"] = selected_platform
+        context["releases"] = releases_by_platform_v.get(selected_platform, [])
         return context
 
     def _sort_by_platform_v(self, releases_by_platform, reverse=True):
