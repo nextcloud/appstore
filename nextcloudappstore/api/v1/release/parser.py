@@ -11,8 +11,8 @@ from re import Pattern
 from typing import Any
 
 import lxml.etree  # type: ignore
-from rest_framework.exceptions import ValidationError  # type: ignore
 from rest_framework.exceptions import ParseError
+from rest_framework.exceptions import ValidationError  # type: ignore
 
 from nextcloudappstore.api.v1.release import ReleaseConfig
 from nextcloudappstore.core.versioning import (
