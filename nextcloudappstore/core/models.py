@@ -17,8 +17,6 @@ from django.db.models import (  # type: ignore
     CharField,
     DateTimeField,
     EmailField,
-)
-from django.db.models import (  # type: ignore
     FloatField,
     ForeignKey,
     IntegerField,
