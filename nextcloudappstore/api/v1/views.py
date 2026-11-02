@@ -20,8 +20,12 @@ from rest_framework import authentication, parsers, renderers  # type: ignore
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.exceptions import PermissionDenied, ValidationError
-from rest_framework.generics import DestroyAPIView  # type: ignore
-from rest_framework.generics import GenericAPIView, ListAPIView, get_object_or_404
+from rest_framework.generics import (  # type: ignore
+    DestroyAPIView,
+    GenericAPIView,
+    ListAPIView,
+    get_object_or_404,
+)
 from rest_framework.permissions import IsAdminUser, IsAuthenticated  # type: ignore
 from rest_framework.response import Response  # type: ignore
 from rest_framework.views import APIView

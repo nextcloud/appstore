@@ -10,7 +10,6 @@ from itertools import chain
 from django.conf import settings  # type: ignore
 from django.contrib.auth.models import User  # type: ignore
 from django.core.cache import cache
-from django.db.models import FloatField  # type: ignore
 from django.db.models import (  # type: ignore
     CASCADE,
     BooleanField,
@@ -18,6 +17,9 @@ from django.db.models import (  # type: ignore
     CharField,
     DateTimeField,
     EmailField,
+)
+from django.db.models import (  # type: ignore
+    FloatField,
     ForeignKey,
     IntegerField,
     Manager,
@@ -34,8 +36,11 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _  # type: ignore
 from packaging.version import InvalidVersion
 from packaging.version import parse as parse_version
-from parler.models import TranslatableManager  # type: ignore
-from parler.models import TranslatableModel, TranslatedFields
+from parler.models import (  # type: ignore
+    TranslatableManager,
+    TranslatableModel,
+    TranslatedFields,
+)
 from semantic_version import SimpleSpec, Version
 
 from nextcloudappstore.core.facades import distinct
