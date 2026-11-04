@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
+{% block head-title %}{% trans 'Submit app for review' %} - {% endblock %}
+
+{% block head %}
+    <script defer src="{% static 'public/app/submit.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="app-form">
+        <h1>{% trans 'Submit app for review' %}</h1>
+        <hr>
+        <p>{% blocktrans %}For more details, check out the <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">app developer guide</a>.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Generate a private key and certificate signing request (CSR) for your app id. Store the files in <code>~/.nextcloud/certificates/</code>, keep the private key secret, and post the CSR to the <a href="https://github.com/nextcloud/app-certificate-requests" rel="noopener noreferrer">certificate repository</a>.{% endblocktrans %}</p>
+
+        <div class="form-group">
+            <label class="control-label" for="app-id" title="{% trans 'required field' %}">
+                {% trans 'App ID' %}
+                <span class="required-field material-symbols-outlined">asterisk</span>
+            </label>
+            <input type="text" id="app-id" class="form-control" required
+                   pattern="[a-z_]+"
+                   autocomplete="off"
+                   placeholder="{% trans 'e.g. news' %}">
+            <p class="help-block">{% trans 'Must contain only lowercase ASCII letters and underscores.' %}</p>
+        </div>
+
+        <div id="generate-error" class="alert alert-danger" hidden
+             data-msg-empty="{% trans 'Enter an app id.' %}"
+             data-msg-invalid="{% trans 'App id must contain only lowercase ASCII letters and underscores.' %}"
+             data-msg-failed="{% trans 'Could not generate key and CSR. Try again or use openssl.' %}"></div>
+        <div id="generate-success" class="alert alert-success" hidden
+             data-msg-success="{% trans 'Private key and CSR downloaded. Keep the .key file secret.' %}"></div>
+
+        <button type="button" id="generate-key-cert" class="btn btn-primary btn-block">
+            {% trans 'Generate key and CSR' %}
+        </button>
+    </div>
+{% endblock %}

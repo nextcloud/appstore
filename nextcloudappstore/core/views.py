@@ -334,6 +334,10 @@ class AppRegisterView(LoginRequiredMixin, TemplateView):
         return context
 
 
+class AppSubmitView(TemplateView):
+    template_name = "app/submit.html"
+
+
 class AppDownloadStatsView(LoginRequiredMixin, DetailView):
     template_name = "app/downloads.html"
     slug_field = "id"

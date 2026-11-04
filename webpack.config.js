@@ -12,6 +12,7 @@ module.exports = {
         'app/list': `${base}assets/app/app/views/List.ts`,
         'app/detail': `${base}assets/app/app/views/Detail.ts`,
         'app/register': `${base}assets/app/app/views/Register.ts`,
+        'app/submit': `${base}assets/app/app/views/Submit.ts`,
         'app/upload': `${base}assets/app/app/views/Upload.ts`,
         'app/releases': `${base}assets/app/app/views/Releases.ts`,
         'user/token': `${base}assets/app/user/views/Token.ts`
@@ -20,6 +21,8 @@ module.exports = {
         path: __dirname,
         filename: `${base}public/[name].js`
     },
+    // CSP script-src is 'self' only; webpack's default eval-* maps use eval().
+    devtool: 'source-map',
     resolve: {
         // Add '.ts' and '.tsx' as a resolvable extension.
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
