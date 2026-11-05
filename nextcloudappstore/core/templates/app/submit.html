@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static css_class %}
 
 {# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors #}
 {# SPDX-License-Identifier: AGPL-3.0-or-later #}
@@ -15,29 +15,65 @@
         <h1>{% trans 'Submit app for review' %}</h1>
         <hr>
         <p>{% blocktrans %}For more details, check out the <a href="https://nextcloudappstore.readthedocs.io/en/latest/developer.html" rel="noopener noreferrer">app developer guide</a>.{% endblocktrans %}</p>
-        <p>{% blocktrans %}Generate a private key and certificate signing request (CSR) for your app id. Store the files in <code>~/.nextcloud/certificates/</code>, keep the private key secret, and post the CSR to the <a href="https://github.com/nextcloud/app-certificate-requests" rel="noopener noreferrer">certificate repository</a>.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Provide your app id, a link to the source repository, and a certificate signing request (CSR). You can generate a private key and CSR in the browser. Store the private key in <code>~/.nextcloud/certificates/</code> or some other secure location and keep it secret.{% endblocktrans %}</p>
 
-        <div class="form-group">
-            <label class="control-label" for="app-id" title="{% trans 'required field' %}">
-                {% trans 'App ID' %}
-                <span class="required-field material-symbols-outlined">asterisk</span>
-            </label>
-            <input type="text" id="app-id" class="form-control" required
-                   pattern="[a-z_]+"
-                   autocomplete="off"
-                   placeholder="{% trans 'e.g. news' %}">
-            <p class="help-block">{% trans 'Must contain only lowercase ASCII letters and underscores.' %}</p>
-        </div>
+        <form id="app-submit-form" method="post" action="{% url 'api:v1:app-submit' %}">
+            <span data-l10n-id="msg-form-success" hidden>{% trans 'App submitted for review.' %}</span>
+            <span data-l10n-id="msg-pr-link" hidden>{% trans 'Track the pull request for progress' %}</span>
+            <span data-l10n-id="msg-invalid-csr" hidden>{% trans 'Not a certificate signing request' %}</span>
+            <span data-l10n-id="msg-invalid-url" hidden>{% trans 'Enter a valid HTTP or HTTPS URL' %}</span>
+            <span data-l10n-id="msg-empty-app-id" hidden>{% trans 'Enter an app id.' %}</span>
+            <span data-l10n-id="msg-invalid-app-id" hidden>{% trans 'App id must contain only lowercase ASCII letters and underscores.' %}</span>
+            <span data-l10n-id="msg-generate-failed" hidden>{% trans 'Could not generate key and CSR. Try again or use openssl.' %}</span>
+            <span data-l10n-id="msg-generate-success" hidden>{% trans 'Private key downloaded as APP_ID.key. CSR filled in below. Keep the key file secret.' %}</span>
+            <div><div class="alert alert-success global-success-msg" hidden></div></div>
+            <div><div class="alert alert-danger global-error-msg" hidden></div></div>
 
-        <div id="generate-error" class="alert alert-danger" hidden
-             data-msg-empty="{% trans 'Enter an app id.' %}"
-             data-msg-invalid="{% trans 'App id must contain only lowercase ASCII letters and underscores.' %}"
-             data-msg-failed="{% trans 'Could not generate key and CSR. Try again or use openssl.' %}"></div>
-        <div id="generate-success" class="alert alert-success" hidden
-             data-msg-success="{% trans 'Private key and CSR downloaded. Keep the .key file secret.' %}"></div>
+            {% csrf_token %}
 
-        <button type="button" id="generate-key-cert" class="btn btn-primary btn-block">
-            {% trans 'Generate key and CSR' %}
-        </button>
+            <div class="form-group">
+                <label title="{% trans 'required field' %}" class="control-label" for="{{ form.app_id.id_for_label }}">
+                    {{ form.app_id.label }}
+                    <span class="required-field material-symbols-outlined">asterisk</span>
+                </label>
+                {{ form.app_id|css_class:'form-control' }}
+                <div hidden>
+                    <p class="text-danger error-msg-app_id"></p>
+                </div>
+                <p class="help-block">{{ form.app_id.help_text }}</p>
+            </div>
+
+            <div class="form-group">
+                <label title="{% trans 'required field' %}" class="control-label" for="{{ form.repository.id_for_label }}">
+                    {{ form.repository.label }}
+                    <span class="required-field material-symbols-outlined">asterisk</span>
+                </label>
+                {{ form.repository|css_class:'form-control' }}
+                <div hidden>
+                    <p class="text-danger error-msg-repository"></p>
+                </div>
+                <p class="help-block">{{ form.repository.help_text }}</p>
+            </div>
+
+            <div class="form-group">
+                <label title="{% trans 'required field' %}" class="control-label" for="{{ form.csr.id_for_label }}">
+                    {{ form.csr.label }}
+                    <span class="required-field material-symbols-outlined">asterisk</span>
+                </label>
+                {{ form.csr|css_class:'form-control' }}
+                <div hidden>
+                    <p class="text-danger error-msg-csr"></p>
+                </div>
+                <p class="help-block">{{ form.csr.help_text }}</p>
+                <div id="generate-error" class="alert alert-danger" hidden></div>
+                <div id="generate-success" class="alert alert-success" hidden></div>
+                <button type="button" id="generate-key-cert" class="btn btn-default">
+                    {% trans 'Generate key and CSR' %}
+                </button>
+            </div>
+
+            <input type="submit" id="submit" class="btn btn-primary btn-block"
+                   value="{% trans 'Submit for review' %}">
+        </form>
     </div>
 {% endblock %}

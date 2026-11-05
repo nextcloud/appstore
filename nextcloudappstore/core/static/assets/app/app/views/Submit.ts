@@ -9,9 +9,26 @@ import {
     InvalidAppIdError,
 } from '../../crypto/generateAppCsr';
 import {idOrThrow, ready} from '../../dom/Facades';
+import {scanForm} from '../../forms/HtmlForm';
+import {CsrValidator} from '../../forms/validators/CsrValidator';
+import {IValidator} from '../../forms/validators/IValidator';
+import {UrlValidator} from '../../forms/validators/UrlValidator';
+import {scanTranslations, Translator} from '../../l10n/Translator';
+import {AppSubmitForm} from '../forms/AppSubmitForm';
 
 ready.then(() => {
-    const appIdInput = idOrThrow('app-id', HTMLInputElement);
+    const formElement = idOrThrow('app-submit-form', HTMLFormElement);
+    const formMeta = scanForm(formElement);
+    const validators = new Map<string, IValidator[]>();
+    validators.set('repository', [new UrlValidator()]);
+    validators.set('csr', [new CsrValidator()]);
+    const translations = scanTranslations(formElement);
+    const translator = new Translator(translations);
+    const form = new AppSubmitForm(formMeta, validators, translator);
+    form.bindListeners();
+
+    const appIdInput = idOrThrow('id_app_id', HTMLInputElement);
+    const csrInput = idOrThrow('id_csr', HTMLTextAreaElement);
     const button = idOrThrow('generate-key-cert', HTMLButtonElement);
     const errorMsg = idOrThrow('generate-error', HTMLElement);
     const successMsg = idOrThrow('generate-success', HTMLElement);
@@ -20,6 +37,7 @@ ready.then(() => {
         errorMsg.hidden = true;
         successMsg.hidden = true;
         errorMsg.textContent = '';
+        successMsg.textContent = '';
     }
 
     function showError(message: string): void {
@@ -37,28 +55,24 @@ ready.then(() => {
     button.addEventListener('click', async () => {
         hideMessages();
         const appId = appIdInput.value.trim();
+        if (!appId) {
+            showError(translator.get('msg-empty-app-id'));
+            return;
+        }
 
         button.disabled = true;
         button.classList.add('btn-loading');
         try {
             const result = await generateAppCsr(appId);
-            downloadPem(`${result.appId}.key`, result.privateKeyPem);
-            downloadPem(`${result.appId}.csr`, result.csrPem);
-            showSuccess(
-                successMsg.getAttribute('data-msg-success') ||
-                    'Private key and CSR downloaded. Keep the .key file secret.',
-            );
+            downloadPem(`${appId}.key`, result.privateKeyPem);
+            csrInput.value = result.csrPem;
+            csrInput.dispatchEvent(new Event('change', {bubbles: true}));
+            showSuccess(translator.get('msg-generate-success'));
         } catch (e) {
             if (e instanceof InvalidAppIdError) {
-                showError(
-                    errorMsg.getAttribute('data-msg-invalid') ||
-                        'App id must contain only lowercase ASCII letters and underscores.',
-                );
+                showError(translator.get('msg-invalid-app-id'));
             } else {
-                showError(
-                    errorMsg.getAttribute('data-msg-failed') ||
-                        'Could not generate key and CSR. Try again or use openssl.',
-                );
+                showError(translator.get('msg-generate-failed'));
             }
         } finally {
             button.disabled = false;

@@ -13,7 +13,7 @@ import {IValidator} from './validators/IValidator';
 
 export abstract class AjaxForm<T> {
 
-    constructor(private readonly form: HtmlForm,
+    constructor(protected readonly form: HtmlForm,
                 private readonly validators: Map<string, IValidator[]>,
                 protected readonly translator: Translator) {
     }
@@ -69,10 +69,8 @@ export abstract class AjaxForm<T> {
             this.clearMessages();
 
             this.submit(this.form)
-                .then(() => {
-                    const msg = this.translator.get('msg-form-success');
-                    this.showSuccessMessage(msg);
-                    this.form.form.reset();
+                .then((result) => {
+                    this.onSuccess(result);
                     return Promise.resolve.bind(Promise);
                 }, (error) => {
                     this.showErrorMessages(parseJSONError(error));
@@ -83,6 +81,12 @@ export abstract class AjaxForm<T> {
                 })
                 .catch(() => this.unlockFields());
         }
+    }
+
+    protected onSuccess(_result: T): void {
+        const msg = this.translator.get('msg-form-success');
+        this.showSuccessMessage(msg);
+        this.form.form.reset();
     }
 
     protected showSuccessMessage(msg?: string) {
