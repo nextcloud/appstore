@@ -95,7 +95,7 @@
             {% with latest_releases_by_platform_v|sort_by_version:'asc'|last as latest_release %}
                 <p>
                     Nextcloud {{ latest_release.0 }} <br />
-                    <a href="{% url 'app-releases' object.id %}?platform={{ latest_release.0 }}#{{ latest_release.0 }}">{% trans "Show all releases" %}</a>
+                    <a href="{% url 'app-releases' object.id %}#releases">{% trans "Show all releases" %}</a>
                 </p>
             {% endwith %}
             <h2>{% trans "Community rating" %}</h2>
@@ -250,7 +250,7 @@
                                 <td>{{ platform_v }}</td>
                                 <td>{% if releases.stable %}<a href="{{ releases.stable.download }}" rel="noopener noreferrer">{{ releases.stable.version }}</a>{% endif %}</td>
                                 <td class="nightly-channel-column">{% if releases.unstable %}<a href="{{ releases.unstable.download }}" rel="noopener noreferrer" class="unstable">{{ releases.unstable.version }}{% if releases.unstable.is_nightly %} - {% trans 'nightly' %}{% endif %} ({%  trans 'Unstable' %})</a>{% else %}-{% endif %}</td>
-                                <td><a href="{% url 'app-releases' object.id %}?platform={{ platform_v }}#{{ platform_v }}">{{ platform_v }}</a></td>
+                                <td><a href="{% url 'app-releases' object.id %}?platform={{ platform_v }}#releases">{{ platform_v }}</a></td>
                             </tr>
                         {% endif %}
                     {% endfor %}
