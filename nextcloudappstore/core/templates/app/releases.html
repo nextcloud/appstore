@@ -38,12 +38,9 @@
                 <details{% if forloop.first %} open{% endif %}>
                     <summary class="release-header">
                         <span class="glyphicon glyphicon-chevron-right release-toggle" aria-hidden="true"></span>
-                        <span class="release-version">{{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}){% elif release.is_unstable %} ({% trans 'Unstable' %}){% endif %}</span>
+                        <span class="release-version">{{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}){% endif %}</span>
                     </summary>
                     <div class="release-body">
-                        {% if release.is_unstable %}
-                            <p class="release-unstable-note">{% trans 'Unstable' %}</p>
-                        {% endif %}
                         <table class="table table-condensed">
                             <thead><tr><th>{% trans 'Release Details' %}</th><th></th></tr></thead>
                             <tr><td>{% trans 'Updated' %}</td><td>{{ release.release_date|default:release.last_modified }}</td></tr>
