@@ -16,6 +16,7 @@ from nextcloudappstore.core.versioning import (
     pad_max_inc_version,
     pad_max_version,
     pad_min_version,
+    php_version_compare,
     raw_version,
     to_raw_spec,
     to_spec,
@@ -89,3 +90,36 @@ class VersioningTest(TestCase):
         example["2.0.0"] = [1]
         result = group_by_main_version(example)
         self.assertDictEqual({"1": [2, 3], "2": [1]}, result)
+
+    def test_php_version_compare(self):
+        # Expected values are PHP's version_compare() results, the same before and after PHP 8.4.22 and 8.5.7.
+        for version1, version2, expected in (
+            ("1.0.0", "1.0.0", 0),
+            ("1.10.0", "1.9.0", 1),
+            ("1.0", "1.0.0", -1),
+            ("1.0.0-beta", "1.0.0", -1),
+            ("1.0.0-rc.1", "1.0.0-beta.2", 1),
+            ("2.0.0-beta.10", "2.0.0-beta.9", 1),
+            ("1.0.0-alpha", "1.0.0-dev", 1),
+            ("1.0.0-a", "1.0.0-alpha", 0),
+            ("1.0.0-RC1", "1.0.0-rc1", 0),
+            ("1.0.0-Beta", "1.0.0-beta", -1),
+            ("1.0.0-x", "1.0.0-dev", -1),
+            ("1.0.0pl1", "1.0.0", 1),
+            ("1.0.0-1", "1.0.0", 1),
+            ("1.0.0+build", "1.0.0", -1),
+            ("", "1", -1),
+        ):
+            with self.subTest(version1=version1, version2=version2):
+                self.assertEqual(expected, php_version_compare(version1, version2))
+                self.assertEqual(-expected, php_version_compare(version2, version1))
+
+    def test_php_version_compare_trailing_dot(self):
+        # Results of PHP 8.4.22, 8.5.7 and later. Earlier versions return -1 for each.
+        for version1, version2, expected in (
+            ("1.", "1", 0),
+            ("1.0.0-", "1.0.0", 0),
+            ("2.0.0-", "2.0.0-alpha.6", 1),
+        ):
+            with self.subTest(version1=version1, version2=version2):
+                self.assertEqual(expected, php_version_compare(version1, version2))

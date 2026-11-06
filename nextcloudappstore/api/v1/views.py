@@ -38,6 +38,7 @@ from nextcloudappstore.api.v1.serializers import (
     AppRegisterSerializer,
     AppReleaseDownloadSerializer,
     AppSerializer,
+    AppWithNewestReleasesSerializer,
     CategorySerializer,
     NextcloudReleaseSerializer,
 )
@@ -118,7 +119,7 @@ class AppsView(EnterpriseFilterMixin, ListAPIView):
         .annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True)))
         .filter(Q(num_releases__gt=0) | Q(is_integration=True))
     )
-    serializer_class = AppSerializer
+    serializer_class = AppWithNewestReleasesSerializer
 
 
 class AppApiAppsView(EnterpriseFilterMixin, ListAPIView):
