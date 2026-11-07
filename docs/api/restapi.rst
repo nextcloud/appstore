@@ -490,7 +490,7 @@ Get All Apps and Releases
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 This route will return all releases to display inside Nextcloud's apps admin area.
 
-.. note:: For each app, a release is left out when another release has the same **rawPlatformVersionSpec**, **rawPhpVersionSpec** and **isNightly**, is a pre-release (a version containing **-**) exactly when it is, and has a higher version. Nextcloud filters releases on those values and installs the highest version left, so such a release can never be picked. Releases that share those values are all kept if one of their versions ends in a character other than a letter or digit. :ref:`api-all-compatible-releases` still returns every compatible release.
+.. note:: For each app, a release is left out when another release has the same **rawPlatformVersionSpec**, **rawPhpVersionSpec** and **isNightly**, is a pre-release (a version containing **-**) exactly when it is, and has a higher version. Nextcloud filters releases on those values and installs the highest version left, so such a release can never be picked. Releases that share those values are all kept if one of their versions ends in a character other than a letter or digit. A stable release is listed before a nightly release with the same version, so a server that accepts nightlies installs the stable one. :ref:`api-all-compatible-releases` still returns every compatible release.
 
 * **Url**: GET /api/v1/apps.json
 * **Headers**:

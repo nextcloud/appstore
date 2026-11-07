@@ -3,11 +3,7 @@ SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
-from collections import defaultdict
-from functools import cmp_to_key
-
 from django.contrib.auth import get_user_model
-from django.db.models.manager import BaseManager
 from parler_rest.fields import TranslatedFieldsField
 from parler_rest.serializers import TranslatableModelSerializer
 from rest_framework import serializers
@@ -29,7 +25,6 @@ from nextcloudappstore.core.models import (
     Video,
 )
 from nextcloudappstore.core.validators import HttpsUrlValidator
-from nextcloudappstore.core.versioning import php_version_compare
 
 
 class PhpExtensionDependencySerializer(serializers.ModelSerializer):
@@ -227,50 +222,6 @@ class AppSerializer(serializers.ModelSerializer):
 
     def get_discussion(self, obj):
         return obj.discussion_url
-
-
-class NewestReleasesSerializer(serializers.ListSerializer):
-    """
-    Lists only the releases a Nextcloud server can pick. A server filters an app's releases on their raw platform and
-    PHP version specs, nightly flag and whether the version is a pre-release, then installs the highest version left
-    according to PHP's version_compare(). Of releases that agree on those four values, only the highest can be picked.
-
-    A set with a version ending in a character other than an ASCII letter or digit is kept whole: PHP before 8.4.22
-    and 8.5.7 orders such versions inconsistently, so which one a server picks depends on how it sorts.
-    """
-
-    def to_representation(self, data):
-        releases = list(data.all() if isinstance(data, BaseManager) else data)
-        groups = defaultdict(list)
-        for release in releases:
-            groups[self._group(release)].append(release)
-        selectable = set()
-        for group in groups.values():
-            if not all(self._ends_in_letter_or_digit(release.version) for release in group):
-                selectable.update(id(release) for release in group)
-                continue
-            newest = max(group, key=cmp_to_key(lambda a, b: php_version_compare(a.version, b.version)))
-            selectable.update(
-                id(release) for release in group if php_version_compare(release.version, newest.version) == 0
-            )
-        return super().to_representation([release for release in releases if id(release) in selectable])
-
-    @staticmethod
-    def _ends_in_letter_or_digit(version):
-        return version[-1:].isascii() and version[-1:].isalnum()
-
-    @staticmethod
-    def _group(release):
-        return (
-            release.raw_platform_version_spec,
-            release.raw_php_version_spec,
-            release.is_nightly,
-            "-" in release.version,
-        )
-
-
-class AppWithNewestReleasesSerializer(AppSerializer):
-    releases = NewestReleasesSerializer(child=AppReleaseSerializer(), read_only=True)
 
 
 class AppApiAppSerializer(AppSerializer):
