@@ -32,12 +32,12 @@
             <article class="release{% if release.is_unstable %} release-unstable{% endif %}">
                 <h2 class="sr-only">{{ release.version }}</h2>
                 <a href="{{ release.download }}" rel="noopener noreferrer" class="btn {% if release.is_unstable %}btn-danger{% else %}btn-primary{% endif %} release-download">
-                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                    <span class="material-symbols-outlined" aria-hidden="true">download</span>
                     {% trans 'Download' %}<span class="sr-only"> {{ release.version }}</span>
                 </a>
                 <details{% if forloop.first %} open{% endif %}>
                     <summary class="release-header">
-                        <span class="glyphicon glyphicon-chevron-right release-toggle" aria-hidden="true"></span>
+                        <span class="material-symbols-outlined release-toggle" aria-hidden="true">chevron_right</span>
                         <span class="release-version">{{ release.version }}{% if release.is_nightly %} ({% trans 'nightly' %}){% endif %}</span>
                     </summary>
                     <div class="release-body">

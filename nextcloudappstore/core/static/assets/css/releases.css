@@ -32,6 +32,7 @@
 }
 
 .release {
+    --release-header-height: 40px;
     display: flow-root;
     margin-bottom: 12px;
     border: 1px solid var(--color-border-dark);
@@ -43,16 +44,19 @@
     background-color: #fff8f7;
 }
 
+/* A block summary extends beneath the floated download button, so its hover background spans the whole row. */
 .release-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 10px;
-    min-height: 42px;
-    padding: 8px 12px 8px 14px;
+    display: block;
+    padding: 0 12px 0 14px;
+    line-height: var(--release-header-height);
     list-style: none;
     cursor: pointer;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-big);
+}
+
+.release [open] > .release-header {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .release-header::-webkit-details-marker {
@@ -64,7 +68,12 @@
 }
 
 .release-toggle {
-    font-size: 11px;
+    width: auto;
+    height: auto;
+    margin-right: 4px;
+    font-size: 20px;
+    line-height: inherit;
+    vertical-align: top;
     color: var(--color-text-maxcontrast);
     transition: transform 0.2s ease;
 }
@@ -77,13 +86,14 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1.2;
+    vertical-align: 1px;
 }
 
 .release .release-download {
     float: right;
-    min-height: 28px;
-    margin: 7px 10px 7px 8px;
-    padding: 2px 10px;
+    min-height: calc(var(--release-header-height) - 12px);
+    margin: 6px;
+    padding: 0 10px;
     font-size: 13px;
 }
 
@@ -140,7 +150,9 @@
     }
 }
 
-.release-download .glyphicon {
+.release-download .material-symbols-outlined {
+    width: auto;
+    height: auto;
     margin-right: 4px;
-    font-size: 12px;
+    font-size: 16px;
 }
