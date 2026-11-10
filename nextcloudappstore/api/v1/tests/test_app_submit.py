@@ -5,8 +5,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 from unittest.mock import patch
 
-from django.urls import reverse
 from django.test import override_settings
+from django.urls import reverse
 
 from nextcloudappstore.api.v1.tests.api import ApiTest
 from nextcloudappstore.core.github import AppCertificateExistsError
@@ -14,11 +14,7 @@ from nextcloudappstore.core.github import AppCertificateExistsError
 
 class AppSubmitTest(ApiTest):
     create_url = reverse("api:v1:app-submit")
-    _csr = (
-        "-----BEGIN CERTIFICATE REQUEST-----\n"
-        "MIIB\n"
-        "-----END CERTIFICATE REQUEST-----"
-    )
+    _csr = "-----BEGIN CERTIFICATE REQUEST-----\n" "MIIB\n" "-----END CERTIFICATE REQUEST-----"
     _payload = {
         "app_id": "news",
         "repository": "https://github.com/example/news",

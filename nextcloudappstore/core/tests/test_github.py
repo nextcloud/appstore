@@ -218,9 +218,7 @@ class CreateCertificateRequestPrTest(TestCase):
             )
 
         branch = client.create_branch.call_args.args[2]
-        client.delete_branch.assert_called_once_with(
-            "nextcloud", "app-certificate-requests", branch
-        )
+        client.delete_branch.assert_called_once_with("nextcloud", "app-certificate-requests", branch)
 
     def test_rejects_existing_csr_or_crt(self):
         client = MagicMock(spec=GitHubClient)
