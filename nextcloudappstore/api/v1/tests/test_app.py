@@ -3,12 +3,18 @@ SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+from unittest import skipUnless
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
+from django.db import connection, connections, transaction
+from django.db.models.signals import post_init
+from django.test import TransactionTestCase
 from django.urls import reverse
+from rest_framework.test import APIClient
 
 from nextcloudappstore.api.v1.tests.api import ApiTest
+from nextcloudappstore.api.v1.views import selectable_release_ids
 from nextcloudappstore.core.models import App, AppRelease
 
 
@@ -154,6 +160,81 @@ class AppTest(ApiTest):
         versions = {release["version"] for release in response.data[0]["releases"]}
         self.assertEqual({"2.0.0-alpha.5", "2.0.0-alpha.6", "2.0.0-"}, versions)
 
+    def test_apps_keeps_the_newest_release_of_each_app(self):
+        news = App.objects.create(pk="news", owner=self.user)
+        mail = App.objects.create(pk="mail", owner=self.user)
+        self._create_releases(news, (("1.0.0", ">=26.0.0", "*", False), ("2.0.0", ">=26.0.0", "*", False)))
+        self._create_releases(mail, (("1.5.0", ">=26.0.0", "*", False), ("1.6.0", ">=26.0.0", "*", False)))
+        response = self.api_client.get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        releases = {app["id"]: [release["version"] for release in app["releases"]] for app in response.data}
+        self.assertEqual({"news": ["2.0.0"], "mail": ["1.6.0"]}, releases)
+
+    def test_apps_keeps_a_nightly_lower_than_the_stable_release(self):
+        app = App.objects.create(pk="news", owner=self.user)
+        self._create_releases(app, (("2.0.0", ">=26.0.0", "*", False), ("1.9.0", ">=26.0.0", "*", True)))
+        response = self.api_client.get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        releases = {(release["version"], release["is_nightly"]) for release in response.data[0]["releases"]}
+        self.assertEqual({("2.0.0", False), ("1.9.0", True)}, releases)
+
+    def test_apps_leaves_out_exapp_releases(self):
+        app = App.objects.create(pk="news", owner=self.user)
+        self._create_releases(app, (("1.0.0", ">=26.0.0", "*", False),))
+        AppRelease.objects.create(
+            app=app,
+            version="2.0.0",
+            platform_version_spec=">=26.0.0",
+            raw_platform_version_spec=">=26.0.0",
+            php_version_spec="*",
+            raw_php_version_spec="*",
+            aa_is_system=False,
+        )
+        response = self.api_client.get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(["1.0.0"], [release["version"] for release in response.data[0]["releases"]])
+
+    def test_apps_loads_only_the_releases_it_lists(self):
+        app = App.objects.create(pk="news", owner=self.user)
+        self._create_releases(
+            app,
+            (("1.8.0", ">=26.0.0", "*", False), ("1.9.0", ">=26.0.0", "*", False), ("1.10.0", ">=26.0.0", "*", False)),
+        )
+        loaded = []
+
+        def record(sender, instance, **kwargs):
+            loaded.append(instance.version)
+
+        post_init.connect(record, sender=AppRelease)
+        self.addCleanup(post_init.disconnect, record, sender=AppRelease)
+        response = self.api_client.get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(["1.10.0"], loaded)
+
+    def test_apps_lists_a_stable_release_before_a_nightly_of_the_same_version(self):
+        # Created in both orders, so the result cannot come from the order of the rows.
+        news = App.objects.create(pk="news", owner=self.user)
+        mail = App.objects.create(pk="mail", owner=self.user)
+        self._create_releases(news, (("1.0.0", ">=26.0.0", "*", True), ("1.0.0", ">=26.0.0", "*", False)))
+        self._create_releases(mail, (("1.0.0", ">=26.0.0", "*", False), ("1.0.0", ">=26.0.0", "*", True)))
+        response = self.api_client.get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        releases = {
+            app["id"]: [(release["version"], release["is_nightly"]) for release in app["releases"]]
+            for app in response.data
+        }
+        self.assertEqual(
+            {"news": [("1.0.0", False), ("1.0.0", True)], "mail": [("1.0.0", False), ("1.0.0", True)]}, releases
+        )
+
+    def test_apps_picks_the_releases_once_per_request(self):
+        app = App.objects.create(pk="news", owner=self.user)
+        self._create_releases(app, (("1.0.0", ">=26.0.0", "*", False),))
+        with patch("nextcloudappstore.api.v1.views.selectable_release_ids", wraps=selectable_release_ids) as selectable:
+            response = self.api_client.get(reverse("api:v1:apps"), HTTP_ACCEPT="text/html")
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(1, selectable.call_count)
+
     def test_platform_lists_every_compatible_release(self):
         app = App.objects.create(pk="news", owner=self.user)
         self._create_releases(app, (("1.9.0", ">=9.1.1", "*", False), ("1.10.0", ">=9.1.1", "*", False)))
@@ -244,3 +325,53 @@ class AppTest(ApiTest):
 
     def tearDown(self):
         self.user.delete()
+
+
+@skipUnless(connection.vendor == "postgresql", "SQLite reads a whole transaction from one snapshot")
+class AppsSnapshotTest(TransactionTestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(username="test", password="test", email="test@test.com")
+        self.app = App.objects.create(pk="news", owner=self.user)
+        self.other_connection = connections.create_connection("default")
+        self.addCleanup(self.other_connection.close)
+
+    def test_apps_keeps_a_release_deleted_while_it_builds(self):
+        for version in ("1.9.0", "1.10.0"):
+            AppRelease.objects.create(
+                app=self.app,
+                version=version,
+                platform_version_spec=">=26.0.0",
+                raw_platform_version_spec=">=26.0.0",
+                php_version_spec="*",
+                raw_php_version_spec="*",
+            )
+
+        def ids_then_delete_newest():
+            ids = selectable_release_ids()
+            with self.other_connection.cursor() as cursor:
+                cursor.execute("DELETE FROM core_apprelease WHERE version = %s", ["1.10.0"])
+            return ids
+
+        with patch("nextcloudappstore.api.v1.views.selectable_release_ids", ids_then_delete_newest):
+            response = APIClient().get(reverse("api:v1:apps"))
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(["1.10.0"], [release["version"] for release in response.data[0]["releases"]])
+
+    def test_apps_works_inside_a_transaction_without_autocommit(self):
+        AppRelease.objects.create(
+            app=self.app,
+            version="1.0.0",
+            platform_version_spec=">=26.0.0",
+            raw_platform_version_spec=">=26.0.0",
+            php_version_spec="*",
+            raw_php_version_spec="*",
+        )
+        transaction.set_autocommit(False)
+        try:
+            App.objects.count()
+            response = APIClient().get(reverse("api:v1:apps"))
+        finally:
+            transaction.rollback()
+            transaction.set_autocommit(True)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(["1.0.0"], [release["version"] for release in response.data[0]["releases"]])
