@@ -7,9 +7,7 @@
 {% block head-title %}{% trans 'Releases' %} - {{ object.name }} - {% trans 'Apps' %} - {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'assets/css/releases.css' %}" charset="utf-8">
-    <script defer src="{% static 'public/app/releases.js' %}" type="text/javascript"></script>
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'assets/css/releases.css' %}" charset="utf-8">{% endblock %}
 
 {% block apps %}
     <h1>{{ object.name }} - {% trans 'Releases' %}</h1>
@@ -23,6 +21,7 @@
                         <option value="{{ platform_v }}"{% if platform_v == selected_platform %} selected{% endif %}>Nextcloud {{ platform_v }}</option>
                     {% endfor %}
                 </select>
+                <button type="submit" class="btn btn-primary">{% trans 'Change' %}</button>
             </form>
         {% endif %}
     </div>
