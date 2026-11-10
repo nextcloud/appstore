@@ -7,6 +7,7 @@ import json
 from typing import Any
 from unittest.mock import MagicMock
 
+import requests
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
@@ -197,6 +198,29 @@ class CreateCertificateRequestPrTest(TestCase):
         self.assertFalse("/" in branch)
         self.assertEqual("news/news.csr", client.create_file.call_args.args[2])
         client.create_branch.assert_called_once()
+        client.delete_branch.assert_not_called()
+
+    def test_deletes_branch_when_pr_fails(self):
+        client = MagicMock(spec=GitHubClient)
+        client.get_repository.return_value = {"default_branch": "master"}
+        client.get_ref_sha.return_value = "abc123"
+        client.get_content_sha.return_value = None
+        client.create_pull_request.side_effect = requests.HTTPError("boom")
+
+        with self.assertRaises(requests.HTTPError):
+            create_app_certificate_request_pr(
+                client,
+                "nextcloud/app-certificate-requests",
+                "news",
+                "-----BEGIN CERTIFICATE REQUEST-----\nX\n-----END CERTIFICATE REQUEST-----",
+                "https://github.com/example/news",
+                "alice",
+            )
+
+        branch = client.create_branch.call_args.args[2]
+        client.delete_branch.assert_called_once_with(
+            "nextcloud", "app-certificate-requests", branch
+        )
 
     def test_rejects_existing_csr_or_crt(self):
         client = MagicMock(spec=GitHubClient)

@@ -74,6 +74,9 @@ class GitHubClient:
             json={"ref": f"refs/heads/{branch}", "sha": sha},
         )
 
+    def delete_branch(self, owner: str, repo: str, branch: str) -> None:
+        self._request("DELETE", f"/repos/{owner}/{repo}/git/refs/heads/{quote(branch)}")
+
     def get_content_sha(self, owner: str, repo: str, path: str, ref: str) -> str | None:
         """Return the blob SHA for a path on ``ref``, or None if missing."""
         encoded_path = quote(path)
@@ -157,28 +160,36 @@ def create_app_certificate_request_pr(
     branch = f"appstore-{app_id}-{int(time.time())}"
     client.create_branch(owner, repo, branch, base_sha)
 
-    client.create_file(
-        owner,
-        repo,
-        csr_path,
-        csr if csr.endswith("\n") else csr + "\n",
-        f"Add certificate request for {app_id}",
-        branch,
-    )
+    try:
+        client.create_file(
+            owner,
+            repo,
+            csr_path,
+            csr if csr.endswith("\n") else csr + "\n",
+            f"Add certificate request for {app_id}",
+            branch,
+        )
 
-    body = (
-        "### Checklist\n\n"
-        f"- Please include a link to your app repository: {repository_url}\n\n"
-        f"Submitted via the Nextcloud App Store by {submitter}."
-    )
-    pull = client.create_pull_request(
-        owner,
-        repo,
-        title=f"Add certificate request for {app_id}",
-        body=body,
-        head=branch,
-        base=base_branch,
-    )
+        body = (
+            "### Checklist\n\n"
+            f"- Please include a link to your app repository: {repository_url}\n\n"
+            f"Submitted via the Nextcloud App Store by {submitter}."
+        )
+        pull = client.create_pull_request(
+            owner,
+            repo,
+            title=f"Add certificate request for {app_id}",
+            body=body,
+            head=branch,
+            base=base_branch,
+        )
+    except Exception:
+        try:
+            client.delete_branch(owner, repo, branch)
+        except requests.RequestException:
+            pass
+        raise
+
     return pull["html_url"]
 
 
