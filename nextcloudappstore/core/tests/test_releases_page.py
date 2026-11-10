@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+import re
+
 from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.test import TestCase
@@ -60,5 +62,10 @@ class ReleasesPageTest(TestCase):
         response = self._get(platform="31")
         for version in ("1.0.0", "0.9.0", "1.1.0-beta.1"):
             self.assertContains(response, f'href="https://example.com/news-{version}.tar.gz"', count=1)
-        self.assertContains(response, "btn-danger release-download", count=1)
-        self.assertContains(response, "btn-primary release-download", count=2)
+        download_classes = [
+            set(classes.split())
+            for classes in re.findall(r'class="([^"]*\brelease-download\b[^"]*)"', response.content.decode())
+        ]
+        self.assertEqual(3, len(download_classes))
+        self.assertEqual(1, sum("btn-danger" in classes for classes in download_classes))
+        self.assertEqual(2, sum("btn-primary" in classes for classes in download_classes))
