@@ -1,0 +1,164 @@
+/**
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+.release-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    margin: 10px 0 20px;
+}
+
+.release-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.release-filter label {
+    margin: 0;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.release-filter select {
+    width: auto;
+    height: 30px;
+    padding: 2px 8px;
+    font-size: 14px;
+}
+
+.release-filter .btn {
+    min-height: 30px;
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.release {
+    --release-header-height: 40px;
+    display: flow-root;
+    margin-bottom: 12px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-big);
+}
+
+.release-unstable {
+    border-color: var(--color-error-light);
+    background-color: var(--color-error-lighter);
+}
+
+/* A block summary extends beneath the floated download button, so its hover background spans the whole row. */
+.release-header {
+    display: block;
+    padding: 0 12px 0 14px;
+    line-height: var(--release-header-height);
+    list-style: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-big);
+}
+
+.release [open] > .release-header {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.release-header::-webkit-details-marker {
+    display: none;
+}
+
+.release-header:hover {
+    background-color: var(--color-background-hover);
+}
+
+.release-toggle {
+    width: auto;
+    height: auto;
+    margin-right: 4px;
+    font-size: 20px;
+    line-height: inherit;
+    vertical-align: top;
+    color: var(--color-text-maxcontrast);
+    transition: transform 0.2s ease;
+}
+
+.release [open] .release-toggle {
+    transform: rotate(90deg);
+}
+
+.release-version {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    vertical-align: 1px;
+}
+
+.release .release-download {
+    float: right;
+    min-height: calc(var(--release-header-height) - 12px);
+    margin: 6px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.release-body {
+    clear: both;
+    padding: 0 14px 12px;
+    font-size: 14px;
+}
+
+.release-signature summary {
+    display: list-item;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-text-maxcontrast);
+    cursor: pointer;
+}
+
+.release-body .certificate {
+    font-size: 11px;
+}
+
+@media (max-width: 991px) {
+    .release-body table,
+    .release-body tbody,
+    .release-body tr,
+    .release-body td {
+        display: block;
+        width: 100%;
+    }
+
+    .release-body thead {
+        display: none;
+    }
+
+    .release-body .table {
+        margin-bottom: 0;
+    }
+
+    .release-body .table > tbody > tr > td {
+        padding: 0;
+        border: 0;
+    }
+
+    .release-body .table > tbody > tr > td:first-child {
+        font-weight: 600;
+    }
+
+    .release-body .table > tbody > tr > td + td {
+        margin-bottom: 8px;
+    }
+
+    .release-body .release-changelog > td:first-child {
+        display: none;
+    }
+}
+
+.release-download .material-symbols-outlined {
+    width: auto;
+    height: auto;
+    margin-right: 4px;
+    font-size: 16px;
+}

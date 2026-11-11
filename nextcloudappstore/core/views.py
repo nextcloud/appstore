@@ -196,21 +196,27 @@ class AppReleasesView(DetailView):
 
         releases = self.object.releases_by_platform_v()
         unstables = self.object.unstable_releases_by_platform_v()
-        versions = set(list(releases.keys()) + list(unstables.keys()))
-        all_releases = list(map(lambda v: (v, releases.get(v, []) + unstables.get(v, [])), versions))
-        context["releases_by_platform_v"] = self._sort_by_platform_v(all_releases)
+        platform_versions = self._sort_by_platform_v(
+            v for v in set(releases) | set(unstables) if releases.get(v) or unstables.get(v)
+        )
+
+        selected_platform = self.request.GET.get("platform")
+        if selected_platform not in platform_versions:
+            selected_platform = next(iter(platform_versions), None)
+        context["platform_versions"] = platform_versions
+        context["selected_platform"] = selected_platform
+        context["releases"] = releases.get(selected_platform, []) + unstables.get(selected_platform, [])
         return context
 
-    def _sort_by_platform_v(self, releases_by_platform, reverse=True):
-        """Sorts a list of tuples like (<platform version>, [releases]) by
-        platform version.
+    def _sort_by_platform_v(self, platform_versions, reverse=True):
+        """Sorts platform versions.
 
-        :param releases_by_platform: A list of tuples.
+        :param platform_versions: An iterable of platform versions.
         :param reverse: Descending order if True, ascending otherwise.
-        :return sorted list of tuples.
+        :return sorted list of platform versions.
         """
 
-        return sorted(releases_by_platform, reverse=reverse, key=lambda v: Version(pad_min_version(v[0])))
+        return sorted(platform_versions, reverse=reverse, key=lambda v: Version(pad_min_version(v)))
 
 
 class CategoryAppListView(ListView):
