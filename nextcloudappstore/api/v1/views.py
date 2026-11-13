@@ -6,12 +6,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 import json
 import os
 from collections import defaultdict
+from contextlib import contextmanager
 from functools import cmp_to_key
 
 import requests
 from django.conf import settings
 from django.db import connection, transaction
-from django.db.models import Count, Prefetch, Q
+from django.db.models import Count, Prefetch, Q, QuerySet
 from django.http import FileResponse, Http404
 from django.utils.decorators import method_decorator
 from django.utils.functional import cached_property
@@ -50,10 +51,18 @@ from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.github import GitHubClient, get_download_counts
 from nextcloudappstore.core.models import (
     App,
+    AppAuthor,
     AppRating,
     AppRelease,
+    AppReleaseTranslation,
+    AppTranslation,
     Category,
+    DatabaseDependency,
+    License,
     NextcloudRelease,
+    PhpExtensionDependency,
+    Screenshot,
+    Video,
 )
 from nextcloudappstore.core.permissions import UpdateDeletePermission
 from nextcloudappstore.core.throttling import PostThrottle
@@ -120,6 +129,50 @@ def selectable_release_ids() -> list[int]:
     return ids
 
 
+def apps_json_queryset(release_ids: list[int]) -> QuerySet:
+    """
+    The apps apps.json lists, with the given releases. Apps and everything listed inside them come in a fixed order, so
+    the same data always gives the same list. A stable and a nightly release can share a version. A server that accepts
+    nightlies installs the first one listed, so the stable one comes first.
+    """
+    releases = AppRelease.objects.filter(id__in=release_ids).order_by("-version", "is_nightly")
+    return (
+        App.objects.annotate(num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True)))
+        .filter(Q(num_releases__gt=0) | Q(is_integration=True))
+        .order_by("id")
+        .prefetch_related(
+            Prefetch("authors", queryset=AppAuthor.objects.order_by("id")),
+            Prefetch("screenshots", queryset=Screenshot.objects.order_by("ordering", "id")),
+            Prefetch("videos", queryset=Video.objects.order_by("ordering", "id")),
+            "categories",
+            Prefetch("translations", queryset=AppTranslation.objects.order_by("language_code")),
+            Prefetch("releases", queryset=releases),
+            Prefetch("releases__translations", queryset=AppReleaseTranslation.objects.order_by("language_code")),
+            Prefetch("releases__phpextensiondependencies", queryset=PhpExtensionDependency.objects.order_by("id")),
+            "releases__phpextensiondependencies__php_extension",
+            Prefetch("releases__databasedependencies", queryset=DatabaseDependency.objects.order_by("id")),
+            "releases__databasedependencies__database",
+            "releases__shell_commands",
+            Prefetch("releases__licenses", queryset=License.objects.order_by("id")),
+        )
+    )
+
+
+@contextmanager
+def apps_json_snapshot():
+    """
+    A transaction that reads the release ids and the releases loaded for them from one snapshot, or a release replaced
+    in between is missing. PostgreSQL's default isolation gives each query its own snapshot. The isolation level can
+    only be set before a transaction's first query, so inside an existing transaction it stays as it is.
+    """
+    snapshot = connection.vendor == "postgresql" and connection.get_autocommit()
+    with transaction.atomic():
+        if snapshot:
+            with connection.cursor() as cursor:
+                cursor.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY")
+        yield
+
+
 class EnterpriseFilterMixin:
     """Filter out enterprise-only apps unless a valid subscription key is provided."""
 
@@ -143,21 +196,11 @@ class NextcloudReleaseView(ListAPIView):
 
 
 @method_decorator(gzip_page, name="dispatch")
-class AppsView(EnterpriseFilterMixin, ListAPIView):
-    queryset = App.objects.annotate(
-        num_releases=Count("releases", filter=Q(releases__aa_is_system__isnull=True))
-    ).filter(Q(num_releases__gt=0) | Q(is_integration=True))
+class AppsView(ListAPIView):
     serializer_class = AppSerializer
 
     def list(self, request, *args, **kwargs):
-        # The release ids and the releases loaded for them must come from one snapshot, or a release replaced in
-        # between is missing. PostgreSQL's default isolation gives each query its own snapshot. The isolation level
-        # can only be set before a transaction's first query, so inside an existing transaction it stays as it is.
-        snapshot = connection.vendor == "postgresql" and connection.get_autocommit()
-        with transaction.atomic():
-            if snapshot:
-                with connection.cursor() as cursor:
-                    cursor.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY")
+        with apps_json_snapshot():
             return super().list(request, *args, **kwargs)
 
     @cached_property
@@ -165,14 +208,7 @@ class AppsView(EnterpriseFilterMixin, ListAPIView):
         return selectable_release_ids()
 
     def get_queryset(self):
-        # A stable and a nightly release can share a version. A server that accepts nightlies installs the first one
-        # listed, so the stable one comes first.
-        releases = AppRelease.objects.filter(id__in=self.release_ids).order_by("-version", "is_nightly")
-        return (
-            super()
-            .get_queryset()
-            .prefetch_related(*BASIC_PREFETCH_LIST, Prefetch("releases", queryset=releases), *RELEASES_PREFETCH_LIST)
-        )
+        return filter_enterprise(apps_json_queryset(self.release_ids), self.request)
 
 
 class AppApiAppsView(EnterpriseFilterMixin, ListAPIView):
