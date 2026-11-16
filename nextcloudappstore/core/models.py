@@ -455,6 +455,13 @@ class AppRating(TranslatableModel):
         )
     )
     appeal = BooleanField(default=False, verbose_name=_("Appeal"))
+    reply = TextField(
+        verbose_name=_("Reply"),
+        default="",
+        blank=True,
+        help_text=_("Reply from the app owner in Markdown. One reply per rating; editing replaces it."),
+    )
+    replied_at = DateTimeField(verbose_name=_("Replied at"), null=True, blank=True)
 
     class Meta:
         unique_together = (("app", "user"),)
