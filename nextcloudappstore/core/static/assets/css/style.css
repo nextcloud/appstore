@@ -1025,6 +1025,49 @@ address {
     margin-right: 0;
 }
 
+.rating-comment .comment-actions {
+    flex-wrap: wrap;
+}
+
+.rating-comment .comment-reply {
+    margin: 15px 25px 0;
+    padding: 10px 15px;
+    border-left: 3px solid var(--color-primary);
+    background-color: var(--color-main-background);
+    border-radius: var(--border-radius);
+}
+
+.rating-comment:has(> .comment-reply:last-child) {
+    padding-bottom: 25px;
+}
+
+.rating-comment .comment-reply__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.rating-comment .comment-reply__label {
+    font-weight: bold;
+}
+
+.rating-comment .comment-reply-form {
+    flex-basis: 100%;
+    margin-top: 15px;
+}
+
+.rating-comment .comment-reply-form__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.rating-comment .comment-reply-form__buttons button {
+    margin: 0;
+}
+
 @media (max-width: 500px) {
     .rating-comment header {
         display: flex;

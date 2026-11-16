@@ -16,6 +16,7 @@ class AppRatingSerializer(serializers.ModelSerializer):
     user = UserSerializer(many=False, read_only=True)
     translations = TranslatedFieldsField(shared_model=AppRating)
     relative_rated_at = SerializerMethodField()
+    relative_replied_at = SerializerMethodField()
 
     class Meta:
         model = AppRating
@@ -29,7 +30,13 @@ class AppRatingSerializer(serializers.ModelSerializer):
             "app",
             "relative_rated_at",
             "appeal",
+            "reply",
+            "replied_at",
+            "relative_replied_at",
         )
 
     def get_relative_rated_at(self, obj):
         return naturaltime(obj.rated_at)
+
+    def get_relative_replied_at(self, obj):
+        return naturaltime(obj.replied_at) if obj.replied_at else ""
