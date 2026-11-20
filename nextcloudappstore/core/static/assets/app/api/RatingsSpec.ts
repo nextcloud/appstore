@@ -136,4 +136,54 @@ describe('Ratings and comments', () => {
         expect(result.rating.name).toBe('bad');
     });
 
+    it('convert ratings with an owner reply', () => {
+        const data = {
+            appeal: false,
+            id: 66,
+            ratedAt: '2017-03-22T16:54:32.168975Z',
+            rating: 0.0,
+            relativeRatedAt: '',
+            relativeRepliedAt: '2 days ago',
+            reply: 'Fixed in 2.1, thanks!',
+            translations: {
+                de: {
+                    comment: 'blah',
+                },
+            },
+            user: {
+                firstName: 'Tom',
+                lastName: 'Jones',
+            },
+        };
+
+        const result = convertRating(data, 'de');
+
+        expect(result.reply).toBe('Fixed in 2.1, thanks!');
+        expect(result.relativeRepliedAt).toBe('2 days ago');
+    });
+
+    it('convert ratings without a reply', () => {
+        const data = {
+            appeal: false,
+            id: 66,
+            ratedAt: '2017-03-22T16:54:32.168975Z',
+            rating: 1.0,
+            relativeRatedAt: '',
+            translations: {
+                de: {
+                    comment: 'blah',
+                },
+            },
+            user: {
+                firstName: 'Tom',
+                lastName: 'Jones',
+            },
+        };
+
+        const result = convertRating(data, 'de');
+
+        expect(result.reply).toBe('');
+        expect(result.relativeRepliedAt).toBe('');
+    });
+
 });
