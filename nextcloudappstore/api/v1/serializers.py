@@ -253,3 +253,9 @@ class AppRegisterSerializer(serializers.Serializer):
     certificate = serializers.CharField()
     signature = serializers.CharField()
     is_enterprise_only = serializers.BooleanField(required=False, default=False)
+
+
+class AppSubmitSerializer(serializers.Serializer):
+    app_id = serializers.RegexField(regex=r"^[a-z_]+$")
+    repository = serializers.URLField()
+    csr = serializers.CharField()

@@ -3,9 +3,13 @@ SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
 SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
+import base64
 import re
+import time
 from collections.abc import Iterable
 from itertools import chain, takewhile
+from typing import Any
+from urllib.parse import quote
 
 import requests
 from semantic_version import Version
@@ -27,26 +31,166 @@ class GitHubClient:
         self.api_token = api_token
         self.headers = {"Authorization": f"token {self.api_token}"} if self.api_token else None
 
-    def get_tags(self, page: int, size: int = 100):
-        url = f"{self.base_url}/repos/nextcloud/server/tags"
-        params = (("per_page", size), ("page", page))
-        response = requests.get(url, params=params, headers=self.headers, timeout=21)
+    def _request(self, method: str, path: str, **kwargs: Any) -> requests.Response:
+        url = f"{self.base_url}{path}"
+        response = requests.request(method, url, headers=self.headers, timeout=21, **kwargs)
         response.raise_for_status()
-        return response.json()
+        return response
+
+    def get_tags(self, page: int, size: int = 100):
+        return self._request(
+            "GET",
+            "/repos/nextcloud/server/tags",
+            params=(("per_page", size), ("page", page)),
+        ).json()
 
     def get_releases(self, owner: str, repo: str) -> list:
-        url = f"{self.base_url}/repos/{owner}/{repo}/releases"
         releases = []
         page = 1
         while True:
-            response = requests.get(url, params={"per_page": 100, "page": page}, headers=self.headers, timeout=21)
-            response.raise_for_status()
-            page_data = response.json()
+            page_data = self._request(
+                "GET",
+                f"/repos/{owner}/{repo}/releases",
+                params={"per_page": 100, "page": page},
+            ).json()
             if not page_data:
                 break
             releases.extend(page_data)
             page += 1
         return releases
+
+    def get_repository(self, owner: str, repo: str) -> dict:
+        return self._request("GET", f"/repos/{owner}/{repo}").json()
+
+    def get_ref_sha(self, owner: str, repo: str, ref: str) -> str:
+        """Return the commit SHA for a git ref such as ``heads/master``."""
+        data = self._request("GET", f"/repos/{owner}/{repo}/git/ref/{ref}").json()
+        return data["object"]["sha"]
+
+    def create_branch(self, owner: str, repo: str, branch: str, sha: str) -> None:
+        self._request(
+            "POST",
+            f"/repos/{owner}/{repo}/git/refs",
+            json={"ref": f"refs/heads/{branch}", "sha": sha},
+        )
+
+    def delete_branch(self, owner: str, repo: str, branch: str) -> None:
+        self._request("DELETE", f"/repos/{owner}/{repo}/git/refs/heads/{quote(branch)}")
+
+    def get_content_sha(self, owner: str, repo: str, path: str, ref: str) -> str | None:
+        """Return the blob SHA for a path on ``ref``, or None if missing."""
+        encoded_path = quote(path)
+        url = f"{self.base_url}/repos/{owner}/{repo}/contents/{encoded_path}"
+        response = requests.get(url, params={"ref": ref}, headers=self.headers, timeout=21)
+        if response.status_code == 404:
+            return None
+        response.raise_for_status()
+        return response.json()["sha"]
+
+    def create_file(
+        self,
+        owner: str,
+        repo: str,
+        path: str,
+        content: str,
+        message: str,
+        branch: str,
+    ) -> None:
+        encoded_path = quote(path)
+        self._request(
+            "PUT",
+            f"/repos/{owner}/{repo}/contents/{encoded_path}",
+            json={
+                "message": message,
+                "content": base64.b64encode(content.encode()).decode(),
+                "branch": branch,
+            },
+        )
+
+    def create_pull_request(
+        self,
+        owner: str,
+        repo: str,
+        title: str,
+        body: str,
+        head: str,
+        base: str,
+    ) -> dict:
+        return self._request(
+            "POST",
+            f"/repos/{owner}/{repo}/pulls",
+            json={"title": title, "body": body, "head": head, "base": base},
+        ).json()
+
+
+class AppCertificateExistsError(Exception):
+    """Raised when the certificate-requests repo already has this app id."""
+
+
+def create_app_certificate_request_pr(
+    client: GitHubClient,
+    certificate_repo: str,
+    app_id: str,
+    csr: str,
+    repository_url: str,
+    submitter: str,
+) -> str:
+    """
+    Open a PR on the certificate-requests repo adding ``APP_ID/APP_ID.csr``.
+
+    Raises ``AppCertificateExistsError`` if ``APP_ID.csr`` or
+    ``APP_ID.crt`` already exists on the default branch.
+
+    Returns the pull request HTML URL.
+    """
+    owner, repo = certificate_repo.split("/", 1)
+    repository = client.get_repository(owner, repo)
+    base_branch = repository["default_branch"]
+    base_ref = f"refs/heads/{base_branch}"
+    csr_path = f"{app_id}/{app_id}.csr"
+    crt_path = f"{app_id}/{app_id}.crt"
+    if client.get_content_sha(owner, repo, csr_path, base_ref) or client.get_content_sha(
+        owner, repo, crt_path, base_ref
+    ):
+        raise AppCertificateExistsError(app_id)
+
+    base_sha = client.get_ref_sha(owner, repo, f"heads/{base_branch}")
+
+    # Avoid slashes in branch names; they complicate refs and the Contents API.
+    branch = f"appstore-{app_id}-{int(time.time())}"
+    client.create_branch(owner, repo, branch, base_sha)
+
+    try:
+        client.create_file(
+            owner,
+            repo,
+            csr_path,
+            csr if csr.endswith("\n") else csr + "\n",
+            f"Add certificate request for {app_id}",
+            branch,
+        )
+
+        body = (
+            "### Checklist\n\n"
+            f"- Please include a link to your app repository: {repository_url}\n\n"
+            f"Submitted via the Nextcloud App Store by {submitter}."
+        )
+        pull = client.create_pull_request(
+            owner,
+            repo,
+            title=f"Add certificate request for {app_id}",
+            body=body,
+            head=branch,
+            base=base_branch,
+        )
+    except Exception:
+        try:
+            client.delete_branch(owner, repo, branch)
+        except requests.RequestException:
+            pass
+        raise
+
+    return pull["html_url"]
 
 
 def sync_releases(versions: Iterable[str]) -> None:

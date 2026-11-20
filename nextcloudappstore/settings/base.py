@@ -384,8 +384,11 @@ APP_SCAFFOLDING_PROFILES = {}
 APP_SCAFFOLDING_LOG = None
 
 # GitHub api configuration
+# GITHUB_API_TOKEN needs Contents (read/write) and Pull requests (read/write)
+# on GITHUB_APP_CERTIFICATE_REPO to open certificate-request PRs.
 GITHUB_API_BASE_URL = "https://api.github.com"
 GITHUB_API_TOKEN = None
+GITHUB_APP_CERTIFICATE_REPO = "nextcloud/app-certificate-requests"
 
 # Nextcloud Email
 NEXTCLOUD_FROM_EMAIL = "appstore@nextcloud.com"

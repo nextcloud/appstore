@@ -22,7 +22,7 @@ from requests import HTTPError
 from rest_framework import authentication, parsers, renderers  # type: ignore
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.exceptions import APIException, PermissionDenied, ValidationError
 from rest_framework.generics import (  # type: ignore
     DestroyAPIView,
     GenericAPIView,
@@ -41,13 +41,19 @@ from nextcloudappstore.api.v1.serializers import (
     AppRegisterSerializer,
     AppReleaseDownloadSerializer,
     AppSerializer,
+    AppSubmitSerializer,
     CategorySerializer,
     NextcloudReleaseSerializer,
 )
 from nextcloudappstore.certificate.validator import CertificateValidator
 from nextcloudappstore.core.enterprise import enterprise_enabled, filter_enterprise
 from nextcloudappstore.core.facades import read_file_contents
-from nextcloudappstore.core.github import GitHubClient, get_download_counts
+from nextcloudappstore.core.github import (
+    AppCertificateExistsError,
+    GitHubClient,
+    create_app_certificate_request_pr,
+    get_download_counts,
+)
 from nextcloudappstore.core.models import (
     App,
     AppRating,
@@ -228,6 +234,44 @@ class AppView(DestroyAPIView):
     permission_classes = (UpdateDeletePermission,)
     serializer_class = AppSerializer
     queryset = App.objects.all()
+
+
+class AppSubmitView(APIView):
+    """Submit an app CSR by opening a PR on the certificate-requests repo."""
+
+    authentication_classes = (
+        authentication.TokenAuthentication,
+        authentication.BasicAuthentication,
+    )
+    permission_classes = (IsAuthenticated,)
+    throttle_classes = (PostThrottle,)
+    throttle_scope = "app_register"
+
+    def post(self, request):
+        serializer = AppSubmitSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        if not settings.GITHUB_API_TOKEN:
+            raise ValidationError("Certificate request submission is not configured")
+
+        app_id = serializer.validated_data["app_id"]
+        repository = serializer.validated_data["repository"]
+        csr = serializer.validated_data["csr"].strip()
+        client = GitHubClient(settings.GITHUB_API_BASE_URL, settings.GITHUB_API_TOKEN)
+        try:
+            pr_url = create_app_certificate_request_pr(
+                client,
+                settings.GITHUB_APP_CERTIFICATE_REPO,
+                app_id,
+                csr,
+                repository,
+                request.user.get_username(),
+            )
+        except AppCertificateExistsError as exc:
+            raise ValidationError("An app with this id already has a certificate") from exc
+        except requests.RequestException as exc:
+            raise APIException("Could not create certificate request pull request") from exc
+
+        return Response({"pull_request_url": pr_url}, status=201)
 
 
 class AppRegisterView(APIView):
