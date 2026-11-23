@@ -22,6 +22,8 @@ export interface IRating {
         value: number;
     };
     appeal: boolean;
+    reply: string;
+    relativeRepliedAt: string;
 }
 
 interface IApiRating {
@@ -39,6 +41,8 @@ interface IApiRating {
         lastName: string;
     };
     appeal: boolean;
+    reply?: string;
+    relativeRepliedAt?: string;
 }
 
 export function filterEmptyComments(ratings: IApiRating[],
@@ -91,6 +95,8 @@ export function convertRating(rating: IApiRating, lang: string): IRating {
             value: rating.rating,
         },
         relativeRatedAt: rating.relativeRatedAt,
+        relativeRepliedAt: rating.relativeRepliedAt || '',
+        reply: rating.reply || '',
     };
 }
 
@@ -143,6 +149,24 @@ export function deleteRating(url: string, token: string, rating: IRating, admin 
         data: {
             comment_id: rating.id,
             decision: +!admin,
+        },
+        method: HttpMethod.POST,
+        url,
+    }, token);
+}
+
+/**
+ * Saves the app owner's reply to a rating; an empty reply removes it
+ * @param url
+ * @param token
+ * @param rating
+ * @param reply
+ */
+export function replyToRating(url: string, token: string, rating: IRating, reply: string) {
+    return pageRequest({
+        data: {
+            comment_id: rating.id,
+            reply,
         },
         method: HttpMethod.POST,
         url,

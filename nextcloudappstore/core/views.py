@@ -13,6 +13,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
+from django.utils import timezone
 from django.utils.functional import cached_property
 from django.utils.translation import get_language, get_language_info
 from django.views.decorators.http import etag
@@ -40,6 +41,8 @@ from nextcloudappstore.core.models import (
 )
 from nextcloudappstore.core.serializers import AppRatingSerializer
 from nextcloudappstore.core.versioning import pad_min_version
+
+REPLY_MAX_LENGTH = 2000
 
 
 @etag(app_etag)
@@ -92,7 +95,10 @@ class AppDetailView(DetailView):
 
     def post(self, request, id):
         post_data = json.loads(request.body) if request.content_type == "application/json" else request.POST
-        if request.user.is_authenticated and ("decision" in post_data or "appeal" in post_data):
+        if "reply" in post_data:
+            if request.user.is_authenticated and "comment_id" in post_data:
+                self._save_reply(request.user, id, post_data["comment_id"], post_data["reply"])
+        elif request.user.is_authenticated and ("decision" in post_data or "appeal" in post_data):
             app_rating, created = AppRating.objects.get_or_create(id=post_data["comment_id"], app=id)
             if not created:
                 # ignore request that comes for non-existing comments
@@ -113,6 +119,27 @@ class AppDetailView(DetailView):
             if form.is_valid() and request.user.is_authenticated:
                 form.save()
         return redirect("app-detail", id=id)
+
+    @staticmethod
+    def _save_reply(user, app_id, comment_id, reply) -> None:
+        """
+        Sets, replaces or (with an empty text) removes the app owner's reply
+        to a rating. Only the owner of the rated app may reply.
+        """
+        rating = AppRating.objects.filter(id=comment_id, app__id=app_id).select_related("app").first()
+        if rating is None or rating.app.owner != user:
+            return
+        text = str(reply).strip()
+        if len(text) > REPLY_MAX_LENGTH:
+            return
+        now = timezone.now()
+        # update() skips AppRating.save(), so the app score is not recomputed;
+        # last_modified is bumped by hand to invalidate the ratings ETag
+        AppRating.objects.filter(pk=rating.pk).update(
+            reply=text,
+            replied_at=now if text else None,
+            last_modified=now,
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

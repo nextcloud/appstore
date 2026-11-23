@@ -278,6 +278,13 @@
                         <div class="date"></div>
                     </header>
                     <div class="comment"></div>
+                    <div class="comment-reply">
+                        <div class="comment-reply__header">
+                            <span class="comment-reply__label">{% with owner_name=object.owner.get_full_name %}{% if owner_name %}{% blocktrans %}Reply from {{ owner_name }} (app owner){% endblocktrans %}{% else %}{% trans 'Reply from the app owner' %}{% endif %}{% endwith %}</span>
+                            <span class="comment-reply__date"></span>
+                        </div>
+                        <div class="comment-reply__text"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -311,6 +318,24 @@
                     <span class="icon material-symbols-outlined">delete_history</span>
                     {% trans 'Cancel spam appeal' %}
                 </button>
+            {% endif %}
+            {% if request.user == object.owner %}
+                <button class="btn btn-default comment-actions-button comment-actions__reply">
+                    <span class="icon material-symbols-outlined">reply</span>
+                    <span class="comment-actions__reply-label" data-add-label="{% trans 'Reply' %}" data-edit-label="{% trans 'Edit reply' %}">{% trans 'Reply' %}</span>
+                </button>
+                <form class="comment-reply-form" hidden>
+                    <textarea class="form-control comment-reply-form__text" rows="4" maxlength="2000"
+                              aria-label="{% trans 'Your reply' %}"
+                              placeholder="{% trans 'Reply to this comment, for example to say that a reported issue is fixed. Markdown is supported. You can reply once and edit your reply later.' %}"></textarea>
+                    <div class="comment-reply-form__buttons">
+                        <button type="submit" class="btn btn-primary comment-reply-form__save">{% trans 'Save reply' %}</button>
+                        <button type="button" class="btn btn-default comment-reply-form__cancel">{% trans 'Cancel' %}</button>
+                    </div>
+                    <div class="comment-reply-form__buttons comment-reply-form__delete-row">
+                        <button type="button" class="btn btn-danger comment-reply-form__delete">{% trans 'Delete reply' %}</button>
+                    </div>
+                </form>
             {% endif %}
         </div>
     </template>
