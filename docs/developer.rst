@@ -140,6 +140,16 @@ If you've lost or leaked your private certificate you want to revoke and update 
 
 After you've obtained a new certificate, simply use it to register your app id again (only owners are allowed to do this). This will delete all previous releases from our server since their signature has become invalid.
 
+.. _app-renew-cert:
+
+Renewing an Expiring Certificate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+App certificates expire. Once yours has expired, the App Store rejects new release uploads for your app, so renew it before it runs out.
+
+A renewal signs your existing certificate request (**APP_ID.csr**) again. The renewed certificate has a new serial number and new validity dates, but it contains the same public key, so you keep using your existing private key (**APP_ID.key**) and do not need a new certificate request. Contact us in `our certificate repository <https://github.com/nextcloud/app-certificate-requests>`_ before your certificate expires. Once you have the renewed certificate, register your app again with it and a signature over your app id, as described in :ref:`registering an app <app-register>`.
+
+Because the public key stays the same, the signatures of your existing releases remain valid and **your releases are kept**. Releases are only deleted when you register a certificate with a different public key, for example after :ref:`revoking a lost or leaked certificate <app-revoke-cert>`.
+
 Transferring Your App to a New Owner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

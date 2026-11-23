@@ -25,6 +25,23 @@ from rest_framework.exceptions import ValidationError
 logger = logging.getLogger(__name__)
 
 
+def has_same_public_key(first: str, second: str) -> bool:
+    """
+    Whether two PEM certificates contain the same public key. Returns False
+    if either one cannot be parsed.
+    """
+    try:
+        keys = [
+            crypto_x509.load_pem_x509_certificate(cert.replace("\r", "").strip().encode())
+            .public_key()
+            .public_bytes(serialization.Encoding.DER, serialization.PublicFormat.SubjectPublicKeyInfo)
+            for cert in (first, second)
+        ]
+    except ValueError:
+        return False
+    return keys[0] == keys[1]
+
+
 class CertificateConfiguration:
     def __init__(self) -> None:
         self.digest = settings.CERTIFICATE_DIGEST
