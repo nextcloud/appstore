@@ -18,6 +18,8 @@ describe('generateAppCsr', () => {
         expect(isValidAppId('News')).toBe(false);
         expect(isValidAppId('news-app')).toBe(false);
         expect(isValidAppId('')).toBe(false);
+        expect(isValidAppId('a'.repeat(32))).toBe(true);
+        expect(isValidAppId('a'.repeat(33))).toBe(false);
     });
 
     it('rejects invalid app ids', async () => {

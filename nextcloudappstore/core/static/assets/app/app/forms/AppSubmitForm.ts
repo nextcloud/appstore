@@ -10,11 +10,11 @@ import {IValidator} from '../../forms/validators/IValidator';
 import {Translator} from '../../l10n/Translator';
 import {Maybe} from '../../Utils';
 
-export interface AppSubmitResponse {
+export interface IAppSubmitResponse {
     pullRequestUrl: string;
 }
 
-export class AppSubmitForm extends AjaxForm<AppSubmitResponse> {
+export class AppSubmitForm extends AjaxForm<IAppSubmitResponse> {
     private readonly url: string;
 
     constructor(form: HtmlForm,
@@ -24,7 +24,7 @@ export class AppSubmitForm extends AjaxForm<AppSubmitResponse> {
         this.url = form.form.action;
     }
 
-    protected submit(form: HtmlForm): Promise<AppSubmitResponse> {
+    protected submit(form: HtmlForm): Promise<IAppSubmitResponse> {
         const values = form.fields;
         const appId = new Maybe<FormField>(values.get('app_id'));
         const repository = new Maybe<FormField>(values.get('repository'));
@@ -43,7 +43,7 @@ export class AppSubmitForm extends AjaxForm<AppSubmitResponse> {
         return apiRequest(data, this.findCsrfToken());
     }
 
-    protected onSuccess(result: AppSubmitResponse): void {
+    protected onSuccess(result: IAppSubmitResponse): void {
         const message = this.translator.get('msg-form-success');
         const linkText = this.translator.get('msg-pr-link');
         const el = this.form.globalSuccessMessage;

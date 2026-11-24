@@ -5,7 +5,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 import base64
 import re
-import time
 from collections.abc import Iterable
 from itertools import chain, takewhile
 from typing import Any
@@ -67,6 +66,15 @@ class GitHubClient:
         data = self._request("GET", f"/repos/{owner}/{repo}/git/ref/{ref}").json()
         return data["object"]["sha"]
 
+    def branch_exists(self, owner: str, repo: str, branch: str) -> bool:
+        """Return whether ``refs/heads/{branch}`` exists."""
+        url = f"{self.base_url}/repos/{owner}/{repo}/git/ref/heads/{quote(branch)}"
+        response = requests.get(url, headers=self.headers, timeout=21)
+        if response.status_code == 404:
+            return False
+        response.raise_for_status()
+        return True
+
     def create_branch(self, owner: str, repo: str, branch: str, sha: str) -> None:
         self._request(
             "POST",
@@ -95,16 +103,23 @@ class GitHubClient:
         content: str,
         message: str,
         branch: str,
+        author: dict[str, str] | None = None,
+        committer: dict[str, str] | None = None,
     ) -> None:
         encoded_path = quote(path)
+        payload: dict[str, Any] = {
+            "message": message,
+            "content": base64.b64encode(content.encode()).decode(),
+            "branch": branch,
+        }
+        if author is not None:
+            payload["author"] = author
+        if committer is not None:
+            payload["committer"] = committer
         self._request(
             "PUT",
             f"/repos/{owner}/{repo}/contents/{encoded_path}",
-            json={
-                "message": message,
-                "content": base64.b64encode(content.encode()).decode(),
-                "branch": branch,
-            },
+            json=payload,
         )
 
     def create_pull_request(
@@ -127,6 +142,20 @@ class AppCertificateExistsError(Exception):
     """Raised when the certificate-requests repo already has this app id."""
 
 
+def unique_certificate_request_branch(client: GitHubClient, owner: str, repo: str, app_id: str) -> str:
+    """
+    Return ``appstore-{app_id}``, or ``appstore-{app_id}-N`` if that name is taken.
+    """
+    # Avoid slashes in branch names; they complicate refs and the Contents API.
+    base = f"appstore-{app_id}"
+    if not client.branch_exists(owner, repo, base):
+        return base
+    n = 1
+    while client.branch_exists(owner, repo, f"{base}-{n}"):
+        n += 1
+    return f"{base}-{n}"
+
+
 def create_app_certificate_request_pr(
     client: GitHubClient,
     certificate_repo: str,
@@ -134,12 +163,16 @@ def create_app_certificate_request_pr(
     csr: str,
     repository_url: str,
     submitter: str,
+    dco_email: str,
 ) -> str:
     """
     Open a PR on the certificate-requests repo adding ``APP_ID/APP_ID.csr``.
 
     Raises ``AppCertificateExistsError`` if ``APP_ID.csr`` or
     ``APP_ID.crt`` already exists on the default branch.
+
+    The commit is authored as Nextcloud App Store with ``dco_email`` and
+    includes a matching ``Signed-off-by`` trailer for DCO.
 
     Returns the pull request HTML URL.
     """
@@ -155,10 +188,12 @@ def create_app_certificate_request_pr(
         raise AppCertificateExistsError(app_id)
 
     base_sha = client.get_ref_sha(owner, repo, f"heads/{base_branch}")
-
-    # Avoid slashes in branch names; they complicate refs and the Contents API.
-    branch = f"appstore-{app_id}-{int(time.time())}"
+    branch = unique_certificate_request_branch(client, owner, repo, app_id)
     client.create_branch(owner, repo, branch, base_sha)
+
+    dco_name = "Nextcloud App Store"
+    dco_author = {"name": dco_name, "email": dco_email}
+    commit_message = f"Add certificate request for {app_id}\n\nSigned-off-by: {dco_name} <{dco_email}>"
 
     try:
         client.create_file(
@@ -166,8 +201,10 @@ def create_app_certificate_request_pr(
             repo,
             csr_path,
             csr if csr.endswith("\n") else csr + "\n",
-            f"Add certificate request for {app_id}",
+            commit_message,
             branch,
+            author=dco_author,
+            committer=dco_author,
         )
 
         body = (

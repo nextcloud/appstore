@@ -251,11 +251,14 @@ class AppSubmitView(APIView):
         serializer = AppSubmitSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         if not settings.GITHUB_API_TOKEN:
-            raise ValidationError("Certificate request submission is not configured")
+            raise APIException("Certificate request submission is not configured.")
 
         app_id = serializer.validated_data["app_id"]
+        if App.objects.filter(pk=app_id).exists():
+            raise ValidationError({"app_id": "An app with this ID is already registered."})
+
         repository = serializer.validated_data["repository"]
-        csr = serializer.validated_data["csr"].strip()
+        csr = serializer.validated_data["csr"]
         client = GitHubClient(settings.GITHUB_API_BASE_URL, settings.GITHUB_API_TOKEN)
         try:
             pr_url = create_app_certificate_request_pr(
@@ -265,11 +268,12 @@ class AppSubmitView(APIView):
                 csr,
                 repository,
                 request.user.get_username(),
+                settings.GITHUB_DCO_EMAIL,
             )
         except AppCertificateExistsError as exc:
-            raise ValidationError("An app with this id already has a certificate") from exc
+            raise ValidationError("An app with this ID already has a certificate.") from exc
         except requests.RequestException as exc:
-            raise APIException("Could not create certificate request pull request") from exc
+            raise APIException("Could not create certificate request pull request.") from exc
 
         return Response({"pull_request_url": pr_url}, status=201)
 

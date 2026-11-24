@@ -386,7 +386,9 @@ APP_SCAFFOLDING_LOG = None
 # GitHub api configuration
 # GITHUB_API_TOKEN needs Contents (read/write) and Pull requests (read/write)
 # on GITHUB_APP_CERTIFICATE_REPO to open certificate-request PRs.
+# GITHUB_DCO_EMAIL is the author/committer email (and Signed-off-by) on those commits.
 GITHUB_API_BASE_URL = "https://api.github.com"
+GITHUB_DCO_EMAIL = "dco@nextcloud.com"
 GITHUB_API_TOKEN = None
 GITHUB_APP_CERTIFICATE_REPO = "nextcloud/app-certificate-requests"
 

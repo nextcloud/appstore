@@ -42,16 +42,17 @@ class AppReleaseUploadForm(Form):
 class AppSubmitForm(Form):
     app_id = CharField(
         label=_("App ID"),
-        max_length=256,
+        max_length=32,
         widget=TextInput(
             attrs={
                 "required": "required",
-                "pattern": "[a-z_]+",
+                "pattern": "[a-z_]{1,32}",
+                "maxlength": "32",
                 "autocomplete": "off",
                 "placeholder": _("e.g. news"),
             }
         ),
-        help_text=_("Must contain only lowercase ASCII letters and underscores."),
+        help_text=_("Must contain only lowercase ASCII letters and underscores (max 32 characters)."),
     )
     repository = URLField(
         label=_("Repository URL"),

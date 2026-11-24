@@ -10,6 +10,7 @@ import {
 } from '../../crypto/generateAppCsr';
 import {idOrThrow, ready} from '../../dom/Facades';
 import {scanForm} from '../../forms/HtmlForm';
+import {AppIdValidator} from '../../forms/validators/AppIdValidator';
 import {CsrValidator} from '../../forms/validators/CsrValidator';
 import {IValidator} from '../../forms/validators/IValidator';
 import {UrlValidator} from '../../forms/validators/UrlValidator';
@@ -20,6 +21,7 @@ ready.then(() => {
     const formElement = idOrThrow('app-submit-form', HTMLFormElement);
     const formMeta = scanForm(formElement);
     const validators = new Map<string, IValidator[]>();
+    validators.set('app_id', [new AppIdValidator()]);
     validators.set('repository', [new UrlValidator()]);
     validators.set('csr', [new CsrValidator()]);
     const translations = scanTranslations(formElement);

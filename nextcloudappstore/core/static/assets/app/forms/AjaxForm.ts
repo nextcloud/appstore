@@ -83,6 +83,7 @@ export abstract class AjaxForm<T> {
         }
     }
 
+    // tslint:disable-next-line:variable-name
     protected onSuccess(_result: T): void {
         const msg = this.translator.get('msg-form-success');
         this.showSuccessMessage(msg);

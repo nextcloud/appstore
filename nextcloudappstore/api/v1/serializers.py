@@ -256,6 +256,23 @@ class AppRegisterSerializer(serializers.Serializer):
 
 
 class AppSubmitSerializer(serializers.Serializer):
-    app_id = serializers.RegexField(regex=r"^[a-z_]+$")
+    app_id = serializers.RegexField(regex=r"^[a-z_]+$", max_length=32)
     repository = serializers.URLField()
     csr = serializers.CharField()
+
+    def validate(self, attrs):
+        from nextcloudappstore.certificate.validator import (
+            CertificateValidator,
+            InvalidCertificateException,
+        )
+
+        app_id = attrs["app_id"]
+        csr = attrs["csr"].strip()
+        attrs["csr"] = csr
+        try:
+            cn = CertificateValidator.get_csr_cn(csr)
+        except InvalidCertificateException:
+            raise serializers.ValidationError({"csr": "Not a certificate signing request."})
+        if cn != app_id:
+            raise serializers.ValidationError({"csr": "CSR common name does not match app ID."})
+        return attrs
