@@ -372,32 +372,23 @@ class AppImporter(Importer):
         if len(releases) == 0:
             return True
 
-        # if the app has no stable releases update everything
-        has_stable_release = False
-        for release in releases:
-            if "-" not in release.version and not release.is_nightly:
-                has_stable_release = True
-                break
-
-        if not has_stable_release:
-            return True
-
         current_version = value["release"]["version"]
-
-        # we do not care about nightlies here so it's fine to just use a
-        # normal semver
-        uploaded_version = Version(current_version)
-        is_prerelease = "-" in current_version
         is_nightly = value["release"]["is_nightly"]
-        is_stable = not is_prerelease and not is_nightly
+        is_stable = "-" not in current_version and not is_nightly
 
-        # let's go out quickly
-        if not is_stable:
-            return False
+        def is_newest(compared: list[AppRelease]) -> bool:
+            uploaded_version = Version(current_version)
+            return all_match(lambda release: uploaded_version >= Version(release.version), compared)
 
-        def is_newer_version(release: Any) -> bool:
-            return uploaded_version >= Version(release.version)
+        # the app page shows the newest stable release; prereleases and
+        # nightlies never replace it, and are not compared against
+        stable_releases = [r for r in releases if "-" not in r.version and not r.is_nightly]
+        if stable_releases:
+            return is_stable and is_newest(stable_releases)
 
-        # the main page should only be updated when newest stable release is uploaded
-        is_latest_version = all_match(is_newer_version, releases)
-        return is_latest_version
+        # without a stable release the newest prerelease is shown, and a
+        # nightly only while there is no other release
+        other_releases = [r for r in releases if not r.is_nightly]
+        if is_nightly:
+            return not other_releases
+        return is_newest(other_releases)

@@ -182,6 +182,36 @@ class ImporterTest(TestCase):
         app = App.objects.get(pk=self._pk)
         self.assertEqual("https://website.com", app.website)
 
+    def _import_release(self, version, website, is_nightly=False):
+        result = parse_app_metadata(self.min, self.config.info_schema, self.config.pre_info_xslt, self.config.info_xslt)
+        result["app"]["release"]["version"] = version
+        result["app"]["release"]["is_nightly"] = is_nightly
+        result["app"]["website"] = website
+        self.importer.import_data("app", result["app"], None)
+        return App.objects.get(pk=self._pk).website
+
+    def test_release_update_ignores_newer_nightly(self):
+        self._import_release("1.0.0", "https://stable.com")
+        self._import_release("1.1.0", "https://nightly.com", is_nightly=True)
+        self.assertEqual("https://maintenance.com", self._import_release("1.0.1", "https://maintenance.com"))
+
+    def test_release_update_ignores_newer_prerelease(self):
+        self._import_release("1.0.0", "https://stable.com")
+        self._import_release("2.0.0-beta.1", "https://beta.com")
+        self.assertEqual("https://maintenance.com", self._import_release("1.0.1", "https://maintenance.com"))
+
+    def test_release_no_update_older_prerelease_without_stable(self):
+        self._import_release("2.0.0-beta.1", "https://new-beta.com")
+        self.assertEqual("https://new-beta.com", self._import_release("1.0.0-beta.1", "https://old-beta.com"))
+
+    def test_release_update_newer_prerelease_without_stable(self):
+        self._import_release("1.0.0-beta.1", "https://beta1.com")
+        self.assertEqual("https://beta2.com", self._import_release("1.0.0-beta.2", "https://beta2.com"))
+
+    def test_release_no_update_nightly_after_prerelease(self):
+        self._import_release("1.0.0-beta.1", "https://beta.com")
+        self.assertEqual("https://beta.com", self._import_release("1.1.0", "https://nightly.com", is_nightly=True))
+
     def _check_removed_translations(self):
         # check if translations are removed
         self.app.set_current_language("de")
