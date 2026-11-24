@@ -50,7 +50,6 @@ class CachingTest(TestCase):
         etag = app_ratings_etag(Request("https://"))
         self.assertEqual(str(rating.last_modified), etag)
 
-
     def test_app_etag_differs_per_language(self):
         user = User.objects.create(username="hi")
         App.objects.create(id="test", owner=user)
