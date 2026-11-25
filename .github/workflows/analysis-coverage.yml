@@ -84,12 +84,13 @@ jobs:
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x8" make test venv_bin=""
           make coverage venv_bin=""
+          mv coverage.xml coverage-${{ matrix.db-type }}.xml
 
       - name: Upload Codecov to artifacts
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: coverage_${{ matrix.db-type }}.xml
-          path: coverage.xml
+          path: coverage-${{ matrix.db-type }}.xml
           if-no-files-found: error
 
   upload-codecov:
