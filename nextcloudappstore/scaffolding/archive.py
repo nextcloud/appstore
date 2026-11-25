@@ -63,6 +63,9 @@ def build_files(args: dict[str, str]) -> dict[str, str]:
         return result
 
     for root, dirs, files in walk(base):
+        # The template is a git submodule; its git metadata must not end up in the app
+        dirs[:] = [d for d in dirs if d != ".git"]
+        files = [f for f in files if f != ".git"]
         for file in files:
             # Exclude lockfiles which are no longer valid after editing the content
             if basename(file) == "composer.lock" or basename(file) == "package-lock.json":

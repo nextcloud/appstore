@@ -31,6 +31,7 @@ class ArchiveTest(TestCase):
         self.assertEqual(expected, info)
         self.assertNotIn("package-lock.json", result)
         self.assertNotIn("composer.lock", result)
+        self.assertFalse(any(path == "theapp/.git" or path.startswith("theapp/.git/") for path in result))
 
     def test_build_archive(self):
         result = build_archive(self.args)
