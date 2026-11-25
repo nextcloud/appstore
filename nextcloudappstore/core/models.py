@@ -41,6 +41,7 @@ from parler.models import (  # type: ignore
 )
 from semantic_version import SimpleSpec, Version
 
+from nextcloudappstore.certificate.validator import has_same_public_key
 from nextcloudappstore.core.facades import distinct
 from nextcloudappstore.core.rating import compute_rating
 from nextcloudappstore.core.versioning import (
@@ -427,7 +428,9 @@ class App(TranslatableModel):
             return None
 
     def save(self, *args, **kwargs):
-        # If the certificate has changed, delete all releases.
+        # If the certificate's public key has changed, delete all releases:
+        # their signatures can no longer be verified. A renewed certificate
+        # with the same key keeps them.
         try:
             if self.pk is not None:
                 orig = App.objects.get(pk=self.pk)
@@ -436,7 +439,7 @@ class App(TranslatableModel):
                 # for some reason the django admin inserts \r\n for \n so
                 # saving a model in the admin with the same cert kills all
                 # releases
-                if current != former:
+                if current != former and not has_same_public_key(former, current):
                     self.releases.all().delete()
         except self.DoesNotExist:
             pass

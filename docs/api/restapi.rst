@@ -751,7 +751,7 @@ Before you can upload release you first need to register its app id. To do that 
   * **HTTP 401**: If the user is not authenticated
   * **HTTP 403**: If the user is not authorized to update the app signature (only owners are allowed to do so)
 
-You can also use this route to register a new certificate for an app if you are the app owner. However keep in mind that this will delete all previous app releases, since their signatures are now invalid and not installable anymore.
+You can also use this route to register a new certificate for an app if you are the app owner. If the new certificate contains a different public key, this will delete all previous app releases, since their signatures are now invalid and not installable anymore. A renewed certificate with the same public key keeps all releases (see :ref:`app-renew-cert`).
 
 Find out more how to generate and request the certificate signature by following the :ref:`developer-guide`.
 
