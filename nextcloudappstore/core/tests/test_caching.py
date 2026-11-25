@@ -10,8 +10,10 @@ from urllib.request import Request
 from django.contrib.auth.models import User
 from django.test import RequestFactory, TestCase
 from django.utils import timezone
+from django.utils.translation import override
 
 from nextcloudappstore.core.caching import (
+    app_etag,
     app_ratings_etag,
     apps_all_etag,
     apps_all_last_modified,
@@ -47,6 +49,16 @@ class CachingTest(TestCase):
 
         etag = app_ratings_etag(Request("https://"))
         self.assertEqual(str(rating.last_modified), etag)
+
+    def test_app_etag_differs_per_language(self):
+        user = User.objects.create(username="hi")
+        App.objects.create(id="test", owner=user)
+
+        with override("en"):
+            en = app_etag(Request("https://"), "test")
+        with override("de"):
+            de = app_etag(Request("https://"), "test")
+        self.assertNotEqual(en, de)
 
 
 class AppsCachingTestBase(TestCase):

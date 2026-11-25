@@ -9,6 +9,7 @@ from typing import Any
 
 from django.conf import settings  # type: ignore
 from django.db.models import Max, QuerySet
+from django.utils.translation import get_language
 from semantic_version import Version
 
 from nextcloudappstore.core.enterprise import filter_enterprise
@@ -77,7 +78,8 @@ def apps_all_last_modified(request: Any) -> datetime.datetime | None:
 
 
 def app_etag(request: Any, id: str) -> str:
-    return str(App.objects.get(id=id).last_modified)
+    # The description is served in the active language, so the etag has to differ per language
+    return f"{App.objects.get(id=id).last_modified}-{get_language()}"
 
 
 def app_rating_etag(request: Any, id: str) -> str:
