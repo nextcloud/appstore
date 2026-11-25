@@ -4,6 +4,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 """
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.forms import (
     BooleanField,
     CharField,
@@ -15,7 +16,15 @@ from django.forms import (
 )
 from django.utils.translation import get_language_info
 from django.utils.translation import gettext_lazy as _  # type: ignore
+from pymple import Container
 
+from nextcloudappstore.certificate.validator import (
+    CertificateAppIdMismatchException,
+    CertificateValidator,
+    InvalidCertificateException,
+    has_same_public_key,
+)
+from nextcloudappstore.core.facades import read_file_contents
 from nextcloudappstore.core.models import App, AppRating
 
 RATING_CHOICES = ((0.0, _("Bad")), (0.5, _("OK")), (1.0, _("Good")))
@@ -104,3 +113,34 @@ class AppRatingForm(Form):
         app_rating.set_current_language(self.cleaned_data["language_code"])
         app_rating.comment = self.cleaned_data["comment"]
         app_rating.save()
+
+
+class CertificateRenewalForm(Form):
+    certificate = CharField(
+        widget=Textarea(attrs={"rows": 24, "class": "certificate-input", "spellcheck": "false"}),
+        label=_("Renewed certificate"),
+    )
+
+    def __init__(self, *args, app: App, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.app = app
+
+    def clean_certificate(self) -> str:
+        certificate = self.cleaned_data["certificate"].replace("\r", "").strip()
+        validator = Container().resolve(CertificateValidator)
+        try:
+            if settings.VALIDATE_CERTIFICATES:
+                chain = read_file_contents(settings.NEXTCLOUD_CERTIFICATE_LOCATION)
+                crl = read_file_contents(settings.NEXTCLOUD_CRL_LOCATION)
+                validator.validate_certificate(certificate, chain, crl)
+            validator.validate_app_id(certificate, self.app.id)
+        except (InvalidCertificateException, CertificateAppIdMismatchException) as e:
+            raise ValidationError(e.detail)
+        if not has_same_public_key(self.app.certificate, certificate):
+            raise ValidationError(
+                _(
+                    "The certificate contains a different public key. A renewal keeps the key; "
+                    "a new key has to be registered by the app owner."
+                )
+            )
+        return certificate

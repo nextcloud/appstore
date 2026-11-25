@@ -105,3 +105,45 @@ input.default[type="submit"]:hover {
 .submit-row input:hover {
     background-color: #1EC900;
 }
+
+.certificate-expiry-warning {
+    color: #c00;
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .certificate-expiry-warning {
+        color: #ff6b6b;
+    }
+}
+
+html[data-theme="dark"] .certificate-expiry-warning {
+    color: #ff6b6b;
+}
+
+a.button.certificate-renew-button,
+a.button.certificate-renew-button:link,
+a.button.certificate-renew-button:visited {
+    display: inline-block;
+    margin-left: 16px;
+    padding: 6px 14px;
+    background: #00679e;
+    color: #fff;
+}
+
+a.button.certificate-renew-button:hover,
+a.button.certificate-renew-button:focus {
+    background: #00507a;
+    color: #fff;
+}
+
+textarea.certificate-input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 720px;
+    font-family: monospace;
+}
+
+code.certificate-fingerprint {
+    word-break: break-all;
+}

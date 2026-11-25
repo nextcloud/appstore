@@ -1,0 +1,66 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors #}
+{# SPDX-License-Identifier: AGPL-3.0-or-later #}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+    &rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+    &rsaquo; <a href="{% url opts|admin_urlname:'change' original.pk %}">{{ original.id }}</a>
+    &rsaquo; {% trans 'Renew certificate' %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <fieldset class="module aligned">
+        <h2>{% trans 'Current certificate' %}</h2>
+        {% if current %}
+            <div class="form-row">
+                <div class="flex-container">
+                    <label>{% trans 'Expires' %}:</label>
+                    <div class="readonly">{{ expiry }}</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="flex-container">
+                    <label>{% trans 'Serial number' %}:</label>
+                    <div class="readonly"><code>{{ current.serial }}</code></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="flex-container">
+                    <label>{% trans 'Key fingerprint' %}:</label>
+                    <div class="readonly"><code class="certificate-fingerprint">{{ current.key_fingerprint }}</code></div>
+                </div>
+                <div class="help">{% trans 'SHA-256 of the public key. A renewed certificate keeps this fingerprint.' %}</div>
+            </div>
+        {% else %}
+            <div class="form-row">
+                <p>{% trans 'The current certificate cannot be read, so it cannot be renewed here.' %}</p>
+            </div>
+        {% endif %}
+    </fieldset>
+
+    {% if current %}
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="module">
+            <h2>{% trans 'Renewed certificate' %}</h2>
+            <div class="form-row">
+                <p class="help">{% blocktrans %}Paste the renewed public certificate (APP_ID.crt). It must be signed by Nextcloud, be issued for this app and contain the same key. All releases are kept.{% endblocktrans %}</p>
+                <p class="help">{% blocktrans %}A certificate with a different key is refused here. A new key has to be registered by the app owner, which deletes all releases.{% endblocktrans %}</p>
+                {{ form.certificate.errors }}
+                {{ form.certificate }}
+            </div>
+        </fieldset>
+        <div class="submit-row">
+            <input type="submit" class="default" value="{% trans 'Renew certificate' %}">
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

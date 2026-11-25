@@ -42,6 +42,22 @@ def has_same_public_key(first: str, second: str) -> bool:
     return keys[0] == keys[1]
 
 
+def certificate_info(certificate: str) -> dict:
+    """
+    Expiry date, serial number and SHA-256 fingerprint of the public key of a
+    PEM certificate, for display. Raises ValueError if it cannot be parsed.
+    """
+    cert = crypto_x509.load_pem_x509_certificate(certificate.replace("\r", "").strip().encode())
+    key = cert.public_key().public_bytes(serialization.Encoding.DER, serialization.PublicFormat.SubjectPublicKeyInfo)
+    digest = hashes.Hash(hashes.SHA256())
+    digest.update(key)
+    return {
+        "expires": cert.not_valid_after_utc,
+        "serial": format(cert.serial_number, "X"),
+        "key_fingerprint": digest.finalize().hex(":"),
+    }
+
+
 class CertificateConfiguration:
     def __init__(self) -> None:
         self.digest = settings.CERTIFICATE_DIGEST
