@@ -290,6 +290,23 @@ To automate syncing you might want to add the command as a cronjob and schedule 
 
     poetry run ./manage.py syncnextcloudreleases --oldest-supported="12.0.0"
 
+.. _prod_install_apps_json:
+
+Serving the App List from Files
+-------------------------------
+
+Nextcloud servers download :ref:`the list of all apps <api-all-releases>` often, and building it takes seconds. To keep that work away from the web server, build the list in the background and let the web server send it as a file::
+
+    python manage.py buildappsjson --community=/var/www/production-domain.com/api/v1/apps.json
+
+The command writes the list without enterprise-only apps to ``--community`` and the list with them to ``--enterprise``, each with a gzipped copy next to it. Both lists are built from one snapshot of the database, and either option can be left out. A list that has not changed is not rewritten, so its ETag stays the same, and a file or gzipped copy that does not hold the list is. Each file is replaced in one step, so the web server never sends a partly written one. The two lists get file times of different parity, so a web server that derives the ETag from the file time and size, as nginx does, never gives both lists the same ETag.
+
+If a list is empty, or has more than 10% fewer apps or releases than the file it would replace, the command writes neither list and fails. Apps that became enterprise-only do not count as missing from a list without them. Run it with ``--force`` to write the lists anyway, for instance once on a new store without apps, or for the first run after an upgrade from a version that listed every release of an app, since that file has far more releases.
+
+Schedule the command as a cronjob, for instance every 15 minutes, as a user that may write to the directories of both files, and let the web server answer **/api/v1/apps.json** from the community file. No other job may write these files. A run that starts while another one writes to the same directory stops. A failed run exits with status 1 and says why on stderr, so make sure the cron mail or your monitoring sees it. With ``--verbosity 0`` a successful run prints nothing.
+
+.. note:: The enterprise file is meant for a web server that checks the subscription key itself. Keep it outside the web root. It lists the enterprise-only apps only while **ENABLE_ENTERPRISE_ONLY_APPS** is on, and otherwise holds the same list as the community file.
+
 Keeping Up To Date
 ------------------
 Updating an instance is scripted in **scripts/maintenance/update.sh**. Depending on your distribution you will have to adjust the scripts contents.
