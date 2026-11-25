@@ -29,6 +29,7 @@ from nextcloudappstore.core.forms import (
     AppRatingForm,
     AppRegisterForm,
     AppReleaseUploadForm,
+    AppSubmitForm,
 )
 from nextcloudappstore.core.github import GitHubClient, get_download_counts
 from nextcloudappstore.core.models import (
@@ -364,6 +365,15 @@ class AppRegisterView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = AppRegisterForm()
+        return context
+
+
+class AppSubmitView(LoginRequiredMixin, TemplateView):
+    template_name = "app/submit.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = AppSubmitForm()
         return context
 
 

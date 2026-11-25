@@ -29,6 +29,25 @@ class ValidatorTest(TestCase):
         cert = self._read_cert("app.crt")
         self.assertEqual("folderplayer", self.validator.get_cn(cert))
 
+    def test_get_csr_cn(self) -> None:
+        from cryptography import x509
+        from cryptography.hazmat.primitives import hashes, serialization
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        from cryptography.x509.oid import NameOID
+
+        key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+        csr = (
+            x509.CertificateSigningRequestBuilder()
+            .subject_name(x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, "news")]))
+            .sign(key, hashes.SHA256())
+        )
+        pem = csr.public_bytes(serialization.Encoding.PEM).decode()
+        self.assertEqual("news", CertificateValidator.get_csr_cn(pem))
+
+    def test_get_csr_cn_invalid(self) -> None:
+        with self.assertRaises(InvalidCertificateException):
+            CertificateValidator.get_csr_cn("not-a-csr")
+
     def test_validate_app_id(self) -> None:
         cert = self._read_cert("app.crt")
         self.validator.validate_app_id(cert, "folderplayer")

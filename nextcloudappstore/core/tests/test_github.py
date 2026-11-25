@@ -7,15 +7,19 @@ import json
 from typing import Any
 from unittest.mock import MagicMock
 
+import requests
 from django.test import TestCase
 
 from nextcloudappstore.core.facades import read_relative_file
 from nextcloudappstore.core.github import (
+    AppCertificateExistsError,
     GitHubClient,
+    create_app_certificate_request_pr,
     get_download_counts,
     get_supported_releases,
     parse_github_release_url,
     sync_releases,
+    unique_certificate_request_branch,
 )
 from nextcloudappstore.core.models import NextcloudRelease
 
@@ -168,3 +172,94 @@ class GetDownloadCountsTest(TestCase):
         client.get_releases.assert_called_once_with("owner", "repo")
         self.assertEqual(200, result[0]["download_count"])
         self.assertEqual(100, result[1]["download_count"])
+
+
+class CreateCertificateRequestPrTest(TestCase):
+    def test_creates_branch_file_and_pr(self):
+        client = MagicMock(spec=GitHubClient)
+        client.get_repository.return_value = {"default_branch": "master"}
+        client.get_ref_sha.return_value = "abc123"
+        client.get_content_sha.return_value = None
+        client.branch_exists.return_value = False
+        client.create_pull_request.return_value = {
+            "html_url": "https://github.com/nextcloud/app-certificate-requests/pull/42"
+        }
+
+        csr = "-----BEGIN CERTIFICATE REQUEST-----\nX\n-----END CERTIFICATE REQUEST-----"
+        url = create_app_certificate_request_pr(
+            client,
+            "nextcloud/app-certificate-requests",
+            "news",
+            csr,
+            "https://github.com/example/news",
+            "alice",
+            "dco@nextcloud.com",
+        )
+
+        self.assertEqual("https://github.com/nextcloud/app-certificate-requests/pull/42", url)
+        self.assertEqual("appstore-news", client.create_branch.call_args.args[2])
+        self.assertEqual("news/news.csr", client.create_file.call_args.args[2])
+        message = client.create_file.call_args.args[4]
+        self.assertIn("Signed-off-by: Nextcloud App Store <dco@nextcloud.com>", message)
+        self.assertEqual(
+            {"name": "Nextcloud App Store", "email": "dco@nextcloud.com"},
+            client.create_file.call_args.kwargs["author"],
+        )
+        self.assertEqual(
+            {"name": "Nextcloud App Store", "email": "dco@nextcloud.com"},
+            client.create_file.call_args.kwargs["committer"],
+        )
+        client.create_branch.assert_called_once()
+        client.delete_branch.assert_not_called()
+
+    def test_deletes_branch_when_pr_fails(self):
+        client = MagicMock(spec=GitHubClient)
+        client.get_repository.return_value = {"default_branch": "master"}
+        client.get_ref_sha.return_value = "abc123"
+        client.get_content_sha.return_value = None
+        client.branch_exists.return_value = False
+        client.create_pull_request.side_effect = requests.HTTPError("boom")
+
+        with self.assertRaises(requests.HTTPError):
+            create_app_certificate_request_pr(
+                client,
+                "nextcloud/app-certificate-requests",
+                "news",
+                "-----BEGIN CERTIFICATE REQUEST-----\nX\n-----END CERTIFICATE REQUEST-----",
+                "https://github.com/example/news",
+                "alice",
+                "dco@nextcloud.com",
+            )
+
+        client.delete_branch.assert_called_once_with("nextcloud", "app-certificate-requests", "appstore-news")
+
+    def test_rejects_existing_csr_or_crt(self):
+        client = MagicMock(spec=GitHubClient)
+        client.get_repository.return_value = {"default_branch": "master"}
+        client.get_content_sha.side_effect = ["csr-sha", None]
+
+        with self.assertRaises(AppCertificateExistsError):
+            create_app_certificate_request_pr(
+                client,
+                "nextcloud/app-certificate-requests",
+                "news",
+                "-----BEGIN CERTIFICATE REQUEST-----\nX\n-----END CERTIFICATE REQUEST-----",
+                "https://github.com/example/news",
+                "alice",
+                "dco@nextcloud.com",
+            )
+
+        client.create_branch.assert_not_called()
+        client.create_file.assert_not_called()
+
+    def test_unique_branch_appends_numeric_suffix(self):
+        client = MagicMock(spec=GitHubClient)
+        client.branch_exists.side_effect = lambda owner, repo, branch: branch in {
+            "appstore-news",
+            "appstore-news-1",
+        }
+
+        self.assertEqual(
+            "appstore-news-2",
+            unique_certificate_request_branch(client, "nextcloud", "app-certificate-requests", "news"),
+        )

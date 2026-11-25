@@ -138,6 +138,24 @@ class CertificateValidator:
         cert = self._to_cert(certificate)
         return cert.get_subject().CN
 
+    @staticmethod
+    def get_csr_cn(csr: str) -> str:
+        """
+        Extracts the CN from a PEM certificate signing request.
+        :param csr: PEM-encoded CSR
+        :return: the CSR's common name
+        :raises InvalidCertificateException: if the CSR is invalid or has no CN
+        """
+        try:
+            request = crypto_x509.load_pem_x509_csr(csr.encode())
+        except Exception as e:
+            raise InvalidCertificateException(f"Invalid certificate signing request: {str(e)}")
+        attrs = request.subject.get_attributes_for_oid(crypto_x509.NameOID.COMMON_NAME)
+        if not attrs:
+            raise InvalidCertificateException("CSR has no common name")
+        value = attrs[0].value
+        return value.decode() if isinstance(value, bytes) else value
+
     def validate_app_id(self, certificate: str, app_id: str) -> None:
         """
         Validates if the CN matches the app id
