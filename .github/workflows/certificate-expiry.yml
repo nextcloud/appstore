@@ -1,0 +1,95 @@
+# SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
+
+name: App certificate expiry
+
+on:
+  schedule:
+    - cron: '23 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      issues: write
+    env:
+      CERTIFICATE_REPO: nextcloud/app-certificate-requests
+      WARNING_DAYS: 60
+      ISSUE_TITLE: App certificates expiring within 60 days
+      MENTIONS: '@mgallien @miaulalala'
+    steps:
+      - name: Check out the certificate repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ env.CERTIFICATE_REPO }}
+          path: certificates
+          persist-credentials: false
+          sparse-checkout: |
+            */*.crt
+          sparse-checkout-cone-mode: false
+
+      - name: List certificates that expire soon
+        id: list
+        working-directory: certificates
+        run: |
+          set -euo pipefail
+          now=$(date -u +%s)
+          limit=$(( now + WARNING_DAYS * 86400 ))
+          rows=()
+          for crt in */*.crt; do
+            end=$(openssl x509 -enddate -noout -in "$crt" | cut -d= -f2) || { echo "::warning::Cannot read $crt"; continue; }
+            expires=$(date -u -d "$end" +%s)
+            if (( expires < limit )); then
+              days=$(( (expires - now) / 86400 ))
+              rows+=("$expires|${crt%%/*}|$(date -u -d "$end" +%F)|$days")
+            fi
+          done
+
+          count=${#rows[@]}
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          {
+            echo "These app certificates in [$CERTIFICATE_REPO](https://github.com/$CERTIFICATE_REPO) expire within $WARNING_DAYS days (checked $(date -u +%F))."
+            echo
+            echo "| App | Expires | Days left |"
+            echo "| --- | --- | --- |"
+            if (( count > 0 )); then
+              printf '%s\n' "${rows[@]}" | sort -n | while IFS='|' read -r _ app date days; do
+                echo "| [\`$app\`](https://github.com/$CERTIFICATE_REPO/blob/HEAD/$app/$app.crt) | $date | $days |"
+              done
+            fi
+            echo
+            echo "Renewal: the existing CSR is re-signed and the new \`.crt\` committed to $CERTIFICATE_REPO; then an App Store admin replaces the certificate of the app. The key stays the same, so the releases are kept. App owners do not need to do anything."
+            echo
+            echo "This issue is updated by the [App certificate expiry]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/HEAD/.github/workflows/certificate-expiry.yml) workflow on the first of each month."
+          } > ../body.md
+          cat ../body.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open, update or close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          COUNT: ${{ steps.list.outputs.count }}
+        run: |
+          set -euo pipefail
+          issue=$(gh issue list --state open --author 'app/github-actions' --search "in:title \"$ISSUE_TITLE\"" \
+            --json number,title --jq "map(select(.title == env.ISSUE_TITLE)) | first | .number // empty")
+
+          if (( COUNT == 0 )); then
+            if [[ -n "$issue" ]]; then
+              gh issue close "$issue" --comment "No app certificates expire within $WARNING_DAYS days any more."
+            fi
+            exit 0
+          fi
+
+          if [[ -n "$issue" ]]; then
+            gh issue edit "$issue" --body-file body.md
+            gh issue comment "$issue" --body "$MENTIONS $COUNT app certificate(s) expire within $WARNING_DAYS days; the list above is updated."
+          else
+            printf '\n%s\n' "$MENTIONS" >> body.md
+            gh issue create --title "$ISSUE_TITLE" --body-file body.md
+          fi
